@@ -1,5 +1,5 @@
 ---
-title: Job hunting, a class 'A' ballache
+title: Job hunting, one class 'A' ballache
 layout: post
 ---
 
