@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div class="date">
+    {{ page.date | date: "%B %e, %Y" }}
+  </div>
+    
+  <div class="entry">
+  	{% if page.thumbnail %}
+	    <img class="alignright" src="{{ site.imagesurl }}/{{ page.thumbnail }}" >
+  	{% endif %}
+  
+    {{ content }}
+  </div>
+</article>
+
+{% include disqus.html %}
