@@ -1,5 +1,5 @@
 ---
-title: Job hunting, class A ballache
+title: Job hunting, a class 'A' ballache
 layout: post
 ---
 
@@ -11,7 +11,7 @@ This is basically a rant about the job market, I was laid off back in August, th
 
 ## No one wants to hire you
 
-![StressOffice](https://i.imgsafe.org/1c6b4e1c47.jpeg)
+![StressOffice](/images/StressOffice.jpg)
 
 For the longest time I thought there was something wrong with my CV so I read up on [ATS'](https://lmgtfy.com/?q=what+is+an+ats) and added what I thought was needed to at least meet the minimum requirements for passing the ATS if there was one for the roles I was applying for. 
 
@@ -32,7 +32,7 @@ Wild salary ranges £40k-£80k that’s a pretty big range, these ads usually co
 
 ## Recruiters
 
-![ShadyRecruiterMiddleman](https://i.imgsafe.org/1c7846872b.jpg)
+![ShadyRecruiterMiddleman](/images/ShadyRecruiterMiddleman.jpg)
 
 So this is where we get all warm and fuzzy talking about recruiters and what great jobs they do. How they are always busy talking to hiring managers for many different roles and juggling multiple candidates.
 
