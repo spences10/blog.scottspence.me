@@ -3,8 +3,8 @@ title: My first Microsoft Visual Studio Code [VSCode] extension
 layout: post
 ---
 
-I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead. 
-<img style="float: right;" src="/images/YeomanErr.PNG">
+I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead.
+<img style="float: right;" src="/images/404.jpg">
 So for those of you that know what I do for a living I'm primarily an Analyst Developer with a skill set of VBA and SQL which has put me in good stead for the last 10+ years. I'm currently 'up-skilling' myself on more general programming languages, but enough of that! I basically wanted to use [VSCode](https://code.visualstudio.com/) with VBA which is fine as it's just text files but I wanted some of the shexy stuff that VSCode comes with.
 
 <!--more-->
@@ -17,7 +17,7 @@ So, what I found is that Microsoft really want you to make VSCode extensions and
 
 I found guides [here](https://code.visualstudio.com/docs/extensions/overview), [here](https://code.visualstudio.com/docs/extensions/example-hello-world) and [here](https://code.visualstudio.com/docs/extensions/testing-extensions) all of which have you using [Yeoman](http://yeoman.io/) by installing via npm, now I've never heard of Yeoman before trying to do this so I don't have an opinion on that apart from to say it was a bit of a ballache to get any of it up and running. I tried installing it on both my home machine and a Cloud9 machine several times over with no success.
 
-<!--oldYeo Pos-->
+<img style="float: right;" src="/images/YeomanErr.PNG">
 
 Got tired after uninstalling and reinstalling several times at home and on the cloud so moved on. I read [this](https://code.visualstudio.com/docs/tools/vscecli) guide about setting yourself up as a publisher on the Microsoft VSCode [Marketplace](https://marketplace.visualstudio.com/) using with ```vsce``` (agin installed with npm) so after creating a Personal Access Token and creating my publisher account I could then publish my extension. But this was the thing my extension is just the ```vbscrip.json``` file on my hard drive.
 
