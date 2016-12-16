@@ -38,6 +38,7 @@ github_username: spences10
 
 # Build settings
 markdown: kramdown
+
 theme: minima
 
 # version: 3.3.1
@@ -50,5 +51,4 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
-  - CNAME
   - _local_config.yml # used for running on c9 
