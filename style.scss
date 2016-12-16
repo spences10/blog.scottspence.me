@@ -119,10 +119,11 @@ img {
 }
 
 // see image in content preview
+// only adjust width OR height so aspect ration is maintained
 .floated{
-    float: right;
-    width: 300px;
-    size: medium;
+  float: right;
+  display: block; 
+  width: 33vw;
 }
 
 // Fixes images in popup boxes from Google Translate
