@@ -2,7 +2,9 @@
 title: Starting again with Jekyll
 layout: post
 ---
+
 <img class="floated" src="/images/jekyll-logo.png">
+
 Since setting up this blog I haven't really bothered with Jekyll any more than just forking Barry Clarke's repo of Jekyll Now and adding these posts as and when the feeling takes me, I decided that I wanted my blog to look a bit more like Barry's blog
 
 <!--more-->
@@ -17,11 +19,9 @@ For some reason I thought that a Jekyll page didn't use CSS, well the reason was
 Running the following from the terminal on my Ruby development box
 
 ```
-~ $ gem install jekyll bundler
-~ $ jekyll new myblog
-~ $ cd myblog
-~/myblog $ bundle exec jekyll serve
-# => Now browse to http://localhost:4000
+gem install jekyll bundler
+jekyll new myblog
+cd myblog
 ```
 
 You get this:
