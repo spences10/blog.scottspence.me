@@ -3,8 +3,8 @@ title: My first Microsoft Visual Studio Code [VSCode] extension
 layout: post
 ---
 
-I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead.![YeomanErr](/images/YeomanErr.PNG){:class="img-responsive"} 
-<img align="right" src="/images/YeomanErr.PNG">
+I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead. 
+<img style="float: right;" src="/images/YeomanErr.PNG">
 So for those of you that know what I do for a living I'm primarily an Analyst Developer with a skill set of VBA and SQL which has put me in good stead for the last 10+ years. I'm currently 'up-skilling' myself on more general programming languages, but enough of that! I basically wanted to use [VSCode](https://code.visualstudio.com/) with VBA which is fine as it's just text files but I wanted some of the shexy stuff that VSCode comes with.
 
 <!--more-->
