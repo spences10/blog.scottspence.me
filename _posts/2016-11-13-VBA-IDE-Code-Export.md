@@ -3,8 +3,6 @@ title: VBA Code Export for Version Control Systems
 layout: post
 ---
 
-# "oh, we just do a Save As"
-
 I have seen the same situation many times now in my career as a VBA Developer about how source code control is managed with VBA projects.
 
 <!--more-->
