@@ -118,6 +118,13 @@ img {
   max-width: 100%;
 }
 
+// see image in content preview
+.floated{
+    float: right;
+    width: 500px;
+    size: medium;
+}
+
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
   max-width: none;
