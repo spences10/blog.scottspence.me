@@ -2,14 +2,15 @@
 title: Job hunting, one class 'A' ballache
 layout: post
 ---
-<img class="floated" src="/images/linkedin-logo.PNG">
+<img class="floated" src="/img/job-hunting/linkedin-logo.png">
+
 This is basically a rant about the job market, I was laid off back in August, this is a terrible time of year to be looking for work, everyone is on holiday so things are generally pretty slow so when this happened to me I did the same and went on holiday for the end of August and first week of September. Coming back from holiday I found that things were still pretty slow with the occasional phone call about roles that were not really suited to my skill set. It was at this point that I began to struggle and stress about ever being employed again.
 
 <!--more-->
 
 ## No one wants to hire you
 
-![StressOffice](/images/StressOffice.jpg)
+![stress-office](/img/job-hunting/stress-office.jpg)
 
 For the longest time I thought there was something wrong with my CV so I read up on [ATS'](https://lmgtfy.com/?q=what+is+an+ats) and added what I thought was needed to at least meet the minimum requirements for passing the ATS if there was one for the roles I was applying for. 
 
@@ -30,7 +31,7 @@ Wild salary ranges £40k-£80k that’s a pretty big range, these ads usually co
 
 ## Recruiters
 
-![ShadyRecruiterMiddleman](/images/ShadyRecruiterMiddleman.jpg)
+![shady-recruiter-middle-man](/img/job-hunting/shady-recruiter-middle-man.jpg)
 
 So this is where we get all warm and fuzzy talking about recruiters and what great jobs they do. How they are always busy talking to hiring managers for many different roles and juggling multiple candidates.
 

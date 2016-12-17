@@ -3,7 +3,7 @@ title: My first Microsoft Visual Studio Code [VSCode] extension
 layout: post
 ---
 
-<img class="floated" src="/images/visual-studio-marketplace.PNG">
+<img class="floated" src="/img/my-first-vscode-extension/visual-studio-marketplace.png">
 
 I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead.
 
@@ -19,7 +19,7 @@ So, what I found is that Microsoft really want you to make VSCode extensions and
 
 I found guides [here](https://code.visualstudio.com/docs/extensions/overview), [here](https://code.visualstudio.com/docs/extensions/example-hello-world) and [here](https://code.visualstudio.com/docs/extensions/testing-extensions) all of which have you using [Yeoman](http://yeoman.io/) by installing via npm, now I've never heard of Yeoman before trying to do this so I don't have an opinion on that apart from to say it was a bit of a ballache to get any of it up and running. I tried installing it on both my home machine and a Cloud9 machine several times over with no success.
 
-![YeomanErr](/images/YeomanErr.PNG)
+![YeomanErr](/img/my-first-vscode-extension/yeoman-err.png)
 
 Got tired after uninstalling and reinstalling several times at home and on the cloud so moved on. I read [this](https://code.visualstudio.com/docs/tools/vscecli) guide about setting yourself up as a publisher on the Microsoft VSCode [Marketplace](https://marketplace.visualstudio.com/) using with ```vsce``` (agin installed with npm) so after creating a Personal Access Token and creating my publisher account I could then publish my extension. But this was the thing my extension is just the ```vbscrip.json``` file on my hard drive.
 
@@ -35,10 +35,10 @@ So it looked like I had no way to get this onto the Marketplace, I was pretty bu
 
 I was pretty surprised (and relieved) to see the output pictured.
 
-![vscePublish](/images/vscePublish.PNG)
+![vscePublish](/img/my-first-vscode-extension/vsce-publish.png)
 
 I had a quick check of my publisher profile and lo and behold, there's my extension!
 
-![YeomanErr](/images/MarketplaceExtensionsManagement.PNG)
+![YeomanErr](/img/my-first-vscode-extension/marketplace-extensions-management.png)
 
 Here's my extension: [VBA Snippets](https://marketplace.visualstudio.com/items?itemName=spences10.vba-snippets) from there you can fin the [GitHub](https://github.com/spences10/vba-snippets) repository too, I hope it comes in handy for you one day!
