@@ -10,7 +10,7 @@ If you're interested this blog details various notes on my experiences with prog
 
 ## What I’m doing now
 
-* Working as an (Analyst Developer IT contactor
+* Working as an (Analyst Developer) IT contactor
 * Learning JavaScript and also taking the [#JavaScript30](https://javascript30.com/) challenge. 
 * I'm currently learning with [FreeCodeCamp()](https://www.freecodecamp.com) for a full web stack web developer certification. 
 * Not back at the gym yet, used to be at least three times a week
