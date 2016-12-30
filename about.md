@@ -10,13 +10,14 @@ If you're interested this blog details various notes on my experiences with prog
 
 ## What I’m doing now
 
-* Working as an (Analyst Developer) IT contactor
+* Working as an (Analyst Developer) IT contractor
+* Doing the [#100DaysOfCode](https://github.com/spences10/100-days-of-code) challenge, see the [Medium post](https://medium.freecodecamp.com/start-2017-with-the-100daysofcode-improved-and-updated-18ce604b237b#.k7vfh0yi3) here.
 * Learning JavaScript and also taking the [#JavaScript30](https://javascript30.com/) challenge. 
 * I'm currently learning with [FreeCodeCamp()](https://www.freecodecamp.com) for a full web stack web developer certification. 
 * Not back at the gym yet, used to be at least three times a week
 * Writing posts for [spences10.github.io](https://spences10.github.io)
 
-Updated 2016-12-28 – [Why now?](http://nownownow.com/about)
+Updated 2016-12-30 – [Why now?](http://nownownow.com/about)
 
 This site is powered by Jekyll using the default theme minima which I have amended for my own purposes from looking at other Jekyll sites and themes. 
 
