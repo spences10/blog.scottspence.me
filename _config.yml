@@ -39,7 +39,7 @@ github_username: spences10
 # Build settings
 markdown: kramdown
 
-theme: jekyll-theme-time-machine
+theme: minima
 
 # version: 3.3.1
 
