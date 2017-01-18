@@ -28,7 +28,9 @@ Straight forward enough for the twitter application, just make sure you add your
 
 ![](/img/twitter-bot-bootstrap/twitter-application-setup.png)
 
-You should now be in the 'Application Management' section where you will need to take a note of your keys, you should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available you'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them you'll need them when setting up the bot.
+You should now be in the 'Application Management' section where you will need to take a note of your keys, you should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available. 
+
+You'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them you'll need them when setting up the bot.
 
 ## Setup development environment
 
@@ -91,11 +93,11 @@ Check the Twitter account:
 
 Cool, now we have a bot that we can test on our dev environment but we can't leave it there, we'll need to deploy it to Heroku.
 
-If you haven't done so already set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**
+If you haven't done so already set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**.
 
 ![](/img/twitter-bot-bootstrap/heroku-create-new-app.png)
 
-You'll be presented with your app dashboard and instructions for the deployment method
+You'll be presented with your app dashboard and instructions for the deployment method.
 
 ![](/img/twitter-bot-bootstrap/heroku-deploy.png)
 
@@ -107,7 +109,7 @@ Your app name should be displayed on the top of your dashboard, you'll need this
 
 We're going to deploy initially via the Heroku Command Line Interface *CLI*
 
-On your c9 environment terminal, log into Heroku [it should be installed by default]
+From your c9 environment terminal, log into Heroku [it should be installed by default]
 
 ```
 $ heroku login
@@ -129,11 +131,11 @@ $ git commit -am 'make it better'
 $ git push heroku master
 ```
 
-You should get build output on the terminal:
+You should get build output on the terminal.
 
 ![](/img/twitter-bot-bootstrap/heroku-build.png)
 
-Then check the output with:
+Then check the output with.
 
 ```
 $ heroku logs -t
@@ -156,7 +158,7 @@ module.exports = {
 };
 ```
 
-All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys, click the 'Reveal Config Vars' button and add in the variables with their corresponding values:
+All you need to do is go to the console of your Heroku app and select the 'Settings' sections and add in your Twitter keys, click the 'Reveal Config Vars' button and add in the variables with their corresponding values.
 
 ```
 CONSUMER_KEY
@@ -175,7 +177,7 @@ $ git commit -m 'add environment variables'
 $ git push heroku master
 ```
 
-Then you can check the Heroku logs again with:
+Then you can check the Heroku logs again with.
 
 ```
 $ heroku logs -t
@@ -191,21 +193,20 @@ Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment meth
 
 ![](/img/twitter-bot-bootstrap/heroku-connect-github.png)
 
-
 ## Heroku troubleshooting
 
 What do you mean it crashed!?
 
 ![](/img/twitter-bot-bootstrap/heroku-crash.png)
 
-Ok, I found that sometimes the `worker` is set as `web` and it crashes out try setting the `worker` again:
+Ok, I found that sometimes the `worker` is set as `web` and it crashes out, try setting the `worker` again with:
 
 ```
 $ heroku ps:scale worker=0
 $ heroku ps:scale worker=1
 ```
 
-Other usefule Heroku commands I use:
+Other useful Heroku commands I use:
 
 ```
 $ heroku restart
