@@ -22,7 +22,7 @@ As a primer for this there are the great posts by [@amanhimself](https://twitter
 
 Set up an application on the Twitter account you want to favorite and retweet from via: [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new)
 
-As an example I'll configure the old [@DroidScott](twitter.com/droidscott) twitter account I have so you can follow along.
+As an example I'll configure the old [@DroidScott](https://twitter.com/droidscott) twitter account I have so you can follow along.
 
 Straight forward enough for the twitter application, just make sure you add your phone number to your Twitter account before clicking the **Create your Twitter application** button.
 
