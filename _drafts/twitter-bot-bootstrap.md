@@ -26,7 +26,7 @@ As an example I'll configure the old [@DroidScott](twitter.com/droidscott) twitt
 
 Straight forward enough for the twitter application, just make sure you add your phone number to your Twitter account before clicking the **Create your Twitter application** button.
 
-![](/src/images/twitter-application-setup.png)
+![](/img/twitter-bot-bootstrap/twitter-application-setup.png)
 
 You should now be in the 'Application Management' section where you will need to take a note of your keys, you should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available you'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them you'll need them when setting up the bot.
 
@@ -34,7 +34,7 @@ You should now be in the 'Application Management' section where you will need to
 
 For this I'm just going to say use [Cloud9](https://c9.io/) as you can be up and running in minutes with one of the pre made Node.js environments.
 
-![](/src/images/c9-node-env.png)
+![](/img/twitter-bot-bootstrap/c9-node-env.png)
 
 ## Set up the bot
 
@@ -50,7 +50,7 @@ $ git clone https://github.com/spences10/twitter-bot-bootstrap
 
 The environment project tree should look something like this.
 
-![](/src/images/project-structure.png)
+![](/img/twitter-bot-bootstrap/project-structure.png)
 
 ## Node dependencies
 
@@ -71,21 +71,21 @@ This will configure the `package.json` file with your details as desired, just k
 
 Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on.
 
-![](/src/images/c9-strings-config.png)
+![](/img/twitter-bot-bootstrap/c9-strings-config.png)
 
 Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
-![](/src/images/c9-strings-config1.png)
+![](/img/twitter-bot-bootstrap/c9-strings-config1.png)
 
 This step isn't strictly necessary if this account isn’t going to be following any users.
 
 That should be it, go to the terminal and enter `npm start` you should get some output:
 
-![](/src/images/bot-output.png)
+![](/img/twitter-bot-bootstrap/bot-output.png)
 
 Check the Twitter account:
 
-![](/src/images/twitter-account.png)
+![](/img/twitter-bot-bootstrap/twitter-account.png)
 
 ## Heroku
 
@@ -93,15 +93,15 @@ Cool, now we have a bot that we can test on our dev environment but we can't lea
 
 If you haven't done so already set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**
 
-![](/src/images/heroku-create-new-app.png)
+![](/img/twitter-bot-bootstrap/heroku-create-new-app.png)
 
 You'll be presented with your app dashboard and instructions for the deployment method
 
-![](/src/images/heroku-deploy.png)
+![](/img/twitter-bot-bootstrap/heroku-deploy.png)
 
 Your app name should be displayed on the top of your dashboard, you'll need this when logging in with the Heroku CLI.
 
-![](/src/images/heroku-app-name.png)
+![](/img/twitter-bot-bootstrap/heroku-app-name.png)
 
 ## Heroku CLI
 
@@ -131,7 +131,7 @@ $ git push heroku master
 
 You should get build output on the terminal:
 
-![](/src/images/heroku-build.png)
+![](/img/twitter-bot-bootstrap/heroku-build.png)
 
 Then check the output with:
 
@@ -189,14 +189,14 @@ You can also deploy your app by connecting to GitHub and deploy automatically to
 
 Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment method if you have connected your GitHub account to your Heroku account then you can search for the repository so if you forked this repo then you can just enter ` twitter-bot-bootstrap` and **Search** you can then click the **Connect** button, you can then auto deploy from GitHub.
 
-![](/src/images/heroku-connect-github.png)
+![](/img/twitter-bot-bootstrap/heroku-connect-github.png)
 
 
 ## Heroku troubleshooting
 
 What do you mean it crashed!?
 
-![](/src/images/heroku-crash.png)
+![](/img/twitter-bot-bootstrap/heroku-crash.png)
 
 Ok, I found that sometimes the `worker` is set as `web` and it crashes out try setting the `worker` again:
 
