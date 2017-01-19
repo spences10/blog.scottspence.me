@@ -257,12 +257,16 @@ By default you can only push your master branch if you are working on a developm
 $ git push heroku dev:master
 ```
 
+---
+
 ## Contributing
 Please fork this repository and contribute back using pull requests.
 
 Any contributions, large or small, major features, bugfixes and integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
 
-#### Links
+---
+
+### Links
 
 Credit for the inspiration for this should go to [@amanhimself](https://twitter.com/amanhimself) and his posts on creating your own twitter bot.
 
