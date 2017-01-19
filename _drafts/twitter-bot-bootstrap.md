@@ -3,9 +3,48 @@ title: Easily set up your own Twitter bot
 layout: post
 ---
 
+--- 
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Twitter_logo.svg/469px-Twitter_logo.svg.png)![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Noun_project_1248.svg/100px-Noun_project_1248.svg.png)
+
+---
+
+Want to get set up with your very own Twitter bot quickly and easily, with this guide you can be set up in under 30 minutes. But first, why should you want to build a Twitter bot?
+
+There are some really useful Twitter bots out there that do some pretty cool stuff they don't all spam current hashtags and follow users relentlessly.
+
+Take the [Twisst ISS alerts](https://twitter.com/twisst) bot that sends you a DM when the international space station (ISS) will be visible at your location. 
+
+Or there's public service bots like the [Earthquake Robot](https://twitter.com/earthquakeBot) that tweets about any earthquake greater than 5.0 on the Richter Scale as they happen.
+
+There's [GoogleFacts](https://twitter.com/GoogleFacts) which tweets facts from Google, just remember to fact check these facts on, err, Google?
+
+And of course a robot that tweets poetry, [poem.exe](https://twitter.com/poem_exe) along with one that will retweet your tweets that also happen to be an [Accidental Haiku](https://twitter.com/accidental575)
+
+Bots can be used for many purposes in my case I have used it to enhance my [@ScottDevTweets](https://twitter.com/ScottDevTweets) account by liking and re-tweeting subjects I have an interest in, in the case of the #100DaysOfCode community challenge there is a community bot which congratulates you on starting #100DaysOfCode and again on completing it, these are specific responses to tweets with keywords for a community, there is also sentiment detection used under the #100DaysOfCode community hashtag where the bot will tweet you with encouraging words if you post a tweet with negative sentiment.
+
+![](/img/twitter-bot-bootstrap/100daysofcodetweet.png)
+
+One question I'm asked in job interviews quite often is "what do you get out of working with technology?". My answer, "I like to automate stuff, repetitive tasks to save me time so I can concentrate on other stuff, I like the fact I have saved myself some time" 
+
+In the case of my @ScottDevTweets bot it's usually an opener for a conversation with another user that follows me, so the bot can initiate the conversation and I can carry on from where the bot left off.
+
+Bearing this in mind the bot is only as good as the person that has programmed it, whilst researching this post I found a really good resource for bots in general, [botwiki.org](https://botwiki.org/bot-ethics) has a bot ethics section:
+
+>* Please don't make annoying bots
+>    * An annoying bot mentions or follows people who didn't ask for it 
+>    * Posts common or trending hashtags
+>* Please don't make abusive or harassing robots
+
+So, ready to get started?
+
+Ok, let's do this!!
+
+---
+
 # Twitter bot bootstrap
 
-This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will favorite and retweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
+This is a bootstrap for setting up a Twitter bot with Node.js using the `twit` library, the bot will like and re-tweet what you specify when configuring it, it will also reply to followers with a selection of canned responses.
 
 As a primer for this there are the great posts by [@amanhimself](https://twitter.com/amanhimself) on making your own twitter bot and this is an expansion on that with further detail on configuration on Heroku
 
@@ -235,4 +274,8 @@ Credit for the inspiration for this should go to [@amanhimself](https://twitter.
 
 [awesome-twitter-bots](https://github.com/amandeepmittal/awesome-twitter-bots)
 
+Other posts detailing useful Twitter bots.
 
+[www.brit.co/twitter-bots-to-follow](http://www.brit.co/twitter-bots-to-follow/)
+
+[www.hongkiat.com/using-twitter-bots](http://www.hongkiat.com/blog/using-twitter-bots/)
