@@ -5,7 +5,7 @@ layout: post
 
 --- 
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Twitter_logo.svg/469px-Twitter_logo.svg.png)![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Noun_project_1248.svg/100px-Noun_project_1248.svg.png)
+![](/img/twitter-bot-bootstrap/rust-bird.png)
 
 ---
 
