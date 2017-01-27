@@ -5,7 +5,7 @@ layout: post
 
 --- 
 
-![](/img/twitter-bot-bootstrap/rust-bird.png)
+![](/img/twitter-bot-bootstrap/rust-bird.jpg)
 
 ---
 
