@@ -3,13 +3,11 @@ title: Easily set up your own Twitter bot
 layout: post
 ---
 
---- 
-
-![](/img/twitter-bot-bootstrap/rust-bird.jpg)
-
----
+<img class="floated" src="/img/twitter-bot-bootstrap/rust-bird.jpg">
 
 Want to get set up with your very own Twitter bot quickly and easily, with this guide you can be set up in under 30 minutes. But first, why should you want to build a Twitter bot?
+
+<!--more-->
 
 There are some really useful Twitter bots out there that do some pretty cool stuff they don't all spam current hashtags and follow users relentlessly.
 
