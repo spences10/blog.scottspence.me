@@ -7,9 +7,9 @@ layout: post
 
 Want to get set up with your very own Twitter bot quickly and easily, with this guide you can be set up in under 30 minutes. But first, why should you want to build a Twitter bot?
 
-<!--more-->
-
 There are some really useful Twitter bots out there that do some pretty cool stuff they don't all spam current hashtags and follow users relentlessly.
+
+<!--more-->
 
 Take the [Twisst ISS alerts](https://twitter.com/twisst) bot that sends you a DM when the international space station (ISS) will be visible at your location. 
 
