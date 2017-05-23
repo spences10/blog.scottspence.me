@@ -2,7 +2,7 @@
 title: Git and GitHub
 date: "2017-01-05"
 layout: post
-path: "/git-and-github/"
+path: "/2017-01-05-git-and-github/"
 category: "information, guide"
 description: "I know why Linus called it that now!
 
@@ -10,7 +10,7 @@ If you're reading this there's a good chance you know at least the basics of Git
 ---
 
 <figure class="floatRight">
-	<img style="height: 200px;" src="./git-logo.jpg" alt="git">
+	<img style="height: 200px;" src="/articles/2017-01-05-git-and-github/git-logo.jpg" alt="git">
 	<!--<figcaption></figcaption>-->
 </figure>
 
@@ -22,7 +22,7 @@ As an example I'm going to document my change to the [awesome-twitter-bots](http
 
 I will need to fork the repository on GitHub so I can make my changes.
 
-![fork-a-repo](./fork-a-repo.png)
+![fork-a-repo](/articles/2017-01-05-git-and-github/fork-a-repo.png)
 
 Then clone my forked repository to where I'm all going to make the changes on my computer:
 
@@ -82,7 +82,7 @@ Visit Aman's repo and GitHub will have detected that I have pushed a branch to a
 
 In the 'Open a pull request' page I'll need to select the my fork and then my branch, so `spences10\awesome-twitter-bots` and my branch which is `spences10-twitter-bot` click the 'Create pull request' button.
 
-![open-a-pull-request](./open-a-pull-request.png)
+![open-a-pull-request](/articles/2017-01-05-git-and-github/open-a-pull-request.png)
 
 The rest is up to the repository owner (Aman) now where he can chose to merge my changes into his repo.
 

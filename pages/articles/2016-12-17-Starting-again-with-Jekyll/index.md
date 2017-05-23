@@ -2,12 +2,15 @@
 title: Starting again with Jekyll
 date: "2016-12-17"
 layout: post
-path: "/starting-again-with-jekyll/"
+path: "/2016-12-17-Starting-again-with-Jekyll/"
 category: "Ramble"
 description: "Since setting up this blog I haven't really bothered with Jekyll any more than just forking Barry Clarke's [repo](https://github.com/barryclark/jekyll-now) of Jekyll Now and adding these posts as and when the feeling takes me, I decided that I wanted my blog to look a bit more like Barry's [blog](http://www.barryclark.co/) with the fancy text flow around the images."
 ---
 
-<img class="floated" src="./jekyll-logo.png">
+<figure class="floatRight">
+	<img style="height: 200px;" src="/articles/2016-12-17-Starting-again-with-Jekyll/jekyll-logo.png" alt="git">
+	<!--<figcaption></figcaption>-->
+</figure>
 
 So I got to checking out Barry's blog and his Jekyll Now templates and tried to make sense of the two so I could make my own, based off of the ideas I got from Barry's blog.
 
@@ -27,7 +30,7 @@ Basically you need to set up a Run Configuration on your c9 box, thanks for that
 For some reason I thought that a Jekyll page didn't use CSS, well the reason may have been that there was nothing like that in the 'vanilla' Jekyll site when you run the `jekyll new myblog` you get very little in the was of bells and whistles.
 
 #### here is the base project
-![bas-project-layout](./base-jekyll-project.png)
+![bas-project-layout](/articles/2016-12-17-Starting-again-with-Jekyll/base-jekyll-project.png)
 
 Running the following from the terminal on my Ruby development box
 
@@ -44,7 +47,7 @@ Use the run configuration `jekyll serve --host $IP --port $PORT --config _config
 You get this:
 
 #### new blog yay!
-![base-jekyll-site](./base-jekyll-site.png)
+![base-jekyll-site](/articles/2016-12-17-Starting-again-with-Jekyll/base-jekyll-site.png)
 
 ## Confusing
 
@@ -66,7 +69,7 @@ Then stuff for analytics and Disqus, then there was stuff I added in that I like
 
 Oh, it's not the right Markdown, why isn't is showing the GitHub Markdown Scott?? Because you've used the `@import "highlights";` on your `style.css` oh ok, so I'd prefer GitHub Markdown, ok no problem, go remove the `@import "highlights";` from your `style.css` you'll be golden, no worries. Queue a raft of commits with me dicking around with various combinations of having corrected `_config.yml` entries it got pretty messy.
 
-![dem-commits](./dem-commits.png)
+![dem-commits](/articles/2016-12-17-Starting-again-with-Jekyll/dem-commits.png)
 
 Currently I am still with the `_hilights.scss` in the `sass` folder which I'm going to have to play around with to get it how I like it, hopefully I'll get to learn a bit more about it all and understand how much of a tool I was.
 

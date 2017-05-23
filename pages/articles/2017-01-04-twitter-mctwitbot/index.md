@@ -2,7 +2,7 @@
 title: Twitter McTwitBot
 date: "2017-01-04"
 layout: post
-path: "/twitter-mctwitbot/"
+path: "/2017-01-04-twitter-mctwitbot/"
 category: "information, guide"
 description: "I must say this was great to do and a nice little introduction to [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).
 
@@ -10,7 +10,7 @@ I got to doing this from finding it on [GitHub](https://github.com) I think I wa
 ---
 
 <figure class="floatRight">
-	<img style="height: 200px;" src="./twitter-bird.png" alt="twit">
+	<img style="height: 200px;" src="/articles/2017-01-04-twitter-mctwitbot/twitter-bird.png" alt="twit">
 	<!--<figcaption>tweet yo"</figcaption>-->
 </figure>
 
@@ -65,7 +65,7 @@ $ git push heroku master
 
 The final command will build the app on Heroku for you with output like this:
 
-![heroku-build](./heroku-build.png)
+![heroku-build](/articles/2017-01-04-twitter-mctwitbot/heroku-build.png)
 
 > I know this isn't standard practice for GitHub and I am in the process of understanding how to branch and use Pull Requests so bear with me :smile:
 
@@ -73,7 +73,7 @@ The first gotcha for me was the Heroku `Procfile` I couldn't understand why it k
 
 After getting the bare bones set up on part 1 I then got to playing around with the timings and the query strings used by the bot, this is where things started to go a bit [off-piste](https://en.oxforddictionaries.com/definition/us/off-piste) 
 
-![heroku-error-output](./heroku-error-output.png)
+![heroku-error-output](/articles/2017-01-04-twitter-mctwitbot/heroku-error-output.png)
 
 For quite a while I couldn't understand why I was getting so many errors, with a whole lot of `console.log(var)` throughout the code I came to the conclusion that that the query string I was using:
 
@@ -137,7 +137,7 @@ The next stage for this could be to use the `unique-random-array` package to cha
 
 That's it for now, I still have a weird bug where if I follow someone and then someone else follows me the bot decides to tweet back to itself!
 
-![yes-tweet-yourself](./yes-tweet-yourself.png)
+![yes-tweet-yourself](/articles/2017-01-04-twitter-mctwitbot/yes-tweet-yourself.png)
 
 ### Coming up
 

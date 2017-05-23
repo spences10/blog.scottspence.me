@@ -2,12 +2,15 @@
 title: My first Microsoft Visual Studio Code [VSCode] extension
 date: "2016-12-03"
 layout: post
-path: "/my-first-vs-code-extension/"
+path: "/2016-12-03-My-First-VSCode-Extension/"
 category: "Information"
 description: "I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead."
 ---
 
-<img class="floated" src="./visual-studio-marketplace.png">
+<figure class="floatRight">
+	<img style="height: 200px;" src="/articles/2016-12-03-My-First-VSCode-Extension/visual-studio-marketplace.png" alt="git">
+	<!--<figcaption></figcaption>-->
+</figure>
 
 So for those of you that know what I do for a living I'm primarily an Analyst Developer with a skill set of VBA and SQL which has put me in good stead for the last 10+ years. I'm currently 'up-skilling' myself on more general programming languages, but enough of that! I basically wanted to use [VSCode][vscode] with VBA which is fine as it's just text files but I wanted some of the shexy stuff that VSCode comes with.
 
@@ -19,7 +22,7 @@ So, what I found is that Microsoft really want you to make VSCode extensions and
 
 I found guides [here][guide1], [here][guide2] and [here][guide3] all of which have you using [Yeoman](http://yeoman.io/) by installing via npm, now I've never heard of Yeoman before trying to do this so I don't have an opinion on that apart from to say it was a bit of a ballache to get any of it up and running. I tried installing it on both my home machine and a Cloud9 machine several times over with no success.
 
-![YeomanErr](./yeoman-err.png)
+![YeomanErr](/articles/2016-12-03-My-First-VSCode-Extension/yeoman-err.png)
 
 Got tired after uninstalling and reinstalling several times at home and on the cloud so moved on. I read [this](https://code.visualstudio.com/docs/tools/vscecli) guide about setting yourself up as a publisher on the Microsoft VSCode [Marketplace](https://marketplace.visualstudio.com/) using with `vsce` (agin installed with npm) so after creating a Personal Access Token and creating my publisher account I could then publish my extension. But this was the thing my extension is just the `vbscrip.json` file on my hard drive.
 
@@ -35,11 +38,11 @@ So it looked like I had no way to get this onto the Marketplace, I was pretty bu
 
 I was pretty surprised (and relieved) to see the output pictured.
 
-![vscePublish](./vsce-publish.png)
+![vscePublish](/articles/2016-12-03-My-First-VSCode-Extension/vsce-publish.png)
 
 I had a quick check of my publisher profile and lo and behold, there's my extension!
 
-![YeomanErr](./marketplace-extensions-management.png)
+![YeomanErr](/articles/2016-12-03-My-First-VSCode-Extension/marketplace-extensions-management.png)
 
 Here's my extension: [VBA Snippets](https://marketplace.visualstudio.com/items?itemName=spences10.vba-snippets) from there you can fin the [GitHub](https://github.com/spences10/vba-snippets) repository too, I hope it comes in handy for you one day!
 
@@ -50,3 +53,5 @@ Here's my extension: [VBA Snippets](https://marketplace.visualstudio.com/items?i
 [guide1]: https://code.visualstudio.com/docs/extensions/overview
 [guide2]: https://code.visualstudio.com/docs/extensions/example-hello-world
 [guide3]: https://code.visualstudio.com/docs/extensions/testing-extensions
+
+<!-- Images -->
