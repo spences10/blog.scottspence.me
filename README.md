@@ -1,5 +1,7 @@
 # Lumen
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/spences10/spences10.github.io.svg)](https://greenkeeper.io/)
+
 [Gatsby](https://github.com/gatsbyjs/gatsby) starter for creating a blog.
 
 ## Features
