@@ -19,6 +19,9 @@
     "blog",
     "react"
   ],
+  "now": {
+    "alias": "blog.scottspence.me"
+    },
   "author": "Alexander Shelepenok <a.shelepenok@gmail.com>",
   "license": "MIT",
   "dependencies": {
