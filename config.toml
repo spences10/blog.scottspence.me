@@ -11,4 +11,4 @@ siteVkUrl = "#"
 
 googleAnalyticsId = "UA-87264973-1"
 
-linkPrefix = "/gatsby-starter-lumen"
+linkPrefix = "/"
