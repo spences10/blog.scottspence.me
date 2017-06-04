@@ -4,7 +4,7 @@ date: 2017-06-01
 layout: post
 path: /2017-06-01-moving-from-beginner-to-advanced-git-with-aliases/
 category: information, guide
-description: ""
+description: Speed up your git workflow with git aliases, this is a breif introduction on using aliases 👌🚀👍
 ---
 
 The more you work with Git the more familiar you become with the commands used in your every day workflow for your projects or your team's projects.
