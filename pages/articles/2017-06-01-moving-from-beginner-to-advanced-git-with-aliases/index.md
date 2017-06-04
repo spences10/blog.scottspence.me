@@ -50,8 +50,8 @@ In your `.gitconfig` file if there's not already one there add in the `[aliases]
   p = push
 
 [user]
-	name = spences10
-	email = spences10apps@gmail.com
+  name = spences10
+  email = spences10apps@gmail.com
 ```
 
 So now we can shorten down our workflow for adding a change to one of our repos:
