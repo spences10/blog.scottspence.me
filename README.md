@@ -1,5 +1,7 @@
 # Lumen
 
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zpnk/hello-world)
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/spences10/spences10.github.io.svg)](https://greenkeeper.io/)
 
 [Gatsby](https://github.com/gatsbyjs/gatsby) starter for creating a blog.
