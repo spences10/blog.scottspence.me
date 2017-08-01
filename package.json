@@ -65,7 +65,7 @@
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.4.2",
-    "rucksack-css": "^0.9.1",
+    "rucksack-css": "^1.0.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.0.0"
   }
