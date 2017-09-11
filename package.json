@@ -14,7 +14,11 @@
   },
   "dependencies": {
     "gatsby": "^1.8.11",
-    "gatsby-link": "^1.4.1"
+    "gatsby-link": "^1.4.1",
+    "gatsby-plugin-glamor": "1.6.7",
+    "gatsby-plugin-typography": "1.7.9",
+    "glamorous": "4.8.0",
+    "typography-theme-kirkham": "0.16.3"
   },
   "keywords": [],
   "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
