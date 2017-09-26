@@ -12,7 +12,9 @@
     "copy": "npm run copy:files",
     "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gatsby build --prefix-links && gh-pages -d public"
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "gatsby",
@@ -21,7 +23,7 @@
   ],
   "now": {
     "alias": "blog.scottspence.me"
-    },
+  },
   "author": "Alexander Shelepenok <a.shelepenok@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -43,7 +45,8 @@
     "safe-access": "^0.1.0",
     "underscore.string": "^3.2.3",
     "raw-loader": "^0.5.1",
-    "url-loader": "^0.5.9"
+    "url-loader": "^0.5.9",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -68,5 +71,6 @@
     "rucksack-css": "^1.0.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.0.0"
-  }
+  },
+  "snyk": true
 }
