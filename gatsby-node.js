@@ -1,3 +1,5 @@
 exports.onCreateNode = ({ node }) => {
-  console.log(node.internal.type)
+  if (node.internal.type === `MarkdownRemark`) {
+    console.log(node.internal.type)
+  }
 }
