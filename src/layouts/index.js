@@ -5,6 +5,10 @@ import Link from 'gatsby-link'
 
 import { rhythm } from '../utils/typography'
 
+// Adds syntax highlighting to code blocks in markdown files using PrismJS.
+// https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
+require('prismjs/themes/prism-okaidia.css')
+
 const linkStyle = css({ float: `right` })
 
 export default ({ children, data }) => (

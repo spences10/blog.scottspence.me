@@ -20,6 +20,7 @@
     "gatsby-plugin-react-helmet": "1.0.6",
     "gatsby-plugin-typography": "1.7.9",
     "gatsby-remark-images": "1.5.13",
+    "gatsby-remark-prismjs": "1.2.8",
     "gatsby-source-filesystem": "1.4.12",
     "gatsby-transformer-remark": "1.7.12",
     "glamorous": "4.8.0",
