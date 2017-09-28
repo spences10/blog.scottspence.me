@@ -23,7 +23,7 @@
     "gatsby-source-filesystem": "1.4.12",
     "gatsby-transformer-remark": "1.7.12",
     "glamorous": "4.8.0",
-    "typography-theme-bootstrap": "0.16.7"
+    "typography-theme-irving": "0.15.10"
   },
   "keywords": [],
   "author": "Scott Spence <spences10apps@gmail.com> (https://blog.scottspence.me/)",
