@@ -1,6 +1,6 @@
 import Typography from 'typography'
-import kirkhamTheme from 'typography-theme-kirkham'
+import typogTheme from 'typography-theme-bootstrap'
 
-const typography = new Typography(kirkhamTheme)
+const typography = new Typography(typogTheme)
 
 module.exports = typography
