@@ -10,11 +10,11 @@ There are some really useful Twitter bots out there that do some pretty cool stu
 ---
 
 <figure class="floatRight">
-	<img style="height: 200px;" src="/articles/2017-01-28-twitter-bot-bootstrap/rust-bird.jpg" alt="twitter">
+	<img style="height: 200px;" src="./rust-bird.jpg" alt="twitter">
 	<!--<figcaption></figcaption>-->
 </figure>
 
-Take the [Twisst ISS alerts](https://twitter.com/twisst) bot that sends you a DM when the international space station (ISS) will be visible at your location. 
+Take the [Twisst ISS alerts](https://twitter.com/twisst) bot that sends you a DM when the international space station (ISS) will be visible at your location.
 
 Or there's public service bots like the [Earthquake Robot](https://twitter.com/earthquakeBot) that tweets about any earthquake greater than 5.0 on the Richter Scale as they happen.
 
@@ -24,16 +24,16 @@ And of course a robot that tweets poetry, [poem.exe](https://twitter.com/poem_ex
 
 Bots can be used for many purposes in my case I have used it to enhance my [@ScottDevTweets](https://twitter.com/ScottDevTweets) account by liking and re-tweeting subjects I have an interest in, in the case of the #100DaysOfCode community challenge there is a community bot which congratulates you on starting #100DaysOfCode and again on completing it, these are specific responses to tweets with keywords for a community, there is also sentiment detection used under the #100DaysOfCode community hashtag where the bot will tweet you with encouraging words if you post a tweet with negative sentiment.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/100daysofcodetweet.png)
+![](./100daysofcodetweet.png)
 
-One question I'm asked in job interviews quite often is "what do you get out of working with technology?". My answer, "I like to automate stuff, repetitive tasks to save me time so I can concentrate on other stuff, I like the fact I have saved myself some time" 
+One question I'm asked in job interviews quite often is "what do you get out of working with technology?". My answer, "I like to automate stuff, repetitive tasks to save me time so I can concentrate on other stuff, I like the fact I have saved myself some time"
 
 In the case of my @ScottDevTweets bot it's usually an opener for a conversation with another user that follows me, so the bot can initiate the conversation and I can carry on from where the bot left off.
 
 Bearing this in mind the bot is only as good as the person that has programmed it, whilst researching this post I found a really good resource for bots in general, [botwiki.org](https://botwiki.org/bot-ethics) has a bot ethics section:
 
 >* Please don't make annoying bots
->    * An annoying bot mentions or follows people who didn't ask for it 
+>    * An annoying bot mentions or follows people who didn't ask for it
 >    * Posts common or trending hashtags
 >* Please don't make abusive or harassing robots
 
@@ -54,7 +54,7 @@ As a primer for this there are the great posts by [@amanhimself](https://twitter
 - Twitter account [Duh!]
 - Development environment with Node.js and NPM
   * c9 account
-  * Node.js 
+  * Node.js
   * NPM
 - Heroku account
 
@@ -66,9 +66,9 @@ As an example I'll configure the old [@DroidScott](https://twitter.com/droidscot
 
 Straight forward enough for the twitter application, just make sure you add your phone number to your Twitter account before clicking the **Create your Twitter application** button.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/twitter-application-setup.png)
+![](./twitter-application-setup.png)
 
-You should now be in the 'Application Management' section where you will need to take a note of your keys, you should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available. 
+You should now be in the 'Application Management' section where you will need to take a note of your keys, you should have your 'Consumer Key (API Key)' and 'Consumer Secret (API Secret)' already available.
 
 You'll need to scroll to the bottom of the page and click the **Create my access token** to get the 'Access Token' and 'Access Token Secret' take note of all four of them you'll need them when setting up the bot.
 
@@ -76,7 +76,7 @@ You'll need to scroll to the bottom of the page and click the **Create my access
 
 For this I'm just going to say use [Cloud9](https://c9.io/) as you can be up and running in minutes with one of the pre made Node.js environments.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/c9-node-env.png)
+![](./c9-node-env.png)
 
 ## Set up the bot
 
@@ -92,7 +92,7 @@ $ git clone https://github.com/spences10/twitter-bot-bootstrap
 
 The environment project tree should look something like this.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/project-structure.png)
+![](./project-structure.png)
 
 ## Node dependencies
 
@@ -113,21 +113,21 @@ This will configure the `package.json` file with your details as desired, just k
 
 Onto the Twitter keys, now you'll need to add these to the `config.js` file and you can then add some keywords into the `strings.js` file for what you want to search on.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/c9-strings-config.png)
+![](./c9-strings-config.png)
 
 Then add the username of the Twitter account you are using to the `tweetNow` function in the `bot.js` file, this will ensure your bot doesn't reply to itself when it has been followed by a user.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/c9-strings-config1.png)
+![](./c9-strings-config1.png)
 
 This step isn't strictly necessary if this account isn’t going to be following any users.
 
 That should be it, go to the terminal and enter `npm start` you should get some output:
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/bot-output.png)
+![](./bot-output.png)
 
 Check the Twitter account:
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/twitter-account.png)
+![](./twitter-account.png)
 
 ## Heroku
 
@@ -135,15 +135,15 @@ Cool, now we have a bot that we can test on our dev environment but we can't lea
 
 If you haven't done so already set up a [Heroku account](https://signup.heroku.com) then select **Create a new app** from the dropdown box top right of your dashboard, in the next screen name the app it if you want, then click **Create App**.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/heroku-create-new-app.png)
+![](./heroku-create-new-app.png)
 
 You'll be presented with your app dashboard and instructions for the deployment method.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/heroku-deploy.png)
+![](./heroku-deploy.png)
 
 Your app name should be displayed on the top of your dashboard, you'll need this when logging in with the Heroku CLI.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/heroku-app-name.png)
+![](./heroku-app-name.png)
 
 ## Heroku CLI
 
@@ -173,7 +173,7 @@ $ git push heroku master
 
 You should get build output on the terminal.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/heroku-build.png)
+![](./heroku-build.png)
 
 Then check the output with.
 
@@ -231,13 +231,13 @@ You can also deploy your app by connecting to GitHub and deploy automatically to
 
 Go to the ‘Deploy’ dashboard on Heroku, select GitHub as the deployment method if you have connected your GitHub account to your Heroku account then you can search for the repository so if you forked this repo then you can just enter ` twitter-bot-bootstrap` and **Search** you can then click the **Connect** button, you can then auto deploy from GitHub.
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/heroku-connect-github.png)
+![](./heroku-connect-github.png)
 
 ## Heroku troubleshooting
 
 What do you mean it crashed!?
 
-![](/articles/2017-01-28-twitter-bot-bootstrap/heroku-crash.png)
+![](./heroku-crash.png)
 
 Ok, I found that sometimes the `worker` is set as `web` and it crashes out, try setting the `worker` again with:
 

@@ -8,7 +8,7 @@ description: "I'm a published developer! [sort of] Well that was a bit painful, 
 ---
 
 <figure class="floatRight">
-	<img style="height: 200px;" src="/articles/2016-12-03-My-First-VSCode-Extension/visual-studio-marketplace.png" alt="git">
+	<img style="height: 200px;" src="./visual-studio-marketplace.png" alt="git">
 	<!--<figcaption></figcaption>-->
 </figure>
 
@@ -18,11 +18,11 @@ I'm not going to go into how awesome (I think) VSCode is here but I will mention
 
 So that got me playing around with making my own [snippets][snippets] and I found that after a while I had quite a lot of them so I decided to put them on the VSCode market place.
 
-So, what I found is that Microsoft really want you to make VSCode extensions and give you all the tools you need to do so. 
+So, what I found is that Microsoft really want you to make VSCode extensions and give you all the tools you need to do so.
 
 I found guides [here][guide1], [here][guide2] and [here][guide3] all of which have you using [Yeoman](http://yeoman.io/) by installing via npm, now I've never heard of Yeoman before trying to do this so I don't have an opinion on that apart from to say it was a bit of a ballache to get any of it up and running. I tried installing it on both my home machine and a Cloud9 machine several times over with no success.
 
-![YeomanErr](/articles/2016-12-03-My-First-VSCode-Extension/yeoman-err.png)
+![YeomanErr](./yeoman-err.png)
 
 Got tired after uninstalling and reinstalling several times at home and on the cloud so moved on. I read [this](https://code.visualstudio.com/docs/tools/vscecli) guide about setting yourself up as a publisher on the Microsoft VSCode [Marketplace](https://marketplace.visualstudio.com/) using with `vsce` (agin installed with npm) so after creating a Personal Access Token and creating my publisher account I could then publish my extension. But this was the thing my extension is just the `vbscrip.json` file on my hard drive.
 
@@ -34,15 +34,15 @@ I looked around at other snippets packages on GitHub and couldn't understand why
 
 So this is what I did, I copied the file structure from one of another GitHub repositories that were just snippets, it basically consisted of two folders and a `package.json` file. I replaced all the relevant properties in the `.json` file and created a [GitHub](https://github.com/spences10/vba-snippets) repository just for the sake of having all my lovingly crafted snippets kept safe.
 
-So it looked like I had no way to get this onto the Marketplace, I was pretty bummed but thought I'd just go though the process of publishing an extension with `vsce` by cd'ing to the folder the package was in and going through the commands so I tried `vsce publish 1.0.0` 
+So it looked like I had no way to get this onto the Marketplace, I was pretty bummed but thought I'd just go though the process of publishing an extension with `vsce` by cd'ing to the folder the package was in and going through the commands so I tried `vsce publish 1.0.0`
 
 I was pretty surprised (and relieved) to see the output pictured.
 
-![vscePublish](/articles/2016-12-03-My-First-VSCode-Extension/vsce-publish.png)
+![vscePublish](./vsce-publish.png)
 
 I had a quick check of my publisher profile and lo and behold, there's my extension!
 
-![YeomanErr](/articles/2016-12-03-My-First-VSCode-Extension/marketplace-extensions-management.png)
+![YeomanErr](./marketplace-extensions-management.png)
 
 Here's my extension: [VBA Snippets](https://marketplace.visualstudio.com/items?itemName=spences10.vba-snippets) from there you can fin the [GitHub](https://github.com/spences10/vba-snippets) repository too, I hope it comes in handy for you one day!
 

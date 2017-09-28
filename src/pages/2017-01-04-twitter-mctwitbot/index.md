@@ -10,13 +10,13 @@ I got to doing this from finding it on [GitHub](https://github.com) I think I wa
 ---
 
 <figure class="floatRight">
-	<img style="height: 200px;" src="/articles/2017-01-04-twitter-mctwitbot/twitter-bird.png" alt="twit">
+	<img style="height: 200px;" src="./twitter-bird.png" alt="twit">
 	<!--<figcaption>tweet yo"</figcaption>-->
 </figure>
 
 This app didn't work as well as expected though :frowning:, so I then decided to take a look at [@amanhimself](https://twitter.com/amanhimself)'s Twitter bot he had created for the [#100DaysOfCode](https://medium.freecodecamp.com/start-2017-with-the-100daysofcode-improved-and-updated-18ce604b237b) challenge, which I just happen to be taking part in.
 
-So with his great documentation [here](https://hackernoon.com/create-a-simple-twitter-bot-with-node-js-5b14eb006c08) and [here](https://community.risingstack.com/how-to-make-a-twitter-bot-with-node-js/) I managed to cobble together my own Twitter-bot which I use on my [@ScottDevTweets](https://twitter.com/ScottDevTweets) Twitter account 
+So with his great documentation [here](https://hackernoon.com/create-a-simple-twitter-bot-with-node-js-5b14eb006c08) and [here](https://community.risingstack.com/how-to-make-a-twitter-bot-with-node-js/) I managed to cobble together my own Twitter-bot which I use on my [@ScottDevTweets](https://twitter.com/ScottDevTweets) Twitter account
 
 > If you'r wondering about the post name [check here](https://en.wikipedia.org/wiki/RRS_Sir_David_Attenborough#Boaty_McBoatface_Naming_Controversy).
 
@@ -36,11 +36,11 @@ I already had this installed on my c9 environment so I just had to `npm install 
 
 I didn't really get what Heroku was until I started this project but once I'd read the guides it was quite straightforward and the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) was already installed on c9 i checked with `heroku --version` before attempting to install it.
 
-### GitHub 
+### GitHub
 
 You can deploy straight from your c9 environment to Heroku and there are loads of other integration tools you can use which I haven't had time to look into yet. It's good practice to have your code on a repository somewhere and GitHub is widely used.
 
-### Twitter 
+### Twitter
 
 You will need to set up a Twitter application from the [Twitter dev portal](https://apps.twitter.com/app/new)
 
@@ -65,15 +65,15 @@ $ git push heroku master
 
 The final command will build the app on Heroku for you with output like this:
 
-![heroku-build](/articles/2017-01-04-twitter-mctwitbot/heroku-build.png)
+![heroku-build](./heroku-build.png)
 
 > I know this isn't standard practice for GitHub and I am in the process of understanding how to branch and use Pull Requests so bear with me :smile:
 
 The first gotcha for me was the Heroku `Procfile` I couldn't understand why it kept timing out, this was because it was trying to run the default `web` process instead of the `worker` process which is whats needed for the bot.
 
-After getting the bare bones set up on part 1 I then got to playing around with the timings and the query strings used by the bot, this is where things started to go a bit [off-piste](https://en.oxforddictionaries.com/definition/us/off-piste) 
+After getting the bare bones set up on part 1 I then got to playing around with the timings and the query strings used by the bot, this is where things started to go a bit [off-piste](https://en.oxforddictionaries.com/definition/us/off-piste)
 
-![heroku-error-output](/articles/2017-01-04-twitter-mctwitbot/heroku-error-output.png)
+![heroku-error-output](./heroku-error-output.png)
 
 For quite a while I couldn't understand why I was getting so many errors, with a whole lot of `console.log(var)` throughout the code I came to the conclusion that that the query string I was using:
 
@@ -137,7 +137,7 @@ The next stage for this could be to use the `unique-random-array` package to cha
 
 That's it for now, I still have a weird bug where if I follow someone and then someone else follows me the bot decides to tweet back to itself!
 
-![yes-tweet-yourself](/articles/2017-01-04-twitter-mctwitbot/yes-tweet-yourself.png)
+![yes-tweet-yourself](./yes-tweet-yourself.png)
 
 ### Coming up
 

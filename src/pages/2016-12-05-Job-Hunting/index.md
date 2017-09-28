@@ -10,9 +10,9 @@ description: "This is basically a rant about the job market, I was laid off back
 
 ## No one wants to hire you
 
-![stress-office](/articles/2016-12-05-Job-Hunting/stress-office.jpg)
+![stress-office](./stress-office.jpg)
 
-For the longest time I thought there was something wrong with my CV so I read up on [ATS'](https://lmgtfy.com/?q=what+is+an+ats) and added what I thought was needed to at least meet the minimum requirements for passing the ATS if there was one for the roles I was applying for. 
+For the longest time I thought there was something wrong with my CV so I read up on [ATS'](https://lmgtfy.com/?q=what+is+an+ats) and added what I thought was needed to at least meet the minimum requirements for passing the ATS if there was one for the roles I was applying for.
 
 What I have also found is that my skill set is now in a minority, that's not to say that banks are going to stop using Excel overnight but it does mean that there are other technologies being used here, Visual Studio Tools for Office and Excel DNA mean that there are .NET controls that can be used in lil old Excel which a lot of organisations want now.
 
@@ -21,7 +21,7 @@ This has basically brought me to the conclusion that I should be expanding my sk
 What I found whilst searching for roles is that someone with VBA, SQL and C# there is also the need now for Tableau, ClikView or some other data visualisation software which stands to reason that now we have all this data that we should actually be able to gain some insight from it, this is something I'll be looking into with the scripting language Python (general purpose programming language) once I have progressed with my FCC certification.
 
 >## It's an employers market
->Another thing which is bad, because it’s an employer’s market (apparently) employers are being very specific about the skills they want potential candidates to have and currently they are driving down the cost of resources with these job specifications, like: C# developer with 5 years commercial experience + x,y,z unrelated skills for £37k, that is at very least a mid-senior level role £50k+ but once one of these is on the market then other employers see this and decide to put their role at the same level.  
+>Another thing which is bad, because it’s an employer’s market (apparently) employers are being very specific about the skills they want potential candidates to have and currently they are driving down the cost of resources with these job specifications, like: C# developer with 5 years commercial experience + x,y,z unrelated skills for £37k, that is at very least a mid-senior level role £50k+ but once one of these is on the market then other employers see this and decide to put their role at the same level.
 
 ## Lessons learned
 
@@ -31,7 +31,7 @@ Wild salary ranges £40k-£80k that’s a pretty big range, these ads usually co
 
 ## Recruiters
 
-![shady-recruiter-middle-man](/articles/2016-12-05-Job-Hunting/shady-recruiter-middle-man.jpg)
+![shady-recruiter-middle-man](./shady-recruiter-middle-man.jpg)
 
 So this is where we get all warm and fuzzy talking about recruiters and what great jobs they do. How they are always busy talking to hiring managers for many different roles and juggling multiple candidates.
 
@@ -55,11 +55,11 @@ Just because we have an understanding with a few recruiters doesn't mean that th
 
 What I like and respect in a recruiter is if I can get five minutes into a phone conversation with a recruiter that has actually read my profile or my CV.
 
-What I found with recruiters is first a ten minute conversation asking me how I'm finding the market and then asking me what my ideal next role would be. 
+What I found with recruiters is first a ten minute conversation asking me how I'm finding the market and then asking me what my ideal next role would be.
 
 This is basically their due diligence, what they should have determined by looking at your profile before calling you.
 
-After this it goes one of two ways, the recruiter then being honest with you [in some cases] and telling you they actually don't think you are suitable for the role (which they could have done if they took the time to read your profile) let's just bear in mind ten minutes before it was, 
+After this it goes one of two ways, the recruiter then being honest with you [in some cases] and telling you they actually don't think you are suitable for the role (which they could have done if they took the time to read your profile) let's just bear in mind ten minutes before it was,
 
 >## "Hi Scott, just seen your profile on LinkedIn and I'm really keen to talk to you about a role with one of our very high profile clients I'm recruiting for."
 
