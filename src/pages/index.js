@@ -1,44 +1,43 @@
 import React from 'react'
-import g from 'glamorous'
-import Link from 'gatsby-link'
+import GatsbyLink from 'gatsby-link'
+import Helmet from 'react-helmet'
 
-import { rhythm } from '../utils/typography'
+import Link from '../components/Link'
 
-export default ({ data }) => {
+import '../css/index.css'
+
+export default function Index({ data }) {
+  const { edges: posts } = data.allMarkdownRemark
   return (
-    <div>
-      <g.H1 display={'inline-block'} borderBottom={'1px solid'}>
-        Blog
-      </g.H1>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div>
-          <Link to={node.fields.slug} css={{ textDecoration: `none`, color: `inherit` }}>
-            <g.H3 marginBottom={rhythm(1 / 4)}>
-              {node.frontmatter.title} <g.Span color='#BBB'>— {node.frontmatter.date}</g.Span>
-            </g.H3>
-            <p>{node.excerpt}</p>
-          </Link>
-        </div>
-      ))}
+    <div className='blog-posts'>
+      {posts.filter((post) => post.node.frontmatter.title.length > 0).map(({ node: post }) => {
+        return (
+          <div className='blog-post-preview' key={post.id}>
+            <h1 className='title'>
+              <GatsbyLink to={post.frontmatter.path}>{post.frontmatter.title}</GatsbyLink>
+            </h1>
+            <h2 className='date'>{post.frontmatter.date}</h2>
+            <p>{post.excerpt}</p>
+            <Link to={post.frontmatter.path}>Read more</Link>
+          </div>
+        )
+      })}
     </div>
   )
 }
 
-export const query = graphql`
+export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
+          excerpt(pruneLength: 250)
+          id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM DD, YYYY")
+            path
           }
-          fields {
-            slug
-          }
-          excerpt
         }
       }
     }
