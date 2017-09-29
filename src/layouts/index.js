@@ -9,10 +9,10 @@ import { rhythm } from '../utils/typography'
 // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
 require('prismjs/themes/prism-okaidia.css')
 
-const linkStyle = css({ float: `right` })
+const linkStyle = css({ float: `right`, padding: `0px 20px 0px 20px` })
 
 export default ({ children, data }) => (
-  <g.Div margin={`0 auto`} maxWidth={700} padding={rhythm(2)} paddingTop={rhythm(1.5)}>
+  <g.Div margin={`0 auto`} maxWidth={900} padding={rhythm(2)} paddingTop={rhythm(1.5)}>
     <Link to={`/`}>
       <g.H3 marginBottom={rhythm(2)} display={`inline-block`}>
         {data.site.siteMetadata.title}
@@ -20,6 +20,9 @@ export default ({ children, data }) => (
     </Link>
     <Link className={linkStyle} to={`/about/`}>
       About
+    </Link>
+    <Link className={linkStyle} to={`/contact/`}>
+      Contact
     </Link>
     {children()}
   </g.Div>
