@@ -1,43 +1,44 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
-import Helmet from 'react-helmet'
+import g from 'glamorous'
+import Link from 'gatsby-link'
 
-import Link from '../components/Link'
+import { rhythm } from '../utils/typography'
 
-import '../css/index.css'
-
-export default function Index({ data }) {
-  const { edges: posts } = data.allMarkdownRemark
+export default ({ data }) => {
   return (
-    <div className='blog-posts'>
-      {posts.filter((post) => post.node.frontmatter.title.length > 0).map(({ node: post }) => {
-        return (
-          <div className='blog-post-preview' key={post.id}>
-            <h1 className='title'>
-              <GatsbyLink to={post.frontmatter.path}>{post.frontmatter.title}</GatsbyLink>
-            </h1>
-            <h2 className='date'>{post.frontmatter.date}</h2>
-            <p>{post.excerpt}</p>
-            <Link to={post.frontmatter.path}>Read more</Link>
-          </div>
-        )
-      })}
+    <div>
+      <g.H1 display={'inline-block'} borderBottom={'1px solid'}>
+        Blog
+      </g.H1>
+      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div>
+          <Link to={node.fields.slug} css={{ textDecoration: `none`, color: `inherit` }}>
+            <g.H3 marginBottom={rhythm(1 / 4)}>
+              {node.frontmatter.title} <g.Span color='#BBB'>— {node.frontmatter.date}</g.Span>
+            </g.H3>
+            <p>{node.excerpt}</p>
+          </Link>
+        </div>
+      ))}
     </div>
   )
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
       edges {
         node {
-          excerpt(pruneLength: 250)
-          id
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
-            path
+            date(formatString: "DD MMMM, YYYY")
           }
+          fields {
+            slug
+          }
+          excerpt
         }
       }
     }
