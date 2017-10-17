@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     author: `Scott Spence`,
-    title: `Scott Spence - blog`
+    title: `Blog`
   },
   plugins: [
     {
@@ -30,6 +30,7 @@ module.exports = {
             options: {
               linkImagesToOriginal: false
             },
+
             resolve: `gatsby-remark-prismjs`,
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
@@ -44,6 +45,7 @@ module.exports = {
           }
         ]
       }
-    }
+    },
+    `gatsby-plugin-sharp`
   ]
 }

@@ -6,15 +6,19 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
+  },
+  "devDependencies": {
+    "prettier": "^1.6.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spences10/blog.scottspence.me.git"
   },
   "dependencies": {
-    "gatsby": "^1.8.11",
-    "gatsby-link": "^1.4.1",
+    "gatsby": "1.9.50",
+    "gatsby-link": "1.6.17",
     "gatsby-plugin-catch-links": "1.0.8",
     "gatsby-plugin-glamor": "1.6.7",
     "gatsby-plugin-react-helmet": "1.0.6",
