@@ -1,14 +1,26 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </div>
-)
+const IndexPage = ({ data }) => {
+  const { edges: posts } = data.allMarkdownRemark
+  return (
+    <div>
+      {posts.map(({ node: post }) => {
+        const { frontmatter } = post
+
+        return (
+          <div>
+            <h2>
+              <Link to={frontmatter.path}>{frontmatter.title}</Link>
+            </h2>
+            <p>{frontmatter.date}</p>
+            <p>{frontmatter.excerpt}</p>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
 
 export const query = graphql`
   query IndexQuery {
@@ -17,7 +29,7 @@ export const query = graphql`
       edges {
         node {
           id
-          frontMatter {
+          frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
             path
