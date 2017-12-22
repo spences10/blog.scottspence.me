@@ -10,4 +10,24 @@ const IndexPage = () => (
   </div>
 )
 
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontMatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+            tags
+            excerpt
+          }
+        }
+      }
+    }
+  }
+`
+
 export default IndexPage
