@@ -27,7 +27,7 @@ const Header = () => (
             textDecoration: 'none'
           }}
         >
-          Gatsby
+          Scott Spence
         </Link>
       </h1>
     </div>
@@ -37,7 +37,7 @@ const Header = () => (
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Scott Spence blog"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' }
