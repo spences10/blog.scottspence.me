@@ -1,4 +1,0 @@
-$ cat .gitattributes
-*.js linguist-language=JavaScript
-**/*.js linguist-language=JavaScript
-static/css/*.css linguist-vendored
