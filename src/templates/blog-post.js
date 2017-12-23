@@ -43,7 +43,7 @@ const Template = ({ data, location, pathContext }) => {
 
   return (
     <div>
-      <Helmet title={`${title} - scottspence.me`} />
+      <Helmet title={`${title} - blog.scottspence.me`} />
       <Title>{title}</Title>
       <TitleDate>{date}</TitleDate>
 

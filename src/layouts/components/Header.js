@@ -41,7 +41,7 @@ const BrandLink = styled(Link)`
 const Header = () => (
   <StyledHeader>
     <BrandTitle>
-      <BrandLink to="/">scottspence.me</BrandLink>
+      <BrandLink to="/">blog.scottspence.me</BrandLink>
     </BrandTitle>
     {/* <PageNav header={true} /> */}
   </StyledHeader>
