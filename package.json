@@ -7,17 +7,20 @@
     "gatsby": "^1.9.145",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-styled-components": "2.0.4",
     "gatsby-source-filesystem": "1.5.11",
-    "gatsby-transformer-remark": "1.7.26"
+    "gatsby-transformer-remark": "1.7.26",
+    "styled-components": "2.4.0"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format":
-      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
+    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
