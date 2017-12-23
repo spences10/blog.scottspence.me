@@ -1,9 +1,9 @@
 ---
 path: "/freecodecamp/"
-date: "2016-10-24"
-title: "FreeCodeCamp"
+date: "2016-11-13"
+title: "freeCodeCamp"
 tags: ['freeCodeCamp', 'learning']
-excerpt: "Ok, I have recently discovered and started doing [FreeCodeCamp](https://www.freecodecamp.com/) which so far I'm really enjoying."
+excerpt: "Ok, I have recently discovered and started doing [freeCodeCamp](https://www.freecodecamp.com/) which so far I'm really enjoying."
 ---
 
 Since being out of work I have had some time to start exploring different
