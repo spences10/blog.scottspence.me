@@ -1,8 +1,7 @@
-import ReactGA from 'react-ga';
-import { config } from 'config';
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/browser-apis/
+ */
 
-ReactGA.initialize(config.googleAnalyticsId);
-
-exports.onRouteUpdate = (state) => {
-  ReactGA.pageview(state.pathname);
-};
+ // You can delete this file if you're not using it
