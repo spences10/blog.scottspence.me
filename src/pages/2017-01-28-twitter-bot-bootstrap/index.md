@@ -1,6 +1,6 @@
 ---
 path: "/2017-01-28-twitter-bot-bootstrap/"
-date: "2017-01-28T03:15:59.175Z"
+date: "2017-01-28"
 title: "Easily set up your own Twitter bot"
 tags: ['information', 'guide']
 excerpt: "Want to get set up with your very own Twitter bot quickly and easily, with this guide you can be set up in under 30 minutes. But first, why should you want to build a Twitter bot?

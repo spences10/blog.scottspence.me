@@ -1,6 +1,6 @@
 ---
 path: "/2017-01-04-twitter-mctwitbot/"
-date: "2017-01-04T03:15:59.175Z"
+date: "2017-01-04"
 title: "Twitter McTwitBot"
 tags: ['information', 'guide']
 excerpt: "I must say this was great to do and a nice little introduction to [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).

@@ -1,6 +1,6 @@
 ---
 path: "/2017-01-05-git-and-github/"
-date: "2017-01-05T03:15:59.175Z"
+date: "2017-01-05"
 title: "Git and GitHub"
 tags: ['information', 'guide']
 excerpt: "I know why Linus called it that now!

@@ -1,6 +1,6 @@
 ---
 path: "/2017-05-23-twitter-bot-playground/"
-date: "2017-05-23T03:15:59.175Z"
+date: "2017-05-23"
 title: "Twitter bot playground"
 tags: ['information', 'guide']
 excerpt: "How to build and deploy a multifunctional Twitter bot!"

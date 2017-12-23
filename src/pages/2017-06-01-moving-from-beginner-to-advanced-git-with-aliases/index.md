@@ -1,6 +1,6 @@
 ---
 path: "/2017-06-01-moving-from-beginner-to-advanced-git-with-aliases/"
-date: "2017-06-01T03:15:59.175Z"
+date: "2017-06-01"
 title: "Moving from beginner to (slightly more) advanced git with aliases."
 tags: ['information', 'guide']
 excerpt: "Speed up your git workflow with git aliases, this is a brief introduction on using aliases 👌🚀👍"
