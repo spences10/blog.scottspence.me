@@ -1,6 +1,6 @@
 ---
 path: "/hello-world/"
-date: "2016-10-24"
+date: "2016-10-24T03:15:59.175Z"
 title: "Hello World!"
 tags: ['hello world', 'getting started']
 excerpt: "First blog post!"
