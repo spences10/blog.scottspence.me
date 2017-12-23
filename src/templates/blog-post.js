@@ -28,7 +28,7 @@ const ContentWrapper = styled.div`
 const NavWrapper = ContentWrapper.extend`
   padding-left: 1rem;
   display: grid;
-  grid-template-areas: '. . main main main main main main main main . .';
+  grid-template-areas: 'main main';
 `
 
 const NavP = StyledP.extend`
