@@ -15,7 +15,8 @@
     "gatsby-remark-prismjs": "1.2.11",
     "gatsby-source-filesystem": "1.5.11",
     "gatsby-transformer-remark": "1.7.26",
-    "styled-components": "2.4.0"
+    "styled-components": "2.4.0",
+    "snyk": "^1.62.0"
   },
   "keywords": [
     "gatsby"
@@ -26,9 +27,12 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "prettier": "^1.9.2"
-  }
+  },
+  "snyk": true
 }
