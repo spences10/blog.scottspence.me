@@ -43,7 +43,7 @@ injectGlobal`
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 360px) {
+  @media screen and (min-width: 320px) {
     html {
       font-size: 15px;
     }
@@ -76,6 +76,7 @@ export const theme = {
 export const StyledH1 = styled.h1`
   padding: 1.75rem;
   margin: 0.5rem;
+  font-family: 'Open Sans';
 `
 
 export const StyledH2 = styled.h2`

@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import { StyledH1 } from '../theme/globalStyle'
+
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
