@@ -7,6 +7,8 @@ import styled, { ThemeProvider } from 'styled-components'
 import { theme } from '../theme/globalStyle'
 import Header from './components/Header'
 
+require('prismjs/themes/prism-solarizedlight.css')
+
 const PageContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);

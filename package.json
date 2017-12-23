@@ -5,9 +5,13 @@
   "author": "Scott Spence <spences10apps@gmail.com>",
   "dependencies": {
     "gatsby": "^1.9.145",
+    "gatsby-image": "1.0.31",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-styled-components": "2.0.4",
+    "gatsby-remark-copy-linked-files": "1.5.25",
+    "gatsby-remark-images": "1.5.36",
+    "gatsby-remark-prismjs": "1.2.11",
     "gatsby-source-filesystem": "1.5.11",
     "gatsby-transformer-remark": "1.7.26",
     "styled-components": "2.4.0"
