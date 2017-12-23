@@ -1,39 +1,49 @@
 import React from 'react'
-import g from 'glamorous'
-import { css } from 'glamor'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+import styled, { ThemeProvider } from 'styled-components'
 
-import { rhythm } from '../utils/typography'
+import { theme } from '../theme/globalStyle'
+import Header from './components/Header'
 
-// Adds syntax highlighting to code blocks in markdown files using PrismJS.
-// https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
-require('prismjs/themes/prism-okaidia.css')
+require('prismjs/themes/prism-solarizedlight.css')
 
-const linkStyle = css({ float: `right`, padding: `0px 20px 0px 20px` })
+const PageContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    'hd hd hd hd hd hd hd hd hd hd hd hd'
+    '. . main main main main main main main main . .'
+    'ft ft ft ft ft ft ft ft ft ft ft ft';
+`
 
-export default ({ children, data }) => (
-  <g.Div margin={`0 auto`} maxWidth={900} padding={rhythm(2)} paddingTop={rhythm(1.5)}>
-    <Link to={`/`}>
-      <g.H3 marginBottom={rhythm(2)} display={`inline-block`}>
-        {data.site.siteMetadata.title}
-      </g.H3>
-    </Link>
-    <Link className={linkStyle} to={`/about/`}>
-      About
-    </Link>
-    <Link className={linkStyle} to={`/contact/`}>
-      Contact
-    </Link>
-    {children()}
-  </g.Div>
+// min-height is just for the purpose of nice looking page
+const Main = styled.div`
+  grid-area: main;
+  min-height: 800px;
+  margin-top: 4.625rem;
+`
+
+const TemplateWrapper = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <PageContainer>
+      <Helmet
+        title="Scott Spence blog"
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' }
+        ]}
+      />
+      <Header />
+      <Main>{children()}</Main>
+    </PageContainer>
+  </ThemeProvider>
 )
 
-export const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+TemplateWrapper.propTypes = {
+  children: PropTypes.func
+}
+
+export default TemplateWrapper
