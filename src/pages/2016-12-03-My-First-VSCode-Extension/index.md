@@ -1,7 +1,7 @@
 ---
 path: "/2016-12-03-My-First-VSCode-Extension/"
 date: "2016-12-03T03:15:59.175Z"
-title: My first Microsoft Visual Studio Code [VSCode] extension
+title: "My first Microsoft Visual Studio Code [VSCode] extension"
 tags: ['Information','vscode','extension']
 excerpt: "I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead."
 ---

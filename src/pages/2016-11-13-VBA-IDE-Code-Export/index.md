@@ -1,7 +1,7 @@
 ---
 path: "/vba-ide-export/"
 date: "2016-11-13T03:15:59.175Z"
-title: VBA Code Export for Version Control Systems
+title: "VBA Code Export for Version Control Systems"
 tags: ['Information', 'vcs','vba']
 excerpt: "I have seen the same situation many times now in my career as a VBA Developer about how source code control is managed with VBA projects."
 ---
