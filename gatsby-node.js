@@ -49,7 +49,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   // returns promise that will start with this graphql query
   return graphql(`
     {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
             html
