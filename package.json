@@ -15,7 +15,6 @@
     "gatsby-remark-prismjs": "1.2.11",
     "gatsby-source-filesystem": "1.5.11",
     "gatsby-transformer-remark": "1.7.26",
-    "react-headroom": "2.2.2",
     "styled-components": "2.4.0"
   },
   "keywords": [
