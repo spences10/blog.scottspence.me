@@ -7,9 +7,10 @@ import styled, { injectGlobal } from 'styled-components'
 */
 
 injectGlobal`
+
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
 
-  html {
+  *, *:before, *:after {
     box-sizing: border-box;
   }
 
