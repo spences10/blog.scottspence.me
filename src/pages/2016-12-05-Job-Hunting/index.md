@@ -115,7 +115,7 @@ The call usually ends with a
 the mail never turns up or the old chestnut
 `I'll pass you details on to my colleague\I'll update your details on our database`
 
-So now we're near the end of Ranty McRantRant's post, if you made it his far
+So now we're near the end of Ranty McRantRant's post, if you made it this far
 thank you for persevering, if you can relate I'd be keen to hear your story.
 
 Take a look at these posts too which have partly motivated me to make this post:
