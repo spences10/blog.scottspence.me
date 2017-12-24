@@ -25,6 +25,9 @@ const Main = styled.div`
   grid-column: 3 / -3;
   min-height: 800px;
   margin-top: 4.625rem;
+  padding: 1.75rem;
+  /* margin: 0.5rem;
+  padding-top: 0rem; */
 `
 
 const TemplateWrapper = ({ children }) => (

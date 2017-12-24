@@ -8,17 +8,19 @@ import Hero from '../layouts/components/Hero'
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
 const Title = StyledH1.extend`
+  padding-left: 0rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 `
 
 const TitleDate = StyledH3.extend`
+  padding-left: 0rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
 `
 
 const ContentWrapper = styled.div`
-  padding: 1.75rem;
+  padding: 0rem;
   margin: 0.5rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;

@@ -6,6 +6,7 @@ import { StyledH1 } from '../../theme/globalStyle'
 // import PageNav from './PageNav.js'
 
 const StyledHeader = styled.div`
+  z-index: 1;
   position: fixed;
   top: 0;
   width: 100%;
