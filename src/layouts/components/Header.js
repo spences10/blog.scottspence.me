@@ -13,13 +13,13 @@ const StyledHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: '. . brand brand brand brand brand brand . . . .';
+  grid-template-areas: '. . b b b b b b b b . .';
   background-color: ${({ theme }) => theme.white};
   border-bottom: 1px solid ${({ theme }) => theme.primary.light};
 `
 
 const BrandTitle = StyledH1.extend`
-  grid-area: brand;
+  grid-area: b;
   color: ${({ theme }) => theme.primary.light};
   font-size: 1.6em;
   padding: 0.5rem;
