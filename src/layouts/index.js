@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
+import Headroom from 'react-headroom'
 
 import { theme } from '../theme/globalStyle'
 import Header from './components/Header'
@@ -36,7 +37,9 @@ const TemplateWrapper = ({ children }) => (
           { name: 'keywords', content: 'sample, something' }
         ]}
       />
-      <Header />
+      <Headroom>
+        <Header />
+      </Headroom>
       <Main>{children()}</Main>
     </PageContainer>
   </ThemeProvider>
