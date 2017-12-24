@@ -25,7 +25,7 @@ which a lot of organisations want now.
 This has basically brought me to the conclusion that I should be expanding my
 skill set, so I have been busy getting the skills I need to become a full stack
 web developer using the awesome free course material at
-[FreeCodeCamp](https://www.freecodecamp.com) (FCC) I'm still in the very early
+[freeCodeCamp](https://www.freecodecamp.com) (fCC) I'm still in the very early
 stages of this and am not about to start looking for full stack web developer
 jobs but it is something that I'm going to commit a lot of my spare time to so I
 can build a portfolio to showcase my skills for prospective employers. This will
