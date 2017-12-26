@@ -26,8 +26,10 @@ const Main = styled.div`
   min-height: 800px;
   margin-top: 4.625rem;
   padding: 1.75rem;
-  /* margin: 0.5rem;
-  padding-top: 0rem; */
+  margin-top: 2.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  /* padding-top: 0rem; */
 `
 
 const TemplateWrapper = ({ children }) => (
