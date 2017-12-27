@@ -1,4 +1,5 @@
 import styled, { injectGlobal } from 'styled-components'
+import { media } from './utils'
 
 injectGlobal`
 
@@ -14,6 +15,18 @@ injectGlobal`
     font-family: Roboto, Arial, sans-serif;
     font-size: 20px;
     line-height: 1.3125;
+    ${media.giant`
+      font-size: 20px
+    `};
+    ${media.desktop`
+      font-size: 20px
+    `};
+    ${media.tablet`
+      font-size: 15px
+    `};
+    ${media.phone`
+      font-size: 13px
+    `};
   }
 
   a {
@@ -37,18 +50,6 @@ injectGlobal`
   ul {
     margin: 0 auto;
   }
-/* 
-  @media screen and (min-width: 320px) {
-    body {
-      font-size: 15px;
-    }
-  }
-
-  @media screen and (min-width: 600px) {
-    body {
-      font-size: 16px;
-    }
-  }  */
 `
 
 export const theme = {
