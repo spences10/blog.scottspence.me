@@ -1,11 +1,5 @@
 import styled, { injectGlobal } from 'styled-components'
 
-/* TODO
-  take a look at using
-  box sizing
-  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
-*/
-
 injectGlobal`
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
@@ -43,18 +37,18 @@ injectGlobal`
   ul {
     margin: 0 auto;
   }
-
+/* 
   @media screen and (min-width: 320px) {
-    html {
+    body {
       font-size: 15px;
     }
   }
 
   @media screen and (min-width: 600px) {
-    html {
+    body {
       font-size: 16px;
     }
-  }
+  }  */
 `
 
 export const theme = {
