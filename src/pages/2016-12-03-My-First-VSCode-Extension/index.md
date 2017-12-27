@@ -4,6 +4,7 @@ date: "2016-12-03"
 title: "My first Microsoft Visual Studio Code [VSCode] extension"
 tags: ['Information','vscode','extension']
 excerpt: "I'm a published developer! [sort of] Well that was a bit painful, well not actually I mean from the documentation I feel I was a bit mislead."
+published: true
 ---
 
 ![market-place-image](./visual-studio-marketplace.png)

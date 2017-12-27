@@ -6,6 +6,7 @@ tags: ['information', 'guide']
 excerpt: "Want to get set up with your very own Twitter bot quickly and easily, with this guide you can be set up in under 30 minutes. But first, why should you want to build a Twitter bot?
 
 There are some really useful Twitter bots out there that do some pretty cool stuff they don't all spam current hashtags and follow users relentlessly."
+published: true
 ---
 
 <figure class="floatRight">

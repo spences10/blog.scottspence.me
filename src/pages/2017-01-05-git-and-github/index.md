@@ -6,6 +6,7 @@ tags: ['information', 'guide']
 excerpt: "I know why Linus called it that now!
 
 If you're reading this there's a good chance you know at least the basics of Git but if like me and you are the only person making changes to your repos then there's a good chance that you just use `git push origin master` to move your changes from your local machine to GitHub, this is not best practice."
+published: true
 ---
 
 <figure class="floatRight">

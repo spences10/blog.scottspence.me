@@ -4,6 +4,7 @@ date: "2017-06-01"
 title: "Moving from beginner to (slightly more) advanced git with aliases."
 tags: ['information', 'guide']
 excerpt: "Speed up your git workflow with git aliases, this is a brief introduction on using aliases 👌🚀👍"
+published: true
 ---
 
 The more you work with Git the more familiar you become with the commands used

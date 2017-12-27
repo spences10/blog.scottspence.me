@@ -6,6 +6,7 @@ tags: ['information', 'guide']
 excerpt: "I must say this was great to do and a nice little introduction to [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).
 
 I got to doing this from finding it on [GitHub](https://github.com) I think I was looking for the Twitter icon in bootstrap whilst working on my [Random Quote Generator](http://codepen.io/spences10/full/dOaYbP/) I stumbled across the [twitter-bot-bootstrap](https://github.com/mobeets/twitter-bot-bootstrap) (as you do) so after stalling with my progress on the FreeCodeCamp(:fire:) zipline for a Wikipedia viewer I decided to give the Twitter bot a try and managed to create it and add it to [Heroku](https://heroku.com) :tada:"
+published: true
 ---
 
 <figure class="floatRight">

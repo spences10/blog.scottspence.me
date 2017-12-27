@@ -4,6 +4,7 @@ date: "2017-06-30"
 title: "Git ` — allow-unrelated-histories`"
 tags: ['information', 'guide']
 excerpt: How to combine two separate unrelated Git repositories into one with single history timeline.
+published: true
 ---
 
 How to combine two separate unrelated Git repositories into one with single
