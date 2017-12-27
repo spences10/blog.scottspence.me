@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import { StyledH1 } from '../../theme/globalStyle'
+import { media } from '../../theme/utils'
 // import PageNav from './PageNav.js'
 
 const StyledHeader = styled.div`
@@ -10,11 +11,32 @@ const StyledHeader = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  grid-area: hd;
+  grid-area: b;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: '. . b b b b b b b b . .';
+  grid-template-areas: '. . . b b b b b b . . .';
+  ${media.giant`
+    grid-template-areas:
+      '. . . b b b b b b . . .';
+    background: dodgerblue;
+  `};
+  ${media.desktop`
+    grid-template-areas:
+      '. . b b b b b b b b . .';
+    background: dodgerblue;
+  `};
+  ${media.tablet`
+  grid-template-areas:
+      '. b b b b b b b b b b .';
+    background: mediumseagreen;
+  `};
+  ${media.phone`
+  grid-template-areas:
+      'b b b b b b b b b b b b';
+    background: palevioletred;
+  `};
+
   background-color: ${({ theme }) => theme.white};
   border-bottom: 1px solid ${({ theme }) => theme.primary.light};
 `

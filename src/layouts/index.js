@@ -15,17 +15,36 @@ const PageContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  ${media.desktop`
   grid-template-areas:
-    'h h h h h h h h h h h h'
-    'm m m m m m m m m m m m'
-    'f f f f f f f f f f f f';
+    '. . . h h h h h h . . .'
+    '. . . m m m m m m . . .'
+    '. . . f f f f f f . . .';
+  ${media.giant`
+    grid-template-areas:
+      '. . . h h h h h h . . .'
+      '. . . m m m m m m . . .'
+      '. . . f f f f f f . . .';
+    background: dodgerblue;
+  `};
+  ${media.desktop`
+    grid-template-areas:
+      '. . h h h h h h h h . .'
+      '. . m m m m m m m m . .'
+      '. . f f f f f f f f . .';
     background: dodgerblue;
   `};
   ${media.tablet`
+  grid-template-areas:
+      '. h h h h h h h h h h .'
+      '. m m m m m m m m m m .'
+      '. f f f f f f f f f f .';
     background: mediumseagreen;
   `};
   ${media.phone`
+  grid-template-areas:
+      'h h h h h h h h h h h h'
+      'm m m m m m m m m m m m'
+      'f f f f f f f f f f f f';
     background: palevioletred;
   `};
 `
@@ -33,16 +52,6 @@ const PageContainer = styled.div`
 // min-height is just for the purpose of nice looking page
 const Main = styled.div`
   grid-area: m;
-  grid-column: 3 / -3;
-  ${media.desktop`
-    grid-column: 3 / -3;
-  `};
-  ${media.tablet`
-    grid-column: 2 / -2;
-  `};
-  ${media.phone`
-    grid-column: 1 / -1;
-  `};
   min-height: 800px;
   margin-top: 4.625rem;
   padding: 1.75rem;
