@@ -58,7 +58,7 @@ I'll be using `yarn` for all these examples, you can use `npm` if you prefer.
 
 Terminal commands:
 
-```shell
+```sh
 mkdir tweebot-play
 cd tweebot-play
 yarn init -y
@@ -133,7 +133,7 @@ ACCESS_TOKEN_SECRET=77vGPTt20xxxxxxxxxxxZAU8wxxxxxxxxxx0PhOo43cGO
 
 In the `.gitignore` file we need to add `.env` and `node_modules`
 
-```shell
+```sh
 # Dependency directories
 node_modules
 
@@ -143,7 +143,7 @@ node_modules
 
 Then init git:
 
-```shell
+```sh
 git init
 ```
 
@@ -152,7 +152,7 @@ file and a `config.js` file.
 
 Terminal:
 
-```shell
+```sh
 mkdir src
 cd src
 touch config.js bot.js
@@ -185,7 +185,7 @@ const bot = new Twit(config)
 Ok, that's it out bot is ready to go, do a test with `yarn start` from the
 terminal, we should get this for output:
 
-```shell
+```sh
 yarn start
 yarn start v0.23.4
 $ node index.js
@@ -348,7 +348,7 @@ bot.get(
 
 If the user follows the bot, then relationship will be:
 
-```shell
+```sh
 [ { name: 'Scott Spence 🌯😴💻♻',
     screen_name: 'ScottDevTweets',
     id: 4897735439,
@@ -358,7 +358,7 @@ If the user follows the bot, then relationship will be:
 
 If the user and the bot are following each other, the relationship will be:
 
-```shell
+```sh
 [ { name: 'Scott Spence 🌯😴💻♻',
     screen_name: 'ScottDevTweets',
     id: 4897735439,
@@ -368,7 +368,7 @@ If the user and the bot are following each other, the relationship will be:
 
 And if there is no relationship then:
 
-```shell
+```sh
 [ { name: 'Scott Spence 🌯😴💻♻',
     screen_name: 'ScottDevTweets',
     id: 4897735439,
@@ -908,7 +908,7 @@ right 😀 no, I know it wasn't. Here's the complete module:
 
 <details>
   <summary>Click to expand</summary>
-  
+
 ```js
 const Twit = require('twit')
 const request = require('request')
@@ -918,41 +918,89 @@ const path = require('path')
 
 const bot = new Twit(config)
 
-function getPhoto() { const parameters = { url:
-'https://api.nasa.gov/planetary/apod', qs: { api_key: process.env.NASA_KEY },
-encoding: 'binary' } request.get(parameters, (err, respone, body) => { body =
-JSON.parse(body) saveFile(body, 'nasa.jpg') }) }
+function getPhoto() {
+  const parameters = {
+    url: 'https://api.nasa.gov/planetary/apod',
+    qs: {
+      api_key: process.env.NASA_KEY
+    },
+    encoding: 'binary'
+  }
+  request.get(parameters, (err, respone, body) => {
+    body = JSON.parse(body)
+    saveFile(body, 'nasa.jpg')
+  })
+}
 
-function saveFile(body, fileName) { const file = fs.createWriteStream(fileName)
-request(body).pipe(file).on('close', err => { if (err) { console.log(err) } else
-{ console.log('Media saved!') const descriptionText = body.title
-uploadMedia(descriptionText, fileName) } }) }
+function saveFile(body, fileName) {
+  const file = fs.createWriteStream(fileName)
+  request(body)
+    .pipe(file)
+    .on('close', err => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('Media saved!')
+        const descriptionText = body.title
+        uploadMedia(descriptionText, fileName)
+      }
+    })
+}
 
-function uploadMedia(descriptionText, fileName) { const filePath =
-path.join(\_\_dirname, `../${fileName}`) console.log(`file PATH ${filePath}`)
-bot.postMediaChunked({ file_path: filePath }, (err, data, respone) => { if (err)
-{ console.log(err) } else { console.log(data) const params = { status:
-descriptionText, media_ids: data.media_id_string } postStatus(params) } }) }
+function uploadMedia(descriptionText, fileName) {
+  const filePath = path.join(__dirname, `../${fileName}`)
+  console.log(`file PATH ${filePath}`)
+  bot.postMediaChunked(
+    {
+      file_path: filePath
+    },
+    (err, data, respone) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(data)
+        const params = {
+          status: descriptionText,
+          media_ids: data.media_id_string
+        }
+        postStatus(params)
+      }
+    }
+  )
+}
 
-function postStatus(params) { bot.post('statuses/update', params, (err, data,
-respone) => { if (err) { console.log(err) } else { console.log('Status posted!')
-} }) }
+function postStatus(params) {
+  bot.post('statuses/update', params, (err, data, respone) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('Status posted!')
+    }
+  })
+}
 
 getPhoto()
+```
 
-````
 </details>
 
 ## Make a Markov bot
 
-This is pretty neat, again from the [egghead.io][egghead-markov] series it uses [rita][rita-npm] natural language toolkit. It also uses `csv-parse` as we're going to be reading out our Twitter archive to make the bot sound like us tweeting.
+This is pretty neat, again from the [egghead.io][egghead-markov] series it uses
+[rita][rita-npm] natural language toolkit. It also uses `csv-parse` as we're
+going to be reading out our Twitter archive to make the bot sound like us
+tweeting.
 
-First of all, to set up the [Twitter archive][tweet-archive], you'll need to request your data from the Twitter settings page. You'll be emailed a link to download your archive, then when you have downloaded the archive extract out the `tweets.csv` file, we'll then put that in it's own folder, so from the root of your project:
+First of all, to set up the [Twitter archive][tweet-archive], you'll need to
+request your data from the Twitter settings page. You'll be emailed a link to
+download your archive, then when you have downloaded the archive extract out the
+`tweets.csv` file, we'll then put that in it's own folder, so from the root of
+your project:
 
-```shell
+```sh
 cd src
 mkdir twitter-archive
-````
+```
 
 We'll move our `tweets.csv` there to be accessed by the bot we're going to go
 over now.
@@ -1171,7 +1219,7 @@ Tabletop.init({
 
 Running the bot now should give output like this:
 
-```shell
+```sh
 $ node index.js
 [ { 'links': 'https://www.freecodecamp.com' },
   { 'links': 'https://github.com' },
@@ -1265,7 +1313,7 @@ events from the main `bot.js` module, so lets try this:
 Take the example we did to tweet a picture and add it to it's own module, so
 from the root directory of our project:
 
-```shell
+```sh
 cd src
 touch picture-bot.js
 ```
@@ -1306,13 +1354,13 @@ picture()
 
 That's it, two lines of code, try running that from the terminal now:
 
-```shell
+```sh
 yarn start
 ```
 
 We should get some output like this:
 
-```shell
+```sh
 yarn start v0.23.4
 $ node index.js
 Media saved!
@@ -1350,7 +1398,7 @@ did in the picture of the day example, lets create a new module for the Markov
 bot and add all the code in there from the previous example, so from the
 terminal:
 
-```shell
+```sh
 cd src
 touch markov-bot.js
 ```
@@ -1435,7 +1483,7 @@ Do the same with the link bot? Ok, same as before, you get the idea now, right?
 
 Create a new file in the `src` folder for link bot:
 
-```shell
+```sh
 touch link-bot.js
 ```
 
@@ -1523,13 +1571,13 @@ then we can install the CLI.
 Install `now` globally on our machine so you can use it everywhere, to install
 the `now-cli` from the terminal enter:
 
-```shell
+```sh
 npm install -g now
 ```
 
 Once it's completed login with:
 
-```shell
+```sh
 now --login
 ```
 
@@ -1583,7 +1631,7 @@ All good so for?
 Ok, now we need to add a `.npmignore` file in the root of the project and add
 the following line to it:
 
-```shell
+```sh
 !tweets.csv
 ```
 
@@ -1608,7 +1656,7 @@ Lets start, so the syntax is `now secrets add my-secret "my value"` so for our
 Ok, so from the terminal `now secrets ls` should list out your `secrets` you
 just created:
 
-```shell
+```sh
 $ now secrets ls
 > 5 secrets found under spences10 [1s]
 
@@ -1708,7 +1756,7 @@ The completed code here:
 
 <details>
   <summary>Click to expand</summary>
-  
+
 ```js
 const Twit = require('twit')
 const request = require('request')
@@ -1718,50 +1766,93 @@ const path = require('path')
 
 const bot = new Twit(config)
 
-const os = require('os') const tmpDir = os.tmpdir()
+const os = require('os')
+const tmpDir = os.tmpdir()
 
-const getPhoto = () => { const parameters = { url:
-'https://api.nasa.gov/planetary/apod', qs: { api_key: process.env.NASA_KEY },
-encoding: 'binary' } request.get(parameters, (err, respone, body) => { body =
-JSON.parse(body) saveFile(body) }) }
+const getPhoto = () => {
+  const parameters = {
+    url: 'https://api.nasa.gov/planetary/apod',
+    qs: {
+      api_key: process.env.NASA_KEY
+    },
+    encoding: 'binary'
+  }
+  request.get(parameters, (err, respone, body) => {
+    body = JSON.parse(body)
+    saveFile(body)
+  })
+}
 
-function saveFile(body) { const fileName = body.media_type === 'image/jpeg' ?
-'nasa.jpg' : 'nasa.mp4'; const filePath = path.join(tmpDir + `/${fileName}`)
+function saveFile(body) {
+  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4';
+  const filePath = path.join(tmpDir + `/${fileName}`)
 
-console.log(`saveFile: file PATH ${filePath}`) if (fileName === 'nasa.mp4') { //
-tweet the link const params = { status: 'NASA video link: ' + body.url }
-postStatus(params) return } const file = fs.createWriteStream(filePath)
+  console.log(`saveFile: file PATH ${filePath}`)
+  if (fileName === 'nasa.mp4') {
+    // tweet the link
+    const params = {
+      status: 'NASA video link: ' + body.url
+    }
+    postStatus(params)
+    return
+  }
+  const file = fs.createWriteStream(filePath)
 
-request(body).pipe(file).on('close', err => { if (err) { console.log(err) } else
-{ console.log('Media saved!') const descriptionText = body.title
-uploadMedia(descriptionText, filePath) } }) }
+  request(body).pipe(file).on('close', err => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('Media saved!')
+      const descriptionText = body.title
+      uploadMedia(descriptionText, filePath)
+    }
+  })
+}
 
 function uploadMedia(descriptionText, fileName) {
-console.log(`uploadMedia: file PATH ${fileName}`) bot.postMediaChunked({
-file_path: fileName }, (err, data, respone) => { if (err) { console.log(err) }
-else { console.log(data) const params = { status: descriptionText, media_ids:
-data.media_id_string } postStatus(params) } }) }
+  console.log(`uploadMedia: file PATH ${fileName}`)
+  bot.postMediaChunked({
+    file_path: fileName
+  }, (err, data, respone) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(data)
+      const params = {
+        status: descriptionText,
+        media_ids: data.media_id_string
+      }
+      postStatus(params)
+    }
+  })
+}
 
-function postStatus(params) { bot.post('statuses/update', params, (err, data,
-respone) => { if (err) { console.log(err) } else { console.log('Status posted!')
-} }) }
+function postStatus(params) {
+  bot.post('statuses/update', params, (err, data, respone) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('Status posted!')
+    }
+  })
+}
 
 module.exports = getPhoto
+```
 
-````
 </details>
 
 Ok, thats it! We're ready to deploy to `now`!🚀
 
 So from the terminal we call our deployment script we defined earlier:
 
-```shell
+```sh
 yarn deploy
-````
+```
 
 You will get some output:
 
-```shell
+```sh
 λ yarn deploy
 yarn deploy v0.24.4
 $ now -e CONSUMER_KEY=@ds-twit-key -e CONSUMER_SECRET=@ds-twit-secret -e ACCESS_TOKEN=@ds-twit-access  -e ACCESS_TOKEN_SECRET=@ds-twit-access-secret -e NASA_KEY=@nasa-key
