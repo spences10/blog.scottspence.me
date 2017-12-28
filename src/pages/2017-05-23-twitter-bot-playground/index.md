@@ -115,7 +115,7 @@ It should look something like this now:
 
 Now we can add the following pointer to the bot in `index.js`, like so:
 
-```javascript
+```js
 require('./src/bot')
 ```
 
@@ -161,7 +161,7 @@ touch config.js bot.js
 Then we can set up the bot config, open the `config.js` file and add the
 following:
 
-```javascript
+```js
 require('dotenv').config()
 
 module.exports = {
@@ -175,7 +175,7 @@ module.exports = {
 Ok, that's the bot config done now we can set up the bot, each of the examples
 detailed here will have the same three lines of code:
 
-```javascript
+```js
 const Twit = require('twit')
 const config = require('./config')
 
@@ -199,7 +199,7 @@ Bot is now configured and ready to go!🚀
 Firstly post statuses, with `.post('statuses/update'...` bot will post a hello
 world! status.
 
-```javascript
+```js
 bot.post(
   'statuses/update',
   {
@@ -222,7 +222,7 @@ account that you want the followers of, in this example we're using
 [`@DroidScott`][scottbot], you can use any account you like. We can then log
 them out to the console in this example.
 
-```javascript
+```js
 bot.get(
   'followers/ids',
   {
@@ -246,7 +246,7 @@ Or to get a detailed list you can use `.get('followers/list'...`
 
 Here we print off a list of `user.screen_name`'s up to 200 per call.
 
-```javascript
+```js
 bot.get(
   'followers/list',
   {
@@ -270,7 +270,7 @@ bot is following back the user `MarcGuberti`
 
 > A bot should only follow users that follow the bot.
 
-```javascript
+```js
 bot.post(
   'friendships/create',
   {
@@ -289,7 +289,7 @@ bot.post(
 Like with followers you can get a list of accounts that your bot is following
 back.
 
-```javascript
+```js
 bot.get(
   'friends/ids',
   {
@@ -307,7 +307,7 @@ bot.get(
 
 And also a detailed list.
 
-```javascript
+```js
 bot.get(
   'friends/list',
   {
@@ -330,7 +330,7 @@ list and follow back any users that do not have the `following` connection.
 Lets take a look at the relation between our bot and
 [`@ScottDevTweets`][scotttwit]
 
-```javascript
+```js
 bot.get(
   'friendships/lookup',
   {
@@ -380,7 +380,7 @@ Direct Message a user with `bot.post('direct_messages/new'...`
 
 > A bot should only DM a user that is following the bot account
 
-```javascript
+```js
 bot.post(
   'direct_messages/new',
   {
@@ -402,7 +402,7 @@ bot.post(
 To get a list of tweets in the bots time line use
 `.get(statuses/home_timeline'...`
 
-```javascript
+```js
 bot.get(
   'statuses/home_timeline',
   {
@@ -420,7 +420,7 @@ bot.get(
 
 To be more granular you can pull out specific information on each tweet.
 
-```javascript
+```js
 bot.get(
   'statuses/home_timeline',
   {
@@ -444,7 +444,7 @@ bot.get(
 To retweet use `.post('statuses/retweet/:id'...` and pass in a tweet id to
 retweet.
 
-```javascript
+```js
 bot.post(
   'statuses/retweet/:id',
   {
@@ -462,7 +462,7 @@ bot.post(
 
 To unretweet just use `.post('statuses/unretweet/:id'...`
 
-```javascript
+```js
 bot.post(
   'statuses/unretweet/:id',
   {
@@ -480,7 +480,7 @@ bot.post(
 
 To like a tweet use `.post('favorites/create'...`
 
-```javascript
+```js
 bot.post(
   'favorites/create',
   {
@@ -498,7 +498,7 @@ bot.post(
 
 To unlike a post use `.post('favorites/destroy'...`
 
-```javascript
+```js
 bot.post(
   'favorites/destroy',
   {
@@ -518,7 +518,7 @@ To reply to a tweet is much the same a posting a tweet but you need to include
 the `in_reply_to_status_id` parameter, but that's not enough as you will also
 need to put in the screen name of the person you are replying to.
 
-```javascript
+```js
 bot.post(
   'statuses/update',
   {
@@ -538,7 +538,7 @@ bot.post(
 Finally if you want to delete a tweet use `.post('statuses/destroy/:id'...`
 passing the tweet id you want to delete.
 
-```javascript
+```js
 bot.post(
   'statuses/destroy/:id',
   {
@@ -563,7 +563,7 @@ parameters for search.
 limit the results returned with `count: n` so let's limit it the count to in the
 example:
 
-```javascript
+```js
 bot.get(
   'search/tweets',
   {
@@ -583,7 +583,7 @@ bot.get(
 Like we did with the timeline we will pull out specific items from the
 `data.statuses` returned, like this:
 
-```javascript
+```js
 bot.get(
   'search/tweets',
   {
@@ -626,7 +626,7 @@ You can specify for `images` to view tweets with images and you can specify
 If you want tweets from a certain website you can specify with the `url`
 parameter like `url:asda`
 
-```javascript
+```js
 bot.get(
   'search/tweets',
   {
@@ -653,7 +653,7 @@ Last few now, there's the `result_type` parameter that will return `recent`,
 The `geocode` parameter that take the format latitude longitude then radius in
 miles `'51.5033640,-0.1276250,1mi'` example:
 
-```javascript
+```js
 bot.get(
   'search/tweets',
   {
@@ -680,7 +680,7 @@ bot.get(
 There are two ways to use the Stream API first there's
 `.stream('statuses/sample')` example:
 
-```javascript
+```js
 const stream = bot.stream('statuses/sample')
 
 stream.on('tweet', t => {
@@ -693,7 +693,7 @@ This will give you a random sampling of tweets.
 For more specific information use `.stream('statuses/filter')...` then pass some
 parameters, use `track:` to specify a search string:
 
-```javascript
+```js
 var stream = bot.stream('statuses/filter', {
   track: 'bot'
 })
@@ -706,7 +706,7 @@ stream.on('tweet', function(t) {
 You can also use multiple words in the `track` parameter, tis will get you
 results with either `twitter` or `bot` in them.
 
-```javascript
+```js
 const stream = bot.stream('statuses/filter', {
   track: 'twitter, bot'
 })
@@ -722,7 +722,7 @@ If you want both words then remove the comma `,` you can think of spaces as
 You can also use the `follow:` parameter which lets you input the ids of
 specific users, example:
 
-```javascript
+```js
 const stream = bot.stream('statuses/filter', {
   follow: '4897735439'
 })
@@ -743,7 +743,7 @@ it.
 For this we will need references to `request` and `fs` for working with the file
 system.
 
-```javascript
+```js
 const Twit = require('twit')
 const request = require('request')
 const fs = require('fs')
@@ -756,7 +756,7 @@ First up get the photo from the NASA api, for this we will need to create a
 parameter object inside our `getPhoto` function that will be passed to the node
 HTTP client `request` for the image:
 
-```javascript
+```js
 function getPhoto() {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
@@ -787,7 +787,7 @@ NASA_KEY=DEMO_KEY
 
 Now to use the `request` to get the image:
 
-```javascript
+```js
 function getPhoto() {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
@@ -806,7 +806,7 @@ function getPhoto() {
 In the `request` we pass in our parameters and parse the body as JOSN so we can
 save it with the `saveFile` function which we'll go over now:
 
-```javascript
+```js
 function saveFile(body, fileName) {
   const file = fs.createWriteStream(fileName)
   request(body)
@@ -833,7 +833,7 @@ Now we can share it on Twitter 😎
 
 Two parts to this, first save the file.
 
-```javascript
+```js
 function saveFile(body, fileName) {
   const file = fs.createWriteStream(fileName)
   request(body)
@@ -857,7 +857,7 @@ with `file does not exist` errors:
 
 Add a `require` to `path` then use `join` with the relevant relative file path.
 
-```javascript
+```js
 const path = require('path')
 //...
 const filePath = path.join(__dirname, '../' + fileName)
@@ -865,7 +865,7 @@ const filePath = path.join(__dirname, '../' + fileName)
 
 Complete function here:
 
-```javascript
+```js
 function uploadMedia(descriptionText, fileName) {
   console.log(`uploadMedia: file PATH ${fileName}`)
   bot.postMediaChunked(
@@ -891,7 +891,7 @@ function uploadMedia(descriptionText, fileName) {
 Then with the `params` we created in `uploadMedia` we can post with a
 straightforward `.post('statuses/update'...`
 
-```javascript
+```js
 function postStatus(params) {
   bot.post('statuses/update', params, (err, data, respone) => {
     if (err) {
@@ -909,7 +909,7 @@ right 😀 no, I know it wasn't. Here's the complete module:
 <details>
   <summary>Click to expand</summary>
   
-```javascript
+```js
 const Twit = require('twit')
 const request = require('request')
 const fs = require('fs')
@@ -959,7 +959,7 @@ over now.
 
 Use `fs` to set up a read stream...
 
-```javascript
+```js
 const filePath = path.join(__dirname, './twitter-archive/tweets.csv')
 
 const tweetData = fs
@@ -984,7 +984,7 @@ processing we'll set up two functions `cleanText` and `hasNoStopWords`
 stop words then `.join(' ')` back together with a space and `.trim()` any
 whitespace that may be at the start of the text.
 
-```javascript
+```js
 function cleanText(text) {
   return rita.RiTa.tokenize(text, ' ')
     .filter(hasNoStopWords)
@@ -996,7 +996,7 @@ function cleanText(text) {
 The tokenized text can then be fed into the `hasNoStopWords` function to be
 sanitized for use in `tweetData`
 
-```javascript
+```js
 function hasNoStopWords(token) {
   const stopwords = ['@', 'http', 'RT']
   return stopwords.every(sw => !token.includes(sw))
@@ -1010,7 +1010,7 @@ consideration. Then use `markov.generateSentences(1)` with 1 being the number of
 sentences being generated. We'll also use `.toString()` and `.substring(0, 140)`
 to truncate the result down to 140 characters.
 
-```javascript
+```js
 const tweetData =
   fs.createReadStream(filePath)
   .pipe(csvparse({
@@ -1031,7 +1031,7 @@ const tweetData =
 Now we can tweet this with the bot using `.post('statuses/update'...` passing in
 the `sentence` variable as the `status` logging out when there is a tweet.
 
-```javascript
+```js
 const tweetData =
   fs.createReadStream(filePath)
     .pipe(csvparse({
@@ -1068,7 +1068,7 @@ Here's the completed module:
 <details>
   <summary>Click to expand</summary>
 
-```javascript
+```js
 const Twit = require('twit')
 const fs = require('fs')
 const csvparse = require('csv-parse')
@@ -1131,7 +1131,7 @@ we'll go through a list of links.
 
 So, set up the bot and require `tabletop`:
 
-```javascript
+```js
 const Twit = require('twit')
 const config = require('./config')
 const Tabletop = require('tabletop')
@@ -1156,7 +1156,7 @@ Now init Table top with three parameters, `key:` which is the spreadsheet URL, a
 `callback:` function to get the data and `simpleSheet:` which is `true` if you
 only have one sheet, like in our example here:
 
-```javascript
+```js
 const spreadsheetUrl =
   'https://docs.google.com/spreadsheets/d/1842GC9JS9qDWHc-9leZoEn9Q_-jcPUcuDvIqd_MMPZQ/pubhtml'
 
@@ -1182,7 +1182,7 @@ $ node index.js
 So now we can tweet them using `.post('statuses/update',...` with a `forEach` on
 the `data` that is returned in the callback:
 
-```javascript
+```js
 Tabletop.init({
   key: spreadsheetUrl,
   callback(data, tabletop) {
@@ -1216,7 +1216,7 @@ The completed code here:
 <details>
   <summary>Click to expand</summary>
 
-```javascript
+```js
 const Twit = require('twit')
 const config = require('./config')
 const Tabletop = require('tabletop')
@@ -1273,7 +1273,7 @@ touch picture-bot.js
 Take the example code from that and paste it into the new module, then we're
 going to make the following changes, to `getPhoto`:
 
-```javascript
+```js
 const getPhoto = () => {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
@@ -1291,14 +1291,14 @@ const getPhoto = () => {
 
 Then at the bottom of the module add:
 
-```javascript
+```js
 module.exports = getPhoto
 ```
 
 So now we can call the `getPhoto` function from the `picture-bot.js` module in
 our `bot.js` module, our `bot.js` module should look something like this:
 
-```javascript
+```js
 const picture = require('./picture-bot')
 
 picture()
@@ -1336,7 +1336,7 @@ hours [8.64e+7] I don't even 🤷‍
 I work it out like this, 1000 _ 60 = 1 minute, so 1000 _ 60 _ 60 _ 24 so for now
 lets add that directly into the `setInterval` function:
 
-```javascript
+```js
 const picture = require('./picture-bot')
 
 picture()
@@ -1358,7 +1358,7 @@ touch markov-bot.js
 Then copy pasta the markov bot example into the new module, then we're going to
 make the following changes:
 
-```javascript
+```js
 const tweetData = () => {
   fs
     .createReadStream(filePath)
@@ -1396,7 +1396,7 @@ const tweetData = () => {
 
 Then at the bottom of the module add:
 
-```javascript
+```js
 module.exports = tweetData
 ```
 
@@ -1404,7 +1404,7 @@ Ok, same again as with the picture bot example we're going to add the
 `tweetData` export from `markov-bot.js` to our `bot.js` module, which should now
 look something like this:
 
-```javascript
+```js
 const picture = require('./picture-bot')
 const markov = require('./markov-bot')
 
@@ -1417,7 +1417,7 @@ markov()
 Let's make the Markov bot tweet at random intervals between 5 minutes and 3
 hours
 
-```javascript
+```js
 const picture = require('./picture-bot')
 const markov = require('./markov-bot')
 
@@ -1441,7 +1441,7 @@ touch link-bot.js
 
 Copy pasta the code from the link bot example into the new module, like this:
 
-```javascript
+```js
 const link = () => {
   Tabletop.init({
     key: spreadsheetUrl,
@@ -1473,7 +1473,7 @@ module.exports = link
 
 Then we can call it from the bot, so it should look something like this:
 
-```javascript
+```js
 const picture = require('./picture-bot')
 const markov = require('./markov-bot')
 const link = require('./link-bot')
@@ -1658,7 +1658,7 @@ Shout out to [@Tim][tim] from `zeit` for helping me out with this!
 In the `picture-bot.js` module add the following two lines to the top of the
 module:
 
-```javascript
+```js
 const os = require('os')
 const tmpDir = os.tmpdir()
 ```
@@ -1674,7 +1674,7 @@ some items posted there are videos as well. We we can define the type with a
 [ternary function][ternary] off of the `body` being passed in, this will send a
 tweet with a link to the video:
 
-```javascript
+```js
 function saveFile(body) {
   const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
   const filePath = path.join(tmpDir + `/${fileName}`)
@@ -1709,7 +1709,7 @@ The completed code here:
 <details>
   <summary>Click to expand</summary>
   
-```javascript
+```js
 const Twit = require('twit')
 const request = require('request')
 const fs = require('fs')

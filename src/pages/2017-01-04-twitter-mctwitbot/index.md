@@ -152,7 +152,7 @@ var uniqueRandomArray = require('unique-random-array');
 
 Built the query string:
 
-```javascript
+```js
 var queryString = uniqueRandomArray([
   '100daysofcode',
   'freecodecamp',
