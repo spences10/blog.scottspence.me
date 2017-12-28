@@ -9,12 +9,18 @@ import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
 const Title = StyledH1.extend`
   padding-left: 0rem;
+  padding-right: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 `
 
 const TitleDate = StyledH3.extend`
   padding-left: 0rem;
+  padding-right: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
 `
@@ -49,7 +55,7 @@ const Template = ({ data, location, pathContext }) => {
       <Title>{title}</Title>
       <TitleDate>{date}</TitleDate>
 
-      <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
 
       <NavWrapper>
         <NavP>
