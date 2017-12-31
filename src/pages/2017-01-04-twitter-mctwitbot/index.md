@@ -3,20 +3,24 @@ path: "/2017-01-04-twitter-mctwitbot/"
 date: "2017-01-04"
 title: "Twitter McTwitBot"
 tags: ['information', 'guide']
-excerpt: "I must say this was great to do and a nice little introduction to [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).
-
-I got to doing this from finding it on [GitHub](https://github.com) I think I was looking for the Twitter icon in bootstrap whilst working on my [Random Quote Generator](http://codepen.io/spences10/full/dOaYbP/) I stumbled across the [twitter-bot-bootstrap](https://github.com/mobeets/twitter-bot-bootstrap) (as you do) so after stalling with my progress on the FreeCodeCamp(:fire:) zipline for a Wikipedia viewer I decided to give the Twitter bot a try and managed to create it and add it to [Heroku](https://heroku.com) :tada:"
+excerpt: "I must say this was great to do and a nice little introduction to [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/)."
 published: true
 ---
 
-<figure class="floatRight">
-	<img style="height: 200px;" src="./twitter-bird.png" alt="twit">
-	<!--<figcaption>tweet yo"</figcaption>-->
-</figure>
+![twitter logo](./twitter-bird.png)
 
-This app didn't work as well as expected though :frowning:, so I then decided to
-take a look at [@amanhimself](https://twitter.com/amanhimself)'s Twitter bot he
-had created for the
+I got to doing this from finding it on [GitHub](https://github.com) I think I
+was looking for the Twitter icon in bootstrap whilst working on my
+[Random Quote Generator](http://codepen.io/spences10/full/dOaYbP/) I stumbled
+across the
+[twitter-bot-bootstrap](https://github.com/mobeets/twitter-bot-bootstrap) (as
+you do) so after stalling with my progress on the freeCodeCamp(🔥) zipline for a
+Wikipedia viewer I decided to give the Twitter bot a try and managed to create
+it and add it to [Heroku](https://heroku.com) 🎉"
+
+This app didn't work as well as expected though 😦, so I then decided to take a
+look at [@amanhimself](https://twitter.com/amanhimself)'s Twitter bot he had
+created for the
 [#100DaysOfCode](https://medium.freecodecamp.com/start-2017-with-the-100daysofcode-improved-and-updated-18ce604b237b)
 challenge, which I just happen to be taking part in.
 
@@ -96,7 +100,7 @@ The final command will build the app on Heroku for you with output like this:
 ![heroku-build](./heroku-build.png)
 
 > I know this isn't standard practice for GitHub and I am in the process of
-> understanding how to branch and use Pull Requests so bear with me :smile:
+> understanding how to branch and use Pull Requests so bear with me 😄
 
 The first gotcha for me was the Heroku `Procfile` I couldn't understand why it
 kept timing out, this was because it was trying to run the default `web` process
