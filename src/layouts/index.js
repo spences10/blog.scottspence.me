@@ -12,7 +12,6 @@ require('prismjs/themes/prism-solarizedlight.css')
 
 const PageContainer = styled.div`
   display: grid;
-  width: 100%;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
@@ -56,7 +55,7 @@ const Main = styled.div`
   grid-area: m;
   /* min-height: 800px; */
   /* padding: 1.75rem; */
-  /* margin-top: 2.5rem; */
+  margin-top: 4rem;
   /* margin-left: 0.5rem; */
   /* margin-right: 0.5rem; */
   /* padding-top: 0rem; */
