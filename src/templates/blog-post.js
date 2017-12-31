@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import Hero from '../layouts/components/Hero'
-import { media } from '../theme/utils'
+import { media } from '../theme/globalStyle'
 
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 

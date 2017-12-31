@@ -2,8 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import { StyledH1 } from '../../theme/globalStyle'
-import { media } from '../../theme/utils'
+import { StyledH1, media } from '../../theme/globalStyle'
 // import PageNav from './PageNav.js'
 
 const StyledHeader = styled.div`

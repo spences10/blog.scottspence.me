@@ -1,5 +1,24 @@
-import styled, { injectGlobal } from 'styled-components'
-import { media } from './utils'
+import styled, { injectGlobal, css } from 'styled-components'
+
+const sizes = {
+  giant: 1170,
+  desktop: 992,
+  tablet: 768,
+  phone: 376,
+}
+
+// iterate through the sizes and create a media template
+export const media = Object.keys(sizes).reduce((accumulator, label) => {
+  // use em in breakpoints to work properly cross-browser and support users
+  // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
+  const emSize = sizes[label] / 16
+  accumulator[label] = (...args) => css`
+    @media (max-width: ${emSize}em) {
+      ${css(...args)};
+    }
+  `
+  return accumulator
+}, {})
 
 injectGlobal`
 
@@ -57,16 +76,16 @@ export const theme = {
   white: '#fff',
   primary: {
     dark: '#453463',
-    light: '#755f9f'
+    light: '#755f9f',
   },
   secondary: {
     green: '#8ac3a9',
     yellow: '#fcdeb6',
-    red: '#ff8463'
+    red: '#ff8463',
   },
   shades: {
     //add shades with progress
-  }
+  },
 }
 
 export const StyledH1 = styled.h1`

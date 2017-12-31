@@ -4,8 +4,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { theme } from '../theme/globalStyle'
-import { media } from '../theme/utils'
+import { theme, media } from '../theme/globalStyle'
 
 import Header from './components/Header'
 
@@ -68,7 +67,7 @@ const TemplateWrapper = ({ children }) => (
         title="Scott Spence blog"
         meta={[
           { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          { name: 'keywords', content: 'sample, something' },
         ]}
       />
       <Header />
@@ -78,7 +77,7 @@ const TemplateWrapper = ({ children }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 }
 
 export default TemplateWrapper
