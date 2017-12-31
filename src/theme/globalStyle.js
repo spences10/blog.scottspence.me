@@ -3,7 +3,7 @@ import { media } from './utils'
 
 injectGlobal`
 
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323|Source+Sans+Pro');
 
   *, *:before, *:after {
     box-sizing: border-box;
@@ -57,16 +57,16 @@ export const theme = {
   white: '#fff',
   primary: {
     dark: '#453463',
-    light: '#755f9f'
+    light: '#755f9f',
   },
   secondary: {
     green: '#8ac3a9',
     yellow: '#fcdeb6',
-    red: '#ff8463'
+    red: '#ff8463',
   },
   shades: {
     //add shades with progress
-  }
+  },
 }
 
 export const StyledH1 = styled.h1`
