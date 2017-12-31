@@ -16,19 +16,6 @@ const Title = StyledH1.extend`
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-family: Source Sans Pro;
-  font-size: 2rem;
-  ${media.giant`
-    font-size: 2rem;
-  `};
-  ${media.desktop`
-    font-size: 1.5rem;
-  `};
-  ${media.tablet`
-    font-size: 1rem;
-  `};
-  ${media.phone`
-    font-size: 0.5rem;
-  `};
 `
 
 const TitleDate = StyledH3.extend`
@@ -39,19 +26,6 @@ const TitleDate = StyledH3.extend`
   padding-top: 0rem;
   padding-bottom: 0.5rem;
   font-family: Source Sans Pro;
-  font-size: 1rem;
-  ${media.giant`
-    font-size: 1.5rem;
-  `};
-  ${media.desktop`
-    font-size: 1rem;
-  `};
-  ${media.tablet`
-    font-size: 0.5rem;
-  `};
-  ${media.phone`
-    font-size: 0.25rem;
-  `};
 `
 
 const ContentWrapper = styled.div`

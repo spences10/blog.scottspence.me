@@ -12,6 +12,7 @@ require('prismjs/themes/prism-solarizedlight.css')
 
 const PageContainer = styled.div`
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
@@ -33,17 +34,19 @@ const PageContainer = styled.div`
     background: dodgerblue;
   `};
   ${media.tablet`
+  grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
-      '. h h h h h h h h h h .'
-      '. m m m m m m m m m m .'
-      '. f f f f f f f f f f .';
+      '. h h h h h h h .'
+      '. m m m m m m m .'
+      '. f f f f f f f .';
     background: mediumseagreen;
   `};
   ${media.phone`
+  grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
-      'h h h h h h h h h h h h'
-      'm m m m m m m m m m m m'
-      'f f f f f f f f f f f f';
+      'h h h h h h h h h'
+      'm m m m m m m m m'
+      'f f f f f f f f f';
     background: palevioletred;
   `};
 `

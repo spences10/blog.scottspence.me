@@ -26,13 +26,15 @@ const StyledHeader = styled.div`
     background: dodgerblue;
   `};
   ${media.tablet`
+  grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
-      '. b b b b b b b b b b .';
+      '. b b b b b b b .';
     background: mediumseagreen;
   `};
   ${media.phone`
+  grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
-      'b b b b b b b b b b b b';
+      'b b b b b b b b b';
     background: palevioletred;
   `};
 
@@ -49,18 +51,6 @@ const BrandTitle = StyledH1.extend`
   margin: 0.5rem;
   font-family: Source Sans Pro;
   font-weight: bold;
-  ${media.giant`
-    font-size: 2rem;
-  `};
-  ${media.desktop`
-    font-size: 1.5rem;
-  `};
-  ${media.tablet`
-    font-size: 1rem;
-  `};
-  ${media.phone`
-    font-size: 0.5rem;
-  `};
 `
 
 const BrandLink = styled(Link)`

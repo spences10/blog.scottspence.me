@@ -28,24 +28,28 @@ injectGlobal`
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 2vw;
+  }
+
+  @media screen and (min-width: 50em) {
+    html {
+      font-size: 2vw;
+    }
+  }
+
+  @media screen and (min-width: 75em) {
+    html {
+      font-size: 1.5em;
+    }
+  }
+ 
   body {
     padding: 0;
     margin: 0;
     font-family: Roboto, Arial, sans-serif;
     font-size: 20px;
     line-height: 1.3125;
-    ${media.giant`
-      font-size: 20px;
-    `};
-    ${media.desktop`
-      font-size: 20px;
-    `};
-    ${media.tablet`
-      font-size: 15px;
-    `};
-    ${media.phone`
-      font-size: 13px;
-    `};
   }
 
   a {
