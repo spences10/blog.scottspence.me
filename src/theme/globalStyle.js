@@ -4,7 +4,7 @@ const sizes = {
   giant: 1170,
   desktop: 992,
   tablet: 768,
-  phone: 376,
+  phone: 376
 }
 
 // iterate through the sizes and create a media template
@@ -32,18 +32,30 @@ injectGlobal`
     font-size: 2vw;
   }
 
-  @media screen and (min-width: 50em) {
+  ${media.giant`
     html {
-      font-size: 2vw;
+      font-size: 2rem;
     }
-  }
+  `};
+  ${media.desktop`
+    html {
+      font-size: 1rem;
+    }
+  `};
+  ${media.tablet`
+    html {
+      font-size: 0.5rem;
+    }
+  `};
+  ${media.phone`
+    html {
+      font-size: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+  `};
 
-  @media screen and (min-width: 75em) {
-    html {
-      font-size: 1.5em;
-    }
-  }
- 
   body {
     padding: 0;
     margin: 0;
@@ -80,20 +92,20 @@ export const theme = {
   white: '#fff',
   primary: {
     dark: '#453463',
-    light: '#755f9f',
+    light: '#755f9f'
   },
   secondary: {
     green: '#8ac3a9',
     yellow: '#fcdeb6',
-    red: '#ff8463',
+    red: '#ff8463'
   },
   shades: {
     //add shades with progress
-  },
+  }
 }
 
 export const StyledH1 = styled.h1`
-  padding: 1.75rem;
+  padding: 0.5rem;
   margin: 0.5rem;
   font-family: 'Open Sans';
 `
