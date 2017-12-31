@@ -16,16 +16,16 @@ injectGlobal`
     font-size: 20px;
     line-height: 1.3125;
     ${media.giant`
-      font-size: 20px
+      font-size: 20px;
     `};
     ${media.desktop`
-      font-size: 20px
+      font-size: 20px;
     `};
     ${media.tablet`
-      font-size: 15px
+      font-size: 15px;
     `};
     ${media.phone`
-      font-size: 13px
+      font-size: 13px;
     `};
   }
 

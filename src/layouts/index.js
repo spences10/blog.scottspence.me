@@ -24,7 +24,7 @@ const PageContainer = styled.div`
       '. . . h h h h h h . . .'
       '. . . m m m m m m . . .'
       '. . . f f f f f f . . .';
-    background: dodgerblue;
+    background: goldenrod;
   `};
   ${media.desktop`
     grid-template-areas:
@@ -68,7 +68,7 @@ const TemplateWrapper = ({ children }) => (
         title="Scott Spence blog"
         meta={[
           { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          { name: 'keywords', content: 'sample, something' },
         ]}
       />
       <Header />
@@ -78,7 +78,7 @@ const TemplateWrapper = ({ children }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 }
 
 export default TemplateWrapper

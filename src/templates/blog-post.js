@@ -14,6 +14,8 @@ const Title = StyledH1.extend`
   margin-right: 0rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  font-family: Source Sans Pro;
+  font-size: 2rem;
 `
 
 const TitleDate = StyledH3.extend`
@@ -23,6 +25,8 @@ const TitleDate = StyledH3.extend`
   margin-right: 0rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
+  font-family: Source Sans Pro;
+  font-size: 1rem;
 `
 
 const ContentWrapper = styled.div`

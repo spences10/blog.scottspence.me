@@ -19,7 +19,10 @@ const StyledHeader = styled.div`
   ${media.giant`
     grid-template-areas:
       '. . . b b b b b b . . .';
-    background: dodgerblue;
+    background: goldenrod;
+    h1 {
+      font-size: 50px;
+    }
   `};
   ${media.desktop`
     grid-template-areas:
@@ -44,10 +47,12 @@ const StyledHeader = styled.div`
 const BrandTitle = StyledH1.extend`
   grid-area: b;
   color: ${({ theme }) => theme.primary.light};
-  font-size: 1.6em;
+  font-size: 2.2rem;
   padding: 0.5rem;
   padding-left: 1.75rem;
   margin: 0.5rem;
+  font-family: Source Sans Pro;
+  font-weight: bold;
 `
 
 const BrandLink = styled(Link)`
