@@ -17,7 +17,7 @@ const StyledHeader = styled.div`
   grid-template-areas: '. . . b b b b b b . . .';
   ${media.giant`
     grid-template-areas:
-      '. . . b b b b b b . . .';
+      '. . b b b b b b b b . .';
     background: goldenrod;
   `};
   ${media.desktop`
@@ -45,10 +45,9 @@ const StyledHeader = styled.div`
 const BrandTitle = StyledH1.extend`
   grid-area: b;
   color: ${({ theme }) => theme.primary.light};
-  font-size: 2.2rem;
-  padding: 0.5rem;
-  padding-left: 1.75rem;
-  margin: 0.5rem;
+  /* padding: 0.5rem; */
+  /* padding-left: 1.75rem; */
+  /* margin: 0.5rem; */
   font-family: Source Sans Pro;
   font-weight: bold;
 `

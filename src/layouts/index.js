@@ -21,9 +21,9 @@ const PageContainer = styled.div`
     '. . . f f f f f f . . .';
   ${media.giant`
     grid-template-areas:
-      '. . . h h h h h h . . .'
-      '. . . m m m m m m . . .'
-      '. . . f f f f f f . . .';
+      '. . h h h h h h h h . .'
+      '. . m m m m m m m m . .'
+      '. . f f f f f f f f . .';
     background: goldenrod;
   `};
   ${media.desktop`
@@ -54,12 +54,11 @@ const PageContainer = styled.div`
 // min-height is just for the purpose of nice looking page
 const Main = styled.div`
   grid-area: m;
-  min-height: 800px;
-  margin-top: 4.625rem;
-  padding: 1.75rem;
-  margin-top: 2.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  /* min-height: 800px; */
+  /* padding: 1.75rem; */
+  /* margin-top: 2.5rem; */
+  /* margin-left: 0.5rem; */
+  /* margin-right: 0.5rem; */
   /* padding-top: 0rem; */
 `
 
