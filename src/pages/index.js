@@ -25,6 +25,8 @@ const TagsList = StyledUl.extend`
   font-size: 0.75rem;
   font-weight: bold;
   list-style: none;
+  transform: skewX(2deg);
+  transform: skewY(-2deg);
 `
 
 const PostTags = StyledLi.extend`
@@ -33,6 +35,7 @@ const PostTags = StyledLi.extend`
   font-size: 0.75rem;
   font-weight: bold;
   display: inline;
+  background: ${({ theme }) => theme.primary.light};
 `
 
 const IndexPage = ({ data }) => {
