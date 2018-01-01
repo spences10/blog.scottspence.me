@@ -18,24 +18,24 @@ const StyledHeader = styled.div`
   ${media.giant`
     grid-template-areas:
       '. . b b b b b b b b . .';
-    background: goldenrod;
+    /* background: goldenrod; */
   `};
   ${media.desktop`
     grid-template-areas:
       '. . b b b b b b b b . .';
-    background: dodgerblue;
+    /* background: dodgerblue; */
   `};
   ${media.tablet`
   grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
       '. b b b b b b b .';
-    background: mediumseagreen;
+    /* background: mediumseagreen; */
   `};
   ${media.phone`
   grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
       'b b b b b b b b b';
-    background: palevioletred;
+    /* background: palevioletred; */
   `};
 
   background-color: ${({ theme }) => theme.white};

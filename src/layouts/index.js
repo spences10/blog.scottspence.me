@@ -23,14 +23,14 @@ const PageContainer = styled.div`
       '. . h h h h h h h h . .'
       '. . m m m m m m m m . .'
       '. . f f f f f f f f . .';
-    background: goldenrod;
+    /* background: goldenrod; */
   `};
   ${media.desktop`
     grid-template-areas:
       '. . h h h h h h h h . .'
       '. . m m m m m m m m . .'
       '. . f f f f f f f f . .';
-    background: dodgerblue;
+    /* background: dodgerblue; */
   `};
   ${media.tablet`
   grid-template-columns: repeat(9, 1fr);
@@ -38,7 +38,7 @@ const PageContainer = styled.div`
       '. h h h h h h h .'
       '. m m m m m m m .'
       '. f f f f f f f .';
-    background: mediumseagreen;
+    /* background: mediumseagreen; */
   `};
   ${media.phone`
   grid-template-columns: repeat(9, 1fr);
@@ -46,7 +46,7 @@ const PageContainer = styled.div`
       'h h h h h h h h h'
       'm m m m m m m m m'
       'f f f f f f f f f';
-    background: palevioletred;
+    /* background: palevioletred; */
   `};
 `
 
