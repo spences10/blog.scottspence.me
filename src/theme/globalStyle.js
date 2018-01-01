@@ -97,7 +97,7 @@ export const theme = {
     red: '#ff8463'
   },
   shades: {
-    //add shades with progress
+    dark: 'rgba(69, 52, 99, 0.5)'
   }
 }
 
