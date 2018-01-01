@@ -39,13 +39,24 @@ const ContentWrapper = styled.div`
 `
 
 const NavWrapper = ContentWrapper.extend`
-  padding-left: 1rem;
+  padding: 0.5rem;
   display: grid;
   grid-template-areas: 'main main';
 `
 
 const NavP = StyledP.extend`
-  padding-left: 0rem;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  font-size: 0.5rem;
+  font-weight: bold;
+  border: 1px solid ${props => props.border};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  transition: all 0.1s;
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
 `
 
 const Template = ({ data, location, pathContext }) => {
