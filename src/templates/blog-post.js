@@ -9,25 +9,19 @@ import { media } from '../theme/globalStyle'
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
 const Title = StyledH1.extend`
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: 0rem;
-  margin-right: 0rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem 0rem 0rem 0rem;
   font-family: Source Sans Pro;
   font-size: 1.5em;
+  color: ${({ theme }) => theme.text};
 `
-
+// top right bottom left
 const TitleDate = StyledH3.extend`
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: 0rem;
-  margin-right: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0.5rem;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 1rem 0rem 1rem;
   font-family: Source Sans Pro;
-  font-size: 1em;
+  font-size: 0.65rem;
+  color: ${({ theme }) => theme.shades.dark};
 `
 
 const ContentWrapper = styled.div`
