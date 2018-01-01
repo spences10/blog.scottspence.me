@@ -1,5 +1,5 @@
 ---
-path: "/2017-01-04-twitter-mctwitbot/"
+path: "/twitter-mctwitbot/"
 date: "2017-01-04"
 title: "Twitter McTwitBot"
 tags: ['information', 'guide']

@@ -1,5 +1,5 @@
 ---
-path: "/2017-05-23-twitter-bot-playground/"
+path: "/twitter-bot-playground/"
 date: "2017-05-23"
 title: "Twitter bot playground"
 tags: ['information', 'guide']
@@ -1784,7 +1784,7 @@ const getPhoto = () => {
 }
 
 function saveFile(body) {
-  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4';
+  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
   const filePath = path.join(tmpDir + `/${fileName}`)
 
   console.log(`saveFile: file PATH ${filePath}`)
@@ -1798,33 +1798,38 @@ function saveFile(body) {
   }
   const file = fs.createWriteStream(filePath)
 
-  request(body).pipe(file).on('close', err => {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log('Media saved!')
-      const descriptionText = body.title
-      uploadMedia(descriptionText, filePath)
-    }
-  })
+  request(body)
+    .pipe(file)
+    .on('close', err => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('Media saved!')
+        const descriptionText = body.title
+        uploadMedia(descriptionText, filePath)
+      }
+    })
 }
 
 function uploadMedia(descriptionText, fileName) {
   console.log(`uploadMedia: file PATH ${fileName}`)
-  bot.postMediaChunked({
-    file_path: fileName
-  }, (err, data, respone) => {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log(data)
-      const params = {
-        status: descriptionText,
-        media_ids: data.media_id_string
+  bot.postMediaChunked(
+    {
+      file_path: fileName
+    },
+    (err, data, respone) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(data)
+        const params = {
+          status: descriptionText,
+          media_ids: data.media_id_string
+        }
+        postStatus(params)
       }
-      postStatus(params)
     }
-  })
+  )
 }
 
 function postStatus(params) {

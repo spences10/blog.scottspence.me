@@ -1,5 +1,5 @@
 ---
-path: "/2016-12-05-Job-Hunting/"
+path: "/Job-Hunting/"
 date: "2016-12-05"
 title: "Job hunting, one class 'A' ballache"
 tags: ['rant','job hunting','job']

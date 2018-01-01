@@ -1,5 +1,5 @@
 ---
-path: "/2017-01-28-twitter-bot-bootstrap/"
+path: "/twitter-bot-bootstrap/"
 date: "2017-01-28"
 title: "Easily set up your own Twitter bot"
 tags: ['information', 'guide']
