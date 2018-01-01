@@ -45,9 +45,9 @@ const StyledHeader = styled.div`
 const BrandTitle = StyledH1.extend`
   grid-area: b;
   color: ${({ theme }) => theme.primary.light};
-  /* padding: 0.5rem; */
-  /* padding-left: 1.75rem; */
-  /* margin: 0.5rem; */
+  /* top right bottom left */
+  margin: 0rem 0.5rem 0rem 0.5rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
   font-family: Source Sans Pro;
   font-weight: bold;
   ${media.giant`

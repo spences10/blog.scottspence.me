@@ -55,7 +55,23 @@ const Main = styled.div`
   grid-area: m;
   /* min-height: 800px; */
   /* padding: 1.75rem; */
-  margin-top: 4rem;
+  margin-top: 1.6rem;
+  ${media.giant`
+    /* background: goldenrod; */
+    margin-top: 2.6rem;
+  `};
+  ${media.desktop`
+    /* background: dodgerblue; */
+    margin-top: 2.6rem;
+  `};
+  ${media.tablet`
+    /* background: mediumseagreen; */
+    margin-top: 2.6rem;
+  `};
+  ${media.phone`
+    /* background: palevioletred; */
+    margin-top: 2.7rem;
+  `};
   /* margin-left: 0.5rem; */
   /* margin-right: 0.5rem; */
   /* padding-top: 0rem; */
