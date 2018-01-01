@@ -8,6 +8,7 @@ const PostTitle = StyledH1.extend`
   font-family: Source Sans Pro;
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
+  font-size: 1.5rem;
 `
 
 const PostLink = styled(Link)`
@@ -26,6 +27,7 @@ const PostDate = StyledP.extend`
   padding: 0rem;
   font-size: 0.75rem;
   font-weight: bold;
+  font-size: 1rem;
 `
 
 const PostExcerpt = StyledP.extend`

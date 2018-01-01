@@ -8,7 +8,7 @@ const Tags = ({ pathContext }) => {
     return (
       <div>
         <div>
-          <span>Posts about {tagName}:</span>
+          <span>Posts about: {tagName}</span>
         </div>
         <ul>
           {posts.map(post => {

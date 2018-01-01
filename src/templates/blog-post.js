@@ -9,27 +9,29 @@ import { media } from '../theme/globalStyle'
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
 const Title = StyledH1.extend`
-  padding-left: 0rem;
-  padding-right: 0rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-left: 0rem;
   margin-right: 0rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-family: Source Sans Pro;
+  font-size: 1.5em;
 `
 
 const TitleDate = StyledH3.extend`
-  padding-left: 0rem;
-  padding-right: 0rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-left: 0rem;
   margin-right: 0rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
   font-family: Source Sans Pro;
+  font-size: 1em;
 `
 
 const ContentWrapper = styled.div`
-  padding: 0rem;
+  padding: 0.5rem;
   margin: 0.5rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
@@ -58,7 +60,7 @@ const Template = ({ data, location, pathContext }) => {
       <Title>{title}</Title>
       <TitleDate>{date}</TitleDate>
 
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
 
       <NavWrapper>
         <NavP>

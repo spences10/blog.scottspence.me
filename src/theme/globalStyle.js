@@ -34,7 +34,7 @@ injectGlobal`
 
   ${media.giant`
     html {
-      font-size: 2rem;
+      font-size: 1rem;
     }
   `};
   ${media.desktop`
@@ -44,15 +44,12 @@ injectGlobal`
   `};
   ${media.tablet`
     html {
-      font-size: 0.5rem;
+      font-size: 1rem;
     }
   `};
   ${media.phone`
     html {
       font-size: 1rem;
-    }
-    h1 {
-      font-size: 2rem;
     }
   `};
 

@@ -50,6 +50,18 @@ const BrandTitle = StyledH1.extend`
   /* margin: 0.5rem; */
   font-family: Source Sans Pro;
   font-weight: bold;
+  ${media.giant`
+    font-size: 2rem;
+  `};
+  ${media.desktop`
+    font-size: 2rem;
+  `};
+  ${media.tablet`
+    font-size: 2rem;
+  `};
+  ${media.phone`
+    font-size: 2rem;
+  `};
 `
 
 const BrandLink = styled(Link)`
