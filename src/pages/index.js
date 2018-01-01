@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { StyledH1, StyledP, StyledLi, StyledUl } from '../theme/globalStyle'
 
 const PostTitle = StyledH1.extend`
+  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
   font-family: Source Sans Pro;
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
@@ -31,7 +32,7 @@ const PostDate = StyledP.extend`
 `
 
 const PostExcerpt = StyledP.extend`
-  margin: 1rem;
+  margin: 0.25rem 1rem 0.25rem 1rem;
   padding: 0rem;
 `
 // top right bottom left
