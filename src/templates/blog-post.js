@@ -13,7 +13,8 @@ const Title = StyledH1.extend`
   margin: 0.5rem 0rem 0rem 0rem;
   font-family: Source Sans Pro;
   font-size: 1.5em;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.secondary.red};
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 // top right bottom left
 const TitleDate = StyledH3.extend`
@@ -29,6 +30,19 @@ const ContentWrapper = styled.div`
   margin: 0.5rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
+  font-size: 0.65rem;
+  ${media.giant`
+    font-size: 1rem;
+  `};
+  ${media.desktop`
+    font-size: 1rem;
+  `};
+  ${media.tablet`
+    font-size: 1rem;
+  `};
+  ${media.phone`
+    font-size: 1rem;
+  `};
   /* background: red; */
 `
 
