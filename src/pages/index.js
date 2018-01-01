@@ -1,10 +1,24 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
 
 import { StyledH1, StyledP, StyledLi, StyledUl } from '../theme/globalStyle'
 
 const PostTitle = StyledH1.extend`
   font-family: Source Sans Pro;
+  color: ${({ theme }) => theme.primary.light};
+  font-weight: bold;
+`
+
+const PostLink = styled(Link)`
+  color: inherit;
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.secondary.red};
+  }
 `
 
 const PostDate = StyledP.extend`
@@ -38,6 +52,17 @@ const PostTags = StyledLi.extend`
   background: ${({ theme }) => theme.primary.light};
 `
 
+const TagLink = styled(Link)`
+  color: inherit;
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.secondary.red};
+  }
+`
+
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
@@ -48,7 +73,7 @@ const IndexPage = ({ data }) => {
         return (
           <div>
             <PostTitle>
-              <Link to={frontmatter.path}>{frontmatter.title}</Link>
+              <PostLink to={frontmatter.path}>{frontmatter.title}</PostLink>
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{frontmatter.excerpt}</PostExcerpt>
@@ -56,7 +81,7 @@ const IndexPage = ({ data }) => {
               {post.frontmatter.tags.map(tag => {
                 return (
                   <PostTags>
-                    <Link to={`/tags/${tag}`}>{tag}</Link>
+                    <TagLink to={`/tags/${tag}`}>{tag}</TagLink>
                   </PostTags>
                 )
               })}
