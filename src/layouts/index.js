@@ -81,10 +81,17 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <PageContainer>
       <Helmet
-        title="Scott Spence blog"
+        title="Scott Spence - blog"
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          {
+            name: 'description',
+            content: 'The blog of Scott Spence developer'
+          },
+          {
+            name: 'keywords',
+            content:
+              'developer, JavaScript, js, learning, 100daysofcode, ScottDevTweets'
+          }
         ]}
       />
       <Header />
