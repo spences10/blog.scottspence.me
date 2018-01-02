@@ -4,9 +4,10 @@ import Link from 'gatsby-link'
 
 import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
 
+// top right bottom left
 const PostTags = StyledLi.extend`
-  margin: 0rem 0rem 0rem 1rem;
-  padding: 0rem;
+  margin: 0.25rem;
+  padding: 0.25rem;
   font-size: 0.75rem;
   font-weight: bold;
   display: inline-block;
