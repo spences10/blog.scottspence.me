@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Scott Spence blog made with Gatsby Default Starter`
+    title: `Scott Spence - blog`,
+    author: `Scott Spence`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
