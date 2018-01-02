@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import Hero from '../layouts/components/Hero'
+import TagsContainer from '../layouts/components/TagsContainer'
 import { media } from '../theme/globalStyle'
 
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
@@ -70,7 +71,7 @@ const NavP = StyledP.extend`
 const Template = ({ data, location, pathContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
-  const { title, date } = frontmatter
+  const { title, date, tags } = frontmatter
   const { next, prev } = pathContext
 
   return (
@@ -97,6 +98,16 @@ const Template = ({ data, location, pathContext }) => {
           )}
         </NavP>
       </NavWrapper>
+      <TagsContainer tags={post.frontmatter.tags} />
+      {/* <ul>
+        {post.frontmatter.tags.map(tag => {
+          return (
+            <li>
+              <Link to={`/tags/${tag}`}>{tag}</Link>
+            </li>
+          )
+        })}
+      </ul> */}
     </div>
   )
 }
