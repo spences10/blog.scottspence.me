@@ -6,15 +6,28 @@ import TagsContainer from '../layouts/components/TagsContainer'
 
 import { StyledH1, StyledP, StyledLi, StyledUl } from '../theme/globalStyle'
 
+const PostWrapper = styled.div`
+  margin: 1rem;
+  padding: 0.15rem 0rem 0.15rem 0rem;
+  border: 1px solid ${({ theme }) => theme.primary.light};
+  border-radius: 4px;
+`
+
 const PostTitle = StyledH1.extend`
   margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
   font-family: Source Sans Pro;
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
   font-size: 1rem;
+  &:hover {
+    transform: skew(5deg); /* SKEW */
+  }
 `
 
 const PostLink = styled(Link)`
+  display: inline-block;
+  padding: 0rem 0.25rem 0rem 0.25rem;
   color: inherit;
   &:visited,
   &:active {
@@ -22,6 +35,8 @@ const PostLink = styled(Link)`
   }
   &:hover {
     color: ${({ theme }) => theme.secondary.red};
+    background: ${({ theme }) => theme.primary.light};
+    border-radius: 4px;
   }
 `
 
@@ -47,14 +62,14 @@ const IndexPage = ({ data }) => {
         const { frontmatter } = post
 
         return (
-          <div>
+          <PostWrapper>
             <PostTitle>
               <PostLink to={frontmatter.path}>{frontmatter.title}</PostLink>
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{post.excerpt}</PostExcerpt>
             <TagsContainer tags={post.frontmatter.tags} title="no" />
-          </div>
+          </PostWrapper>
         )
       })}
     </div>
