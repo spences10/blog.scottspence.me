@@ -9,16 +9,7 @@ const AllTags = ({ pathContext }) => {
   if (tags) {
     return (
       <div>
-        {/* <ul> */}
-        <TagsContainer tags={tags} />
-        {/* {tags.map(tag => {
-            return (
-              <li>
-                <Link to={`/tags/${tag}`}>{tag}</Link>
-              </li>
-            )
-          })} */}
-        {/* </ul> */}
+        <TagsContainer tags={tags} title="yes" />
       </div>
     )
   }

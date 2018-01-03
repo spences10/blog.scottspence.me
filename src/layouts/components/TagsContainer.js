@@ -10,6 +10,12 @@ const TagsTitle = StyledP.extend`
   font-size: 0.55rem;
   font-weight: bold;
 `
+const TagsList = StyledP.extend`
+  margin: 0.25rem 0rem 0.25rem 0rem;
+  padding: 0.25rem 0rem 0.25rem 0rem;
+  font-size: 0.55rem;
+  font-weight: bold;
+`
 
 // top right bottom left
 const Container = styled.div`
@@ -20,8 +26,14 @@ const Container = styled.div`
 
 export const TagsContainer = props => (
   <Container>
-    <TagsTitle>Tagged under:</TagsTitle>
-    {props.tags.map(tag => <Tag key={tag} tag={tag} />)}
+    {props.title === 'yes' ? (
+      <TagsList>
+        <TagsTitle>Tagged under:</TagsTitle>
+        {props.tags.map(tag => <Tag key={tag} tag={tag} />)}
+      </TagsList>
+    ) : (
+      <TagsList>{props.tags.map(tag => <Tag key={tag} tag={tag} />)}</TagsList>
+    )}
   </Container>
 )
 
