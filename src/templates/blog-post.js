@@ -99,15 +99,6 @@ const Template = ({ data, location, pathContext }) => {
         </NavP>
       </NavWrapper>
       <TagsContainer tags={post.frontmatter.tags} />
-      {/* <ul>
-        {post.frontmatter.tags.map(tag => {
-          return (
-            <li>
-              <Link to={`/tags/${tag}`}>{tag}</Link>
-            </li>
-          )
-        })}
-      </ul> */}
     </div>
   )
 }
