@@ -79,7 +79,7 @@ const IndexPage = ({ data }) => {
               <PostLink to={frontmatter.path}>{frontmatter.title}</PostLink>
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
-            <PostExcerpt>{frontmatter.excerpt}</PostExcerpt>
+            <PostExcerpt>{post.excerpt}</PostExcerpt>
             <TagsList>
               {post.frontmatter.tags.map(tag => {
                 return (
@@ -105,6 +105,7 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          excerpt(pruneLength: 250)
           id
           frontmatter {
             title
