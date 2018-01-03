@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
+import TagsContainer from '../layouts/components/TagsContainer'
+
 import { StyledH1, StyledP, StyledLi, StyledUl } from '../theme/globalStyle'
 
 const PostTitle = StyledH1.extend`
@@ -31,39 +33,10 @@ const PostDate = StyledP.extend`
   font-size: 0.5rem;
 `
 
+// top right bottom left
 const PostExcerpt = StyledP.extend`
   margin: 0.25rem 1rem 0.25rem 1rem;
   padding: 0rem;
-`
-// top right bottom left
-const TagsList = StyledUl.extend`
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  list-style: none;
-  transform: skewX(2deg);
-  transform: skewY(-2deg);
-`
-
-const PostTags = StyledLi.extend`
-  margin: 0rem 0rem 0rem 1rem;
-  padding: 0rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  display: inline;
-  background: ${({ theme }) => theme.primary.light};
-`
-
-const TagLink = styled(Link)`
-  color: inherit;
-  &:visited,
-  &:active {
-    color: inherit;
-  }
-  &:hover {
-    color: ${({ theme }) => theme.secondary.red};
-  }
 `
 
 const IndexPage = ({ data }) => {
@@ -80,15 +53,7 @@ const IndexPage = ({ data }) => {
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{post.excerpt}</PostExcerpt>
-            <TagsList>
-              {post.frontmatter.tags.map(tag => {
-                return (
-                  <PostTags>
-                    <TagLink to={`/tags/${tag}`}>{tag}</TagLink>
-                  </PostTags>
-                )
-              })}
-            </TagsList>
+            <TagsContainer tags={post.frontmatter.tags} title="no" />
           </div>
         )
       })}
