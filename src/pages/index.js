@@ -21,7 +21,8 @@ const PostTitle = StyledH1.extend`
   font-weight: bold;
   font-size: 1rem;
   &:hover {
-    transform: skew(5deg); /* SKEW */
+    transform: skew(2deg); /* SKEW */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 `
 

@@ -12,9 +12,9 @@ const PostTags = StyledLi.extend`
   font-weight: bold;
   display: inline-block;
   background: ${({ theme }) => theme.primary.light};
-  transform: skew(-5deg); /* INVERSE SKEW */
+  transform: skew(-2deg); /* INVERSE SKEW */
   &:hover {
-    transform: skew(5deg); /* SKEW */
+    transform: skew(2deg); /* SKEW */
   }
   border-radius: 4px;
 `
