@@ -7,6 +7,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { theme, media } from '../theme/globalStyle'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 require('prismjs/themes/prism-solarizedlight.css')
 
@@ -96,6 +97,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <Header />
       <Main>{children()}</Main>
+      <Footer />
     </PageContainer>
   </ThemeProvider>
 )
