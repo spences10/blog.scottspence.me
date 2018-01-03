@@ -6,12 +6,14 @@ import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
 
 // top right bottom left
 const PostTags = StyledLi.extend`
-  margin: 0.25rem;
-  padding: 0.25rem;
-  font-size: 0.75rem;
+  margin: 0.15rem;
+  padding: 0.15rem;
+  font-size: 0.6rem;
   font-weight: bold;
   display: inline-block;
   background: ${({ theme }) => theme.primary.light};
+  transform: skew(-10deg); /* INVERSE SKEW */
+  border-radius: 4px;
 `
 
 const TagLink = styled(Link)`
