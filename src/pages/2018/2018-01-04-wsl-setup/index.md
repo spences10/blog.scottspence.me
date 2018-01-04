@@ -3,13 +3,16 @@ path: "/wsl-setup/"
 date: "2018-01-04"
 title: "WSL setup"
 tags: ['information', 'guide', 'wsl', 'bash on windows']
-published: true
+published: false
 ---
 
-I nuked my laptop the other day I was having issues with bash on windows.
+I nuked my laptop the other day as I was having issues with bash on Windows.
 Related partly to using [nvm][slowbash] with WSL and something else that I'm
-sure I'll figure out eventually but as of right now I'm still not certain what
-it was that was causing the slowness.
+sure I'll figure out eventually but as of right now I'm still not entirely
+certain what it was that was causing the slowness.
+
+So I have had to set up my development environment again from scratch, lukily
+for me I keep all of my settings and config information in a repo
 
 Here's how I set up Windows Subsystem Linux for my development environment.
 
