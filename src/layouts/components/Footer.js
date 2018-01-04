@@ -45,7 +45,6 @@ const StyledFooter = styled.div`
 `
 
 const IconWrapper = styled.div`
-  height: 100%;
   color: ${({ theme }) => theme.primary.light};
   grid-area: ${props => props.area};
   /* top right bottom left */
