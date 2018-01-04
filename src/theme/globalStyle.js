@@ -29,7 +29,7 @@ injectGlobal`
   }
 
   html {
-    /* font-size: 16px; */
+    /* font-size: 18px; */
   }
 
   ${media.giant`
@@ -58,7 +58,7 @@ injectGlobal`
     margin: 0;
     font-family: Roboto, Arial, sans-serif;
     /* font-size: 0.75rem; */
-    /* line-height: 1.3125; */
+    line-height: 1.3125;
   }
 
   a {
