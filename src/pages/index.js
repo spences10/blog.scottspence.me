@@ -11,6 +11,11 @@ const PostWrapper = styled.div`
   padding: 0.15rem 0rem 0.15rem 0rem;
   border: 1px solid ${({ theme }) => theme.primary.light};
   border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
 `
 
 const PostTitle = StyledH1.extend`
@@ -19,7 +24,7 @@ const PostTitle = StyledH1.extend`
   font-family: Source Sans Pro;
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   &:hover {
     transform: skew(2deg); /* SKEW */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -44,9 +49,9 @@ const PostLink = styled(Link)`
 const PostDate = StyledP.extend`
   margin: 0rem 1rem 0rem 1rem;
   padding: 0rem;
-  font-size: 0.75rem;
+  /* font-size: 0.75rem; */
   font-weight: bold;
-  font-size: 0.5rem;
+  /* font-size: 0.5rem; */
 `
 
 // top right bottom left

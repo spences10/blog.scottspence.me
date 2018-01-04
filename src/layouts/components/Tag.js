@@ -8,7 +8,7 @@ import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
 const PostTags = StyledLi.extend`
   margin: 0.15rem;
   padding: 0.15rem;
-  font-size: 0.6rem;
+  /* font-size: 0.6rem; */
   font-weight: bold;
   display: inline-block;
   background: ${({ theme }) => theme.primary.light};

@@ -50,7 +50,7 @@ const BrandTitle = StyledH1.extend`
   padding: 0rem 0.5rem 0rem 0.5rem;
   font-family: Source Sans Pro;
   font-weight: bold;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   ${media.giant`
     /* font-size: 1rem; */
   `};
@@ -91,10 +91,9 @@ const Header = () => (
     <BrandTitle>
       <BrandLink to="/">blog.scottspence.me</BrandLink>
     </BrandTitle>
-    <Contact>contact</Contact>
-    <Portfolio>portfolio</Portfolio>
-    <About>about</About>
-    {/* <PageNav header={true} /> */}
+    {/* <Contact>contact</Contact> */}
+    {/* <Portfolio>portfolio</Portfolio> */}
+    {/* <About>about</About> */}
   </StyledHeader>
 )
 

@@ -7,13 +7,13 @@ import { StyledH1, StyledP } from '../../theme/globalStyle'
 const TagsTitle = StyledP.extend`
   margin: 0.25rem 0rem 0.25rem 0.25rem;
   padding: 0.25rem 0rem 0.25rem 0rem;
-  font-size: 0.55rem;
+  /* font-size: 0.55rem; */
   font-weight: bold;
 `
 const TagsList = StyledP.extend`
   margin: 0.1rem 0rem 0.1rem 0rem;
   padding: 0.1rem 0rem 0.1rem 0rem;
-  font-size: 0.45rem;
+  /* font-size: 0.45rem; */
   font-weight: bold;
 `
 

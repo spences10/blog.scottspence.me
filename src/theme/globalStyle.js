@@ -29,27 +29,27 @@ injectGlobal`
   }
 
   html {
-    font-size: 2vw;
+    /* font-size: 16px; */
   }
 
   ${media.giant`
     html {
-      font-size: 1rem;
+      /* font-size: 1rem; */
     }
   `};
   ${media.desktop`
     html {
-      font-size: 1rem;
+      /* font-size: 1rem; */
     }
   `};
   ${media.tablet`
     html {
-      font-size: 1rem;
+      /* font-size: 1rem; */
     }
   `};
   ${media.phone`
     html {
-      font-size: 1rem;
+      /* font-size: 1rem; */
     }
   `};
 
@@ -57,8 +57,8 @@ injectGlobal`
     padding: 0;
     margin: 0;
     font-family: Roboto, Arial, sans-serif;
-    font-size: 0.75rem;
-    line-height: 1.3125;
+    /* font-size: 0.75rem; */
+    /* line-height: 1.3125; */
   }
 
   a {
