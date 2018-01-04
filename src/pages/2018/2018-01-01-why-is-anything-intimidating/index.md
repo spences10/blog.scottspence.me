@@ -1,4 +1,10 @@
-Why is anything intimidating?
+---
+path: "/why-is-anything-intimidating/"
+date: "2018-01-04"
+title: "Why is anything intimidating?"
+tags: ['ramble', '!dev']
+published: false
+---
 
 Stand back everyone, I’m telling a story I’ve had several conversations with my
 new found developer buddies about fitness, more along the lines of gym going and
