@@ -3,7 +3,6 @@ path: "/wsl-setup/"
 date: "2018-01-01"
 title: "WSL setup"
 tags: ['information', 'guide', 'wsl', 'bash on windows']
-excerpt: Set up Windows Subsystem Linux on Windows 10 for web development.
 published: false
 ---
 
