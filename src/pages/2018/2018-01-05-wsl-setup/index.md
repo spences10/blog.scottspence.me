@@ -104,7 +104,7 @@ To get SSH set up on your machine take a look at this [handy SSH setup].
 If you have all your [dotfiles] backed up in a GitHub repo then now is a good
 time to add them to your WSL folder, the last times I did this I manually set
 the permissions after moving each of the the files but have since discovered
-`rsync`
+[`rsync`][rsync]
 
 ```sh
 rsync -avzh /mnt/c/Users/dotfiles/ ~/
@@ -123,3 +123,4 @@ in WSL
 [settingsrepo]: https://github.com/spences10/settings
 [dotfiles]: https://github.com/spences10/dotfiles
 [handy ssh setup]: https://github.com/spences10/cheat-sheets/blob/master/git.md#how-to-authenticate-with-github-using-ssh
+[rsync]: https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/
