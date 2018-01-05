@@ -90,13 +90,28 @@ omf install clearance
 
 ### The start of the beginning
 
-Ok, so that is a basic setup for WSL
+Ok, so that is a basic setup for WSL, you'll probably want to get Git set up
+now, I have been using SSH over HTTPS for a while now on WSL.
+
+> At the time of writing this WSL Git integration with VSCode doesn't work so I
+> have added a Git install to my windows machine, you can omit this and go full
+> Git via the terminal but I really like the VSCode integration.
+
+To get SSH set up on your machine take a look at this [handy SSH setup].
 
 ### Move your dotfiles
 
-If you have all your dotfiles backed up in a GitHub repo then now is a good time
-to add them to your WSL folder, the last times I did this I manually set the
-permissions after moving the files but have since discovered `rsync`
+If you have all your [dotfiles] backed up in a GitHub repo then now is a good
+time to add them to your WSL folder, the last times I did this I manually set
+the permissions after moving each of the the files but have since discovered
+`rsync`
+
+```sh
+rsync -avzh /mnt/c/Users/dotfiles/ ~/
+```
+
+That will copy the contents of my `dotfiles` folder to the `~/` (home) directory
+in WSL
 
 ![bash files permissions](./bash-dotfiles.png)
 
@@ -106,3 +121,5 @@ permissions after moving the files but have since discovered `rsync`
 [wslmsstore]: https://www.microsoft.com/store/productId/9NBLGGH4MSV6
 [usen]: https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
 [settingsrepo]: https://github.com/spences10/settings
+[dotfiles]: https://github.com/spences10/dotfiles
+[handy ssh setup]: https://github.com/spences10/cheat-sheets/blob/master/git.md#how-to-authenticate-with-github-using-ssh
