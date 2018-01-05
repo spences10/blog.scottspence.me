@@ -6,8 +6,8 @@ tags: ['information', 'guide', 'learning', 'habits']
 published: false
 ---
 
-Life moves pretty fast. If you don’t stop and look around once in a while, you
-could miss it. — Ferris Bueller.
+> Life moves pretty fast. If you don’t stop and look around once in a while, you
+> could miss it. — Ferris Bueller.
 
 Let’s pick up a new skill, get a job, all in a few months.
 
