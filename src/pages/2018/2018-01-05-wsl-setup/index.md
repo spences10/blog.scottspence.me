@@ -1,6 +1,6 @@
 ---
 path: "/wsl-setup/"
-date: "2018-01-04"
+date: "2018-01-05"
 title: "WSL setup"
 tags: ['information', 'guide', 'wsl', 'bash on windows']
 published: false
