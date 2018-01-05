@@ -11,8 +11,9 @@ Related partly to using [nvm][slowbash] with WSL and something else that I'm
 sure I'll figure out eventually but as of right now I'm still not entirely
 certain what it was that was causing the slowness.
 
-So I have had to set up my development environment again from scratch, lukily
-for me I keep all of my settings and config information in a repo
+So I have had to set up my development environment again from scratch, luckily
+for me I keep all my settings and config information in a GitHub
+[repo][settingsrepo]
 
 Here's how I set up Windows Subsystem Linux for my development environment.
 
@@ -91,8 +92,17 @@ omf install clearance
 
 Ok, so that is a basic setup for WSL
 
+### Move your dotfiles
+
+If you have all your dotfiles backed up in a GitHub repo then now is a good time
+to add them to your WSL folder, the last times I did this I manually set the
+permissions after moving the files but have since discovered `rsync`
+
+![bash files permissions](./bash-dotfiles.png)
+
 <!-- links -->
 
 [slowbash]: https://github.com/Microsoft/WSL/issues/776
 [wslmsstore]: https://www.microsoft.com/store/productId/9NBLGGH4MSV6
 [usen]: https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
+[settingsrepo]: https://github.com/spences10/settings
