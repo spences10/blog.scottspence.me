@@ -61,6 +61,8 @@ npm -v
 If you find the startup time of bash [taking too long][slowbash] then take a
 look at [using n][usen] instead.
 
+### Install node with `n`
+
 As it's a fresh install then we can go ahead and use [n-install] with:
 
 ```sh
@@ -68,6 +70,18 @@ curl -L https://git.io/n-install | bash
 ```
 
 This will install the latest stable version of node 👍
+
+Once the script is complete restart bash with:
+
+```sh
+. /home/<my_user_name>/.bashrc
+```
+
+Check your node and npm versions:
+
+```sh
+node -v && npm -v
+```
 
 ### Install fish 🐟
 
