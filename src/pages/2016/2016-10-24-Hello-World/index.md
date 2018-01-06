@@ -3,6 +3,7 @@ path: "/hello-world/"
 date: "2016-10-24"
 title: "Hello World!"
 tags: ['hello world', 'getting started']
+excerpt: ""
 published: true
 ---
 

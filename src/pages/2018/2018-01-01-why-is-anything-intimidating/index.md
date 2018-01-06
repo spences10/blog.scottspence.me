@@ -3,6 +3,7 @@ path: "/why-is-anything-intimidating/"
 date: "2018-01-04"
 title: "Why is anything intimidating?"
 tags: ['ramble', '!dev']
+excerpt: ""
 published: false
 ---
 

@@ -3,6 +3,7 @@ path: "/My-First-VSCode-Extension/"
 date: "2016-12-03"
 title: "My first Microsoft Visual Studio Code [VSCode] extension"
 tags: ['Information','vscode','extension']
+excerpt: ""
 published: true
 ---
 
