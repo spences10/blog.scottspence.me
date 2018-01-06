@@ -132,7 +132,52 @@ rsync -avzh /mnt/c/Users/dotfiles/ ~/
 ```
 
 That will copy the contents of my `dotfiles` folder to the `~/` (home) directory
-in WSL
+in WSL, you can check them with:
+
+```sh
+ls -la ~/
+```
+
+![bash files wrong permissions](./bash-wrong-perms.png)
+
+I copied across my `.gitconfig`, `.gitignore` and `.npmrc` dotfiles pictured
+here and you can see that the permissions are not consistent with the `.bashrc`
+file.
+
+So, the only way I know how to change the file permissions is with `chmod` to
+get the ordinals of a similar file use `stat`:
+
+```sh
+stat -c "%a %n" ~/.*
+```
+
+This will list out all everything that begins with a `.` here's mine:
+
+```sh
+777 /home/scott/.
+755 /home/scott/..
+600 /home/scott/.bash_history
+644 /home/scott/.bash_logout
+644 /home/scott/.bashrc
+777 /home/scott/.cache
+777 /home/scott/.config
+777 /home/scott/.gitconfig
+777 /home/scott/.gitignore
+777 /home/scott/.local
+777 /home/scott/.npm
+777 /home/scott/.npmrc
+644 /home/scott/.profile
+644 /home/scott/.sudo_as_admin_successful
+```
+
+I only want to change `.gitconfig`, `.gitignore` and `.npmrc` here so I'm going
+to do this:
+
+```sh
+ chmod 644 .gitconfig .gitignore .npmrc
+```
+
+And now my files look like this. 👍
 
 ![bash files permissions](./bash-dotfiles.png)
 
