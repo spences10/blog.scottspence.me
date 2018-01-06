@@ -35,6 +35,16 @@ the terminal.
 
 You wont have these messages 👆
 
+### Build tools
+
+To compile and install native addons from npm you may also need to install build
+tools, I need this for Gatsby images which uses `sharp` which in turn uses
+`node-gyp`:
+
+```sh
+sudo apt-get install -y build-essential
+```
+
 ### Install node
 
 Installing node via the instructions given on the nodejs.org site doesn't give
@@ -49,18 +59,15 @@ npm -v
 ```
 
 If you find the startup time of bash [taking too long][slowbash] then take a
-look at [using n][usen] instead, I haven't got to this part yet but if I do find
-it quicker then I'll post an update/instructions.
+look at [using n][usen] instead.
 
-### Build tools
-
-To compile and install native addons from npm you may also need to install build
-tools, I need this for Gatsby images which uses `sharp` which in turn uses
-`node-gyp`:
+As it's a fresh install then we can go ahead and use [n-install] with:
 
 ```sh
-sudo apt-get install -y build-essential
+curl -L https://git.io/n-install | bash
 ```
+
+This will install the latest stable version of node 👍
 
 ### Install fish 🐟
 
@@ -124,3 +131,4 @@ in WSL
 [dotfiles]: https://github.com/spences10/dotfiles
 [handy ssh setup]: https://github.com/spences10/cheat-sheets/blob/master/git.md#how-to-authenticate-with-github-using-ssh
 [rsync]: https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/
+[n-install]: https://github.com/mklement0/n-install
