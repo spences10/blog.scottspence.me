@@ -2,17 +2,38 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
+import TagsContainer from '../layouts/components/TagsContainer'
+
 import { StyledH1, StyledP, StyledLi, StyledUl } from '../theme/globalStyle'
+
+const PostWrapper = styled.div`
+  margin: 1rem;
+  padding: 0.15rem 0rem 0.15rem 0rem;
+  border: 1px solid ${({ theme }) => theme.primary.light};
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
+`
 
 const PostTitle = StyledH1.extend`
   margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
   font-family: Source Sans Pro;
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  &:hover {
+    transform: skew(2deg); /* SKEW */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
 `
 
 const PostLink = styled(Link)`
+  display: inline-block;
+  padding: 0rem 0.25rem 0rem 0.25rem;
   color: inherit;
   &:visited,
   &:active {
@@ -20,50 +41,23 @@ const PostLink = styled(Link)`
   }
   &:hover {
     color: ${({ theme }) => theme.secondary.red};
+    background: ${({ theme }) => theme.primary.light};
+    border-radius: 4px;
   }
 `
 
 const PostDate = StyledP.extend`
   margin: 0rem 1rem 0rem 1rem;
   padding: 0rem;
-  font-size: 0.75rem;
+  /* font-size: 0.75rem; */
   font-weight: bold;
-  font-size: 0.5rem;
+  /* font-size: 0.5rem; */
 `
 
+// top right bottom left
 const PostExcerpt = StyledP.extend`
   margin: 0.25rem 1rem 0.25rem 1rem;
   padding: 0rem;
-`
-// top right bottom left
-const TagsList = StyledUl.extend`
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  list-style: none;
-  transform: skewX(2deg);
-  transform: skewY(-2deg);
-`
-
-const PostTags = StyledLi.extend`
-  margin: 0rem 0rem 0rem 1rem;
-  padding: 0rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  display: inline;
-  background: ${({ theme }) => theme.primary.light};
-`
-
-const TagLink = styled(Link)`
-  color: inherit;
-  &:visited,
-  &:active {
-    color: inherit;
-  }
-  &:hover {
-    color: ${({ theme }) => theme.secondary.red};
-  }
 `
 
 const IndexPage = ({ data }) => {
@@ -74,22 +68,14 @@ const IndexPage = ({ data }) => {
         const { frontmatter } = post
 
         return (
-          <div>
+          <PostWrapper>
             <PostTitle>
               <PostLink to={frontmatter.path}>{frontmatter.title}</PostLink>
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
-            <PostExcerpt>{frontmatter.excerpt}</PostExcerpt>
-            <TagsList>
-              {post.frontmatter.tags.map(tag => {
-                return (
-                  <PostTags>
-                    <TagLink to={`/tags/${tag}`}>{tag}</TagLink>
-                  </PostTags>
-                )
-              })}
-            </TagsList>
-          </div>
+            <PostExcerpt>{post.excerpt}</PostExcerpt>
+            <TagsContainer tags={post.frontmatter.tags} title="no" />
+          </PostWrapper>
         )
       })}
     </div>
@@ -105,6 +91,7 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          excerpt(pruneLength: 250)
           id
           frontmatter {
             title

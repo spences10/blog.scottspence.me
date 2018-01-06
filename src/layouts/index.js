@@ -7,6 +7,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { theme, media } from '../theme/globalStyle'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 require('prismjs/themes/prism-solarizedlight.css')
 
@@ -50,7 +51,6 @@ const PageContainer = styled.div`
   `};
 `
 
-// min-height is just for the purpose of nice looking page
 const Main = styled.div`
   grid-area: m;
   /* min-height: 800px; */
@@ -96,6 +96,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <Header />
       <Main>{children()}</Main>
+      {/* <Footer /> */}
     </PageContainer>
   </ThemeProvider>
 )

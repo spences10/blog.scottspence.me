@@ -14,27 +14,27 @@ const StyledHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: '. . . b b b b b b . . .';
+  grid-template-areas: '. . . b b b c p a . . .';
   ${media.giant`
     grid-template-areas:
-      '. . b b b b b b b b . .';
+      '. . b b b b b c p a . .';
     /* background: goldenrod; */
   `};
   ${media.desktop`
     grid-template-areas:
-      '. . b b b b b b b b . .';
+      '. . b b b b b c p a . .';
     /* background: dodgerblue; */
   `};
   ${media.tablet`
   grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
-      '. b b b b b b b .';
+      '. b b b b c p a .';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
   grid-template-columns: repeat(9, 1fr);
   grid-template-areas:
-      'b b b b b b b b b';
+      'b b b b b b c p a';
     /* background: palevioletred; */
   `};
 
@@ -50,18 +50,32 @@ const BrandTitle = StyledH1.extend`
   padding: 0rem 0.5rem 0rem 0.5rem;
   font-family: Source Sans Pro;
   font-weight: bold;
+  /* font-size: 1rem; */
   ${media.giant`
-    font-size: 2rem;
+    /* font-size: 1rem; */
   `};
   ${media.desktop`
-    font-size: 2rem;
+    /* font-size: 1rem; */
   `};
   ${media.tablet`
-    font-size: 2rem;
+    /* font-size: 1rem; */
   `};
   ${media.phone`
-    font-size: 2rem;
+    /* font-size: 1rem; */
   `};
+`
+
+const Contact = styled.div`
+  grid-area: c;
+  text-transform: uppercase;
+`
+const Portfolio = styled.div`
+  grid-area: p;
+  text-transform: uppercase;
+`
+const About = styled.div`
+  grid-area: a;
+  text-transform: uppercase;
 `
 
 const BrandLink = styled(Link)`
@@ -80,7 +94,9 @@ const Header = () => (
     <BrandTitle>
       <BrandLink to="/">blog.scottspence.me</BrandLink>
     </BrandTitle>
-    {/* <PageNav header={true} /> */}
+    {/* <Contact>contact</Contact> */}
+    {/* <Portfolio>portfolio</Portfolio> */}
+    {/* <About>about</About> */}
   </StyledHeader>
 )
 

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import Hero from '../layouts/components/Hero'
+import TagsContainer from '../layouts/components/TagsContainer'
 import { media } from '../theme/globalStyle'
 
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
@@ -21,7 +22,7 @@ const TitleDate = StyledH3.extend`
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 1rem 0rem 1rem;
   font-family: Source Sans Pro;
-  font-size: 0.65rem;
+  /* font-size: 0.65rem; */
   color: ${({ theme }) => theme.shades.dark};
 `
 
@@ -30,18 +31,18 @@ const ContentWrapper = styled.div`
   margin: 0.5rem;
   padding-top: 0rem;
   padding-bottom: 0.5rem;
-  font-size: 0.65rem;
+  /* font-size: 0.65rem; */
   ${media.giant`
-    font-size: 1rem;
+    /* font-size: 1rem; */
   `};
   ${media.desktop`
-    font-size: 1rem;
+    /* font-size: 1rem; */
   `};
   ${media.tablet`
-    font-size: 1rem;
+    /* font-size: 1rem; */
   `};
   ${media.phone`
-    font-size: 1rem;
+    /* font-size: 1rem; */
   `};
   /* background: red; */
 `
@@ -55,7 +56,7 @@ const NavWrapper = ContentWrapper.extend`
 const NavP = StyledP.extend`
   margin: 0.25rem;
   padding: 0.25rem;
-  font-size: 0.5rem;
+  /* font-size: 0.5rem; */
   font-weight: bold;
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
@@ -70,7 +71,7 @@ const NavP = StyledP.extend`
 const Template = ({ data, location, pathContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
-  const { title, date } = frontmatter
+  const { title, date, tags } = frontmatter
   const { next, prev } = pathContext
 
   return (
@@ -97,6 +98,7 @@ const Template = ({ data, location, pathContext }) => {
           )}
         </NavP>
       </NavWrapper>
+      <TagsContainer tags={post.frontmatter.tags} />
     </div>
   )
 }

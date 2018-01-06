@@ -1,12 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
+
+// top right bottom left
+const Container = styled.div`
+  margin: 2rem 1rem 0rem 1rem;
+`
 
 const Tags = ({ pathContext }) => {
   const { posts, tagName } = pathContext
 
   if (posts) {
     return (
-      <div>
+      <Container>
         <div>
           <span>Posts about: {tagName}</span>
         </div>
@@ -19,7 +25,7 @@ const Tags = ({ pathContext }) => {
             )
           })}
         </ul>
-      </div>
+      </Container>
     )
   }
 }
