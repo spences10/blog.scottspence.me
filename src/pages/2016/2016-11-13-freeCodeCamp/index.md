@@ -3,9 +3,11 @@ path: "/freecodecamp/"
 date: "2016-11-13"
 title: "freeCodeCamp"
 tags: ['freeCodeCamp', 'learning']
-excerpt: "Ok, I have recently discovered and started doing freeCodeCamp which so far I'm really enjoying."
 published: true
 ---
+
+Ok, I have recently discovered and started doing freeCodeCamp(🔥) which so far
+I'm really enjoying.
 
 Since being out of work I have had some time to start exploring different
 programming languages and technologies but I haven't found any courses that I

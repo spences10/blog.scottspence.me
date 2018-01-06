@@ -3,9 +3,10 @@ path: "/twitter-mctwitbot/"
 date: "2017-01-04"
 title: "Twitter McTwitBot"
 tags: ['information', 'guide']
-excerpt: "I must say this was great to do and a nice little introduction to node and npm."
 published: true
 ---
+
+I must say this was great to do and a nice little introduction to node and npm.
 
 ![twitter logo](./twitter-bird.png)
 

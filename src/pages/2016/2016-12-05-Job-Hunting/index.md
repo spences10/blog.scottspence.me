@@ -3,9 +3,16 @@ path: "/Job-Hunting/"
 date: "2016-12-05"
 title: "Job hunting, one class 'A' ballache"
 tags: ['rant','job hunting','job']
-excerpt: "This is basically a rant about the job market, I was laid off back in August, this is a terrible time of year to be looking for work, everyone is on holiday so things are generally pretty slow so when this happened to me I did the same and went on holiday for the end of August and first week of September. Coming back from holiday I found that things were still pretty slow with the occasional phone call about roles that were not really suited to my skill set. It was at this point that I began to struggle and stress about ever being employed again."
 published: true
 ---
+
+This is basically a rant about the job market, I was laid off back in August,
+this is a terrible time of year to be looking for work, everyone is on holiday
+so things are generally pretty slow so when this happened to me I did the same
+and went on holiday for the end of August and first week of September. Coming
+back from holiday I found that things were still pretty slow with the occasional
+phone call about roles that were not really suited to my skill set. It was at
+this point that I began to struggle and stress about ever being employed again.
 
 ## No one wants to hire you
 

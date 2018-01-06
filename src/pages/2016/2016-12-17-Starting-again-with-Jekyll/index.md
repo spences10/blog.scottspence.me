@@ -3,9 +3,12 @@ path: "/Starting-again-with-Jekyll/"
 date: "2016-12-17"
 title: "Starting again with Jekyll"
 tags: ['ramble']
-excerpt: "Since setting up this blog I haven't really bothered with Jekyll any more than just forking Barry Clarke's repo of Jekyll Now and adding these posts as and when the feeling takes me."
 published: true
 ---
+
+Since setting up this blog I haven't really bothered with Jekyll any more than
+just forking Barry Clarke's repo of Jekyll Now and adding these posts as and
+when the feeling takes me.
 
 <figure class="floatRight">
 	<img style="height: 200px;" src="./jekyll-logo.png" alt="git">

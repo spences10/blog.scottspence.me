@@ -3,9 +3,11 @@ path: "/vba-ide-export/"
 date: "2016-11-13"
 title: "VBA Code Export for Version Control Systems"
 tags: ['Information', 'vcs','vba']
-excerpt: "I have seen the same situation many times now in my career as a VBA Developer about how source code control is managed with VBA projects."
 published: true
 ---
+
+I have seen the same situation many times now in my career as a VBA Developer
+about how source code control is managed with VBA projects.
 
 Source control on VBA has long been a bit of a nonsense, there isn't any really.
 When I started my first developer role it was talked about in my team why we

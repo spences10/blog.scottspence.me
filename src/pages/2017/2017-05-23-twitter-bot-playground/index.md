@@ -3,9 +3,10 @@ path: "/twitter-bot-playground/"
 date: "2017-05-23"
 title: "Twitter bot playground"
 tags: ['information', 'guide']
-excerpt: "How to build and deploy a multifunctional Twitter bot!"
 published: true
 ---
+
+How to build and deploy a multifunctional Twitter bot!
 
 This is a reference for me and anyone else that's interested in Twitter bots in
 JavaScript.

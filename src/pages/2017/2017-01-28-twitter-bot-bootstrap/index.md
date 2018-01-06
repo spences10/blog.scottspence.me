@@ -3,11 +3,15 @@ path: "/twitter-bot-bootstrap/"
 date: "2017-01-28"
 title: "Easily set up your own Twitter bot"
 tags: ['information', 'guide']
-excerpt: "Want to get set up with your very own Twitter bot quickly and easily, with this guide you can be set up in under 30 minutes. But first, why should you want to build a Twitter bot?
-
-There are some really useful Twitter bots out there that do some pretty cool stuff they don't all spam current hashtags and follow users relentlessly."
 published: true
 ---
+
+Want to get set up with your very own Twitter bot quickly and easily, with this
+guide you can be set up in under 30 minutes. But first, why should you want to
+build a Twitter bot?
+
+There are some really useful Twitter bots out there that do some pretty cool
+stuff they don't all spam current hashtags and follow users relentlessly.
 
 <figure class="floatRight">
 	<img style="height: 200px;" src="./rust-bird.jpg" alt="twitter">
