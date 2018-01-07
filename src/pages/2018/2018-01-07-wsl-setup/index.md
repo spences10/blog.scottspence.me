@@ -6,6 +6,15 @@ tags: ['information', 'guide', 'wsl', 'bash on windows', 'n', 'node']
 published: true
 ---
 
+I'm a Windows user, I have been a Linux user as well but I have found that
+Windows is a bit less neckbeardy for me, both have their pros and cons. One of
+the big cons with Windows for me was when I started learning web development.
+
+That was until Windows Subsystem Linux came along 👏
+
+I love it, you can have a bash shell in Windows and run all your node apps
+through it too
+
 I nuked my laptop the other day as I was having issues with bash on Windows.
 Related partly to using [nvm][slowbash] with WSL and something else that I'm
 sure I'll figure out eventually but as of right now I'm still not entirely

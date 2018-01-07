@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { ButtonBig } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
-import { media, theme } from '../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
@@ -88,11 +88,11 @@ const Template = ({ data, location, pathContext }) => {
       <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
 
       <TagsContainer tags={post.frontmatter.tags} />
-      <ButtonWrapper>
+      {/* <ButtonWrapper>
         <ButtonBig color={theme.primary.light} border={theme.primary.light}>
           <Link to="/">back to index</Link>
         </ButtonBig>
-      </ButtonWrapper>
+      </ButtonWrapper> */}
       {/* taking out nav links until I work out how to make the date order work */}
       {/* <NavWrapper>
         <NavP>
