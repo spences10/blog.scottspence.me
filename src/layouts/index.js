@@ -96,7 +96,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <Header />
       <Main>{children()}</Main>
-      {/* <Footer /> */}
+      <Footer />
     </PageContainer>
   </ThemeProvider>
 )
