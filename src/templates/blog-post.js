@@ -82,6 +82,8 @@ const Template = ({ data, location, pathContext }) => {
 
       <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
 
+      <TagsContainer tags={post.frontmatter.tags} />
+
       <NavWrapper>
         <NavP>
           {prev && (
@@ -98,7 +100,6 @@ const Template = ({ data, location, pathContext }) => {
           )}
         </NavP>
       </NavWrapper>
-      <TagsContainer tags={post.frontmatter.tags} />
     </div>
   )
 }
