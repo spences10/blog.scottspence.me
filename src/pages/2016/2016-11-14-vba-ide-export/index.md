@@ -1,6 +1,6 @@
 ---
-path: "/vba-ide-export/"
-date: "2016-11-13"
+path: "/vba-ide-export"
+date: "2016-11-14"
 title: "VBA Code Export for Version Control Systems"
 tags: ['Information', 'vcs','vba']
 excerpt: ""
