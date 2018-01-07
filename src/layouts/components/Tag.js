@@ -13,7 +13,9 @@ const PostTags = StyledLi.extend`
   display: inline-block;
   background: ${({ theme }) => theme.primary.light};
   transform: skew(-2deg); /* INVERSE SKEW */
+  transition-delay: 0.2s;
   &:hover {
+    transition-delay: 0.2s;
     transform: skew(2deg); /* SKEW */
   }
   border-radius: 4px;
