@@ -1,9 +1,9 @@
 ---
 path: "/wsl-setup/"
-date: "2018-01-05"
+date: "2018-01-07"
 title: "WSL setup"
-tags: ['information', 'guide', 'wsl', 'bash on windows']
-published: false
+tags: ['information', 'guide', 'wsl', 'bash on windows', 'n', 'node']
+published: true
 ---
 
 I nuked my laptop the other day as I was having issues with bash on Windows.
