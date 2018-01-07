@@ -55,21 +55,22 @@ const Main = styled.div`
   grid-area: m;
   /* min-height: 800px; */
   /* padding: 1.75rem; */
-  margin-top: 1.6rem;
+  /* header and post gap 🤷‍*/
+  margin-top: 2.5rem;
   ${media.giant`
-    /* background: goldenrod; */
+    background: goldenrod;
     margin-top: 2.6rem;
   `};
   ${media.desktop`
-    /* background: dodgerblue; */
+    background: dodgerblue;
     margin-top: 2.6rem;
   `};
   ${media.tablet`
-    /* background: mediumseagreen; */
+    background: mediumseagreen;
     margin-top: 2.6rem;
   `};
   ${media.phone`
-    /* background: palevioletred; */
+    background: palevioletred;
     margin-top: 2.7rem;
   `};
   /* margin-left: 0.5rem; */
