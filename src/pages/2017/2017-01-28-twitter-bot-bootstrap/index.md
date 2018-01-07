@@ -36,11 +36,12 @@ tweets that also happen to be an
 
 Bots can be used for many purposes in my case I have used it to enhance my
 [@ScottDevTweets](https://twitter.com/ScottDevTweets) account by liking and
-re-tweeting subjects I have an interest in, in the case of the #100DaysOfCode
-community challenge there is a community bot which congratulates you on starting
-#100DaysOfCode and again on completing it, these are specific responses to
-tweets with keywords for a community, there is also sentiment detection used
-under the #100DaysOfCode community hashtag where the bot will tweet you with
+re-tweeting subjects I have an interest in, in the case of the
+[#100DaysOfCode][100docchallenge] community challenge there is a community bot
+which congratulates you on starting [#100DaysOfCode][100doc] and again on
+completing it, these are specific responses to tweets with keywords for a
+community, there is also sentiment detection used under the
+[#100DaysOfCode][100doc] community hashtag where the bot will tweet you with
 encouraging words if you post a tweet with negative sentiment.
 
 ![](./100daysofcodetweet.png)
@@ -365,3 +366,8 @@ Other posts detailing useful Twitter bots.
 [www.brit.co/twitter-bots-to-follow](http://www.brit.co/twitter-bots-to-follow/)
 
 [www.hongkiat.com/using-twitter-bots](http://www.hongkiat.com/blog/using-twitter-bots/)
+
+<!-- links -->
+
+[100docchallenge]: https://medium.freecodecamp.com/start-2017-with-the-100daysofcode-improved-and-updated-18ce604b237b
+[100doc]: https://twitter.com/hashtag/100DaysOfCode?src=hash
