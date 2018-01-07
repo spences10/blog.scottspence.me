@@ -3,9 +3,9 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import Hero from '../layouts/components/Hero'
+import { ButtonBig } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
-import { media } from '../theme/globalStyle'
+import { media, theme } from '../theme/globalStyle'
 
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
@@ -68,6 +68,11 @@ const NavP = StyledP.extend`
   }
 `
 
+const ButtonWrapper = styled.div`
+  display: grid;
+  justify-items: end;
+`
+
 const Template = ({ data, location, pathContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
@@ -83,7 +88,11 @@ const Template = ({ data, location, pathContext }) => {
       <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
 
       <TagsContainer tags={post.frontmatter.tags} />
-
+      <ButtonWrapper>
+        <ButtonBig color={theme.primary.light} border={theme.primary.light}>
+          <Link to="/">back to index</Link>
+        </ButtonBig>
+      </ButtonWrapper>
       {/* taking out nav links until I work out how to make the date order work */}
       {/* <NavWrapper>
         <NavP>
