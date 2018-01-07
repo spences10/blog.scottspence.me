@@ -56,22 +56,22 @@ const Main = styled.div`
   /* min-height: 800px; */
   /* padding: 1.75rem; */
   /* header and post gap 🤷‍*/
-  margin-top: 2.5rem;
+  margin: 2.5rem 0rem 2.5rem 0rem;
   ${media.giant`
-    background: goldenrod;
-    margin-top: 2.6rem;
+    /* background: goldenrod; */
+    margin: 2.6rem 0rem 2.6rem 0rem;
   `};
   ${media.desktop`
-    background: dodgerblue;
-    margin-top: 2.6rem;
+    /* background: dodgerblue; */
+    margin: 2.6rem 0rem 2.6rem 0rem;
   `};
   ${media.tablet`
-    background: mediumseagreen;
-    margin-top: 2.6rem;
+    /* background: mediumseagreen; */
+    margin: 2.6rem 0rem 2.6em 0rem;
   `};
   ${media.phone`
-    background: palevioletred;
-    margin-top: 2.7rem;
+    /* background: palevioletred; */
+    margin: 2.7rem 0rem 2.7rem 0rem;
   `};
   /* margin-left: 0.5rem; */
   /* margin-right: 0.5rem; */
