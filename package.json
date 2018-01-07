@@ -17,15 +17,17 @@
     "gatsby-transformer-remark": "1.7.26",
     "styled-components": "2.4.0"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "now /public/",
     "dev": "gatsby develop",
     "clean": "rm -rf .cache/ && rm -rf public/",
-    "format":
-      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
+    "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
