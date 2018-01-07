@@ -13,6 +13,8 @@ script:
   - npm run clean
   - npm run format
   - npm run build
-  - npm install -g now-pipeline@1.7.1
+  - npm i -g now-pipeline
   - now-pipeline-prune
-  - DEBUG=now-pipeline now-pipeline --test "npm run prod-test"
+  - now-pipeline
+  - now-pipeline-list
+  - now-pipeline --alias scottspence.now.sh
