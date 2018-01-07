@@ -84,7 +84,8 @@ const Template = ({ data, location, pathContext }) => {
 
       <TagsContainer tags={post.frontmatter.tags} />
 
-      <NavWrapper>
+      {/* taking out nav links until I work out how to make the date order work */}
+      {/* <NavWrapper>
         <NavP>
           {prev && (
             <Link to={prev.frontmatter.path}>
@@ -99,7 +100,7 @@ const Template = ({ data, location, pathContext }) => {
             </Link>
           )}
         </NavP>
-      </NavWrapper>
+      </NavWrapper> */}
     </div>
   )
 }
