@@ -13,7 +13,7 @@ const PostWrapper = styled.div`
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   &:hover {
-    transform: translateY(1px);
+    transform: translateY(0.2px);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
 `
@@ -43,6 +43,7 @@ const PostLink = styled(Link)`
     color: ${({ theme }) => theme.secondary.red};
     background: ${({ theme }) => theme.primary.light};
     border-radius: 4px;
+    transition: color 0.2s ease-out, background 0.2s ease-in;
   }
 `
 
