@@ -28,10 +28,10 @@
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "deploy": "now /public/",
-    "dev": "gatsby develop",
     "clean": "rm -rf .cache/ && rm -rf public/",
+    "build": "gatsby build",
+    "deploy": "npm run clean && npm run build && now public/",
+    "dev": "gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged"
   },
