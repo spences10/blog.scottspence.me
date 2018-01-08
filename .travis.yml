@@ -17,10 +17,10 @@ before_script:
 
 script:
   - npm run build
-  # - cd public
   - npm i -g now-pipeline
-  - touch .npmignore
+  - ls -la
   - cd public
+  - touch package.json
   - now-pipeline
   - now-pipeline-list
   - now-pipeline --alias stageblog.scottspence.me
