@@ -4,7 +4,12 @@ import styled from 'styled-components'
 
 import TagsContainer from '../layouts/components/TagsContainer'
 
-import { StyledH1, StyledP, StyledLi, StyledUl } from '../theme/globalStyle'
+import {
+  StyledH1,
+  StyledP,
+  StyledLi,
+  StyledUl
+} from '../theme/globalStyle'
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -16,6 +21,7 @@ const PostWrapper = styled.div`
     transform: translateY(0.2px);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
+  background: ${({ theme }) => theme.white};
 `
 
 const PostTitle = StyledH1.extend`
@@ -71,7 +77,9 @@ const IndexPage = ({ data }) => {
         return (
           <PostWrapper>
             <PostTitle>
-              <PostLink to={frontmatter.path}>{frontmatter.title}</PostLink>
+              <PostLink to={frontmatter.path}>
+                {frontmatter.title}
+              </PostLink>
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{post.excerpt}</PostExcerpt>

@@ -68,6 +68,13 @@ const NavP = StyledP.extend`
   }
 `
 
+const PostWrapper = ContentWrapper.extend`
+  background: ${({ theme }) => theme.white};
+  border: 1px solid ${props => props.border};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+`
+
 const ButtonWrapper = styled.div`
   display: grid;
   justify-items: end;
@@ -80,7 +87,7 @@ const Template = ({ data, location, pathContext }) => {
   const { next, prev } = pathContext
 
   return (
-    <div>
+    <PostWrapper>
       <Helmet title={`${title} - blog.scottspence.me`} />
       <Title>{title}</Title>
       <TitleDate>{date}</TitleDate>
@@ -110,7 +117,7 @@ const Template = ({ data, location, pathContext }) => {
           )}
         </NavP>
       </NavWrapper> */}
-    </div>
+    </PostWrapper>
   )
 }
 
