@@ -20,7 +20,7 @@ script:
   - npm i -g now-pipeline
   - ls -la
   - cd public
-  - touch package.json
+  - npm init -y
   - now-pipeline
   - now-pipeline-list
   - now-pipeline --alias stageblog.scottspence.me
