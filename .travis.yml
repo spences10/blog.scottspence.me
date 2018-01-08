@@ -22,6 +22,8 @@ script:
   - touch .npmignore
   - cd public
   - now-pipeline
+  - now-pipeline-list
+  - now-pipeline --alias stageblog.scottspence.me
 
   # - now-pipeline --test "npm run deploy"
   # - now-pipeline-list
