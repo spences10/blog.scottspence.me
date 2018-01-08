@@ -16,14 +16,14 @@ before_script:
   - npm prune
 
 script:
-  - npm run clean
   - npm run build
   - cd public
   - npm i -g now-pipeline
   - DEBUG=now-pipeline now-pipeline
+  - now-pipeline
+  - now-pipeline-list
 
   # - npm i -g now-pipeline
   # - now-pipeline-prune
   # - now-pipeline 'npm run deploy'
-  # - now-pipeline-list
   # - now-pipeline --alias scottspence.now.sh
