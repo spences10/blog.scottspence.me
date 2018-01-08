@@ -71,13 +71,13 @@ const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
     <div>
-      {posts.map(({ node: post }) => {
+      {posts.map(({ node: post, index }) => {
         const { frontmatter } = post
 
         return (
           <PostWrapper>
             <PostTitle>
-              <PostLink to={frontmatter.path}>
+              <PostLink to={frontmatter.path} key={index}>
                 {frontmatter.title}
               </PostLink>
             </PostTitle>
