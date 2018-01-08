@@ -12,7 +12,7 @@ before_script:
 script:
   - touch .npmignore
   - npm i -g now-pipeline
-  - DEBUG=now-pipeline now-pipeline src/public/
+  - DEBUG=now-pipeline now-pipeline  --test "npm run deploy"
 
   # - npm run clean
   # - npm run format
