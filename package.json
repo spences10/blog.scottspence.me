@@ -8,7 +8,7 @@
   "dependencies": {
     "gatsby": "1.9.149",
     "gatsby-image": "1.0.31",
-    "gatsby-link": "1.6.32",
+    "gatsby-link": "1.6.33",
     "gatsby-plugin-react-helmet": "2.0.3",
     "gatsby-plugin-sharp": "1.6.24",
     "gatsby-plugin-styled-components": "2.0.4",
