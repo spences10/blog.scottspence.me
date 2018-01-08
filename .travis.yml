@@ -10,6 +10,7 @@ node_js:
 before_script:
   - npm prune
 script:
+  - touch .npmignore
   - npm i -g now-pipeline
   - DEBUG=now-pipeline now-pipeline
 
