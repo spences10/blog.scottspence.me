@@ -20,7 +20,8 @@ script:
   # - cd public
   - npm i -g now-pipeline
   - touch .npmignore
-  - DEBUG=now-pipeline now-pipeline public
+  - cd public
+  - now-pipeline
 
   # - now-pipeline --test "npm run deploy"
   # - now-pipeline-list
