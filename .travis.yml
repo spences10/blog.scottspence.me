@@ -10,16 +10,17 @@ notifications:
   email: false
 
 node_js:
-  - '6'
+  - '9'
 
 before_script:
   - npm prune
 
 script:
   - npm run build
-  - cd public
+  # - cd public
   - npm i -g now-pipeline
-  - DEBUG=now-pipeline now-pipeline
+  - DEBUG=now-pipeline now-pipeline /public/
+
   # - now-pipeline --test "npm run deploy"
   # - now-pipeline-list
 
@@ -28,5 +29,4 @@ script:
   # - now-pipeline 'npm run deploy'
   # - now-pipeline --alias scottspence.now.sh
 
-after_success:
-  - npm run deploy
+# after_success:
