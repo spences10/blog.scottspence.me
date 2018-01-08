@@ -14,11 +14,11 @@ node_js:
 
 before_script:
   - npm prune
-  - cd public
 
 script:
   - npm run clean
   - npm run build
+  - cd public
   - npm i -g now-pipeline
   - DEBUG=now-pipeline now-pipeline
 
