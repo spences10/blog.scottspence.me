@@ -21,6 +21,7 @@
     "styled-components": "2.4.0"
   },
   "devDependencies": {
+    "husky": "0.14.3",
     "prettier": "^1.9.2"
   },
   "keywords": ["gatsby", "personal", "blog"],
@@ -31,7 +32,8 @@
     "dev": "gatsby develop",
     "clean": "rm -rf .cache/ && rm -rf public/",
     "format":
-      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\""
+      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
+    "precommit": "pretty-quick --staged"
   },
   "repository": {
     "type": "git",
