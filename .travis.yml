@@ -1,22 +1,27 @@
 sudo: false
+
 language: node_js
+
 cache:
   directories:
     - node_modules
+
 notifications:
   email: false
+
 node_js:
   - '6'
+
 before_script:
   - npm prune
-script:
-  - touch .npmignore
-  - npm i -g now-pipeline
-  - DEBUG=now-pipeline now-pipeline  --test "npm run deploy"
+  - cd public
 
-  # - npm run clean
-  # - npm run format
-  # - npm run build
+script:
+  - npm run clean
+  - npm run build
+  - npm i -g now-pipeline
+  - DEBUG=now-pipeline now-pipeline
+
   # - npm i -g now-pipeline
   # - now-pipeline-prune
   # - now-pipeline 'npm run deploy'
