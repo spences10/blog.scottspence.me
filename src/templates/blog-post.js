@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { ButtonBig } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
-import { media } from '../theme/globalStyle'
+import { media, theme } from '../theme/globalStyle'
 
 import { StyledH1, StyledH3, StyledP } from '../theme/globalStyle'
 
@@ -80,6 +80,30 @@ const ButtonWrapper = styled.div`
   justify-items: end;
 `
 
+const HappyButton = ButtonBig.extend`
+  &:hover {
+    animation: halftone 1s forwards;
+    background: radial-gradient(
+          circle,
+          ${({ theme }) => theme.primary.light} 0.2em,
+          transparent 0.25em
+        )
+        0 0 / 1.25em 1.25em,
+      radial-gradient(
+          circle,
+          ${({ theme }) => theme.primary.light} 0.2em,
+          transparent 0.25em
+        )
+        6.25em 6.25em / 1.25em 1.25em;
+    color: ${({ theme }) => theme.text};
+  }
+  @keyframes halftone {
+    100% {
+      background-size: 2.375em 2.375em, 0.1em 0.1em;
+    }
+  }
+`
+
 const Template = ({ data, location, pathContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
@@ -95,11 +119,15 @@ const Template = ({ data, location, pathContext }) => {
       <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
 
       <TagsContainer tags={post.frontmatter.tags} />
-      {/* <ButtonWrapper>
-        <ButtonBig color={theme.primary.light} border={theme.primary.light}>
-          <Link to="/">back to index</Link>
-        </ButtonBig>
-      </ButtonWrapper> */}
+      <ButtonWrapper>
+        <Link to="/">
+          <HappyButton
+            color={theme.primary.light}
+            border={theme.primary.light}>
+            back to index
+          </HappyButton>
+        </Link>
+      </ButtonWrapper>
       {/* taking out nav links until I work out how to make the date order work */}
       {/* <NavWrapper>
         <NavP>
