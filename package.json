@@ -27,8 +27,7 @@
     "dev": "gatsby develop",
     "clean": "rm -rf .cache/ && rm -rf public/",
     "format":
-      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\""
   },
   "devDependencies": {
     "prettier": "^1.9.2"
