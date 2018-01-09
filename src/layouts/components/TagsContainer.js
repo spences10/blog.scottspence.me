@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Tag from './Tag'
 
-import { StyledH1, StyledP } from '../../theme/globalStyle'
+import { StyledP } from '../../theme/globalStyle'
 import { slugIt } from '../../utils/helpers'
 
 const TagsTitle = StyledP.extend`
@@ -31,17 +32,31 @@ export const TagsContainer = props => (
       <TagsList>
         <TagsTitle>Tagged under:</TagsTitle>
         {props.tags.map(tag => (
-          <Tag key={slugIt(props.name) + tag} tag={tag} />
+          <Tag
+            name={props.name}
+            key={`${slugIt(props.name)}-${tag}`}
+            tag={tag}
+          />
         ))}
       </TagsList>
     ) : (
       <TagsList>
         {props.tags.map(tag => (
-          <Tag key={slugIt(props.name) + tag} tag={tag} />
+          <Tag
+            name={props.name}
+            key={`${slugIt(props.name)}-${tag}`}
+            tag={tag}
+          />
         ))}
       </TagsList>
     )}
   </Container>
 )
+
+TagsContainer.propTypes = {
+  title: PropTypes.string.isRequired,
+  tags: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired
+}
 
 export default TagsContainer
