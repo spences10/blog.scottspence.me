@@ -73,22 +73,26 @@ const IndexPage = ({ data }) => {
     <div>
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
-        // {
-        //   console.log('====================')
-        //   console.log(`post=${post}`)
-        //   console.log(`index=${index}`)
-        //   console.log('====================')
-        // }
+        {
+          console.log('====================')
+          console.log(`pages index post=${post}`)
+          console.log(`pages index index=${index}`)
+          console.log('====================')
+        }
         return (
           <PostWrapper key={index}>
             <PostTitle>
-              <PostLink to={frontmatter.path}>
+              <PostLink to={frontmatter.path} key={index}>
                 {frontmatter.title}
               </PostLink>
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{post.excerpt}</PostExcerpt>
-            <TagsContainer tags={post.frontmatter.tags} title="no" />
+            <TagsContainer
+              name={frontmatter.title}
+              tags={post.frontmatter.tags}
+              title="no"
+            />
           </PostWrapper>
         )
       })}

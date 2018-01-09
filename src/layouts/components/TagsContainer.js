@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Tag from './Tag'
 
 import { StyledH1, StyledP } from '../../theme/globalStyle'
+import { slugIt } from '../../utils/helpers'
 
 const TagsTitle = StyledP.extend`
   margin: 0.25rem 0rem 0.25rem 0.25rem;
@@ -29,10 +30,16 @@ export const TagsContainer = props => (
     {props.title === 'yes' ? (
       <TagsList>
         <TagsTitle>Tagged under:</TagsTitle>
-        {props.tags.map(tag => <Tag key={tag} tag={tag} />)}
+        {props.tags.map(tag => (
+          <Tag key={slugIt(props.name) + tag} tag={tag} />
+        ))}
       </TagsList>
     ) : (
-      <TagsList>{props.tags.map(tag => <Tag key={tag} tag={tag} />)}</TagsList>
+      <TagsList>
+        {props.tags.map(tag => (
+          <Tag key={slugIt(props.name) + tag} tag={tag} />
+        ))}
+      </TagsList>
     )}
   </Container>
 )
