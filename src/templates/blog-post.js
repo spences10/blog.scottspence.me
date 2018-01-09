@@ -118,7 +118,11 @@ const Template = ({ data, location, pathContext }) => {
 
       <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
 
-      <TagsContainer tags={post.frontmatter.tags} />
+      <TagsContainer
+        title={title}
+        tags={post.frontmatter.tags}
+        name={`${title}-${date}`}
+      />
       <ButtonWrapper>
         <Link to="/">
           <HappyButton
