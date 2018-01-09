@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import { StyledH3, StyledP, StyledLi } from '../../theme/globalStyle'
+import { StyledLi } from '../../theme/globalStyle'
+import { slugIt } from '../../utils/helpers'
 
 // top right bottom left
 const PostTags = StyledLi.extend`
@@ -34,10 +36,15 @@ const TagLink = styled(Link)`
 
 export const Tag = props => {
   return (
-    <PostTags>
+    <PostTags key={`${slugIt(props.name)}-${props.tag}`}>
       <TagLink to={`/tags/${props.tag}`}>{props.tag}</TagLink>
     </PostTags>
   )
+}
+
+Tag.propTypes = {
+  name: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired
 }
 
 export default Tag
