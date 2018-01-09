@@ -1,15 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import TagsContainer from '../layouts/components/TagsContainer'
 
-import {
-  StyledH1,
-  StyledP,
-  StyledLi,
-  StyledUl
-} from '../theme/globalStyle'
+import { StyledH1, StyledP } from '../theme/globalStyle'
+import { slugIt } from '../utils/helpers'
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -73,12 +70,12 @@ const IndexPage = ({ data }) => {
     <div>
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
-        {
-          console.log('====================')
-          console.log(`pages index post=${post}`)
-          console.log(`pages index index=${index}`)
-          console.log('====================')
-        }
+        // {
+        //   console.log('====================')
+        //   console.log(`pages index post=${post}`)
+        //   console.log(`pages index index=${index}`)
+        //   console.log('====================')
+        // }
         return (
           <PostWrapper key={index}>
             <PostTitle>
@@ -89,7 +86,7 @@ const IndexPage = ({ data }) => {
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{post.excerpt}</PostExcerpt>
             <TagsContainer
-              name={frontmatter.title}
+              name={slugIt(frontmatter.title)}
               tags={post.frontmatter.tags}
               title="no"
             />
@@ -123,5 +120,9 @@ export const query = graphql`
     }
   }
 `
+
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired
+}
 
 export default IndexPage
