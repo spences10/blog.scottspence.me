@@ -134,20 +134,31 @@ const Template = ({ data, location, pathContext }) => {
       </ButtonWrapper>
       {/* taking out nav links until I work out how to make the date order work */}
       <NavWrapper>
-        <NavP>
-          {prev && (
-            <Link to={prev.frontmatter.path}>
-              {prev.frontmatter.title}
-            </Link>
-          )}
-        </NavP>
-        <NavP>
-          {next && (
-            <Link to={next.frontmatter.path}>
-              {next.frontmatter.title}
-            </Link>
-          )}
-        </NavP>
+        {prev === false ? (
+          <div />
+        ) : (
+          <NavP>
+            {prev && (
+              <Link to={prev.frontmatter.path}>
+                {prev.frontmatter.title}
+              </Link>
+            )}
+          </NavP>
+        )}
+        {next === false ? (
+          <div />
+        ) : (
+          <div>
+            {' '}
+            <NavP>
+              {next && (
+                <Link to={next.frontmatter.path}>
+                  {next.frontmatter.title}
+                </Link>
+              )}
+            </NavP>
+          </div>
+        )}
       </NavWrapper>
     </PostWrapper>
   )
