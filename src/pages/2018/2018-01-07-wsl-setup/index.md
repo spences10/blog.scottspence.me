@@ -10,7 +10,7 @@ I'm a Windows user, I have been a Linux user as well but I have found that
 Windows is a bit less neckbeardy for me, both have their pros and cons. One of
 the big cons with Windows for me was when I started learning web development.
 
-That was until Windows Subsystem Linux came along 👏
+That was until Windows Subsystem Linux came along 🙏
 
 I love it, you can have a bash shell in Windows and run all your node apps
 through it too
@@ -183,12 +183,16 @@ I only want to change `.gitconfig`, `.gitignore` and `.npmrc` here so I'm going
 to do this:
 
 ```sh
- chmod 644 .gitconfig .gitignore .npmrc
+chmod 644 .gitconfig .gitignore .npmrc
 ```
 
 And now my files look like this. 👍
 
 ![bash files permissions](./bash-dotfiles.png)
+
+Ok now were up and running with an up to date Ubuntu install, node and fish
+terminal. Of course there's still the case of installing all your global npm
+packages you want for development now.
 
 <!-- links -->
 
