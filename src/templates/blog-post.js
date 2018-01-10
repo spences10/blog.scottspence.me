@@ -51,9 +51,10 @@ const NavWrapper = ContentWrapper.extend`
   padding: 0.5rem;
   display: grid;
   grid-template-areas: 'main main';
+  justify-content: space-between;
 `
 
-const NavP = StyledP.extend`
+const NavPrev = StyledP.extend`
   margin: 0.25rem;
   padding: 0.25rem;
   /* font-size: 0.5rem; */
@@ -66,6 +67,10 @@ const NavP = StyledP.extend`
     transform: translateY(1px);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
+`
+
+const NavNext = NavPrev.extend`
+  text-align: right;
 `
 
 const PostWrapper = ContentWrapper.extend`
@@ -132,31 +137,30 @@ const Template = ({ data, location, pathContext }) => {
           </HappyButton>
         </Link>
       </ButtonWrapper>
-      {/* taking out nav links until I work out how to make the date order work */}
       <NavWrapper>
         {prev === false ? (
           <div />
         ) : (
-          <NavP>
+          <NavPrev>
             {prev && (
               <Link to={prev.frontmatter.path}>
                 {prev.frontmatter.title}
               </Link>
             )}
-          </NavP>
+          </NavPrev>
         )}
         {next === false ? (
           <div />
         ) : (
           <div>
             {' '}
-            <NavP>
+            <NavNext>
               {next && (
                 <Link to={next.frontmatter.path}>
                   {next.frontmatter.title}
                 </Link>
               )}
-            </NavP>
+            </NavNext>
           </div>
         )}
       </NavWrapper>
