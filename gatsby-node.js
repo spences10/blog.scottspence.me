@@ -44,12 +44,15 @@ const createTagPages = (createPage, posts) => {
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+  const blogPostTemplate = path.resolve('src/templates/blog-post.js')
 
   // returns promise that will start with this graphql query
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: { order: ASC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
         edges {
           node {
             html
@@ -74,15 +77,21 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     createTagPages(createPage, posts)
 
+    // Create pages for each markdown file.
     posts.forEach(({ node }, index) => {
+      const prev = index === 0 ? false : posts[index - 1].node
+      const next =
+        index === posts.length - 1 ? false : posts[index + 1].node
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,
         context: {
-          prev: index === 0 ? null : posts[index - 1].node,
-          next: index === posts.length - 1 ? null : posts[index + 1].node
+          prev,
+          next
         }
       })
     })
+
+    return posts
   })
 }

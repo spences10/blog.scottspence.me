@@ -133,22 +133,22 @@ const Template = ({ data, location, pathContext }) => {
         </Link>
       </ButtonWrapper>
       {/* taking out nav links until I work out how to make the date order work */}
-      {/* <NavWrapper>
+      <NavWrapper>
         <NavP>
           {prev && (
             <Link to={prev.frontmatter.path}>
-              Previous: {prev.frontmatter.title}
+              {prev.frontmatter.title}
             </Link>
           )}
         </NavP>
         <NavP>
           {next && (
             <Link to={next.frontmatter.path}>
-              Next: {next.frontmatter.title}
+              {next.frontmatter.title}
             </Link>
           )}
         </NavP>
-      </NavWrapper> */}
+      </NavWrapper>
     </PostWrapper>
   )
 }
@@ -159,11 +159,10 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        title
         date(formatString: "DD MMMM YYYY")
         path
         tags
-        excerpt
+        title
       }
     }
   }
