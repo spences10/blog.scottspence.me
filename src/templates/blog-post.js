@@ -117,7 +117,7 @@ const Template = ({ data, pathContext }) => {
   const { next, prev } = pathContext
 
   return (
-    <PostWrapper>
+    <PostWrapper border={({ theme }) => theme.primary.light}>
       <Helmet title={`${title} - blog.scottspence.me`} />
       <Title>{title}</Title>
       <TitleDate>{date}</TitleDate>
