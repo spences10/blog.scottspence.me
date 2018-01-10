@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -109,10 +110,10 @@ const HappyButton = ButtonBig.extend`
   }
 `
 
-const Template = ({ data, location, pathContext }) => {
+const Template = ({ data, pathContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
-  const { title, date, tags } = frontmatter
+  const { title, date } = frontmatter
   const { next, prev } = pathContext
 
   return (
@@ -152,16 +153,13 @@ const Template = ({ data, location, pathContext }) => {
         {next === false ? (
           <div />
         ) : (
-          <div>
-            {' '}
-            <NavNext>
-              {next && (
-                <Link to={next.frontmatter.path}>
-                  {next.frontmatter.title}
-                </Link>
-              )}
-            </NavNext>
-          </div>
+          <NavNext>
+            {next && (
+              <Link to={next.frontmatter.path}>
+                {next.frontmatter.title}
+              </Link>
+            )}
+          </NavNext>
         )}
       </NavWrapper>
     </PostWrapper>
@@ -182,5 +180,11 @@ export const pageQuery = graphql`
     }
   }
 `
+
+Template.propTypes = {
+  data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  pathContext: PropTypes.object.isRequired
+}
 
 export default Template
