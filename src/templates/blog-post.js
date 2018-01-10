@@ -129,37 +129,36 @@ const Template = ({ data, pathContext }) => {
         tags={post.frontmatter.tags}
         name={`${title}-${date}`}
       />
-      <ButtonWrapper>
-        <Link to="/">
-          <HappyButton
-            color={theme.primary.light}
-            border={theme.primary.light}>
-            back to index
-          </HappyButton>
-        </Link>
-      </ButtonWrapper>
       <NavWrapper>
         {prev === false ? (
           <div />
         ) : (
-          <NavPrev>
+          <ButtonWrapper>
             {prev && (
               <Link to={prev.frontmatter.path}>
-                {prev.frontmatter.title}
+                <HappyButton
+                  color={theme.primary.light}
+                  border={theme.primary.light}>
+                  {prev.frontmatter.title}
+                </HappyButton>
               </Link>
             )}
-          </NavPrev>
+          </ButtonWrapper>
         )}
         {next === false ? (
           <div />
         ) : (
-          <NavNext>
+          <ButtonWrapper>
             {next && (
               <Link to={next.frontmatter.path}>
-                {next.frontmatter.title}
+                <HappyButton
+                  color={theme.primary.light}
+                  border={theme.primary.light}>
+                  {next.frontmatter.title}
+                </HappyButton>
               </Link>
             )}
-          </NavNext>
+          </ButtonWrapper>
         )}
       </NavWrapper>
     </PostWrapper>
