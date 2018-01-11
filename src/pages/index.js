@@ -85,11 +85,11 @@ const IndexPage = ({ data }) => {
             </PostTitle>
             <PostDate>{frontmatter.date}</PostDate>
             <PostExcerpt>{post.excerpt}</PostExcerpt>
-            <TagsContainer
+            {/* <TagsContainer
               name={slugIt(frontmatter.title)}
               tags={post.frontmatter.tags}
               title="no"
-            />
+            /> */}
           </PostWrapper>
         )
       })}
