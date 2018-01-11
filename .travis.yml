@@ -2,10 +2,6 @@ sudo: false
 
 language: node_js
 
-cache:
-  directories:
-    - node_modules
-
 notifications:
   email: false
 
@@ -18,18 +14,8 @@ before_script:
 script:
   - npm run build
   - npm i -g now-pipeline
-  - now-pipeline --dir public/
+  - now-pipeline --dir public
 
-  # - now-pipeline
   - now-pipeline-list
-  - now-pipeline --alias stageblog.scottspence.me
+  - now-pipeline --alias scottspence.now.sh
 
-  # - now-pipeline --test "npm run deploy"
-  # - now-pipeline-list
-
-  # - npm i -g now-pipeline
-  # - now-pipeline-prune
-  # - now-pipeline 'npm run deploy'
-  # - now-pipeline --alias scottspence.now.sh
-
-# after_success:
