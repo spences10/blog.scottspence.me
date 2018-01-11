@@ -18,7 +18,7 @@ before_script:
 script:
   - npm run build
   - npm i -g now-pipeline
-  - now-pipeline dir public/
+  - now-pipeline --dir public/
 
   - now-pipeline-list
 
