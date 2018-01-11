@@ -6,6 +6,7 @@ node_js:
 cache: npm
 
 script:
+  - npm i -g now
   - npm run clean
   - npm run build
   - npm run deploy
