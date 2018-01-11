@@ -29,13 +29,19 @@
   },
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
+  "now": {
+    "name": "scottblog",
+    "alias": "scottspence.now.sh"
+  },
   "scripts": {
     "clean": "rm -rf .cache/ && rm -rf public/",
     "build": "gatsby build",
-    "deploy": "npm run clean && npm run build && now public/",
+    "deploy:now": "npm run clean && npm run build && now public/",
     "dev": "gatsby develop",
     "format": "pretty-quick",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "repository": {
     "type": "git",
