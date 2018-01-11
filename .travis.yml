@@ -17,8 +17,9 @@ before_script:
 
 script:
   - npm run build
+  - cd public
   - npm i -g now-pipeline@1.10.0
-  - DEBUG=now-pipeline --dir public/
+  - DEBUG=now-pipeline
 
   # - now-pipeline-list
   # - now-pipeline --alias scottspence.now.sh
