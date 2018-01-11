@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import { ButtonBig } from '../layouts/components/Button'
+import { ButtonSmall } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
 import { media, theme } from '../theme/globalStyle'
 
@@ -53,6 +53,9 @@ const NavWrapper = ContentWrapper.extend`
   display: grid;
   grid-template-areas: 'main main';
   justify-content: space-between;
+
+  padding: 0.2rem 0.3rem;
+  margin: 0.2rem 0.3rem;
 `
 
 const PostWrapper = ContentWrapper.extend`
@@ -67,7 +70,12 @@ const ButtonWrapper = styled.div`
   justify-items: end;
 `
 
-const HappyButton = ButtonBig.extend`
+const HappyButton = ButtonSmall.extend`
+  text-transform: capitalize;
+
+  padding: 0.1rem 0.1rem;
+  margin: 0.2rem 0.2rem;
+
   &:hover {
     animation: halftone 1s forwards;
     background: radial-gradient(
