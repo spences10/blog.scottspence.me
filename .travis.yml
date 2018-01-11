@@ -5,7 +5,9 @@ node_js:
 
 cache: npm
 
-script: 
+script:
+  - npm run clean
+  - npm run build
   - npm run deploy
 
 after_script: npm run alias

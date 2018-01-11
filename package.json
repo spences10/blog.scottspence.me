@@ -40,7 +40,7 @@
     "dev": "gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
-    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "deploy": "now public/ -e NODE_ENV=production --token $NOW_TOKEN --npm",
     "alias": "now alias --token=$NOW_TOKEN"
   },
   "repository": {
