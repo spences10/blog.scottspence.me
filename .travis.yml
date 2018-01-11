@@ -18,10 +18,9 @@ before_script:
 script:
   - npm run build
   - npm i -g now-pipeline
-  - ls -la
-  - cd public
-  - npm init -y
-  - now-pipeline
+  - now-pipeline --dir public/
+
+  # - now-pipeline
   - now-pipeline-list
   - now-pipeline --alias stageblog.scottspence.me
 
