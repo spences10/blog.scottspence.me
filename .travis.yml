@@ -2,6 +2,10 @@ sudo: false
 
 language: node_js
 
+cache:
+  directories:
+    - node_modules
+
 notifications:
   email: false
 
@@ -14,7 +18,7 @@ before_script:
 script:
   - npm run build
   - npm i -g now-pipeline
-  - now-pipeline --dir /public
+  - DEBUG=now-pipeline --dir /public/
 
   - now-pipeline-list
   - now-pipeline --alias scottspence.now.sh
