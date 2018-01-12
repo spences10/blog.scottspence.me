@@ -21,9 +21,6 @@ script:
   - npm run build
   - npm run deploy
 
-- "[[ $TRAVIS_BRANCH =~ development ]] && echo 'on dev branch!' || true"
-- "[[ $TRAVIS_BRANCH =~ master ]] && echo 'on master branch!' || true"
-
 after_script: 
   - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi 
   - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
