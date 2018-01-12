@@ -1,11 +1,19 @@
-language: node_js
+sudo: false
 
-node_js:
-  - "node"
+language: node_js
 
 cache:
   directories:
     - node_modules
+
+notifications:
+  email: false
+
+node_js:
+  - '9'
+
+before_script:
+  - npm prune
 
 script:
   - npm i -g now
@@ -14,7 +22,8 @@ script:
   - npm run deploy
 
 after_script: 
-  - npm run alias
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi 
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
 
 env:
 global:

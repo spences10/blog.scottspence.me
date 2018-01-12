@@ -6,7 +6,7 @@
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
-    "gatsby": "1.9.152",
+    "gatsby": "1.9.154",
     "gatsby-image": "1.0.31",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-react-helmet": "2.0.3",
@@ -24,24 +24,24 @@
     "eslint": "4.15.0",
     "eslint-plugin-react": "7.5.1",
     "husky": "0.14.3",
-    "prettier": "^1.9.2",
+    "prettier": "1.10.2",
     "pretty-quick": "1.2.0"
   },
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
   "now": {
-    "name": "scottblog",
-    "alias": "scottspence.now.sh"
+    "name": "scottblog"
   },
   "scripts": {
-    "clean": "rm -rf .cache/ && rm -rf public/",
-    "build": "gatsby build",
-    "deploy:now": "npm run clean && npm run build && now public/",
-    "dev": "gatsby develop",
+    "clean": "rm -rf .cache/ && rm -rf scottblog/ && rm -rf public/",
+    "build": "gatsby build && mv public scottblog",
+    "deploy:now": "npm run clean && npm run build && now scottblog/",
+    "dev": "npm run clean && gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
-    "deploy": "now public/ -e NODE_ENV=production --token $NOW_TOKEN",
-    "alias": "now alias --token=$NOW_TOKEN"
+    "deploy": "now scottblog/ --token $NOW_TOKEN",
+    "alias:dev": "now alias scottspence.now.sh --token=$NOW_TOKEN",
+    "alias:prod": "now alias blog.scottspence.me --token=$NOW_TOKEN"
   },
   "repository": {
     "type": "git",
