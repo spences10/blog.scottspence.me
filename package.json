@@ -30,18 +30,20 @@
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
   "now": {
-    "name": "public",
-    "alias": "scottspence.now.sh"
+    "name": "scottblog",
+    "alias:dev": "scottspence.now.sh",
+    "alias:prod": "blog.scottspence.me"
   },
   "scripts": {
-    "clean": "rm -rf .cache/ && rm -rf public/",
-    "build": "gatsby build",
-    "deploy:now": "npm run clean && npm run build && now public/",
+    "clean": "rm -rf .cache/ && rm -rf scottblog/",
+    "build": "gatsby build && mv public scottblog",
+    "deploy:now": "npm run clean && npm run build && now scottblog/",
     "dev": "gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
-    "deploy": "now public/ -e NODE_ENV=production --token $NOW_TOKEN",
-    "alias": "now alias --token=$NOW_TOKEN"
+    "deploy": "now scottblog/ -e NODE_ENV=production --token $NOW_TOKEN",
+    "alias:dev": "now alias:dev --token=$NOW_TOKEN",
+    "alias:prod": "now alias:prod --token=$NOW_TOKEN"
   },
   "repository": {
     "type": "git",
