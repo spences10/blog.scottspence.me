@@ -30,7 +30,7 @@
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
   "now": {
-    "name": "scottblog",
+    "name": "public",
     "alias": "scottspence.now.sh"
   },
   "scripts": {
