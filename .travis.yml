@@ -22,7 +22,14 @@ script:
   - npm run deploy
 
 after_script: 
-  - npm run alias
+on:
+  branch: development
+    - npm run alias:dev
+  branch: master
+    - npm run alias:prod
+
+  # - if [ "$TRAVIS_BRANCH" = "develop" ]; then npm run devScript; fi 
+  # - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run prodScript; fi
 
 env:
 global:
