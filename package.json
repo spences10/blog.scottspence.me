@@ -30,9 +30,7 @@
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
   "now": {
-    "name": "scottblog",
-    "alias:dev": "scottspence.now.sh",
-    "alias:prod": "blog.scottspence.me"
+    "name": "scottblog"
   },
   "scripts": {
     "clean": "rm -rf .cache/ && rm -rf scottblog/",
@@ -42,8 +40,8 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ -e NODE_ENV=production --token $NOW_TOKEN",
-    "alias:dev": "now alias:dev --token=$NOW_TOKEN",
-    "alias:prod": "now alias:prod --token=$NOW_TOKEN"
+    "alias:dev": "now alias scottspence.now.sh --token=$NOW_TOKEN",
+    "alias:prod": "now alias blog.scottspence.me --token=$NOW_TOKEN"
   },
   "repository": {
     "type": "git",
