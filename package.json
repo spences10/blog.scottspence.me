@@ -36,13 +36,13 @@
     "name": "scottblog"
   },
   "scripts": {
-    "clean": "rm -rf .cache/ && rm -rf scottblog/",
+    "clean": "rm -rf .cache/ && rm -rf scottblog/ && rm -rf public/",
     "build": "gatsby build && mv public scottblog",
     "deploy:now": "npm run clean && npm run build && now scottblog/",
-    "dev": "gatsby develop",
+    "dev": "npm run clean && gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
-    "deploy": "now scottblog/ -e NODE_ENV=production --token $NOW_TOKEN",
+    "deploy": "now scottblog/ --token $NOW_TOKEN",
     "alias:dev": "now alias scottspence.now.sh --token=$NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token=$NOW_TOKEN"
   },
