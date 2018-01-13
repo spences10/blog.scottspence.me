@@ -1,9 +1,9 @@
 ---
-path: "/wsl-setup/"
-date: "2018-01-07"
-title: "WSL setup"
+path: "/wsl-setup"
+date: "2018-01-13"
+title: "Windows Subsystem Linux setup"
 tags: ['information', 'guide', 'wsl', 'bash on windows', 'n', 'node']
-published: false
+published: true
 ---
 
 I'm a Windows user, I have been a Linux user as well but I have found
@@ -11,7 +11,13 @@ that Windows is a bit less neckbeardy for me, both have their pros and
 cons. One of the big cons with Windows for me was when I started
 learning web development.
 
+![how to fix any computer](./fix-any-computer.jpg)
+
+###### [How to fix any computer - The Oatmeal]
+
 That was until Windows Subsystem Linux came along 🙏
+
+Windows 10 Fall Creators Update
 
 I love it, you can have a bash shell in Windows and run all your node
 apps through it too
@@ -202,6 +208,7 @@ global npm packages you want for development now.
 
 <!-- links -->
 
+[how to fix any computer - the oatmeal]: http://theoatmeal.com/blog/fix_computer
 [slowbash]: https://github.com/Microsoft/WSL/issues/776
 [wslmsstore]: https://www.microsoft.com/store/productId/9NBLGGH4MSV6
 [usen]: https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
