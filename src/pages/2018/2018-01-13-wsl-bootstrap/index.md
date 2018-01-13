@@ -3,7 +3,7 @@ path: "/wsl-setup"
 date: "2018-01-13"
 title: "Windows Subsystem Linux setup"
 tags: ['information', 'guide', 'wsl', 'bash on windows', 'n', 'node']
-published: false
+published: true
 ---
 
 I'm a Windows user, I have been a Linux user as well but I have found
@@ -17,25 +17,25 @@ I love it, you can have a bash shell in Windows and run all your node
 apps through it too and with the Windows 10 Fall Creators Update WSL
 is really straightforward to set up.
 
-I nuked my laptop the other day as I was having issues with bash on
-Windows. Related partly to using [nvm][slowbash] with WSL and
-something else that I'm sure I'll figure out eventually but as of
-right now I'm still not entirely certain what it was that was causing
-the slowness.
+Quick backstory on why I'm posting this: I nuked my laptop the other
+day as I was having issues with bash on Windows. Related partly to
+using [nvm][slowbash] with WSL and generally getting frustrated with
+how my computer was performing. I realise now I over reacted.
 
 So I have had to set up my development environment again from scratch,
 luckily for me I keep all my settings and config information in a
-GitHub [repo][settingsrepo]
+GitHub [repo][settingsrepo] in the event of me getting a new computer
+or to recover from a catastrophic event [like a nuked computer].
 
-Here's how I set up Windows Subsystem Linux for my development
+Here's how I set up _my_ Windows Subsystem Linux for my development
 environment.
 
-This is my opinionated view on my setup and usage of WSL and this is
-my step by step guide for the next time I have to spin up a
+This is my opinionated view on my specif setup and usage of WSL and
+this is my step by step guide for the next time I have to spin up a
 development environment from scratch on Windows.
 
 So, after installing [WSL][wslmsstore] from the Microsoft Store and
-adding your default user fist thing is to update and upgrade all the
+adding your default user, fist thing is to update and upgrade all the
 things.
 
 ```sh
@@ -45,8 +45,8 @@ sudo apt -y upgrade
 
 If you've not used any Linux distributions before the `-y` in the
 upgrade statement is to default the answer to yes for any prompts that
-are displayed in the terminal. You might not want to do this, but I
-do.
+are displayed in the terminal. You might not want to do this, as there
+may be some programs you don't want to update but I do.
 
 ![upgrade image](./upgrade-yes.png)
 
@@ -59,24 +59,15 @@ install build tools, I need this for Gatsby images which uses `sharp`
 which in turn uses `node-gyp`:
 
 ```sh
-sudo apt-get install -y build-essential
+sudo apt install -y build-essential
 ```
 
 ### Install node
 
 Installing node via the instructions given on the nodejs.org site
 doesn't give the correct permissions for me, so when trying to
-`npm install` anything I get errors, I found using `nvm` helps:
-
-```sh
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
-nvm install node
-node -v
-npm -v
-```
-
-If you find the startup time of bash [taking too long][slowbash] then
-take a look at [using n][usen] instead.
+`npm install` anything I get errors, I found using [using `n`][usen]
+helps:
 
 ### Install node with `n`
 
@@ -91,7 +82,7 @@ This will install the latest stable version of node 👍
 Once the script is complete restart bash with:
 
 ```sh
-. /home/<my_user_name>/.bashrc
+. /home/my_user_name/.bashrc # the n prompt displays this for you to copy pasta
 ```
 
 Check your node and npm versions:
@@ -107,8 +98,7 @@ Fish is now my go to shell purely for the auto complete/intellisense
 
 ```sh
 sudo apt -y install fish
-sudo apt -y upgrade
-sudo apt -y autoremove
+sudo apt -y upgrade && sudo apt -y autoremove
 ```
 
 ### Install Oh My Fish | OMF
@@ -134,17 +124,20 @@ set up now, I have been using SSH over HTTPS for a while now on WSL.
 > At the time of writing this WSL Git integration with VSCode doesn't
 > work so I have added a Git install to my windows machine, you can
 > omit this and go full Git via the terminal but I really like the
-> VSCode integration.
+> VSCode git integration.
 
 To get SSH set up on your machine take a look at this [handy SSH
-setup].
+setup]. I say SSH instead of HTTPS 1. because I had all sorts of
+issues with the Git credential manager and the keyring manager in the
+end it was actually quicker to create an SSH key and authenticate with
+GitHub - the guide I linked walks you through it.
 
 ### Move your dotfiles
 
 If you have all your [dotfiles] backed up in a GitHub repo then now is
 a good time to add them to your WSL folder, the last times I did this
 I manually set the permissions after moving each of the the files but
-have since discovered [`rsync`][rsync]
+have since discovered [`rsync`][rsync] to move all the files.
 
 ```sh
 rsync -avzh /mnt/c/Users/dotfiles/ ~/
