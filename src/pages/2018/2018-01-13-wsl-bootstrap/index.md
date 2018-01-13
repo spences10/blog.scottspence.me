@@ -96,8 +96,6 @@ node -v && npm -v
 Fish is now my go to shell purely for the auto complete/intellisense
 👌 there's also some nice themes you can get for it too.
 
-![fish terminal gif](./fish.gif)
-
 ```sh
 sudo apt -y install fish
 sudo apt -y upgrade && sudo apt -y autoremove
