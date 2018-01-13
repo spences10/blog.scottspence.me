@@ -19,9 +19,8 @@ is really straightforward to set up.
 
 I nuked my laptop the other day as I was having issues with bash on
 Windows. Related partly to using [nvm][slowbash] with WSL and
-something else that I'm sure I'll figure out eventually but as of
-right now I'm still not entirely certain what it was that was causing
-the slowness.
+generally getting frustrated with how my computer was performing. I
+realise now that it was a sledgehammer to crack a nut scenario.
 
 So I have had to set up my development environment again from scratch,
 luckily for me I keep all my settings and config information in a
