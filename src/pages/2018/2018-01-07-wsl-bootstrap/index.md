@@ -7,20 +7,15 @@ published: true
 ---
 
 I'm a Windows user, I have been a Linux user as well but I have found
-that Windows is a bit less neckbeardy for me, both have their pros and
-cons. One of the big cons with Windows for me was when I started
-learning web development.
-
-![how to fix any computer](./fix-any-computer.jpg)
-
-###### [How to fix any computer - The Oatmeal]
+that Windows is a bit less [neckbeardy][fixanycomputer] for me, both
+have their pros and cons. One of the big cons with Windows for me was
+when I started learning web development.
 
 That was until Windows Subsystem Linux came along 🙏
 
-Windows 10 Fall Creators Update
-
 I love it, you can have a bash shell in Windows and run all your node
-apps through it too
+apps through it too and with the Windows 10 Fall Creators Update WSL
+is really straightforward to set up.
 
 I nuked my laptop the other day as I was having issues with bash on
 Windows. Related partly to using [nvm][slowbash] with WSL and
@@ -35,7 +30,9 @@ GitHub [repo][settingsrepo]
 Here's how I set up Windows Subsystem Linux for my development
 environment.
 
-This is my opinionated view on my setup and usage of WSL.
+This is my opinionated view on my setup and usage of WSL and this is
+my step by step guide for the next time I have to spin up a
+development environment from scratch on Windows.
 
 So, after installing [WSL][wslmsstore] from the Microsoft Store and
 adding your default user fist thing is to update and upgrade all the
@@ -48,7 +45,8 @@ sudo apt -y upgrade
 
 If you've not used any Linux distributions before the `-y` in the
 upgrade statement is to default the answer to yes for any prompts that
-are displayed in the terminal.
+are displayed in the terminal. You might not want to do this, but I
+do.
 
 ![upgrade image](./upgrade-yes.png)
 
@@ -208,7 +206,7 @@ global npm packages you want for development now.
 
 <!-- links -->
 
-[how to fix any computer - the oatmeal]: http://theoatmeal.com/blog/fix_computer
+[fixanycomputer]: http://theoatmeal.com/blog/fix_computer
 [slowbash]: https://github.com/Microsoft/WSL/issues/776
 [wslmsstore]: https://www.microsoft.com/store/productId/9NBLGGH4MSV6
 [usen]: https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
