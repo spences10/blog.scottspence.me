@@ -14,5 +14,7 @@ Travis 👌
 
 Tried now pipline 💩
 
+##### folder and frontmatter path names
+
 make sure that your folder names are not the same as your frontmatter
 path names
