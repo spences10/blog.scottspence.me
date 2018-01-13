@@ -22,8 +22,20 @@ script:
   - npm run deploy
 
 after_script: 
-  - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi 
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
+  # - if [ "$TRAVIS_BRANCH" = "development" ]; then   ; fi 
+  # - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
+
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script: npm run alias:dev
+    on:
+      branch: develop
+  # deploy master to production
+  - provider: script
+    script: npm run alias:prod
+    on:
+      branch: master
 
 env:
 global:
