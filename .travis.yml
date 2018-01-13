@@ -16,7 +16,7 @@ before_script:
   - npm prune
 
 script:
-  - npm i -g now
+  - npm i -g now@canary
   - npm run clean
   - npm run build
   - npm run deploy
