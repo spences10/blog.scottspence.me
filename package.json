@@ -18,7 +18,8 @@
     "gatsby-source-filesystem": "1.5.11",
     "gatsby-transformer-remark": "1.7.28",
     "react-helmet": "5.2.0",
-    "styled-components": "2.4.0"
+    "styled-components": "2.4.0",
+    "snyk": "^1.68.0"
   },
   "devDependencies": {
     "eslint": "4.15.0",
@@ -46,7 +47,9 @@
     "deploy": "now scottblog/ --token $NOW_TOKEN",
     "alias:dev": "now alias scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
-    "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN"
+    "cleanup": "now rm scottblog --safe --yes --token$NOW_TOKEN",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -55,5 +58,6 @@
   "bugs": {
     "url": "https://github.com/spences10/blog.scottspence.me/issues"
   },
-  "homepage": "https://github.com/spences10/blog.scottspence.me#readme"
+  "homepage": "https://github.com/spences10/blog.scottspence.me#readme",
+  "snyk": true
 }

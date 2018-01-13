@@ -90,7 +90,7 @@ const HappyButton = ButtonSmall.extend`
           transparent 0.25em
         )
         6.25em 6.25em / 1.25em 1.25em;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.secondary.red};
   }
   @keyframes halftone {
     100% {
