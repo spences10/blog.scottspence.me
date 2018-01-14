@@ -71,8 +71,7 @@ const Footer = () => (
       <IconLink
         target="_blank"
         rel="noopener"
-        href="https://github.com/spences10"
-      >
+        href="https://github.com/spences10">
         <Icon icon={ICONS.GITHUB} size={20} color="#453463" />
       </IconLink>
     </IconWrapper>
@@ -80,8 +79,7 @@ const Footer = () => (
       <IconLink
         target="_blank"
         rel="noopener"
-        href="https://twitter.com/ScottDevTweets"
-      >
+        href="https://twitter.com/ScottDevTweets">
         <Icon
           viewbox="0 0 32 32"
           size={20}
@@ -94,8 +92,7 @@ const Footer = () => (
       <IconLink
         target="_blank"
         rel="noopener"
-        href="mailto:spences10apps@gmail.com"
-      >
+        href="mailto:spences10apps@gmail.com?subject=Hi Scott 👋">
         <Icon
           viewbox="0 0 32 32"
           size={20}
@@ -108,8 +105,7 @@ const Footer = () => (
       <IconLink
         target="_blank"
         rel="noopener"
-        href="https://www.linkedin.com/in/linkedinscottspence/"
-      >
+        href="https://www.linkedin.com/in/linkedinscottspence/">
         <Icon
           viewbox="0 0 32 32"
           size={20}
