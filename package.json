@@ -1,7 +1,8 @@
 {
   "name": "blog.scottspence.me",
-  "version": "1.0.0",
-  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
+  "version": "2.0.1",
+  "author":
+    "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
@@ -28,11 +29,7 @@
     "prettier": "1.10.2",
     "pretty-quick": "1.2.0"
   },
-  "keywords": [
-    "gatsby",
-    "personal",
-    "blog"
-  ],
+  "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
   "now": {
     "name": "scottblog"
@@ -58,6 +55,7 @@
   "bugs": {
     "url": "https://github.com/spences10/blog.scottspence.me/issues"
   },
-  "homepage": "https://github.com/spences10/blog.scottspence.me#readme",
+  "homepage":
+    "https://github.com/spences10/blog.scottspence.me#readme",
   "snyk": true
 }
