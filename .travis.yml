@@ -26,7 +26,7 @@ after_script:
   - if [ "$TRAVIS_BRANCH" = "master" ]; then 
     npm run alias:prod; 
     npm run release;
-  fi
+  - fi
   - npm run cleanup
 
 env:
