@@ -1,11 +1,11 @@
 {
   "name": "blog.scottspence.me",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
-    "gatsby": "1.9.155",
+    "gatsby": "1.9.157",
     "gatsby-image": "1.0.33",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-favicon": "2.1.1",
@@ -26,7 +26,8 @@
     "eslint-plugin-react": "7.5.1",
     "husky": "0.14.3",
     "prettier": "1.10.2",
-    "pretty-quick": "1.2.0"
+    "pretty-quick": "1.2.0",
+    "release-it": "5.2.0"
   },
   "keywords": [
     "gatsby",
@@ -46,10 +47,11 @@
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
     "alias:dev": "now alias scottspence.now.sh --token $NOW_TOKEN",
-    "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
+    "alias:release": "now alias blog.scottspence.me --token $NOW_TOKEN && npm release",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",

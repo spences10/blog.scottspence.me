@@ -23,8 +23,8 @@ script:
 
 after_script: 
   - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi 
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
-  - now run cleanup
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:release; fi
+  - npm run cleanup
 
 env:
 global:
