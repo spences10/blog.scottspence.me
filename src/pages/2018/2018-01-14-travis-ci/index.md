@@ -18,3 +18,5 @@ Tried now pipline 💩
 
 make sure that your folder names are not the same as your frontmatter
 path names
+
+https://zeit.co/docs/examples/travis

@@ -26,7 +26,7 @@
     "eslint-plugin-react": "7.5.1",
     "husky": "0.14.3",
     "prettier": "1.10.2",
-    "pretty-quick": "1.2.1",
+    "pretty-quick": "1.2.2",
     "release-it": "5.2.0"
   },
   "keywords": [
@@ -46,7 +46,7 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
-    "alias:dev": "now alias scottspence.now.sh --token $NOW_TOKEN",
+    "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "snyk-protect": "snyk protect",
