@@ -13,18 +13,18 @@
     "gatsby-plugin-sharp": "1.6.25",
     "gatsby-plugin-styled-components": "2.0.4",
     "gatsby-remark-copy-linked-files": "1.5.25",
-    "gatsby-remark-images": "1.5.37",
+    "gatsby-remark-images": "1.5.39",
     "gatsby-remark-prismjs": "1.2.12",
     "gatsby-source-filesystem": "1.5.14",
     "gatsby-transformer-remark": "1.7.28",
     "react-helmet": "5.2.0",
-    "snyk": "^1.68.0",
+    "snyk": "1.69.1",
     "styled-components": "2.4.0"
   },
   "devDependencies": {
     "eslint": "4.16.0",
     "eslint-plugin-react": "7.5.1",
-    "husky": "0.14.3",
+    "husky": "0.15.0-rc.2",
     "prettier": "1.10.2",
     "pretty-quick": "1.2.2",
     "release-it": "6.0.0"
