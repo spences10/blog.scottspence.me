@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
 import { theme, media } from '../theme/globalStyle'
+import { siteMeta } from '../constants'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -81,20 +82,7 @@ const Main = styled.div`
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <PageContainer>
-      <Helmet
-        title="Scott Spence - blog"
-        meta={[
-          {
-            name: 'description',
-            content: 'The blog of Scott Spence developer'
-          },
-          {
-            name: 'keywords',
-            content:
-              'developer, JavaScript, js, learning, 100daysofcode, ScottDevTweets'
-          }
-        ]}
-      />
+      <Helmet title="Scott Spence - blog" meta={siteMeta} />
       <Header />
       <Main>{children()}</Main>
       <Footer />
