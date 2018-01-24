@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
 import { theme, media } from '../theme/globalStyle'
-import { siteMeta } from '../constants'
+import { siteMeta } from '../theme/constants'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
