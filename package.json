@@ -1,8 +1,7 @@
 {
   "name": "blog.scottspence.me",
   "version": "2.0.1",
-  "author":
-    "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
@@ -10,6 +9,7 @@
     "gatsby-image": "1.0.34",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-favicon": "2.1.1",
+    "gatsby-plugin-google-analytics": "1.0.16",
     "gatsby-plugin-react-helmet": "2.0.4",
     "gatsby-plugin-sharp": "1.6.26",
     "gatsby-plugin-styled-components": "2.0.5",
@@ -30,7 +30,11 @@
     "pretty-quick": "1.2.2",
     "release-it": "6.1.0"
   },
-  "keywords": ["gatsby", "personal", "blog"],
+  "keywords": [
+    "gatsby",
+    "personal",
+    "blog"
+  ],
   "main": "n/a",
   "now": {
     "name": "scottblog"
@@ -43,8 +47,7 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
-    "alias:dev":
-      "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
+    "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "snyk-protect": "snyk protect",
@@ -58,7 +61,6 @@
   "bugs": {
     "url": "https://github.com/spences10/blog.scottspence.me/issues"
   },
-  "homepage":
-    "https://github.com/spences10/blog.scottspence.me#readme",
+  "homepage": "https://github.com/spences10/blog.scottspence.me#readme",
   "snyk": true
 }
