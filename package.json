@@ -6,9 +6,9 @@
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
-    "gatsby": "1.9.175",
+    "gatsby": "1.9.177",
     "gatsby-image": "1.0.34",
-    "gatsby-link": "1.6.35",
+    "gatsby-link": "1.6.36",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-google-analytics": "1.0.17",
     "gatsby-plugin-react-helmet": "2.0.4",
