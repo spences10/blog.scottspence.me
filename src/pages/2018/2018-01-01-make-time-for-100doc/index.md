@@ -4,7 +4,7 @@ date: "2018-02-25"
 title: "How to make time for 100 days of code"
 tags: ['information', 'guide', 'learning', 'habits']
 excerpt: ""
-published: true
+published: false
 ---
 
 > Life moves pretty fast. If you don’t stop and look around once in a
@@ -20,7 +20,7 @@ But fist, **preamble:**
 That was the overriding message I got when I started out in
 freeCodeCamp it's a fun and exciting time and you will see a lot of
 articles along the lines of 'hey look at me I was a school teacher
-before now I'm earning $100k as a engineer for x startup'
+before, now I'm earning $100k as a engineer for x startup'
 
 I don't mean this in a mean spirited or passive aggressive way, but if
 you're starting out in web development and you surround yourself with
@@ -117,16 +117,18 @@ It’s a balance
 
 ### Tools
 
-## Life hacks
+WakaTime RescueTime
+
+### Life hacks
 
 It needs to be called a hack so everyone can thing they're cheating
 the system. In reality it's some helpful rules to aid you if you need
-to find the extra time
+to find the extra time.
 
 Get up early, I've taken to getting up an hour earlier than I used to
 to squeeze an hour and a half out of the morning, I have a MI band
 that I have set to vibrate to wake me at that time so I do not disturb
-my wife
+my wife.
 
 Go to bed early, sleep is important kids, anyone that says otherwise
 obviously doesn't get enough sleep 🙃
