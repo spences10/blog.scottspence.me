@@ -7,17 +7,17 @@
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
     "gatsby": "1.9.206",
-    "gatsby-image": "1.0.38",
+    "gatsby-image": "1.0.39",
     "gatsby-link": "1.6.37",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-google-analytics": "1.0.19",
     "gatsby-plugin-react-helmet": "2.0.5",
     "gatsby-plugin-sharp": "^1.6.28",
     "gatsby-plugin-styled-components": "^2.0.7",
-    "gatsby-remark-copy-linked-files": "1.5.27",
+    "gatsby-remark-copy-linked-files": "1.5.28",
     "gatsby-remark-images": "^1.5.44",
     "gatsby-remark-prismjs": "1.2.15",
-    "gatsby-source-filesystem": "1.5.21",
+    "gatsby-source-filesystem": "1.5.22",
     "gatsby-transformer-remark": "1.7.33",
     "react-helmet": "5.2.0",
     "styled-components": "3.1.6"
@@ -28,7 +28,7 @@
     "husky": "0.14.3",
     "prettier": "1.10.2",
     "pretty-quick": "1.4.1",
-    "release-it": "7.0.2"
+    "release-it": "7.1.0"
   },
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
