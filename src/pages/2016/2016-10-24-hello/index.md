@@ -7,11 +7,11 @@ excerpt: ""
 published: true
 ---
 
-My first post using Gatsby, awesome static site generator [Gatsby][gatsby] from
-[Kyle Mathews][kyle]
+My first post using Gatsby, awesome static site generator
+[Gatsby][gatsby] from [Kyle Mathews][kyle]
 
-So not a lot to see, I'll just be configuring this and adding all my old blog
-posts.
+So not a lot to see, I'll just be configuring this and adding all my
+old blog posts.
 
 <!-- Links -->
 
