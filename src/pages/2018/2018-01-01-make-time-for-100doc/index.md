@@ -4,7 +4,7 @@ date: "2018-02-25"
 title: "How to make time for 100 days of code"
 tags: ['information', 'guide', 'learning', 'habits']
 excerpt: ""
-published: false
+published: true
 ---
 
 > Life moves pretty fast. If you don’t stop and look around once in a
@@ -15,7 +15,7 @@ code ([again])
 
 But fist, **preamble:**
 
-## Let’s pick up a new skill, get a new job, all in a few months.
+### Let’s pick up a new skill, get a new job, all in a few months.
 
 That was the overriding message I got when I started out in
 freeCodeCamp it's a fun and exciting time and you will see a lot of
@@ -45,6 +45,8 @@ any issues or problems you may have. The support I found not just in
 the <span>#100DaysOfCode</span> community but the web dev community as
 a whole is truly amazing.
 
+### Patience
+
 Patience is needed, instant gratification doesn’t work here, well at
 least not for me. This will soon come to light if you start to compare
 yourself to how other people (your cohorts) are progressing. You may
@@ -55,15 +57,29 @@ what you need to do.
 Different people progress at different rates and learn in different
 ways.
 
-When I finished my last (VBA) contract I used that time to fully
-immerse myself in web development. At the time (which was good timing
-actually) I started a build to learn project with two other remote
-developers one in Egypt and one in Serbia. We were all participating
-in the [Chingu] Voyage
+Myself personally, I have found that I'm a visual learner (I've known
+this for a long time actually) where to be able to 'join up' concepts
+I need to see them in action. This is why I will always gush about
+courses by Wes Bos or Kent C. Dodds as they (among many others) are
+great at explaining complex subject simply.
 
-I got to treat this time as a full time job which my WakaTime stats
-will attest. This was one of the triggers for me that I should start
-applying for jobs as a junior dev.
+YMMV however, so, find what works for you, find it and stick with it.
+
+I have discovered recently that splitting my time between projects
+wasn't really helping me so I decided to work on one particular
+project each time I sat down to code.
+
+The first time I did this I was struggling for hours with little to
+nothing show for it, it felt futile and I was getting anxious about
+not moving on, it was at this point when I would usually switch
+context and work on something else - I found though that pushing that
+little bit more was all I needed.
+
+This was such psychological win for me, and gave me the confidence to
+do more.
+
+This has paid dividends as I now have 6+ demos of projects I have made
+on [my portfolio]
 
 ### Busy work
 
@@ -77,12 +93,35 @@ to do.
 Soon into starting <span>#100DaysOfCode</span> I noticed this, what I
 did was turn off all my phone notifications - if you need to check
 something then check it, don't let your phone dictate where you
-attention needs to be directed. I turned off all browser notifications
-for Slack and Gmail. My phone is left in another room on do not
-disturb whilst I work. Whilst in do not disturb mode my phone will not
-make a noise unless someone on my stared contacts list calls me. I
-pick up the phone in the afternoon to check missed calls listen to
-voice mails and return any calls if needed.
+attention needs to be directed.
+
+I turned off all browser notifications for Slack and Gmail. My phone
+is left in another room on do not disturb whilst I work. Whilst in do
+not disturb mode my phone will not make a noise unless someone on my
+stared contacts list calls me. I pick up the phone in the afternoon to
+check missed calls listen to voice mails and return any calls if
+needed.
+
+### Make time
+
+Make time, people saying that they can't find time to do x in reality
+are making excuses, you're the only one that can make these things
+happen.
+
+Have a job? That’s not an excuse, had a crappy day, just want to sit
+on the sofa and veg out, that is time you can be spending learning and
+also time you can be enjoying some downtime with your significant
+other which is equally as important to your well-being
+
+It’s a balance
+
+### Tools
+
+## Life hacks
+
+It needs to be called a hack so everyone can thing they're cheating
+the system. In reality it's some helpful rules to aid you if you need
+to find the extra time
 
 Get up early, I've taken to getting up an hour earlier than I used to
 to squeeze an hour and a half out of the morning, I have a MI band
@@ -92,21 +131,23 @@ my wife
 Go to bed early, sleep is important kids, anyone that says otherwise
 obviously doesn't get enough sleep 🙃
 
-Make time, people saying that they can't find time to do x in reality
-are making excuses, you're the only one that can make these things
-happen.
+### Good luck 👍
 
 Love your family
 
-Have a job? That’s not an excuse, had a crappy day, just want to sit
-on the sofa and veg out, that is time you can be spending learning and
-also time you can be enjoying some downtime with your significant
-other which is equally as important to your well-being
+When I finished my last (VBA) contract I used that time to fully
+immerse myself in web development. At the time (which was good timing
+actually) I started a build to learn project with two other remote
+developers one in Egypt and one in Serbia. We were all participating
+in the [Chingu] Voyage
 
-It’s a balance
+I got to treat this time as a full time job which my WakaTime stats
+will attest. This was one of the triggers for me that I should start
+applying for jobs as a junior dev.
 
 <!-- links -->
 
 [again]: https://scottspence.me/about
 [20161230]: https://github.com/spences10/100-days-of-code/commit/7dbefb608862401d4cb9e6ed11f539b44bedcdae
 [chingu]: https://medium.com/chingu
+[my portfolio]: https://scottspence.me/portfolio
