@@ -124,8 +124,7 @@ This is basically their due diligence, what they should have
 determined by looking at your profile before calling you.
 
 After this it goes one of two ways, the recruiter then being honest
-with you [in
- some cases] and telling you they actually don't think you
+with you [in some cases] and telling you they actually don't think you
 are suitable for the role (which they could have done if they took the
 time to read your profile) let's just bear in mind ten minutes before
 it was,
