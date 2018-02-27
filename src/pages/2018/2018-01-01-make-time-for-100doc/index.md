@@ -143,6 +143,8 @@ Todoist and come back to it when I get the capacity to work on it.
 when doing <span>#100DaysOfCode</span>, you get that instant feedback
 on how you're doing for the day.
 
+![compare](./wakatime-stats.png)
+
 **RescueTime**, is handy for helping you identify your productivity
 black holes and give you a nice breakdown of where your time is spent
 on your computer and mobile.
@@ -171,11 +173,13 @@ listen to podcasts.
 
 When I finished my last (VBA) contract in October I used that time to
 fully immerse myself in web development. At the time (which was good
-timing actually) I started a build to learn project with two other
-remote developers, one in Egypt and one in Serbia. We were all
-participating in the [Chingu] Voyage this has been a real eye opener
-for me and has given me the confidence to get all [my portfolio]
-projects ready for potential employers to view.
+timing actually)
+
+I started a build to learn project with two other remote developers,
+one in Egypt and one in Serbia. We were all participating in the
+[Chingu] Voyage, this has been a real eye opener for me and has given
+me the confidence to get all [my portfolio] projects ready for
+potential employers to view.
 
 I got to treat this time as a full time job which my WakaTime stats
 will attest. This was one of the triggers for me that I should start
