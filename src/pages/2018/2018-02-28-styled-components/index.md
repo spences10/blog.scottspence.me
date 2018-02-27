@@ -16,6 +16,9 @@ such an inspiration for me watching how components were styled.
 I want to share what I have learned so far by going through styling a
 basic react application.
 
+☝️ so, to be clear, this is what I have learned so far and this will
+probably change as a learn more.
+
 Ok lets bootstrap the basic react application you get when using
 [Create React App] with [`npx`], if you have Create React App
 installed globally then you can use the command without `npx`.
@@ -38,8 +41,40 @@ Ok, we have the basic app we can style, thankfully Dan has kindly
 provided the starting styles for us so let's begin my using them with
 `styled-components` 💅
 
-We can start with the `App.css` file,
+We can start with the `App.js` file and it's accompanying `App.css`
+file. Let's take a look at the `App.js` first:
 
+```js
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to
+          reload.
+        </p>
+      </div>
+    )
+  }
+}
+
+export default App
+```
+
+The five `className`s in there `App`, `App-header`, `App-logo`,
+`App-title` and `App-intro` we're going to replace with our
+`styled-components` 💅, so let's make a component for each of the
+classes and copy pasta the CSS in from `App.css`
+
+````
 Transcript from DM convo about this article
 
 **Me:**
@@ -170,7 +205,7 @@ I'm sorry, I do apologise, I didn't see this:
 
 ```philp
 Then wrapping it like styled(Form) is an anti pattern since st that point the classname becomes exposed and the styles of the elements in the Form might be mixed which breaks encapsulation
-```
+````
 
 **Phill:**
 
