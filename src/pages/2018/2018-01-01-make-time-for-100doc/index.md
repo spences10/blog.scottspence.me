@@ -4,7 +4,7 @@ date: "2018-02-25"
 title: "How to make time for 100 days of code"
 tags: ['information', 'guide', 'learning', 'habits']
 excerpt: ""
-published: false
+published: true
 ---
 
 > Life moves pretty fast. If you don’t stop and look around once in a
@@ -172,18 +172,18 @@ listen to podcasts.
 ### Good luck 👍
 
 When I finished my last (VBA) contract in October I used that time to
-fully immerse myself in web development. At the time (which was good
-timing actually)
+fully immerse myself in web development.
 
-I started a build to learn project with two other remote developers,
-one in Egypt and one in Serbia. We were all participating in the
-[Chingu] Voyage, this has been a real eye opener for me and has given
-me the confidence to get all [my portfolio] projects ready for
-potential employers to view.
+At the time (which was good timing actually) I started a build to
+learn project with two other remote developers, one in Egypt and one
+in Serbia. We were all participating in the [Chingu] Voyage, this has
+been a real eye opener for me and has given me the confidence to get
+all [my portfolio] projects ready for potential employers to view.
 
-I got to treat this time as a full time job which my WakaTime stats
-will attest. This was one of the triggers for me that I should start
-applying for jobs as a junior dev.
+Whilst taking part in the b2l Chungu project I got to treat this time
+as a full time job which my WakaTime stats will attest. This was one
+of the triggers for me that I should start applying for jobs as a
+junior dev.
 
 <!-- links -->
 
