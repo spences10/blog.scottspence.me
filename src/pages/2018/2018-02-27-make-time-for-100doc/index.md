@@ -1,6 +1,6 @@
 ---
 path: "/make-time-for-100doc/"
-date: "2018-02-25"
+date: "2018-02-27"
 title: "How to make time for 100 days of code"
 tags: ['information', 'guide', 'learning', 'habits']
 excerpt: ""
@@ -180,7 +180,7 @@ in Serbia. We were all participating in the [Chingu] Voyage, this has
 been a real eye opener for me and has given me the confidence to get
 all [my portfolio] projects ready for potential employers to view.
 
-Whilst taking part in the b2l Chungu project I got to treat this time
+Whilst taking part in the b2l Chingu project I got to treat this time
 as a full time job which my WakaTime stats will attest. This was one
 of the triggers for me that I should start applying for jobs as a
 junior dev.
