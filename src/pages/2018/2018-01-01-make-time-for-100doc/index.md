@@ -112,22 +112,12 @@ isn't going to help, it's though, but it's not about having the time
 it's about making the time to do this. If it's important to you, you
 will make time. You're the only one that can make these things happen.
 
-Often I get asked "so what do you like to do?" I struggle to answer
-this as all I have been doing for the last 18 months is learning to
-code.
-
-Have a job? That’s not an excuse, had a crappy day, just want to sit
-on the sofa and veg out, that is time you can be spending learning and
-also time you can be enjoying some downtime with your significant
-other which is equally as important to your well-being
-
 ### Balance
 
-It’s a balance and I am not perfect here, this journey has taken it’s
-toll on my health, towards the end of 2016 I was 95 kg today February
-26th I’m 115 kg. This weight gain is a mixture of illness at the start
-of 2017 and bad diet choices thereafter. I consciously opted for
-'healthy' foods spending that little extra time deciding what to eat.
+This weight gain is a mixture of illness at the start of 2017 and bad
+diet choices thereafter. In the past I consciously opted for ‘healthy’
+foods spending that little extra time deciding what to eat.
+
 Whilst being ill at the start of 2017 I developed a bit of an
 addiction to cereals (granola) 😬 it was quick and easy and I got a
 quick boost from it.
@@ -135,6 +125,10 @@ quick boost from it.
 Quick and easy soon became the norm after that 🙃 I have identified
 this now and am making an effort to reduce this whilst also making
 time for my development.
+
+It’s a balance though 😀
+
+![compare](./weight-gain.png)
 
 ### Tools
 
