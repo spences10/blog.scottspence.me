@@ -1,10 +1,44 @@
 ---
 path: "/styled-components-getting-started"
-date: "2018-01-10"
-title: "styled-components-getting-started"
-tags: ['information', 'guide', 'styled-components', 'CSS-inJS']
-published: false
+date: "2018-02-28"
+title: "styled-components 💅 getting started"
+tags: ['information', 'guide', 'styled-components', 'CSS-in-JS']
+published: true
 ---
+
+Up until around November last year I didn't like styling anything at
+all with CSS, it was a chore rather than something I enjoyed doing.
+
+That was until I used `styled-components` 💅 with my team on the
+Chingu build to learn project we worked on, Marina in particular was
+such an inspiration for me watching how components were styled.
+
+I want to share what I have learned so far by going through styling a
+basic react application.
+
+Ok lets bootstrap the basic react application you get when using
+[Create React App] with [`npx`], if you have Create React App
+installed globally then you can use the command without `npx`.
+
+```sh
+npx create-react-app style-with-styled-components
+```
+
+`cd` into the project via the terminal and install `styled-components`
+💅
+
+```sh
+style-with-styled-components/
+# or
+# cd style-with-styled-components/ if you don't use fish shell
+npm i styled-components
+```
+
+Ok, we have the basic app we can style, thankfully Dan has kindly
+provided the starting styles for us so let's begin my using them with
+`styled-components` 💅
+
+We can start with the `App.css` file,
 
 Transcript from DM convo about this article
 
@@ -204,3 +238,8 @@ the way] and what I have learned over the last month now and I'll add
 as a go along with styling my portfolio site as well
 
 Max and yourself aren't in any hurry to have the information are you?
+
+<!-- Links -->
+
+[create react app]: https://github.com/facebook/create-react-app#create-react-app-
+[`npx`]: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
