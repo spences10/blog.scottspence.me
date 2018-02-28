@@ -9,6 +9,9 @@ published: true
 Up until around November last year I didn't like styling anything at
 all with CSS, it was a chore rather than something I enjoyed doing.
 
+Customary gif of Perter Griffin messing around with the venetian
+blinds. I'm not going to add it, everyone is sick of seeing it.
+
 That was until I used `styled-components` 💅 with my team on the
 Chingu build to learn project we worked on, Marina in particular was
 such an inspiration for me watching how components were styled.
