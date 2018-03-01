@@ -88,6 +88,138 @@ file for each component, which (IMO) helps with maintaining the CSS
 and lends to the React idea of having all your files separated into
 their component parts.
 
+## Use ThemeProvider
+
+**ThemeSelect.js**
+```js
+import React from 'react'
+import styled from 'styled-components'
+
+const Select = styled.select`
+  margin: 2rem 0.5rem;
+  padding: 0rem 0.5rem;
+
+  width: 50%;
+  text-align: center;
+
+  font-family: Roboto;
+  font-size: 1rem;
+
+  border: 1px dashed ${props => props.theme.light};
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background: ${props => props.theme.light};
+  border-radius: 2px;
+`
+
+export const SelectOpt = styled.option`
+  font-family: Roboto;
+  font-size: 1rem;
+`
+
+class ThemeSelect extends React.Component {
+  render() {
+    return (
+      <div>
+        <Select onChange={e => this.props.handleThemeChange(e)}>
+          <SelectOpt value="theme1">Theme 1</SelectOpt>
+          <SelectOpt value="theme2">Theme 2</SelectOpt>
+        </Select>
+      </div>
+    )
+  }
+}
+
+export default ThemeSelect
+
+```
+
+**App.js**
+```js
+import React, { Component } from 'react'
+import styled, { ThemeProvider } from 'styled-components'
+
+import logo from './logo.svg'
+
+import { theme1, theme2 } from './theme/globalStyle'
+import ThemeSelect from './components/ThemeSelect'
+
+const AppWrapper = styled.div`
+  text-align: center;
+`
+
+const AppHeader = styled.div`
+  height: 12rem;
+  padding: 1rem;
+  color: #000;
+  background-color: #fafafa;
+  color: ${props => props.theme.dark};
+  background-color: ${props => props.theme.primary};
+`
+
+const AppTitle = styled.h1``
+
+const AppLogo = styled.img`
+  animation: App-logo-spin infinite 120s linear;
+  height: 80px;
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  &:hover {
+    animation: App-logo-spin infinite 1s linear;
+  }
+`
+
+const AppIntro = styled.p`
+  /* color: ${props => props.theme.dark}; */
+  font-size: large;
+`
+
+const EmojiWrapper = styled.span.attrs({
+  role: 'img'
+})``
+
+const CodeWrapper = styled.code`
+  font-size: 1.5rem;
+`
+
+class App extends Component {
+  state = {
+    theme: theme1
+  }
+  handleThemeChange = e => {
+    let theme = e.target.value
+    theme === 'theme1' ? (theme = theme1) : (theme = theme2)
+    this.setState({ theme })
+  }
+  render() {
+    return (
+      <ThemeProvider theme={this.state.theme}>
+        <AppWrapper>
+          <AppHeader>
+            <AppLogo src={logo} alt="logo" />
+            <AppTitle>Welcome to React</AppTitle>
+          </AppHeader>
+          <AppIntro>
+            To get started, edit <code>src/App.js</code> and save to
+            reload.
+          </AppIntro>
+          <ThemeSelect handleThemeChange={this.handleThemeChange} />
+        </AppWrapper>
+      </ThemeProvider>
+    )
+  }
+}
+
+export default App
+```
+
+
+
 Transcript from DM convo about this article
 
 **Me:**
