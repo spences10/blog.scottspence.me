@@ -10,17 +10,23 @@ Up until around November last year I didn't like styling anything at
 all with CSS, it was a chore rather than something I enjoyed doing.
 
 Customary gif of Perter Griffin messing around with the venetian
-blinds. I'm not going to add it, everyone is sick of seeing it.
+blinds. I'm not going to add it, everyone is sick of seeing it I'm
+sure 😁.
 
 That was until I used `styled-components` 💅 with my team on the
 Chingu build to learn project we worked on, Marina in particular was
-such an inspiration for me watching how components were styled.
+such an inspiration for me watching how components were styled and
+really gave me the confidence to start using CSS-inJS.
 
 I want to share what I have learned so far by going through styling a
 basic react application.
 
 ☝️ so, to be clear, this is what I have learned so far and this will
 probably change as a learn more.
+
+There's some basic CSS concepts in this post that I was not aware of
+before starting out with `styled-components` that I presume are
+assumed in styling web pages.
 
 Ok lets bootstrap the basic react application you get when using
 [Create React App] with [`npx`], if you have Create React App
@@ -77,7 +83,11 @@ The five `className`s in there `App`, `App-header`, `App-logo`,
 `styled-components` 💅, so let's make a component for each of the
 classes and copy pasta the CSS in from `App.css`
 
-````
+The way the CRA CSS is assumes that you will have a corresponding CSS
+file for each component, which (IMO) helps with maintaining the CSS
+and lends to the React idea of having all your files separated into
+their component parts.
+
 Transcript from DM convo about this article
 
 **Me:**
@@ -208,7 +218,7 @@ I'm sorry, I do apologise, I didn't see this:
 
 ```philp
 Then wrapping it like styled(Form) is an anti pattern since st that point the classname becomes exposed and the styles of the elements in the Form might be mixed which breaks encapsulation
-````
+```
 
 **Phill:**
 
