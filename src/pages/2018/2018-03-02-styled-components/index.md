@@ -28,6 +28,8 @@ There's some basic CSS concepts in this post that I was not aware of
 before starting out with styled-components that I presume are assumed
 in styling web pages.
 
+### Install styled-components
+
 Ok lets bootstrap the basic react application you get when using
 [Create React App] with [`npx`], if you have Create React App
 installed globally then you can use the command without `npx`.
@@ -142,6 +144,8 @@ class App extends Component {
 export default App
 ```
 
+### styled-components all the things
+
 So let's do that for the remaining four CSS classes, and take a look:
 
 ```js
@@ -241,7 +245,8 @@ there's no need for the `import './App.css'` mapping, remove that
 aaaaand! Still no change!! 😁 Cool, we have now replaced all the css
 with styled-components, now we can take a look at `injectGlobal`.
 
-Lets take a look at how the `App.js` file looks now before we move on:
+Lets take a look at how the `App.js` file should look before we move
+on:
 
 ```js
 import React, { Component } from 'react'
@@ -315,12 +320,14 @@ class App extends Component {
 export default App
 ```
 
+### Style the body with `injectGlobal`
+
 For styling the body of our react app we currently have the
 `index.css` file that is being imported into the mounting point of our
 app in the `index.js` file.
 
 To style the body we can use [`injectGlobal`] from styled-components
-which adds styled directly to the stylesheet.
+which adds the styles directly to the stylesheet.
 
 To do this you bring in the `injectGlobal` named export from
 styled-components and add your styles between the back ticks.
@@ -355,7 +362,7 @@ injectGlobal`
 
 Ok, now we're adding the body style to the stylesheet directly so
 there is no need for the `index.css` file mapping that is in
-`index.js`
+`index.js` it should look like this now:
 
 ```js
 import React from 'react'
@@ -386,9 +393,117 @@ injectGlobal`
 `
 ```
 
-Cool now we can add 
+Cool now we can add our imported font for or app header, and there's
+the option if we want all our `<h1>`'s to use the same font we can add
+that to the `injectGlobal` in our `globalStyles.js` module.
 
-## Use ThemeProvider
+```js
+injectGlobal`
+
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,900|Roboto');
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+
+  h1 {
+    font-family: Montserrat;
+  }
+`
+```
+
+Then we can adjust the weight on the `AppTitle` component:
+
+```js
+const AppTitle = styled.h1`
+  font-weight: 900;
+`
+```
+
+To add the additional styles for fonts like Montserrat and Roboto you
+can specify them in the `@import url()` you'll notice that Montserrat
+has `:400,900` after it that is specifying the styles regular (400)
+and black (900), you can import as many as you like from Google fonts
+(CDN) but the more you import the longer it will take to load them, if
+you have a lot of fonts and styles you want in your app then consider
+adding them to a folder in the project, like:
+
+```js
+import Montserrat from './fonts/Montserrat-Regular.ttf'
+
+injectGlobal`
+  @font-face {
+    font-family: Montserrat;
+    src: url(${Montserrat});
+  }
+`
+```
+
+## Use `ThemeProvider`
+
+Now say we want to have several components in our app that use a CSS
+colour property `color: #6e27c5` instead of hard coding it through the
+app for every component that uses it we can use the styled-components
+`ThemeProvider`.
+
+For this we will need to import the `ThemeProvider` named export from
+styled-components, then define a `theme` object where our colour is
+going to live:
+
+```js
+export const theme = {
+  primary: '#6e27c5'
+}
+```
+
+I'm going to add the theme object to my `globalStyle.js` module with
+the rest of the styles.
+
+To make the theme object available throughout the app component we'll
+wrap our app component in the `ThemeProvider` and import our awesome
+theme for use in the `ThemeProvider`:
+
+```js
+import React, { Component } from 'react'
+import styled, { keyframes, ThemeProvider } from 'styled-components'
+
+import logo from './logo.svg'
+
+import { theme } from './theme/globalStyle'
+
+// our styled-components
+
+class App extends Component {
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <AppWrapper>{/* ...styled-components... */}</AppWrapper>
+      </ThemeProvider>
+    )
+  }
+}
+
+export default App
+```
+
+Now the `theme` properties can be used as props in our
+styled-components, let's change the `background-color:` in the
+`AppHeader` component, whilst we're at it let's add a `dark:` property
+to our `theme` object and use that for the `color:` property:
+
+```js
+const AppHeader = styled.div`
+  height: 12rem;
+  padding: 1rem;
+  color: ${props => props.theme.dark};
+  background-color: ${props => props.theme.primary};
+`
+```
+
+Now we can change our app theme globally 👍 lets take a look at that
+now as well.
 
 **ThemeSelect.js**
 
