@@ -241,6 +241,87 @@ there's no need for the `import './App.css'` mapping, remove that
 aaaaand! Still no change!! 😁 Cool, we have now replaced all the css
 with styled-components, now we can take a look at `injectGlobal`.
 
+Lets take a look at how the `App.js` file looks now before we move on:
+
+```js
+import React, { Component } from 'react'
+import styled, { keyframes } from 'styled-components'
+
+import logo from './logo.svg'
+
+const AppWrapper = styled.div`
+  text-align: center;
+`
+
+const rotate360 = keyframes`
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+`
+
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 120s linear;
+  height: 80px;
+  &:hover {
+    animation: ${rotate360} infinite 1.5s linear;
+  }
+`
+
+const AppHeader = styled.div`
+  background-color: #222;
+  height: 12rem;
+  padding: 1rem;
+  color: white;
+`
+
+const AppTitle = styled.h1`
+  font-weight: 900;
+`
+
+const AppIntro = styled.p`
+  font-size: large;
+  code {
+    font-size: 1.5rem;
+  }
+`
+
+const EmojiWrapper = styled.span.attrs({
+  role: 'img'
+})``
+
+class App extends Component {
+  render() {
+    return (
+      <AppWrapper>
+        <AppHeader>
+          <AppLogo src={logo} alt="logo" />
+          <AppTitle>Welcome to React</AppTitle>
+        </AppHeader>
+        <AppIntro>
+          Bootstrapped with <code>create-react-app</code>.
+        </AppIntro>
+        <AppIntro>
+          Components styled with <code>styled-components</code>{' '}
+          <EmojiWrapper aria-label="nail polish">💅</EmojiWrapper>
+        </AppIntro>
+      </AppWrapper>
+    )
+  }
+}
+
+export default App
+```
+
+For styling the body of our react app we currently have the
+`index.css` file that is being imported into the mounting point of our
+app in the `index.js` file.
+
+To style the body we can use [`injectGlobal`] from styled-components
+which adds styled directly to the stylesheet.
+
 ## Use ThemeProvider
 
 **ThemeSelect.js**
@@ -578,3 +659,4 @@ Max and yourself aren't in any hurry to have the information are you?
 [create react app]: https://github.com/facebook/create-react-app#create-react-app-
 [`npx`]: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 [animation]: https://www.styled-components.com/docs/basics#animations
+[`injectglobal`]: https://www.styled-components.com/docs/api#injectglobal
