@@ -138,6 +138,53 @@ class App extends Component {
 export default App
 ```
 
+So let's do that for the remaining four CSS classes, and take a look:
+
+```js
+const rotate360 = keyframes`
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+`
+
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 120s linear;
+  height: 80px;
+`
+
+const AppHeader = styled.div`
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+`
+
+const AppTitle = styled.h1`
+  font-size: 1.5em;
+`
+
+const AppIntro = styled.p`
+  font-size: large;
+`
+```
+
+So first off we've created a variable for the React svg rotate, this
+can now be used throughout the component and we can add an on `hover`
+to the component as well to illustrate using `hover` in a component.
+
+```js
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 120s linear;
+  height: 80px;
+  &:hover {
+    animation: ${rotate360} infinite 1.5s linear;
+  }
+`
+```
+
 ## Use ThemeProvider
 
 **ThemeSelect.js**
@@ -474,3 +521,4 @@ Max and yourself aren't in any hurry to have the information are you?
 
 [create react app]: https://github.com/facebook/create-react-app#create-react-app-
 [`npx`]: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
+[styled-components animations]: https://www.styled-components.com/docs/basics#animations
