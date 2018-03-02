@@ -637,6 +637,11 @@ Add a method to handle the change of the `ThemeSelect.js` component
 `handleThemeChange` this is where we can switch between the two
 `theme` objects.
 
+### Extending styled-components
+
+So far our app hasn't got many styled-components that are similar but
+what if we were to add some buttons...
+
 <!-- Links -->
 
 [create react app]: https://github.com/facebook/create-react-app#create-react-app-
