@@ -16,7 +16,7 @@ sure 😁.
 That was until I used styled-components with my team on the Chingu
 build to learn project we worked on, Marina in particular was such an
 inspiration for me watching how components were styled and really gave
-me the confidence to start using CSS-inJS.
+me the confidence to start using CSS-in-JS.
 
 I want to share what I have learned so far by going through styling a
 basic react application.
@@ -108,6 +108,10 @@ const AppWrapper = styled.div`
 `
 ```
 
+So here we have defined the `AppWrapper` const as a `styled.div`
+followed by back ticks `` inside of the back ticks we can write any
+regular CSS with the exact same syntax.
+
 Now that we have our `AppWrapper` we can replace the top level div on
 the `App.js` component.
 
@@ -171,9 +175,11 @@ const AppIntro = styled.p`
 `
 ```
 
-So first off we've created a variable for the React svg rotate, this
-can now be used throughout the component and we can add an on `hover`
-to the component as well to illustrate using `hover` in a component.
+So first off we've created a variable for the React svg [animation],
+you'll need to import the `keyframes` helper from styled-components
+like: `import styled, { keyframes } from 'styled-components'` this can
+now be used throughout the component and we can add an on `hover` to
+the component as well to illustrate using `hover` in a component.
 
 ```js
 const AppLogo = styled.img`
@@ -184,6 +190,56 @@ const AppLogo = styled.img`
   }
 `
 ```
+
+Ok, our app shouldn't look any different as we haven't added in our
+styled-components to the app `render()` method, so let's do that now.
+Let's also change the intro text. You can add a wrapper for the
+`<code>` tags something like:
+
+```js
+const CodeWrapper = styled.code`
+  font-size: 1.5rem;
+`
+```
+
+But if you prefer you can nest selectors within the component, like:
+
+```js
+const AppIntro = styled.p`
+  color: ${props => props.theme.dark};
+  font-size: large;
+  code {
+    font-size: 1.5rem;
+  }
+`
+```
+
+Let have a look at the `render()` method now...
+
+```js
+render() {
+  return (
+    <AppWrapper>
+      <AppHeader>
+        <AppLogo src={logo} alt="logo" />
+        <AppTitle>Welcome to React</AppTitle>
+      </AppHeader>
+      <AppIntro>
+        Bootstrapped with <code>create-react-app</code>.
+      </AppIntro>
+      <AppIntro>
+        Components styled with <code>styled-components</code>{' '}
+        <EmojiWrapper aria-label="nail polish">💅</EmojiWrapper>
+      </AppIntro>
+    </AppWrapper>
+  )
+}
+```
+
+Now all the classes originally used in `App.js` have been replaced so
+there's no need for the `import './App.css'` mapping, remove that
+aaaaand! Still no change!! 😁 Cool, we have now replaced all the css
+with styled-components, now we can take a look at `injectGlobal`.
 
 ## Use ThemeProvider
 
@@ -521,4 +577,4 @@ Max and yourself aren't in any hurry to have the information are you?
 
 [create react app]: https://github.com/facebook/create-react-app#create-react-app-
 [`npx`]: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
-[styled-components animations]: https://www.styled-components.com/docs/basics#animations
+[animation]: https://www.styled-components.com/docs/basics#animations
