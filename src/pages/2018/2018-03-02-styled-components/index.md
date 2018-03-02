@@ -1,6 +1,6 @@
 ---
 path: "/styled-components-getting-started"
-date: "2018-02-28"
+date: "2018-03-02"
 title: "styled-components 💅 getting started"
 tags: ['information', 'guide', 'styled-components', 'CSS-in-JS']
 published: true
@@ -91,6 +91,7 @@ their component parts.
 ## Use ThemeProvider
 
 **ThemeSelect.js**
+
 ```js
 import React from 'react'
 import styled from 'styled-components'
@@ -130,10 +131,10 @@ class ThemeSelect extends React.Component {
 }
 
 export default ThemeSelect
-
 ```
 
 **App.js**
+
 ```js
 import React, { Component } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
@@ -217,8 +218,6 @@ class App extends Component {
 
 export default App
 ```
-
-
 
 Transcript from DM convo about this article
 
