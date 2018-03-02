@@ -3,7 +3,7 @@ path: "/styled-components-getting-started"
 date: "2018-03-02"
 title: "styled-components 💅 getting started"
 tags: ['information', 'guide', 'styled-components', 'CSS-in-JS']
-published: true
+published: false
 ---
 
 Up until around November last year I didn't like styling anything at
@@ -321,6 +321,72 @@ app in the `index.js` file.
 
 To style the body we can use [`injectGlobal`] from styled-components
 which adds styled directly to the stylesheet.
+
+To do this you bring in the `injectGlobal` named export from
+styled-components and add your styles between the back ticks.
+
+```js
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+```
+
+Let's add a `theme` folder in `src` directory and add a
+`globalStyle.js` file where we can keep all our styles we want to use
+throughout the app.
+
+In `src/theme/globalStyle.js` we'll need to import the `injectGlobal`
+named export from styled-components:
+
+```js
+import { injectGlobal } from 'styled-components'
+
+injectGlobal`
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+  }
+`
+```
+
+Ok, now we're adding the body style to the stylesheet directly so
+there is no need for the `index.css` file mapping that is in
+`index.js`
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import App from './App'
+import registerServiceWorker from './registerServiceWorker'
+
+ReactDOM.render(<App />, document.getElementById('root'))
+registerServiceWorker()
+```
+
+We should still have our nice `sans-serif` font going on, but let's
+add in some nice Roboto for the body and Montserrat for the heading in
+our `globalStyle.js` module. We can import Google fonts with an
+`@import` in `injectGlobal` and apply Roboto to the body:
+
+```js
+injectGlobal`
+
+  @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+`
+```
+
+Cool now we can add 
 
 ## Use ThemeProvider
 
