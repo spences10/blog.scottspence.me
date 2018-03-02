@@ -171,7 +171,7 @@ const AppHeader = styled.div`
 `
 
 const AppTitle = styled.h1`
-  font-size: 1.5em;
+  font-size: 1.3em;
 `
 
 const AppIntro = styled.p`
@@ -202,7 +202,7 @@ Let's also change the intro text. You can add a wrapper for the
 
 ```js
 const CodeWrapper = styled.code`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 `
 ```
 
@@ -213,7 +213,7 @@ const AppIntro = styled.p`
   color: ${props => props.theme.dark};
   font-size: large;
   code {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 `
 ```
@@ -289,7 +289,7 @@ const AppTitle = styled.h1`
 const AppIntro = styled.p`
   font-size: large;
   code {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 `
 
@@ -600,7 +600,7 @@ const EmojiWrapper = styled.span.attrs({
 })``
 
 const CodeWrapper = styled.code`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 `
 
 class App extends Component {
