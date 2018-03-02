@@ -479,7 +479,7 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <AppWrapper>{/* ...styled-components... */}</AppWrapper>
+        {/* all children can access the theme object */}
       </ThemeProvider>
     )
   }
@@ -490,8 +490,8 @@ export default App
 
 Now the `theme` properties can be used as props in our
 styled-components, let's change the `background-color:` in the
-`AppHeader` component, whilst we're at it let's add a `dark:` property
-to our `theme` object and use that for the `color:` property:
+`AppHeader` component, whilst we're at it let's add a `dark: #222`
+property to our `theme` object and use that for the `color:` property:
 
 ```js
 const AppHeader = styled.div`
@@ -502,8 +502,40 @@ const AppHeader = styled.div`
 `
 ```
 
-Now we can change our app theme globally 👍 lets take a look at that
-now as well.
+Now we can change our app theme globally 👍
+
+### Can you change `theme`?
+
+This is what I was thinking and it turns out you can, there's a great
+[Stack Overflow answer] from Max on it.
+
+It got me thinking if you can switch between themes rather than define
+them for different sections like in the SO answer.
+
+I started off by defining two themes in the `globalStyles.js` module:
+
+```js
+export const theme1 = {
+  primary: '#ff0198',
+  secondary: '#01c1d6',
+  danger: '#eb238e',
+  light: '#f4f4f4',
+  dark: '#222'
+}
+
+export const theme2 = {
+  primary: '#6e27c5',
+  secondary: '#ffb617',
+  danger: '#f16623',
+  light: '#f4f4f4',
+  dark: '#222'
+}
+```
+
+Now we need a way to switch between the two `theme` objects, lets use
+a select box for them, let's create a components folder and in there
+make a `ThemeSelect.js` component, we can worry about refactoring the
+`App,js` component when I'm not here 🙃:
 
 **ThemeSelect.js**
 
@@ -515,13 +547,10 @@ const Select = styled.select`
   margin: 2rem 0.5rem;
   padding: 0rem 0.5rem;
 
-  width: 50%;
-  text-align: center;
-
   font-family: Roboto;
   font-size: 1rem;
 
-  border: 1px dashed ${props => props.theme.light};
+  border: 1px solid ${props => props.theme.light};
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   background: ${props => props.theme.light};
   border-radius: 2px;
@@ -548,60 +577,23 @@ class ThemeSelect extends React.Component {
 export default ThemeSelect
 ```
 
+You've probably noticed the
+`onChange={e => this.props.handleThemeChange(e)` event, we're going to
+add that method to the `App.js` component along with some state to
+manage what theme is selected.
+
 **App.js**
 
 ```js
 import React, { Component } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { keyframes, ThemeProvider } from 'styled-components'
 
 import logo from './logo.svg'
 
 import { theme1, theme2 } from './theme/globalStyle'
 import ThemeSelect from './components/ThemeSelect'
 
-const AppWrapper = styled.div`
-  text-align: center;
-`
-
-const AppHeader = styled.div`
-  height: 12rem;
-  padding: 1rem;
-  color: #000;
-  background-color: #fafafa;
-  color: ${props => props.theme.dark};
-  background-color: ${props => props.theme.primary};
-`
-
-const AppTitle = styled.h1``
-
-const AppLogo = styled.img`
-  animation: App-logo-spin infinite 120s linear;
-  height: 80px;
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  &:hover {
-    animation: App-logo-spin infinite 1s linear;
-  }
-`
-
-const AppIntro = styled.p`
-  /* color: ${props => props.theme.dark}; */
-  font-size: large;
-`
-
-const EmojiWrapper = styled.span.attrs({
-  role: 'img'
-})``
-
-const CodeWrapper = styled.code`
-  font-size: 1.3rem;
-`
+// our lovely styled-components here
 
 class App extends Component {
   state = {
@@ -621,8 +613,11 @@ class App extends Component {
             <AppTitle>Welcome to React</AppTitle>
           </AppHeader>
           <AppIntro>
-            To get started, edit <code>src/App.js</code> and save to
-            reload.
+            Bootstrapped with <code>create-react-app</code>.
+          </AppIntro>
+          <AppIntro>
+            Components styled with <code>styled-components</code>{' '}
+            <EmojiWrapper aria-label="nail polish">💅</EmojiWrapper>
           </AppIntro>
           <ThemeSelect handleThemeChange={this.handleThemeChange} />
         </AppWrapper>
@@ -634,206 +629,13 @@ class App extends Component {
 export default App
 ```
 
-Transcript from DM convo about this article
-
-**Me:**
-
-I'm thinking about how to put this styled components post together
-
-For a beginner Like me, there's a few bits which I've learned
-
-I don't want to be giving people the wrong information
-
-**Phill:**
-
-Hiya :) I can review your post if you’d like? Or do you need some more
-ideas too to pull it together?
-
-**Me:**
-
-Well, I don't have anything down yet but from doing a couple of sites
-now I use the following:
-
-A global style module that has the theme object in there and media
-queries and predefined h1-h6 LIs ULs and P
-
-Then pass props to the components for the theme
-
-Use the theme provider
-
-Anything else??
-
-Phil:
-
-Sounds good :)
-
-So a more styled theming targeted article if I get this correctly?
-
-**Me:**
-
-Yeah, was that not what you wanted?
-
-Phil:
-
-Oh that is definitely one of the things 👌
-
-**Me:**
-
-So, am I missing something?
-
-Just got to say I hated styling things in CSS until I started using
-styled-components
-
-or CSS-in-JS
-
-Not given anything else a go really, well apart from the Zeit one they
-have
-
-Phil:
-
-No I think that’d be a great guide ✨
-
-I’d just love to have some guides on the order of styled components in
-the component tree too
-
-**Me:**
-
-Whats that then?
-
-Component tree?
-
-**Phill:**
-
-So I’ve seen a couple of patterns that can greatly break what styled
-components is good at
-
-**Me:**
-
-The format I'm taking for the last three sites now is use theme and
-injectGlobal
-
-**Phill:**
-
-let’s say you have a const Form = () => <A>...</A> Where the children
-are styled Then wrapping it like styled(Form) is an anti pattern since
-st that point the classname becomes exposed and the styles of the
-elements in the Form might be mixed which breaks encapsulation
-
-**Me:**
-
-I have in some instances predefined headings and p's
-
-this time around I'm not
-
-Because I found that I was always overriding what I had predefined
-anyway
-
-I'm thinking this time around if I see the same pattern then I guess
-i'll farm it off to the globalStyle module
-
-**Phill:**
-
-Yea but then you could write styled(A) and use that instead and that’d
-be fine, but styled(Form) targets a “structural component” (or even a
-container; who knows)
-
-**Me:**
-
-I've not done anything with forms yet
-
-**Phill:**
-
-So that’s a pattern I’ve seen a couple of times but it spreads your
-styles across multiple levels where you can’t refactor and follow them
-anymore
-
-**Me:**
-
-Ah ok, well I guess I'm learning as I go, but that's the sort of thing
-I want to avoid
-
-**Phill:**
-
-It’s just an example name; not forms specifically
-
-**Me:**
-
-Phil!
-
-I'm sorry, I do apologise, I didn't see this:
-
-```philp
-Then wrapping it like styled(Form) is an anti pattern since st that point
-the classname becomes exposed and the styles of the elements in the
-Form might be mixed which breaks encapsulation
-```
-
-**Phill:**
-
-😉 So when I need a variant that’s like A in the example I’d do three
-things:
-
-**Me:**
-
-I guess you're always going to have the possibility of that happening
-
-**Phill:**
-
-* is it a generic change that’s common? => introduce a prop in A that
-  switches it around
-
-* is it specific but kind of common? => move the styled(A) variant to
-  where A is and export it there
-
-* and lastly: move the variant to where it’s used (where Form is in
-  the example)
-
-So there’s really no need for styled(Form) and it also encourages
-descendant selectors which are :(
-
-**Me:**
-
-Awesome!!
-
-These are great points! But when you are piecing something together
-for the first time this sort of thing isn't immediately obvious, well,
-for me anyway
-
-**Phill:**
-
-It’s not unfortunately 😅 So that’s why an article on it would be
-awesome 😎
-
-**Me:**
-
-I have always used DRY, never knew it was called DRY before starting
-to learn webdev but it irks me to have stuff repeated everywhere
-
-**Phill:**
-
-Yea this practice is not that obvious unfortunately
-
-https://twitter.com/_philpl/status/953029683830054915
-
-This might be the shortest explanation of what you’d do if you do
-styled(Form)
-
-Or like Erik puts it “there’s no element to style”
-
-Or like in our example, there is no _single_ element to style
-
-I hope this gives you some ideas for the article 😬
-
-**Me:**
-
-Yes!
-
-There's loads to put in there thanks Phil, I'm pulling what we've
-discussed here [thanks for taking the time to discuss it with me by
-the way] and what I have learned over the last month now and I'll add
-as a go along with styling my portfolio site as well
-
-Max and yourself aren't in any hurry to have the information are you?
+To summarise what we have done with `App.js` here is, add some state
+to default to `theme1` where the two themes are imported as named
+exports of the `globalStyle.js` module.
+
+Add a method to handle the change of the `ThemeSelect.js` component
+`handleThemeChange` this is where we can switch between the two
+`theme` objects.
 
 <!-- Links -->
 
@@ -841,3 +643,4 @@ Max and yourself aren't in any hurry to have the information are you?
 [`npx`]: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 [animation]: https://www.styled-components.com/docs/basics#animations
 [`injectglobal`]: https://www.styled-components.com/docs/api#injectglobal
+[stack overflow answer]: https://stackoverflow.com/a/42899979/1138354
