@@ -13,10 +13,10 @@ Customary gif of Perter Griffin messing around with the venetian
 blinds. I'm not going to add it, everyone is sick of seeing it I'm
 sure 😁.
 
-That was until I used `styled-components` 💅 with my team on the
-Chingu build to learn project we worked on, Marina in particular was
-such an inspiration for me watching how components were styled and
-really gave me the confidence to start using CSS-inJS.
+That was until I used styled-components with my team on the Chingu
+build to learn project we worked on, Marina in particular was such an
+inspiration for me watching how components were styled and really gave
+me the confidence to start using CSS-inJS.
 
 I want to share what I have learned so far by going through styling a
 basic react application.
@@ -25,8 +25,8 @@ basic react application.
 probably change as a learn more.
 
 There's some basic CSS concepts in this post that I was not aware of
-before starting out with `styled-components` that I presume are
-assumed in styling web pages.
+before starting out with styled-components that I presume are assumed
+in styling web pages.
 
 Ok lets bootstrap the basic react application you get when using
 [Create React App] with [`npx`], if you have Create React App
@@ -36,8 +36,7 @@ installed globally then you can use the command without `npx`.
 npx create-react-app style-with-styled-components
 ```
 
-`cd` into the project via the terminal and install `styled-components`
-💅
+`cd` into the project via the terminal and install styled-components
 
 ```sh
 style-with-styled-components/
@@ -48,7 +47,7 @@ npm i styled-components
 
 Ok, we have the basic app we can style, thankfully Dan has kindly
 provided the starting styles for us so let's begin my using them with
-`styled-components` 💅
+styled-components
 
 We can start with the `App.js` file and it's accompanying `App.css`
 file. Let's take a look at the `App.js` first:
@@ -78,15 +77,66 @@ class App extends Component {
 export default App
 ```
 
-The five `className`s in there `App`, `App-header`, `App-logo`,
+The five `className`'s in there `App`, `App-header`, `App-logo`,
 `App-title` and `App-intro` we're going to replace with our
-`styled-components` 💅, so let's make a component for each of the
-classes and copy pasta the CSS in from `App.css`
+styled-components, so let's make a component for each of the classes
+and copy pasta the CSS in from `App.css`
 
 The way the CRA CSS is assumes that you will have a corresponding CSS
-file for each component, which (IMO) helps with maintaining the CSS
-and lends to the React idea of having all your files separated into
-their component parts.
+file for each component, which can help with maintaining the CSS and
+lends to the React idea of having all your files separated into their
+component parts.
+
+So let's do one component first to get an idea of where we're going
+with this.
+
+First, import `styled` into the `App.js` module:
+
+```js
+import styled from 'styled-components'
+```
+
+Now lets look at **`<AppWrapper className="App">`**, it's the top
+level div for this component and is what I like to call the wrapper
+for the component. So lets give it an imaginative name `AppWrapper`.
+Referring to the `App.css` there is `text-align: center;` which
+belongs to this, so:
+
+```js
+const AppWrapper = styled.div`
+  text-align: center;
+`
+```
+
+Now that we have our `AppWrapper` we can replace the top level div on
+the `App.js` component.
+
+```js
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+import logo from './logo.svg'
+import './App.css'
+
+class App extends Component {
+  render() {
+    return (
+      <AppWrapper>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to
+          reload.
+        </p>
+      </AppWrapper>
+    )
+  }
+}
+
+export default App
+```
 
 ## Use ThemeProvider
 
@@ -348,7 +398,9 @@ Phil!
 I'm sorry, I do apologise, I didn't see this:
 
 ```philp
-Then wrapping it like styled(Form) is an anti pattern since st that point the classname becomes exposed and the styles of the elements in the Form might be mixed which breaks encapsulation
+Then wrapping it like styled(Form) is an anti pattern since st that point
+the classname becomes exposed and the styles of the elements in the
+Form might be mixed which breaks encapsulation
 ```
 
 **Phill:**
