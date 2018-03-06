@@ -1,6 +1,6 @@
 ---
 path: "/styled-components-getting-started"
-date: "2018-03-02"
+date: "2018-03-06"
 title: "styled-components 💅 getting started"
 tags: ['information', 'guide', 'styled-components', 'CSS-in-JS']
 published: false
@@ -539,7 +539,7 @@ make a `ThemeSelect.js` component, we can worry about refactoring the
 
 **ThemeSelect.js**
 
-```js
+```jsx
 import React from 'react'
 import styled from 'styled-components'
 
@@ -584,7 +584,7 @@ manage what theme is selected.
 
 **App.js**
 
-```js
+```jsx
 import React, { Component } from 'react'
 import styled, { keyframes, ThemeProvider } from 'styled-components'
 
