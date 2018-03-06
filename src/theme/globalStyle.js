@@ -78,7 +78,7 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-family: Roboto, Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     /* font-size: 0.75rem; */
     line-height: 1.3125;
     background-color: #dfdbe5;
