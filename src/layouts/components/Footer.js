@@ -1,8 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import { StyledP, media } from '../../theme/globalStyle'
+import { media } from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
 import Icon from './Icon'
 
