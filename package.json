@@ -1,36 +1,39 @@
 {
   "name": "blog.scottspence.me",
   "version": "2.0.1",
-  "author":
-    "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
     "gatsby": "1.9.237",
-    "gatsby-image": "1.0.41",
+    "gatsby-image": "1.0.42",
     "gatsby-link": "1.6.39",
     "gatsby-plugin-favicon": "2.1.1",
-    "gatsby-plugin-google-analytics": "1.0.22",
-    "gatsby-plugin-react-helmet": "2.0.7",
+    "gatsby-plugin-react-helmet": "2.0.8",
+    "gatsby-plugin-google-analytics": "1.0.24",
     "gatsby-plugin-sharp": "1.6.41",
     "gatsby-plugin-styled-components": "2.0.9",
     "gatsby-remark-copy-linked-files": "1.5.30",
     "gatsby-remark-images": "1.5.56",
-    "gatsby-remark-prismjs": "1.2.17",
+    "gatsby-remark-prismjs": "1.2.18",
     "gatsby-source-filesystem": "1.5.27",
     "gatsby-transformer-remark": "1.7.37",
     "react-helmet": "5.2.0",
-    "styled-components": "3.2.1"
+    "styled-components": "3.2.3"
   },
   "devDependencies": {
-    "eslint": "4.18.2",
+    "eslint": "4.19.0",
     "eslint-plugin-react": "7.7.0",
     "husky": "0.14.3",
     "prettier": "1.11.1",
     "pretty-quick": "1.4.1",
     "release-it": "7.2.1"
   },
-  "keywords": ["gatsby", "personal", "blog"],
+  "keywords": [
+    "gatsby",
+    "personal",
+    "blog"
+  ],
   "main": "n/a",
   "now": {
     "name": "scottblog"
@@ -43,8 +46,7 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
-    "alias:dev":
-      "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
+    "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "release": "release-it"
@@ -56,6 +58,5 @@
   "bugs": {
     "url": "https://github.com/spences10/blog.scottspence.me/issues"
   },
-  "homepage":
-    "https://github.com/spences10/blog.scottspence.me#readme"
+  "homepage": "https://github.com/spences10/blog.scottspence.me#readme"
 }
