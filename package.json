@@ -16,7 +16,7 @@
     "gatsby-plugin-styled-components": "2.0.10",
     "gatsby-remark-copy-linked-files": "1.5.30",
     "gatsby-remark-prismjs": "1.2.21",
-    "gatsby-remark-images": "1.5.59",
+    "gatsby-remark-images": "1.5.60",
     "gatsby-source-filesystem": "1.5.27",
     "gatsby-transformer-remark": "1.7.37",
     "react-helmet": "5.2.0",
