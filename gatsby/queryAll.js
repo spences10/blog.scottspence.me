@@ -22,6 +22,8 @@ module.exports = `
     }
     allPosts {
       id
+      slug
+      title
       authors {
         id
       }
