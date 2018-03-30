@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import TagsContainer from '../layouts/components/TagsContainer'
+// import TagsContainer from '../layouts/components/TagsContainer'
 
 import { StyledH1, StyledP } from '../theme/globalStyle'
-import { slugIt } from '../utils/helpers'
+// import { slugIt } from '../utils/helpers'
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -65,7 +65,7 @@ const PostExcerpt = StyledP.extend`
 `
 
 const IndexPage = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark
+  const { edges: posts } = data.allPosts
   return (
     <div>
       {posts.map(({ node: post }, index) => {
@@ -99,22 +99,15 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { published: { eq: true } } }
-    ) {
-      totalCount
+    allPosts {
       edges {
         node {
-          excerpt(pruneLength: 250)
           id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM YYYY")
-            path
-            tags
-            excerpt
+          tags
+          authors {
+            id
           }
+          content
         }
       }
     }
