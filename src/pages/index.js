@@ -103,6 +103,8 @@ export const query = graphql`
       edges {
         node {
           id
+          slug
+          title
           tags
           authors {
             id
