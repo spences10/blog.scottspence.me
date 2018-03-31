@@ -77,6 +77,7 @@ const IndexPage = ({ data }) => {
             <PostTitle>
               <PostLink to={post.slug}>{post.title}</PostLink>
             </PostTitle>
+            <PostDate>{post.dateAndTime.toString()}</PostDate>
           </PostWrapper>
         )
       })}
@@ -132,6 +133,7 @@ export const query = graphql`
           id
           slug
           title
+          dateAndTime(formatString: "MMMM Do YYYY")
           tags
           authors {
             id
