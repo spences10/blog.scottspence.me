@@ -9,3 +9,7 @@ export const slugIt = text => {
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, '') // Trim - from end of text
 }
+
+export const excerpt = (text, len) => {
+  return text.substring(0, len)
+}
