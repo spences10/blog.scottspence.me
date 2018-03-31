@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
     <div>
       {post.map(({ node: post }, index) => {
         console.log('====================')
-        console.log(post.title)
+        console.log(post)
         console.log('====================')
         return (
           <PostWrapper key={index}>
@@ -78,6 +78,7 @@ const IndexPage = ({ data }) => {
               <PostLink to={post.slug}>{post.title}</PostLink>
             </PostTitle>
             <PostDate>{post.dateAndTime.toString()}</PostDate>
+            <PostExcerpt>{post.content}</PostExcerpt>
           </PostWrapper>
         )
       })}
@@ -133,7 +134,7 @@ export const query = graphql`
           id
           slug
           title
-          dateAndTime(formatString: "MMMM Do YYYY")
+          dateAndTime(formatString: "Do MMMM YYYY")
           tags
           authors {
             id
