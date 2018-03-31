@@ -24,6 +24,7 @@ module.exports = `
       id
       slug
       title
+      dateAndTime
       authors {
         id
       }
