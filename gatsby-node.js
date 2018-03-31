@@ -1,8 +1,8 @@
 const path = require('path')
 
 const createTagPages = (createPage, posts) => {
-  const tagPageTemplate = path.resolve(`src/templates/tags.js`)
-  const allTagsTemplate = path.resolve(`src/templates/all-tags.js`)
+  const tagPageTemplate = path.resolve('src/templates/tags.js')
+  const allTagsTemplate = path.resolve('src/templates/all-tags.js')
 
   const postsByTags = {}
 
@@ -21,7 +21,7 @@ const createTagPages = (createPage, posts) => {
   const tags = Object.keys(postsByTags)
 
   createPage({
-    path: `/tags`,
+    path: '/tags',
     component: allTagsTemplate,
     context: {
       tags: tags.sort()
@@ -70,9 +70,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
     }
   `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+    if (result.errors) return Promise.reject(result.errors)
 
     const posts = result.data.allMarkdownRemark.edges
 
