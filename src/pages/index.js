@@ -6,7 +6,7 @@ import styled from 'styled-components'
 // import TagsContainer from '../layouts/components/TagsContainer'
 
 import { StyledH1, StyledP } from '../theme/globalStyle'
-// import { slugIt } from '../utils/helpers'
+import { excerpt } from '../utils/helpers'
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -78,7 +78,7 @@ const IndexPage = ({ data }) => {
               <PostLink to={post.slug}>{post.title}</PostLink>
             </PostTitle>
             <PostDate>{post.dateAndTime.toString()}</PostDate>
-            <PostExcerpt>{post.content}</PostExcerpt>
+            <PostExcerpt>{excerpt(post.content, 250)}</PostExcerpt>
           </PostWrapper>
         )
       })}
