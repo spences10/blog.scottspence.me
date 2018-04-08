@@ -120,16 +120,61 @@ file.
 Now that we have our `AppWrapper` we can replace the top level div on
 the `App.js` component.
 
-{% gist
-https://gist.github.com/anonymous/858237f1a474efe6d6d91d662dbff5d2 %}
+```js
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import logo from './logo.svg'
+import './App.css'
+class App extends Component {
+  render() {
+    return (
+      <AppWrapper>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to
+          reload.
+        </p>
+      </AppWrapper>
+    )
+  }
+}
+export default App
+```
 
 ### styled-components all the things
 
 So let's do that for the remaining four CSS classes, and take a look,
 I'll define them underneath the `AppWrapper` here:
 
-{% gist
-https://gist.github.com/anonymous/78967686c6eddf865b955815d5db65fa %}
+```js
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 120s linear;
+  height: 80px;
+`
+const AppHeader = styled.div`
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+`
+const AppTitle = styled.h1`
+  font-size: 1.3em;
+`
+const AppIntro = styled.p`
+  font-size: large;
+`
+```
 
 So first off we've created a variable for the React svg [animation],
 you'll need to import the `keyframes` helper from styled-components
@@ -180,8 +225,25 @@ const AppIntro = styled.p`
 
 Let's have a look at the `render()` method now…
 
-{% gist
-https://gist.github.com/anonymous/facab7eccf2b2c8f9080255e3e282741 %}
+```js
+render() {
+  return (
+    <AppWrapper>
+      <AppHeader>
+        <AppLogo src={logo} alt="logo" />
+        <AppTitle>Welcome to React</AppTitle>
+      </AppHeader>
+      <AppIntro>
+        Bootstrapped with <code>create-react-app</code>.
+      </AppIntro>
+      <AppIntro>
+        Components styled with <code>styled-components</code>{' '}
+        <EmojiWrapper aria-label="nail polish"></EmojiWrapper>
+      </AppIntro>
+    </AppWrapper>
+  )
+}
+```
 
 Now all the classes originally used in `App.js` have been replaced so
 there's no need for the `import './App.css'` mapping, remove that
@@ -194,8 +256,76 @@ can take a look at `injectGlobal`.
 Lets take a look at how the `App.js` file should look before we move
 on:
 
-{% gist
-https://gist.github.com/anonymous/338575c695c0077049c30b407764b612 %}
+```js
+import React, { Component } from 'react'
+import styled, { keyframes } from 'styled-components'
+import logo from './logo.svg'
+
+const AppWrapper = styled.div`
+  text-align: center;
+`
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 120s linear;
+  height: 80px;
+  &:hover {
+    animation: ${rotate360} infinite 1.5s linear;
+  }
+`
+
+const AppHeader = styled.div`
+  background-color: #222;
+  height: 12rem;
+  padding: 1rem;
+  color: white;
+`
+
+const AppTitle = styled.h1`
+  font-weight: 900;
+`
+
+const AppIntro = styled.p`
+  font-size: large;
+  code {
+    font-size: 1.3rem;
+  }
+`
+
+const EmojiWrapper = styled.span.attrs({
+  role: 'img'
+})``
+
+class App extends Component {
+  render() {
+    return (
+      <AppWrapper>
+        <AppHeader>
+          <AppLogo src={logo} alt="logo" />
+          <AppTitle>Welcome to React</AppTitle>
+        </AppHeader>
+        <AppIntro>
+          Bootstrapped with <code>create-react-app</code>.
+        </AppIntro>
+        <AppIntro>
+          Components styled with <code>styled-components</code>{' '}
+          <EmojiWrapper aria-label="nail polish" />
+        </AppIntro>
+      </AppWrapper>
+    )
+  }
+}
+
+export default App
+```
 
 ### Style the body with injectGlobal
 
@@ -261,15 +391,35 @@ add in some nice Roboto for the body and Montserrat for the heading in
 our `globalStyle.js` module. We can import Google fonts with an
 `@import` in `injectGlobal` and apply Roboto to the body:
 
-{% gist
-https://gist.github.com/anonymous/817ad6b6d68fe41600a850a0fdb02ccd %}
+```js
+injectGlobal`
+  @import url(‘https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+ 
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+`
+```
 
 Cool now we can add our imported font for or app header, and there's
 the option if we want all our `<h1>`'s to use the same font we can add
 that to the injectGlobal in our `globalStyle.js` module.
 
-{% gist
-https://gist.github.com/anonymous/f7bec1a71b6c7c47300ca71299c39ba4 %}
+```js
+injectGlobal`
+  @import url(‘https://fonts.googleapis.com/css?family=Montserrat:400,900|Roboto');
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+  h1 {
+    font-family: Montserrat;
+  }
+`
+```
 
 Then we can adjust the weight on the `AppTitle` component:
 
@@ -325,8 +475,25 @@ To make the theme object available throughout the app component we'll
 wrap our app component in the `ThemeProvider` and import our awesome
 theme for use in the `ThemeProvider`:
 
-{% gist
-https://gist.github.com/anonymous/6de5d94a457195ca6939254e38f7094f %}
+```js
+import React, { Component } from 'react'
+import styled, { keyframes, ThemeProvider } from 'styled-components'
+import logo from './logo.svg'
+import { theme } from './theme/globalStyle'
+
+// our styled-components
+
+class App extends Component {
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        {/* all children can access the theme object */}
+      </ThemeProvider>
+    )
+  }
+}
+export default App
+```
 
 Now the `theme` properties can be used as props in our
 styled-components, let's change the `background-color:` in the
