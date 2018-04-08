@@ -522,8 +522,23 @@ them for different sections like in the SO answer.
 I started off by defining two themes (with imaginative names) in the
 `globalStyle.js` module:
 
-{% gist
-https://gist.github.com/anonymous/47ef9cb66053eef84e908bc3ab1b740c %}
+```js
+export const theme1 = {
+  primary: '#ff0198',
+  secondary: '#01c1d6',
+  danger: '#eb238e',
+  light: '#f4f4f4',
+  dark: '#222'
+}
+
+export const theme2 = {
+  primary: '#6e27c5',
+  secondary: '#ffb617',
+  danger: '#f16623',
+  light: '#f4f4f4',
+  dark: '#222'
+}
+```
 
 Now we need a way to switch between the two `theme` objects, let's use
 a select box for them, let's create a components folder and in there
@@ -532,8 +547,41 @@ make a `ThemeSelect.js` component, we can worry about refactoring the
 
 #### ThemeSelect.js
 
-{% gist
-https://gist.github.com/anonymous/be700e21646e08f3b410fe6e0195ef89 %}
+```js
+import React from 'react'
+import styled from 'styled-components'
+
+const Select = styled.select`
+  margin: 2rem 0.5rem;
+  padding: 0rem 0.5rem;
+  font-family: Roboto;
+  font-size: 1rem;
+  border: 1px solid ${props => props.theme.light};
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background: ${props => props.theme.light};
+  border-radius: 2px;
+`
+
+export const SelectOpt = styled.option`
+  font-family: Roboto;
+  font-size: 1rem;
+`
+
+class ThemeSelect extends React.Component {
+  render() {
+    return (
+      <div>
+        <Select onChange={e => this.props.handleThemeChange(e)}>
+          <SelectOpt value="theme1">Theme 1</SelectOpt>
+          <SelectOpt value="theme2">Theme 2</SelectOpt>
+        </Select>
+      </div>
+    )
+  }
+}
+
+export default ThemeSelect
+```
 
 You've probably noticed the
 `onChange={e => this.props.handleThemeChange(e)` event, we're going to
@@ -542,8 +590,50 @@ manage what theme is selected.
 
 #### App.js
 
-{% gist
-https://gist.github.com/anonymous/6aee9297c700aff71438e4942bd6ce89 %}
+```js
+import React, { Component } from 'react'
+import styled, { keyframes, ThemeProvider } from 'styled-components'
+
+import logo from './logo.svg'
+
+import { theme1, theme2 } from './theme/globalStyle'
+import ThemeSelect from './components/ThemeSelect'
+
+// our lovely styled-components here
+
+class App extends Component {
+  state = {
+    theme: theme1
+  }
+  handleThemeChange = e => {
+    let theme = e.target.value
+    theme === 'theme1' ? (theme = theme1) : (theme = theme2)
+    this.setState({ theme })
+  }
+  render() {
+    return (
+      <ThemeProvider theme={this.state.theme}>
+        <AppWrapper>
+          <AppHeader>
+            <AppLogo src={logo} alt="logo" />
+            <AppTitle>Welcome to React</AppTitle>
+          </AppHeader>
+          <AppIntro>
+            Bootstrapped with <code>create-react-app</code>.
+          </AppIntro>
+          <AppIntro>
+            Components styled with <code>styled-components</code>{' '}
+            <EmojiWrapper aria-label="nail polish" />
+          </AppIntro>
+          <ThemeSelect handleThemeChange={this.handleThemeChange} />
+        </AppWrapper>
+      </ThemeProvider>
+    )
+  }
+}
+
+export default App
+```
 
 To summarise what we have done with `App.js` here is, add some state
 to default to theme1 where the two themes are imported as named
@@ -561,8 +651,23 @@ we've defined now.
 So far our app hasn't got many styled-components that are similar but
 what if we were to add some buttons…
 
-{% gist
-https://gist.github.com/spences10/6d9ef0c1cb62e322ef170ad206f63df8 %}
+```js
+export const Button = styled.button`
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 0.25rem 1rem;
+  margin: 0 1rem;
+  background: transparent;
+  color: ${props => props.theme.primary};
+  border: 2px solid ${props => props.theme.primary};
+  ${props =>
+    props.primary &&
+    css`
+      background: ${props => props.theme.primary};
+      color: white;
+    `};
+`
+```
 
 Here I've added a `Button` component to the `globalStyle.js` for us to
 use in the `App.js` component. For the sake of convenience we're going
