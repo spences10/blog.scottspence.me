@@ -7,7 +7,7 @@
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
     "gatsby": "1.9.249",
-    "gatsby-image": "1.0.45",
+    "gatsby-image": "1.0.47",
     "gatsby-link": "1.6.40",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-google-analytics": "1.0.28",
