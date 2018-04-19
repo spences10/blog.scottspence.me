@@ -10,15 +10,15 @@
     "gatsby-image": "1.0.47",
     "gatsby-link": "1.6.40",
     "gatsby-plugin-favicon": "2.1.1",
-    "gatsby-plugin-react-helmet": "2.0.10",
     "gatsby-plugin-google-analytics": "1.0.28",
+    "gatsby-plugin-react-helmet": "2.0.10",
     "gatsby-plugin-sharp": "1.6.42",
     "gatsby-plugin-styled-components": "2.0.11",
     "gatsby-remark-copy-linked-files": "1.5.31",
-    "gatsby-remark-prismjs": "1.2.24",
     "gatsby-remark-images": "1.5.61",
+    "gatsby-remark-prismjs": "1.2.24",
     "gatsby-source-filesystem": "1.5.29",
-    "gatsby-transformer-remark": "1.7.39",
+    "gatsby-transformer-remark": "1.7.40",
     "react-helmet": "5.2.0",
     "styled-components": "3.2.5"
   },
@@ -28,7 +28,7 @@
     "husky": "0.14.3",
     "prettier": "1.12.0",
     "pretty-quick": "1.4.1",
-    "release-it": "7.3.0"
+    "release-it": "7.4.1"
   },
   "keywords": ["gatsby", "personal", "blog"],
   "main": "n/a",
