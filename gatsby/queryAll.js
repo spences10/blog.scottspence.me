@@ -1,3 +1,4 @@
+// queryAll is used for the Gatsby queries
 'use strict'
 
 module.exports = `
