@@ -33,13 +33,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           console.log('=====================')
           console.log(path)
           console.log('=====================')
-          // createPage({
-          //   path,
-          //   component: pageDetailTemplate,
-          //   context: {
-          //     slug: page.slug
-          //   }
-          // })
+          createPage({
+            path,
+            component: pageDetailTemplate,
+            context: {
+              slug: page.slug
+            }
+          })
         })
       })
     )
