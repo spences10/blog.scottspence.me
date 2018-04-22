@@ -99,72 +99,43 @@ const HappyButton = ButtonSmall.extend`
   }
 `
 
-const Template = ({ data, pathContext }) => {
-  const { markdownRemark: post } = data
-  const { frontmatter, html } = post
-  const { title, date } = frontmatter
-  const { next, prev } = pathContext
-
-  return (
-    <PostWrapper border={({ theme }) => theme.primary.light}>
-      <Helmet title={`${title} - blog.scottspence.me`} />
-      <Title>{title}</Title>
-      <TitleDate>{date}</TitleDate>
-
-      <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
-
-      <TagsContainer
-        title={title}
-        tags={post.frontmatter.tags}
-        name={`${title}-${date}`}
-      />
-      <NavWrapper>
-        {prev === false ? (
-          <div />
-        ) : (
-          <ButtonWrapper>
-            {prev && (
-              <Link to={prev.frontmatter.path}>
-                <HappyButton
-                  color={theme.primary.light}
-                  border={theme.primary.light}>
-                  {prev.frontmatter.title}
-                </HappyButton>
-              </Link>
-            )}
-          </ButtonWrapper>
-        )}
-        {next === false ? (
-          <div />
-        ) : (
-          <ButtonWrapper>
-            {next && (
-              <Link to={next.frontmatter.path}>
-                <HappyButton
-                  color={theme.primary.light}
-                  border={theme.primary.light}>
-                  {next.frontmatter.title}
-                </HappyButton>
-              </Link>
-            )}
-          </ButtonWrapper>
-        )}
-      </NavWrapper>
-    </PostWrapper>
-  )
+class Template extends React.Component {
+  render() {
+    const page = this.props.data.page
+    return (
+      <PageWrapper>
+        <PageContent>
+          <h1>{page.pageTitle}</h1>
+          <div>{page.pageDescription}</div>
+          {console.log(page.headerImage.url)}
+          <HeaderImage src={page.headerImage.url} />
+          <Dump props={page} />
+          <Link to="/">Go back to the homepage</Link>
+        </PageContent>
+      </PageWrapper>
+    )
+  }
 }
 
+export default Template
+
 // graphQL query to get post into Template
-export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "DD MMMM YYYY")
-        path
-        tags
-        title
+export const PageDetailPageQuery = graphql`
+  query getPostById($slug: String!) {
+    posts(slug: { eq: $slug }) {
+      id
+      tags
+      slug
+      coverImage {
+        id
+        url
       }
+      authors {
+        id
+      }
+      content
+      title
+      dateAndTime
     }
   }
 `
@@ -175,4 +146,4 @@ Template.propTypes = {
   pathContext: PropTypes.object.isRequired
 }
 
-export default Template
+// export default Template

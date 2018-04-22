@@ -70,9 +70,9 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       {post.map(({ node: post }, index) => {
-        console.log('====================')
-        console.log(post)
-        console.log('====================')
+        // console.log('====================')
+        // console.log(post)
+        // console.log('====================')
         return (
           <PostWrapper key={index}>
             <PostTitle>
