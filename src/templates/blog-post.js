@@ -101,18 +101,19 @@ const HappyButton = ButtonSmall.extend`
 
 class Template extends React.Component {
   render() {
-    const page = this.props.data.page
+    const post = this.props.data.post
+    console.log('====================')
+    console.log(post)
+    console.log('====================')
     return (
-      <PageWrapper>
-        <PageContent>
-          <h1>{page.pageTitle}</h1>
-          <div>{page.pageDescription}</div>
-          {console.log(page.headerImage.url)}
-          <HeaderImage src={page.headerImage.url} />
-          <Dump props={page} />
-          <Link to="/">Go back to the homepage</Link>
-        </PageContent>
-      </PageWrapper>
+      <ContentWrapper>
+        {/* <h1>{post.pageTitle}</h1>
+        <div>{post.pageDescription}</div>
+        {console.log(post.headerImage.url)}
+        <HeaderImage src={post.headerImage.url} />
+        <Dump props={post} />
+        <Link to="/">Go back to the homepage</Link> */}
+      </ContentWrapper>
     )
   }
 }
