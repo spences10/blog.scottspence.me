@@ -11,5 +11,5 @@ export const slugIt = text => {
 }
 
 export const excerpt = (text, len) => {
-  return text.substring(0, len)
+  return `${text.substring(0, len)}...`
 }
