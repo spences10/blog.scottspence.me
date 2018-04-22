@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import Markdown from 'react-markdown'
 
 // import TagsContainer from '../layouts/components/TagsContainer'
 
@@ -78,7 +79,12 @@ const IndexPage = ({ data }) => {
               <PostLink to={post.slug}>{post.title}</PostLink>
             </PostTitle>
             <PostDate>{post.dateAndTime.toString()}</PostDate>
-            <PostExcerpt>{excerpt(post.content, 250)}</PostExcerpt>
+            <PostExcerpt>
+              <Markdown
+                source={excerpt(post.content, 250)}
+                escapeHtml={false}
+              />
+            </PostExcerpt>
           </PostWrapper>
         )
       })}
