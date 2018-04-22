@@ -4,43 +4,37 @@
 module.exports = `
   {
     allAssets {
-      edges {
-        node {
-          id
-          url
-        }
-      }
+      id
+      url
     }
     allAuthors {
-      edges {
-        node {
-          id
-          name
-          avatar {
-            id
-            url
-          }
-        }
+      name
+      avatar {
+        id
+        url
+        fileName
+        mimeType
+        height
+        width
       }
+      isPublished
+      id
+      bibliography
     }
     allPosts {
-      edges {
-        node {
-          id
-           slug
-          title
-          dateAndTime
-          authors {
-            id
-          }
-          content
-          coverImage {
-            id
-            url
-          }
-          tags
-        }
+      id
+      slug
+      title
+      dateAndTime
+      authors {
+        id
       }
+      content
+      coverImage {
+        id
+        url
+      }
+      tags
     }
   }
 `

@@ -1,40 +1,48 @@
 // queryAll is used for the Gatsby queries
+// construct your queries from the Gatsby
+// GraphIQL explorer
 'use strict'
 
 module.exports = `
   {
     allAssets {
-      id
-      url
+      edges {
+        node {
+          id
+          url
+        }
+      }
     }
     allAuthors {
-      name
-      avatar {
-        id
-        url
-        fileName
-        mimeType
-        height
-        width
+      edges {
+        node {
+          id
+          name
+          avatar {
+            id
+            url
+          }
+        }
       }
-      isPublished
-      id
-      bibliography
     }
     allPosts {
-      id
-      slug
-      title
-      dateAndTime
-      authors {
-        id
+      edges {
+        node {
+          id
+          slug
+          title
+          dateAndTime
+          authors {
+            id
+          }
+          content
+          coverImage {
+            id
+            url
+          }
+          tags
+        }
       }
-      content
-      coverImage {
-        id
-        url
-      }
-      tags
     }
   }
 `
