@@ -3,7 +3,7 @@ path: "/styled-components-getting-started"
 date: "2018-04-03"
 title: "styled-components 💅 getting started"
 tags: ['information', 'guide', 'styled-components', 'CSS-in-JS']
-published: false
+published: true
 ---
 
 We're going to style the basic create react app with styled-components
