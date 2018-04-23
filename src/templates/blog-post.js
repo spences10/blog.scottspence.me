@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import Markdown from 'react-markdown'
 
 import { ButtonSmall } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
@@ -63,6 +64,10 @@ const PostWrapper = ContentWrapper.extend`
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `
 
 const ButtonWrapper = styled.div`
@@ -101,18 +106,19 @@ const HappyButton = ButtonSmall.extend`
 
 class Template extends React.Component {
   render() {
-    const post = this.props.data.post
+    const post = this.props.data.posts
+    const tags = this.props.data.posts.tags
     console.log('====================')
-    console.log(post)
+    console.log(tags)
     console.log('====================')
     return (
       <ContentWrapper>
-        {/* <h1>{post.pageTitle}</h1>
-        <div>{post.pageDescription}</div>
-        {console.log(post.headerImage.url)}
-        <HeaderImage src={post.headerImage.url} />
-        <Dump props={post} />
-        <Link to="/">Go back to the homepage</Link> */}
+        <PostWrapper>
+          <Title>{post.title}</Title>
+          <TitleDate>{post.dateAndTime}</TitleDate>
+          <Markdown source={post.content} escapeHtml={false} />
+          {/* <TagsContainer>{post.tags}</TagsContainer> */}
+        </PostWrapper>
       </ContentWrapper>
     )
   }
@@ -136,7 +142,7 @@ export const PageDetailPageQuery = graphql`
       }
       content
       title
-      dateAndTime
+      dateAndTime(formatString: "Do MMMM YYYY")
     }
   }
 `
