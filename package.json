@@ -15,6 +15,7 @@
     "gatsby-plugin-sharp": "1.6.42",
     "gatsby-plugin-styled-components": "2.0.11",
     "gatsby-remark-copy-linked-files": "1.5.31",
+    "gatsby-remark-prismjs": "2.0.1",
     "gatsby-remark-images": "1.5.61",
     "gatsby-remark-prismjs": "1.2.24",
     "gatsby-source-filesystem": "1.5.29",
