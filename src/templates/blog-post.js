@@ -63,6 +63,10 @@ const PostWrapper = ContentWrapper.extend`
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `
 
 const ButtonWrapper = styled.div`
