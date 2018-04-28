@@ -58,6 +58,19 @@ module.exports = {
         trackingId: 'UA-87264973-3',
         anonymize: false
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'blog.scottspence.me',
+        short_name: 'blog.scottspence.me',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#a2466c',
+        display: 'minimal-ui',
+        icon: 'src/img/favicon.png' // This path is relative to the root of the site.
+      }
+    },
+    'gatsby-plugin-offline'
   ]
 }

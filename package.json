@@ -1,8 +1,7 @@
 {
   "name": "blog.scottspence.me",
   "version": "2.0.1",
-  "author":
-    "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
@@ -11,12 +10,14 @@
     "gatsby-link": "1.6.41",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-google-analytics": "1.0.31",
+    "gatsby-plugin-manifest": "1.0.21",
+    "gatsby-plugin-offline": "1.0.15",
     "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-plugin-sharp": "1.6.43",
     "gatsby-plugin-styled-components": "2.0.11",
     "gatsby-remark-copy-linked-files": "1.5.32",
-    "gatsby-remark-prismjs": "1.2.24",
     "gatsby-remark-images": "1.5.62",
+    "gatsby-remark-prismjs": "1.2.24",
     "gatsby-source-filesystem": "1.5.33",
     "gatsby-transformer-remark": "1.7.40",
     "react-helmet": "5.2.0",
@@ -30,7 +31,11 @@
     "pretty-quick": "1.4.1",
     "release-it": "7.4.1"
   },
-  "keywords": ["gatsby", "personal", "blog"],
+  "keywords": [
+    "gatsby",
+    "personal",
+    "blog"
+  ],
   "main": "n/a",
   "now": {
     "name": "scottblog"
@@ -43,8 +48,7 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
-    "alias:dev":
-      "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
+    "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "release": "release-it"
@@ -56,6 +60,5 @@
   "bugs": {
     "url": "https://github.com/spences10/blog.scottspence.me/issues"
   },
-  "homepage":
-    "https://github.com/spences10/blog.scottspence.me#readme"
+  "homepage": "https://github.com/spences10/blog.scottspence.me#readme"
 }
