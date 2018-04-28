@@ -90,47 +90,7 @@ const IndexPage = ({ data }) => {
       })}
     </div>
   )
-  // posts.map(({ node: posts }, index) => {
-  //   console.log('====================')
-  //   console.log(posts.title)
-  //   console.log('====================')
-  //   return (
-  //     <PostWrapper key={index}>
-  //       <PostTitle>
-  //         <PostLink to={posts.slug}>{posts.title}</PostLink>
-  //       </PostTitle>
-  //     </PostWrapper>
-  //   )
-  // })
 }
-
-// {posts.map(({ node: post }, index) => {
-//   console.log('====================')
-//   console.log()
-//   console.log('====================')
-//   // {
-//   //   console.log('====================')
-//   //   console.log(`pages index post=${post}`)
-//   //   console.log(`pages index index=${index}`)
-//   //   console.log('====================')
-//   // }
-//   return (
-//     <PostWrapper key={index}>
-//       <PostTitle>
-//         <PostLink to={frontmatter.path} key={index}>
-//           {frontmatter.title}
-//         </PostLink>
-//       </PostTitle>
-//       <PostDate>{frontmatter.date}</PostDate>
-//       <PostExcerpt>{post.excerpt}</PostExcerpt>
-//       {/* <TagsContainer
-//         name={slugIt(frontmatter.title)}
-//         tags={post.frontmatter.tags}
-//         title="no"
-//       /> */}
-//     </PostWrapper>
-//   )
-// })}
 
 export const query = graphql`
   query IndexQuery {
