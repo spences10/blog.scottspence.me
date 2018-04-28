@@ -65,8 +65,8 @@ module.exports = {
         name: 'blog.scottspence.me',
         short_name: 'blog.scottspence.me',
         start_url: '/',
-        background_color: '#f7f0eb',
-        theme_color: '#a2466c',
+        background_color: '#f7f0eb', // #755f9f
+        theme_color: '#755f9f',
         display: 'minimal-ui',
         icon: 'src/img/favicon.png' // This path is relative to the root of the site.
       }
