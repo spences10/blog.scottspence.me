@@ -110,7 +110,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "Do MMMM YYYY")
+            date(formatString: "YYYY MMMM Do")
             path
             tags
             excerpt
