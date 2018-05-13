@@ -7,8 +7,9 @@ excerpt: ""
 published: false
 ---
 
-I wasn't sure if you could use any data you wanted in Gatsby to build
-yourself a super duper fast site.
+I wasn't sure on the process of getting your own API data into Gatsby
+or if you could do it at all! Turns out you can and it wasn't that
+much of a ballache to get set up either.
 
 I wanted to be able to get some JSON data and display that in Gatsby
 
