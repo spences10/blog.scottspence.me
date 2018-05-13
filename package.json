@@ -1,8 +1,7 @@
 {
   "name": "blog.scottspence.me",
   "version": "2.0.1",
-  "author":
-    "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
@@ -26,6 +25,7 @@
     "styled-components": "3.2.6"
   },
   "devDependencies": {
+    "babel-eslint": "8.2.3",
     "eslint": "4.19.1",
     "eslint-plugin-react": "7.7.0",
     "husky": "0.14.3",
@@ -33,7 +33,11 @@
     "pretty-quick": "1.4.1",
     "release-it": "7.4.2"
   },
-  "keywords": ["gatsby", "personal", "blog"],
+  "keywords": [
+    "gatsby",
+    "personal",
+    "blog"
+  ],
   "main": "n/a",
   "now": {
     "name": "scottblog"
@@ -46,8 +50,7 @@
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
-    "alias:dev":
-      "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
+    "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "release": "release-it"
@@ -59,6 +62,5 @@
   "bugs": {
     "url": "https://github.com/spences10/blog.scottspence.me/issues"
   },
-  "homepage":
-    "https://github.com/spences10/blog.scottspence.me#readme"
+  "homepage": "https://github.com/spences10/blog.scottspence.me#readme"
 }
