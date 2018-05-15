@@ -1,7 +1,7 @@
 ---
 path: "/javascript-snippets"
 date: "2018-12-31"
-title: "JS snippets from Twitter"
+title: "JS snippets from around the web"
 tags: ['information', 'learning', 'javascript', 'snippets']
 excerpt: ""
 published: false
@@ -10,6 +10,8 @@ published: false
 This is a dump of all the snippets I have collected over the last 18
 months or so, that I'm going to document here so it's probably going
 to be a mess but it's mainly for my reference so 😛
+
+## Arrays
 
 Straight from Wes himself.
 
@@ -53,4 +55,37 @@ const canSomeoneDrink = people.some(p => p.age >= 18)
 
 const howManyDrinkers = people.filter(p => p.age >= 18).length
 // 2
+```
+
+## Async await
+
+🔥 4 Ways to handle the double promise with fetch() and async+await
+
+```js
+const url = 'https://api.github.com/users/spences10'
+
+async function go() {
+  // 1. tac a promise onto the end
+  const p1 = await fetch(url).then(data => data.json())
+
+  // 2. double
+  const p2 = await (await fetch(url)).json()
+
+  // 3. capture promise in a variable
+  const data = await fetch(url)
+
+  // then convert it on another line
+  const p3 = await data.json()
+
+  // 4. create a utility function
+  const p4 = await getJSON(url)
+}
+
+// use ... spread to get all arguments
+function getJSON(...butter) {
+  // then spread into the fetch function
+  return fetch(...butter).then(data => data.json())
+}
+
+go()
 ```
