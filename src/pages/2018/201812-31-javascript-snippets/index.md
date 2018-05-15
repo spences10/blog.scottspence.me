@@ -34,3 +34,23 @@ const canCreate = user.permissions.some(p =>
 )
 // canDelete is true
 ```
+
+On the same note `.every()` is great for checking every item in an
+array meets what you are looking for.
+
+```js
+const people = [
+  { name: 'Scott', age: 42 },
+  { name: 'Sue', age: 26 },
+  { name: 'Orla', age: 9 }
+]
+
+const canEveryoneDrink = people.every(p => p.age >= 18)
+// false
+
+const canSomeoneDrink = people.some(p => p.age >= 18)
+// true
+
+const howManyDrinkers = people.filter(p => p.age >= 18).length
+// 2
+```
