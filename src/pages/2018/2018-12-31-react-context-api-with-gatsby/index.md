@@ -10,11 +10,14 @@ published: false
 Using the React Context API today, I [made a snippet] to scaffold out
 a component for it.
 
-Here is a great explanation of [how to use it] here from
-[@leighchalliday], thank you Leigh 🙏
+Here is a great explanation of [how to use it] from [@leighchalliday],
+thank you Leigh 🙏 It's a great use case which helped me understand
+how to use it.
 
 After doing this in a CRA project I decided to use it on one of my
-Gatsby projects. With Gatsby
+Gatsby projects. With Gatsby the layout is slightly different where
+you can have multiple layouts for differing sections of your app, so
+this lends well for passing context.
 
 One thing you need to do with Gatsby if you want to use the React 16.3
 in Gatsby and that's to use `gatsby-plugin-react-next` as Gatsby uses
@@ -25,6 +28,14 @@ Another thing you may need to do is to
 because I was trying to use it in an old project, I've had to do this
 on two projects now as I was getting `createContext` is not a function
 errors until I did this.
+
+So lets go through one of my favourites right now and add theming
+support to a gatsby site and use the React context API.
+
+How I did this without the React Context API was add the
+`styled-components` `ThemeProvider` at the `index.js` page of a React
+then you can access the theme via props from any child component of
+the `<App>` component. In Gatsby it's a bit different
 
 <!-- Links -->
 
