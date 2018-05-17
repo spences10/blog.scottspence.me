@@ -31,7 +31,7 @@ Icon.defaultProps = {
 
 Icon.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.number,
   icon: PropTypes.string
 }
 
