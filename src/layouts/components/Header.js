@@ -65,18 +65,18 @@ const BrandTitle = StyledH1.extend`
   `};
 `
 
-const Contact = styled.div`
-  grid-area: c;
-  text-transform: uppercase;
-`
-const Portfolio = styled.div`
-  grid-area: p;
-  text-transform: uppercase;
-`
-const About = styled.div`
-  grid-area: a;
-  text-transform: uppercase;
-`
+// const Contact = styled.div`
+//   grid-area: c;
+//   text-transform: uppercase;
+// `
+// const Portfolio = styled.div`
+//   grid-area: p;
+//   text-transform: uppercase;
+// `
+// const About = styled.div`
+//   grid-area: a;
+//   text-transform: uppercase;
+// `
 
 const BrandLink = styled(Link)`
   color: inherit;

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import TagsContainer from '../layouts/components/TagsContainer'
+// import TagsContainer from '../layouts/components/TagsContainer'
 
 import { StyledH1, StyledP } from '../theme/globalStyle'
-import { slugIt } from '../utils/helpers'
+// import { slugIt } from '../utils/helpers'
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -97,6 +97,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
+/* eslint-disable */
 export const query = graphql`
   query IndexQuery {
     allMarkdownRemark(
@@ -120,6 +121,7 @@ export const query = graphql`
     }
   }
 `
+/* eslint-enable */
 
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired
