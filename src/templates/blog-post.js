@@ -34,18 +34,13 @@ const ContentWrapper = styled.div`
   padding-bottom: 0.5rem;
   /* font-size: 0.65rem; */
   ${media.giant`
-    /* font-size: 1rem; */
   `};
   ${media.desktop`
-    /* font-size: 1rem; */
   `};
   ${media.tablet`
-    /* font-size: 1rem; */
   `};
   ${media.phone`
-    /* font-size: 1rem; */
   `};
-  /* background: red; */
 `
 
 const NavWrapper = ContentWrapper.extend`
@@ -159,6 +154,7 @@ const Template = ({ data, pathContext }) => {
 }
 
 // graphQL query to get post into Template
+/* eslint-disable */
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
@@ -172,6 +168,7 @@ export const pageQuery = graphql`
     }
   }
 `
+/* eslint-enable */
 
 Template.propTypes = {
   data: PropTypes.object.isRequired,

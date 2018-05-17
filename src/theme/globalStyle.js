@@ -42,6 +42,11 @@ export const media = Object.keys(sizes).reduce(
   {}
 )
 
+const randoHero = () => {
+  const keys = Object.keys(HERO)
+  return HERO[keys[(keys.length * Math.random()) << 0]]
+}
+
 injectGlobal`
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323|Source+Sans+Pro');
@@ -82,7 +87,7 @@ injectGlobal`
     /* font-size: 0.75rem; */
     line-height: 1.3125;
     background-color: #dfdbe5;
-    background-image: url("${HERO}");
+    background-image: url("${randoHero()}");
     background-attachment: fixed;
   }
 

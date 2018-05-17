@@ -1,3 +1,4 @@
+/*eslint-disable */
 export const slugIt = text => {
   if (!text) return
   return text
