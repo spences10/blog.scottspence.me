@@ -22,8 +22,9 @@ in Gatsby and that's to use `gatsby-plugin-react-next` as Gatsby uses
 
 Another thing you may need to do is to
 `npm i react@latest react-dom@latest` then uninstall them, this may be
-because I was trying to use it in an old project, I'm not sure but I
-was getting `createContext` is not a function errors until I did this.
+because I was trying to use it in an old project, I've had to do this
+on two projects now as I was getting `createContext` is not a function
+errors until I did this.
 
 <!-- Links -->
 
