@@ -16,15 +16,34 @@ const Container = styled.div`
   }
 `
 
+const TagName = styled.span`
+  margin: 0.15rem;
+  padding: 0.15rem;
+  /* font-size: 0.6rem; */
+  font-weight: bold;
+  display: inline-block;
+  background: ${({ theme }) => theme.primary.light};
+  transform: skew(-2deg); /* INVERSE SKEW */
+  transition-delay: 0.2s;
+  &:hover {
+    transition-delay: 0.2s;
+    transform: skew(2deg); /* SKEW */
+    color: ${({ theme }) => theme.secondary.red};
+    cursor: pointer;
+  }
+  border-radius: 4px;
+`
+
 const Tags = ({ pathContext }) => {
   const { posts, tagName } = pathContext
 
   if (posts) {
     return (
       <Container>
-        <div>
-          <span>Posts about: {tagName}</span>
-        </div>
+        <span>
+          Posts about:
+          <TagName>{tagName}</TagName>
+        </span>
         <ul>
           {posts.map((post, index) => {
             return (
