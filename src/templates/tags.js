@@ -4,7 +4,16 @@ import styled from 'styled-components'
 
 // top right bottom left
 const Container = styled.div`
-  margin: 2rem 1rem 0rem 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  background: ${({ theme }) => theme.white};
+  border: 1px solid ${props => props.border};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `
 
 const Tags = ({ pathContext }) => {
