@@ -56,7 +56,65 @@ There we go 👍
 
 Now to scaffold out the context component, I have made a [VS Code
 snippet] for my own personal use which is the basic structure for the
-`Context` and the `Provider`
+`Context` which is in two parts, a `Provider` and a `Consumer`
+
+Let's create the `Context` and the `Consumer` in this component.
+
+**Using the snippet it should look something like this:**
+
+###### `src/layouts/components/ThemeContext.js`
+
+```js
+import React from 'react'
+export const ThemeContext = React.createContext()
+
+export class ThemeProvider extends React.Component {
+  state = {
+    item1: 1,
+    item2: 2
+  }
+
+  // add function here
+  functionHere = () => {
+    this.setState({
+      item1: 2,
+      item2: 3
+    })
+  }
+  render() {
+    return (
+      <ThemeContext.Provider
+        value={{
+          ...this.state,
+          functionHere: this.functionHere
+        }}>
+        {this.props.children}
+      </ThemeContext.Provider>
+    )
+  }
+}
+```
+
+Now let's add the `ThemeContext.js` provider at the top level of our
+app so that the state and functions of the provider can are accessible
+from the rest of the app.
+
+This is what it looks like before adding the context provider
+
+###### `src/layouts/index.js`
+
+```js
+const TemplateWrapper = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <PageContainer>
+      <Helmet title="Scott Spence - blog" meta={siteMeta} />
+      <Header />
+      <Main>{children()}</Main>
+      <Footer />
+    </PageContainer>
+  </ThemeProvider>
+)
+```
 
 <!-- Links -->
 
