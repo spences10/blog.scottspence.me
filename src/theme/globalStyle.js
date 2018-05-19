@@ -55,6 +55,10 @@ injectGlobal`
     box-sizing: border-box;
   }
 
+  /* * {
+    outline: 1px solid red !important;
+  } */
+
   html {
     /* font-size: 18px; */
   }
