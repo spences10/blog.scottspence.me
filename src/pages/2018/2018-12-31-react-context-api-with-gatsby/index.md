@@ -21,9 +21,12 @@ Gatsby projects. With Gatsby the layout is slightly different where
 you can have multiple layouts for differing sections of your app, so
 this lends well for passing context.
 
-One thing you need to do with Gatsby if you want to use the React 16.3
-in Gatsby and that's to use `gatsby-plugin-react-next` as Gatsby uses
-16.2 I believe.
+One thing to bear in mind is that this is for my specific use case so
+I'll apologise upfront now if any of this is confusing, I'm trying to
+get this documented to help me understand it too 👍
+
+With Gatsby if you want to use the React 16.3 then you will need to
+`npm install gatsby-plugin-react-next` as Gatsby uses 16.2 I believe.
 
 Another thing you may need to do is:
 
@@ -33,14 +36,18 @@ npm un react react-dom
 ```
 
 This may be because I was trying to use it in an old project, I've had
-to do this on two projects now as I was getting `createContext` is not
-a function errors until I did this.
+to do this on three projects now as I was getting `createContext` is
+not a function errors until I did this.
 
-So let's go through one of my favourites right now and add theming
-support to a Gatsby site and use the React context API to manage the
-theme.
+One other thing you may want to consider if it appears nothing is
+working try using the `npm ci` command. This is the npm 6+ version of
+deleting your `node_modules` folder and reinstalling. 🤓
 
-You can see how to do this without the React Context API in my
+So let's go through one of my favourite use cases at the moment and
+add theming support to a Gatsby site and use the React context API to
+manage the theme.
+
+You can see how theme a React app without the React Context API in my
 [styled-components 💅 getting started] post.
 
 For illustration I'll go over it here now, you add the `ThemeProvider`
@@ -59,7 +66,7 @@ do the [things] with the styled-components 💅
 Let's start by giving it an imaginative name:
 
 ```js
-touch src/BlogThemeContext.js
+touch src/layouts/components/BlogThemeContext.js
 ```
 
 There we go 👍
@@ -113,6 +120,9 @@ export class BlogThemeProvider extends React.Component {
   }
 }
 ```
+
+So the `props` for the `<BlogThemeContext.Provider` is the state and
+the methods contained in `BlogThemeContext`
 
 Now let's add the `BlogThemeProvider` at the top level of our app so
 that the state and functions of the provider can are accessible for
@@ -229,6 +239,86 @@ styled-component `ThemeProvider`, import your `<ThemeSelectProvider>`
 then you can use the `<ThemeSelectContext.Consumer>` to access the
 functions and state of the `BlogThemeContext` via the
 `<ThemeSelectProvider>`
+
+The child of a consumer is a function, so rather than have your app
+being returned like you would with a normal React component like this:
+
+```js
+<Wrapper>
+  <Child />
+</Wrapper>
+```
+
+So you need to embed a function like this:
+
+```js
+<Wrapper>{() => <Child />}</Wrapper>
+```
+
+So you're returning the (in this example, `<Child />`) app as the
+result of the `<Context.Consumer>` function, here we can also get any
+of the properties or state from the Context, in my use case here I
+want to get the `theme` prop out of the Context provider `value`
+(`<BlogThemeProvider>`).
+
+```js
+const TemplateWrapper = ({ children }) => (
+  <BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ theme }) => (
+        <ThemeProvider theme={theme}>
+          <PageContainer>
+            <Helmet title={nameContent} meta={siteMeta} />
+            <Header />
+            <Main>{children()}</Main>
+            <Footer />
+          </PageContainer>
+        </ThemeProvider>
+      )}
+    </BlogThemeContext.Consumer>
+  </BlogThemeProvider>
+)
+```
+
+I also have a template `src/template/blog-posts.js` which Gatsby uses
+to generate this post you're reading now, so it's the same, I wrap the
+app in the return function for the context consumer, before it looked
+like this:
+
+```js
+const Template = ({ data, pathContext }) => {
+  const { markdownRemark: post } = data
+  const { frontmatter, html } = post
+  const { title, date } = frontmatter
+  const { next, prev } = pathContext
+
+  return (
+    <PostWrapper border={({ theme }) => theme.primary.light}>
+      <Helmet title={`${title} - blog.scottspence.me`} />
+      <Title>{title}</Title>
+      <TitleDate>{date}</TitleDate>
+      ....
+```
+
+Now it looks like this:
+
+```js
+const Template = ({ data, pathContext }) => {
+  const { markdownRemark: post } = data
+  const { frontmatter, html } = post
+  const { title, date } = frontmatter
+  const { next, prev } = pathContext
+
+  return (
+    <BlogThemeProvider>
+      <BlogThemeContext.Consumer>
+        {({ theme }) => (
+          <PostWrapper border={({ theme }) => theme.primary.light}>
+            <Helmet title={`${title} - blog.scottspence.me`} />
+            <Title>{title}</Title>
+            <TitleDate>{date}</TitleDate>
+            ....
+```
 
 <!-- Links -->
 
