@@ -57,7 +57,7 @@ descendants/children of the app can access it.
 I have already done this for my [personal site] and now I'm going to
 do it [here] so let's go through it together.
 
-### Let's make a component!
+## Let's make a component!
 
 Ok, so everything in React is a component, that's why I like it so
 much - so let's make a `SomethingContext.js` component, as I want to
@@ -235,6 +235,8 @@ BlogThemeProvider.propTypes = {
 }
 ```
 
+## Use the `Context.Consumer`
+
 So, now, let's use it, right? The way to use is much like with the
 styled-component `ThemeProvider`, import your `<ThemeSelectProvider>`
 then you can use the `<ThemeSelectContext.Consumer>` to access the
@@ -263,6 +265,10 @@ want to get the `theme` prop out of the Context provider `value`
 (`<BlogThemeProvider>`) so we'll use ES6 destructuring to pull out the
 `theme` object.
 
+The styled-components `ThemeProvider` can now use the `theme` object
+supplied by the `<BlogThemeContext.Consumer>` so it's safe to remove
+the import from `globalStyle`.
+
 ```js
 const TemplateWrapper = ({ children }) => (
   <BlogThemeProvider>
@@ -283,7 +289,7 @@ const TemplateWrapper = ({ children }) => (
 ```
 
 There's also a template `src/template/blog-posts.js` which Gatsby uses
-to generate the posts in this blog, lets make it the same, let's wrap
+to generate the posts in this blog, let's make it the same, let's wrap
 the app in the return function for the context consumer, before it
 looked like this:
 
@@ -322,6 +328,45 @@ const Template = ({ data, pathContext }) => {
             ....
 ```
 
+## Add a ThemeSelect component
+
+The `ThemeSelect` component is a select component I have used several
+times now, [here's the source] from my personal site, it's what we're
+going to use to handle the theme change, it will use the
+`handleThemeChange` method in the `BlogThemeContext` so we better use
+a Context consumer to access the method:
+
+###### `src/layouts/components/Footer.js`
+
+```js
+<BlogThemeContext.Consumer>
+  {({ handleThemeChange }) => (
+    <ThemeSelectWrapper>
+      <ThemeSelect handleThemeChange={handleThemeChange} />
+    </ThemeSelectWrapper>
+  )}
+</BlogThemeContext.Consumer>
+```
+
+Now if we have a look at the `state` in the React dev tools we can see
+the font changing with the selection of the theme change, much like in
+the [styled-components 💅 getting started] post.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/r1b8qgu6lm5xjjondse7.gif)
+
+Ok, success 💯 👌 no onto the background switching/transition thingy.
+
+## Switch hero (background patterns)
+
+So, right now to switch between the awesome hero patterns
+
+## Thanks for reading 🙏
+
+If you have any feedback [please get in touch]
+
+You can find all the source code to this on my repo for this blog:
+https://blog.scottspence.me
+
 <!-- Links -->
 
 [react context api]: https://reactjs.org/docs/context.html
@@ -333,3 +378,5 @@ const Template = ({ data, pathContext }) => {
 [here]: # 'this site, 👀'
 [things]: # 'things being using the styled components `ThemeProvider`'
 [vs code snippet]: https://github.com/spences10/settings/blob/71dc76fb8e11c176f4517431be57c021fb72411a/globalVs.code-snippets#L74-L111
+[please get in touch]: https://scottspence.me/contact
+[here's the source]: https://github.com/spences10/scottspence.me/blob/master/src/components/ThemeSelect.js
