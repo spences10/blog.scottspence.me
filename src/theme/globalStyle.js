@@ -16,7 +16,9 @@ export const theme1 = {
   shades: {
     dark: 'rgba(69, 52, 99, 0.5)',
     offWhite: 'rgb(244, 254, 254)'
-  }
+  },
+  fontHeader: '"Titillium Web", sans-serif',
+  fontBody: 'Open Sans, sans, sans-serif'
 }
 
 export const theme2 = {
@@ -34,7 +36,9 @@ export const theme2 = {
   shades: {
     dark: 'rgba(69, 52, 99, 0.5)',
     offWhite: 'rgb(244, 254, 254)'
-  }
+  },
+  fontHeader: 'Open Sans, sans, sans-serif',
+  fontBody: '"Titillium Web", sans-serif'
 }
 
 const sizes = {
@@ -66,8 +70,7 @@ const randoHero = () => {
 }
 
 injectGlobal`
-
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323|Source+Sans+Pro');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700');
 
   *, *:before, *:after {
     box-sizing: border-box;
@@ -105,7 +108,7 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: ${props => props.theme.fontBody}, sans-serif;
     /* font-size: 0.75rem; */
     line-height: 1.3125;
     background-color: #dfdbe5;
