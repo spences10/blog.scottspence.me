@@ -49,7 +49,7 @@ the [things] with the styled-components 💅
 Lets start by giving it an imaginative name:
 
 ```js
-touch src/ThemeContext.js
+touch src/BlogThemeContext.js
 ```
 
 There we go 👍
@@ -62,13 +62,16 @@ Let's create the `Context` and the `Consumer` in this component.
 
 **Using the snippet it should look something like this:**
 
-###### `src/layouts/components/ThemeContext.js`
+###### `src/layouts/components/BlogThemeContext.js`
 
 ```js
 import React from 'react'
-export const ThemeContext = React.createContext()
+// Context is made up of two things
+// Provider - Single as close to top level as possible
+// Consumer - Multiple have multiple consumers
+export const BlogThemeContext = React.createContext()
 
-export class ThemeProvider extends React.Component {
+export class BlogThemeProvider extends React.Component {
   state = {
     item1: 1,
     item2: 2
@@ -83,13 +86,13 @@ export class ThemeProvider extends React.Component {
   }
   render() {
     return (
-      <ThemeContext.Provider
+      <BlogThemeContext.Provider
         value={{
           ...this.state,
           functionHere: this.functionHere
         }}>
         {this.props.children}
-      </ThemeContext.Provider>
+      </BlogThemeContext.Provider>
     )
   }
 }
@@ -107,7 +110,7 @@ This is what it looks like before adding the context provider
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <PageContainer>
-      <Helmet title="Scott Spence - blog" meta={siteMeta} />
+      <Helmet title={nameContent} meta={siteMeta} />
       <Header />
       <Main>{children()}</Main>
       <Footer />
@@ -115,6 +118,8 @@ const TemplateWrapper = ({ children }) => (
   </ThemeProvider>
 )
 ```
+
+Now we already have the styled-components `ThemeProvider`
 
 <!-- Links -->
 
