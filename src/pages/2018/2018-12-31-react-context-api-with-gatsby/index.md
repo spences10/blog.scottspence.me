@@ -121,8 +121,9 @@ export class BlogThemeProvider extends React.Component {
 }
 ```
 
-So the `props` for the `<BlogThemeContext.Provider` is the state and
-the methods contained in `BlogThemeContext`
+So the `props` passed into the `<BlogThemeContext.C>` is the state and
+the methods contained in `BlogThemeProvider` these can then be used by
+the `<BlogThemeContext.Consumer>`.
 
 Now let's add the `BlogThemeProvider` at the top level of our app so
 that the state and functions of the provider can are accessible for
@@ -196,7 +197,7 @@ BlogThemeProvider.propTypes = {
 
 While we're here let's also add the function to handle the theme
 changing by replacing the dummy `functionHere` function in the snippet
-and bring in the themes we want to switch between.
+and also bring in the themes we want to switch between.
 
 ```js
 import React from 'react'
@@ -259,7 +260,8 @@ So you're returning the (in this example, `<Child />`) app as the
 result of the `<Context.Consumer>` function, here we can also get any
 of the properties or state from the Context, in my use case here I
 want to get the `theme` prop out of the Context provider `value`
-(`<BlogThemeProvider>`).
+(`<BlogThemeProvider>`) so we'll use ES6 destructuring to pull out the
+`theme` object.
 
 ```js
 const TemplateWrapper = ({ children }) => (
@@ -280,10 +282,10 @@ const TemplateWrapper = ({ children }) => (
 )
 ```
 
-I also have a template `src/template/blog-posts.js` which Gatsby uses
-to generate this post you're reading now, so it's the same, I wrap the
-app in the return function for the context consumer, before it looked
-like this:
+There's also a template `src/template/blog-posts.js` which Gatsby uses
+to generate the posts in this blog, lets make it the same, let's wrap
+the app in the return function for the context consumer, before it
+looked like this:
 
 ```js
 const Template = ({ data, pathContext }) => {
