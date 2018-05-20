@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { media } from '../theme/globalStyle'
+import { media, randoHero } from '../theme/globalStyle'
 import { siteMeta, nameContent } from '../theme/constants'
 
 import Header from './components/Header'
@@ -28,6 +28,8 @@ import {
 require('prismjs/themes/prism-solarizedlight.css')
 
 const PageContainer = styled.div`
+  background-color:${props => props.theme.background};
+  background-image: url("${randoHero()}");
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;

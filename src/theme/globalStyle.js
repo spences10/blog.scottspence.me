@@ -66,7 +66,7 @@ export const media = Object.keys(sizes).reduce(
   {}
 )
 
-const randoHero = () => {
+export const randoHero = () => {
   const keys = Object.keys(HERO)
   return HERO[keys[(keys.length * Math.random()) << 0]]
 }
@@ -113,7 +113,8 @@ injectGlobal`
     font-family: ${props => props.theme.fontBody}, sans-serif;
     /* font-size: 0.75rem; */
     line-height: 1.3125;
-    background-image: url("${randoHero()}");
+    /* background-color:${props => props.theme.background}; */
+    /* background-image: url("${randoHero()}"); */
     background-attachment: fixed;
   }
 
