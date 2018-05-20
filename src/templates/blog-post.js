@@ -115,7 +115,7 @@ const Template = ({ data, pathContext }) => {
     <BlogThemeProvider>
       <BlogThemeContext.Consumer>
         {({ theme }) => (
-          <PostWrapper border={({ theme }) => theme.primary.light}>
+          <PostWrapper border={theme.primary.light}>
             <Helmet title={`${title} - blog.scottspence.me`} />
             <Title>{title}</Title>
             <TitleDate>{date}</TitleDate>
@@ -188,8 +188,7 @@ export const pageQuery = graphql`
 Template.propTypes = {
   data: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  pathContext: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  pathContext: PropTypes.object.isRequired
 }
 
 export default Template
