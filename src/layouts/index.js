@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { theme, media } from '../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 import { siteMeta, nameContent } from '../theme/constants'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from './components/BlogThemeContext'
 
 require('prismjs/themes/prism-solarizedlight.css')
 
@@ -79,14 +84,20 @@ const Main = styled.div`
 `
 
 const TemplateWrapper = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <PageContainer>
-      <Helmet title={nameContent} meta={siteMeta} />
-      <Header />
-      <Main>{children()}</Main>
-      <Footer />
-    </PageContainer>
-  </ThemeProvider>
+  <BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ theme }) => (
+        <ThemeProvider theme={theme}>
+          <PageContainer>
+            <Helmet title={nameContent} meta={siteMeta} />
+            <Header />
+            <Main>{children()}</Main>
+            <Footer />
+          </PageContainer>
+        </ThemeProvider>
+      )}
+    </BlogThemeContext.Consumer>
+  </BlogThemeProvider>
 )
 
 TemplateWrapper.propTypes = {
