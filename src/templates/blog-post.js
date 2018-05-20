@@ -4,11 +4,18 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import { ButtonSmall } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
-import { media, theme } from '../theme/globalStyle'
 
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from '../layouts/components/BlogThemeContext'
+
+import { ButtonSmall } from '../layouts/components/Button'
 import { StyledH1, StyledH3 } from '../theme/globalStyle'
+// import { Dump } from '../utils/helpers'
+
+import { media } from '../theme/globalStyle'
 
 const Title = StyledH1.extend`
   padding: 0.5rem 1rem 0.5rem 1rem;
@@ -105,51 +112,59 @@ const Template = ({ data, pathContext }) => {
   const { next, prev } = pathContext
 
   return (
-    <PostWrapper border={({ theme }) => theme.primary.light}>
-      <Helmet title={`${title} - blog.scottspence.me`} />
-      <Title>{title}</Title>
-      <TitleDate>{date}</TitleDate>
+    <BlogThemeProvider>
+      <BlogThemeContext.Consumer>
+        {({ theme }) => (
+          <PostWrapper border={({ theme }) => theme.primary.light}>
+            <Helmet title={`${title} - blog.scottspence.me`} />
+            <Title>{title}</Title>
+            <TitleDate>{date}</TitleDate>
 
-      <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
+            <ContentWrapper
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
 
-      <TagsContainer
-        title={title}
-        tags={post.frontmatter.tags}
-        name={`${title}-${date}`}
-      />
-      <NavWrapper>
-        {prev === false ? (
-          <div />
-        ) : (
-          <ButtonWrapper>
-            {prev && (
-              <Link to={prev.frontmatter.path}>
-                <HappyButton
-                  color={theme.primary.light}
-                  border={theme.primary.light}>
-                  {prev.frontmatter.title}
-                </HappyButton>
-              </Link>
-            )}
-          </ButtonWrapper>
+            <TagsContainer
+              title={title}
+              tags={post.frontmatter.tags}
+              name={`${title}-${date}`}
+            />
+            <NavWrapper>
+              {prev === false ? (
+                <div />
+              ) : (
+                <ButtonWrapper>
+                  {prev && (
+                    <Link to={prev.frontmatter.path}>
+                      <HappyButton
+                        color={theme.primary.light}
+                        border={theme.primary.light}>
+                        {prev.frontmatter.title}
+                      </HappyButton>
+                    </Link>
+                  )}
+                </ButtonWrapper>
+              )}
+              {next === false ? (
+                <div />
+              ) : (
+                <ButtonWrapper>
+                  {next && (
+                    <Link to={next.frontmatter.path}>
+                      <HappyButton
+                        color={theme.primary.light}
+                        border={theme.primary.light}>
+                        {next.frontmatter.title}
+                      </HappyButton>
+                    </Link>
+                  )}
+                </ButtonWrapper>
+              )}
+            </NavWrapper>
+          </PostWrapper>
         )}
-        {next === false ? (
-          <div />
-        ) : (
-          <ButtonWrapper>
-            {next && (
-              <Link to={next.frontmatter.path}>
-                <HappyButton
-                  color={theme.primary.light}
-                  border={theme.primary.light}>
-                  {next.frontmatter.title}
-                </HappyButton>
-              </Link>
-            )}
-          </ButtonWrapper>
-        )}
-      </NavWrapper>
-    </PostWrapper>
+      </BlogThemeContext.Consumer>
+    </BlogThemeProvider>
   )
 }
 
@@ -173,7 +188,8 @@ export const pageQuery = graphql`
 Template.propTypes = {
   data: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  pathContext: PropTypes.object.isRequired
+  pathContext: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired
 }
 
 export default Template
