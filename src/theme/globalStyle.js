@@ -1,7 +1,25 @@
 import styled, { injectGlobal, css } from 'styled-components'
 import { HERO } from './constants'
 
-export const theme = {
+export const theme1 = {
+  text: '#333',
+  white: '#fff',
+  primary: {
+    dark: '#453463',
+    light: '#755f9f'
+  },
+  secondary: {
+    green: '#8ac3a9',
+    yellow: '#fcdeb6',
+    red: '#ff8463'
+  },
+  shades: {
+    dark: 'rgba(69, 52, 99, 0.5)',
+    offWhite: 'rgb(244, 254, 254)'
+  }
+}
+
+export const theme2 = {
   text: '#333',
   white: '#fff',
   primary: {
