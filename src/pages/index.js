@@ -19,12 +19,13 @@ const PostWrapper = styled.div`
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
   background: ${({ theme }) => theme.white};
+  font-family: ${props => props.theme.fontBody};
 `
 
 const PostTitle = StyledH1.extend`
   margin: 0.25rem 0.5rem 0.25rem 0.5rem;
   padding: 0.5rem 0.25rem 0.5rem 0.25rem;
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.fontHeader};
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
   /* font-size: 1rem; */

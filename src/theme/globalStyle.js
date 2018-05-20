@@ -18,7 +18,8 @@ export const theme1 = {
     offWhite: 'rgb(244, 254, 254)'
   },
   fontHeader: '"Titillium Web", sans-serif',
-  fontBody: 'Open Sans, sans, sans-serif'
+  fontBody: 'Open Sans, sans, sans-serif',
+  background: '#dfdbe5'
 }
 
 export const theme2 = {
@@ -38,7 +39,8 @@ export const theme2 = {
     offWhite: 'rgb(244, 254, 254)'
   },
   fontHeader: 'Open Sans, sans, sans-serif',
-  fontBody: '"Titillium Web", sans-serif'
+  fontBody: '"Titillium Web", sans-serif',
+  background: '#62ffe2'
 }
 
 const sizes = {
@@ -111,7 +113,6 @@ injectGlobal`
     font-family: ${props => props.theme.fontBody}, sans-serif;
     /* font-size: 0.75rem; */
     line-height: 1.3125;
-    background-color: #dfdbe5;
     background-image: url("${randoHero()}");
     background-attachment: fixed;
   }
@@ -142,7 +143,7 @@ injectGlobal`
 export const StyledH1 = styled.h1`
   padding: 0.5rem;
   margin: 0.5rem;
-  font-family: 'Open Sans';
+  font-family: ${props => props.theme.fontHeader};
 `
 
 export const StyledH2 = styled.h2`
