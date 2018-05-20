@@ -14,6 +14,17 @@ import {
   BlogThemeProvider
 } from './components/BlogThemeContext'
 
+/**
+ * other themes
+ * dark
+ * funky
+ * okaidia
+ * coy
+ * solarizedlight
+ * tomorrow
+ * twilight
+ * prism.css = default
+ */
 require('prismjs/themes/prism-solarizedlight.css')
 
 const PageContainer = styled.div`
