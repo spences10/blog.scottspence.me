@@ -7,8 +7,9 @@ excerpt: ""
 published: false
 ---
 
-Using the React Context API the other day, I [made a snippet] to
-scaffold out a component for it.
+I'm a bit late to the party using the new [React Context API], I was
+using it the other day, I [made a snippet] to scaffold out a component
+for it.
 
 Here is a great explanation of [how to use it] from [@leighchalliday],
 thank you Leigh 🙏 It's a great use case which helped me understand
@@ -29,7 +30,7 @@ because I was trying to use it in an old project, I've had to do this
 on two projects now as I was getting `createContext` is not a function
 errors until I did this.
 
-So lets go through one of my favourites right now and add theming
+So let's go through one of my favourites right now and add theming
 support to a gatsby site and use the React context API.
 
 How I did this without the React Context API was add the
@@ -38,15 +39,15 @@ then you can access the theme via props from any child component of
 the `<App>` component. In Gatsby it's a bit different.
 
 I have already done this for my [personal site] and now I'm going to
-do it [here] so lets go through it together.
+do it [here] so let's go through it together.
 
-### Lets make a component!
+### Let's make a component!
 
 Ok, so everything in React is a component, that's why I like it so
-much - so lets make a `SomethingContext.js` component, as I want to do
-the [things] with the styled-components 💅
+much - so let's make a `SomethingContext.js` component, as I want to
+do the [things] with the styled-components 💅
 
-Lets start by giving it an imaginative name:
+Let's start by giving it an imaginative name:
 
 ```js
 touch src/BlogThemeContext.js
@@ -98,11 +99,13 @@ export class BlogThemeProvider extends React.Component {
 }
 ```
 
-Now let's add the `ThemeContext.js` provider at the top level of our
-app so that the state and functions of the provider can are accessible
-from the rest of the app.
+Now let's add the `BlogThemeProvider` at the top level of our app so
+that the state and functions of the provider can are accessible for
+the children of the `layout/index.js`.
 
-This is what it looks like before adding the context provider
+This is what it looks like before adding the context provider, you'll
+notice that the styled-components `ThemeProvider` is a top level
+component here.
 
 ###### `src/layouts/index.js`
 
@@ -119,10 +122,58 @@ const TemplateWrapper = ({ children }) => (
 )
 ```
 
-Now we already have the styled-components `ThemeProvider`
+Now we already have the styled-components `ThemeProvider` which
+receives a `theme` object, and we want to manage the theme in our
+context provider. So let's import the existing theme from the
+`globalStyle` module into `BlogThemeContext` and add `theme` to the
+state of the `BlogThemeProvider`:
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import { theme } from '../../theme/globalStyle'
+
+// Context is made up of two things
+// Provider - Single as close to top level as possible
+// Consumer - Multiple have multiple consumers
+export const BlogThemeContext = React.createContext()
+
+export class BlogThemeProvider extends React.Component {
+  state = {
+    theme
+  }
+
+  // add function here
+  functionHere = () => {
+    this.setState({
+      item1: 2,
+      item2: 3
+    })
+  }
+  render() {
+    return (
+      <BlogThemeContext.Provider
+        value={{
+          ...this.state,
+          functionHere: this.functionHere
+        }}>
+        {this.props.children}
+      </BlogThemeContext.Provider>
+    )
+  }
+}
+
+BlogThemeProvider.propTypes = {
+  children: PropTypes.any
+}
+```
+
+While we're here let's also
 
 <!-- Links -->
 
+[react context api]: https://reactjs.org/docs/context.html
 [made a snippet]: https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
 [how to use it]: https://www.youtube.com/watch?v=yzQ_XulhQFw
 [@leighchalliday]: https://twitter.com/leighchalliday
