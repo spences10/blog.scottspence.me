@@ -354,13 +354,58 @@ the [styled-components 💅 getting started] post.
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/r1b8qgu6lm5xjjondse7.gif)
 
-Ok, success 💯 👌 no onto the background switching/transition thingy.
+Ok, success 💯 👌 now onto the background switching/transition thingy.
 
 ## Switch hero (background patterns)
 
-So, right now to switch between the awesome hero patterns
+So, right now to switch between [Steve Schoger]'s awesome [hero
+patterns] I have a function sitting in the `globalStyle` module which
+returns a random HERO pattern:
+
+```js
+export const randoHero = () => {
+  const keys = Object.keys(HERO)
+  return HERO[keys[(keys.length * Math.random()) << 0]]
+}
+```
+
+This function sets the background on the body each reload with a
+random key from the `HERO` object, now I'm going to move that to the
+`componentDidMount()` of `BlogThemeContext.Provider` so (for now) it
+selects a random key from the object every ten seconds:
+
+```js
+export class BlogThemeProvider extends React.Component {
+  state = {
+    theme: theme1,
+    background: HERO[0]
+  }
+
+  handleThemeChange = e => {
+    let theme = e.target.value
+    theme === 'theme1' ? (theme = theme1) : (theme = theme2)
+    this.setState({ theme })
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      const keys = Object.keys(HERO)
+      const background =
+        HERO[keys[(keys.length * Math.random()) << 0]]
+
+      this.setState({ background })
+    }, 10 * 1000)
+  }
+
+  render() {
+  ....
+```
+
+Now to find somewhere in the app that can change the background
 
 ## Thanks for reading 🙏
+
+Thanks you for looking at all the code walls!
 
 If you have any feedback [please get in touch]
 
@@ -380,3 +425,5 @@ https://blog.scottspence.me
 [vs code snippet]: https://github.com/spences10/settings/blob/71dc76fb8e11c176f4517431be57c021fb72411a/globalVs.code-snippets#L74-L111
 [please get in touch]: https://scottspence.me/contact
 [here's the source]: https://github.com/spences10/scottspence.me/blob/master/src/components/ThemeSelect.js
+[steve schoger]: https://twitter.com/steveschoger
+[hero patterns]: http://www.heropatterns.com/
