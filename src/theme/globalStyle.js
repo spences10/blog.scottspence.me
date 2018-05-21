@@ -1,5 +1,5 @@
 import styled, { injectGlobal, css } from 'styled-components'
-import { HERO } from './constants'
+// import { HERO } from './constants'
 
 export const theme1 = {
   text: '#333',
@@ -66,10 +66,10 @@ export const media = Object.keys(sizes).reduce(
   {}
 )
 
-export const randoHero = () => {
-  const keys = Object.keys(HERO)
-  return HERO[keys[(keys.length * Math.random()) << 0]]
-}
+// export const randoHero = () => {
+//   const keys = Object.keys(HERO)
+//   return HERO[keys[(keys.length * Math.random()) << 0]]
+// }
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700');
@@ -113,8 +113,6 @@ injectGlobal`
     font-family: ${props => props.theme.fontBody};
     /* font-size: 0.75rem; */
     line-height: 1.3125;
-    /* background-color:${props => props.theme.background}; */
-    /* background-image: url("${randoHero()}"); */
   }
 
   a {

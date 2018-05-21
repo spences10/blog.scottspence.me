@@ -19,7 +19,6 @@ const PostWrapper = styled.div`
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
   background: ${({ theme }) => theme.white};
-  background-attachment: fixed;
   font-family: ${props => props.theme.fontBody};
 `
 
