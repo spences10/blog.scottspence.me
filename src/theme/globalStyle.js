@@ -40,7 +40,7 @@ export const theme2 = {
   },
   fontHeader: 'Open Sans, sans, sans-serif',
   fontBody: '"Titillium Web", sans-serif',
-  background: '#62ffe2'
+  background: '#ffa6b2'
 }
 
 const sizes = {
@@ -110,12 +110,11 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-family: ${props => props.theme.fontBody}, sans-serif;
+    font-family: ${props => props.theme.fontBody};
     /* font-size: 0.75rem; */
     line-height: 1.3125;
     /* background-color:${props => props.theme.background}; */
     /* background-image: url("${randoHero()}"); */
-    background-attachment: fixed;
   }
 
   a {
