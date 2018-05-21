@@ -1,7 +1,7 @@
 {
   "name": "blog.scottspence.me",
   "version": "2.0.1",
-  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
+  "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
