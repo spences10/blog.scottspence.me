@@ -29,7 +29,7 @@ export const HERO = [
 /*eslint-enable */
 
 // SITE META ==================
-const nameContent = 'Scott Spence - blog'
+export const nameContent = 'Scott Spence - blog'
 const descriptionContent = 'Blog of Scott Spence - web developer'
 const keywordsContent = 'blog, web developer, javascript'
 const imageLink =

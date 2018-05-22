@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { media } from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
 import Icon from './Icon'
+import ThemeSelect from './ThemeSelect'
+import { BlogThemeContext } from './BlogThemeContext'
 
 const StyledFooter = styled.div`
   z-index: 1;
@@ -64,8 +66,21 @@ const IconLink = styled.a`
   }
 `
 
+const ThemeSelectWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+`
+
 const Footer = () => (
   <StyledFooter>
+    <BlogThemeContext.Consumer>
+      {({ handleThemeChange }) => (
+        <ThemeSelectWrapper>
+          <ThemeSelect handleThemeChange={handleThemeChange} />
+        </ThemeSelectWrapper>
+      )}
+    </BlogThemeContext.Consumer>
     <IconWrapper area={'g'}>
       <IconLink
         target="_blank"

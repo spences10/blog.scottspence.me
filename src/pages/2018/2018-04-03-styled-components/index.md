@@ -43,7 +43,7 @@ out there to take care of this for you as well.
 
 ### Install styled-components
 
-Ok lets bootstrap the basic react application you get when using
+Ok let's bootstrap the basic react application you get when using
 [Create React App] with [`npx`], if you already have Create React App
 installed globally then you can use the command without `npx`.
 
@@ -99,9 +99,9 @@ First, import `styled` into the `App.js` module:
 import styled from 'styled-components'
 ```
 
-Now lets look at `<div className="App">`, it's the top level div for
+Now let's look at `<div className="App">`, it's the top level div for
 this component and is what I like to call the wrapper for the
-component. So lets give it an imaginative name AppWrapper.
+component. So let's give it an imaginative name AppWrapper.
 
 Referring to the App.css there is `text-align: center;` which belongs
 to this, so:
@@ -253,7 +253,7 @@ we're swapping out the `.css` files for styled-components.
 Cool, we have now replaced all the css with styled-components, now we
 can take a look at `injectGlobal`.
 
-Lets take a look at how the `App.js` file should look before we move
+Let's take a look at how the `App.js` file should look before we move
 on:
 
 ```js
