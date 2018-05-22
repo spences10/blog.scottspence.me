@@ -26,7 +26,13 @@ I'll apologise upfront now if any of this is confusing, I'm trying to
 get this documented to help me understand it too 👍
 
 With Gatsby if you want to use the React 16.3 then you will need to
-`npm install gatsby-plugin-react-next` as Gatsby uses 16.2 I believe.
+install the Gatsby React next plugin:
+
+```js
+npm install gatsby-plugin-react-next
+```
+
+Gatsby uses React 16.2 I believe so you will need to use this plugin.
 
 Another thing you may need to do is:
 
@@ -121,9 +127,10 @@ export class BlogThemeProvider extends React.Component {
 }
 ```
 
-So the `props` passed into the `<BlogThemeContext.C>` is the state and
-the methods contained in `BlogThemeProvider` these can then be used by
-the `<BlogThemeContext.Consumer>`.
+So the `props` passed into the `<BlogThemeContext.Provider>` is the
+state and the methods contained in `BlogThemeProvider` these can then
+be accessed throughout the app by using the
+`<BlogThemeContext.Consumer>`.
 
 Now let's add the `BlogThemeProvider` at the top level of our app so
 that the state and functions of the provider can are accessible for
