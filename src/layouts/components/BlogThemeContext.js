@@ -28,7 +28,7 @@ export class BlogThemeProvider extends React.Component {
         HERO[keys[(keys.length * Math.random()) << 0]]
 
       this.setState({ background })
-    }, 10 * 1000)
+    }, 30 * 1000)
   }
 
   render() {
