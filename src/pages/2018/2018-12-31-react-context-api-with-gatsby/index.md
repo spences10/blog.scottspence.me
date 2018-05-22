@@ -26,7 +26,13 @@ I'll apologise upfront now if any of this is confusing, I'm trying to
 get this documented to help me understand it too 👍
 
 With Gatsby if you want to use the React 16.3 then you will need to
-`npm install gatsby-plugin-react-next` as Gatsby uses 16.2 I believe.
+install the Gatsby React next plugin:
+
+```js
+npm install gatsby-plugin-react-next
+```
+
+Gatsby uses React 16.2 I believe so you will need to use this plugin.
 
 Another thing you may need to do is:
 
