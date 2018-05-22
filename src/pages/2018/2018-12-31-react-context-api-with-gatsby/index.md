@@ -127,9 +127,10 @@ export class BlogThemeProvider extends React.Component {
 }
 ```
 
-So the `props` passed into the `<BlogThemeContext.C>` is the state and
-the methods contained in `BlogThemeProvider` these can then be used by
-the `<BlogThemeContext.Consumer>`.
+So the `props` passed into the `<BlogThemeContext.Provider>` is the
+state and the methods contained in `BlogThemeProvider` these can then
+be accessed throughout the app by using the
+`<BlogThemeContext.Consumer>`.
 
 Now let's add the `BlogThemeProvider` at the top level of our app so
 that the state and functions of the provider can are accessible for
