@@ -28,7 +28,7 @@ import {
 require('prismjs/themes/prism-solarizedlight.css')
 
 const PageContainer = styled.div`
-  background-color:${props => props.theme.background};
+  background-color: ${props => props.theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
   display: grid;
