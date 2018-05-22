@@ -1,10 +1,10 @@
 ---
 path: "/react-context-api-with-gatsby"
-date: "2018-12-31"
+date: "2018-05-22"
 title: "Use the React Context API with Gatsby"
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
 excerpt: ""
-published: false
+published: true
 ---
 
 I'm a bit late to the party using the new [React Context API], I did
@@ -369,7 +369,7 @@ export const randoHero = () => {
 }
 ```
 
-This function sets the background on the body each reload with a
+This function sets the background on the `body` each reload with a
 random key from the `HERO` object, now I'm going to move that to the
 `componentDidMount()` of `BlogThemeContext.Provider` so (for now) it
 selects a random key from the object every ten seconds:
@@ -401,7 +401,42 @@ export class BlogThemeProvider extends React.Component {
   ....
 ```
 
-Now to find somewhere in the app that can change the background
+Now to find somewhere in the app that can change the background! As I
+mentioned before the background for the page was set on the `body` via
+styled-components `injectGlobal` I now want to access the `background`
+prop from Context so I have moved this to `src/layouts/index.js`. I
+already have the Context consumer added for the `theme` so let's
+destructure the `background` prop out as well:
+
+```js
+const TemplateWrapper = ({ children }) => (
+  <BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ theme, background }) => (
+        <ThemeProvider theme={theme}>
+          <PageContainer background={background}>
+            <Helmet title={nameContent} meta={siteMeta} />
+            <Header />
+            <Main>{children()}</Main>
+            <Footer />
+          </PageContainer>
+          ....
+```
+
+Now use the `background` prop in the main wrapper `PageContainer`
+
+We're passing the both the background image and colour as
+styled-component props now.
+
+```js
+const PageContainer = styled.div`
+  background-color: ${props => props.theme.background};
+  background-image: url("${props => props.background}");
+  background-attachment: fixed;
+```
+
+That's it! We have used the React Context API to access state and use
+it at (two) different points in the app.
 
 ## Thanks for reading 🙏
 
@@ -409,8 +444,8 @@ Thanks you for looking at all the code walls!
 
 If you have any feedback [please get in touch]
 
-You can find all the source code to this on my repo for this blog:
-https://blog.scottspence.me
+You can find all the source code to this on my repo for this blog
+here: https://blog.scottspence.me
 
 <!-- Links -->
 
