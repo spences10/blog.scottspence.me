@@ -1,7 +1,6 @@
 import styled, { injectGlobal, css } from 'styled-components'
-import { HERO } from './constants'
 
-export const theme = {
+export const theme1 = {
   text: '#333',
   white: '#fff',
   primary: {
@@ -16,7 +15,31 @@ export const theme = {
   shades: {
     dark: 'rgba(69, 52, 99, 0.5)',
     offWhite: 'rgb(244, 254, 254)'
-  }
+  },
+  fontHeader: '"Titillium Web", sans-serif',
+  fontBody: 'Open Sans, sans, sans-serif',
+  background: '#dfdbe5'
+}
+
+export const theme2 = {
+  text: '#333',
+  white: '#fff',
+  primary: {
+    dark: '#453463',
+    light: '#755f9f'
+  },
+  secondary: {
+    green: '#8ac3a9',
+    yellow: '#fcdeb6',
+    red: '#ff8463'
+  },
+  shades: {
+    dark: 'rgba(69, 52, 99, 0.5)',
+    offWhite: 'rgb(244, 254, 254)'
+  },
+  fontHeader: 'Open Sans, sans, sans-serif',
+  fontBody: '"Titillium Web", sans-serif',
+  background: '#ffa6b2'
 }
 
 const sizes = {
@@ -42,14 +65,8 @@ export const media = Object.keys(sizes).reduce(
   {}
 )
 
-const randoHero = () => {
-  const keys = Object.keys(HERO)
-  return HERO[keys[(keys.length * Math.random()) << 0]]
-}
-
 injectGlobal`
-
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323|Source+Sans+Pro');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700');
 
   *, *:before, *:after {
     box-sizing: border-box;
@@ -87,12 +104,9 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: ${props => props.theme.fontBody};
     /* font-size: 0.75rem; */
     line-height: 1.3125;
-    background-color: #dfdbe5;
-    background-image: url("${randoHero()}");
-    background-attachment: fixed;
   }
 
   a {
@@ -121,7 +135,7 @@ injectGlobal`
 export const StyledH1 = styled.h1`
   padding: 0.5rem;
   margin: 0.5rem;
-  font-family: 'Open Sans';
+  font-family: ${props => props.theme.fontHeader};
 `
 
 export const StyledH2 = styled.h2`
