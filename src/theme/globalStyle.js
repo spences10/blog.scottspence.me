@@ -1,5 +1,4 @@
 import styled, { injectGlobal, css } from 'styled-components'
-// import { HERO } from './constants'
 
 export const theme1 = {
   text: '#333',
@@ -65,11 +64,6 @@ export const media = Object.keys(sizes).reduce(
   },
   {}
 )
-
-// export const randoHero = () => {
-//   const keys = Object.keys(HERO)
-//   return HERO[keys[(keys.length * Math.random()) << 0]]
-// }
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700');
