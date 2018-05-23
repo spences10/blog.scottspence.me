@@ -3,15 +3,34 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { theme, media } from '../theme/globalStyle'
-import { siteMeta } from '../theme/constants'
+import { media } from '../theme/globalStyle'
+import { siteMeta, nameContent } from '../theme/constants'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
 
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from './components/BlogThemeContext'
+
+/**
+ * other themes
+ * dark
+ * funky
+ * okaidia
+ * coy
+ * solarizedlight
+ * tomorrow
+ * twilight
+ * prism.css = default
+ */
 require('prismjs/themes/prism-solarizedlight.css')
 
 const PageContainer = styled.div`
+  background-color: ${props => props.theme.background};
+  background-image: url("${props => props.background}");
+  background-attachment: fixed;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -79,14 +98,20 @@ const Main = styled.div`
 `
 
 const TemplateWrapper = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <PageContainer>
-      <Helmet title="Scott Spence - blog" meta={siteMeta} />
-      <Header />
-      <Main>{children()}</Main>
-      <Footer />
-    </PageContainer>
-  </ThemeProvider>
+  <BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ theme, background }) => (
+        <ThemeProvider theme={theme}>
+          <PageContainer background={background}>
+            <Helmet title={nameContent} meta={siteMeta} />
+            <Header />
+            <Main>{children()}</Main>
+            <Footer />
+          </PageContainer>
+        </ThemeProvider>
+      )}
+    </BlogThemeContext.Consumer>
+  </BlogThemeProvider>
 )
 
 TemplateWrapper.propTypes = {

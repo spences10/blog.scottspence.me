@@ -56,7 +56,7 @@ we're just going to concentrate on the aliases, aliases can be used so
 that you can shorten the commands [or make them longer if you like]
 but I'm all for reducing key strokes, even if it is one or two less.
 
-So lets review the common commands I mentioned at the start:
+So let's review the common commands I mentioned at the start:
 
 ```shell
 git add .

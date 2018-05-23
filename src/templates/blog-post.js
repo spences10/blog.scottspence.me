@@ -4,16 +4,23 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import { ButtonSmall } from '../layouts/components/Button'
 import TagsContainer from '../layouts/components/TagsContainer'
-import { media, theme } from '../theme/globalStyle'
 
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from '../layouts/components/BlogThemeContext'
+
+import { ButtonSmall } from '../layouts/components/Button'
 import { StyledH1, StyledH3 } from '../theme/globalStyle'
+// import { Dump } from '../utils/helpers'
+
+import { media } from '../theme/globalStyle'
 
 const Title = StyledH1.extend`
   padding: 0.5rem 1rem 0.5rem 1rem;
   margin: 0.5rem 0rem 0rem 0rem;
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.fontHeader};
   font-size: 1.5em;
   color: ${({ theme }) => theme.secondary.red};
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -22,7 +29,7 @@ const Title = StyledH1.extend`
 const TitleDate = StyledH3.extend`
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 1rem 0rem 1rem;
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.fontBody};
   /* font-size: 0.65rem; */
   color: ${({ theme }) => theme.shades.dark};
 `
@@ -62,6 +69,7 @@ const PostWrapper = ContentWrapper.extend`
     max-width: 100%;
     max-height: 100%;
   }
+  font-family: ${props => props.theme.fontBody};
 `
 
 const ButtonWrapper = styled.div`
@@ -105,51 +113,59 @@ const Template = ({ data, pathContext }) => {
   const { next, prev } = pathContext
 
   return (
-    <PostWrapper border={({ theme }) => theme.primary.light}>
-      <Helmet title={`${title} - blog.scottspence.me`} />
-      <Title>{title}</Title>
-      <TitleDate>{date}</TitleDate>
+    <BlogThemeProvider>
+      <BlogThemeContext.Consumer>
+        {({ theme }) => (
+          <PostWrapper border={theme.primary.light}>
+            <Helmet title={`${title} - blog.scottspence.me`} />
+            <Title>{title}</Title>
+            <TitleDate>{date}</TitleDate>
 
-      <ContentWrapper dangerouslySetInnerHTML={{ __html: html }} />
+            <ContentWrapper
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
 
-      <TagsContainer
-        title={title}
-        tags={post.frontmatter.tags}
-        name={`${title}-${date}`}
-      />
-      <NavWrapper>
-        {prev === false ? (
-          <div />
-        ) : (
-          <ButtonWrapper>
-            {prev && (
-              <Link to={prev.frontmatter.path}>
-                <HappyButton
-                  color={theme.primary.light}
-                  border={theme.primary.light}>
-                  {prev.frontmatter.title}
-                </HappyButton>
-              </Link>
-            )}
-          </ButtonWrapper>
+            <TagsContainer
+              title={title}
+              tags={post.frontmatter.tags}
+              name={`${title}-${date}`}
+            />
+            <NavWrapper>
+              {prev === false ? (
+                <div />
+              ) : (
+                <ButtonWrapper>
+                  {prev && (
+                    <Link to={prev.frontmatter.path}>
+                      <HappyButton
+                        color={theme.primary.light}
+                        border={theme.primary.light}>
+                        {prev.frontmatter.title}
+                      </HappyButton>
+                    </Link>
+                  )}
+                </ButtonWrapper>
+              )}
+              {next === false ? (
+                <div />
+              ) : (
+                <ButtonWrapper>
+                  {next && (
+                    <Link to={next.frontmatter.path}>
+                      <HappyButton
+                        color={theme.primary.light}
+                        border={theme.primary.light}>
+                        {next.frontmatter.title}
+                      </HappyButton>
+                    </Link>
+                  )}
+                </ButtonWrapper>
+              )}
+            </NavWrapper>
+          </PostWrapper>
         )}
-        {next === false ? (
-          <div />
-        ) : (
-          <ButtonWrapper>
-            {next && (
-              <Link to={next.frontmatter.path}>
-                <HappyButton
-                  color={theme.primary.light}
-                  border={theme.primary.light}>
-                  {next.frontmatter.title}
-                </HappyButton>
-              </Link>
-            )}
-          </ButtonWrapper>
-        )}
-      </NavWrapper>
-    </PostWrapper>
+      </BlogThemeContext.Consumer>
+    </BlogThemeProvider>
   )
 }
 
