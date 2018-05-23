@@ -48,7 +48,7 @@ const BrandTitle = StyledH1.extend`
   /* top right bottom left */
   margin: 0rem 0.5rem 0rem 0.5rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.fontHeader};
   font-weight: bold;
   /* font-size: 1rem; */
   ${media.giant`
@@ -65,18 +65,18 @@ const BrandTitle = StyledH1.extend`
   `};
 `
 
-const Contact = styled.div`
-  grid-area: c;
-  text-transform: uppercase;
-`
-const Portfolio = styled.div`
-  grid-area: p;
-  text-transform: uppercase;
-`
-const About = styled.div`
-  grid-area: a;
-  text-transform: uppercase;
-`
+// const Contact = styled.div`
+//   grid-area: c;
+//   text-transform: uppercase;
+// `
+// const Portfolio = styled.div`
+//   grid-area: p;
+//   text-transform: uppercase;
+// `
+// const About = styled.div`
+//   grid-area: a;
+//   text-transform: uppercase;
+// `
 
 const BrandLink = styled(Link)`
   color: inherit;

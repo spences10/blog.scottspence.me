@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import TagsContainer from '../layouts/components/TagsContainer'
+// import TagsContainer from '../layouts/components/TagsContainer'
 
 import { StyledH1, StyledP } from '../theme/globalStyle'
-import { slugIt } from '../utils/helpers'
+// import { slugIt } from '../utils/helpers'
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -19,12 +19,13 @@ const PostWrapper = styled.div`
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
   background: ${({ theme }) => theme.white};
+  font-family: ${props => props.theme.fontBody};
 `
 
 const PostTitle = StyledH1.extend`
   margin: 0.25rem 0.5rem 0.25rem 0.5rem;
   padding: 0.5rem 0.25rem 0.5rem 0.25rem;
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.fontHeader};
   color: ${({ theme }) => theme.primary.light};
   font-weight: bold;
   /* font-size: 1rem; */
@@ -97,6 +98,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
+/* eslint-disable */
 export const query = graphql`
   query IndexQuery {
     allMarkdownRemark(
@@ -120,6 +122,7 @@ export const query = graphql`
     }
   }
 `
+/* eslint-enable */
 
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired
