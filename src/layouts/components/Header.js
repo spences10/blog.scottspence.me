@@ -37,9 +37,9 @@ const StyledHeader = styled.div`
       'b b b b b b c p a';
     /* background: palevioletred; */
   `};
-
   background-color: ${({ theme }) => theme.white};
   border-bottom: 1px solid ${({ theme }) => theme.primary.light};
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `
 
 const BrandTitle = StyledH1.extend`

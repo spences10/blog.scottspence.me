@@ -20,6 +20,7 @@ const PostWrapper = styled.div`
   }
   background: ${({ theme }) => theme.white};
   font-family: ${props => props.theme.fontBody};
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `
 
 const PostTitle = StyledH1.extend`
