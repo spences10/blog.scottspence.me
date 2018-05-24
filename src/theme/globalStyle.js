@@ -1,5 +1,58 @@
 import styled, { injectGlobal, css } from 'styled-components'
 
+export const themes = {
+  theme1: {
+    primary: '#6e27c5',
+    primaryAccent: '#eb238e',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#f7e018',
+    secondary: '#fcdeb6',
+    background: '#f9f9fd',
+    foreground: '#fefefe',
+    border: '#044040',
+    fontDark: '#34434b',
+    fontLight: '#586368',
+    fontWhite: '#ffffff',
+    fontHeader: 'Amaranth, sans-serif',
+    fontBody: '"Titillium Web", sans, sans-serif'
+  },
+
+  theme2: {
+    primary: '#ff0198',
+    primaryAccent: '#eb238e',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#01c1d6',
+    secondary: '#ffb617',
+    background: '#e6e6e6',
+    foreground: '#f7f0f0',
+    border: '#054545',
+    fontDark: '#034544',
+    fontLight: '#596869',
+    fontWhite: '#ffffff',
+    fontHeader: 'Open Sans, sans, sans-serif',
+    fontBody: 'Nunito, sans-serif'
+  },
+
+  theme3: {
+    primary: '#6e27c5',
+    primaryAccent: '#eb238e',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#f7e018',
+    secondary: '#fcdeb6',
+    background: '#f9f9fd',
+    foreground: '#fefefe',
+    border: '#044040',
+    fontDark: '#34434b',
+    fontLight: '#586368',
+    fontWhite: '#ffffff',
+    fontHeader: 'Nunito, sans, sans-serif',
+    fontBody: 'Open Sans, sans-serif'
+  }
+}
+
 export const theme1 = {
   text: '#333',
   white: '#fff',
