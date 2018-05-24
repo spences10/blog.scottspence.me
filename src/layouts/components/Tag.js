@@ -13,7 +13,7 @@ const PostTags = StyledLi.extend`
   /* font-size: 0.6rem; */
   font-weight: bold;
   display: inline-block;
-  background: ${({ theme }) => theme.primary.light};
+  background: ${({ theme }) => theme.foreground};
   transform: skew(-2deg); /* INVERSE SKEW */
   transition-delay: 0.2s;
   &:hover {
@@ -30,7 +30,7 @@ const TagLink = styled(Link)`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary.red};
+    color: ${({ theme }) => theme.secondary};
   }
 `
 

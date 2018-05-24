@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   margin: 1rem;
   padding: 1rem;
-  background: ${({ theme }) => theme.white};
+  background: ${({ theme }) => theme.background};
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -22,13 +22,13 @@ const TagName = styled.span`
   /* font-size: 0.6rem; */
   font-weight: bold;
   display: inline-block;
-  background: ${({ theme }) => theme.primary.light};
+  background: ${({ theme }) => theme.primary};
   transform: skew(-2deg); /* INVERSE SKEW */
   transition-delay: 0.2s;
   &:hover {
     transition-delay: 0.2s;
     transform: skew(2deg); /* SKEW */
-    color: ${({ theme }) => theme.secondary.red};
+    color: ${({ theme }) => theme.secondary};
     cursor: pointer;
   }
   border-radius: 4px;

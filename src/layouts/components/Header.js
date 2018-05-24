@@ -37,14 +37,14 @@ const StyledHeader = styled.div`
       'b b b b b b c p a';
     /* background: palevioletred; */
   `};
-  background-color: ${({ theme }) => theme.white};
-  border-bottom: 1px solid ${({ theme }) => theme.primary.light};
+  background-color: ${({ theme }) => theme.background};
+  border-bottom: 1px solid ${({ theme }) => theme.boarder};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `
 
 const BrandTitle = StyledH1.extend`
   grid-area: b;
-  color: ${({ theme }) => theme.primary.light};
+  color: ${({ theme }) => theme.fontLight};
   /* top right bottom left */
   margin: 0rem 0.5rem 0rem 0.5rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
@@ -85,7 +85,7 @@ const BrandLink = styled(Link)`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary.red};
+    color: ${({ theme }) => theme.secondary};
   }
 `
 
