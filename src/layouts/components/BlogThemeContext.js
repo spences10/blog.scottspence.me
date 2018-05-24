@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { theme1, themes } from '../../theme/globalStyle'
+import { themes } from '../../theme/globalStyle'
 import { HERO } from '../../theme/constants'
 
 // Context is made up of two things
@@ -11,8 +11,7 @@ export const BlogThemeContext = React.createContext()
 
 export class BlogThemeProvider extends React.Component {
   state = {
-    theme: theme1,
-    themes: themes[0],
+    theme: themes['theme1'],
     background: HERO[0]
   }
 
