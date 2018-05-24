@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { theme1, theme2 } from '../../theme/globalStyle'
+import { theme1, themes } from '../../theme/globalStyle'
 import { HERO } from '../../theme/constants'
 
 // Context is made up of two things
@@ -12,12 +12,19 @@ export const BlogThemeContext = React.createContext()
 export class BlogThemeProvider extends React.Component {
   state = {
     theme: theme1,
+    themes: themes[0],
     background: HERO[0]
   }
 
+  // handleThemeChange = e => {
+  //   let theme = e.target.value
+  //   theme === 'theme1' ? (theme = theme1) : (theme = theme2)
+  //   this.setState({ theme })
+  // }
+
   handleThemeChange = e => {
-    let theme = e.target.value
-    theme === 'theme1' ? (theme = theme1) : (theme = theme2)
+    const key = e.target.value
+    const theme = themes[key]
     this.setState({ theme })
   }
 
