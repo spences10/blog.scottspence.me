@@ -2,12 +2,12 @@ import styled, { injectGlobal, css } from 'styled-components'
 
 export const themes = {
   theme1: {
-    primary: '#6e27c5',
-    primaryAccent: '#eb238e',
+    primary: '#f2ff49',
+    primaryAccent: '#645dd7',
     pink: '#ff0198',
     blue: '#01c1d6',
     branding: '#f7e018',
-    secondary: '#fcdeb6',
+    secondary: '#ff4242',
     background: '#f9f9fd',
     foreground: '#fefefe',
     border: '#044040',
