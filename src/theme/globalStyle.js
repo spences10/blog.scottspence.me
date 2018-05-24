@@ -16,8 +16,8 @@ export const theme1 = {
     dark: 'rgba(69, 52, 99, 0.5)',
     offWhite: 'rgb(244, 254, 254)'
   },
-  fontHeader: '"Titillium Web", sans-serif',
-  fontBody: 'Open Sans, sans, sans-serif',
+  fontHeader: 'Amaranth, sans-serif',
+  fontBody: '"Titillium Web", sans, sans-serif',
   background: '#dfdbe5'
 }
 
@@ -38,7 +38,7 @@ export const theme2 = {
     offWhite: 'rgb(244, 254, 254)'
   },
   fontHeader: 'Open Sans, sans, sans-serif',
-  fontBody: '"Titillium Web", sans-serif',
+  fontBody: 'Nunito, sans-serif',
   background: '#ffa6b2'
 }
 
@@ -66,7 +66,7 @@ export const media = Object.keys(sizes).reduce(
 )
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700|Amaranth:400,700|Nunito:400,700');
 
   *, *:before, *:after {
     box-sizing: border-box;
