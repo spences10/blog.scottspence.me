@@ -15,12 +15,6 @@ export class BlogThemeProvider extends React.Component {
     background: HERO[0]
   }
 
-  // handleThemeChange = e => {
-  //   let theme = e.target.value
-  //   theme === 'theme1' ? (theme = theme1) : (theme = theme2)
-  //   this.setState({ theme })
-  // }
-
   handleThemeChange = e => {
     const key = e.target.value
     const theme = themes[key]
