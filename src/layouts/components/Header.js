@@ -37,7 +37,7 @@ const StyledHeader = styled.div`
       'b b b b b b c p a';
     /* background: palevioletred; */
   `};
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.primary};
   border-bottom: 1px solid ${({ theme }) => theme.boarder};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `
@@ -85,7 +85,7 @@ const BrandLink = styled(Link)`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.primaryAccent};
   }
 `
 

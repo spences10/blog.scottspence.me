@@ -12,7 +12,7 @@ const StyledFooter = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.primary};
   border-top: 1px solid ${({ theme }) => theme.border};
 
   display: grid;
@@ -62,7 +62,7 @@ const IconLink = styled.a`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.primaryAccent};
   }
 `
 

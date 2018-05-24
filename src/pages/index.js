@@ -45,7 +45,7 @@ const PostLink = styled(Link)`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.primaryAccent};
     background: ${({ theme }) => theme.primary};
     border-radius: 4px;
     transition: color 0.2s ease-out, background 0.2s ease-in;

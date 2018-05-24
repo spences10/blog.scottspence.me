@@ -61,7 +61,7 @@ const NavWrapper = ContentWrapper.extend`
 `
 
 const PostWrapper = ContentWrapper.extend`
-  background: ${({ theme }) => theme.white};
+  background: ${({ theme }) => theme.background};
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -79,7 +79,8 @@ const ButtonWrapper = styled.div`
 
 const HappyButton = ButtonSmall.extend`
   text-transform: capitalize;
-
+  background-color: ${props => props.theme.background};
+  color: ${props => props.theme.primaryAccent};
   padding: 0.1rem 0.1rem;
   margin: 0.2rem 0.2rem;
 
