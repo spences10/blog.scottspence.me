@@ -13,7 +13,10 @@ const PostTags = StyledLi.extend`
   /* font-size: 0.6rem; */
   font-weight: bold;
   display: inline-block;
+  color: ${props => props.theme.fontLight};
   background: ${({ theme }) => theme.primary};
+  /* border: 1px solid ${props => props.theme.border}; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
   transform: skew(-2deg); /* INVERSE SKEW */
   transition-delay: 0.2s;
   &:hover {

@@ -15,7 +15,7 @@ const Select = styled.select`
   /* font-size: 1rem; */
   border: 1px solid ${props => props.border};
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.foreground};
   border-radius: 2px;
 `
 

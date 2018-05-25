@@ -18,7 +18,7 @@ const PostWrapper = styled.div`
     transform: translateY(0.2px);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   }
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.foreground};
   font-family: ${props => props.theme.fontBody};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `

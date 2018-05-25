@@ -8,7 +8,7 @@ export const themes = {
     blue: '#01c1d6',
     branding: '#f7e018',
     secondary: '#ff4242',
-    background: '#f9f9fd',
+    background: '#646466',
     foreground: '#fefefe',
     border: '#044040',
     fontDark: '#34434b',
