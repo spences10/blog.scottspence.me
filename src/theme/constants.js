@@ -31,7 +31,8 @@ export const HERO = [
 // SITE META ==================
 export const nameContent = 'Scott Spence - blog'
 const descriptionContent = 'Blog of Scott Spence - web developer'
-const keywordsContent = 'blog, web developer, javascript'
+const keywordsContent =
+  'blog, web developer, javascript, react, learning, information, how to'
 const imageLink =
   'https://blog.scottspence.me/favicons/firefox_app_512x512.png'
 
