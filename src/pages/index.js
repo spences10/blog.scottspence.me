@@ -39,7 +39,7 @@ const PostTitle = StyledH1.extend`
 const PostLink = styled(Link)`
   display: inline-block;
   padding: 0rem 0.25rem 0rem 0.25rem;
-  color: inherit;
+  color: ${props => props.theme.fontDark};
   &:visited,
   &:active {
     color: inherit;
@@ -57,7 +57,7 @@ const PostDate = StyledP.extend`
   padding: 0rem;
   /* font-size: 0.75rem; */
   font-weight: bold;
-  /* font-size: 0.5rem; */
+  color: ${props => props.theme.fontLight};
 `
 
 // top right bottom left

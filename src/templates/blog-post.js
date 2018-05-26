@@ -70,6 +70,7 @@ const PostWrapper = ContentWrapper.extend`
     max-height: 100%;
   }
   font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
 `
 
 const ButtonWrapper = styled.div`
