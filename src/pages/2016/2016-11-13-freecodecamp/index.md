@@ -3,7 +3,6 @@ path: "/freecodecamp"
 date: "2016-11-13"
 title: "freeCodeCamp"
 tags: ['freeCodeCamp', 'learning']
-excerpt: ""
 published: true
 ---
 

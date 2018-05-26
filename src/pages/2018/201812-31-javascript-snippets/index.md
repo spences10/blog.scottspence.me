@@ -3,7 +3,6 @@ path: "/javascript-snippets"
 date: "2018-12-31"
 title: "JS snippets from around the web"
 tags: ['information', 'learning', 'javascript', 'snippets']
-excerpt: ""
 published: false
 ---
 

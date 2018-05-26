@@ -3,7 +3,6 @@ path: "/git-allow-unrelated-histories/"
 date: "2017-06-30"
 title: "Git ` — allow-unrelated-histories`"
 tags: ['information', 'guide']
-excerpt: ""
 published: true
 ---
 
