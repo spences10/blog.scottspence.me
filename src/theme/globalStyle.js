@@ -2,6 +2,23 @@ import styled, { injectGlobal, css } from 'styled-components'
 
 export const themes = {
   theme1: {
+    primary: '#6e27c5',
+    primaryAccent: '#eb238e',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#f7e018',
+    secondary: '#ecd444',
+    background: '#f9f9fd',
+    foreground: '#fefefe',
+    border: '#044040',
+    fontDark: '#34434b',
+    fontLight: '#586368',
+    fontWhite: '#ffffff',
+    fontHeader: 'Amaranth, sans-serif',
+    fontBody: '"Titillium Web", sans, sans-serif'
+  },
+
+  theme2: {
     primary: '#f2ff49',
     primaryAccent: '#645dd7',
     pink: '#ff0198',
@@ -14,11 +31,11 @@ export const themes = {
     fontDark: '#34434b',
     fontLight: '#586368',
     fontWhite: '#ffffff',
-    fontHeader: 'Amaranth, sans-serif',
-    fontBody: '"Titillium Web", sans, sans-serif'
+    fontHeader: 'Nunito, sans, sans-serif',
+    fontBody: 'Open Sans, sans-serif'
   },
 
-  theme2: {
+  theme3: {
     primary: '#ff0198',
     primaryAccent: '#eb238e',
     pink: '#ff0198',
@@ -33,23 +50,6 @@ export const themes = {
     fontWhite: '#ffffff',
     fontHeader: 'Open Sans, sans, sans-serif',
     fontBody: 'Nunito, sans-serif'
-  },
-
-  theme3: {
-    primary: '#6e27c5',
-    primaryAccent: '#eb238e',
-    pink: '#ff0198',
-    blue: '#01c1d6',
-    branding: '#f7e018',
-    secondary: '#fcdeb6',
-    background: '#f9f9fd',
-    foreground: '#fefefe',
-    border: '#044040',
-    fontDark: '#34434b',
-    fontLight: '#586368',
-    fontWhite: '#ffffff',
-    fontHeader: 'Nunito, sans, sans-serif',
-    fontBody: 'Open Sans, sans-serif'
   }
 }
 
