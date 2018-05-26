@@ -2,12 +2,12 @@ import styled, { injectGlobal, css } from 'styled-components'
 
 export const themes = {
   theme1: {
-    primary: '#6e27c5',
-    primaryAccent: '#eb238e',
+    primary: '#9166ff',
+    primaryAccent: '#ecd444',
     pink: '#ff0198',
     blue: '#01c1d6',
     branding: '#f7e018',
-    secondary: '#ecd444',
+    secondary: '#eb238e',
     background: '#f9f9fd',
     foreground: '#fefefe',
     border: '#044040',
@@ -25,7 +25,7 @@ export const themes = {
     blue: '#01c1d6',
     branding: '#f7e018',
     secondary: '#ff4242',
-    background: '#646466',
+    background: '#b1b1cc',
     foreground: '#fefefe',
     border: '#044040',
     fontDark: '#34434b',
@@ -37,11 +37,11 @@ export const themes = {
 
   theme3: {
     primary: '#ff0198',
-    primaryAccent: '#eb238e',
+    primaryAccent: '#ffb617',
     pink: '#ff0198',
     blue: '#01c1d6',
     branding: '#01c1d6',
-    secondary: '#ffb617',
+    secondary: '#eb238e',
     background: '#e6e6e6',
     foreground: '#f7f0f0',
     border: '#054545',
