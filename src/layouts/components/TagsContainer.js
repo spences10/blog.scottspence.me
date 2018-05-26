@@ -16,14 +16,14 @@ const TagsList = StyledP.extend`
   margin: 0.1rem 0rem 0.1rem 0rem;
   padding: 0.1rem 0rem 0.1rem 0rem;
   /* font-size: 0.45rem; */
-  font-weight: bold;
+  /* font-weight: bold; */
 `
 
 // top right bottom left
 const Container = styled.div`
   margin: 0rem 0.75rem 0rem 0.75rem;
   padding: 0rem 0rem 0rem 0rem;
-  /* border: 1px solid ${props => props.border}; */
+  /* border: 1px solid ${props => props.theme.border}; */
 `
 
 export const TagsContainer = props => (

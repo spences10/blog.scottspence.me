@@ -13,9 +13,9 @@ const Select = styled.select`
   padding: 0rem 0.5rem;
   font-family: ${props => props.theme.fontBody};
   /* font-size: 1rem; */
-  border: 1px solid ${props => props.theme.light};
+  border: 1px solid ${props => props.border};
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  background: ${props => props.theme.light};
+  background: ${props => props.theme.foreground};
   border-radius: 2px;
 `
 
@@ -31,6 +31,7 @@ class ThemeSelect extends React.Component {
         <Select onChange={e => this.props.handleThemeChange(e)}>
           <SelectOpt value="theme1">Theme 1</SelectOpt>
           <SelectOpt value="theme2">Theme 2</SelectOpt>
+          <SelectOpt value="theme3">Theme 3</SelectOpt>
         </Select>
       </SelectWrapper>
     )
