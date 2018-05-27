@@ -56,6 +56,28 @@ const howManyDrinkers = people.filter(p => p.age >= 18).length
 // 2
 ```
 
+Via Addy Osmani
+
+Get the unique values of an array in JS. Use ES2015 `Set()` and
+`...rest` to discard duplicate values.
+
+```js
+const uniqueArray = arr => [...new Set(arr)]
+
+uniqueArray([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 0, 0, 10, 10])
+// Array(9) [ 1, 2, 3, 4, 5, 6, 7, 0, 10 ]
+uniqueArray([
+  'London',
+  'Manchester',
+  'Cambridge',
+  'London',
+  'Greater London',
+  'London',
+  'Manchester'
+])
+// Array(4) [ "London", "Manchester", "Cambridge", "Greater London" ]
+```
+
 ## Async await
 
 🔥 4 Ways to handle the double promise with fetch() and async+await
