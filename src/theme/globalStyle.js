@@ -3,6 +3,23 @@ import { fontFace } from './fonts'
 
 export const themes = {
   theme1: {
+    primary: '#f2ff49',
+    primaryAccent: '#645dd7',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#f7e018',
+    secondary: '#ff4242',
+    background: '#b1b1cc',
+    foreground: '#fefefe',
+    border: '#044040',
+    fontDark: '#34434b',
+    fontLight: '#586368',
+    fontWhite: '#ffffff',
+    fontHeader: 'Nunito, sans, sans-serif',
+    fontBody: 'Poppins, sans-serif'
+  },
+
+  theme2: {
     primary: '#9166ff',
     primaryAccent: '#ecd444',
     pink: '#ff0198',
@@ -17,23 +34,6 @@ export const themes = {
     fontWhite: '#ffffff',
     fontHeader: 'Lato, sans-serif',
     fontBody: 'Merriweather, sans, sans-serif'
-  },
-
-  theme2: {
-    primary: '#f2ff49',
-    primaryAccent: '#645dd7',
-    pink: '#ff0198',
-    blue: '#01c1d6',
-    branding: '#f7e018',
-    secondary: '#ff4242',
-    background: '#b1b1cc',
-    foreground: '#fefefe',
-    border: '#044040',
-    fontDark: '#34434b',
-    fontLight: '#586368',
-    fontWhite: '#ffffff',
-    fontHeader: 'Nunito, sans, sans-serif',
-    fontBody: 'Alegreya, sans-serif'
   },
 
   theme3: {
@@ -82,7 +82,7 @@ injectGlobal`
   ${fontFace('Merriweather', 'merriweather-v19-latin-regular')}
 
   ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
-  ${fontFace('Alegreya', 'alegreya-v10-latin-regular')}
+  ${fontFace('Poppins', 'poppins-v5-latin-regular')}
 
   ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
   ${fontFace('Nunito', 'nunito-v9-latin-regular')}
