@@ -3,7 +3,7 @@ path: "/travis-ci-with-now"
 date: "2018-01-12:17:08:004Z"
 title: "Making a CI pipeline with Travis CI"
 tags: ['information', 'guide', 'travis-ci', 'now', 'zeit']
-published: false
+published: true
 ---
 
 I thought I'd set up this blog with some sort of build pipeline, the
@@ -75,7 +75,7 @@ after_script:
 
 env:
 global:
-    secure: nMoB9l5p/xPngrLkFdEjki7GuSLrxbn0ZzV+PX0UFJc/Q/fYL5wIRUcY5PdIpdOKToub/KwJf6uk0ecfwc+3ttJh2+PYk+Yrzkl3+wudj0lQX8ahXcGpfQjWegH+milp4m6XUrV8GEBCQmROLzxatk6tp1J3yQ/WoogyFBXspUwT5oNi37WzIC3kPD1JSN+Nx1XmHSQDClxsJBpLbrG9OZjex6BG5n7+QnJYtlqMCeRpWxv7RKS87JzONhs7y1DpWA4e428QOyBhK3QOPBJ2ZTMgkykzn2wvu1f78lqzsEn/aaDI7QD8tsVLFgVfatgiUzk/AXvKF02L1tTMeHtIYp2hYGT4A0196RmZl+G5WW8/LdkmaXge/wMM5QZ2zvhAroWyCuhH3fEwRA8YdfoPyMM9pVWRZUaaxVnusW0XakQRezQwsmuBJXDTXwFkxINWENoOqzQ1ppZTN0bM22AyiOiNVMn1rRNh/YQ21Gcyb4hkUl8mM5ZHPhdLBsu3/IDts00LoU2IgYzEZbcmXvgr9b/9Sxeifbnk7Ut/trb3CyPWMC/ZGc1px71qKGMvwU8nL+TlPszEvQ03OJ23+mufapEIkOZSiVtwGU0Vl1hfor8yPGSl0notsKCa73biqXIcQiAy9gpevau9KJXtpOf1MJnogWpuOX83Vga3C3Y/eww=
+    secure: lmfinghash
 ```
 
 My `package.json` looks like this:
