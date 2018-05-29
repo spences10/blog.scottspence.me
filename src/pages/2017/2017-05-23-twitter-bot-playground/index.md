@@ -3,7 +3,6 @@ path: "/twitter-bot-playground/"
 date: "2017-05-23"
 title: "Twitter bot playground"
 tags: ['information', 'guide']
-excerpt: ""
 published: true
 ---
 

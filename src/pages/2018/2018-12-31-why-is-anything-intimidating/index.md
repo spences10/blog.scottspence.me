@@ -29,8 +29,9 @@ two diabetes.
 Back then I knew relativity nothing about nutrition and fitness You
 probably will feel like a berk in the gym, I know I did, then you
 realise that everyone else there is there to do the same thing and
-they're probably feeling like you or have felt like you feel now. No
-one is there to judge, everyone had to start somewhere.
+they're probably feeling like you or have felt like you feel now in
+the past at some point. No one is there to judge, everyone had to
+start somewhere.
 
 Five and two diet
 
@@ -87,8 +88,8 @@ TDEE Calculator: Learn Your Total Daily Energy Expenditure Use the
 TDEE calculator to learn your Total Daily Energy Expenditure, a
 measure of how many calories you burn per day… tdeecalculator.net
 
-Alcohol, stop it! It pains me to say that as a love a beer but beers
-is empty calories, you can fit it with your macros if you like but
+Alcohol, stop it! It pains me to say that as I love a beer but beers
+are empty calories, you can fit it with your macros if you like but
 it's better to limit it drastically, drink four times a week? Half it,
 drink once a week? Drink every other weekend, some sort of system like
 that.
@@ -104,9 +105,9 @@ Let's do some isolation work on that
 
 Ab work outs, crunches, sit ups, that thing where someone holds a 20
 kg plate and leans over to the side… those will not target and burn
-belly fat, you can't specify where you want your body to burn fat that
-is a myth you burn fat all over your body. Love handles is genetically
-where your body is designed to store your fat reserves.
+belly fat, you can't specify where you want your body to burn fat,
+that is a myth, you burn fat all over your body. Love handles is
+genetically where your body is designed to store your fat reserves.
 
 Get your heart rate up!
 

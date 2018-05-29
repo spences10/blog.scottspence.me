@@ -3,7 +3,6 @@ path: "/use-your-own-gatsby-api"
 date: "2018-05-13"
 title: "Use your own API with Gatsby"
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
-excerpt: ""
 published: false
 ---
 
@@ -16,8 +15,8 @@ specifically this JSON data was in the [JSON Resume Schema] format. I
 had a half baked CV I made with React a while ago and decided that I
 wanted to make it with Gatsby
 
-When Gatsby builds it pulls the data from where you and then creates
-it statically
+When Gatsby builds it pulls the data from where you specify and then
+uses that data to create your static site.
 
 I made an example here that gets JSON data from an external source and
 creates the pages from that
