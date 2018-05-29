@@ -72,6 +72,17 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-eslint'
+    'gatsby-plugin-eslint',
+    {
+      resolve: 'gatsby-plugin-purify-css',
+      options: {
+        /* Defaults */
+        styleId: 'gatsby-inlined-css',
+        purifyOptions: {
+          info: true,
+          minify: true
+        }
+      }
+    }
   ]
 }
