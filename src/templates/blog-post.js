@@ -22,7 +22,7 @@ const Title = StyledH1.extend`
   margin: 0.5rem 0rem 0rem 0rem;
   font-family: ${props => props.theme.fontHeader};
   font-size: 1.5em;
-  color: ${({ theme }) => theme.secondary.red};
+  color: ${({ theme }) => theme.secondary};
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 // top right bottom left
@@ -31,7 +31,7 @@ const TitleDate = StyledH3.extend`
   padding: 0rem 1rem 0rem 1rem;
   font-family: ${props => props.theme.fontBody};
   /* font-size: 0.65rem; */
-  color: ${({ theme }) => theme.shades.dark};
+  color: ${({ theme }) => theme.fontLight};
 `
 
 const ContentWrapper = styled.div`
@@ -61,7 +61,7 @@ const NavWrapper = ContentWrapper.extend`
 `
 
 const PostWrapper = ContentWrapper.extend`
-  background: ${({ theme }) => theme.white};
+  background: ${({ theme }) => theme.foreground};
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -70,6 +70,7 @@ const PostWrapper = ContentWrapper.extend`
     max-height: 100%;
   }
   font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
 `
 
 const ButtonWrapper = styled.div`
@@ -79,7 +80,10 @@ const ButtonWrapper = styled.div`
 
 const HappyButton = ButtonSmall.extend`
   text-transform: capitalize;
-
+  background-color: ${props => props.theme.primary};
+  /* border: 1px solid ${props => props.theme.border}; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
+  color: ${props => props.theme.fontDark};
   padding: 0.1rem 0.1rem;
   margin: 0.2rem 0.2rem;
 
@@ -87,17 +91,17 @@ const HappyButton = ButtonSmall.extend`
     animation: halftone 1s forwards;
     background: radial-gradient(
           circle,
-          ${({ theme }) => theme.primary.light} 0.2em,
+          ${({ theme }) => theme.secondary} 0.2em,
           transparent 0.25em
         )
         0 0 / 1.25em 1.25em,
       radial-gradient(
           circle,
-          ${({ theme }) => theme.primary.light} 0.2em,
+          ${({ theme }) => theme.secondary} 0.2em,
           transparent 0.25em
         )
         6.25em 6.25em / 1.25em 1.25em;
-    color: ${({ theme }) => theme.secondary.red};
+    color: ${({ theme }) => theme.primaryAccent};
   }
   @keyframes halftone {
     100% {
@@ -116,7 +120,7 @@ const Template = ({ data, pathContext }) => {
     <BlogThemeProvider>
       <BlogThemeContext.Consumer>
         {({ theme }) => (
-          <PostWrapper border={theme.primary.light}>
+          <PostWrapper border={theme.border}>
             <Helmet title={`${title} - blog.scottspence.me`} />
             <Title>{title}</Title>
             <TitleDate>{date}</TitleDate>
@@ -138,8 +142,8 @@ const Template = ({ data, pathContext }) => {
                   {prev && (
                     <Link to={prev.frontmatter.path}>
                       <HappyButton
-                        color={theme.primary.light}
-                        border={theme.primary.light}>
+                        color={theme.primary}
+                        border={theme.primary}>
                         {prev.frontmatter.title}
                       </HappyButton>
                     </Link>
@@ -153,8 +157,8 @@ const Template = ({ data, pathContext }) => {
                   {next && (
                     <Link to={next.frontmatter.path}>
                       <HappyButton
-                        color={theme.primary.light}
-                        border={theme.primary.light}>
+                        color={theme.primary}
+                        border={theme.primary}>
                         {next.frontmatter.title}
                       </HappyButton>
                     </Link>

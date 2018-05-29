@@ -1,45 +1,57 @@
 import styled, { injectGlobal, css } from 'styled-components'
+import { fontFace } from './fonts'
 
-export const theme1 = {
-  text: '#333',
-  white: '#fff',
-  primary: {
-    dark: '#453463',
-    light: '#755f9f'
+export const themes = {
+  theme1: {
+    primary: '#9166ff',
+    primaryAccent: '#ecd444',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#f7e018',
+    secondary: '#eb238e',
+    background: '#f9f9fd',
+    foreground: '#fefefe',
+    border: '#044040',
+    fontDark: '#34434b',
+    fontLight: '#586368',
+    fontWhite: '#ffffff',
+    fontHeader: 'Lato, sans-serif',
+    fontBody: 'Merriweather, sans, sans-serif'
   },
-  secondary: {
-    green: '#8ac3a9',
-    yellow: '#fcdeb6',
-    red: '#ff8463'
-  },
-  shades: {
-    dark: 'rgba(69, 52, 99, 0.5)',
-    offWhite: 'rgb(244, 254, 254)'
-  },
-  fontHeader: 'Amaranth, sans-serif',
-  fontBody: '"Titillium Web", sans, sans-serif',
-  background: '#dfdbe5'
-}
 
-export const theme2 = {
-  text: '#333',
-  white: '#fff',
-  primary: {
-    dark: '#453463',
-    light: '#755f9f'
+  theme2: {
+    primary: '#f2ff49',
+    primaryAccent: '#645dd7',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#f7e018',
+    secondary: '#ff4242',
+    background: '#b1b1cc',
+    foreground: '#fefefe',
+    border: '#044040',
+    fontDark: '#34434b',
+    fontLight: '#586368',
+    fontWhite: '#ffffff',
+    fontHeader: 'Nunito, sans, sans-serif',
+    fontBody: 'Alegreya, sans-serif'
   },
-  secondary: {
-    green: '#8ac3a9',
-    yellow: '#fcdeb6',
-    red: '#ff8463'
-  },
-  shades: {
-    dark: 'rgba(69, 52, 99, 0.5)',
-    offWhite: 'rgb(244, 254, 254)'
-  },
-  fontHeader: 'Open Sans, sans, sans-serif',
-  fontBody: 'Nunito, sans-serif',
-  background: '#ffa6b2'
+
+  theme3: {
+    primary: '#ff0198',
+    primaryAccent: '#ffb617',
+    pink: '#ff0198',
+    blue: '#01c1d6',
+    branding: '#01c1d6',
+    secondary: '#eb238e',
+    background: '#e6e6e6',
+    foreground: '#f7f0f0',
+    border: '#054545',
+    fontDark: '#034544',
+    fontLight: '#596869',
+    fontWhite: '#ffffff',
+    fontHeader: 'Roboto, sans, sans-serif',
+    fontBody: 'Nunito, sans-serif'
+  }
 }
 
 const sizes = {
@@ -66,7 +78,14 @@ export const media = Object.keys(sizes).reduce(
 )
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700|Amaranth:400,700|Nunito:400,700');
+  ${fontFace('Lato', 'lato-v14-latin-700', 'bold')}
+  ${fontFace('Merriweather', 'merriweather-v19-latin-regular')}
+
+  ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
+  ${fontFace('Alegreya', 'alegreya-v10-latin-regular')}
+
+  ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
+  ${fontFace('Nunito', 'nunito-v9-latin-regular')}
 
   *, *:before, *:after {
     box-sizing: border-box;
