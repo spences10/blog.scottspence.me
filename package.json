@@ -24,7 +24,7 @@
     "gatsby-transformer-remark": "1.7.41",
     "prismjs": "1.14.0",
     "react-helmet": "5.2.0",
-    "styled-components": "3.2.6"
+    "styled-components": "3.3.0"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
@@ -35,7 +35,7 @@
     "gatsby-plugin-eslint": "1.0.3",
     "husky": "0.14.3",
     "prettier": "1.13.1",
-    "pretty-quick": "1.4.1",
+    "pretty-quick": "1.6.0",
     "release-it": "7.4.5"
   },
   "keywords": [
