@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
               <Link to={frontmatter.path}>{frontmatter.title}</Link>
             </h2>
             <p>{frontmatter.date}</p>
-            <p>{frontmatter.title}</p>
+            <p>{post.excerpt}</p>
           </div>
         )
       })}
@@ -31,6 +31,7 @@ export const query = graphql`
       edges {
         node {
           id
+          excerpt(pruneLength: 250)
           frontmatter {
             title
             date(formatString: "YYYY MMMM Do")
