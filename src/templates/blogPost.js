@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-const Template = ({ data, pathContext }) => {
+const Template = ({ data, pageContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
   const { title, date } = frontmatter
-  const { prev, next } = pathContext
+  const { prev, next } = pageContext
 
   return (
     <React.Fragment>
