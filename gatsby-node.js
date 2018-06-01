@@ -23,8 +23,8 @@ const createTagPages = (createPage, posts) => {
     path: `/tags`,
     component: allTagsTemplate,
     context: {
-      tags: tags.sort(),
-    },
+      tags: tags.sort()
+    }
   })
 
   tags.forEach(tagName => {
@@ -35,8 +35,8 @@ const createTagPages = (createPage, posts) => {
       component: tagPageTemplate,
       context: {
         posts,
-        tagName,
-      },
+        tagName
+      }
     })
   })
 }
@@ -84,8 +84,9 @@ exports.createPages = ({ actions, graphql }) => {
         component: blogPostTemplate,
         context: {
           prev: index === 0 ? null : posts[index - 1].node,
-          next: index === posts.length - 1 ? null : posts[index + 1].node,
-        },
+          next:
+            index === posts.length - 1 ? null : posts[index + 1].node
+        }
       })
     })
 

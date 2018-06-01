@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Scott blog',
+    title: 'Scott blog'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -9,8 +9,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src`,
-      },
-    },
-  ],
+        path: `${__dirname}/src`
+      }
+    }
+  ]
 }
