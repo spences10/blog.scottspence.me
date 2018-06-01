@@ -1,5 +1,26 @@
 {
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true,
+  "parser": "babylon",
+  "printWidth": 70,
   "semi": false,
   "singleQuote": true,
-  "trailingComma": "es5"
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "useTabs": false,
+  "proseWrap": "always",
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "*.md",
+      "options": { "parser": "markdown" }
+    },
+    {
+      "files": "*.json",
+      "options": { "parser": "json" }
+    }
+  ]
 }
