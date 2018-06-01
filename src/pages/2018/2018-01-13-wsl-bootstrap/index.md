@@ -91,7 +91,7 @@ Check your node and npm versions:
 node -v && npm -v
 ```
 
-### Install fish 🐟
+### Install fish 🐟🐚
 
 Fish is now my go to shell purely for the auto complete/intellisense
 👌 there's also some nice themes you can get for it too.
