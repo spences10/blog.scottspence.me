@@ -26,4 +26,5 @@ I found a good answer to this question on [Stack Overflow]
 <!-- Links -->
 
 [json resume schema]: https://jsonresume.org/schema/
-[stack overflow]: https://stackoverflow.com/questions/49299309/gatsbyjs-getting-data-from-restful-api
+[stack overflow]:
+  https://stackoverflow.com/questions/49299309/gatsbyjs-getting-data-from-restful-api

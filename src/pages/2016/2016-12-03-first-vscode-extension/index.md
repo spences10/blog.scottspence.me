@@ -92,11 +92,15 @@ hope it comes in handy for you one day!
 
 <!-- Links -->
 
-[vbscript]: https://marketplace.visualstudio.com/items?itemName=luggage66.VBScript
+[vbscript]:
+  https://marketplace.visualstudio.com/items?itemName=luggage66.VBScript
 [vscode]: https://code.visualstudio.com/
-[snippets]: https://code.visualstudio.com/Docs/customization/userdefinedsnippets
+[snippets]:
+  https://code.visualstudio.com/Docs/customization/userdefinedsnippets
 [guide1]: https://code.visualstudio.com/docs/extensions/overview
-[guide2]: https://code.visualstudio.com/docs/extensions/example-hello-world
-[guide3]: https://code.visualstudio.com/docs/extensions/testing-extensions
+[guide2]:
+  https://code.visualstudio.com/docs/extensions/example-hello-world
+[guide3]:
+  https://code.visualstudio.com/docs/extensions/testing-extensions
 
 <!-- Images -->

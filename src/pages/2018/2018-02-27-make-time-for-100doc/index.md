@@ -187,7 +187,8 @@ junior dev.
 <!-- links -->
 
 [again]: https://scottspence.me/about
-[20161230]: https://github.com/spences10/100-days-of-code/commit/7dbefb608862401d4cb9e6ed11f539b44bedcdae
+[20161230]:
+  https://github.com/spences10/100-days-of-code/commit/7dbefb608862401d4cb9e6ed11f539b44bedcdae
 [chingu]: https://medium.com/chingu
 [my portfolio]: https://scottspence.me/portfolio
 [content on egghead.io]: https://egghead.io/instructors/kentcdodds

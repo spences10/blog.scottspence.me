@@ -178,7 +178,7 @@ var queryString = uniqueRandomArray([
   'vue.js',
   'inferno_js',
   'inferno.js',
-  'jekyll',
+  'jekyll'
 ])
 ```
 

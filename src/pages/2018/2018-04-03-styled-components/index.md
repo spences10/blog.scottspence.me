@@ -78,7 +78,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit <code>src/App.js</code> and save to
+          reload.
         </p>
       </div>
     )
@@ -133,7 +134,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit <code>src/App.js</code> and save to
+          reload.
         </p>
       </AppWrapper>
     )
@@ -299,7 +301,7 @@ const AppIntro = styled.p`
 `
 
 const EmojiWrapper = styled.span.attrs({
-  role: 'img',
+  role: 'img'
 })``
 
 class App extends Component {
@@ -462,7 +464,7 @@ going to live:
 
 ```js
 export const theme = {
-  primary: '#6e27c5',
+  primary: '#6e27c5'
 }
 ```
 
@@ -526,7 +528,7 @@ export const theme1 = {
   secondary: '#01c1d6',
   danger: '#eb238e',
   light: '#f4f4f4',
-  dark: '#222',
+  dark: '#222'
 }
 
 export const theme2 = {
@@ -534,7 +536,7 @@ export const theme2 = {
   secondary: '#ffb617',
   danger: '#f16623',
   light: '#f4f4f4',
-  dark: '#222',
+  dark: '#222'
 }
 ```
 
@@ -601,7 +603,7 @@ import ThemeSelect from './components/ThemeSelect'
 
 class App extends Component {
   state = {
-    theme: theme1,
+    theme: theme1
   }
   handleThemeChange = e => {
     let theme = e.target.value
@@ -742,17 +744,22 @@ This was originally posted on my [blog].
 [dan]: https://github.com/gaearon
 [packages out there]: https://github.com/sindresorhus/modern-normalize
 [box-sizing:]: https://paulirish.com/2012/box-sizing-border-box-ftw/
-[create react app]: https://github.com/facebook/create-react-app#create-react-app-
-[`npx`]: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
+[create react app]:
+  https://github.com/facebook/create-react-app#create-react-app-
+[`npx`]:
+  https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 [animation]: https://www.styled-components.com/docs/basics#animations
-[`injectglobal`]: https://www.styled-components.com/docs/api#injectglobal
+[`injectglobal`]:
+  https://www.styled-components.com/docs/api#injectglobal
 [stack overflow answer]: https://stackoverflow.com/a/42899979/1138354
 [max]: https://twitter.com/mxstbr
 [simon vrachliotis]: https://twitter.com/simonswiss
 [egghead.io]: https://egghead.io/
 [playlist]: https://egghead.io/playlists/styled-components-4169206d
-[spectrum.chat]: https://spectrum.chat/?t=54887141-57a9-4386-807c-ed950c4d5132
-[stack overflow]: https://stackoverflow.com/questions/tagged/styled-components
+[spectrum.chat]:
+  https://spectrum.chat/?t=54887141-57a9-4386-807c-ed950c4d5132
+[stack overflow]:
+  https://stackoverflow.com/questions/tagged/styled-components
 [twitter]: https://twitter.com/ScottDevTweets
 [ask me anything]: https://github.com/spences10/ama
 [blog]: https://blog.scottspence.me/

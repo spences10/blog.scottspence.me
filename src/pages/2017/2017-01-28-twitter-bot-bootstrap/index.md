@@ -386,5 +386,6 @@ Other posts detailing useful Twitter bots.
 
 <!-- links -->
 
-[100docchallenge]: https://medium.freecodecamp.com/start-2017-with-the-100daysofcode-improved-and-updated-18ce604b237b
+[100docchallenge]:
+  https://medium.freecodecamp.com/start-2017-with-the-100daysofcode-improved-and-updated-18ce604b237b
 [100doc]: https://twitter.com/hashtag/100DaysOfCode?src=hash

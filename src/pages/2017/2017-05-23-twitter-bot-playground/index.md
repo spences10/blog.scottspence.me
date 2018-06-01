@@ -176,7 +176,7 @@ module.exports = {
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET,
   access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
 }
 ```
 
@@ -211,7 +211,7 @@ a hello world! status.
 bot.post(
   'statuses/update',
   {
-    status: 'hello world!',
+    status: 'hello world!'
   },
   (err, data, response) => {
     if (err) {
@@ -235,7 +235,7 @@ bot.get(
   'followers/ids',
   {
     screen_name: 'DroidScott',
-    count: 5,
+    count: 5
   },
   (err, data, response) => {
     if (err) {
@@ -259,7 +259,7 @@ bot.get(
   'followers/list',
   {
     screen_name: 'DroidScott',
-    count: 200,
+    count: 200
   },
   (err, data, response) => {
     if (err) {
@@ -282,7 +282,7 @@ here the bot is following back the user `MarcGuberti`
 bot.post(
   'friendships/create',
   {
-    screen_name: 'MarcGuberti',
+    screen_name: 'MarcGuberti'
   },
   (err, data, response) => {
     if (err) {
@@ -301,7 +301,7 @@ following back.
 bot.get(
   'friends/ids',
   {
-    screen_name: 'DroidScott',
+    screen_name: 'DroidScott'
   },
   (err, data, response) => {
     if (err) {
@@ -319,7 +319,7 @@ And also a detailed list.
 bot.get(
   'friends/list',
   {
-    screen_name: 'DroidScott',
+    screen_name: 'DroidScott'
   },
   (err, data, response) => {
     if (err) {
@@ -343,7 +343,7 @@ Let's take a look at the relation between our bot and
 bot.get(
   'friendships/lookup',
   {
-    screen_name: 'ScottDevTweets',
+    screen_name: 'ScottDevTweets'
   },
   (err, data, response) => {
     if (err) {
@@ -395,7 +395,7 @@ bot.post(
   'direct_messages/new',
   {
     screen_name: 'ScottDevTweets',
-    text: 'Hello from bot!',
+    text: 'Hello from bot!'
   },
   (err, data, response) => {
     if (err) {
@@ -416,7 +416,7 @@ To get a list of tweets in the bots time line use
 bot.get(
   'statuses/home_timeline',
   {
-    count: 1,
+    count: 1
   },
   (err, data, response) => {
     if (err) {
@@ -435,7 +435,7 @@ tweet.
 bot.get(
   'statuses/home_timeline',
   {
-    count: 5,
+    count: 5
   },
   (err, data, response) => {
     if (err) {
@@ -459,7 +459,7 @@ id to retweet.
 bot.post(
   'statuses/retweet/:id',
   {
-    id: '860828247944253440',
+    id: '860828247944253440'
   },
   (err, data, response) => {
     if (err) {
@@ -477,7 +477,7 @@ To unretweet just use `.post('statuses/unretweet/:id'...`
 bot.post(
   'statuses/unretweet/:id',
   {
-    id: '860828247944253440',
+    id: '860828247944253440'
   },
   (err, data, response) => {
     if (err) {
@@ -495,7 +495,7 @@ To like a tweet use `.post('favorites/create'...`
 bot.post(
   'favorites/create',
   {
-    id: '860897020726435840',
+    id: '860897020726435840'
   },
   (err, data, response) => {
     if (err) {
@@ -513,7 +513,7 @@ To unlike a post use `.post('favorites/destroy'...`
 bot.post(
   'favorites/destroy',
   {
-    id: '860897020726435840',
+    id: '860897020726435840'
   },
   (err, data, response) => {
     if (err) {
@@ -535,7 +535,7 @@ bot.post(
   'statuses/update',
   {
     status: '@ScottDevTweets I reply to you yes!',
-    in_reply_to_status_id: '860900406381211649',
+    in_reply_to_status_id: '860900406381211649'
   },
   (err, data, response) => {
     if (err) {
@@ -555,7 +555,7 @@ delete.
 bot.post(
   'statuses/destroy/:id',
   {
-    id: '860900437993676801',
+    id: '860900437993676801'
   },
   (err, data, response) => {
     if (err) {
@@ -581,7 +581,7 @@ bot.get(
   'search/tweets',
   {
     q: 'mango',
-    count: 5,
+    count: 5
   },
   (err, data, response) => {
     if (err) {
@@ -601,7 +601,7 @@ bot.get(
   'search/tweets',
   {
     q: 'mango',
-    count: 5,
+    count: 5
   },
   (err, data, response) => {
     if (err) {
@@ -644,8 +644,9 @@ If you want tweets from a certain website you can specify with the
 bot.get(
   'search/tweets',
   {
-    q: 'from:@dan_abramov url:facebook filter:images since:2017-01-01',
-    count: 5,
+    q:
+      'from:@dan_abramov url:facebook filter:images since:2017-01-01',
+    count: 5
   },
   (err, data, response) => {
     if (err) {
@@ -673,7 +674,7 @@ bot.get(
   {
     q: 'bacon',
     geocode: '51.5033640,-0.1276250,1mi',
-    count: 5,
+    count: 5
   },
   (err, data, response) => {
     if (err) {
@@ -709,7 +710,7 @@ pass some parameters, use `track:` to specify a search string:
 
 ```js
 var stream = bot.stream('statuses/filter', {
-  track: 'bot',
+  track: 'bot'
 })
 
 stream.on('tweet', function(t) {
@@ -722,7 +723,7 @@ you results with either `twitter` or `bot` in them.
 
 ```js
 const stream = bot.stream('statuses/filter', {
-  track: 'twitter, bot',
+  track: 'twitter, bot'
 })
 
 stream.on('tweet', t => {
@@ -738,7 +739,7 @@ of specific users, example:
 
 ```js
 const stream = bot.stream('statuses/filter', {
-  follow: '4897735439',
+  follow: '4897735439'
 })
 
 stream.on('tweet', t => {
@@ -776,9 +777,9 @@ function getPhoto() {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
     qs: {
-      api_key: process.env.NASA_KEY,
+      api_key: process.env.NASA_KEY
     },
-    encoding: 'binary',
+    encoding: 'binary'
   }
 }
 ```
@@ -808,9 +809,9 @@ function getPhoto() {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
     qs: {
-      api_key: process.env.NASA_KEY,
+      api_key: process.env.NASA_KEY
     },
-    encoding: 'binary',
+    encoding: 'binary'
   }
   request.get(parameters, (err, respone, body) => {
     body = JSON.parse(body)
@@ -888,7 +889,7 @@ function uploadMedia(descriptionText, fileName) {
   console.log(`uploadMedia: file PATH ${fileName}`)
   bot.postMediaChunked(
     {
-      file_path: fileName,
+      file_path: fileName
     },
     (err, data, respone) => {
       if (err) {
@@ -897,7 +898,7 @@ function uploadMedia(descriptionText, fileName) {
         console.log(data)
         const params = {
           status: descriptionText,
-          media_ids: data.media_id_string,
+          media_ids: data.media_id_string
         }
         postStatus(params)
       }
@@ -940,9 +941,9 @@ function getPhoto() {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
     qs: {
-      api_key: process.env.NASA_KEY,
+      api_key: process.env.NASA_KEY
     },
-    encoding: 'binary',
+    encoding: 'binary'
   }
   request.get(parameters, (err, respone, body) => {
     body = JSON.parse(body)
@@ -970,7 +971,7 @@ function uploadMedia(descriptionText, fileName) {
   console.log(`file PATH ${filePath}`)
   bot.postMediaChunked(
     {
-      file_path: filePath,
+      file_path: filePath
     },
     (err, data, respone) => {
       if (err) {
@@ -979,7 +980,7 @@ function uploadMedia(descriptionText, fileName) {
         console.log(data)
         const params = {
           status: descriptionText,
-          media_ids: data.media_id_string,
+          media_ids: data.media_id_string
         }
         postStatus(params)
       }
@@ -1032,7 +1033,7 @@ const tweetData = fs
   .createReadStream(filePath)
   .pipe(
     csvparse({
-      delimiter: ',',
+      delimiter: ','
     })
   )
   .on('data', row => {
@@ -1237,7 +1238,7 @@ Tabletop.init({
   callback(data, tabletop) {
     console.log(data)
   },
-  simpleSheet: true,
+  simpleSheet: true
 })
 ```
 
@@ -1263,7 +1264,7 @@ Tabletop.init({
       bot.post(
         'statuses/update',
         {
-          status,
+          status
         },
         (err, response, data) => {
           if (err) {
@@ -1275,7 +1276,7 @@ Tabletop.init({
       )
     })
   },
-  simpleSheet: true,
+  simpleSheet: true
 })
 ```
 
@@ -1307,7 +1308,7 @@ Tabletop.init({
       bot.post(
         'statuses/update',
         {
-          status,
+          status
         },
         (err, response, data) => {
           if (err) {
@@ -1319,7 +1320,7 @@ Tabletop.init({
       )
     })
   },
-  simpleSheet: true,
+  simpleSheet: true
 })
 ```
 
@@ -1351,9 +1352,9 @@ const getPhoto = () => {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
     qs: {
-      api_key: process.env.NASA_KEY,
+      api_key: process.env.NASA_KEY
     },
-    encoding: 'binary',
+    encoding: 'binary'
   }
   request.get(parameters, (err, respone, body) => {
     body = JSON.parse(body)
@@ -1439,7 +1440,7 @@ const tweetData = () => {
   fs.createReadStream(filePath)
     .pipe(
       csvparse({
-        delimiter: ',',
+        delimiter: ','
       })
     )
     .on('data', row => {
@@ -1455,7 +1456,7 @@ const tweetData = () => {
       bot.post(
         'statuses/update',
         {
-          status: sentence,
+          status: sentence
         },
         (err, data, response) => {
           if (err) {
@@ -1529,7 +1530,7 @@ const link = () => {
         bot.post(
           'statuses/update',
           {
-            status,
+            status
           },
           (err, response, data) => {
             if (err) {
@@ -1541,7 +1542,7 @@ const link = () => {
         )
       })
     },
-    simpleSheet: true,
+    simpleSheet: true
   })
 }
 
@@ -1762,14 +1763,15 @@ video:
 
 ```js
 function saveFile(body) {
-  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
+  const fileName =
+    body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
   const filePath = path.join(tmpDir + `/${fileName}`)
 
   console.log(`saveFile: file PATH ${filePath}`)
   if (fileName === 'nasa.mp4') {
     // tweet the link
     const params = {
-      status: 'NASA video link: ' + body.url,
+      status: 'NASA video link: ' + body.url
     }
     postStatus(params)
     return
@@ -1811,9 +1813,9 @@ const getPhoto = () => {
   const parameters = {
     url: 'https://api.nasa.gov/planetary/apod',
     qs: {
-      api_key: process.env.NASA_KEY,
+      api_key: process.env.NASA_KEY
     },
-    encoding: 'binary',
+    encoding: 'binary'
   }
   request.get(parameters, (err, respone, body) => {
     body = JSON.parse(body)
@@ -1822,14 +1824,15 @@ const getPhoto = () => {
 }
 
 function saveFile(body) {
-  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
+  const fileName =
+    body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
   const filePath = path.join(tmpDir + `/${fileName}`)
 
   console.log(`saveFile: file PATH ${filePath}`)
   if (fileName === 'nasa.mp4') {
     // tweet the link
     const params = {
-      status: 'NASA video link: ' + body.url,
+      status: 'NASA video link: ' + body.url
     }
     postStatus(params)
     return
@@ -1853,7 +1856,7 @@ function uploadMedia(descriptionText, fileName) {
   console.log(`uploadMedia: file PATH ${fileName}`)
   bot.postMediaChunked(
     {
-      file_path: fileName,
+      file_path: fileName
     },
     (err, data, respone) => {
       if (err) {
@@ -1862,7 +1865,7 @@ function uploadMedia(descriptionText, fileName) {
         console.log(data)
         const params = {
           status: descriptionText,
-          media_ids: data.media_id_string,
+          media_ids: data.media_id_string
         }
         postStatus(params)
       }
@@ -1944,35 +1947,49 @@ Copyright (c) 2017, Scott Spence. All rights reserved.
 
 <!--links-->
 
-[license-badge]: https://img.shields.io/github/license/mashape/apistatus.svg
+[license-badge]:
+  https://img.shields.io/github/license/mashape/apistatus.svg
 [license-url]: http://opensource.org/licenses/MIT
-[gitter-bagde]: https://badges.gitter.im/awesome-twitter-bots/Lobby.svg
-[gitter-url]: https://gitter.im/awesome-twitter-bots/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter-bagde]:
+  https://badges.gitter.im/awesome-twitter-bots/Lobby.svg
+[gitter-url]:
+  https://gitter.im/awesome-twitter-bots/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 [npm]: https://www.npmjs.com/
 [twit]: https://www.npmjs.com/package/twit
-[twitter-bot-bootstrap-readme]: https://github.com/spences10/twitter-bot-bootstrap#twitter-bot-bootstrap
-[twitter-bot-bootstrap]: https://github.com/spences10/twitter-bot-bootstrap
+[twitter-bot-bootstrap-readme]:
+  https://github.com/spences10/twitter-bot-bootstrap#twitter-bot-bootstrap
+[twitter-bot-bootstrap]:
+  https://github.com/spences10/twitter-bot-bootstrap
 [aman-github-profile]: https://github.com/amandeepmittal
-[awesome-twitter-bots]: https://github.com/amandeepmittal/awesome-twitter-bots
+[awesome-twitter-bots]:
+  https://github.com/amandeepmittal/awesome-twitter-bots
 [twitter-app]: https://apps.twitter.com/app/new
 [dotenv]: https://www.npmjs.com/package/dotenv
 [scottbot]: https://twitter.com/DroidScott
 [scotttwit]: https://twitter.com/ScottDevTweets
-[egghead-media-files]: https://egghead.io/lessons/node-js-tweet-media-files-with-twit-js
+[egghead-media-files]:
+  https://egghead.io/lessons/node-js-tweet-media-files-with-twit-js
 [hannah-davis]: https://egghead.io/instructors/hannah-davis
 [nasa-iotd]: https://www.nasa.gov/multimedia/imagegallery/iotd.html
 [api-apply]: https://api.nasa.gov/index.html#apply-for-an-api-key
-[egghead-markov]: https://egghead.io/lessons/node-js-make-a-bot-that-sounds-like-you-with-rita-js?series=create-your-own-twitter-bots
+[egghead-markov]:
+  https://egghead.io/lessons/node-js-make-a-bot-that-sounds-like-you-with-rita-js?series=create-your-own-twitter-bots
 [rita-npm]: https://www.npmjs.com/package/rita
 [tweet-archive]: https://support.twitter.com/articles/20170160
 [npm-tabletop]: https://www.npmjs.com/package/tabletop
-[egghead-tabletop]: https://egghead.io/lessons/node-js-retrieve-and-tweet-information-from-google-spreadsheets
+[egghead-tabletop]:
+  https://egghead.io/lessons/node-js-retrieve-and-tweet-information-from-google-spreadsheets
 [google-sheets]: sheets.google.com
 [zeit-login]: https://zeit.co/login
 [now]: https://zeit.co/now
-[now-getting-started-cli]: https://zeit.co/docs/getting-started/installing-now#cli-with-npm
-[now-first-deploy]: https://zeit.co/docs/getting-started/your-first-deployments#deploying-node
-[github-issue]: https://github.com/spences10/twitter-bot-playground/issues/new
-[immutable-deployment]: https://blog.codeship.com/immutable-deployments/
+[now-getting-started-cli]:
+  https://zeit.co/docs/getting-started/installing-now#cli-with-npm
+[now-first-deploy]:
+  https://zeit.co/docs/getting-started/your-first-deployments#deploying-node
+[github-issue]:
+  https://github.com/spences10/twitter-bot-playground/issues/new
+[immutable-deployment]:
+  https://blog.codeship.com/immutable-deployments/
 [tim]: https://github.com/timneutkens
-[ternary]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+[ternary]:
+  https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator

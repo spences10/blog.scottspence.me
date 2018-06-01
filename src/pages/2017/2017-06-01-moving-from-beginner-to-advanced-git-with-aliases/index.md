@@ -147,7 +147,8 @@ give it a like and don't forget to share it on social media 🙌
 
 <!--Links-->
 
-[git-cheatsheet]: https://github.com/spences10/cheat-sheets/blob/master/git.md
+[git-cheatsheet]:
+  https://github.com/spences10/cheat-sheets/blob/master/git.md
 [toolsday]: http://www.toolsday.io/
 [chris]: http://twitter.com/chrisdhanaraj
 [una]: http://twitter.com/una

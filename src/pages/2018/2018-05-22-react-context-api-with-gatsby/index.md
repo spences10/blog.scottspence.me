@@ -103,14 +103,14 @@ export const BlogThemeContext = React.createContext()
 export class BlogThemeProvider extends React.Component {
   state = {
     item1: 1,
-    item2: 2,
+    item2: 2
   }
 
   // add function here
   functionHere = () => {
     this.setState({
       item1: 2,
-      item2: 3,
+      item2: 3
     })
   }
   render() {
@@ -118,9 +118,8 @@ export class BlogThemeProvider extends React.Component {
       <BlogThemeContext.Provider
         value={{
           ...this.state,
-          functionHere: this.functionHere,
-        }}
-      >
+          functionHere: this.functionHere
+        }}>
         {this.props.children}
       </BlogThemeContext.Provider>
     )
@@ -175,14 +174,14 @@ export const BlogThemeContext = React.createContext()
 
 export class BlogThemeProvider extends React.Component {
   state = {
-    theme,
+    theme
   }
 
   // add function here
   functionHere = () => {
     this.setState({
       item1: 2,
-      item2: 3,
+      item2: 3
     })
   }
   render() {
@@ -190,9 +189,8 @@ export class BlogThemeProvider extends React.Component {
       <BlogThemeContext.Provider
         value={{
           ...this.state,
-          functionHere: this.functionHere,
-        }}
-      >
+          functionHere: this.functionHere
+        }}>
         {this.props.children}
       </BlogThemeContext.Provider>
     )
@@ -200,7 +198,7 @@ export class BlogThemeProvider extends React.Component {
 }
 
 BlogThemeProvider.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any
 }
 ```
 
@@ -218,7 +216,7 @@ export const BlogThemeContext = React.createContext()
 
 export class BlogThemeProvider extends React.Component {
   state = {
-    theme,
+    theme
   }
 
   handleThemeChange = e => {
@@ -231,9 +229,8 @@ export class BlogThemeProvider extends React.Component {
       <BlogThemeContext.Provider
         value={{
           ...this.state,
-          handleThemeChange: this.handleThemeChange,
-        }}
-      >
+          handleThemeChange: this.handleThemeChange
+        }}>
         {this.props.children}
       </BlogThemeContext.Provider>
     )
@@ -241,7 +238,7 @@ export class BlogThemeProvider extends React.Component {
 }
 
 BlogThemeProvider.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any
 }
 ```
 
@@ -460,15 +457,19 @@ here: https://blog.scottspence.me
 <!-- Links -->
 
 [react context api]: https://reactjs.org/docs/context.html
-[made a snippet]: https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
+[made a snippet]:
+  https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
 [how to use it]: https://www.youtube.com/watch?v=yzQ_XulhQFw
 [@leighchalliday]: https://twitter.com/leighchalliday
-[styled-components 💅 getting started]: https://scottspence.me/styled-components-getting-started
+[styled-components 💅 getting started]:
+  https://scottspence.me/styled-components-getting-started
 [personal site]: https://scottspence.me
 [here]: # 'this site, 👀'
 [things]: # 'things being using the styled components `ThemeProvider`'
-[vs code snippet]: https://github.com/spences10/settings/blob/71dc76fb8e11c176f4517431be57c021fb72411a/globalVs.code-snippets#L74-L111
+[vs code snippet]:
+  https://github.com/spences10/settings/blob/71dc76fb8e11c176f4517431be57c021fb72411a/globalVs.code-snippets#L74-L111
 [please get in touch]: https://scottspence.me/contact
-[here's the source]: https://github.com/spences10/scottspence.me/blob/master/src/components/ThemeSelect.js
+[here's the source]:
+  https://github.com/spences10/scottspence.me/blob/master/src/components/ThemeSelect.js
 [steve schoger]: https://twitter.com/steveschoger
 [hero patterns]: http://www.heropatterns.com/
