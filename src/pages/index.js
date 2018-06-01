@@ -1,10 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+
+import Header from '../components/header'
+import './index.css'
+
+import { siteMeta, nameContent } from '../theme/constants'
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
     <React.Fragment>
+      <Helmet title={nameContent} meta={siteMeta} />
+      <Header siteTitle={nameContent} />
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
         return (
