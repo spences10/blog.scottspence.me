@@ -20,7 +20,7 @@ one item in an array meets what you are looking for
 ```js
 const user = {
   name: 'Scott',
-  permissions: ['USER', 'CREATE_ITEM'],
+  permissions: ['USER', 'CREATE_ITEM']
 }
 
 // check if the user is either admin or can delete in item
@@ -43,7 +43,7 @@ array meets what you are looking for.
 const people = [
   { name: 'Scott', age: 42 },
   { name: 'Sue', age: 26 },
-  { name: 'Orla', age: 9 },
+  { name: 'Orla', age: 9 }
 ]
 
 const canEveryoneDrink = people.every(p => p.age >= 18)
@@ -73,7 +73,7 @@ uniqueArray([
   'London',
   'Greater London',
   'London',
-  'Manchester',
+  'Manchester'
 ])
 // Array(4) [ "London", "Manchester", "Cambridge", "Greater London" ]
 ```
