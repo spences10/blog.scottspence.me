@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import { PageContainer } from '../components/Shared'
-// import Header from '../components/Header'
+import Header from '../components/Header'
 
 import { siteMeta, nameContent } from '../theme/constants'
 
@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
   return (
     <PageContainer>
       <Helmet title={nameContent} meta={siteMeta} />
-      {/* <Header siteTitle={nameContent} /> */}
+      <Header siteTitle={nameContent} />
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
         return (
