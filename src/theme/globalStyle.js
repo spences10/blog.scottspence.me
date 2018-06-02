@@ -1,4 +1,4 @@
-import styled, { injectGlobal, css } from 'styled-components'
+import { injectGlobal, css } from 'styled-components'
 import { fontFace } from './fonts'
 
 export const themes = {

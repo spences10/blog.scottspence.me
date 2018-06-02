@@ -2,7 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
+import { PageContainer } from '../components/Shared'
+import Header from '../components/Header'
 
 import { siteMeta, nameContent } from '../theme/constants'
 
@@ -23,7 +24,7 @@ require('prismjs/themes/prism-solarizedlight.css')
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
-    <React.Fragment>
+    <PageContainer>
       <Helmet title={nameContent} meta={siteMeta} />
       <Header siteTitle={nameContent} />
       {posts.map(({ node: post }, index) => {
@@ -38,7 +39,7 @@ const IndexPage = ({ data }) => {
           </div>
         )
       })}
-    </React.Fragment>
+    </PageContainer>
   )
 }
 
