@@ -2,6 +2,20 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
+import '../pages/index.css'
+/**
+ * other themes
+ * dark
+ * funky
+ * okaidia
+ * coy
+ * solarizedlight
+ * tomorrow
+ * twilight
+ * prism.css = default
+ */
+require('prismjs/themes/prism-solarizedlight.css')
+
 const Template = ({ data, pageContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post

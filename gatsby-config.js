@@ -22,6 +22,12 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 590
             }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-'
+            }
           }
         ]
       }

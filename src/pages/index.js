@@ -3,9 +3,22 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import Header from '../components/header'
-import './index.css'
 
 import { siteMeta, nameContent } from '../theme/constants'
+
+import './index.css'
+/**
+ * other themes
+ * dark
+ * funky
+ * okaidia
+ * coy
+ * solarizedlight
+ * tomorrow
+ * twilight
+ * prism.css = default
+ */
+require('prismjs/themes/prism-solarizedlight.css')
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
