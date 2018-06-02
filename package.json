@@ -7,6 +7,8 @@
   "dependencies": {
     "gatsby": "2.0.0-alpha.42",
     "gatsby-link": "1.6.38-12",
+    "gatsby-plugin-manifest": "2.0.1-17",
+    "gatsby-plugin-offline": "2.0.0-alpha.15",
     "gatsby-plugin-react-helmet": "2.0.12-5",
     "gatsby-plugin-react-next": "2.0.1-11",
     "gatsby-plugin-sharp": "2.0.0-alpha.19",
