@@ -85,6 +85,10 @@ injectGlobal`
   ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
   ${fontFace('Nunito', 'nunito-v9-latin-regular')}
 
+  code[class*='language-'],
+  pre[class*='language-'] {
+    font-family: 'Dank Mono', Consolas, Courier, monospace;
+  }
 
   *, *:before, *:after {
     box-sizing: border-box;
