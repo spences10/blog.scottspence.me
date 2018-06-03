@@ -84,4 +84,39 @@ injectGlobal`
   ${fontFace('Poppins', 'poppins-v5-latin-regular')}
   ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
   ${fontFace('Nunito', 'nunito-v9-latin-regular')}
+
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  /* * {
+    outline: 1px solid red !important;
+  } */
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: ${props => props.theme.fontBody};
+    /* font-size: 0.75rem; */
+    line-height: 1.3125;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:active, a:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none
+  }
+  :focus {
+    outline:none;
+  }
+  
+  ::-moz-focus-inner {
+    border:0;
+  }
+  ul {
+    margin: 0 auto;
+  }
+
 `
