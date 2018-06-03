@@ -1,15 +1,14 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { Wrapper } from './Shared'
 
-const ComponentWrapper = styled.div`
-  grid-area: h;
-`
-const Header = ({ siteTitle }) => {
+import { nameContent } from '../theme/constants'
+
+const Header = () => {
   return (
-    <ComponentWrapper>
-      <h1>{siteTitle}</h1>
-    </ComponentWrapper>
+    <Wrapper area={'h'}>
+      <h1>{nameContent}</h1>
+    </Wrapper>
   )
 }
 

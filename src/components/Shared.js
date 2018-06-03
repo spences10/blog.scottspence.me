@@ -4,9 +4,15 @@ import styled from 'styled-components'
 
 export const PageContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    'h h h h h h'
-    'm m m m m m';
+    '. . . h h h h h h . . .'
+    '. . . m m m m m m . . .'
+    '. . . f f f f f f . . .';
+`
+
+export const Wrapper = styled.div`
+  grid-area: ${props => props.area};
+  background-color: ${({ theme }) => theme.primary};
 `

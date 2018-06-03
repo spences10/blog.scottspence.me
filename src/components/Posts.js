@@ -3,13 +3,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-const PostsWrapper = styled.div`
-  grid-area: m;
-`
+import { Wrapper } from './Shared'
 
 const Posts = ({ posts }) => {
   return (
-    <PostsWrapper>
+    <Wrapper area={'m'}>
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
         return (
@@ -22,7 +20,7 @@ const Posts = ({ posts }) => {
           </div>
         )
       })}
-    </PostsWrapper>
+    </Wrapper>
   )
 }
 
