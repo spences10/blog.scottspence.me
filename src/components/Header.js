@@ -21,7 +21,7 @@ const BrandLink = styled(Link)`
 const Header = () => {
   return (
     <Wrapper area={'h'}>
-      <BrandLink to="/">
+      <BrandLink to={'/'}>
         <h1>{nameContent}</h1>
       </BrandLink>
     </Wrapper>
