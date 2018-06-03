@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 
 import { PageContainer, Wrapper } from '../components/Shared'
 
-import '../pages/index.css'
 import Header from '../components/Header'
 /**
  * other themes

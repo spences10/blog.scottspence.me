@@ -1,13 +1,19 @@
 import React from 'react'
 // import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import { ThemeProvider } from 'styled-components'
+
+import Header from '../components/Header'
+import ThemeSelect from '../components/ThemeSelect'
 
 import { PageContainer } from '../components/Shared'
-import Header from '../components/Header'
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from '../components/BlogThemeContext'
 
 import { siteMeta, nameContent } from '../theme/constants'
 
-import './index.css'
 import Posts from '../components/Posts'
 /**
  * other themes
@@ -25,11 +31,20 @@ require('prismjs/themes/prism-solarizedlight.css')
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
-    <PageContainer>
-      <Helmet title={nameContent} meta={siteMeta} />
-      <Header />
-      <Posts posts={posts} />
-    </PageContainer>
+    <BlogThemeProvider>
+      <BlogThemeContext.Consumer>
+        {({ theme, background }) => (
+          <ThemeProvider theme={theme}>
+            <PageContainer background={background}>
+              <Helmet title={nameContent} meta={siteMeta} />
+              <Header />
+              <Posts posts={posts} />
+              <ThemeSelect />
+            </PageContainer>
+          </ThemeProvider>
+        )}
+      </BlogThemeContext.Consumer>
+    </BlogThemeProvider>
   )
 }
 
