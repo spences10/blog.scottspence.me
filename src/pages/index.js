@@ -5,8 +5,9 @@ import { ThemeProvider } from 'styled-components'
 
 import Header from '../components/Header'
 import ThemeSelect from '../components/ThemeSelect'
+import GlobalLayout from '../components/GlobalLayout'
 
-import { PageContainer } from '../components/Shared'
+// import { PageContainer } from '../components/Shared'
 import {
   BlogThemeContext,
   BlogThemeProvider
@@ -33,14 +34,14 @@ const IndexPage = ({ data }) => {
   return (
     <BlogThemeProvider>
       <BlogThemeContext.Consumer>
-        {({ theme, background }) => (
+        {({ theme }) => (
           <ThemeProvider theme={theme}>
-            <PageContainer background={background}>
+            <GlobalLayout>
               <Helmet title={nameContent} meta={siteMeta} />
               <Header />
               <Posts posts={posts} />
               <ThemeSelect />
-            </PageContainer>
+            </GlobalLayout>
           </ThemeProvider>
         )}
       </BlogThemeContext.Consumer>
