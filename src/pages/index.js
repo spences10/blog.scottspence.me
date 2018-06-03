@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
   return (
     <PageContainer>
       <Helmet title={nameContent} meta={siteMeta} />
-      <Header siteTitle={nameContent} />
+      <Header />
       <Posts posts={posts} />
     </PageContainer>
   )
