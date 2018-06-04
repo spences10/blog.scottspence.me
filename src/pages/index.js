@@ -3,7 +3,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 
-import Header from '../components/Header'
 import GlobalLayout from '../components/GlobalLayout'
 
 // import { PageContainer } from '../components/Shared'

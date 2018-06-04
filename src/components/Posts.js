@@ -1,9 +1,17 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
-import { Wrapper } from './Shared'
+const Wrapper = styled.div`
+  grid-area: ${props => props.area};
+`
+const PostWrapper = styled.div`
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid ${({ theme }) => theme.border};
+`
 
 const Posts = ({ posts }) => {
   return (
@@ -11,13 +19,13 @@ const Posts = ({ posts }) => {
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
         return (
-          <div key={index}>
+          <PostWrapper key={index}>
             <h2>
               <Link to={frontmatter.path}>{frontmatter.title}</Link>
             </h2>
             <p>{frontmatter.date}</p>
             <p>{post.excerpt}</p>
-          </div>
+          </PostWrapper>
         )
       })}
     </Wrapper>

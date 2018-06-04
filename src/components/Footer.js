@@ -4,13 +4,12 @@ import styled from 'styled-components'
 
 import ThemeSelect from '../components/ThemeSelect'
 
-import { Wrapper as HW } from './Shared'
-
-const Wrapper = HW.extend`
+const Wrapper = styled.div`
   z-index: 1;
   position: fixed;
   bottom: 0;
   width: 100%;
+  grid-area: f;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -23,8 +22,10 @@ const ThemePosition = styled.div`
 
 const Footer = props => {
   return (
-    <Wrapper area={'f'}>
-      <ThemeSelect />
+    <Wrapper>
+      <ThemePosition>
+        <ThemeSelect />
+      </ThemePosition>
     </Wrapper>
   )
 }

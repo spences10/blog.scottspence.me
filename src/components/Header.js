@@ -3,15 +3,14 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import { Wrapper as HW } from './Shared'
-
 import { nameContent } from '../theme/constants'
 
-const Wrapper = HW.extend`
+const Wrapper = styled.div`
   z-index: 1;
   position: fixed;
   top: 0;
   width: 100%;
+  grid-area: h;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -35,7 +34,7 @@ const BrandLink = styled(Link)`
 
 const Header = () => {
   return (
-    <Wrapper area={'h'}>
+    <Wrapper>
       <Branding>
         <BrandLink to={'/'}>
           <h1>{nameContent}</h1>
