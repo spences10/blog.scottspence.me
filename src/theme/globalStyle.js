@@ -85,6 +85,8 @@ injectGlobal`
   ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
   ${fontFace('Nunito', 'nunito-v9-latin-regular')}
 
+  /* require('../fonts/dank-mono.css') */
+
   code[class*='language-'],
   pre[class*='language-'] {
     font-family: 'Dank Mono', Consolas, Courier, monospace;
