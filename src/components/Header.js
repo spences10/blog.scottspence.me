@@ -3,9 +3,24 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import { Wrapper } from './Shared'
+import { Wrapper as HW } from './Shared'
 
 import { nameContent } from '../theme/constants'
+
+const Wrapper = HW.extend`
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: '. . . b b b b b b . . .';
+`
+
+const Branding = styled.div`
+  grid-area: b;
+`
 
 const BrandLink = styled(Link)`
   color: inherit;
@@ -21,9 +36,11 @@ const BrandLink = styled(Link)`
 const Header = () => {
   return (
     <Wrapper area={'h'}>
-      <BrandLink to={'/'}>
-        <h1>{nameContent}</h1>
-      </BrandLink>
+      <Branding>
+        <BrandLink to={'/'}>
+          <h1>{nameContent}</h1>
+        </BrandLink>
+      </Branding>
     </Wrapper>
   )
 }
