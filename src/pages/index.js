@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 
 import Header from '../components/Header'
-import ThemeSelect from '../components/ThemeSelect'
 import GlobalLayout from '../components/GlobalLayout'
 
 // import { PageContainer } from '../components/Shared'
@@ -38,9 +37,7 @@ const IndexPage = ({ data }) => {
           <ThemeProvider theme={theme}>
             <GlobalLayout>
               <Helmet title={nameContent} meta={siteMeta} />
-              <Header />
               <Posts posts={posts} />
-              <ThemeSelect />
             </GlobalLayout>
           </ThemeProvider>
         )}
