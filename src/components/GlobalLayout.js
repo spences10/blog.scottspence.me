@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { BlogThemeContext } from './BlogThemeContext'
+import Header from './Header'
+import Footer from './Footer'
 
 const PageContainer = styled.div`
   background-color: ${props => props.theme.background};
@@ -22,7 +24,9 @@ const GlobalLayout = ({ children }) => {
     <BlogThemeContext.Consumer>
       {({ background }) => (
         <PageContainer background={background}>
+          <Header />
           {children}
+          <Footer />
         </PageContainer>
       )}
     </BlogThemeContext.Consumer>
