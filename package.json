@@ -6,7 +6,7 @@
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
     "eslint-plugin-graphql": "2.1.1",
-    "gatsby": "1.9.261",
+    "gatsby": "1.9.269",
     "gatsby-image": "1.0.51",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-favicon": "2.1.1",
@@ -20,7 +20,7 @@
     "gatsby-plugin-styled-components": "2.0.11",
     "gatsby-remark-copy-linked-files": "1.5.32",
     "gatsby-remark-images": "1.5.63",
-    "gatsby-remark-prismjs": "2.0.2",
+    "gatsby-remark-prismjs": "2.0.3",
     "gatsby-source-filesystem": "1.5.36",
     "gatsby-transformer-remark": "1.7.41",
     "prismjs": "1.14.0",
@@ -35,7 +35,7 @@
     "eslint-plugin-react": "7.8.1",
     "gatsby-plugin-eslint": "1.0.3",
     "husky": "0.14.3",
-    "prettier": "1.13.2",
+    "prettier": "1.13.4",
     "pretty-quick": "1.6.0",
     "release-it": "7.4.5"
   },
