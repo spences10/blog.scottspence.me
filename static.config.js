@@ -8,7 +8,7 @@ const GRAPHCMS_API =
 
 const query = `
   {
-    allPosts {
+    allPosts (orderBy:dateAndTime_DESC) {
       id
       slug
       title
