@@ -1,37 +1,11 @@
 import React from 'react'
 import { Router, Link } from 'react-static'
-import styled, { injectGlobal } from 'styled-components'
+import styled from 'styled-components'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
+import { reset } from './theme/globalStyle'
 
-injectGlobal`
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: ${props => props.theme.fontBody};
-    /* font-size: 0.75rem; */
-    line-height: 1.3125;
-  }
-  a {
-    text-decoration: none;
-  }
-  a:active, a:focus {
-    outline: 0;
-    border: none;
-    -moz-outline-style: none
-  }
-  :focus {
-    outline:none;
-  }
-  
-  ::-moz-focus-inner {
-    border:0;
-  }
-  ul {
-    margin: 0 auto;
-    list-style-type: none;
-  }
-`
+reset()
 
 const AppStyles = styled.div`
   a {
