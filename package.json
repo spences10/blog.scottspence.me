@@ -11,6 +11,11 @@
     "build": "react-static build",
     "serve": "serve dist -p 4000"
   },
+  "keywords": [
+    "react-static",
+    "personal",
+    "blog"
+  ],
   "now": {
     "name": "scottblog"
   },
