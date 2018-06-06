@@ -2,17 +2,34 @@ import React from 'react'
 import { Router, Link } from 'react-static'
 import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
-//
 import Routes from 'react-static-routes'
 
 injectGlobal`
   body {
-    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
-      'Lucida Grande', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    font-family: ${props => props.theme.fontBody};
+    /* font-size: 0.75rem; */
+    line-height: 1.3125;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:active, a:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none
+  }
+  :focus {
+    outline:none;
+  }
+  
+  ::-moz-focus-inner {
+    border:0;
+  }
+  ul {
+    margin: 0 auto;
+    list-style-type: none;
   }
 `
 
@@ -47,9 +64,10 @@ const App = () => (
   <Router>
     <AppStyles>
       <nav>
-        <Link exact to="/">Home</Link>
+        <Link exact to="/">
+          Home
+        </Link>
         <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
       </nav>
       <div className="content">
         <Routes />
