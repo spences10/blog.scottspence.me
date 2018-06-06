@@ -7,22 +7,24 @@ const GRAPHCMS_API =
   'https://api.graphcms.com/simple/v1/cjf55g4211ici0162l1bq479e'
 
 const query = `
-  {
-    allPosts (orderBy:dateAndTime_DESC) {
-      id
-      slug
-      title
-      content
-    }
-    allAuthors {
-      id
-      name
-      avatar {
-        handle
-      }
-      bibliography
-    }
+{
+  allPosts (orderBy:dateAndTime_DESC) {
+    isPublished
+    slug
+    dateAndTime
+    updatedAt
+    title
+    content
   }
+  allAuthors {
+    id
+    name
+    avatar {
+      handle
+    }
+    bibliography
+  }
+}
 `
 
 export default {
