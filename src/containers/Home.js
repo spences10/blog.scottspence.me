@@ -29,14 +29,19 @@ const PostTitle = styled.h1`
 
 export default withRouteData(({ allPosts }) => (
   <React.Fragment>
-    <PostsList className="home-ul">
-      {allPosts.map(post => (
-        <PostWrapper className="home-li" key={post.id}>
-          <Link to={`/${post.slug}`} className="home-link">
-            <PostTitle>{post.title}</PostTitle>
-          </Link>
-        </PostWrapper>
-      ))}
+    <PostsList>
+      {allPosts.map(
+        post =>
+          post.isPublished ? (
+            <PostWrapper key={post.id}>
+              <Link to={`/${post.slug}`}>
+                <PostTitle>{post.title}</PostTitle>
+              </Link>
+            </PostWrapper>
+          ) : (
+            ''
+          )
+      )}
     </PostsList>
   </React.Fragment>
 ))

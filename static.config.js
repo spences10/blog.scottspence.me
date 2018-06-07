@@ -1,10 +1,12 @@
-import axios from 'axios'
+// import 'dotenv/config'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { request } from 'graphql-request'
 
 const GRAPHCMS_API =
   'https://api.graphcms.com/simple/v1/cjf55g4211ici0162l1bq479e'
+
+const env = process.env.NODE_ENV || 'development'
 
 const query = `
 {
