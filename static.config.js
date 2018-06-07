@@ -1,10 +1,9 @@
-// import 'dotenv/config'
+import 'dotenv/config'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { request } from 'graphql-request'
 
-const GRAPHCMS_API =
-  'https://api.graphcms.com/simple/v1/cjf55g4211ici0162l1bq479e'
+const GRAPHCMS_API = process.env.API_URL
 
 const env = process.env.NODE_ENV || 'development'
 

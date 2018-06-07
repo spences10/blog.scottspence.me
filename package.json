@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "dotenv": "6.0.0",
     "graphql-request": "1.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
