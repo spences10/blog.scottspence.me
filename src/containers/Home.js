@@ -32,9 +32,9 @@ export default withRouteData(({ allPosts }) => (
   <React.Fragment>
     <PostsList>
       {allPosts.map(
-        post =>
+        (post, index) =>
           post.isPublished ? (
-            <PostWrapper key={post.id}>
+            <PostWrapper key={index}>
               <Link to={`/${post.slug}`}>
                 <PostTitle>{post.title}</PostTitle>
               </Link>
