@@ -12,6 +12,7 @@ const PostWrapper = styled.li`
   padding: 1rem;
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
+  background: white;
 `
 
 const PostTitle = styled.h1`
