@@ -1,9 +1,14 @@
 import React from 'react'
 import { Router, Link } from 'react-static'
-import styled from 'styled-components'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 import { reset } from './theme/globalStyle'
+import styled, { ThemeProvider } from 'styled-components'
+
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from './contexts/BlogThemeContext'
 
 reset()
 
@@ -36,17 +41,23 @@ const AppStyles = styled.div`
 
 const App = () => (
   <Router>
-    <AppStyles>
-      <nav>
-        <Link exact to="/">
-          Home
-        </Link>
-        <Link to="/about">About</Link>
-      </nav>
-      <div className="content">
-        <Routes />
-      </div>
-    </AppStyles>
+    <BlogThemeProvider>
+      <BlogThemeContext.Consumer>
+        {({ theme, background }) => (
+          <AppStyles>
+            <nav>
+              <Link exact to="/">
+                Home
+              </Link>
+              <Link to="/about">About</Link>
+            </nav>
+            <div className="content">
+              <Routes />
+            </div>
+          </AppStyles>
+        )}
+      </BlogThemeContext.Consumer>
+    </BlogThemeProvider>
   </Router>
 )
 
