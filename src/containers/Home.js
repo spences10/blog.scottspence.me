@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import ThemeSelect from '../components/ThemeSelect'
 
+import { excerpt } from '../util/helpers'
+
 const PostsList = styled.ul`
   margin: 1rem;
   padding: 1rem;
@@ -30,6 +32,11 @@ const PostTitle = styled.h1`
   }
 `
 
+const PostExcerpt = styled.div`
+  margin: 0.5rem;
+  padding: 0.5rem;
+`
+
 export default withRouteData(({ allPosts }) => (
   <React.Fragment>
     <PostsList>
@@ -39,6 +46,7 @@ export default withRouteData(({ allPosts }) => (
             <PostWrapper key={index}>
               <Link to={`/${post.slug}`}>
                 <PostTitle>{post.title}</PostTitle>
+                <PostExcerpt>{excerpt(post.content)}</PostExcerpt>
               </Link>
             </PostWrapper>
           ) : (
