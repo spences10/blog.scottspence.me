@@ -44,17 +44,19 @@ const App = () => (
     <BlogThemeProvider>
       <BlogThemeContext.Consumer>
         {({ theme, background }) => (
-          <AppStyles>
-            <nav>
-              <Link exact to="/">
-                Home
-              </Link>
-              <Link to="/about">About</Link>
-            </nav>
-            <div className="content">
-              <Routes />
-            </div>
-          </AppStyles>
+          <ThemeProvider theme={theme}>
+            <AppStyles>
+              <nav>
+                <Link exact to="/">
+                  Home
+                </Link>
+                <Link to="/about">About</Link>
+              </nav>
+              <div className="content">
+                <Routes />
+              </div>
+            </AppStyles>
+          </ThemeProvider>
         )}
       </BlogThemeContext.Consumer>
     </BlogThemeProvider>
