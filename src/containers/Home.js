@@ -2,6 +2,8 @@ import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import styled from 'styled-components'
 
+import ThemeSelect from '../components/ThemeSelect'
+
 const PostsList = styled.ul`
   margin: 1rem;
   padding: 1rem;
@@ -44,5 +46,6 @@ export default withRouteData(({ allPosts }) => (
           )
       )}
     </PostsList>
+    <ThemeSelect />
   </React.Fragment>
 ))
