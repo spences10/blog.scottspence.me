@@ -94,8 +94,6 @@ export const reset = () =>
     body {
       padding: 0;
       margin: 0;
-      /* font-family: ${props => props.theme.fontBody}; */
-      /* font-size: 0.75rem; */
       line-height: 1.3125;
     }
     a {
@@ -116,5 +114,9 @@ export const reset = () =>
     ul {
       margin: 0 auto;
       list-style-type: none;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
     }
   `
