@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import ThemeSelect from '../components/ThemeSelect'
 
-import { excerpt } from '../util/helpers'
+import { excerpt, formatDate } from '../util/helpers'
 
 const PostsList = styled.ul`
   grid-area: m;
@@ -38,6 +38,11 @@ const PostExcerpt = styled.div`
   padding: 0.5rem;
 `
 
+const PostedDate = styled.p`
+  margin: 0.5rem;
+  padding: 0.5rem;
+`
+
 export default withRouteData(({ allPosts }) => (
   <React.Fragment>
     <PostsList>
@@ -47,8 +52,9 @@ export default withRouteData(({ allPosts }) => (
             <PostWrapper key={index}>
               <Link to={`/${post.slug}`}>
                 <PostTitle>{post.title}</PostTitle>
-                <PostExcerpt>{excerpt(post.content)}</PostExcerpt>
               </Link>
+              <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
+              <PostExcerpt>{excerpt(post.content)}</PostExcerpt>
             </PostWrapper>
           ) : (
             ''
