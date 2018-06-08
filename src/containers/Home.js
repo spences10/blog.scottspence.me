@@ -7,6 +7,7 @@ import ThemeSelect from '../components/ThemeSelect'
 import { excerpt } from '../util/helpers'
 
 const PostsList = styled.ul`
+  grid-area: m;
   margin: 1rem;
   padding: 1rem;
 `

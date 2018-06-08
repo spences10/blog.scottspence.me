@@ -1,5 +1,6 @@
 import { injectGlobal, css } from 'styled-components'
 import { HERO } from './constants'
+import { fontFace } from './fonts'
 
 export const themes = {
   theme1: {
@@ -15,8 +16,8 @@ export const themes = {
     fontDark: '#34434b',
     fontLight: '#586368',
     fontWhite: '#ffffff',
-    fontHeader: 'Nunito, sans, sans-serif',
-    fontBody: 'Poppins, sans-serif'
+    fontHeader: 'Trirong, sans, sans-serif',
+    fontBody: 'Rubik, sans-serif'
   },
 
   theme2: {
@@ -80,33 +81,31 @@ export const media = Object.keys(sizes).reduce(
 export const reset = () =>
   injectGlobal`
 
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|VT323|Source+Sans+Pro');
+    ${fontFace('Trirong', 'trirong-v3-latin-700', 'bold')}
+    ${fontFace('Rubik', 'rubik-v7-latin-regular')}
 
     *, *:before, *:after {
       box-sizing: border-box;
     }
+    /* * {
+      outline: 1px solid red !important;
+    } */
 
     body {
       padding: 0;
       margin: 0;
-      font-family: Roboto, sans-serif;
+      /* font-family: ${props => props.theme.fontBody}; */
       /* font-size: 0.75rem; */
       line-height: 1.3125;
-      background-color: #dfdbe5;
-      background-image: url("${HERO}");
-      background-attachment: fixed;
     }
-
     a {
       text-decoration: none;
     }
-
     a:active, a:focus {
       outline: 0;
       border: none;
       -moz-outline-style: none
     }
-
     :focus {
       outline:none;
     }
@@ -114,7 +113,6 @@ export const reset = () =>
     ::-moz-focus-inner {
       border:0;
     }
-
     ul {
       margin: 0 auto;
       list-style-type: none;
