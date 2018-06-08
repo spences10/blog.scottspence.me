@@ -12,32 +12,18 @@ import {
 
 reset()
 
-const AppStyles = styled.div`
-  a {
-    text-decoration: none;
-    color: ${props => props.theme.fontDark};
-    font-weight: bold;
-  }
-
-  .content {
-    padding: 1rem;
-  }
-
-  img {
-    max-width: 100%;
-  }
-`
+const AppStyles = styled.div``
 
 const Nav = styled.nav`
+  top: 0;
   width: 100%;
+  position: fixed;
   background: ${props => props.theme.primary};
-
   a {
     color: ${props => props.theme.fontDark};
     padding: 1rem;
     display: inline-block;
   }
-  position: fixed;
 `
 
 const App = () => (
