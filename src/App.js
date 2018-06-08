@@ -15,19 +15,8 @@ reset()
 const AppStyles = styled.div`
   a {
     text-decoration: none;
-    color: #108db8;
+    color: ${props => props.theme.fontDark};
     font-weight: bold;
-  }
-
-  nav {
-    width: 100%;
-    background: #108db8;
-
-    a {
-      color: white;
-      padding: 1rem;
-      display: inline-block;
-    }
   }
 
   .content {
@@ -39,6 +28,18 @@ const AppStyles = styled.div`
   }
 `
 
+const Nav = styled.nav`
+  width: 100%;
+  background: ${props => props.theme.primary};
+
+  a {
+    color: ${props => props.theme.fontDark};
+    padding: 1rem;
+    display: inline-block;
+  }
+  position: fixed;
+`
+
 const App = () => (
   <Router>
     <BlogThemeProvider>
@@ -46,12 +47,12 @@ const App = () => (
         {({ theme, background }) => (
           <ThemeProvider theme={theme}>
             <AppStyles>
-              <nav>
+              <Nav>
                 <Link exact to="/">
                   Home
                 </Link>
                 <Link to="/about">About</Link>
-              </nav>
+              </Nav>
               <div className="content">
                 <Routes />
               </div>
