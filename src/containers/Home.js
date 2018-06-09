@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import styled from 'styled-components'
+import Markdown from 'react-markdown'
 
 import ThemeSelect from '../components/ThemeSelect'
 
@@ -18,6 +19,8 @@ const PostWrapper = styled.li`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
   background: white;
+  font-family: ${props => props.theme.fontBody};
+  color: ${({ theme }) => theme.fontLight};
 `
 
 const PostTitle = styled.h1`
@@ -33,14 +36,32 @@ const PostTitle = styled.h1`
   }
 `
 
+const PostLink = styled(Link)`
+  display: inline-block;
+  padding: 0rem 0.25rem 0rem 0.25rem;
+  color: ${props => props.theme.fontDark};
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.primaryAccent};
+    background: ${({ theme }) => theme.primary};
+    border-radius: 4px;
+    transition: color 0.2s ease-out, background 0.2s ease-in;
+  }
+`
+
 const PostExcerpt = styled.div`
-  margin: 0.5rem;
-  padding: 0.5rem;
+  margin: 0.25rem 1rem 0.25rem 1rem;
+  padding: 0rem;
 `
 
 const PostedDate = styled.p`
-  margin: 0.5rem;
-  padding: 0.5rem;
+  margin: 0rem 1rem 0rem 1rem;
+  padding: 0rem;
+  font-weight: bold;
+  color: ${props => props.theme.fontLight};
 `
 
 export default withRouteData(({ allPosts }) => (
@@ -50,11 +71,16 @@ export default withRouteData(({ allPosts }) => (
         (post, index) =>
           post.isPublished ? (
             <PostWrapper key={index}>
-              <Link to={`/${post.slug}`}>
+              <PostLink to={`/${post.slug}`}>
                 <PostTitle>{post.title}</PostTitle>
-              </Link>
+              </PostLink>
               <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
-              <PostExcerpt>{excerpt(post.content)}</PostExcerpt>
+              <PostExcerpt>
+                <Markdown
+                  source={excerpt(post.content)}
+                  escapeHtml={false}
+                />
+              </PostExcerpt>
             </PostWrapper>
           ) : (
             ''

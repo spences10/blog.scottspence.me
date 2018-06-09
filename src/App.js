@@ -12,7 +12,9 @@ import {
 
 reset()
 
-const AppStyles = styled.div``
+const AppStyles = styled.div`
+  padding-top: 1.5rem;
+`
 
 const Nav = styled.nav`
   top: 0;
