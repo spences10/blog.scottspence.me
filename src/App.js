@@ -5,6 +5,8 @@ import Routes from 'react-static-routes'
 import { reset } from './theme/globalStyle'
 import styled, { ThemeProvider } from 'styled-components'
 
+import Nav from './components/Nav'
+
 import {
   BlogThemeContext,
   BlogThemeProvider
@@ -13,19 +15,21 @@ import {
 reset()
 
 const AppStyles = styled.div`
+  background-color: ${props => props.theme.background};
+  background-image: url("${props => props.background}");
+  background-attachment: fixed;
   padding-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    '. . . h h h h h h . . .'
+    '. . . m m m m m m . . .'
+    '. . . f f f f f f . . .';
 `
 
-const Nav = styled.nav`
-  top: 0;
-  width: 100%;
-  position: fixed;
-  background: ${props => props.theme.primary};
-  a {
-    color: ${props => props.theme.fontDark};
-    padding: 1rem;
-    display: inline-block;
-  }
+const Content = styled.div`
+  grid-area: m;
 `
 
 const App = () => (
@@ -34,16 +38,11 @@ const App = () => (
       <BlogThemeContext.Consumer>
         {({ theme, background }) => (
           <ThemeProvider theme={theme}>
-            <AppStyles>
-              <Nav>
-                <Link exact to="/">
-                  Home
-                </Link>
-                <Link to="/about">About</Link>
-              </Nav>
-              <div className="content">
+            <AppStyles background={background}>
+              <Nav />
+              <Content className="content">
                 <Routes />
-              </div>
+              </Content>
             </AppStyles>
           </ThemeProvider>
         )}
