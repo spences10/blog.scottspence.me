@@ -16,8 +16,8 @@ export const themes = {
     fontDark: '#34434b',
     fontLight: '#586368',
     fontWhite: '#ffffff',
-    fontHeader: 'Trirong, sans, sans-serif',
-    fontBody: 'Rubik, sans-serif'
+    fontHeader: 'Nunito, sans, sans-serif',
+    fontBody: 'Poppins, sans-serif'
   },
 
   theme2: {
@@ -33,8 +33,8 @@ export const themes = {
     fontDark: '#34434b',
     fontLight: '#586368',
     fontWhite: '#ffffff',
-    fontHeader: 'Lato, sans-serif',
-    fontBody: 'Merriweather, sans, sans-serif'
+    fontHeader: 'Trirong, sans, sans-serif',
+    fontBody: 'Rubik, sans-serif'
   },
 
   theme3: {
@@ -50,8 +50,8 @@ export const themes = {
     fontDark: '#034544',
     fontLight: '#596869',
     fontWhite: '#ffffff',
-    fontHeader: 'Roboto, sans, sans-serif',
-    fontBody: 'Nunito, sans-serif'
+    fontHeader: 'Eczar, sans, sans-serif',
+    fontBody: 'Taviraj, sans-serif'
   }
 }
 
@@ -81,8 +81,14 @@ export const media = Object.keys(sizes).reduce(
 export const reset = () =>
   injectGlobal`
 
+    ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
+    ${fontFace('Poppins', 'poppins-v5-latin-regular')}
+
     ${fontFace('Trirong', 'trirong-v3-latin-700', 'bold')}
     ${fontFace('Rubik', 'rubik-v7-latin-regular')}
+
+    ${fontFace('Eczar', 'eczar-v6-latin-700', 'bold')}
+    ${fontFace('Taviraj', 'taviraj-v3-latin-regular')}
 
     *, *:before, *:after {
       box-sizing: border-box;
