@@ -3,7 +3,7 @@ import { withRouteData } from 'react-static'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { siteMeta, nameContent } from '../siteMeta'
+import { nameContent } from '../siteMeta'
 
 const PageWrapper = styled.div`
   grid-area: m;
@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
 
 export default withRouteData(({ allAuthors }) => (
   <PageWrapper>
-    <Helmet title={`About - ${nameContent}`} meta={siteMeta} />
+    <Helmet title={`About - ${nameContent}`} />
     {allAuthors.map(author => (
       <div className="about-author" key={author.id}>
         <div className="about-header">
