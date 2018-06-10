@@ -11,7 +11,7 @@ const NavWrapper = styled.nav`
   a {
     color: ${props => props.theme.fontDark};
     padding: 1rem;
-    display: inline-block;
+    /* display: inline-block; */
   }
 `
 

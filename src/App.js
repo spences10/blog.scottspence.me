@@ -2,8 +2,11 @@ import React from 'react'
 import { Router, Link } from 'react-static'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
-import { reset } from './theme/globalStyle'
 import styled, { ThemeProvider } from 'styled-components'
+import Helmet from 'react-helmet'
+
+import { reset } from './theme/globalStyle'
+import { siteMeta, nameContent } from './siteMeta'
 
 import Nav from './components/Nav'
 
@@ -18,7 +21,7 @@ const AppStyles = styled.div`
   background-color: ${props => props.theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
-  padding-top: 1.5rem;
+  /* padding-top: 1.5rem; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -39,6 +42,7 @@ const App = () => (
         {({ theme, background }) => (
           <ThemeProvider theme={theme}>
             <AppStyles background={background}>
+              <Helmet title={nameContent} meta={siteMeta} />
               <Nav />
               <Content className="content">
                 <Routes />
