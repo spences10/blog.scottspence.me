@@ -91,14 +91,26 @@ Check your node and npm versions:
 node -v && npm -v
 ```
 
-### Install fish 🐟
+### Install fish 🐟🐚
 
 Fish is now my go to shell purely for the auto complete/intellisense
 👌 there's also some nice themes you can get for it too.
 
+There's two options here, one is to use the standard package that come
+pre installed with the Ubuntu install or you can use the Fish [PPA]
+
+**Use the standard package:**
+
 ```sh
 sudo apt -y install fish
 sudo apt -y upgrade && sudo apt -y autoremove
+```
+
+**Use the Fish shell [PPA]:**
+
+```sh
+sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt update && sudo apt -y install fish
 ```
 
 ### Install Oh My Fish | OMF
@@ -199,6 +211,7 @@ global npm packages you want for development now.
 
 <!-- links -->
 
+[ppa]: # 'Personal Package Archive'
 [fixanycomputer]: http://theoatmeal.com/blog/fix_computer
 [slowbash]: https://github.com/Microsoft/WSL/issues/776
 [wslmsstore]: https://www.microsoft.com/store/productId/9NBLGGH4MSV6
