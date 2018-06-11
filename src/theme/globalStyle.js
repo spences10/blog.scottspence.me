@@ -90,7 +90,7 @@ export const reset = () =>
     ${fontFace('Eczar', 'eczar-v6-latin-700', 'bold')}
     ${fontFace('Taviraj', 'taviraj-v3-latin-regular')}
     
-    @import url('../fonts/dank-mono.css/css?family=dm') format('woff');
+    /* @import url('../fonts/dank-mono.css/css?family=dm') format('woff'); */
 
     code[class*='language-'],
     pre[class*='language-'] {
