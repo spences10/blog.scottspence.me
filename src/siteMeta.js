@@ -1,10 +1,10 @@
 // SITE META ==================
+export const siteUrl = 'https://blog.scottspence.me'
 export const nameContent = 'Scott Spence - blog'
 const descriptionContent = 'Blog of Scott Spence - web developer'
 const keywordsContent =
   'blog, web developer, javascript, react, learning, information, how to'
-const imageLink =
-  'https://blog.scottspence.me/android-chrome-512x512.png'
+const imageLink = `${siteUrl}/android-chrome-512x512.png`
 
 export const siteMeta = [
   // Google / Search Engine Tags
