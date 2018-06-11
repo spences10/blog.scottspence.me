@@ -31,8 +31,12 @@ const AppStyles = styled.div`
     '. . . f f f f f f . . .';
 `
 
-const Content = styled.div`
+const ContentWrapper = styled.div`
   grid-area: m;
+`
+
+const NavWrapper = styled.div`
+  grid-area: n;
 `
 
 const App = () => (
@@ -44,9 +48,9 @@ const App = () => (
             <AppStyles background={background}>
               <Helmet title={nameContent} meta={siteMeta} />
               <Nav />
-              <Content className="content">
+              <ContentWrapper className="content">
                 <Routes />
-              </Content>
+              </ContentWrapper>
             </AppStyles>
           </ThemeProvider>
         )}

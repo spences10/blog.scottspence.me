@@ -90,6 +90,11 @@ export const reset = () =>
     ${fontFace('Eczar', 'eczar-v6-latin-700', 'bold')}
     ${fontFace('Taviraj', 'taviraj-v3-latin-regular')}
 
+    code[class*='language-'],
+    pre[class*='language-'] {
+      font-family: 'Dank Mono', Consolas, Courier, monospace;
+    }
+
     *, *:before, *:after {
       box-sizing: border-box;
     }

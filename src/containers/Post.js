@@ -2,13 +2,37 @@ import React from 'react'
 import { withRouteData } from 'react-static'
 import Markdown from 'react-markdown'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
 import { nameContent } from '../siteMeta'
 
+const PostWrapper = styled.div`
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: ${({ theme }) => theme.foreground};
+  border: 1px solid ${props => props.border};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+`
+
+const ContentWrapper = styled.div`
+  margin: 0.25rem;
+  padding: 0.5rem;
+`
 export default withRouteData(({ post }) => (
-  <article>
-    <Helmet title={`${post.title} - ${nameContent}`} />
-    <h1>{post.title}</h1>
-    <Markdown source={post.content} escapeHtml={false} />
-  </article>
+  <PostWrapper>
+    <ContentWrapper>
+      <article>
+        <Helmet title={`${post.title} - ${nameContent}`} />
+        <h1>{post.title}</h1>
+        <Markdown source={post.content} escapeHtml={false} />
+      </article>
+    </ContentWrapper>
+  </PostWrapper>
 ))

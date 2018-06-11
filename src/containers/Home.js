@@ -8,14 +8,14 @@ import ThemeSelect from '../components/ThemeSelect'
 import { excerpt, formatDate } from '../util/helpers'
 
 const PostsList = styled.ul`
-  grid-area: m;
-  margin: 1rem;
-  padding: 1rem;
+  /* grid-area: m; */
+  /* margin: 1rem; */
+  padding: 0rem;
 `
 
 const PostWrapper = styled.li`
-  margin: 1rem;
-  padding: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
   background: white;
@@ -24,8 +24,8 @@ const PostWrapper = styled.li`
 `
 
 const PostTitle = styled.h1`
-  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
-  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  margin: 0.12rem 0.5rem;
+  /* padding: 0.5rem 0.25rem 0.5rem 0.25rem; */
   font-family: ${props => props.theme.fontHeader};
   color: ${({ theme }) => theme.fontLight};
   font-weight: bold;
@@ -38,7 +38,7 @@ const PostTitle = styled.h1`
 
 const PostLink = styled(Link)`
   display: inline-block;
-  padding: 0rem 0.25rem 0rem 0.25rem;
+  /* padding: 0rem 0.25rem 0rem 0.25rem; */
   color: ${props => props.theme.fontDark};
   &:visited,
   &:active {
@@ -53,13 +53,13 @@ const PostLink = styled(Link)`
 `
 
 const PostExcerpt = styled.div`
-  margin: 0.25rem 1rem 0.25rem 1rem;
-  padding: 0rem;
+  margin: 0.12rem 0.5rem;
+  /* padding: 0rem; */
 `
 
 const PostedDate = styled.p`
-  margin: 0rem 1rem 0rem 1rem;
-  padding: 0rem;
+  margin: 0.12rem 0.5rem;
+  /* padding: 0rem; */
   font-weight: bold;
   color: ${props => props.theme.fontLight};
 `
