@@ -1,5 +1,5 @@
 import { injectGlobal, css } from 'styled-components'
-import { HERO } from './constants'
+// import { HERO } from './constants'
 import { fontFace } from './fonts'
 
 export const themes = {
@@ -83,16 +83,18 @@ export const reset = () =>
 
     ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
     ${fontFace('Poppins', 'poppins-v5-latin-regular')}
-
+    
     ${fontFace('Trirong', 'trirong-v3-latin-700', 'bold')}
     ${fontFace('Rubik', 'rubik-v7-latin-regular')}
-
+    
     ${fontFace('Eczar', 'eczar-v6-latin-700', 'bold')}
     ${fontFace('Taviraj', 'taviraj-v3-latin-regular')}
+    
+    @import url('../fonts/dank-mono.css/css?family=dm') format('woff');
 
     code[class*='language-'],
     pre[class*='language-'] {
-      font-family: 'Dank Mono', Consolas, Courier, monospace;
+      font-family: dm, Consolas, Courier, monospace;
     }
 
     *, *:before, *:after {
