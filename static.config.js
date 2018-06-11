@@ -89,5 +89,6 @@ export default {
         </Html>
       )
     }
-  }
+  },
+  preact: true
 }
