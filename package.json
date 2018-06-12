@@ -7,7 +7,7 @@
   "dependencies": {
     "eslint-plugin-graphql": "2.1.1",
     "gatsby": "1.9.270",
-    "gatsby-image": "1.0.51",
+    "gatsby-image": "1.0.52",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-google-analytics": "1.0.31",
@@ -22,7 +22,7 @@
     "gatsby-remark-images": "1.5.66",
     "gatsby-remark-prismjs": "2.0.3",
     "gatsby-source-filesystem": "1.5.38",
-    "gatsby-transformer-remark": "1.7.41",
+    "gatsby-transformer-remark": "1.7.42",
     "prismjs": "1.14.0",
     "react-helmet": "5.2.0",
     "styled-components": "3.3.2"
