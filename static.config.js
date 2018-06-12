@@ -2,7 +2,7 @@ import 'dotenv/config'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { request } from 'graphql-request'
-import OfflinePlugin from 'offline-plugin'
+// import OfflinePlugin from 'offline-plugin'
 
 const GRAPHCMS_API = process.env.API_URL
 
@@ -92,8 +92,8 @@ export default {
     }
   },
   preact: true,
-  webpack: config => {
-    config.plugins.push(new OfflinePlugin())
-    return config
-  }
+  // webpack: config => {
+  //   config.plugins.push(new OfflinePlugin())
+  //   return config
+  // }
 }
