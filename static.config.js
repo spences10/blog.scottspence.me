@@ -26,6 +26,14 @@ const query = `
     }
     bibliography
   }
+  allTags {
+    name
+    blogPosts {
+      title
+      slug
+      isPublished
+    }
+	}
 }
 `
 
@@ -34,7 +42,7 @@ export default {
     title: 'blog.scottspence.me'
   }),
   getRoutes: async () => {
-    const { allPosts, allAuthors } = await request(
+    const { allPosts, allAuthors, allTags } = await request(
       GRAPHCMS_API,
       query
     )
@@ -51,7 +59,12 @@ export default {
           getData: () => ({
             post
           })
-        }))
+        })),
+        path: '/tags',
+        component: 'src/containers/Tags',
+        getData: () => ({
+          tag
+        })
       },
       {
         path: '/about',
@@ -91,7 +104,7 @@ export default {
       )
     }
   },
-  preact: true,
+  preact: true
   // webpack: config => {
   //   config.plugins.push(new OfflinePlugin())
   //   return config
