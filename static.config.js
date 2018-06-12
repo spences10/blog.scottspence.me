@@ -59,7 +59,9 @@ export default {
           getData: () => ({
             post
           })
-        })),
+        }))
+      },
+      {
         path: '/tags',
         component: 'src/containers/Tags',
         getData: () => ({
