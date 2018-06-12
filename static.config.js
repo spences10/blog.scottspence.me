@@ -63,7 +63,7 @@ export default {
         path: '/tags',
         component: 'src/containers/Tags',
         getData: () => ({
-          tag
+          allTags
         })
       },
       {
