@@ -25,12 +25,18 @@ const ContentWrapper = styled.div`
   margin: 0.25rem;
   padding: 0.5rem;
 `
+
+const PostHeader = styled.h1`
+  margin: 0rem;
+  padding: 0rem;
+`
+
 export default withRouteData(({ post }) => (
   <PostWrapper>
     <ContentWrapper>
       <article>
         <Helmet title={`${post.title} - ${nameContent}`} />
-        <h1>{post.title}</h1>
+        <PostHeader>{post.title}</PostHeader>
         <Markdown source={post.content} escapeHtml={false} />
       </article>
     </ContentWrapper>
