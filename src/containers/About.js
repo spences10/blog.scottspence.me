@@ -7,6 +7,7 @@ import { nameContent } from '../siteMeta'
 
 const PageWrapper = styled.div`
   grid-area: m;
+  height: 100vh;
 `
 
 export default withRouteData(({ allAuthors }) => (
