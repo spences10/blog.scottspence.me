@@ -3,6 +3,7 @@ import { withRouteData } from 'react-static'
 import Markdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import Prism from 'prismjs'
 
 import { nameContent } from '../siteMeta'
 
