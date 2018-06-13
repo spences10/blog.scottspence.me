@@ -2,6 +2,8 @@ import { injectGlobal, css } from 'styled-components'
 // import { HERO } from './constants'
 import { fontFace } from './fonts'
 
+import dankYo from '../fonts/dank-mono.css'
+
 export const themes = {
   theme1: {
     primary: '#f2ff49',
@@ -90,8 +92,14 @@ export const reset = () =>
     ${fontFace('Eczar', 'eczar-v6-latin-700', 'bold')}
     ${fontFace('Taviraj', 'taviraj-v3-latin-regular')}
     
+    @font-face {
+      font-family: dm;
+      src: url(${dankYo}) format('woff');
+      font-weight: normal;
+    }
     /* @import url('../fonts/dank-mono.css/css?family=dm') format('woff'); */
 
+    p[class*='language-'],
     code[class*='language-'],
     pre[class*='language-'] {
       font-family: dm, Consolas, Courier, monospace;
