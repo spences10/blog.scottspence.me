@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouteData } from 'react-static'
 import styled from 'styled-components'
+import { Dump } from '../util/helpers'
 
 const PageWrapper = styled.div`
   height: 100vh;
@@ -13,6 +14,7 @@ const PageWrapper = styled.div`
 
 export default withRouteData(({ allTags }) => (
   <PageWrapper>
+    <Dump props={allTags} />
     {allTags.map((tag, index) => (
       <ul key={index}>
         <li>{tag.name}</li>

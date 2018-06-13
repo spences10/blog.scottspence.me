@@ -9,32 +9,32 @@ const GRAPHCMS_API = process.env.API_URL
 const env = process.env.NODE_ENV || 'development'
 
 const query = `
-{
-  allPosts (orderBy:dateAndTime_DESC) {
-    isPublished
-    slug
-    dateAndTime
-    updatedAt
-    title
-    content
-  }
-  allAuthors {
-    id
-    name
-    avatar {
-      handle
-    }
-    bibliography
-  }
-  allTags {
-    name
-    blogPosts {
-      title
-      slug
+  {
+    allPosts (orderBy:dateAndTime_DESC) {
       isPublished
+      slug
+      dateAndTime
+      updatedAt
+      title
+      content
     }
-	}
-}
+    allAuthors {
+      id
+      name
+      avatar {
+        handle
+      }
+      bibliography
+    }
+    allTags {
+      name
+      blogPosts {
+        title
+        slug
+        isPublished
+      }
+    }
+  }
 `
 
 export default {

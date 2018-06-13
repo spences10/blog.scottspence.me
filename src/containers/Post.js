@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Prism from 'prismjs'
 
+import PostNav from '../components/PostNav'
+
 import { nameContent } from '../siteMeta'
 
 const PostWrapper = styled.div`
@@ -39,6 +41,7 @@ export default withRouteData(({ post }) => (
         <Helmet title={`${post.title} - ${nameContent}`} />
         <PostHeader>{post.title}</PostHeader>
         <Markdown source={post.content} escapeHtml={false} />
+        <PostNav props={post} />
       </article>
     </ContentWrapper>
   </PostWrapper>
