@@ -15,6 +15,8 @@ import {
   BlogThemeProvider
 } from './contexts/BlogThemeContext'
 
+import { BlogDataProvider } from './contexts/BlogDataContext'
+
 reset()
 
 const AppStyles = styled.div`
@@ -42,21 +44,23 @@ const NavWrapper = styled.div`
 
 const App = () => (
   <Router>
-    <BlogThemeProvider>
-      <BlogThemeContext.Consumer>
-        {({ theme, background }) => (
-          <ThemeProvider theme={theme}>
-            <AppStyles background={background}>
-              <Helmet title={nameContent} meta={siteMeta} />
-              <Nav />
-              <ContentWrapper className="content">
-                <Routes />
-              </ContentWrapper>
-            </AppStyles>
-          </ThemeProvider>
-        )}
-      </BlogThemeContext.Consumer>
-    </BlogThemeProvider>
+    <BlogDataProvider>
+      <BlogThemeProvider>
+        <BlogThemeContext.Consumer>
+          {({ theme, background }) => (
+            <ThemeProvider theme={theme}>
+              <AppStyles background={background}>
+                <Helmet title={nameContent} meta={siteMeta} />
+                <Nav />
+                <ContentWrapper className="content">
+                  <Routes />
+                </ContentWrapper>
+              </AppStyles>
+            </ThemeProvider>
+          )}
+        </BlogThemeContext.Consumer>
+      </BlogThemeProvider>
+    </BlogDataProvider>
   </Router>
 )
 
