@@ -10,6 +10,8 @@ import { excerpt, formatDate } from '../util/helpers'
 const PostsList = styled.ul`
   /* grid-area: m; */
   /* margin: 1rem; */
+  padding-top: 1.5rem;
+
   padding: 0rem;
 `
 

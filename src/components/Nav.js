@@ -9,7 +9,7 @@ const NavWrapper = styled.nav`
   grid-area: n;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: '. . . b b b b b b . . .';
+  grid-template-areas: '. . . b b b b b a . . .';
   z-index: 1;
   top: 0;
   width: 100%;
@@ -17,7 +17,8 @@ const NavWrapper = styled.nav`
   display: grid;
   background: ${props => props.theme.primary};
   color: ${props => props.theme.fontDark};
-  padding: 1rem;
+  /* padding: 1rem; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `
 
 const LinksWrapper = styled.div`
@@ -25,16 +26,26 @@ const LinksWrapper = styled.div`
   font-weight: 700;
   font-family: ${props => props.theme.fontHeader};
   grid-area: b;
+  grid-area: ${props => props.area};
+`
+
+const StyledLink = styled(Link)`
+  margin: 0.25rem;
+  padding: 0.25rem;
 `
 
 const Nav = props => {
   return (
     <NavWrapper>
-      <LinksWrapper>
-        <Link exact to="/">
+      <LinksWrapper area={'b'}>
+        <StyledLink exact to="/">
           {siteUrl.substring(8)}
-        </Link>
-        <Link to="/about">About</Link>
+        </StyledLink>
+      </LinksWrapper>
+      <LinksWrapper area={'a'}>
+        <StyledLink area={'a'} to="/about">
+          about
+        </StyledLink>
       </LinksWrapper>
     </NavWrapper>
   )

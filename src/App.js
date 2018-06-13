@@ -21,7 +21,8 @@ const AppStyles = styled.div`
   background-color: ${props => props.theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
-  /* padding-top: 1.5rem; */
+  /*space between first post and nav bar*/
+  padding-top: 2.7rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
