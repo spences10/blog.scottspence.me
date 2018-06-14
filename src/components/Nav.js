@@ -13,7 +13,7 @@ const NavWrapper = styled.nav`
   z-index: 1;
   top: 0;
   width: 100%;
-  position: fixed;
+  position: fixed; /*sticky*/
   display: grid;
   background: ${props => props.theme.primary};
   color: ${props => props.theme.fontDark};
