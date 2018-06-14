@@ -39,7 +39,7 @@ const ContentWrapper = styled.div`
 `
 
 const NavWrapper = styled.div`
-  grid-area: n;
+  /* grid-area: n; */
 `
 
 const App = () => (
