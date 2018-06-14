@@ -13,6 +13,7 @@ const PostsList = styled.ul`
   padding-top: 1.5rem;
 
   padding: 0rem;
+  list-style-type: none;
 `
 
 const PostWrapper = styled.li`

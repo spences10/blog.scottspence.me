@@ -134,10 +134,15 @@ export const reset = () =>
     }
     ul {
       margin: 0 auto;
-      list-style-type: none;
+      /* list-style-type: none; */
     }
     img {
       max-width: 100%;
       max-height: 100%;
+    }
+    blockquote {
+      border-left: 5px solid #ccc;
+      padding-left: 5px;
+      font-style: italic;
     }
   `
