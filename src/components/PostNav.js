@@ -10,9 +10,9 @@ const PostNav = () => {
       {({ allPosts }) => {
         // const { dateAndTime, isPublished, slug, title } = allPosts
         // window.location.href
-        console.log('=====================')
-        console.log(window.location.href)
-        console.log('=====================')
+        // console.log('=====================')
+        // console.log(window.location.href)
+        // console.log('=====================')
         return (
           <React.Fragment>
             <Dump props={allPosts} />
