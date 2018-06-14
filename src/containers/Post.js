@@ -27,13 +27,16 @@ const PostWrapper = styled.div`
 const ContentWrapper = styled.div`
   margin: 0.25rem;
   padding: 0.5rem;
+  /* text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); */
 `
 
-const PostTitle = styled.h1`
+const PostTitle = styled.div`
   font-family: ${props => props.theme.fontHeader};
+  font-size: 2rem;
   color: ${props => props.theme.secondary};
   margin: 0rem;
   padding: 0rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 
 export default withRouteData(({ post }) => (
@@ -42,7 +45,7 @@ export default withRouteData(({ post }) => (
       <article>
         <Helmet title={`${post.title} - ${nameContent}`} />
         <PostTitle>{post.title}</PostTitle>
-        <Markdown source={post.content} escapeHtml={false} />
+        <Markdown source={post.content} />
         {/* <PostNav props={post} /> */}
       </article>
     </ContentWrapper>

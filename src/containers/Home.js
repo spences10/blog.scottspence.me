@@ -82,7 +82,6 @@ export default withRouteData(({ allPosts }) => (
               <PostExcerpt>
                 <Markdown
                   source={excerpt(post.content)}
-                  escapeHtml={false}
                   disallowedTypes={['image']}
                 />
               </PostExcerpt>
