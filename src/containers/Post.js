@@ -41,7 +41,7 @@ export default withRouteData(({ post }) => (
         <Helmet title={`${post.title} - ${nameContent}`} />
         <PostHeader>{post.title}</PostHeader>
         <Markdown source={post.content} escapeHtml={false} />
-        <PostNav props={post} />
+        {/* <PostNav props={post} /> */}
       </article>
     </ContentWrapper>
   </PostWrapper>
