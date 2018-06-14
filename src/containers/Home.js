@@ -24,6 +24,7 @@ const PostWrapper = styled.li`
   background: white;
   font-family: ${props => props.theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 `
 
 const PostTitle = styled.h1`

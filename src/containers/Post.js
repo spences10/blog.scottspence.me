@@ -29,7 +29,9 @@ const ContentWrapper = styled.div`
   padding: 0.5rem;
 `
 
-const PostHeader = styled.h1`
+const PostTitle = styled.h1`
+  font-family: ${props => props.theme.fontHeader};
+  color: ${props => props.theme.secondary};
   margin: 0rem;
   padding: 0rem;
 `
@@ -39,7 +41,7 @@ export default withRouteData(({ post }) => (
     <ContentWrapper>
       <article>
         <Helmet title={`${post.title} - ${nameContent}`} />
-        <PostHeader>{post.title}</PostHeader>
+        <PostTitle>{post.title}</PostTitle>
         <Markdown source={post.content} escapeHtml={false} />
         {/* <PostNav props={post} /> */}
       </article>
