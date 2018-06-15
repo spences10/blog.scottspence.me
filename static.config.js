@@ -111,4 +111,8 @@ export default {
   //   config.plugins.push(new OfflinePlugin())
   //   return config
   // }
+  // paths: {
+  //   prismCss: 'src/prism.css',
+  //   prismJs: 'src/prism.js'
+  // }
 }
