@@ -27,7 +27,7 @@ export const SelectOpt = styled.option`
   /* font-size: 1rem; */
 `
 
-const ThemeSelect = props => {
+const ThemeSelect = () => {
   return (
     <BlogThemeContext.Consumer>
       {({ handleThemeChange }) => (
