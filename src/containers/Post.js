@@ -3,9 +3,9 @@ import { withRouteData } from 'react-static'
 import Markdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Prism from 'prismjs'
+// import * as Prism from 'prismjs'
 
-import PostNav from '../components/PostNav'
+// import PostNav from '../components/PostNav'
 
 import { nameContent } from '../siteMeta'
 
@@ -39,15 +39,18 @@ const PostTitle = styled.div`
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 
-export default withRouteData(({ post }) => (
-  <PostWrapper>
-    <ContentWrapper>
-      <article>
-        <Helmet title={`${post.title} - ${nameContent}`} />
-        <PostTitle>{post.title}</PostTitle>
-        <Markdown source={post.content} />
-        {/* <PostNav props={post} /> */}
-      </article>
-    </ContentWrapper>
-  </PostWrapper>
-))
+export default withRouteData(({ post }) => {
+  // Prism.highlightAll()
+  return (
+    <PostWrapper>
+      <ContentWrapper>
+        <article>
+          <Helmet title={`${post.title} - ${nameContent}`} />
+          <PostTitle>{post.title}</PostTitle>
+          <Markdown source={post.content} />
+          {/* <PostNav props={post} /> */}
+        </article>
+      </ContentWrapper>
+    </PostWrapper>
+  )
+})

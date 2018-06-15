@@ -5,6 +5,9 @@ import Routes from 'react-static-routes'
 import styled, { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
+// import 'prismjs/components/prism-jsx'
+// import 'prismjs/themes/prism-solarizedlight.css'
+
 import { reset } from './theme/globalStyle'
 import { siteMeta, nameContent } from './siteMeta'
 
