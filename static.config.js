@@ -105,8 +105,8 @@ export default {
         </Html>
       )
     }
-  },
-  preact: true
+  }
+  // preact: true
   // webpack: config => {
   //   config.plugins.push(new OfflinePlugin())
   //   return config
