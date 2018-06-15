@@ -7,11 +7,11 @@
   "dependencies": {
     "eslint-plugin-graphql": "2.1.1",
     "gatsby": "1.9.270",
-    "gatsby-image": "1.0.52",
+    "gatsby-image": "1.0.53",
     "gatsby-link": "1.6.44",
     "gatsby-plugin-favicon": "2.1.1",
     "gatsby-plugin-google-analytics": "1.0.31",
-    "gatsby-plugin-manifest": "1.0.25",
+    "gatsby-plugin-manifest": "1.0.26",
     "gatsby-plugin-offline": "1.0.18",
     "gatsby-plugin-purify-css": "2.2.1",
     "gatsby-plugin-react-helmet": "2.0.11",
