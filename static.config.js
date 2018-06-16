@@ -53,10 +53,12 @@ export default {
         getData: () => ({
           allPosts
         }),
-        children: allPosts.map(post => ({
+        children: allPosts.map((post, index) => ({
           path: `/${post.slug}`,
           component: 'src/containers/Post',
           getData: () => ({
+            prevPath: allPosts[index - 1].slug,
+            nextPath: allPosts[index + 1].slug,
             post
           })
         }))
