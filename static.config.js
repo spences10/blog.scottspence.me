@@ -57,11 +57,17 @@ export default {
           path: `/${post.slug}`,
           component: 'src/containers/Post',
           getData: () => ({
+            prevTitle: allPosts[index + 1]
+              ? allPosts[index + 1].title
+              : '',
             prevPath: allPosts[index + 1]
               ? allPosts[index + 1].slug
               : '',
             prevIsPublished: allPosts[index + 1]
               ? allPosts[index + 1].isPublished
+              : '',
+            nextTitle: allPosts[index - 1]
+              ? allPosts[index - 1].title
               : '',
             nextPath: allPosts[index - 1]
               ? allPosts[index - 1].slug
