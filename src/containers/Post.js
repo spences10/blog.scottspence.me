@@ -6,7 +6,7 @@ import styled from 'styled-components'
 // import * as Prism from 'prismjs'
 
 // import PostNav from '../components/PostNav'
-import { Dump } from '../util/helpers'
+import { Dump, formatDate } from '../util/helpers'
 
 import { nameContent } from '../siteMeta'
 
@@ -40,6 +40,13 @@ const PostTitle = styled.div`
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 
+const PostedDate = styled.p`
+  margin: 0.12rem 0.5rem;
+  /* padding: 0rem; */
+  font-weight: bold;
+  color: ${props => props.theme.fontLight};
+`
+
 export default withRouteData(({ post, prevPath, nextPath }) => {
   // Prism.highlightAll()
   return (
@@ -48,6 +55,7 @@ export default withRouteData(({ post, prevPath, nextPath }) => {
         <article>
           <Helmet title={`${post.title} - ${nameContent}`} />
           <PostTitle>{post.title}</PostTitle>
+          <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
           <Dump prev={prevPath} next={nextPath} />
           <Markdown source={post.content} />
           {/* <PostNav props={post} /> */}
