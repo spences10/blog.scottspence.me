@@ -6,6 +6,7 @@ import styled from 'styled-components'
 // import * as Prism from 'prismjs'
 
 // import PostNav from '../components/PostNav'
+import { Dump } from '../util/helpers'
 
 import { nameContent } from '../siteMeta'
 
@@ -39,7 +40,7 @@ const PostTitle = styled.div`
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 
-export default withRouteData(({ post }) => {
+export default withRouteData(({ post, prevPath, nextPath }) => {
   // Prism.highlightAll()
   return (
     <PostWrapper>
@@ -47,6 +48,7 @@ export default withRouteData(({ post }) => {
         <article>
           <Helmet title={`${post.title} - ${nameContent}`} />
           <PostTitle>{post.title}</PostTitle>
+          <Dump prev={prevPath} next={nextPath} />
           <Markdown source={post.content} />
           {/* <PostNav props={post} /> */}
         </article>
