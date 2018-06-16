@@ -47,11 +47,27 @@ const PostedDate = styled.p`
   color: ${props => props.theme.fontLight};
 `
 
+const LinksWrapper = styled.div`
+  display: grid;
+  grid-template-areas: 'prev next';
+`
+
+const LinkWrapper = styled.div`
+  display: grid;
+  justify-items: ${props => props.justify};
+`
+
+const PrevNextButton = styled.button`
+  grid-area: ${props => props.area};
+`
+
 export default withRouteData(
   ({
     post,
+    prevTitle,
     prevPath,
     prevIsPublished,
+    nextTitle,
     nextPath,
     nextIsPublished
   }) => {
@@ -64,14 +80,38 @@ export default withRouteData(
             <PostTitle>{post.title}</PostTitle>
             <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
             <Dump
+              prevTit={prevTitle}
               prev={prevPath}
               prevPub={prevIsPublished}
+              nextTit={nextTitle}
               next={nextPath}
               nextPub={nextIsPublished}
             />
             <Markdown source={post.content} />
-            {prevIsPublished ? <Link to={prevPath}>Prev</Link> : ''}
-            {nextIsPublished ? <Link to={nextPath}>Next</Link> : ''}
+            <LinksWrapper>
+              <LinkWrapper justify={'start'}>
+                {prevIsPublished ? (
+                  <Link to={prevPath}>
+                    <PrevNextButton area={'prev'}>
+                      {prevTitle}
+                    </PrevNextButton>
+                  </Link>
+                ) : (
+                  ''
+                )}
+              </LinkWrapper>
+              <LinkWrapper justify={'end'}>
+                {nextIsPublished ? (
+                  <Link to={nextPath}>
+                    <PrevNextButton area={'next'}>
+                      {nextTitle}
+                    </PrevNextButton>
+                  </Link>
+                ) : (
+                  ''
+                )}
+              </LinkWrapper>
+            </LinksWrapper>
             {/* <PostNav props={post} /> */}
           </article>
         </ContentWrapper>
