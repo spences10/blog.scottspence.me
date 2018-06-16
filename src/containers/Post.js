@@ -47,20 +47,33 @@ const PostedDate = styled.p`
   color: ${props => props.theme.fontLight};
 `
 
-export default withRouteData(({ post, prevPath, nextPath }) => {
-  // Prism.highlightAll()
-  return (
-    <PostWrapper>
-      <ContentWrapper>
-        <article>
-          <Helmet title={`${post.title} - ${nameContent}`} />
-          <PostTitle>{post.title}</PostTitle>
-          <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
-          <Dump prev={prevPath} next={nextPath} />
-          <Markdown source={post.content} />
-          {/* <PostNav props={post} /> */}
-        </article>
-      </ContentWrapper>
-    </PostWrapper>
-  )
-})
+export default withRouteData(
+  ({
+    post,
+    prevPath,
+    prevIsPublished,
+    nextPath,
+    nextIsPublished
+  }) => {
+    // Prism.highlightAll()
+    return (
+      <PostWrapper>
+        <ContentWrapper>
+          <article>
+            <Helmet title={`${post.title} - ${nameContent}`} />
+            <PostTitle>{post.title}</PostTitle>
+            <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
+            <Dump
+              prev={prevPath}
+              prevPub={prevIsPublished}
+              next={nextPath}
+              nextPub={nextIsPublished}
+            />
+            <Markdown source={post.content} />
+            {/* <PostNav props={post} /> */}
+          </article>
+        </ContentWrapper>
+      </PostWrapper>
+    )
+  }
+)

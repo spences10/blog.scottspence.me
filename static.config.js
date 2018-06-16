@@ -60,8 +60,14 @@ export default {
             prevPath: allPosts[index - 1]
               ? allPosts[index - 1].slug
               : '',
+            prevIsPublished: allPosts[index - 1]
+              ? allPosts[index - 1].isPublished
+              : '',
             nextPath: allPosts[index + 1]
               ? allPosts[index + 1].slug
+              : '',
+            nextIsPublished: allPosts[index + 1]
+              ? allPosts[index + 1].isPublished
               : '',
             post
           })
