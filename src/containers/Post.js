@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouteData } from 'react-static'
+import { withRouteData, Link } from 'react-static'
 import Markdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -70,6 +70,8 @@ export default withRouteData(
               nextPub={nextIsPublished}
             />
             <Markdown source={post.content} />
+            {prevIsPublished ? <Link to={prevPath}>Prev</Link> : ''}
+            {nextIsPublished ? <Link to={nextPath}>Next</Link> : ''}
             {/* <PostNav props={post} /> */}
           </article>
         </ContentWrapper>
