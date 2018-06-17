@@ -11,9 +11,17 @@ const PageWrapper = styled.div`
   /* height: 100vh; */
 `
 
-export default withRouteData(({ tag }) => (
-  <PageWrapper>
-    {/* <Helmet title={`Posts relating to ${tag.name}`} /> */}
-    <Dump tag={tag} />
-  </PageWrapper>
-))
+export default withRouteData(({ tag }) => {
+  const { blogPosts } = tag
+  console.log('=====================')
+  console.log(blogPosts)
+  console.log('=====================')
+  return (
+    <PageWrapper>
+      {/* <Helmet title={`Posts relating to ${tag.name}`} /> */}
+
+      {console.log(typeof tag)}
+      <Dump tag={tag} />
+    </PageWrapper>
+  )
+})
