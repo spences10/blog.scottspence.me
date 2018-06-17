@@ -26,7 +26,7 @@ const query = `
       }
       bibliography
     }
-    allTags {
+    allTags (orderBy:name_ASC){
       name
       blogPosts {
         title
@@ -84,14 +84,7 @@ export default {
         component: 'src/containers/AllTags',
         getData: () => ({
           allTags
-        }),
-        children: allTags.map((tag, index) => ({
-          path: `/${tag.name}`,
-          component: 'src/containers/Tag',
-          getData: () => ({
-            tag
-          })
-        }))
+        })
       },
       {
         path: '/about',
