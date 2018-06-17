@@ -80,11 +80,18 @@ export default {
         }))
       },
       {
-        path: '/tags',
-        component: 'src/containers/Tags',
+        path: '/all-tags',
+        component: 'src/containers/AllTags',
         getData: () => ({
           allTags
-        })
+        }),
+        children: allTags.map((tag, index) => ({
+          path: `/${tag.name}`,
+          component: 'src/containers/Tag',
+          getData: () => ({
+            tag
+          })
+        }))
       },
       {
         path: '/about',
