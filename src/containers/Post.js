@@ -6,6 +6,8 @@ import styled from 'styled-components'
 // import * as Prism from 'prismjs'
 
 // import PostNav from '../components/PostNav'
+import { HappyButton } from '../components/Shared'
+
 import { Dump, formatDate } from '../util/helpers'
 
 import { nameContent } from '../siteMeta'
@@ -57,7 +59,9 @@ const LinkWrapper = styled.div`
   justify-items: ${props => props.justify};
 `
 
-const PrevNextButton = styled.button`
+const PrevNextButton = HappyButton.extend`
+  margin: 0.5rem 0rem;
+  padding: 0.5rem;
   grid-area: ${props => props.area};
 `
 
