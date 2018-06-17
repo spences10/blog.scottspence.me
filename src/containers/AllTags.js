@@ -5,20 +5,23 @@ import { Dump } from '../util/helpers'
 
 const PageWrapper = styled.div`
   /* height: 100vh; */
+  list-style-type: none;
 `
 const LinkWrapper = styled.li`
   margin: 0.5rem;
   padding: 0.5rem;
+  list-style-type: square;
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
   background: white;
   font-family: ${props => props.theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  list-style-type: none;
 `
 
 const TagLink = styled(Link)`
+  margin: 0.5rem;
+  padding: 0.5rem;
   display: inline-block;
   /* padding: 0rem 0.25rem 0rem 0.25rem; */
   color: ${props => props.theme.fontDark};
@@ -52,17 +55,25 @@ const TagTitle = styled.h1`
 // width: 100%;
 // background-size: 15% auto;
 
-export default withRouteData(({ allTags }) => (
-  <PageWrapper>
-    {allTags.map((tag, index) => {
-      console.log(tag)
-      return (
-        <LinkWrapper key={index}>
-          <TagLink to={`/all-tags/${tag.name}`}>
+export default withRouteData(({ allTags }) => {
+  return (
+    <PageWrapper>
+      {allTags.map((tag, index) => {
+        console.log(tag)
+        const { blogPosts } = tag
+        return (
+          <LinkWrapper key={index}>
             <TagTitle>{tag.name}</TagTitle>
-          </TagLink>
-        </LinkWrapper>
-      )
-    })}
-  </PageWrapper>
-))
+            {blogPosts.map((post, index) => {
+              return (
+                <li key={index}>
+                  <TagLink to={post.slug}>{post.title}</TagLink>
+                </li>
+              )
+            })}
+          </LinkWrapper>
+        )
+      })}
+    </PageWrapper>
+  )
+})
