@@ -15,6 +15,7 @@ const LinkWrapper = styled.li`
   font-family: ${props => props.theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  list-style-type: none;
 `
 
 const TagLink = styled(Link)`
