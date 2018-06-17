@@ -14,7 +14,7 @@ const PageWrapper = styled.div`
 
 export default withRouteData(({ allTags }) => (
   <PageWrapper>
-    <Dump props={allTags} />
+    {/* <Dump props={allTags} /> */}
     {allTags.map((tag, index) => (
       <ul key={index}>
         <li>{tag.name}</li>
