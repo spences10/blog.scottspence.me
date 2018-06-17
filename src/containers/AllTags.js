@@ -7,7 +7,7 @@ const PageWrapper = styled.div`
   /* height: 100vh; */
   list-style-type: none;
 `
-const LinkWrapper = styled.li`
+const LinkWrapper = styled.ul`
   margin: 0.5rem;
   padding: 0.5rem;
   list-style-type: square;
@@ -19,10 +19,16 @@ const LinkWrapper = styled.li`
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 `
 
+const ListTags = styled.li`
+  margin: 0.25rem 0rem;
+  padding: 0.25rem 0rem;
+  list-style-type: none;
+`
+
 const TagLink = styled(Link)`
   margin: 0.5rem;
   padding: 0.5rem;
-  display: inline-block;
+  /* display: inline-block; */
   /* padding: 0rem 0.25rem 0rem 0.25rem; */
   color: ${props => props.theme.fontDark};
   &:visited,
@@ -59,16 +65,15 @@ export default withRouteData(({ allTags }) => {
   return (
     <PageWrapper>
       {allTags.map((tag, index) => {
-        console.log(tag)
         const { blogPosts } = tag
         return (
           <LinkWrapper key={index}>
             <TagTitle>{tag.name}</TagTitle>
             {blogPosts.map((post, index) => {
               return (
-                <li key={index}>
+                <ListTags key={index}>
                   <TagLink to={post.slug}>{post.title}</TagLink>
-                </li>
+                </ListTags>
               )
             })}
           </LinkWrapper>
