@@ -58,6 +58,7 @@ export const themes = {
 }
 
 const sizes = {
+  monitor: 1800,
   giant: 1170,
   desktop: 992,
   tablet: 768,
