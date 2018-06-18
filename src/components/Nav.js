@@ -4,12 +4,9 @@ import { Link } from 'react-static'
 import styled from 'styled-components'
 
 import { siteUrl } from '../siteMeta'
+import { media } from '../theme/globalStyle'
 
 const NavWrapper = styled.nav`
-  grid-area: n;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas: '. . . b b b b b a . . .';
   z-index: 1;
   top: 0;
   width: 100%;
@@ -19,6 +16,32 @@ const NavWrapper = styled.nav`
   color: ${props => props.theme.fontDark};
   /* padding: 1rem; */
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
+  grid-area: n;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: '. . . b b b b b a . . .';
+  ${media.giant`
+    grid-template-areas:
+      '. . b b b b b b b a . .';
+    /* background: goldenrod; */
+  `};
+  ${media.desktop`
+    grid-template-areas:
+      '. . b b b b b b b a . .';
+    /* background: dodgerblue; */
+  `};
+  ${media.tablet`
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+        '. b b b b b b a .';
+    /* background: mediumseagreen; */
+  `};
+  ${media.phone`
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+        'b b b b b b b b a';
+    /* background: palevioletred; */
+  `};
 `
 
 const LinksWrapper = styled.div`
