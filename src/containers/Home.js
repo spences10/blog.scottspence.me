@@ -3,8 +3,6 @@ import { withRouteData, Link } from 'react-static'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 
-import ThemeSelect from '../components/ThemeSelect'
-
 import { excerpt, formatDate } from '../util/helpers'
 
 const PostsList = styled.ul`
@@ -90,6 +88,5 @@ export default withRouteData(({ allPosts }) => (
           )
       )}
     </PostsList>
-    <ThemeSelect />
   </React.Fragment>
 ))
