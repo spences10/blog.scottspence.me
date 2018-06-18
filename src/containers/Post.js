@@ -65,61 +65,50 @@ const PrevNextButton = HappyButton.extend`
   grid-area: ${props => props.area};
 `
 
-export default withRouteData(
-  ({
-    post,
-    prevTitle,
-    prevPath,
-    prevIsPublished,
-    nextTitle,
-    nextPath,
-    nextIsPublished
-  }) => {
-    // Prism.highlightAll()
-    return (
-      <PostWrapper>
-        <ContentWrapper>
-          <article>
-            <Helmet title={`${post.title} - ${nameContent}`} />
-            <PostTitle>{post.title}</PostTitle>
-            <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
-            <Dump
-              prevTit={prevTitle}
-              prev={prevPath}
-              prevPub={prevIsPublished}
-              nextTit={nextTitle}
-              next={nextPath}
-              nextPub={nextIsPublished}
-            />
-            <Markdown source={post.content} />
-            <LinksWrapper>
-              <LinkWrapper justify={'start'}>
-                {prevIsPublished ? (
-                  <Link to={prevPath}>
-                    <PrevNextButton area={'prev'}>
-                      {prevTitle}
-                    </PrevNextButton>
-                  </Link>
-                ) : (
-                  ''
-                )}
-              </LinkWrapper>
-              <LinkWrapper justify={'end'}>
-                {nextIsPublished ? (
-                  <Link to={nextPath}>
-                    <PrevNextButton area={'next'}>
-                      {nextTitle}
-                    </PrevNextButton>
-                  </Link>
-                ) : (
-                  ''
-                )}
-              </LinkWrapper>
-            </LinksWrapper>
-            {/* <PostNav props={post} /> */}
-          </article>
-        </ContentWrapper>
-      </PostWrapper>
-    )
-  }
-)
+export default withRouteData(({ post, previousPost, nextPost }) => {
+  return (
+    <PostWrapper>
+      <ContentWrapper>
+        <article>
+          <Helmet title={`${post.title} - ${nameContent}`} />
+          <PostTitle>{post.title}</PostTitle>
+          <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
+          <Dump
+            prevTit={previousPost.title}
+            prev={previousPost.slug}
+            prevPub={previousPost.isPublished}
+            nextTit={nextPost.title}
+            next={nextPost.slug}
+            nextPub={nextPost.isPublished}
+          />
+          <Markdown source={post.content} />
+          <LinksWrapper>
+            <LinkWrapper justify={'start'}>
+              {previousPost.isPublished ? (
+                <Link to={previousPost.slug}>
+                  <PrevNextButton area={'prev'}>
+                    {previousPost.title}
+                  </PrevNextButton>
+                </Link>
+              ) : (
+                ''
+              )}
+            </LinkWrapper>
+            <LinkWrapper justify={'end'}>
+              {nextPost.isPublished ? (
+                <Link to={nextPost.slug}>
+                  <PrevNextButton area={'next'}>
+                    {nextPost.title}
+                  </PrevNextButton>
+                </Link>
+              ) : (
+                ''
+              )}
+            </LinkWrapper>
+          </LinksWrapper>
+          {/* <PostNav props={post} /> */}
+        </article>
+      </ContentWrapper>
+    </PostWrapper>
+  )
+})

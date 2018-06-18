@@ -57,24 +57,28 @@ export default {
           path: `/${post.slug}`,
           component: 'src/containers/Post',
           getData: () => ({
-            prevTitle: allPosts[index + 1]
-              ? allPosts[index + 1].title
-              : '',
-            prevPath: allPosts[index + 1]
-              ? allPosts[index + 1].slug
-              : '',
-            prevIsPublished: allPosts[index + 1]
-              ? allPosts[index + 1].isPublished
-              : '',
-            nextTitle: allPosts[index - 1]
-              ? allPosts[index - 1].title
-              : '',
-            nextPath: allPosts[index - 1]
-              ? allPosts[index - 1].slug
-              : '',
-            nextIsPublished: allPosts[index - 1]
-              ? allPosts[index - 1].isPublished
-              : '',
+            previousPost: {
+              title: allPosts[index + 1]
+                ? allPosts[index + 1].title
+                : '',
+              slug: allPosts[index + 1]
+                ? allPosts[index + 1].slug
+                : '',
+              isPublished: allPosts[index + 1]
+                ? allPosts[index + 1].isPublished
+                : ''
+            },
+            nextPost: {
+              title: allPosts[index - 1]
+                ? allPosts[index - 1].title
+                : '',
+              slug: allPosts[index - 1]
+                ? allPosts[index - 1].slug
+                : '',
+              isPublished: allPosts[index - 1]
+                ? allPosts[index - 1].isPublished
+                : ''
+            },
             post
           })
         }))
