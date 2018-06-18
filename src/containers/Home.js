@@ -11,7 +11,6 @@ const PostsList = styled.ul`
   /* grid-area: m; */
   /* margin: 1rem; */
   padding-top: 1.5rem;
-
   padding: 0rem;
   list-style-type: none;
 `

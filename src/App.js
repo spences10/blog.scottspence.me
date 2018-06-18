@@ -9,6 +9,7 @@ import { reset, media } from './theme/globalStyle'
 import { siteMeta, nameContent } from './siteMeta'
 
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 
 import {
   BlogThemeContext,
@@ -18,11 +19,12 @@ import {
 import { BlogDataProvider } from './contexts/BlogDataContext'
 
 import { loadLanguages } from 'reprism'
+import bash from 'reprism/lib/languages/bash'
 import json from 'reprism/lib/languages/json'
 import yml from 'reprism/lib/languages/yaml'
 import 'react-smackdown/themes/smackdown-light.css'
 
-loadLanguages(json, yml)
+loadLanguages(json, yml, bash)
 
 reset()
 
@@ -31,14 +33,14 @@ const AppStyles = styled.div`
   background-image: url("${props => props.background}");
   background-attachment: fixed;
   /*space between first post and nav bar*/
-  padding-top: 2.7rem;
+  /* padding-top: 2.7rem; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    '. . . h h h h h h . . .'
+    'h h h h h h h h h h h h'
     '. . . m m m m m m . . .'
-    '. . . f f f f f f . . .';
+    'f f f f f f f f f f f f';
   ${media.giant`
     grid-template-areas:
       '. . h h h h h h h h . .'
@@ -92,6 +94,7 @@ const App = () => (
                 <ContentWrapper className="content">
                   <Routes />
                 </ContentWrapper>
+                <Footer />
               </AppStyles>
             </ThemeProvider>
           )}

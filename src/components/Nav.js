@@ -10,13 +10,13 @@ const NavWrapper = styled.nav`
   z-index: 1;
   top: 0;
   width: 100%;
-  position: fixed; /*sticky*/
+  position: sticky;
   display: grid;
   background: ${props => props.theme.primary};
   color: ${props => props.theme.fontDark};
   /* padding: 1rem; */
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
-  grid-area: n;
+  grid-area: h;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas: '. . . b b b b b a . . .';
