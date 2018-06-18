@@ -43,32 +43,32 @@ const AppStyles = styled.div`
     'f f f f f f f f f f f f';
   ${media.giant`
     grid-template-areas:
-      '. . h h h h h h h h . .'
+      'h h h h h h h h h h h h'
       '. . m m m m m m m m . .'
-      '. . f f f f f f f f . .';
+      'f f f f f f f f f f f f';
     /* background: goldenrod; */
   `};
   ${media.desktop`
     grid-template-areas:
-      '. . h h h h h h h h . .'
+      'h h h h h h h h h h h h'
       '. . m m m m m m m m . .'
-      '. . f f f f f f f f . .';
+      'f f f f f f f f f f f f';
     /* background: dodgerblue; */
   `};
   ${media.tablet`
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-areas:
-        '. h h h h h h h .'
-        '. m m m m m m m .'
-        '. f f f f f f f .';
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-areas:
+      'h h h h h h h h h'
+      '. m m m m m m m .'
+      'f f f f f f f f f';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-areas:
-        'h h h h h h h h h'
-        'm m m m m m m m m'
-        'f f f f f f f f f';
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-areas:
+      'h h h h h h h h h'
+      'm m m m m m m m m'
+      'f f f f f f f f f';
     /* background: palevioletred; */
   `};
 `
