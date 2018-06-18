@@ -145,9 +145,9 @@ export const reset = () =>
       padding-left: 5px;
       font-style: italic;
     }
-    code {
+    /* code {
       font-family: dm;
       color: rgb(101, 123, 131);
       background-color: rgb(253, 246, 227);
-    }
+    } */
   `
