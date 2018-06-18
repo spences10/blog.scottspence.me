@@ -5,8 +5,6 @@ import Routes from 'react-static-routes'
 import styled, { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
-import 'react-smackdown/themes/smackdown-light.css'
-
 import { reset, media } from './theme/globalStyle'
 import { siteMeta, nameContent } from './siteMeta'
 
@@ -18,6 +16,13 @@ import {
 } from './contexts/BlogThemeContext'
 
 import { BlogDataProvider } from './contexts/BlogDataContext'
+
+import { loadLanguages } from 'reprism'
+import json from 'reprism/lib/languages/json'
+import yml from 'reprism/lib/languages/yaml'
+import 'react-smackdown/themes/smackdown-light.css'
+
+loadLanguages(json, yml)
 
 reset()
 
