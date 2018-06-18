@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
-import Markdown from 'react-markdown'
+// import Markdown from 'react-markdown'
+import { Markdown } from 'react-smackdown'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 // import * as Prism from 'prismjs'
@@ -11,6 +12,8 @@ import { HappyButton } from '../components/Shared'
 import { Dump, formatDate } from '../util/helpers'
 
 import { nameContent } from '../siteMeta'
+
+import 'react-smackdown/themes/smackdown-light.css'
 
 const PostWrapper = styled.div`
   margin: 0.5rem;
