@@ -8,7 +8,10 @@ import styled from 'styled-components'
 // import PostNav from '../components/PostNav'
 import { HappyButton } from '../components/Shared'
 
-import { Dump, formatDate } from '../util/helpers'
+import {
+  // Dump,
+  formatDate
+} from '../util/helpers'
 
 import { nameContent } from '../siteMeta'
 
@@ -43,7 +46,7 @@ const PostTitle = styled.div`
 `
 
 const PostedDate = styled.p`
-  margin: 0.12rem 0.5rem;
+  margin: 0.05rem;
   /* padding: 0rem; */
   font-weight: bold;
   color: ${props => props.theme.fontLight};
@@ -72,15 +75,17 @@ export default withRouteData(({ post, previousPost, nextPost }) => {
         <article>
           <Helmet title={`${post.title} - ${nameContent}`} />
           <PostTitle>{post.title}</PostTitle>
-          <PostedDate>{formatDate(post.dateAndTime)}</PostedDate>
-          <Dump
+          <PostedDate>
+            Posted: {formatDate(post.dateAndTime)}
+          </PostedDate>
+          {/* <Dump
             prevTit={previousPost.title}
             prev={previousPost.slug}
             prevPub={previousPost.isPublished}
             nextTit={nextPost.title}
             next={nextPost.slug}
             nextPub={nextPost.isPublished}
-          />
+          /> */}
           <Markdown source={post.content} />
           <LinksWrapper>
             <LinkWrapper justify={'start'}>
