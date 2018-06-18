@@ -48,7 +48,6 @@ const LinksWrapper = styled.div`
   font-size: 2rem;
   font-weight: 700;
   font-family: ${props => props.theme.fontHeader};
-  grid-area: b;
   grid-area: ${props => props.area};
 `
 
