@@ -68,7 +68,7 @@ export default withRouteData(({ allTags }) => {
         const { blogPosts } = tag
         return (
           <LinkWrapper key={index}>
-            <TagTitle>{tag.name}</TagTitle>
+            <TagTitle innerRef={tag.name}>{tag.name}</TagTitle>
             {blogPosts.map((post, index) => {
               return (
                 <ListTags key={index}>
