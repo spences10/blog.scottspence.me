@@ -92,6 +92,9 @@ const Footer = props => {
         <ListLink>
           <Link to="/about">About</Link>
         </ListLink>
+        <ListLink>
+          <Link to="/all-tags">Tags</Link>
+        </ListLink>
         <ListLink>Contact</ListLink>
       </LinksList>
       <LinksList area={'s'}>
