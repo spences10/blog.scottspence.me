@@ -20,6 +20,7 @@ const FooterWrapper = styled.div`
   display: grid;
   background: ${props => props.theme.primary};
   color: ${props => props.theme.fontDark};
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -5px 5px 0px;
 
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
