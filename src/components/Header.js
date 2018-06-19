@@ -47,11 +47,12 @@ const HeaderWrapper = styled.header`
 const LinksWrapper = styled.div`
   font-size: 2rem;
   font-weight: 700;
-  font-family: ${props => props.theme.fontHeader};
   grid-area: ${props => props.area};
 `
 
 const StyledLink = styled(Link)`
+  font-family: ${props => props.theme.fontHeader};
+  color: ${props => props.theme.fontDark};
   margin: 0.25rem;
   padding: 0.25rem;
 `
