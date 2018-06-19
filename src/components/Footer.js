@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-static'
 
 import ThemeSelect from '../components/ThemeSelect'
+import { StyledHyperLink as SHL } from '../components/Shared'
 
 import { media } from '../theme/globalStyle'
 
@@ -83,7 +84,15 @@ const ListLink = styled.li`
   color: ${props => props.theme.fontDark};
 `
 
+const StyledHyperLink = SHL.extend`
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+`
+
 const Footer = props => {
+  // console.log('=====================')
+  // console.log(props)
+  // console.log('=====================')
   return (
     <FooterWrapper>
       <ThemeSelect />
@@ -95,7 +104,13 @@ const Footer = props => {
         <ListLink>
           <Link to="/all-tags">Tags</Link>
         </ListLink>
-        <ListLink>Contact</ListLink>
+        <StyledHyperLink
+          href={`mailto:spences10apps@gmail.com?subject=Hi Scott 👋`}
+          target="_blank"
+          rel="noopener"
+        >
+          <ListLink>Contact</ListLink>
+        </StyledHyperLink>
       </LinksList>
       <LinksList area={'s'}>
         <LinksListTitle>Social</LinksListTitle>
@@ -107,7 +122,12 @@ const Footer = props => {
         <img src={rSLogo} className="App-logo" alt="logo" />
       </ImageWrapper>
       <ImageWrapper area={'g'}>
-        <img src={gCSMLogo} className="App-logo" alt="logo" />
+        <img
+          src={gCSMLogo}
+          height="100%"
+          className="App-logo"
+          alt="logo"
+        />
       </ImageWrapper>
     </FooterWrapper>
   )

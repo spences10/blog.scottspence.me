@@ -56,3 +56,15 @@ export const HappyButton = ButtonBig.extend`
     }
   }
 `
+
+export const StyledHyperLink = styled.a`
+  cursor: pointer;
+  &:visited,
+  &:active {
+    color: ${props => props.theme.primary};
+  }
+  &:hover {
+    color: ${props => props.theme.secondary};
+  }
+  color: ${props => props.theme.primary};
+`

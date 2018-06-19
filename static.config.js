@@ -40,6 +40,7 @@ const query = `
 export default {
   getSiteData: () => ({
     title: 'blog.scottspence.me',
+    name: 'Scott',
     email: 'spences10apps@gmail.com',
     gitHub: 'https://github.com/spences10',
     twitter: 'https://twitter.com/ScottDevTweets',
