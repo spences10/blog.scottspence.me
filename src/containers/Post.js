@@ -5,7 +5,6 @@ import { Markdown } from 'react-smackdown'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-// import PostNav from '../components/PostNav'
 import { HappyButton } from '../components/Shared'
 
 import {
@@ -111,7 +110,6 @@ export default withRouteData(({ post, previousPost, nextPost }) => {
               )}
             </LinkWrapper>
           </LinksWrapper>
-          {/* <PostNav props={post} /> */}
         </article>
       </ContentWrapper>
     </PostWrapper>

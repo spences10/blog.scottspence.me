@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { siteUrl } from '../siteMeta'
 import { media } from '../theme/globalStyle'
 
-const NavWrapper = styled.nav`
+const HeaderWrapper = styled.header`
   z-index: 1;
   top: 0;
   width: 100%;
@@ -56,9 +56,9 @@ const StyledLink = styled(Link)`
   padding: 0.25rem;
 `
 
-const Nav = props => {
+const Header = props => {
   return (
-    <NavWrapper>
+    <HeaderWrapper>
       <LinksWrapper area={'b'}>
         <StyledLink exact to="/">
           {siteUrl.substring(8)}
@@ -69,10 +69,8 @@ const Nav = props => {
           about
         </StyledLink>
       </LinksWrapper>
-    </NavWrapper>
+    </HeaderWrapper>
   )
 }
 
-// Nav.propTypes = {}
-
-export default Nav
+export default Header

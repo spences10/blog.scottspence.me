@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 import { reset, media } from './theme/globalStyle'
 import { siteMeta, nameContent } from './siteMeta'
 
-import Nav from './components/Nav'
+import Header from './components/Header'
 import Footer from './components/Footer'
 
 import {
@@ -77,7 +77,7 @@ const ContentWrapper = styled.div`
   grid-area: m;
 `
 
-const NavWrapper = styled.div`
+const HeaderWrapper = styled.div`
   /* grid-area: n; */
 `
 
@@ -90,7 +90,7 @@ const App = () => (
             <ThemeProvider theme={theme}>
               <AppStyles background={background}>
                 <Helmet title={nameContent} meta={siteMeta} />
-                <Nav />
+                <Header />
                 <ContentWrapper className="content">
                   <Routes />
                 </ContentWrapper>
