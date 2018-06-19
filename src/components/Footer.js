@@ -23,33 +23,37 @@ const FooterWrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    '. . . l . . . g g . . .'
+    '. . . l s . . g g . . .'
     '. . . t . . . r r . . .';
   ${media.giant`
     grid-template-areas:
-      '. . . l . . . g g . . .'
+      '. . . l s . . g g . . .'
       '. . . t . . . r r . . .';
     /* background: goldenrod; */
   `};
   ${media.desktop`
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-      '. . l . . . g g . .'
+      '. . l s . . g g . .'
       '. . t . . . r r . .';
     /* background: dodgerblue; */
   `};
   ${media.tablet`
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-        '. l . g g g g .'
-        '. t . r r r r .';
+        '. l l s s . . .'
+        '. t . . . . . .'
+        '. g g r r r r .'
+        '. g g r r r r .';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
-        'l . g g g g'
-        't . r r r r';
+        'l l s s . .'
+        't . . . . .'
+        'g g r r r r'
+        'g g r r r r';
     /* background: palevioletred; */
   `};
 `
@@ -61,21 +65,40 @@ const ImageWrapper = styled.div`
 `
 
 const LinksList = styled.ul`
-  grid-area: l;
-  margin: 1rem;
-  padding: 1rem;
+  grid-area: ${props => props.area};
+  margin: 0.5rem;
+  padding: 0.5rem;
+`
+
+const LinksListTitle = styled.span`
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: ${props => props.theme.fontHeader};
+  color: ${props => props.theme.fontLight};
 `
 
 const ListLink = styled.li`
-  /* grid-area: l; */
+  list-style-type: none;
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
 `
 
 const Footer = props => {
   return (
     <FooterWrapper>
       <ThemeSelect />
-      <LinksList>
-        <ListLink>hello</ListLink>
+      <LinksList area={'l'}>
+        <LinksListTitle>Links</LinksListTitle>
+        <ListLink>
+          <Link to="/about">About</Link>
+        </ListLink>
+        <ListLink>Contact</ListLink>
+      </LinksList>
+      <LinksList area={'s'}>
+        <LinksListTitle>Social</LinksListTitle>
+        <ListLink>GitHub</ListLink>
+        <ListLink>Twitter</ListLink>
+        <ListLink>Medium</ListLink>
       </LinksList>
       <ImageWrapper area={'r'}>
         <img src={rSLogo} className="App-logo" alt="logo" />
