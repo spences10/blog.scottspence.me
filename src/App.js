@@ -68,16 +68,16 @@ const AppStyles = styled.div`
     /* background: dodgerblue; */
   `};
   ${media.tablet`
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
       'h h h h h h'
       '. m m m m .'
       'f f f f f f';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
       'h h h h'
       'm m m m'
       'f f f f';

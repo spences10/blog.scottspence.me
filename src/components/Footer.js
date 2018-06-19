@@ -15,7 +15,7 @@ const FooterWrapper = styled.div`
   bottom: 0;
   /* width: 100%; */
   /* position: fixed; sticky */
-  height: 15rem;
+  height: 20rem;
   grid-area: f;
   display: grid;
   background: ${props => props.theme.primary};
@@ -59,6 +59,7 @@ const FooterWrapper = styled.div`
   `};
 
   ${media.tablet`
+    height: 30rem;
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
         '. l s . . .'
@@ -73,8 +74,8 @@ const FooterWrapper = styled.div`
     grid-template-areas:
         'l l s s'
         't . . .'
-        'g g r r'
-        'g g r r';
+        'g g g g'
+        'r r r r';
     /* background: palevioletred; */
   `};
 `
