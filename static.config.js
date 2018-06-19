@@ -39,7 +39,11 @@ const query = `
 
 export default {
   getSiteData: () => ({
-    title: 'blog.scottspence.me'
+    title: 'blog.scottspence.me',
+    email: 'spences10apps@gmail.com',
+    gitHub: 'https://github.com/spences10',
+    twitter: 'https://twitter.com/ScottDevTweets',
+    medium: 'https://medium.com/@spences10'
   }),
   getRoutes: async () => {
     const { allPosts, allAuthors, allTags } = await request(
