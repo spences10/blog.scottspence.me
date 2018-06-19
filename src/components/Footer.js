@@ -32,6 +32,7 @@ const FooterWrapper = styled.div`
       '. . . t . . . r r . . .';
     /* background: goldenrod; */
   `};
+
   ${media.desktop`
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
@@ -39,6 +40,7 @@ const FooterWrapper = styled.div`
       '. . t . . . r r . .';
     /* background: dodgerblue; */
   `};
+
   ${media.tablet`
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
@@ -48,6 +50,7 @@ const FooterWrapper = styled.div`
         '. g g r r r r .';
     /* background: mediumseagreen; */
   `};
+
   ${media.phone`
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
@@ -89,6 +92,11 @@ const StyledHyperLink = SHL.extend`
   color: ${props => props.theme.fontDark};
 `
 
+const StyledLink = styled(Link)`
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+`
+
 const Footer = props => {
   // console.log('=====================')
   // console.log(props)
@@ -99,10 +107,10 @@ const Footer = props => {
       <LinksList area={'l'}>
         <LinksListTitle>Links</LinksListTitle>
         <ListLink>
-          <Link to="/about">About</Link>
+          <StyledLink to="/about">About</StyledLink>
         </ListLink>
         <ListLink>
-          <Link to="/all-tags">Tags</Link>
+          <StyledLink to="/all-tags">Tags</StyledLink>
         </ListLink>
         <StyledHyperLink
           href={`mailto:spences10apps@gmail.com?subject=Hi Scott 👋`}
@@ -114,9 +122,27 @@ const Footer = props => {
       </LinksList>
       <LinksList area={'s'}>
         <LinksListTitle>Social</LinksListTitle>
-        <ListLink>GitHub</ListLink>
-        <ListLink>Twitter</ListLink>
-        <ListLink>Medium</ListLink>
+        <StyledHyperLink
+          href={`https://github.com/spences10`}
+          target="_blank"
+          rel="noopener"
+        >
+          <ListLink>GitHub</ListLink>
+        </StyledHyperLink>
+        <StyledHyperLink
+          href={`https://medium.com/@spences10`}
+          target="_blank"
+          rel="noopener"
+        >
+          <ListLink>Medium</ListLink>
+        </StyledHyperLink>
+        <StyledHyperLink
+          href={`https://twitter.com/ScottDevTweets`}
+          target="_blank"
+          rel="noopener"
+        >
+          <ListLink>Twitter</ListLink>
+        </StyledHyperLink>
       </LinksList>
       <ImageWrapper area={'r'}>
         <img src={rSLogo} className="App-logo" alt="logo" />
