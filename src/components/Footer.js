@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-static'
 
 import ThemeSelect from '../components/ThemeSelect'
 
@@ -13,7 +14,7 @@ const FooterWrapper = styled.div`
   bottom: 0;
   /* width: 100%; */
   /* position: fixed; sticky */
-  height: 10rem;
+  height: 15rem;
   grid-area: f;
   display: grid;
   background: ${props => props.theme.primary};
@@ -22,32 +23,33 @@ const FooterWrapper = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    '. . . t . . . . g . . .'
-    '. . . . . . . . r . . .';
+    '. . . l . . . g g . . .'
+    '. . . t . . . r r . . .';
   ${media.giant`
     grid-template-areas:
-      '. . . t . . . . g . . .'
-      '. . . . . . . . r . . .';
+      '. . . l . . . g g . . .'
+      '. . . t . . . r r . . .';
     /* background: goldenrod; */
   `};
   ${media.desktop`
+    grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-      '. . t . . . . . g g . .'
-      '. . . . . . . . r r . .';
+      '. . l . . . g g . .'
+      '. . t . . . r r . .';
     /* background: dodgerblue; */
   `};
   ${media.tablet`
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-        '. t . . . . . g .'
-        '. . . . . . . r .';
+        '. l . g g g g .'
+        '. t . r r r r .';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
-        't . . . . . . . g'
-        '. . . . . . . . r';
+        'l . g g g g'
+        't . r r r r';
     /* background: palevioletred; */
   `};
 `
@@ -58,10 +60,23 @@ const ImageWrapper = styled.div`
   grid-area: ${props => props.area};
 `
 
+const LinksList = styled.ul`
+  grid-area: l;
+  margin: 1rem;
+  padding: 1rem;
+`
+
+const ListLink = styled.li`
+  /* grid-area: l; */
+`
+
 const Footer = props => {
   return (
     <FooterWrapper>
       <ThemeSelect />
+      <LinksList>
+        <ListLink>hello</ListLink>
+      </LinksList>
       <ImageWrapper area={'r'}>
         <img src={rSLogo} className="App-logo" alt="logo" />
       </ImageWrapper>
