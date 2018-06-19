@@ -86,6 +86,16 @@ const ListLink = styled.li`
   list-style-type: none;
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.primaryAccent};
+    background: ${({ theme }) => theme.primary};
+    border-radius: 4px;
+    transition: color 0.2s ease-out, background 0.2s ease-in;
+  }
 `
 
 const StyledHyperLink = SHL.extend`
@@ -96,6 +106,16 @@ const StyledHyperLink = SHL.extend`
 const StyledLink = styled(Link)`
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.primaryAccent};
+    background: ${({ theme }) => theme.primary};
+    border-radius: 4px;
+    transition: color 0.2s ease-out, background 0.2s ease-in;
+  }
 `
 
 const Footer = props => {
