@@ -22,50 +22,66 @@ const FooterWrapper = styled.div`
   color: ${props => props.theme.fontDark};
   box-shadow: rgba(0, 0, 0, 0.1) 0px -5px 5px 0px;
 
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(14, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    '. . . l s . . g g . . .'
-    '. . . t . . . r r . . .';
-  ${media.giant`
+    '. . . l s . . . g g g . . .'
+    '. . . . . . . . g g g . . .'
+    '. . . . . . . . r r r . . .'
+    '. . . t . . . . r r r . . .';
+
+  ${media.monitor`
+    grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      '. . . l s . . g g . . .'
-      '. . . t . . . r r . . .';
+      '. . . l s . g g g . . .'
+      '. . . t . . r r r . . .';
+    /* background: red; */
+  `};
+
+  ${media.giant`
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas:
+      '. . l s . g g g . .'
+      '. . . . . g g g . .'
+      '. . . . . r r r . .'
+      '. . t . . r r r . .';
     /* background: goldenrod; */
   `};
 
   ${media.desktop`
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-      '. . l s . . g g . .'
-      '. . t . . . r r . .';
+      '. l s . g g g .'
+      '. . . . g g g .'
+      '. . . . r r r .'
+      '. t . . r r r .';
     /* background: dodgerblue; */
   `};
 
   ${media.tablet`
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
-        '. l l s s . . .'
-        '. t . . . . . .'
-        '. g g r r r r .'
-        '. g g r r r r .';
+        '. l s . . .'
+        '. t . . . .'
+        '. g g . . .'
+        '. r r . . .';
     /* background: mediumseagreen; */
   `};
 
   ${media.phone`
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-        'l l s s . .'
-        't . . . . .'
-        'g g r r r r'
-        'g g r r r r';
+        'l l s s'
+        't . . .'
+        'g g r r'
+        'g g r r';
     /* background: palevioletred; */
   `};
 `
 
 const ImageWrapper = styled.div`
-  margin: 0.25rem;
-  padding: 0.25rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   grid-area: ${props => props.area};
 `
 
