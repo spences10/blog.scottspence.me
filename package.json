@@ -8,7 +8,7 @@
   "scripts": {
     "start": "react-static start",
     "stage": "react-static build --staging",
-    "build": "react-static build && mv dist scottblog",
+    "build": "react-static build && mv dist scottblog && npm run wellknown",
     "serve": "serve scottblog -p 4000",
     "clean": "rm -rf scottblog/ && rm -rf dist/",
     "deploy:now": "npm run clean && npm run build && now scottblog/ --dotenv",
@@ -17,7 +17,8 @@
     "deploy": "now scottblog/ --token $NOW_TOKEN",
     "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
-    "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN"
+    "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
+    "wellknown": "cp -r .well-known/ scottblog/"
   },
   "keywords": [
     "react-static",
