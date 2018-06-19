@@ -64,11 +64,6 @@ const Header = props => {
           {siteUrl.substring(8)}
         </StyledLink>
       </LinksWrapper>
-      <LinksWrapper area={'a'}>
-        <StyledLink area={'a'} to="/about">
-          about
-        </StyledLink>
-      </LinksWrapper>
     </HeaderWrapper>
   )
 }
