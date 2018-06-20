@@ -98,7 +98,10 @@ export const reset = () =>
       src: url(${dankYo}) format('woff');
       font-weight: normal;
     }
-    /* @import url('../fonts/dank-mono.css/css?family=dm') format('woff'); */
+    
+    /* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700|Amaranth:400,700|Nunito:400,700'); */
+    
+    /* @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css') */
 
     p[class*='language-'],
     code[class*='language-'],
