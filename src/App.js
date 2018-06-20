@@ -35,52 +35,41 @@ const AppStyles = styled.div`
   /*space between first post and nav bar*/
   /* padding-top: 2.7rem; */
   display: grid;
-  grid-template-columns: repeat(14, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    'h h h h h h h h h h h h h h'
-    '. . . m m m m m m m m . . .'
-    'f f f f f f f f f f f f f f';
+    'h h h h h h h h h h h h'
+    '. . . m m m m m m . . .'
+    'f f f f f f f f f f f f';
 
-  ${media.monitor`
-    grid-template-columns: repeat(12, 1fr);
+  ${media.giant`
     grid-template-areas:
       'h h h h h h h h h h h h'
-      '. . . m m m m m m . . .'
+      '. . m m m m m m m m . .'
       'f f f f f f f f f f f f';
     /* background: goldenrod; */
   `};
-
-  ${media.giant`
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-areas:
-      'h h h h h h h h h h'
-      '. . m m m m m m . .'
-      'f f f f f f f f f f';
-    /* background: goldenrod; */
-  `};
   ${media.desktop`
-    grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-      'h h h h h h h h'
-      '. m m m m m m .'
-      'f f f f f f f f';
+      'h h h h h h h h h h h h'
+      '. m m m m m m m m m m .'
+      'f f f f f f f f f f f f';
     /* background: dodgerblue; */
   `};
   ${media.tablet`
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
-      'h h h h h h'
-      '. m m m m .'
-      'f f f f f f';
+      'h h h h h h h h h'
+      '. m m m m m m m .'
+      'f f f f f f f f f';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
-      'h h h h'
-      'm m m m'
-      'f f f f';
+      'h h h h h h h h h'
+      'm m m m m m m m m'
+      'f f f f f f f f f';
     /* background: palevioletred; */
   `};
 `

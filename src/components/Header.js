@@ -17,39 +17,30 @@ const HeaderWrapper = styled.header`
   /* padding: 1rem; */
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
   grid-area: h;
-  grid-template-columns: repeat(14, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: '. . . b b b b b b b b . . .';
-
-  ${media.monitor`
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-areas:
-      '. . . b b b b b b b b . . .';
-    /* background: goldenrod; */
-  `};
+  grid-template-areas: '. . . b b b b b b . . .';
 
   ${media.giant`
-    grid-template-columns: repeat(10, 1fr);
     grid-template-areas:
-      '. . b b b b b b . .';
+      '. . b b b b b b b b . .';
     /* background: goldenrod; */
     `};
   ${media.desktop`
-    grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-      '. b b b b b b .';
+      '. b b b b b b b b b b .';
     /* background: dodgerblue; */
     `};
   ${media.tablet`
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
-      '. b b b b .';
+      '. b b b b b b b .';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-        'b b b b';
+        'b b b b b b b b b';
     /* background: palevioletred; */
   `};
 `
