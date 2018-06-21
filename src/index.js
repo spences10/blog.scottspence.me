@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+// import registerServiceWorker from './registerServiceWorker'
+
 // Your top level component
 import App from './App'
 
@@ -9,7 +11,19 @@ export default App
 
 // Render your app
 if (typeof document !== 'undefined') {
-  const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate || ReactDOM.render
+  window.addEventListener('load', () => {
+    const ga = window.ga
+    ga('create', 'UA-87264973-3', 'auto')
+
+    ga('require', 'outboundLinkTracker')
+    ga('require', 'urlChangeTracker')
+    // Require additional plugins imported in the build:autotrack.
+
+    ga('send', 'pageview')
+  })
+  const renderMethod = module.hot
+    ? ReactDOM.render
+    : ReactDOM.hydrate || ReactDOM.render
   const render = Comp => {
     renderMethod(<Comp />, document.getElementById('root'))
   }
@@ -17,3 +31,5 @@ if (typeof document !== 'undefined') {
   // Render!
   render(App)
 }
+
+// registerServiceWorker()

@@ -127,6 +127,11 @@ export default {
               content="width=device-width, initial-scale=1"
             />
             {renderMeta.styleTags}
+            <script
+              async
+              src="https://www.google-analytics.com/analytics.js"
+            />
+            <script async src="/assets/js/autotrack.custom.js" />
           </Head>
           <Body>{children}</Body>
         </Html>
