@@ -132,6 +132,11 @@ export default {
             />
             <script async src="/assets/js/autotrack.custom.js" />
             {renderMeta.styleTags}
+            <script
+              async
+              src="https://www.google-analytics.com/analytics.js"
+            />
+            <script async src="/assets/js/autotrack.custom.js" />
           </Head>
           <Body>{children}</Body>
         </Html>
