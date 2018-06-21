@@ -17,6 +17,9 @@ const query = `
       updatedAt
       title
       content
+      relatedTags {
+        name
+      }
     }
     allAuthors {
       id
