@@ -56,7 +56,16 @@ const TagTitle = styled.h1`
   }
 `
 
+<<<<<<< HEAD
 export default withRouteData(({ allTags }) => {
+=======
+// position: absolute;
+// min-height: 100%;
+// width: 100%;
+// background-size: 15% auto;
+
+const AllTags = ({ allTags }) => {
+>>>>>>> 8996b54b00e9d79a2dea4f0bdcab00452d30a185
   return (
     <PageWrapper>
       {allTags.map((tag, index) => {
@@ -78,4 +87,6 @@ export default withRouteData(({ allTags }) => {
       })}
     </PageWrapper>
   )
-})
+}
+
+export default withRouteData(AllTags)

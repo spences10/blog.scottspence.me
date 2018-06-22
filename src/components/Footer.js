@@ -41,10 +41,10 @@ const FooterWrapper = styled.div`
 
   ${media.desktop`
     grid-template-areas:
-      '. l s . . . . . g g g .'
-      '. . . . . . . . g g g .'
-      '. . . . . . . . r r r .'
-      '. t . . . . . . r r r .';
+      '. l s . . . g g g g g .'
+      '. . . . . . g g g g g .'
+      '. . . . . . r r r r r .'
+      '. t . . . . r r r r r .';
     /* background: dodgerblue; */
   `};
 
@@ -64,7 +64,7 @@ const FooterWrapper = styled.div`
   ${media.phone`
     grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
-        'l l s s . . . . .'
+        'l s . . . . . . .'
         't . . . . . . . .'
         'g g g g . . . . .'
         'r r r r . . . . .';

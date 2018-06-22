@@ -80,7 +80,7 @@ const TagsButton = PrevNextButton.extend`
   padding-right: 0.5rem;
 `
 
-export default withRouteData(({ post, previousPost, nextPost }) => {
+const Post = ({ post, previousPost, nextPost }) => {
   const { relatedTags } = post
   return (
     <PostWrapper>
@@ -105,7 +105,7 @@ export default withRouteData(({ post, previousPost, nextPost }) => {
           <TagsWrapper>
             {relatedTags.map((tag, index) => {
               return (
-                <TagsButton>
+                <TagsButton key={index}>
                   <TagsListItem key={index}>{tag.name}</TagsListItem>
                 </TagsButton>
               )
@@ -139,4 +139,6 @@ export default withRouteData(({ post, previousPost, nextPost }) => {
       </ContentWrapper>
     </PostWrapper>
   )
-})
+}
+
+export default withRouteData(Post)
