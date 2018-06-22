@@ -1,9 +1,8 @@
 import React from 'react'
-import { Router, Link } from 'react-static'
+import { Router, Head } from 'react-static'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 import styled, { ThemeProvider } from 'styled-components'
-import Helmet from 'react-helmet'
 
 import { reset, media } from './theme/globalStyle'
 import { siteMeta, nameContent } from './siteMeta'
@@ -90,7 +89,7 @@ const App = () => (
           {({ theme, background }) => (
             <ThemeProvider theme={theme}>
               <AppStyles background={background}>
-                <Helmet title={nameContent} meta={siteMeta} />
+                <Head title={nameContent} meta={siteMeta} />
                 <Header />
                 <ContentWrapper className="content">
                   <Routes />

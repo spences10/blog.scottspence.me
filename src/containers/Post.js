@@ -1,8 +1,7 @@
 import React from 'react'
-import { withRouteData, Link } from 'react-static'
+import { withRouteData, Link, Head } from 'react-static'
 // import Markdown from 'react-markdown'
 import { Markdown } from 'react-smackdown'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import { HappyButton } from '../components/Shared'
@@ -86,7 +85,7 @@ const Post = ({ post, previousPost, nextPost }) => {
     <PostWrapper>
       <ContentWrapper>
         <article>
-          <Helmet title={`${post.title} - ${nameContent}`} />
+          <Head title={`${post.title} - ${nameContent}`} />
           <PostTitle>{post.title}</PostTitle>
           <PostedDate>
             Posted: {formatDate(post.dateAndTime)}
