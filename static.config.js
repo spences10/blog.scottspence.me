@@ -129,6 +129,7 @@ export default {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
+            <script async src="/assets/js/registerServiceWorker.js" />
             <script
               async
               src="https://www.google-analytics.com/analytics.js"
