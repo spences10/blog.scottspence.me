@@ -61,7 +61,7 @@ const TagTitle = styled.h1`
 // width: 100%;
 // background-size: 15% auto;
 
-export default withRouteData(({ allTags }) => {
+const AllTags = ({ allTags }) => {
   return (
     <PageWrapper>
       {allTags.map((tag, index) => {
@@ -81,4 +81,6 @@ export default withRouteData(({ allTags }) => {
       })}
     </PageWrapper>
   )
-})
+}
+
+export default withRouteData(AllTags)

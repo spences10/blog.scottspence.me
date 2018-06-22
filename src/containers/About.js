@@ -10,7 +10,7 @@ const PageWrapper = styled.div`
   height: 100vh;
 `
 
-export default withRouteData(({ allAuthors }) => (
+const About = ({ allAuthors }) => (
   <PageWrapper>
     <Helmet title={`About - ${nameContent}`} />
     {allAuthors.map(author => (
@@ -29,4 +29,6 @@ export default withRouteData(({ allAuthors }) => (
       </div>
     ))}
   </PageWrapper>
-))
+)
+
+export default withRouteData(About)

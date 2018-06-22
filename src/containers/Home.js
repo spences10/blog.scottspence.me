@@ -65,7 +65,7 @@ const PostedDate = styled.p`
   color: ${props => props.theme.fontLight};
 `
 
-export default withRouteData(({ allPosts }) => (
+const Home = ({ allPosts }) => (
   <React.Fragment>
     <PostsList>
       {allPosts.map(
@@ -89,4 +89,6 @@ export default withRouteData(({ allPosts }) => (
       )}
     </PostsList>
   </React.Fragment>
-))
+)
+
+export default withRouteData(Home)
