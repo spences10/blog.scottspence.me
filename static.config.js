@@ -41,6 +41,10 @@ const query = `
 `
 
 export default {
+  siteRoot: 'https://blog.scottspence.me',
+  extractCssChunks: true,
+  inlineCss: true,
+  // bundleAnalyzer: true,
   getSiteData: () => ({
     title: 'blog.scottspence.me',
     name: 'Scott',
@@ -96,7 +100,14 @@ export default {
         component: 'src/containers/AllTags',
         getData: () => ({
           allTags
-        })
+        }),
+        children: allPosts.map(tag => ({
+          path: `/all-tags/${tag.name}`,
+          component: 'src/containers/Tag',
+          getData: () => ({
+            tag
+          })
+        }))
       },
       // {
       //   path: '/tag',
