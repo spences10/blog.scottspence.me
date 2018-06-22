@@ -98,6 +98,11 @@ export default {
           allTags
         })
       },
+      // {
+      //   path: '/tag',
+      //   component: 'src/containers/Tag',
+      //   getData: () => ({ allTags })
+      // },
       {
         path: '/about',
         component: 'src/containers/About',
