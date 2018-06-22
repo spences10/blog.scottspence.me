@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import styled from 'styled-components'
-// import { Dump } from '../util/helpers'
+import { Dump } from '../util/helpers'
 
 const PageWrapper = styled.div`
   /* height: 100vh; */
@@ -56,16 +56,15 @@ const TagTitle = styled.h1`
   }
 `
 
-export default withRouteData(({ allTags }) => {
+export default withRouteData(({ tag }) => {
   return (
     <PageWrapper>
-      {allTags.map((tag, index) => {
+      <Dump allTags={tag} />
+      {/* {allTags.map((tag, index) => {
         const { blogPosts } = tag
         return (
           <LinkWrapper key={index}>
-            <Link to={`/tag/${tag.name}`}>
-              <TagTitle innerRef={tag.name}>{tag.name}</TagTitle>
-            </Link>
+            <TagTitle innerRef={tag.name}>{tag.name}</TagTitle>
             {blogPosts.map((post, index) => {
               return (
                 <ListTags key={index}>
@@ -75,7 +74,7 @@ export default withRouteData(({ allTags }) => {
             })}
           </LinkWrapper>
         )
-      })}
+      })} */}
     </PageWrapper>
   )
 })
