@@ -145,16 +145,12 @@ export default {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <script
+            {/* <script
               async
               src="https://www.google-analytics.com/analytics.js"
             />
-            <script async src="/assets/js/autotrack.custom.js" />
+            <script async src="/assets/js/autotrack.custom.js" /> */}
             {renderMeta.styleTags}
-            <script
-              async
-              src="https://www.google-analytics.com/analytics.js"
-            />
             <script async src="/assets/js/autotrack.custom.js" />
           </Head>
           <Body>{children}</Body>
