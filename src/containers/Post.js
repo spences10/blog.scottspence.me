@@ -36,6 +36,7 @@ const ContentWrapper = styled.div`
 
 const PostTitle = styled.div`
   font-family: ${props => props.theme.fontHeader};
+  font-weight: 700;
   font-size: 2rem;
   color: ${props => props.theme.secondary};
   margin: 0rem;
