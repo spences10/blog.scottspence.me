@@ -7,8 +7,8 @@ import { StyledHyperLink as SHL } from '../components/Shared'
 
 import { media } from '../theme/globalStyle'
 
-import rSLogo from '../reactStatic.png'
-import gCSMLogo from '../powered_by_graphcms-1.svg'
+import rSLogo from '../img/reactStatic.png'
+import gCSMLogo from '../img/powered_by_graphcms-1.svg'
 
 const FooterWrapper = styled.div`
   z-index: 1;
