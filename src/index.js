@@ -21,6 +21,7 @@ if (typeof document !== 'undefined') {
 
     ga('send', 'pageview')
   })
+  require('offline-plugin/runtime').install()
   const renderMethod = module.hot
     ? ReactDOM.render
     : ReactDOM.hydrate || ReactDOM.render

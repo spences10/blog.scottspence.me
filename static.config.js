@@ -2,7 +2,7 @@ import 'dotenv/config'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import { request } from 'graphql-request'
-// import OfflinePlugin from 'offline-plugin'
+import OfflinePlugin from 'offline-plugin'
 
 const GRAPHCMS_API = process.env.API_URL
 
@@ -145,7 +145,10 @@ export default {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <script async src="/assets/js/registerServiceWorker.js" />
+            {/* <script async src="/assets/js/registerServiceWorker.js" /> */}
+            <script>
+              require('offline-plugin/runtime').install()
+            </script>
             <script
               async
               src="https://www.google-analytics.com/analytics.js"
@@ -162,12 +165,12 @@ export default {
         </Html>
       )
     }
-  }
+  },
   // preact: true
-  // webpack: config => {
-  //   config.plugins.push(new OfflinePlugin())
-  //   return config
-  // }
+  webpack: config => {
+    config.plugins.push(new OfflinePlugin())
+    return config
+  }
   // paths: {
   //   prismCss: 'src/prism.css',
   //   prismJs: 'src/prism.js'
