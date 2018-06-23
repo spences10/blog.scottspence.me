@@ -47,7 +47,7 @@ const PostTitle = styled.div`
 const PostedDate = styled.p`
   margin: 0.05rem;
   /* padding: 0rem; */
-  font-weight: bold;
+  /* font-weight: bold; */
   color: ${props => props.theme.fontLight};
 `
 
