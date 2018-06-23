@@ -1,6 +1,4 @@
 import { injectGlobal, css } from 'styled-components'
-// import { HERO } from './constants'
-import { fontFace } from './fonts'
 
 import dankYo from '../fonts/dank-mono.css'
 
@@ -83,26 +81,16 @@ export const media = Object.keys(sizes).reduce(
 
 export const reset = () =>
   injectGlobal`
-
-    ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
-    ${fontFace('Poppins', 'poppins-v5-latin-regular')}
+  
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Poppins:400,700|Trirong:400,700|Rubik:400,700|Eczar:400,700|Taviraj:400,700');
+    @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
     
-    ${fontFace('Trirong', 'trirong-v3-latin-700', 'bold')}
-    ${fontFace('Rubik', 'rubik-v7-latin-regular')}
-    
-    ${fontFace('Eczar', 'eczar-v6-latin-700', 'bold')}
-    ${fontFace('Taviraj', 'taviraj-v3-latin-regular')}
-    
-    @font-face {
+    /* @font-face {
       font-family: dm;
       src: url(${dankYo}) format('woff');
       font-weight: normal;
-    }
+    } */
     
-    /* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:400,700|Amaranth:400,700|Nunito:400,700'); */
-    
-    /* @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css') */
-
     p[class*='language-'],
     code[class*='language-'],
     pre[class*='language-'] {
