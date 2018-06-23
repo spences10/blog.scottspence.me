@@ -4,7 +4,7 @@ import { withRouteData, Link, Head } from 'react-static'
 import { Markdown } from 'react-smackdown'
 import styled from 'styled-components'
 
-import { HappyButton } from '../components/Shared'
+import { ButtonBig, HappyButton } from '../components/Shared'
 
 import {
   // Dump,
@@ -74,9 +74,14 @@ const TagsListItem = styled.li`
   display: inline;
 `
 
-const TagsButton = PrevNextButton.extend`
+const TagsButton = ButtonBig.extend`
+  margin: 0.5rem 0rem;
+  padding: 0.5rem;
   margin-right: 0.5rem;
   padding-right: 0.5rem;
+  background-color: ${props => props.theme.primary};
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
+  color: ${props => props.theme.fontDark};
 `
 
 const Post = ({ post, previousPost, nextPost }) => {

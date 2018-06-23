@@ -56,7 +56,7 @@ const TagTitle = styled.h1`
   }
 `
 
-export default withRouteData(({ tag }) => {
+const Tag = ({ tag }) => {
   return (
     <PageWrapper>
       <Dump allTags={tag} />
@@ -77,4 +77,6 @@ export default withRouteData(({ tag }) => {
       })} */}
     </PageWrapper>
   )
-})
+}
+
+export default withRouteData(Tag)

@@ -100,14 +100,14 @@ export default {
         component: 'src/containers/AllTags',
         getData: () => ({
           allTags
-        }),
-        children: allPosts.map(tag => ({
-          path: `/all-tags/${tag.name}`,
-          component: 'src/containers/Tag',
-          getData: () => ({
-            tag
-          })
-        }))
+        })
+        // children: allPosts.map(tag => ({
+        //   path: `/all-tags/${tag.name}`,
+        //   component: 'src/containers/Tag',
+        //   getData: () => ({
+        //     tag
+        //   })
+        // }))
       },
       // {
       //   path: '/tag',

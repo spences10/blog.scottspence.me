@@ -63,9 +63,9 @@ const AllTags = ({ allTags }) => {
         const { blogPosts } = tag
         return (
           <LinkWrapper key={index}>
-            <Link to={`/tag/${tag.name}`}>
-              <TagTitle innerRef={tag.name}>{tag.name}</TagTitle>
-            </Link>
+            {/* <Link to={`/all-tags/tag/${tag.name}`}> */}
+            <TagTitle innerRef={tag.name}>{tag.name}</TagTitle>
+            {/* </Link> */}
             {blogPosts.map((post, index) => {
               return (
                 <ListTags key={index}>
