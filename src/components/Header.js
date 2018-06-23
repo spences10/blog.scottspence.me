@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'react-static'
+import { SiteData, Link } from 'react-static'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { siteUrl } from '../siteMeta'
 import { media } from '../theme/globalStyle'
 
 const HeaderWrapper = styled.header`
@@ -63,7 +62,7 @@ const Header = props => {
     <HeaderWrapper>
       <LinksWrapper area={'b'}>
         <StyledLink exact to="/">
-          {siteUrl.substring(8)}
+          <SiteData render={({ title }) => <span>{title}</span>} />
         </StyledLink>
       </LinksWrapper>
     </HeaderWrapper>

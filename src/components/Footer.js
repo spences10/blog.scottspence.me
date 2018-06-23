@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-static'
+import { Link, SiteData } from 'react-static'
 
 import ThemeSelect from '../components/ThemeSelect'
 import { StyledHyperLink as SHL } from '../components/Shared'
