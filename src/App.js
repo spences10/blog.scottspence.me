@@ -27,6 +27,8 @@ loadLanguages(json, yml, bash)
 
 reset()
 
+import serviceWorkerRegistration from './service-worker-registration'
+
 const AppStyles = styled.div`
   background-color: ${props => props.theme.background};
   background-image: url("${props => props.background}");
@@ -105,3 +107,5 @@ const App = () => (
 )
 
 export default hot(module)(App)
+
+serviceWorkerRegistration()
