@@ -7,11 +7,5 @@
 
 My personal blog for adding information on my dev journey
 
-The blog is built with React Static using styled-components for
-CSS-in-JS and hosted on now
-
-I migrated from Gatsby to React Static, read about it [here]
-
-<!-- Links -->
-
-[here]: https://blog.scottspence.me/moving-from-gatsby-to-react-static
+The blog is built with Gatsby using styled-components for CSS-in-JS
+and hosted on now
