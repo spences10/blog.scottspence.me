@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { injectGlobal, css } from 'styled-components'
 
 import dankYo from '../fonts/dank-mono.css'
+=======
+import styled, { injectGlobal, css } from 'styled-components'
+import { fontFace } from './fonts'
+>>>>>>> development
 
 export const themes = {
   theme1: {
@@ -33,8 +38,13 @@ export const themes = {
     fontDark: '#34434b',
     fontLight: '#586368',
     fontWhite: '#ffffff',
+<<<<<<< HEAD
     fontHeader: 'Trirong, sans, sans-serif',
     fontBody: 'Rubik, sans-serif'
+=======
+    fontHeader: 'Lato, sans-serif',
+    fontBody: 'Merriweather, sans, sans-serif'
+>>>>>>> development
   },
 
   theme3: {
@@ -50,8 +60,13 @@ export const themes = {
     fontDark: '#034544',
     fontLight: '#596869',
     fontWhite: '#ffffff',
+<<<<<<< HEAD
     fontHeader: 'Eczar, sans, sans-serif',
     fontBody: 'Taviraj, sans-serif'
+=======
+    fontHeader: 'Roboto, sans, sans-serif',
+    fontBody: 'Nunito, sans-serif'
+>>>>>>> development
   }
 }
 
@@ -79,6 +94,7 @@ export const media = Object.keys(sizes).reduce(
   {}
 )
 
+<<<<<<< HEAD
 export const reset = () =>
   injectGlobal`
   
@@ -96,6 +112,29 @@ export const reset = () =>
     pre[class*='language-'] {
       font-family: dm, Consolas, Courier, monospace;
     }
+=======
+injectGlobal`
+  ${fontFace('Lato', 'lato-v14-latin-700', 'bold')}
+  ${fontFace('Merriweather', 'merriweather-v19-latin-regular')}
+
+  ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
+  ${fontFace('Poppins', 'poppins-v5-latin-regular')}
+
+  ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
+  ${fontFace('Nunito', 'nunito-v9-latin-regular')}
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  /* * {
+    outline: 1px solid red !important;
+  } */
+
+  html {
+    /* font-size: 18px; */
+  }
+>>>>>>> development
 
     *, *:before, *:after {
       box-sizing: border-box;
@@ -117,6 +156,7 @@ export const reset = () =>
       border: none;
       -moz-outline-style: none
     }
+<<<<<<< HEAD
     :focus {
       outline:none;
     }
@@ -143,3 +183,89 @@ export const reset = () =>
       background-color: rgb(253, 246, 227);
     } */
   `
+=======
+  `};
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: ${props => props.theme.fontBody};
+    /* font-size: 0.75rem; */
+    line-height: 1.3125;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:active, a:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none
+  }
+
+  :focus {
+    outline:none;
+  }
+  
+  ::-moz-focus-inner {
+    border:0;
+  }
+
+  ul {
+    margin: 0 auto;
+  }
+`
+
+export const StyledH1 = styled.h1`
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-family: ${props => props.theme.fontHeader};
+`
+
+export const StyledH2 = styled.h2`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledH3 = styled.h3`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledH4 = styled.h4`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledH5 = styled.h5`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledH6 = styled.h6`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledP = styled.p`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledUl = styled.ul`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+
+export const StyledLi = styled.li`
+  padding: 1.75rem;
+  margin: 0.5rem;
+  text-decoration: none;
+`
+
+export const StyledA = styled.a`
+  padding: 1.75rem;
+  margin: 0.5rem;
+`
+>>>>>>> development
