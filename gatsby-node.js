@@ -1,5 +1,10 @@
 const path = require('path')
+const queryAll = require('./gatsby/queryAll.js')
 
+<<<<<<< HEAD
+exports.onCreateNode = ({ node }) => {
+  console.log('onCreateNode:', node.internal.type)
+=======
 const createTagPages = (createPage, posts) => {
   const tagPageTemplate = path.resolve('src/templates/tags.js')
   const allTagsTemplate = path.resolve('src/templates/all-tags.js')
@@ -40,59 +45,46 @@ const createTagPages = (createPage, posts) => {
       }
     })
   })
+>>>>>>> development
 }
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
-  const blogPostTemplate = path.resolve('src/templates/blog-post.js')
+  return new Promise((resolve, reject) => {
+    const pageDetailTemplate = path.resolve(
+      './src/templates/blog-post.js'
+    )
 
-  // returns promise that will start with this graphql query
-  return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: ASC, fields: [frontmatter___date] }
-        filter: { frontmatter: { published: { eq: true } } }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            html
-            id
-            frontmatter {
-              date
-              path
-              title
-              excerpt
-              tags
+    resolve(
+      graphql(queryAll).then(result => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+
+        // console.log('=====================')
+        // console.log('result', result.data.allPosts.edges)
+        // console.log('=====================')
+
+        const pages = result.data.allPosts.edges
+
+        // console.log('====================')
+        // console.log(pages)
+        // console.log('====================')
+
+        pages.map(({ node: page }) => {
+          const path = `/${page.slug}`
+          console.log('=====================')
+          console.log(path)
+          console.log('=====================')
+          createPage({
+            path,
+            component: pageDetailTemplate,
+            context: {
+              slug: page.slug
             }
-          }
-        }
-      }
-    }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
-
-    const posts = result.data.allMarkdownRemark.edges
-
-    createTagPages(createPage, posts)
-
-    // Create pages for each markdown file.
-    posts.forEach(({ node }, index) => {
-      const prev = index === 0 ? false : posts[index - 1].node
-      const next =
-        index === posts.length - 1 ? false : posts[index + 1].node
-      createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-        context: {
-          prev,
-          next
-        }
+          })
+        })
       })
-    })
-
-    return posts
+    )
   })
 }

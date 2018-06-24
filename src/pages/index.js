@@ -2,11 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import Markdown from 'react-markdown'
 
 // import TagsContainer from '../layouts/components/TagsContainer'
 
 import { StyledH1, StyledP } from '../theme/globalStyle'
+<<<<<<< HEAD
+import { excerpt } from '../utils/helpers'
+=======
 // import { slugIt } from '../utils/helpers'
+>>>>>>> development
 
 const PostWrapper = styled.div`
   margin: 1rem;
@@ -67,31 +72,25 @@ const PostExcerpt = StyledP.extend`
 `
 
 const IndexPage = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark
+  const { edges: post } = data.allPosts
   return (
     <div>
-      {posts.map(({ node: post }, index) => {
-        const { frontmatter } = post
-        // {
-        //   console.log('====================')
-        //   console.log(`pages index post=${post}`)
-        //   console.log(`pages index index=${index}`)
-        //   console.log('====================')
-        // }
+      {post.map(({ node: post }, index) => {
+        // console.log('====================')
+        // console.log(post)
+        // console.log('====================')
         return (
           <PostWrapper key={index}>
             <PostTitle>
-              <PostLink to={frontmatter.path} key={index}>
-                {frontmatter.title}
-              </PostLink>
+              <PostLink to={post.slug}>{post.title}</PostLink>
             </PostTitle>
-            <PostDate>{frontmatter.date}</PostDate>
-            <PostExcerpt>{post.excerpt}</PostExcerpt>
-            {/* <TagsContainer
-              name={slugIt(frontmatter.title)}
-              tags={post.frontmatter.tags}
-              title="no"
-            /> */}
+            <PostDate>{post.dateAndTime.toString()}</PostDate>
+            <PostExcerpt>
+              <Markdown
+                source={excerpt(post.content, 250)}
+                escapeHtml={false}
+              />
+            </PostExcerpt>
           </PostWrapper>
         )
       })}
@@ -102,22 +101,27 @@ const IndexPage = ({ data }) => {
 /* eslint-disable */
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { published: { eq: true } } }
-    ) {
-      totalCount
+    allPosts {
       edges {
         node {
-          excerpt(pruneLength: 250)
           id
+<<<<<<< HEAD
+          slug
+          title
+          dateAndTime(formatString: "Do MMMM YYYY")
+          tags
+          authors {
+            id
+=======
           frontmatter {
             title
             date(formatString: "YYYY MMMM Do")
             path
             tags
             excerpt
+>>>>>>> development
           }
+          content
         }
       }
     }
