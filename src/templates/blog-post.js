@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Markdown from 'react-markdown'
 
 import TagsContainer from '../layouts/components/TagsContainer'
 
@@ -70,11 +69,8 @@ const PostWrapper = ContentWrapper.extend`
     max-width: 100%;
     max-height: 100%;
   }
-<<<<<<< HEAD
-=======
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
->>>>>>> development
 `
 
 const ButtonWrapper = styled.div`
@@ -114,26 +110,6 @@ const HappyButton = ButtonSmall.extend`
   }
 `
 
-<<<<<<< HEAD
-class Template extends React.Component {
-  render() {
-    const post = this.props.data.posts
-    const tags = this.props.data.posts.tags
-    console.log('====================')
-    console.log(tags)
-    console.log('====================')
-    return (
-      <ContentWrapper>
-        <PostWrapper>
-          <Title>{post.title}</Title>
-          <TitleDate>{post.dateAndTime}</TitleDate>
-          <Markdown source={post.content} escapeHtml={false} />
-          {/* <TagsContainer>{post.tags}</TagsContainer> */}
-        </PostWrapper>
-      </ContentWrapper>
-    )
-  }
-=======
 const Template = ({ data, pathContext }) => {
   const { markdownRemark: post } = data
   const { frontmatter, html } = post
@@ -195,26 +171,9 @@ const Template = ({ data, pathContext }) => {
       </BlogThemeContext.Consumer>
     </BlogThemeProvider>
   )
->>>>>>> development
 }
 
-export default Template
-
 // graphQL query to get post into Template
-<<<<<<< HEAD
-export const PageDetailPageQuery = graphql`
-  query getPostById($slug: String!) {
-    posts(slug: { eq: $slug }) {
-      id
-      tags
-      slug
-      coverImage {
-        id
-        url
-      }
-      authors {
-        id
-=======
 /* eslint-disable */
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
@@ -225,11 +184,7 @@ export const pageQuery = graphql`
         path
         tags
         title
->>>>>>> development
       }
-      content
-      title
-      dateAndTime(formatString: "Do MMMM YYYY")
     }
   }
 `
@@ -241,4 +196,4 @@ Template.propTypes = {
   pathContext: PropTypes.object.isRequired
 }
 
-// export default Template
+export default Template

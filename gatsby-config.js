@@ -1,7 +1,3 @@
-require('dotenv').config({
-  path: '.env'
-})
-
 module.exports = {
   siteMetadata: {
     title: 'Scott Spence - blog',
@@ -51,14 +47,6 @@ module.exports = {
                 yandex: false,
                 windows: false
               }
-            }
-          },
-          {
-            resolve: 'gatsby-source-graphcms',
-            options: {
-              endpoint: process.env.GRAPHCMS_ID,
-              token: process.env.GRAPHCMS_TOKEN,
-              query: require('./gatsby/configQuery')
             }
           }
         ]

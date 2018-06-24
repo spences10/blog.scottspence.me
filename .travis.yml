@@ -18,11 +18,7 @@ before_script:
 script:
   - npm i -g now@canary
   - npm run clean
-  - if [ $TRAVIS_BRANCH != "master" ]; then 
-      npm run stage; 
-    else
-      npm run build;
-    fi 
+  - npm run build
   - npm run deploy
 
 after_script: 

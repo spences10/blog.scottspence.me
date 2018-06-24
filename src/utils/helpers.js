@@ -12,11 +12,6 @@ export const slugIt = text => {
     .replace(/-+$/, '') // Trim - from end of text
 }
 
-<<<<<<< HEAD
-export const excerpt = (text, len) => {
-  return `${text.substring(0, len)}...`
-}
-=======
 // https://github.com/wesbos/dump
 
 export const Dump = props => (
@@ -37,4 +32,3 @@ export const Dump = props => (
     ))}
   </div>
 )
->>>>>>> development
