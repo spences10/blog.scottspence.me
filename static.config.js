@@ -40,8 +40,8 @@ const query = `
 `
 
 export default {
-  // siteRoot: 'https://blog.scottspence.me',
-  // stagingSiteRoot: 'https://blog-scottspence.now.sh', // use --staging flag
+  siteRoot: 'https://blog.scottspence.me',
+  stagingSiteRoot: 'https://blog-scottspence.now.sh', // use --staging flag
   extractCssChunks: true,
   inlineCss: true,
   // bundleAnalyzer: true,

@@ -7,11 +7,12 @@
   "description": "Personal blog made with React Static",
   "scripts": {
     "start": "react-static start",
-    "stage": "react-static build --staging",
+    "stage": "react-static build --staging && mv dist scottblog",
     "build": "react-static build && mv dist scottblog && npm run wellknown",
     "serve": "serve scottblog -p 4000",
     "clean": "rm -rf scottblog/ && rm -rf dist/",
     "deploy:now": "npm run clean && npm run build && now scottblog/ --dotenv",
+    "deploy:stage": "npm run clean && npm run stage && now scottblog/ --dotenv",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
