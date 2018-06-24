@@ -6,7 +6,7 @@
   "description": "Personal blog made with Gatsby default starter",
   "dependencies": {
     "eslint-plugin-graphql": "2.1.1",
-    "gatsby": "1.9.272",
+    "gatsby": "1.9.273",
     "gatsby-image": "1.0.54",
     "gatsby-link": "1.6.45",
     "gatsby-plugin-favicon": "2.1.1",
