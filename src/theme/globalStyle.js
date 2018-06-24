@@ -1,5 +1,4 @@
 import styled, { injectGlobal, css } from 'styled-components'
-import { fontFace } from './fonts'
 
 export const themes = {
   theme1: {
@@ -81,7 +80,11 @@ injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Poppins:400,700|Trirong:400,700|Rubik:400,700|Eczar:400,700|Taviraj:400,700');
   @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
 
-  
+  p[class*='language-'],
+  code[class*='language-'],
+  pre[class*='language-'] {
+    font-family: dm, Consolas, Courier, monospace;
+  }
 
   *, *:before, *:after {
     box-sizing: border-box;
