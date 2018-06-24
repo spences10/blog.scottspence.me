@@ -1,65 +1,54 @@
 {
   "name": "blog.scottspence.me",
-  "version": "2.0.1",
-  "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
+  "version": "3.0.0",
+  "main": "index.js",
+  "author": "Scott Spence <spences10apps@gmail.com>(https://blog.scottspence.me/)",
   "license": "MIT",
-  "description": "Personal blog made with Gatsby default starter",
-  "dependencies": {
-    "eslint-plugin-graphql": "2.1.1",
-    "gatsby": "1.9.273",
-    "gatsby-image": "1.0.54",
-    "gatsby-link": "1.6.45",
-    "gatsby-plugin-favicon": "2.1.1",
-    "gatsby-plugin-google-analytics": "1.0.31",
-    "gatsby-plugin-manifest": "1.0.27",
-    "gatsby-plugin-offline": "1.0.18",
-    "gatsby-plugin-purify-css": "2.2.1",
-    "gatsby-plugin-react-helmet": "2.0.11",
-    "gatsby-plugin-react-next": "1.0.11",
-    "gatsby-plugin-sharp": "1.6.48",
-    "gatsby-plugin-styled-components": "2.0.11",
-    "gatsby-remark-copy-linked-files": "1.5.37",
-    "gatsby-remark-images": "1.5.67",
-    "gatsby-remark-prismjs": "2.0.4",
-    "gatsby-source-filesystem": "1.5.39",
-    "gatsby-transformer-remark": "1.7.44",
-    "prismjs": "1.15.0",
-    "react-helmet": "5.2.0",
-    "styled-components": "3.3.3"
-  },
-  "devDependencies": {
-    "babel-eslint": "8.2.5",
-    "eslint": "5.0.0",
-    "eslint-loader": "2.0.0",
-    "eslint-plugin-import": "2.12.0",
-    "eslint-plugin-react": "7.9.1",
-    "gatsby-plugin-eslint": "1.0.3",
-    "husky": "0.14.3",
-    "prettier": "1.13.5",
-    "pretty-quick": "1.6.0",
-    "release-it": "7.4.7"
-  },
-  "keywords": [
-    "gatsby",
-    "personal",
-    "blog"
-  ],
-  "main": "n/a",
-  "now": {
-    "name": "scottblog"
-  },
+  "description": "Personal blog made with React Static",
   "scripts": {
-    "clean": "rm -rf .cache/ && rm -rf scottblog/ && rm -rf public/",
-    "build": "gatsby build && mv public scottblog",
-    "deploy:now": "npm run clean && npm run build && now scottblog/",
-    "dev": "npm run clean && gatsby develop",
+    "start": "react-static start",
+    "stage": "react-static build --staging && mv dist scottblog",
+    "build": "react-static build && mv dist scottblog && npm run wellknown",
+    "serve": "serve scottblog -p 4000",
+    "clean": "rm -rf scottblog/ && rm -rf dist/",
+    "deploy:now": "npm run clean && npm run build && now scottblog/ --dotenv",
+    "deploy:stage": "npm run clean && npm run stage && now scottblog/ --dotenv",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "deploy": "now scottblog/ --token $NOW_TOKEN",
     "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
     "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
     "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
-    "release": "release-it"
+    "wellknown": "cp -r .well-known/ scottblog/"
+  },
+  "keywords": [
+    "react-static",
+    "personal",
+    "blog"
+  ],
+  "now": {
+    "name": "scottblog"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "date-fns": "1.29.0",
+    "dotenv": "6.0.0",
+    "graphql-request": "1.6.0",
+    "prismjs": "1.14.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-markdown": "3.3.3",
+    "react-router": "^4.2.0",
+    "react-smackdown": "1.0.0-beta.3",
+    "react-static": "5.4.0-beta.3",
+    "styled-components": "^3"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.3.0",
+    "eslint-config-react-tools": "1.x.x",
+    "serve": "^6.1.0",
+    "sw-precache-webpack-plugin": "0.11.5",
+    "webpack-manifest-plugin": "2.0.3"
   },
   "repository": {
     "type": "git",
