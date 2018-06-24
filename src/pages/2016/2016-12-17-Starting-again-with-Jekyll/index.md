@@ -3,7 +3,6 @@ path: "/Starting-again-with-Jekyll/"
 date: "2016-12-17"
 title: "Starting again with Jekyll"
 tags: ['ramble']
-excerpt: ""
 published: true
 ---
 
@@ -11,10 +10,7 @@ Since setting up this blog I haven't really bothered with Jekyll any
 more than just forking Barry Clarke's repo of Jekyll Now and adding
 these posts as and when the feeling takes me.
 
-<figure class="floatRight">
-	<img style="height: 200px;" src="./jekyll-logo.png" alt="git">
-	<!--<figcaption></figcaption>-->
-</figure>
+![jekyll logo](./jekyll-logo.png)
 
 So I got to checking out Barry's blog and his Jekyll Now templates and
 tried to make sense of the two so I could make my own, based off of

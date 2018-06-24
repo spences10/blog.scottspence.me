@@ -3,40 +3,41 @@ path: "/twitter-bot-playground/"
 date: "2017-05-23"
 title: "Twitter bot playground"
 tags: ['information', 'guide']
-excerpt: ""
 published: true
 ---
 
 How to build and deploy a multifunctional Twitter bot!
 
-This is a reference for me and anyone else that's interested in Twitter bots in
-JavaScript.
+This is a reference for me and anyone else that's interested in
+Twitter bots in JavaScript.
 
 All of the examples here use the [npm][npm] package [twit][twit].
 
-We'll go through setting up a simple bot so each of these examples can be run
-with it.
+We'll go through setting up a simple bot so each of these examples can
+be run with it.
 
-I'm going to assume that you have `nodejs` installed along with `npm` and that
-you are comfortable with the terminal.
+I'm going to assume that you have `nodejs` installed along with `npm`
+and that you are comfortable with the terminal.
 
-If you are not familiar node or do not have your environment set up to use it
-take a look at the [README.md][twitter-bot-bootstrap-readme] on my [Twitter bot
-bootstrap][twitter-bot-bootstrap] repo which details getting a Twitter
-application set up and a development environment with c9.
+If you are not familiar node or do not have your environment set up to
+use it take a look at the [README.md][twitter-bot-bootstrap-readme] on
+my [Twitter bot bootstrap][twitter-bot-bootstrap] repo which details
+getting a Twitter application set up and a development environment
+with c9.
 
-A great resource is [Aman Mittal's][aman-github-profile] [Awesome Twitter
-bots][awesome-twitter-bots] repo which has resources and bot examples.
+A great resource is [Aman Mittal's][aman-github-profile] [Awesome
+Twitter bots][awesome-twitter-bots] repo which has resources and bot
+examples.
 
-A lot of this information is already out there I'm hoping this is all the
-information someone will need to get started with their own Twitter bot. I'm
-doing this for my own learning and hopefully other people will get something out
-of this as well.
+A lot of this information is already out there I'm hoping this is all
+the information someone will need to get started with their own
+Twitter bot. I'm doing this for my own learning and hopefully other
+people will get something out of this as well.
 
 ## Set up the bot
 
-Before touching the terminal or writing any code we'll need to create a [Twitter
-app][twitter-app] to get our API keys, we'll need them all:
+Before touching the terminal or writing any code we'll need to create
+a [Twitter app][twitter-app] to get our API keys, we'll need them all:
 
 ```text
 Consumer Key (API Key)
@@ -45,18 +46,20 @@ Access Token
 Access Token Secret
 ```
 
-Keep the keys somewhere safe so you can use them again when you need them, we're
-going to be using them in the [.env][dotenv] file we're going to create.
+Keep the keys somewhere safe so you can use them again when you need
+them, we're going to be using them in the [.env][dotenv] file we're
+going to create.
 
-We're using [dotenv][dotenv] so that if at some point in the future we want to
-add our bot to GitHub the Twitter API keys are not added to GitHub for all to
-see.
+We're using [dotenv][dotenv] so that if at some point in the future we
+want to add our bot to GitHub the Twitter API keys are not added to
+GitHub for all to see.
 
-Starting from scratch, create a new folder via the terminal and initialise the
-`package.json` via `npm` or `yarn` we'll need `twit` and `dotenv` for all these
-examples.
+Starting from scratch, create a new folder via the terminal and
+initialise the `package.json` via `npm` or `yarn` we'll need `twit`
+and `dotenv` for all these examples.
 
-I'll be using `yarn` for all these examples, you can use `npm` if you prefer.
+I'll be using `yarn` for all these examples, you can use `npm` if you
+prefer.
 
 Terminal commands:
 
@@ -68,8 +71,8 @@ yarn add twit dotenv
 touch .env .gitignore index.js
 ```
 
-If you take a look at the `package.json` that was created it should look
-something like this:
+If you take a look at the `package.json` that was created it should
+look something like this:
 
 ```json
 {
@@ -86,8 +89,8 @@ something like this:
 }
 ```
 
-Add an `npm` script to the `package.json` to kick off the bot when we're testing
-and looking for output:
+Add an `npm` script to the `package.json` to kick off the bot when
+we're testing and looking for output:
 
 ```json
   "scripts": {
@@ -115,16 +118,19 @@ It should look something like this now:
 }
 ```
 
-Now we can add the following pointer to the bot in `index.js`, like so:
+Now we can add the following pointer to the bot in `index.js`, like
+so:
 
 ```js
 require('./src/bot')
 ```
 
-So when we use `yarn start` to run the bot it calls the `index.js` file which
-runs the `bot.js` file from the `src` folder we're going to create.
+So when we use `yarn start` to run the bot it calls the `index.js`
+file which runs the `bot.js` file from the `src` folder we're going to
+create.
 
-Now we add our API keys to the `.env` file, it should look something like this:
+Now we add our API keys to the `.env` file, it should look something
+like this:
 
 ```text
 CONSUMER_KEY=AmMSbxxxxxxxxxxNh4BcdMhxg
@@ -149,8 +155,8 @@ Then init git:
 git init
 ```
 
-Ok, now we can start to configure the bot, we'll need a `src` folder a `bot.js`
-file and a `config.js` file.
+Ok, now we can start to configure the bot, we'll need a `src` folder a
+`bot.js` file and a `config.js` file.
 
 Terminal:
 
@@ -160,8 +166,8 @@ cd src
 touch config.js bot.js
 ```
 
-Then we can set up the bot config, open the `config.js` file and add the
-following:
+Then we can set up the bot config, open the `config.js` file and add
+the following:
 
 ```js
 require('dotenv').config()
@@ -174,8 +180,8 @@ module.exports = {
 }
 ```
 
-Ok, that's the bot config done now we can set up the bot, each of the examples
-detailed here will have the same three lines of code:
+Ok, that's the bot config done now we can set up the bot, each of the
+examples detailed here will have the same three lines of code:
 
 ```js
 const Twit = require('twit')
@@ -184,8 +190,8 @@ const config = require('./config')
 const bot = new Twit(config)
 ```
 
-Ok, that's it out bot is ready to go, do a test with `yarn start` from the
-terminal, we should get this for output:
+Ok, that's it out bot is ready to go, do a test with `yarn start` from
+the terminal, we should get this for output:
 
 ```sh
 yarn start
@@ -198,8 +204,8 @@ Bot is now configured and ready to go!🚀
 
 ## Post Statuses
 
-Firstly post statuses, with `.post('statuses/update'...` bot will post a hello
-world! status.
+Firstly post statuses, with `.post('statuses/update'...` bot will post
+a hello world! status.
 
 ```js
 bot.post(
@@ -219,10 +225,10 @@ bot.post(
 
 ## Work with users
 
-To get a list of followers ids use `.get('followers/ids'...` and include the
-account that you want the followers of, in this example we're using
-[`@DroidScott`][scottbot], you can use any account you like. We can then log
-them out to the console in this example.
+To get a list of followers ids use `.get('followers/ids'...` and
+include the account that you want the followers of, in this example
+we're using [`@DroidScott`][scottbot], you can use any account you
+like. We can then log them out to the console in this example.
 
 ```js
 bot.get(
@@ -241,8 +247,8 @@ bot.get(
 )
 ```
 
-You can specify with the `count` parameter how many results you get up to 100 at
-a time.
+You can specify with the `count` parameter how many results you get up
+to 100 at a time.
 
 Or to get a detailed list you can use `.get('followers/list'...`
 
@@ -267,8 +273,8 @@ bot.get(
 )
 ```
 
-To follow back a follower we can use `.post('friendships/create'...` here the
-bot is following back the user `MarcGuberti`
+To follow back a follower we can use `.post('friendships/create'...`
+here the bot is following back the user `MarcGuberti`
 
 > A bot should only follow users that follow the bot.
 
@@ -288,8 +294,8 @@ bot.post(
 )
 ```
 
-Like with followers you can get a list of accounts that your bot is following
-back.
+Like with followers you can get a list of accounts that your bot is
+following back.
 
 ```js
 bot.get(
@@ -325,11 +331,12 @@ bot.get(
 )
 ```
 
-Get friendship status, this is useful for following new followers, this will
-give us the relation of a specific user. So you can run through your followers
-list and follow back any users that do not have the `following` connection.
+Get friendship status, this is useful for following new followers,
+this will give us the relation of a specific user. So you can run
+through your followers list and follow back any users that do not have
+the `following` connection.
 
-Lets take a look at the relation between our bot and
+Let's take a look at the relation between our bot and
 [`@ScottDevTweets`][scotttwit]
 
 ```js
@@ -358,7 +365,8 @@ If the user follows the bot, then relationship will be:
     connections: [ 'followed_by' ] } ]
 ```
 
-If the user and the bot are following each other, the relationship will be:
+If the user and the bot are following each other, the relationship
+will be:
 
 ```sh
 [ { name: 'Scott Spence 🌯😴💻♻',
@@ -420,7 +428,8 @@ bot.get(
 )
 ```
 
-To be more granular you can pull out specific information on each tweet.
+To be more granular you can pull out specific information on each
+tweet.
 
 ```js
 bot.get(
@@ -443,8 +452,8 @@ bot.get(
 )
 ```
 
-To retweet use `.post('statuses/retweet/:id'...` and pass in a tweet id to
-retweet.
+To retweet use `.post('statuses/retweet/:id'...` and pass in a tweet
+id to retweet.
 
 ```js
 bot.post(
@@ -516,9 +525,10 @@ bot.post(
 )
 ```
 
-To reply to a tweet is much the same a posting a tweet but you need to include
-the `in_reply_to_status_id` parameter, but that's not enough as you will also
-need to put in the screen name of the person you are replying to.
+To reply to a tweet is much the same a posting a tweet but you need to
+include the `in_reply_to_status_id` parameter, but that's not enough
+as you will also need to put in the screen name of the person you are
+replying to.
 
 ```js
 bot.post(
@@ -537,8 +547,9 @@ bot.post(
 )
 ```
 
-Finally if you want to delete a tweet use `.post('statuses/destroy/:id'...`
-passing the tweet id you want to delete.
+Finally if you want to delete a tweet use
+`.post('statuses/destroy/:id'...` passing the tweet id you want to
+delete.
 
 ```js
 bot.post(
@@ -558,12 +569,12 @@ bot.post(
 
 ## Use Twitter search
 
-To use search use `.get('search/tweets',...` there are quite a few search
-parameters for search.
+To use search use `.get('search/tweets',...` there are quite a few
+search parameters for search.
 
-`q: ''` the Q is for query so to search for mango use `q: 'mango'` we can also
-limit the results returned with `count: n` so let's limit it the count to in the
-example:
+`q: ''` the Q is for query so to search for mango use `q: 'mango'` we
+can also limit the results returned with `count: n` so let's limit it
+the count to in the example:
 
 ```js
 bot.get(
@@ -606,10 +617,11 @@ bot.get(
 )
 ```
 
-The search API returns for relevance and not completeness, if you want to search
-for an exact phrase you'll need to wrap the query in quotes `"purple pancakes"`
-if you want to search for one of two words then use `OR` like `'tabs OR spaces'`
-if you want to search for both use `AND` like `'tabs AND spaces'`.
+The search API returns for relevance and not completeness, if you want
+to search for an exact phrase you'll need to wrap the query in quotes
+`"purple pancakes"` if you want to search for one of two words then
+use `OR` like `'tabs OR spaces'` if you want to search for both use
+`AND` like `'tabs AND spaces'`.
 
 If you want to search for a tweet without another word use `-` like
 `donald -trump` you can use it multiple times as well, like
@@ -620,19 +632,20 @@ You can search for tweets with emoticons, like `q: 'sad :('` try it!
 Of course look for hashtags `q: '#towie'`. Look for tweets to a user
 `q: 'to:@stephenfry'` or from a user `q: 'from:@stephenfry'`
 
-You can filter out indecent tweets with the `filter:safe` parameter you can also
-use it to filter for `media` tweets which will return tweets containing video.
-You can specify for `images` to view tweets with images and you can specify
-`links` for tweets with links.
+You can filter out indecent tweets with the `filter:safe` parameter
+you can also use it to filter for `media` tweets which will return
+tweets containing video. You can specify for `images` to view tweets
+with images and you can specify `links` for tweets with links.
 
-If you want tweets from a certain website you can specify with the `url`
-parameter like `url:asda`
+If you want tweets from a certain website you can specify with the
+`url` parameter like `url:asda`
 
 ```js
 bot.get(
   'search/tweets',
   {
-    q: 'from:@dan_abramov url:facebook filter:images since:2017-01-01',
+    q:
+      'from:@dan_abramov url:facebook filter:images since:2017-01-01',
     count: 5
   },
   (err, data, response) => {
@@ -649,11 +662,11 @@ bot.get(
 )
 ```
 
-Last few now, there's the `result_type` parameter that will return `recent`,
-`popular` or `mixed` results.
+Last few now, there's the `result_type` parameter that will return
+`recent`, `popular` or `mixed` results.
 
-The `geocode` parameter that take the format latitude longitude then radius in
-miles `'51.5033640,-0.1276250,1mi'` example:
+The `geocode` parameter that take the format latitude longitude then
+radius in miles `'51.5033640,-0.1276250,1mi'` example:
 
 ```js
 bot.get(
@@ -692,8 +705,8 @@ stream.on('tweet', t => {
 
 This will give you a random sampling of tweets.
 
-For more specific information use `.stream('statuses/filter')...` then pass some
-parameters, use `track:` to specify a search string:
+For more specific information use `.stream('statuses/filter')...` then
+pass some parameters, use `track:` to specify a search string:
 
 ```js
 var stream = bot.stream('statuses/filter', {
@@ -705,8 +718,8 @@ stream.on('tweet', function(t) {
 })
 ```
 
-You can also use multiple words in the `track` parameter, tis will get you
-results with either `twitter` or `bot` in them.
+You can also use multiple words in the `track` parameter, tis will get
+you results with either `twitter` or `bot` in them.
 
 ```js
 const stream = bot.stream('statuses/filter', {
@@ -718,11 +731,11 @@ stream.on('tweet', t => {
 })
 ```
 
-If you want both words then remove the comma `,` you can think of spaces as
-`AND` and commas as `OR`
+If you want both words then remove the comma `,` you can think of
+spaces as `AND` and commas as `OR`
 
-You can also use the `follow:` parameter which lets you input the ids of
-specific users, example:
+You can also use the `follow:` parameter which lets you input the ids
+of specific users, example:
 
 ```js
 const stream = bot.stream('statuses/filter', {
@@ -736,14 +749,15 @@ stream.on('tweet', t => {
 
 ## Tweet media files
 
-This [egghead.io][egghead-media-files] video is a great resource for this
-section thanks to [Hannah Davis][hannah-davis] for the awesome content!
+This [egghead.io][egghead-media-files] video is a great resource for
+this section thanks to [Hannah Davis][hannah-davis] for the awesome
+content!
 
-This will be a request to get the [NASA image of the day][nasa-iotd] and tweet
-it.
+This will be a request to get the [NASA image of the day][nasa-iotd]
+and tweet it.
 
-For this we will need references to `request` and `fs` for working with the file
-system.
+For this we will need references to `request` and `fs` for working
+with the file system.
 
 ```js
 const Twit = require('twit')
@@ -754,9 +768,9 @@ const config = require('./config')
 const bot = new Twit(config)
 ```
 
-First up get the photo from the NASA api, for this we will need to create a
-parameter object inside our `getPhoto` function that will be passed to the node
-HTTP client `request` for the image:
+First up get the photo from the NASA api, for this we will need to
+create a parameter object inside our `getPhoto` function that will be
+passed to the node HTTP client `request` for the image:
 
 ```js
 function getPhoto() {
@@ -770,13 +784,14 @@ function getPhoto() {
 }
 ```
 
-The `parameters` specify an `api_key` for this you can [apply for an API
-key][api-apply] or you can use the `DEMO_KEY` this API key can be used for
-initially exploring APIs prior to signing up, but it has much lower rate limits,
-so you’re encouraged to signup for your own API key.
+The `parameters` specify an `api_key` for this you can [apply for an
+API key][api-apply] or you can use the `DEMO_KEY` this API key can be
+used for initially exploring APIs prior to signing up, but it has much
+lower rate limits, so you’re encouraged to signup for your own API
+key.
 
-In the example you can see that I have configured my key with the rest of my
-`.env` variables.
+In the example you can see that I have configured my key with the rest
+of my `.env` variables.
 
 ```text
 CONSUMER_KEY=AmMSbxxxxxxxxxxNh4BcdMhxg
@@ -805,8 +820,9 @@ function getPhoto() {
 }
 ```
 
-In the `request` we pass in our parameters and parse the body as JOSN so we can
-save it with the `saveFile` function which we'll go over now:
+In the `request` we pass in our parameters and parse the body as JOSN
+so we can save it with the `saveFile` function which we'll go over
+now:
 
 ```js
 function saveFile(body, fileName) {
@@ -824,12 +840,12 @@ function saveFile(body, fileName) {
 }
 ```
 
-`request(body).pipe(file).on('close'...` is what saves the file from the `file`
-variable which has the name passed to it `nasa.jpg` from the `getPhoto`
-function.
+`request(body).pipe(file).on('close'...` is what saves the file from
+the `file` variable which has the name passed to it `nasa.jpg` from
+the `getPhoto` function.
 
-Calling `getPhoto()` should now save the NASA image of the day to the root of
-your project.
+Calling `getPhoto()` should now save the NASA image of the day to the
+root of your project.
 
 Now we can share it on Twitter 😎
 
@@ -852,12 +868,13 @@ function saveFile(body, fileName) {
 }
 ```
 
-Then `uploadMedia` to upload media to Twitter before we can post it, this had me
-stumped for a bit as I have my files in a `src` folder, if you have your bot
-files nested in folders then you will need to do the same if you are struggling
-with `file does not exist` errors:
+Then `uploadMedia` to upload media to Twitter before we can post it,
+this had me stumped for a bit as I have my files in a `src` folder, if
+you have your bot files nested in folders then you will need to do the
+same if you are struggling with `file does not exist` errors:
 
-Add a `require` to `path` then use `join` with the relevant relative file path.
+Add a `require` to `path` then use `join` with the relevant relative
+file path.
 
 ```js
 const path = require('path')
@@ -905,8 +922,8 @@ function postStatus(params) {
 }
 ```
 
-Call the `getPhoto()` function top post to Twitter... super straight forward,
-right 😀 no, I know it wasn't. Here's the complete module:
+Call the `getPhoto()` function top post to Twitter... super straight
+forward, right 😀 no, I know it wasn't. Here's the complete module:
 
 <details>
   <summary>Click to expand</summary>
@@ -988,24 +1005,24 @@ getPhoto()
 
 ## Make a Markov bot
 
-This is pretty neat, again from the [egghead.io][egghead-markov] series it uses
-[rita][rita-npm] natural language toolkit. It also uses `csv-parse` as we're
-going to be reading out our Twitter archive to make the bot sound like us
-tweeting.
+This is pretty neat, again from the [egghead.io][egghead-markov]
+series it uses [rita][rita-npm] natural language toolkit. It also uses
+`csv-parse` as we're going to be reading out our Twitter archive to
+make the bot sound like us tweeting.
 
-First of all, to set up the [Twitter archive][tweet-archive], you'll need to
-request your data from the Twitter settings page. You'll be emailed a link to
-download your archive, then when you have downloaded the archive extract out the
-`tweets.csv` file, we'll then put that in it's own folder, so from the root of
-your project:
+First of all, to set up the [Twitter archive][tweet-archive], you'll
+need to request your data from the Twitter settings page. You'll be
+emailed a link to download your archive, then when you have downloaded
+the archive extract out the `tweets.csv` file, we'll then put that in
+it's own folder, so from the root of your project:
 
 ```sh
 cd src
 mkdir twitter-archive
 ```
 
-We'll move our `tweets.csv` there to be accessed by the bot we're going to go
-over now.
+We'll move our `tweets.csv` there to be accessed by the bot we're
+going to go over now.
 
 Use `fs` to set up a read stream...
 
@@ -1024,15 +1041,16 @@ const tweetData = fs
   })
 ```
 
-When you run this from the console you should get the output from your Twitter
-archive.
+When you run this from the console you should get the output from your
+Twitter archive.
 
-Now clear out things like `@` and `RT` to help with the natural language
-processing we'll set up two functions `cleanText` and `hasNoStopWords`
+Now clear out things like `@` and `RT` to help with the natural
+language processing we'll set up two functions `cleanText` and
+`hasNoStopWords`
 
-`cleanText` will tokenize the text delimiting it on space `' '` filter out the
-stop words then `.join(' ')` back together with a space and `.trim()` any
-whitespace that may be at the start of the text.
+`cleanText` will tokenize the text delimiting it on space `' '` filter
+out the stop words then `.join(' ')` back together with a space and
+`.trim()` any whitespace that may be at the start of the text.
 
 ```js
 function cleanText(text) {
@@ -1043,8 +1061,8 @@ function cleanText(text) {
 }
 ```
 
-The tokenized text can then be fed into the `hasNoStopWords` function to be
-sanitized for use in `tweetData`
+The tokenized text can then be fed into the `hasNoStopWords` function
+to be sanitized for use in `tweetData`
 
 ```js
 function hasNoStopWords(token) {
@@ -1054,11 +1072,12 @@ function hasNoStopWords(token) {
 ```
 
 Now that we have the data cleaned we can tweet it, so replace
-`console.log(row[5])` with `inputText = inputText + ' ' + cleanText(row[5])`
-then we can use `rita.RiMarkov(3)` the 3 being the number of words to take into
-consideration. Then use `markov.generateSentences(1)` with 1 being the number of
-sentences being generated. We'll also use `.toString()` and `.substring(0, 140)`
-to truncate the result down to 140 characters.
+`console.log(row[5])` with
+`inputText = inputText + ' ' + cleanText(row[5])` then we can use
+`rita.RiMarkov(3)` the 3 being the number of words to take into
+consideration. Then use `markov.generateSentences(1)` with 1 being the
+number of sentences being generated. We'll also use `.toString()` and
+`.substring(0, 140)` to truncate the result down to 140 characters.
 
 ```js
 const tweetData =
@@ -1078,8 +1097,9 @@ const tweetData =
   }
 ```
 
-Now we can tweet this with the bot using `.post('statuses/update'...` passing in
-the `sentence` variable as the `status` logging out when there is a tweet.
+Now we can tweet this with the bot using `.post('statuses/update'...`
+passing in the `sentence` variable as the `status` logging out when
+there is a tweet.
 
 ```js
 const tweetData =
@@ -1109,9 +1129,9 @@ const tweetData =
 }
 ```
 
-If you want your sentences to be closer to the input text you can increase the
-words to consider in `rita.RiMarkov(6)` and if you want to make it gibberish
-then lower the number.
+If you want your sentences to be closer to the input text you can
+increase the words to consider in `rita.RiMarkov(6)` and if you want
+to make it gibberish then lower the number.
 
 Here's the completed module:
 
@@ -1175,9 +1195,10 @@ function cleanText(text) {
 
 ## Retrieve and Tweet data from Google sheets
 
-If you want to tweet a list of links you can use [`tabletop`][npm-tabletop] to
-work though the list, in this example again from [egghead.io][egghead-tabletop]
-we'll go through a list of links.
+If you want to tweet a list of links you can use
+[`tabletop`][npm-tabletop] to work though the list, in this example
+again from [egghead.io][egghead-tabletop] we'll go through a list of
+links.
 
 So, set up the bot and require `tabletop`:
 
@@ -1189,8 +1210,9 @@ const Tabletop = require('tabletop')
 const bot = new Twit(config)
 ```
 
-On your [`Google spreadsheet`][google-sheets] you'll need to have a header
-defined and then add your links, we'll use the following for an example:
+On your [`Google spreadsheet`][google-sheets] you'll need to have a
+header defined and then add your links, we'll use the following for an
+example:
 
 | links                        |
 | ---------------------------- |
@@ -1199,12 +1221,13 @@ defined and then add your links, we'll use the following for an example:
 | https://www.reddit.com       |
 | https://twitter.com          |
 
-Now from Google sheets we can select 'File'>'Publish to the web' and copy the
-link that is generated we can use that in table top.
+Now from Google sheets we can select 'File'>'Publish to the web' and
+copy the link that is generated we can use that in table top.
 
-Now init Table top with three parameters, `key:` which is the spreadsheet URL, a
-`callback:` function to get the data and `simpleSheet:` which is `true` if you
-only have one sheet, like in our example here:
+Now init Table top with three parameters, `key:` which is the
+spreadsheet URL, a `callback:` function to get the data and
+`simpleSheet:` which is `true` if you only have one sheet, like in our
+example here:
 
 ```js
 const spreadsheetUrl =
@@ -1229,8 +1252,8 @@ $ node index.js
   { 'links': 'https://twitter.com' } ]
 ```
 
-So now we can tweet them using `.post('statuses/update',...` with a `forEach` on
-the `data` that is returned in the callback:
+So now we can tweet them using `.post('statuses/update',...` with a
+`forEach` on the `data` that is returned in the callback:
 
 ```js
 Tabletop.init({
@@ -1257,9 +1280,9 @@ Tabletop.init({
 })
 ```
 
-Note that `${d.links}` is the header name we use in the Google spreadsheet, I
-tried using skeleton and camel case and both returned errors so I went with a
-single name header on the spreadsheet.
+Note that `${d.links}` is the header name we use in the Google
+spreadsheet, I tried using skeleton and camel case and both returned
+errors so I went with a single name header on the spreadsheet.
 
 The completed code here:
 
@@ -1305,23 +1328,24 @@ Tabletop.init({
 
 ## Putting it all together
 
-Ok, so those examples were good n' all but we haven't really got a bot out of
-this have we? I mean you run it from the terminal and that's it done, we want to
-be able to kick off the bot and leave it to do its thing.
+Ok, so those examples were good n' all but we haven't really got a bot
+out of this have we? I mean you run it from the terminal and that's it
+done, we want to be able to kick off the bot and leave it to do its
+thing.
 
-One way I have found to do this is to use `setInterval` which will kick off
-events from the main `bot.js` module, so lets try this:
+One way I have found to do this is to use `setInterval` which will
+kick off events from the main `bot.js` module, so let's try this:
 
-Take the example we did to tweet a picture and add it to it's own module, so
-from the root directory of our project:
+Take the example we did to tweet a picture and add it to it's own
+module, so from the root directory of our project:
 
 ```sh
 cd src
 touch picture-bot.js
 ```
 
-Take the example code from that and paste it into the new module, then we're
-going to make the following changes, to `getPhoto`:
+Take the example code from that and paste it into the new module, then
+we're going to make the following changes, to `getPhoto`:
 
 ```js
 const getPhoto = () => {
@@ -1345,8 +1369,9 @@ Then at the bottom of the module add:
 module.exports = getPhoto
 ```
 
-So now we can call the `getPhoto` function from the `picture-bot.js` module in
-our `bot.js` module, our `bot.js` module should look something like this:
+So now we can call the `getPhoto` function from the `picture-bot.js`
+module in our `bot.js` module, our `bot.js` module should look
+something like this:
 
 ```js
 const picture = require('./picture-bot')
@@ -1376,15 +1401,16 @@ Status posted!
 Done in 9.89s.
 ```
 
-Ok, so thats the picture of the day done, but it has run once and completed we
-need to put it on an interval with `setInterval` which we need to pass two
-options to, the function it's going to call and the timeout value.
+Ok, so thats the picture of the day done, but it has run once and
+completed we need to put it on an interval with `setInterval` which we
+need to pass two options to, the function it's going to call and the
+timeout value.
 
-The picture updates every 24 hours so that will be how many milliseconds in 24
-hours [8.64e+7] I don't even 🤷‍
+The picture updates every 24 hours so that will be how many
+milliseconds in 24 hours [8.64e+7] I don't even 🤷‍
 
-I work it out like this, 1000 _ 60 = 1 minute, so 1000 _ 60 _ 60 _ 24 so for now
-lets add that directly into the `setInterval` function:
+I work it out like this, 1000 _ 60 = 1 minute, so 1000 _ 60 _ 60 _ 24
+so for now let's add that directly into the `setInterval` function:
 
 ```js
 const picture = require('./picture-bot')
@@ -1393,20 +1419,21 @@ picture()
 setInterval(picture, 1000 * 60 * 60 * 24)
 ```
 
-Cool, that's a bot that will post the NASA image of the day every 24 hours!
+Cool, that's a bot that will post the NASA image of the day every 24
+hours!
 
-Lets keep going, now lets add some randomness in with the Markov bot, like we
-did in the picture of the day example, lets create a new module for the Markov
-bot and add all the code in there from the previous example, so from the
-terminal:
+Let's keep going, now let's add some randomness in with the Markov
+bot, like we did in the picture of the day example, let's create a new
+module for the Markov bot and add all the code in there from the
+previous example, so from the terminal:
 
 ```sh
 cd src
 touch markov-bot.js
 ```
 
-Then copy pasta the markov bot example into the new module, then we're going to
-make the following changes:
+Then copy pasta the markov bot example into the new module, then we're
+going to make the following changes:
 
 ```js
 const tweetData = () => {
@@ -1451,8 +1478,8 @@ module.exports = tweetData
 ```
 
 Ok, same again as with the picture bot example we're going to add the
-`tweetData` export from `markov-bot.js` to our `bot.js` module, which should now
-look something like this:
+`tweetData` export from `markov-bot.js` to our `bot.js` module, which
+should now look something like this:
 
 ```js
 const picture = require('./picture-bot')
@@ -1464,8 +1491,8 @@ setInterval(picture, 1000 * 60 * 60 * 24)
 markov()
 ```
 
-Let's make the Markov bot tweet at random intervals between 5 minutes and 3
-hours
+Let's make the Markov bot tweet at random intervals between 5 minutes
+and 3 hours
 
 ```js
 const picture = require('./picture-bot')
@@ -1481,7 +1508,8 @@ setInterval(markov, markovInterval)
 
 Allrighty! Picture bot, Markov bot, done 👍
 
-Do the same with the link bot? Ok, same as before, you get the idea now, right?
+Do the same with the link bot? Ok, same as before, you get the idea
+now, right?
 
 Create a new file in the `src` folder for link bot:
 
@@ -1489,7 +1517,8 @@ Create a new file in the `src` folder for link bot:
 touch link-bot.js
 ```
 
-Copy pasta the code from the link bot example into the new module, like this:
+Copy pasta the code from the link bot example into the new module,
+like this:
 
 ```js
 const link = () => {
@@ -1521,7 +1550,8 @@ const link = () => {
 module.exports = link
 ```
 
-Then we can call it from the bot, so it should look something like this:
+Then we can call it from the bot, so it should look something like
+this:
 
 ```js
 const picture = require('./picture-bot')
@@ -1545,17 +1575,18 @@ We can now leave the bot running to do its thing!!
 
 ## Deploy to now
 
-Right, we have a bot that does a few things but it's on our development
-environment, so it can't stay there forever, well it could but it'd be pretty
-impcratcical. Lets put our bot on a server somewhere to do it's thing.
+Right, we have a bot that does a few things but it's on our
+development environment, so it can't stay there forever, well it could
+but it'd be pretty impcratcical. Let's put our bot on a server
+somewhere to do it's thing.
 
 To do this we're going to be using [now][now], `now` allows for simple
-deployments from the CLI if you're not fimailiar with now then take a quick look
-at the [documentation][now] in these examples we're going to be using the
-`now-cli`.
+deployments from the CLI if you're not fimailiar with now then take a
+quick look at the [documentation][now] in these examples we're going
+to be using the `now-cli`.
 
-There's a few things we need to do in order to get our bot ready to go on
-[now][now], let's list them quickly and then go into detail.
+There's a few things we need to do in order to get our bot ready to go
+on [now][now], let's list them quickly and then go into detail.
 
 * Signup and install now-cli
 * Add now settings + .npmignore file
@@ -1563,15 +1594,15 @@ There's a few things we need to do in order to get our bot ready to go on
 * Add npm deploy script
 * Re jig picture-bot.js
 
-Ready? Lets do this! 💪
+Ready? Let's do this! 💪
 
 **Signup and install now-cli**
 
-Fist up lets signup for [zeit][zeit-login] ▲ create an account and authenticate,
-then we can install the CLI.
+Fist up let's signup for [zeit][zeit-login] ▲ create an account and
+authenticate, then we can install the CLI.
 
-Install `now` globally on our machine so you can use it everywhere, to install
-the `now-cli` from the terminal enter:
+Install `now` globally on our machine so you can use it everywhere, to
+install the `now-cli` from the terminal enter:
 
 ```sh
 npm install -g now
@@ -1583,23 +1614,24 @@ Once it's completed login with:
 now --login
 ```
 
-The first time you run `now`, it'll ask for your email address in order to
-identify you. Go to the email account to supplied when sigining up an click on
-the email sent to you from `now`, and you'll be logged in automatically.
+The first time you run `now`, it'll ask for your email address in
+order to identify you. Go to the email account to supplied when
+sigining up an click on the email sent to you from `now`, and you'll
+be logged in automatically.
 
-If you need to switch the account or re-authenticate, run the same command
-again.
+If you need to switch the account or re-authenticate, run the same
+command again.
 
-You can always check out the [now-cli][now-getting-started-cli] documentation
-for more information along with the [your first deployment][now-first-deploy]
-guide.
+You can always check out the [now-cli][now-getting-started-cli]
+documentation for more information along with the [your first
+deployment][now-first-deploy] guide.
 
 **Add now settings**
 
-Ok, so that's signup and install sorted, we can now configure the bot for
-deploying to `now`. First up lets add the `now` settings to our `package.json`
-file, I've put it in between my `npm` scripts and the author name in my
-`package.json`:
+Ok, so that's signup and install sorted, we can now configure the bot
+for deploying to `now`. First up let's add the `now` settings to our
+`package.json` file, I've put it in between my `npm` scripts and the
+author name in my `package.json`:
 
 ```json
 "scripts": {
@@ -1615,48 +1647,50 @@ file, I've put it in between my `npm` scripts and the author name in my
   "author": "Scott Spence",
 ```
 
-This was a source of major confusion for me so I'm hoping I can save you the
-pain I went through trying to configure this, all the relevant documentation is
-there you just need to put it all together 😎
+This was a source of major confusion for me so I'm hoping I can save
+you the pain I went through trying to configure this, all the relevant
+documentation is there you just need to put it all together 😎
 
-> If you find anything in here that doesn't make sense or is just outright wrong
-> then please [log an issue][github-issue] or create a pull request 👍
+> If you find anything in here that doesn't make sense or is just
+> outright wrong then please [log an issue][github-issue] or create a
+> pull request 👍
 
-The now settings `alias` is to give your deployment a shothand name over the
-auto generated URL that `now` creates, the `files` section covers what we want
-to include in the depoloyment to `now` we'll go over the file structure shortly.
-Basically what is included in the `files` array is all that get pused up to the
-now servers.
+The now settings `alias` is to give your deployment a shothand name
+over the auto generated URL that `now` creates, the `files` section
+covers what we want to include in the depoloyment to `now` we'll go
+over the file structure shortly. Basically what is included in the
+`files` array is all that get pused up to the now servers.
 
 All good so for?
 
-Ok, now we need to add a `.npmignore` file in the root of the project and add
-the following line to it:
+Ok, now we need to add a `.npmignore` file in the root of the project
+and add the following line to it:
 
 ```sh
 !tweets.csv
 ```
 
-The `tweets.csv` needs to go up to the `now` server to be used by the bot, but
-we previously included it in our `.gitignore` which is what `now` uses to build
-your project when it's being loaded to the server. So this means that the file
-isn't going to get loaded unless we add the `.npmignore` to not ignore the
-`tweets.csv` 😅
+The `tweets.csv` needs to go up to the `now` server to be used by the
+bot, but we previously included it in our `.gitignore` which is what
+`now` uses to build your project when it's being loaded to the server.
+So this means that the file isn't going to get loaded unless we add
+the `.npmignore` to not ignore the `tweets.csv` 😅
 
 **Add .env variables as secrets**
 
-Ok, our super duper secret Twitter keys will need to be stored as `secrets` in
-`now` this is a pretty neat feature where you can define anything as a secret
-and reference it as an alias with `now`.
+Ok, our super duper secret Twitter keys will need to be stored as
+`secrets` in `now` this is a pretty neat feature where you can define
+anything as a secret and reference it as an alias with `now`.
 
-Lets start, so the syntax is `now secrets add my-secret "my value"` so for our
-`.env` keys add them all in giving them a descriptive [but short!] name.
+Let's start, so the syntax is `now secrets add my-secret "my value"`
+so for our `.env` keys add them all in giving them a descriptive [but
+short!] name.
 
-> You will not need to wrap your "my value" in quotes but the documentation does
-> say "when in doubt, wrap your value in quotes"
+> You will not need to wrap your "my value" in quotes but the
+> documentation does say "when in doubt, wrap your value in quotes"
 
-Ok, so from the terminal `now secrets ls` should list out your `secrets` you
-just created:
+Ok, so from the terminal `now secrets ls` should list out your
+`secrets` you just created:
 
 ```sh
 $ now secrets ls
@@ -1672,8 +1706,9 @@ $ now secrets ls
 
 **Add npm deploy script**
 
-Now we have out secrets defined we can create a deployment script to deploy to
-`now`, so in our `package.json` lets add an additional script:
+Now we have our secrets defined we can create a deployment script to
+deploy to `now`, so in our `package.json` let's add an additional
+script:
 
 ```json
   "main": "index.js",
@@ -1684,9 +1719,10 @@ Now we have out secrets defined we can create a deployment script to deploy to
   "now": {
 ```
 
-Lets go over what we have added there, `deploy` will run the `now` command and
-pass it all our environment `-e` variables and the associated `secret` value, if
-we break it down into separate lines it will be a bit clearer:
+Let's go over what we have added there, `deploy` will run the `now`
+command and pass it all our environment `-e` variables and the
+associated `secret` value, if we break it down into separate lines it
+will be a bit clearer:
 
 ```text
 now
@@ -1699,34 +1735,37 @@ now
 
 **Re jig picture-bot.js**
 
-Ok, because `now` deployments are [immutable][immutable-deployment] it means
-that there's no write access to the disk where we want to save our NASA photo of
-the day, so to get around that we need to use the `/tmp` file location.
+Ok, because `now` deployments are [immutable][immutable-deployment] it
+means that there's no write access to the disk where we want to save
+our NASA photo of the day, so to get around that we need to use the
+`/tmp` file location.
 
 Shout out to [@Tim][tim] from `zeit` for helping me out with this!
 
-In the `picture-bot.js` module add the following two lines to the top of the
-module:
+In the `picture-bot.js` module add the following two lines to the top
+of the module:
 
 ```js
 const os = require('os')
 const tmpDir = os.tmpdir()
 ```
 
-Those two lines give us the `temp` directory of the operating system, so if like
-me you're on Windows it will work as well as if you are on another stsyem like a
-linux based system, which is what `now` is. In our `saveFile` function we're
-going to use `tmpDir` to save our file.
+Those two lines give us the `temp` directory of the operating system,
+so if like me you're on Windows it will work as well as if you are on
+another stsyem like a linux based system, which is what `now` is. In
+our `saveFile` function we're going to use `tmpDir` to save our file.
 
-We've taken out the `nasa.jpg` from the `getPhoto` function as we can define
-that information in the `saveFile` function, the NASA potd is not just a `'jpeg`
-some items posted there are videos as well. We we can define the type with a
-[ternary function][ternary] off of the `body` being passed in, this will send a
-tweet with a link to the video:
+We've taken out the `nasa.jpg` from the `getPhoto` function as we can
+define that information in the `saveFile` function, the NASA potd is
+not just a `'jpeg` some items posted there are videos as well. We we
+can define the type with a [ternary function][ternary] off of the
+`body` being passed in, this will send a tweet with a link to the
+video:
 
 ```js
 function saveFile(body) {
-  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
+  const fileName =
+    body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
   const filePath = path.join(tmpDir + `/${fileName}`)
 
   console.log(`saveFile: file PATH ${filePath}`)
@@ -1786,7 +1825,8 @@ const getPhoto = () => {
 }
 
 function saveFile(body) {
-  const fileName = body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
+  const fileName =
+    body.media_type === 'image/jpeg' ? 'nasa.jpg' : 'nasa.mp4'
   const filePath = path.join(tmpDir + `/${fileName}`)
 
   console.log(`saveFile: file PATH ${filePath}`)
@@ -1888,17 +1928,17 @@ $ now -e CONSUMER_KEY=@ds-twit-key -e CONSUMER_SECRET=@ds-twit-secret -e ACCESS_
 
 Woot! You have your bot deployed! 🙌
 
-If you click on the link produced you will be able to inspect the bot as it is
-on `now` there's also a handy logs section on the page where you can check for
-output. 👍
+If you click on the link produced you will be able to inspect the bot
+as it is on `now` there's also a handy logs section on the page where
+you can check for output. 👍
 
 ## Contributing
 
 Please fork this repository and contribute back using pull requests.
 
-Any contributions, large or small, major features, bug fixes and integration
-tests are welcomed and appreciated but will be thoroughly reviewed and
-discussed.
+Any contributions, large or small, major features, bug fixes and
+integration tests are welcomed and appreciated but will be thoroughly
+reviewed and discussed.
 
 ## License
 

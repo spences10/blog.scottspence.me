@@ -4,14 +4,16 @@ import styled from 'styled-components'
 import { media } from '../../theme/globalStyle'
 import { ICONS } from '../../theme/constants'
 import Icon from './Icon'
+import ThemeSelect from './ThemeSelect'
+import { BlogThemeContext } from './BlogThemeContext'
 
 const StyledFooter = styled.div`
   z-index: 1;
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: ${({ theme }) => theme.white};
-  border-top: 1px solid ${({ theme }) => theme.primary.light};
+  background-color: ${({ theme }) => theme.primary};
+  border-top: 1px solid ${({ theme }) => theme.border};
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -44,7 +46,7 @@ const StyledFooter = styled.div`
 `
 
 const IconWrapper = styled.div`
-  color: ${({ theme }) => theme.primary.light};
+  color: ${({ theme }) => theme.fontLight};
   grid-area: ${props => props.area};
   /* top right bottom left */
   margin: 0rem 0.5rem 0rem 0.5rem;
@@ -60,12 +62,25 @@ const IconLink = styled.a`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary.red};
+    color: ${({ theme }) => theme.primaryAccent};
   }
+`
+
+const ThemeSelectWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
 `
 
 const Footer = () => (
   <StyledFooter>
+    <BlogThemeContext.Consumer>
+      {({ handleThemeChange }) => (
+        <ThemeSelectWrapper>
+          <ThemeSelect handleThemeChange={handleThemeChange} />
+        </ThemeSelectWrapper>
+      )}
+    </BlogThemeContext.Consumer>
     <IconWrapper area={'g'}>
       <IconLink
         target="_blank"

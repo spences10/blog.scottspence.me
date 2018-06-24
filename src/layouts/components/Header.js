@@ -37,18 +37,18 @@ const StyledHeader = styled.div`
       'b b b b b b c p a';
     /* background: palevioletred; */
   `};
-
-  background-color: ${({ theme }) => theme.white};
-  border-bottom: 1px solid ${({ theme }) => theme.primary.light};
+  background-color: ${({ theme }) => theme.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.boarder};
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
 `
 
 const BrandTitle = StyledH1.extend`
   grid-area: b;
-  color: ${({ theme }) => theme.primary.light};
+  color: ${({ theme }) => theme.fontLight};
   /* top right bottom left */
   margin: 0rem 0.5rem 0rem 0.5rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.fontHeader};
   font-weight: bold;
   /* font-size: 1rem; */
   ${media.giant`
@@ -65,18 +65,18 @@ const BrandTitle = StyledH1.extend`
   `};
 `
 
-const Contact = styled.div`
-  grid-area: c;
-  text-transform: uppercase;
-`
-const Portfolio = styled.div`
-  grid-area: p;
-  text-transform: uppercase;
-`
-const About = styled.div`
-  grid-area: a;
-  text-transform: uppercase;
-`
+// const Contact = styled.div`
+//   grid-area: c;
+//   text-transform: uppercase;
+// `
+// const Portfolio = styled.div`
+//   grid-area: p;
+//   text-transform: uppercase;
+// `
+// const About = styled.div`
+//   grid-area: a;
+//   text-transform: uppercase;
+// `
 
 const BrandLink = styled(Link)`
   color: inherit;
@@ -85,7 +85,7 @@ const BrandLink = styled(Link)`
     color: inherit;
   }
   &:hover {
-    color: ${({ theme }) => theme.secondary.red};
+    color: ${({ theme }) => theme.primaryAccent};
   }
 `
 

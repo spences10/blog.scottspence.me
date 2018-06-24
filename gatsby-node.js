@@ -1,8 +1,51 @@
 const path = require('path')
 const queryAll = require('./gatsby/queryAll.js')
 
+<<<<<<< HEAD
 exports.onCreateNode = ({ node }) => {
   console.log('onCreateNode:', node.internal.type)
+=======
+const createTagPages = (createPage, posts) => {
+  const tagPageTemplate = path.resolve('src/templates/tags.js')
+  const allTagsTemplate = path.resolve('src/templates/all-tags.js')
+
+  const postsByTags = {}
+
+  posts.forEach(({ node }) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach(tag => {
+        if (!postsByTags[tag]) {
+          postsByTags[tag] = []
+        }
+
+        postsByTags[tag].push(node)
+      })
+    }
+  })
+
+  const tags = Object.keys(postsByTags)
+
+  createPage({
+    path: '/tags',
+    component: allTagsTemplate,
+    context: {
+      tags: tags.sort()
+    }
+  })
+
+  tags.forEach(tagName => {
+    const posts = postsByTags[tagName]
+
+    createPage({
+      path: '/tags/${tagName}',
+      component: tagPageTemplate,
+      context: {
+        posts,
+        tagName
+      }
+    })
+  })
+>>>>>>> development
 }
 
 exports.createPages = ({ boundActionCreators, graphql }) => {

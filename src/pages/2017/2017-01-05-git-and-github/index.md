@@ -3,7 +3,6 @@ path: "/git-and-github/"
 date: "2017-01-05"
 title: "Git and GitHub"
 tags: ['information', 'guide']
-excerpt: ""
 published: true
 ---
 
@@ -15,10 +14,7 @@ changes to your repos then there's a good chance that you just use
 `git push origin master` to move your changes from your local machine
 to GitHub, this is not best practice.
 
-<figure class="floatRight">
-	<img style="height: 200px;" src="/articles/2017-01-05-git-and-github/git-logo.jpg" alt="git">
-	<!--<figcaption></figcaption>-->
-</figure>
+![image of octocat](./git-logo.jpg)
 
 What if it's not your repository you want to make changes to? You'll
 need to create a pull request, where you make a copy (fork) of the
@@ -35,7 +31,7 @@ contribute to after I made a Twitter bot with his guides.
 
 I will need to fork the repository on GitHub so I can make my changes.
 
-![fork-a-repo](/articles/2017-01-05-git-and-github/fork-a-repo.png)
+![fork-a-repo](./fork-a-repo.png)
 
 Then clone my forked repository to where I'm all going to make the
 changes on my computer:
@@ -114,7 +110,7 @@ then my branch, so `spences10\awesome-twitter-bots` and my branch
 which is `spences10-twitter-bot` click the 'Create pull request'
 button.
 
-![open-a-pull-request](/articles/2017-01-05-git-and-github/open-a-pull-request.png)
+![open-a-pull-request](./open-a-pull-request.png)
 
 The rest is up to the repository owner (Aman) now where he can chose
 to merge my changes into his repo.

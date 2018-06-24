@@ -7,4 +7,8 @@ public/
 scottblog/
 .DS_Store
 yarn-error.log
+<<<<<<< HEAD
 .env*
+=======
+.env
+>>>>>>> development
