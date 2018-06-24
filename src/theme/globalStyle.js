@@ -78,14 +78,10 @@ export const media = Object.keys(sizes).reduce(
 )
 
 injectGlobal`
-  ${fontFace('Lato', 'lato-v14-latin-700', 'bold')}
-  ${fontFace('Merriweather', 'merriweather-v19-latin-regular')}
+  @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Poppins:400,700|Trirong:400,700|Rubik:400,700|Eczar:400,700|Taviraj:400,700');
+  @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
 
-  ${fontFace('Nunito', 'nunito-v9-latin-700', 'bold')}
-  ${fontFace('Poppins', 'poppins-v5-latin-regular')}
-
-  ${fontFace('Roboto', 'roboto-v18-latin-700', 'bold')}
-  ${fontFace('Nunito', 'nunito-v9-latin-regular')}
+  
 
   *, *:before, *:after {
     box-sizing: border-box;
