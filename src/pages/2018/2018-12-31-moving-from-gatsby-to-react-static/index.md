@@ -14,9 +14,9 @@ to have to implement here:
 
 - Markdown - check
 - Previous/next post - check
-- Related Tags in post
+- Related Tags in post - sort of
 - Code formatting - check
-- Offline PWA
+- Offline PWA - nop!
 - favicons - check
 - Google analytics - check
 
