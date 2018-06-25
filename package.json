@@ -39,6 +39,7 @@
     "react-dom": "^16.0.0",
     "react-markdown": "3.3.3",
     "react-router": "^4.2.0",
+    "react-router-ga": "1.0.0",
     "react-smackdown": "1.0.0-beta.3",
     "react-static": "5.4.0-beta.3",
     "styled-components": "^3"
