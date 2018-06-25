@@ -9,6 +9,7 @@ import { siteMeta, nameContent } from './siteMeta'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Analytics from './components/Analytics'
 
 import {
   BlogThemeContext,
@@ -92,7 +93,9 @@ const App = () => (
                 <Head title={nameContent} meta={siteMeta} />
                 <Header />
                 <ContentWrapper className="content">
-                  <Routes />
+                  <Analytics id="UA-87264973-3" debug>
+                    <Routes />
+                  </Analytics>
                 </ContentWrapper>
                 <Footer />
               </AppStyles>
