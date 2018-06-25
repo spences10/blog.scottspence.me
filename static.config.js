@@ -40,8 +40,8 @@ const query = `
 `
 
 export default {
-  siteRoot: 'https://blog.scottspence.me',
-  stagingSiteRoot: 'https://blog-scottspence.now.sh', // use --staging flag
+  // siteRoot: 'https://blog.scottspence.me',
+  // stagingSiteRoot: 'https://blog-scottspence.now.sh', // use --staging flag
   extractCssChunks: true,
   inlineCss: true,
   // bundleAnalyzer: true,
@@ -145,11 +145,6 @@ export default {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <script
-              async
-              src="https://www.google-analytics.com/analytics.js"
-            />
-            <script async src="/assets/js/autotrack.custom.js" />
             {renderMeta.styleTags}
           </Head>
           <Body>{children}</Body>
