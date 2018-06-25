@@ -11,16 +11,6 @@ export default App
 
 // Render your app
 if (typeof document !== 'undefined') {
-  window.addEventListener('load', () => {
-    const ga = window.ga
-    ga('create', 'UA-87264973-3', 'auto')
-
-    ga('require', 'outboundLinkTracker')
-    ga('require', 'urlChangeTracker')
-    // Require additional plugins imported in the build:autotrack.
-
-    ga('send', 'pageview')
-  })
   // require('offline-plugin/runtime').install()
   const renderMethod = module.hot
     ? ReactDOM.render
