@@ -26,9 +26,6 @@
     "personal",
     "blog"
   ],
-  "now": {
-    "name": "scottblog"
-  },
   "dependencies": {
     "axios": "^0.16.2",
     "date-fns": "1.29.0",
