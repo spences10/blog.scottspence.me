@@ -1,6 +1,5 @@
-require('dotenv').config({
-  path: '.env'
-})
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: 'Scott Spence - blog',
