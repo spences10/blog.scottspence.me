@@ -47,7 +47,8 @@
   ],
   "main": "n/a",
   "now": {
-    "name": "scottblog"
+    "name": "scottblog",
+    "env": true
   },
   "scripts": {
     "clean": "rm -rf .cache/ && rm -rf scottblog/ && rm -rf public/",
