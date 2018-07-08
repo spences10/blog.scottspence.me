@@ -121,7 +121,13 @@ const Template = ({ data, pathContext }) => {
       <BlogThemeContext.Consumer>
         {({ theme }) => (
           <PostWrapper border={theme.border}>
-            <Helmet title={`${title} - blog.scottspence.me`} />
+            <Helmet title={`${title} - blog.scottspence.me`}>
+              <script
+                src="https://just-comments.com/w.js"
+                type="text/javascript"
+                defer="true"
+              />
+            </Helmet>
             <Title>{title}</Title>
             <TitleDate>{date}</TitleDate>
 
@@ -166,6 +172,11 @@ const Template = ({ data, pathContext }) => {
                 </ButtonWrapper>
               )}
             </NavWrapper>
+            <div
+              className="just-comments"
+              data-allowguests="false"
+              data-apikey={process.env.GATSBY_JUST_COMMENTS_API_KEY}
+            />
           </PostWrapper>
         )}
       </BlogThemeContext.Consumer>
