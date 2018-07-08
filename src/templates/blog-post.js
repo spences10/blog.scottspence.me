@@ -174,7 +174,7 @@ const Template = ({ data, pathContext }) => {
             </NavWrapper>
             <div
               className="just-comments"
-              data-allowguests="false"
+              data-allowguests="true"
               data-apikey={process.env.GATSBY_JUST_COMMENTS_API_KEY}
             />
           </PostWrapper>
