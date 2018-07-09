@@ -1,3 +1,7 @@
 {
-  "name": "scottblog"
+  "name": "scottblog",
+  "env": {
+    "API_URL": "@blog-graphcms-endpoint",
+    "JUST_COMMENTS_API_KEY": "@blog-just-comments-api-key"
+  }
 }
