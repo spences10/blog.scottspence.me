@@ -7,6 +7,7 @@
   "description": "Personal blog made with React Static",
   "scripts": {
     "start": "react-static start",
+    "now-start": "serve -s ./scottblog",
     "stage": "react-static build --staging && mv dist scottblog",
     "build": "react-static build && mv dist scottblog && npm run wellknown",
     "serve": "serve scottblog -p 4000",

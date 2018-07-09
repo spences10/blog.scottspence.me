@@ -1,3 +1,4 @@
 {
-  "name": "scottblog"
+  "name": "scottblog",
+  "env": true
 }
