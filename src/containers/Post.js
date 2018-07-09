@@ -91,7 +91,13 @@ const Post = ({ post, previousPost, nextPost }) => {
     <PostWrapper>
       <ContentWrapper>
         <article>
-          <Head title={`${post.title} - ${nameContent}`} />
+          <Head title={`${post.title} - ${nameContent}`}>
+            <script
+              src="https://just-comments.com/w.js"
+              type="text/javascript"
+              defer="true"
+            />
+          </Head>
           <PostTitle>{post.title}</PostTitle>
           <PostedDate>
             Posted: {formatDate(post.dateAndTime)}
@@ -141,6 +147,11 @@ const Post = ({ post, previousPost, nextPost }) => {
             </LinkWrapper>
           </LinksWrapper>
         </article>
+        <div
+          className="just-comments"
+          data-allowguests="true"
+          data-apikey={process.env.JUST_COMMENTS_API_KEY}
+        />
       </ContentWrapper>
     </PostWrapper>
   )
