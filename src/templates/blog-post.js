@@ -177,6 +177,10 @@ const Template = ({ data, pathContext }) => {
               data-allowguests="true"
               data-apikey={process.env.GATSBY_JUST_COMMENTS_API_KEY}
             />
+            {console.log(
+              'TEST FOR KEY',
+              process.env.GATSBY_JUST_COMMENTS_API_KEY
+            )}
           </PostWrapper>
         )}
       </BlogThemeContext.Consumer>
