@@ -7,4 +7,8 @@
 My personal blog for adding information on my dev journey
 
 The blog is built with Gatsby using styled-components for CSS-in-JS
-and hosted on now
+and hosted on Netlify
+
+<a href="https://www.netlify.com">
+  <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"/>
+</a>
