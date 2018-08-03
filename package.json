@@ -3,7 +3,7 @@
   "version": "2.0.11",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
-  "description": "Personal blog made with Gatsby default starter",
+  "description": "Personal blog made with Gatsby",
   "dependencies": {
     "dotenv": "6.0.0",
     "eslint-plugin-graphql": "2.1.1",
@@ -46,21 +46,12 @@
     "blog"
   ],
   "main": "n/a",
-  "now": {
-    "name": "scottblog",
-    "env": true
-  },
   "scripts": {
-    "clean": "rm -rf .cache/ && rm -rf scottblog/ && rm -rf public/",
-    "build": "gatsby build && mv public scottblog",
-    "deploy:now": "npm run clean && npm run build && now scottblog/",
+    "clean": "rm -rf .cache/ && rm -rf public/",
+    "build": "gatsby build",
     "dev": "npm run clean && gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
-    "deploy": "now scottblog/ --token $NOW_TOKEN",
-    "alias:dev": "now alias blog-scottspence.now.sh --token $NOW_TOKEN",
-    "alias:prod": "now alias blog.scottspence.me --token $NOW_TOKEN",
-    "cleanup": "now rm scottblog --safe --yes --token $NOW_TOKEN",
     "release": "release-it"
   },
   "repository": {
