@@ -79,8 +79,8 @@ There we go 👍
 
 Ok, the 'things' I want to do with the Context API are:
 
-1.  change the styled-components `ThemeProvider`
-2.  rotate the site hero patterns
+1. change the styled-components `ThemeProvider`
+2. rotate the site hero patterns
 
 Now to scaffold out the context component, I have already mentioned
 the [VS Code snippet] for my own personal use which is the basic

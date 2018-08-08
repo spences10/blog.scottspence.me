@@ -12,17 +12,17 @@ nicely packaged up for you as plugins for Gatsby, it's a bit different
 in React Static, let's go over some of the features I think I'm going
 to have to implement here:
 
-- Markdown - check
-- Previous/next post - check
-- Related Tags in post - sort of
-- Code formatting - check
-- Offline PWA - nop!
-- favicons - check
-- Google analytics - check
+* Markdown - check
+* Previous/next post - check
+* Related Tags in post - sort of
+* Code formatting - check
+* Offline PWA - nop!
+* favicons - check
+* Google analytics - check
 
 Other additional options I'm going to consider:
 
-- Using purify CSS
+* Using purify CSS
 
 Markdown syntax highlighting FUCKING painful! `react-smackdown` seems
 to have it covered though, use the `@beta` tag though

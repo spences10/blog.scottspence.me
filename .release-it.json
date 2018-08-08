@@ -6,7 +6,7 @@
   "github": {
     "release": true
   },
-  "npm":{
+  "npm": {
     "publish": false
   }
 }
