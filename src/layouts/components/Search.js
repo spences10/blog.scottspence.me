@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
+import PropTypes from 'prop-types'
 
 // Graphql query used to retrieve the serialized search index.
-export const query = graphql`query
-SearchIndexExampleQuery {
+/*eslint-disable */
+export const query = graphql`
+  query SearchIndexExampleQuery {
     siteSearchIndex {
       index
     }
-}`
+  }
+`
+/*eslint-enable */
 
 // Search component
 export default class Search extends Component {
@@ -55,4 +59,8 @@ export default class Search extends Component {
         .map(({ ref }) => this.index.documentStore.getDoc(ref))
     })
   }
+}
+
+Search.propTypes = {
+  data: PropTypes.any
 }
