@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import VerticalNavigationList from '../layouts/components/VerticalNavigationList'
 
 // import TagsContainer from '../layouts/components/TagsContainer'
 
@@ -70,6 +71,11 @@ const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark
   return (
     <div>
+      <VerticalNavigationList
+        currentSlug={'/'}
+        edges={data.allMarkdownRemark.edges}
+        searchData={data.siteSearchIndex}
+      />
       {posts.map(({ node: post }, index) => {
         const { frontmatter } = post
         // {
