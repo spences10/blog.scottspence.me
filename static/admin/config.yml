@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  repo: spences10/blog.scottspence.me
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: blog
+    label: Blog
+    folder: blog
+    create: true
+    slug: '{{year}}{{month}}{{day}}-{{slug}}'
+    fields:
+      - { name: path, label: Path, widget: string }
+      - { name: date, label: Date and Time, widget: datetime }
+      - { name: title, label: Title }
+      - { name: tags, label: Tags, widget: string }
+      - { name: published, label: Published, widget: boolean }
+      - { name: body, label: Body, widget: markdown }
+
+# ---
+# path: "/travis-ci-with-now"
+# date: "2018-05-28"
+# title: "Making a CI pipeline with Travis CI"
+# tags: ['information', 'guide', 'travis-ci', 'now', 'zeit']
+# published: true
+# ---
