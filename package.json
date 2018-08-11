@@ -11,6 +11,7 @@
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-source-filesystem": "^2.0.1-beta.10",
+    "gatsby-transformer-remark": "^2.1.1-beta.6",
     "netlify-cms": "^2.0.9",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
