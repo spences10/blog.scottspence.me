@@ -24,6 +24,7 @@ module.exports = {
         path: `${__dirname}/posts`,
         name: 'posts'
       }
-    }
+    },
+    'gatsby-transformer-remark'
   ]
 }
