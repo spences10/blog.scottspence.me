@@ -27,6 +27,7 @@
   "scripts": {
     "clean": "rm -rf .cache/ && rm -rf public/",
     "build": "gatsby build",
+    "serve": "gatsby serve --verbose",
     "dev": "gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
