@@ -1,49 +1,30 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-import { nameContent } from '../theme/constants'
-
-const Wrapper = styled.div`
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  grid-area: h;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas: '. . . b b b b b b . . .';
-`
-
-const Branding = styled.div`
-  grid-area: b;
-`
-
-const BrandLink = styled(Link)`
-  color: inherit;
-  &:visited,
-  &:active {
-    color: inherit;
-  }
-  &:hover {
-    color: ${({ theme }) => theme.primaryAccent};
-  }
-`
-
-const Header = () => {
-  return (
-    <Wrapper>
-      <Branding>
-        <BrandLink to={'/'}>
-          <h1>{nameContent}</h1>
-        </BrandLink>
-      </Branding>
-    </Wrapper>
-  )
-}
-
-// Header.propTypes = {}
+const Header = ({ siteTitle }) => (
+  <div
+    style={{
+      background: 'rebeccapurple',
+      marginBottom: '1.45rem'
+    }}>
+    <div
+      style={{
+        margin: '0 auto',
+        maxWidth: 960,
+        padding: '1.45rem 1.0875rem'
+      }}>
+      <h1 style={{ margin: 0 }}>
+        <Link
+          to="/"
+          style={{
+            color: 'white',
+            textDecoration: 'none'
+          }}>
+          {siteTitle}
+        </Link>
+      </h1>
+    </div>
+  </div>
+)
 
 export default Header
