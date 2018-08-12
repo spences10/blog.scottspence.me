@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
-  repo: spences10/blog.scottspence.me
   branch: dev/gatsby-v2
+  repo: spences10/blog.scottspence.me
 
 media_folder: static/assets
 public_folder: assets
