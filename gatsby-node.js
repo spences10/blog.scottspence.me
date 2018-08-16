@@ -37,12 +37,12 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
-          path: node.frontmatter.path,
+          path: node.fields.slug, //node.frontmatter.path
           component: path.resolve(`./src/templates/blogTemplate.js`),
           context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: node.frontmatter.path
+            slug: node.fields.slug //node.frontmatter.path
           }
         })
       })
