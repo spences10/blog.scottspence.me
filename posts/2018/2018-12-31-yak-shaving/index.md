@@ -1,7 +1,7 @@
 ---
-path: "/dont-shave-the-yak"
-date: "2018-01-20:16:39:344Z"
-title: "Shaving the Yak!"
+path: '/dont-shave-the-yak'
+date: '2018-01-20:16:39:344Z'
+title: 'Shaving the Yak!'
 tags: ['procrastination', 'productivity']
 published: false
 ---

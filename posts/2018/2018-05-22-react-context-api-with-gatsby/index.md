@@ -1,9 +1,9 @@
 ---
-path: "/react-context-api-with-gatsby"
-date: "2018-05-22"
-title: "Use the React Context API with Gatsby"
+path: '/react-context-api-with-gatsby'
+date: '2018-05-22'
+title: 'Use the React Context API with Gatsby'
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
-excerpt: ""
+excerpt: ''
 published: true
 ---
 

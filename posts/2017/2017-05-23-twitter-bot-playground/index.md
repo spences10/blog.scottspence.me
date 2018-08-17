@@ -1,7 +1,7 @@
 ---
-path: "/twitter-bot-playground/"
-date: "2017-05-23"
-title: "Twitter bot playground"
+path: '/twitter-bot-playground'
+date: '2017-05-23'
+title: 'Twitter bot playground'
 tags: ['information', 'guide']
 published: true
 ---
@@ -79,8 +79,7 @@ look something like this:
   "name": "tweebot-play",
   "version": "1.0.0",
   "main": "index.js",
-  "author":
-    "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
+  "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -108,8 +107,7 @@ It should look something like this now:
   "scripts": {
     "start": "node index.js"
   },
-  "author":
-    "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
+  "author": "Scott Spence <spences10apps@gmail.com> (https://spences10.github.io/)",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -1727,7 +1725,7 @@ will be a bit clearer:
 now
 -e CONSUMER_KEY=@ds-twit-key
 -e CONSUMER_SECRET=@ds-twit-secret
--e ACCESS_TOKEN=@ds-twit-access  
+-e ACCESS_TOKEN=@ds-twit-access
 -e ACCESS_TOKEN_SECRET=@ds-twit-access-secret
 -e NASA_KEY=@nasa-key
 ```

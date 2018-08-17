@@ -1,7 +1,7 @@
 ---
-path: "/use-your-own-gatsby-api"
-date: "2018-05-13"
-title: "Use your own API with Gatsby"
+path: '/use-your-own-gatsby-api'
+date: '2018-05-13'
+title: 'Use your own API with Gatsby'
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
 published: false
 ---

@@ -1,7 +1,7 @@
 ---
-path: "/travis-ci-with-now"
-date: "2018-05-28"
-title: "Making a CI pipeline with Travis CI"
+path: '/travis-ci-with-now'
+date: '2018-05-28'
+title: 'Making a CI pipeline with Travis CI'
 tags: ['information', 'guide', 'travis-ci', 'now', 'zeit']
 published: true
 ---
@@ -83,14 +83,15 @@ script:
   - npm run deploy
 
 after_script:
-  - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev; fi
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then npm run alias:dev;
+    fi
   - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run alias:prod; fi
   - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run release; fi
   - npm run cleanup
 
-env:
+? env
 global:
-    secure: lngmfinghashvariable!
+  secure: lngmfinghashvariable!
 ```
 
 My `package.json` looks like this:
