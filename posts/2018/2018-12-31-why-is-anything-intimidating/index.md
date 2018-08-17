@@ -1,6 +1,6 @@
 ---
 path: '/why-is-anything-intimidating'
-date: '2018-05-13'
+date: '2018-12-31'
 title: 'Why is anything intimidating?'
 tags: ['ramble', '!dev', 'habits']
 excerpt: ''

@@ -1,6 +1,6 @@
 ---
 path: '/dont-shave-the-yak'
-date: '2018-01-20:16:39:344Z'
+date: '2018-12-31'
 title: 'Shaving the Yak!'
 tags: ['procrastination', 'productivity']
 published: false

@@ -1,6 +1,6 @@
 ---
 path: '/use-your-own-gatsby-api'
-date: '2018-05-13'
+date: '2018-12-31'
 title: 'Use your own API with Gatsby'
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
 published: false
