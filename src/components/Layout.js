@@ -13,6 +13,12 @@ const Layout = ({ children, data }) => (
         site {
           siteMetadata {
             title
+            contact {
+              github
+              medium
+              devto
+              twitter
+            }
           }
         }
       }
