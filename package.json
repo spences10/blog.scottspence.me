@@ -8,6 +8,8 @@
     "gatsby": "2.0.0-beta.105",
     "gatsby-plugin-netlify-cms": "3.0.0-beta.4",
     "gatsby-plugin-react-helmet": "3.0.0-beta.4",
+    "gatsby-plugin-sharp": "2.0.0-beta.9",
+    "gatsby-remark-images": "2.0.1-beta.11",
     "gatsby-source-filesystem": "2.0.1-beta.10",
     "gatsby-transformer-remark": "2.1.1-beta.6",
     "netlify-cms": "2.0.9",
