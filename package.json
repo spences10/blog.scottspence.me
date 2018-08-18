@@ -1,6 +1,6 @@
 {
   "name": "blog.scottspence.me",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "babel-eslint": "8.2.6",
-    "eslint": "5.3.0",
+    "eslint": "5.4.0",
     "eslint-loader": "2.1.0",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-react": "7.11.1",
