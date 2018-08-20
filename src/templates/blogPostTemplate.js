@@ -1,6 +1,15 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import { Markdown } from 'react-smackdown'
+
+import { loadLanguages } from 'reprism'
+import bash from 'reprism/lib/languages/bash'
+import json from 'reprism/lib/languages/json'
+import yaml from 'reprism/lib/languages/yaml'
+import 'react-smackdown/themes/smackdown-light.css'
+
+loadLanguages(json, yaml, bash)
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark
@@ -9,7 +18,8 @@ export default ({ data, pageContext }) => {
     <Layout>
       <div>
         <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Markdown source={post.html} />
+        {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
       </div>
       <div>
         {prev === false ? null : (
