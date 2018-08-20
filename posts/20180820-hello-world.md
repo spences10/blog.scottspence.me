@@ -2,7 +2,7 @@
 path: /hello-world
 date: 2016-10-24T16:32:51.447Z
 title: Hello World!
-tags: 'hello world, getting started'
+tags: '[''hello world'', ''getting started'']'
 published: false
 ---
 My first post using Gatsby, awesome static site generator
