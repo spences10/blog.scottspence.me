@@ -15,7 +15,8 @@
     "netlify-cms": "2.0.9",
     "react": "16.4.2",
     "react-dom": "16.4.2",
-    "react-helmet": "5.2.0"
+    "react-helmet": "5.2.0",
+    "react-smackdown": "1.0.0-beta.3"
   },
   "devDependencies": {
     "prettier": "1.14.2",
