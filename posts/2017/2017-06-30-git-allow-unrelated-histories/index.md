@@ -26,14 +26,14 @@ this which was more helpful. I needed to merge the disparate branches
 which is now disabled by default in git but can be enabled with the
 --allow-unrelated-histories flag.
 
-```shell
+```bash
 git merge origin use-ts-bot --allow-unrelated-histories
 ```
 
 This brought up, understandably, a few conflicts with the branch I
 wanted to merge with the origin.
 
-```shell
+```bash
 Auto-merging package.json
 CONFLICT (add/add): Merge conflict in package.json
 Auto-merging package-lock.json

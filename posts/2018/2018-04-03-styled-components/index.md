@@ -47,7 +47,7 @@ Ok let's bootstrap the basic react application you get when using
 [Create React App] with [`npx`], if you already have Create React App
 installed globally then you can use the command without `npx`.
 
-```sh
+```bash
 npx create-react-app style-with-styled-components
 cd style-with-styled-components/
 npm i styled-components

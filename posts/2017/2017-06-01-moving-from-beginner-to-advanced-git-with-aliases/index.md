@@ -45,7 +45,7 @@ located in your user folder on Windows
 If you navigate to the file in the text editor of your choice and pop
 it open you'll see your details under the `[user]` flag, here's mine:
 
-```shell
+```bash
 [user]
   name = spences10
   email = spences10apps@gmail.com
@@ -58,7 +58,7 @@ but I'm all for reducing key strokes, even if it is one or two less.
 
 So let's review the common commands I mentioned at the start:
 
-```shell
+```bash
 git add .
 git commit -m 'my awesome feature'
 git push
@@ -70,7 +70,7 @@ In your `.gitconfig` file if there's not already one there add in the
 `[aliases]` section, I have mine above my user details, then add in
 some aliases:
 
-```shell
+```bash
 [alias]
   a = add .
   c = commit -am
@@ -84,7 +84,7 @@ some aliases:
 So now we can shorten down our workflow for adding a change to one of
 our repos:
 
-```shell
+```bash
 git add .
 git commit -m 'my awesome feature'
 git push
@@ -92,7 +92,7 @@ git push
 
 Will become:
 
-```shell
+```bash
 git a
 git c 'my awesome feature'
 git p
@@ -104,7 +104,7 @@ more an more.
 
 Here's my current list of aliases:
 
-```shell
+```bash
 [alias]
   a = add .
   b = branch
