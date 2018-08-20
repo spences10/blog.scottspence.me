@@ -39,7 +39,7 @@ people will get something out of this as well.
 Before touching the terminal or writing any code we'll need to create
 a [Twitter app][twitter-app] to get our API keys, we'll need them all:
 
-```text
+```bash
 Consumer Key (API Key)
 Consumer Secret (API Secret)
 Access Token
@@ -130,7 +130,7 @@ create.
 Now we add our API keys to the `.env` file, it should look something
 like this:
 
-```text
+```bash
 CONSUMER_KEY=AmMSbxxxxxxxxxxNh4BcdMhxg
 CONSUMER_SECRET=eQUfMrHbtlxxxxxxxxxxkFNNj1H107xxxxxxxxxx6CZH0fjymV
 ACCESS_TOKEN=7xxxxx492-uEcacdl7HJxxxxxxxxxxecKpi90bFhdsGG2N7iII
@@ -791,7 +791,7 @@ key.
 In the example you can see that I have configured my key with the rest
 of my `.env` variables.
 
-```text
+```bash
 CONSUMER_KEY=AmMSbxxxxxxxxxxNh4BcdMhxg
 CONSUMER_SECRET=eQUfMrHbtlxxxxxxxxxxkFNNj1H107xxxxxxxxxx6CZH0fjymV
 ACCESS_TOKEN=7xxxxx492-uEcacdl7HJxxxxxxxxxxecKpi90bFhdsGG2N7iII
@@ -1721,7 +1721,7 @@ command and pass it all our environment `-e` variables and the
 associated `secret` value, if we break it down into separate lines it
 will be a bit clearer:
 
-```text
+```bash
 now
 -e CONSUMER_KEY=@ds-twit-key
 -e CONSUMER_SECRET=@ds-twit-secret
