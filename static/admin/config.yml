@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   # repo: spences10/blog.scottspence.me
   branch: dev/gatsby-v2
 
