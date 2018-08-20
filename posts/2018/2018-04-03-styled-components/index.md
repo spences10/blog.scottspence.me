@@ -734,8 +734,6 @@ something then please let me know.
 
 Find me on [Twitter] or [Ask Me Anything] on GitHub.
 
-This was originally posted on my [blog].
-
 <!-- Links -->
 
 [chingu]: https://medium.com/chingu
@@ -762,4 +760,3 @@ This was originally posted on my [blog].
   https://stackoverflow.com/questions/tagged/styled-components
 [twitter]: https://twitter.com/ScottDevTweets
 [ask me anything]: https://github.com/spences10/ama
-[blog]: https://blog.scottspence.me/
