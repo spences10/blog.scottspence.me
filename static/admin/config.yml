@@ -16,6 +16,6 @@ collections:
       - { name: path, label: Path, widget: string }
       - { name: date, label: Date and Time, widget: datetime }
       - { name: title, label: Title }
-      # - { name: tags, label: Tags, widget: string }
+      - { name: tags, label: Tags, widget: list, default: ['news'] }
       - { name: published, label: Published, widget: boolean }
       - { name: body, label: Body, widget: markdown }
