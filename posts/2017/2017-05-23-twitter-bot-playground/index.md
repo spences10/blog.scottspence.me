@@ -63,7 +63,7 @@ prefer.
 
 Terminal commands:
 
-```sh
+```bash
 mkdir tweebot-play
 cd tweebot-play
 yarn init -y
@@ -139,7 +139,7 @@ ACCESS_TOKEN_SECRET=77vGPTt20xxxxxxxxxxxZAU8wxxxxxxxxxx0PhOo43cGO
 
 In the `.gitignore` file we need to add `.env` and `node_modules`
 
-```sh
+```bash
 # Dependency directories
 node_modules
 
@@ -149,7 +149,7 @@ node_modules
 
 Then init git:
 
-```sh
+```bash
 git init
 ```
 
@@ -158,7 +158,7 @@ Ok, now we can start to configure the bot, we'll need a `src` folder a
 
 Terminal:
 
-```sh
+```bash
 mkdir src
 cd src
 touch config.js bot.js
@@ -191,7 +191,7 @@ const bot = new Twit(config)
 Ok, that's it out bot is ready to go, do a test with `yarn start` from
 the terminal, we should get this for output:
 
-```sh
+```bash
 yarn start
 yarn start v0.23.4
 $ node index.js
@@ -355,7 +355,7 @@ bot.get(
 
 If the user follows the bot, then relationship will be:
 
-```sh
+```bash
 [ { name: 'Scott Spence 🌯😴💻♻',
     screen_name: 'ScottDevTweets',
     id: 4897735439,
@@ -366,7 +366,7 @@ If the user follows the bot, then relationship will be:
 If the user and the bot are following each other, the relationship
 will be:
 
-```sh
+```bash
 [ { name: 'Scott Spence 🌯😴💻♻',
     screen_name: 'ScottDevTweets',
     id: 4897735439,
@@ -376,7 +376,7 @@ will be:
 
 And if there is no relationship then:
 
-```sh
+```bash
 [ { name: 'Scott Spence 🌯😴💻♻',
     screen_name: 'ScottDevTweets',
     id: 4897735439,
@@ -1014,7 +1014,7 @@ emailed a link to download your archive, then when you have downloaded
 the archive extract out the `tweets.csv` file, we'll then put that in
 it's own folder, so from the root of your project:
 
-```sh
+```bash
 cd src
 mkdir twitter-archive
 ```
@@ -1242,7 +1242,7 @@ Tabletop.init({
 
 Running the bot now should give output like this:
 
-```sh
+```bash
 $ node index.js
 [ { 'links': 'https://www.freecodecamp.com' },
   { 'links': 'https://github.com' },
@@ -1337,7 +1337,7 @@ kick off events from the main `bot.js` module, so let's try this:
 Take the example we did to tweet a picture and add it to it's own
 module, so from the root directory of our project:
 
-```sh
+```bash
 cd src
 touch picture-bot.js
 ```
@@ -1379,13 +1379,13 @@ picture()
 
 That's it, two lines of code, try running that from the terminal now:
 
-```sh
+```bash
 yarn start
 ```
 
 We should get some output like this:
 
-```sh
+```bash
 yarn start v0.23.4
 $ node index.js
 Media saved!
@@ -1425,7 +1425,7 @@ bot, like we did in the picture of the day example, let's create a new
 module for the Markov bot and add all the code in there from the
 previous example, so from the terminal:
 
-```sh
+```bash
 cd src
 touch markov-bot.js
 ```
@@ -1510,7 +1510,7 @@ now, right?
 
 Create a new file in the `src` folder for link bot:
 
-```sh
+```bash
 touch link-bot.js
 ```
 
@@ -1601,13 +1601,13 @@ authenticate, then we can install the CLI.
 Install `now` globally on our machine so you can use it everywhere, to
 install the `now-cli` from the terminal enter:
 
-```sh
+```bash
 npm install -g now
 ```
 
 Once it's completed login with:
 
-```sh
+```bash
 now --login
 ```
 
@@ -1663,7 +1663,7 @@ All good so for?
 Ok, now we need to add a `.npmignore` file in the root of the project
 and add the following line to it:
 
-```sh
+```bash
 !tweets.csv
 ```
 
@@ -1689,7 +1689,7 @@ short!] name.
 Ok, so from the terminal `now secrets ls` should list out your
 `secrets` you just created:
 
-```sh
+```bash
 $ now secrets ls
 > 5 secrets found under spences10 [1s]
 
@@ -1890,13 +1890,13 @@ Ok, thats it! We're ready to deploy to `now`!🚀
 
 So from the terminal we call our deployment script we defined earlier:
 
-```sh
+```bash
 yarn deploy
 ```
 
 You will get some output:
 
-```sh
+```bash
 λ yarn deploy
 yarn deploy v0.24.4
 $ now -e CONSUMER_KEY=@ds-twit-key -e CONSUMER_SECRET=@ds-twit-secret -e ACCESS_TOKEN=@ds-twit-access  -e ACCESS_TOKEN_SECRET=@ds-twit-access-secret -e NASA_KEY=@nasa-key

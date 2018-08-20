@@ -36,7 +36,7 @@ Gatsby uses React 16.2 I believe so you will need to use this plugin.
 
 Another thing you may need to do is:
 
-```sh
+```bash
 npm i react react-dom
 npm un react react-dom
 ```

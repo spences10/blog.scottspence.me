@@ -58,7 +58,7 @@ can view them om the `.now.sh` url configured in my `package.json`
 
 My `travis.yml` looks like this:
 
-```yml
+```yaml
 sudo: false
 
 language: node_js

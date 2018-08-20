@@ -38,7 +38,7 @@ So, after installing [WSL][wslmsstore] from the Microsoft Store and
 adding your default user, fist thing is to update and upgrade all the
 things.
 
-```sh
+```bash
 sudo apt update
 sudo apt -y upgrade
 ```
@@ -58,7 +58,7 @@ To compile and install native addons from npm you may also need to
 install build tools, I need this for Gatsby images which uses `sharp`
 which in turn uses `node-gyp`:
 
-```sh
+```bash
 sudo apt install -y build-essential
 ```
 
@@ -73,7 +73,7 @@ helps:
 
 As it's a fresh install then we can go ahead and use [n-install] with:
 
-```sh
+```bash
 curl -L https://git.io/n-install | bash
 ```
 
@@ -81,13 +81,13 @@ This will install the latest stable version of node 👍
 
 Once the script is complete restart bash with:
 
-```sh
+```bash
 . /home/my_user_name/.bashrc # the n prompt displays this for you to copy pasta
 ```
 
 Check your node and npm versions:
 
-```sh
+```bash
 node -v && npm -v
 ```
 
@@ -101,14 +101,14 @@ pre installed with the Ubuntu install or you can use the Fish [PPA]
 
 **Use the standard package:**
 
-```sh
+```bash
 sudo apt -y install fish
 sudo apt -y upgrade && sudo apt -y autoremove
 ```
 
 **Use the Fish shell [PPA]:**
 
-```sh
+```bash
 sudo apt-add-repository ppa:fish-shell/release-2
 sudo apt update && sudo apt -y install fish
 ```
@@ -118,13 +118,13 @@ sudo apt update && sudo apt -y install fish
 Oh My Fish is like a package manager for Fish enabling the instal of
 packages and themes.
 
-```sh
+```bash
 curl -L https://get.oh-my.fish | fish
 ```
 
 ### Install OMF theme
 
-```sh
+```bash
 omf install clearance
 ```
 
@@ -151,14 +151,14 @@ a good time to add them to your WSL folder, the last times I did this
 I manually set the permissions after moving each of the the files but
 have since discovered [`rsync`][rsync] to move all the files.
 
-```sh
+```bash
 rsync -avzh /mnt/c/Users/dotfiles/ ~/
 ```
 
 That will copy the contents of my `dotfiles` folder to the `~/` (home)
 directory in WSL, you can check them with:
 
-```sh
+```bash
 ls -la ~/
 ```
 
@@ -171,13 +171,13 @@ with the `.bashrc` file.
 So, the only way I know how to change the file permissions is with
 `chmod` to get the ordinals of a similar file use `stat`:
 
-```sh
+```bash
 stat -c "%a %n" ~/.*
 ```
 
 This will list out all everything that begins with a `.` here's mine:
 
-```sh
+```bash
 777 /home/scott/.
 755 /home/scott/..
 600 /home/scott/.bash_history
@@ -197,7 +197,7 @@ This will list out all everything that begins with a `.` here's mine:
 I only want to change `.gitconfig`, `.gitignore` and `.npmrc` here so
 I'm going to do this:
 
-```sh
+```bash
 chmod 644 .gitconfig .gitignore .npmrc
 ```
 
