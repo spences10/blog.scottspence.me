@@ -6,6 +6,7 @@
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
     "gatsby": "2.0.0-beta.105",
+    "gatsby-plugin-favicon": "3.1.2",
     "gatsby-plugin-netlify-cms": "3.0.0-beta.4",
     "gatsby-plugin-react-helmet": "3.0.0-beta.4",
     "gatsby-plugin-sharp": "2.0.0-beta.9",
