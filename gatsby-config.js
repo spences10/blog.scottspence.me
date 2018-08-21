@@ -1,11 +1,13 @@
+const config = require('./data/siteConfig')
+
 module.exports = {
   siteMetadata: {
-    title: 'blog.scottspence.me',
+    title: config.siteTitle,
     contact: {
-      github: 'https://github.com/spences10',
-      medium: 'https://medium.com/@spences10',
-      devto: 'https://dev.to/spences10',
-      twitter: 'https://twitter.com/ScottDevTweets'
+      github: config.contact.github,
+      medium: config.contact.medium,
+      devto: config.contact.devto,
+      twitter: config.contact.twitter
     }
   },
   plugins: [
