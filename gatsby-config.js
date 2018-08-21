@@ -49,8 +49,8 @@ module.exports = {
         developerURL: config.developerUrl,
         dir: 'auto',
         lang: 'en-US',
-        background: '#fff',
-        theme_color: '#fff',
+        background: config.backgroundColour,
+        theme_color: config.themeColour,
         display: 'standalone',
         orientation: 'any',
         start_url: '/?homescreen=1',
@@ -71,6 +71,19 @@ module.exports = {
       }
     },
     'gatsby-plugin-robots-txt',
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: config.siteTitle,
+        short_name: config.siteTitle,
+        start_url: '/',
+        background_color: config.backgroundColour,
+        theme_color: config.themeColour,
+        display: 'minimal-ui',
+        icon: 'src/img/favicon.png' // This path is relative to the root of the site.
+      }
+    },
+    'gatsby-plugin-offline'
   ]
 }
