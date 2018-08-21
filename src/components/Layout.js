@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { siteMeta, nameContent } from '../siteMeta'
+import { siteMeta, nameContent } from '../../data/siteMeta'
 
 import Header from './Header'
 import './layout.css'
