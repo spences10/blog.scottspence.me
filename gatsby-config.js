@@ -68,6 +68,7 @@ module.exports = {
           windows: false
         }
       }
-    }
+    },
+    'gatsby-plugin-robots-txt'
   ]
 }
