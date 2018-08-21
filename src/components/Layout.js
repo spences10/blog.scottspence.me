@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { siteMeta, nameContent } from '../../data/siteMeta'
+import config from '../../data/siteConfig'
+import { siteMeta } from '../../data/siteMeta'
 
 import Header from './Header'
 import './layout.css'
@@ -15,19 +16,13 @@ const Layout = ({ children, data }) => (
         site {
           siteMetadata {
             title
-            contact {
-              github
-              medium
-              devto
-              twitter
-            }
           }
         }
       }
     `}
     render={data => (
       <>
-        <Helmet title={nameContent} meta={siteMeta} />
+        <Helmet title={config.nameContent} meta={siteMeta} />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
