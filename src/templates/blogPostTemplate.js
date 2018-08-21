@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import { Markdown } from 'react-smackdown'
-// import Helmet from 'react-helmet'
+import Helmet from 'react-helmet'
 
 // import { Dump } from '../utils/helpers'
 
@@ -20,6 +20,9 @@ export default ({ data, pageContext }) => {
   const { prev, next } = pageContext
   return (
     <Layout>
+      <Helmet
+        title={`${post.frontmatter.title} - blog.scottspence.me`}
+      />
       {/* <Dump props={data} /> */}
       <div>
         <h1>{post.frontmatter.title}</h1>
