@@ -3,6 +3,7 @@ const config = require('./data/siteConfig')
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
+    siteUrl: config.siteUrl,
     contact: {
       github: config.contact.github,
       medium: config.contact.medium,
@@ -69,13 +70,6 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: config.siteUrl,
-        // sitemap: 'https://www.example.com/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
-    }
+    'gatsby-plugin-robots-txt'
   ]
 }
