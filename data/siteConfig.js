@@ -13,6 +13,8 @@ module.exports = {
     github: 'https://github.com/spences10',
     medium: 'https://medium.com/@spences10',
     devto: 'https://dev.to/spences10',
-    twitter: 'https://twitter.com/ScottDevTweets'
+    twitter: 'https://twitter.com/ScottDevTweets',
+    backgroundColour: '#f7f0eb', // this is for favicon and manifest
+    themeColour: '#755f9f' // this is for favicon and manifest
   }
 }
