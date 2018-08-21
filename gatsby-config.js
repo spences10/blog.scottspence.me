@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
-        logo: './src/images/favicon.png',
+        logo: config.faviconPng,
         // WebApp Manifest Configuration
         appName: config.siteTitle,
         appDescription: config.descriptionContent,
@@ -81,7 +81,7 @@ module.exports = {
         background_color: config.backgroundColour,
         theme_color: config.themeColour,
         display: 'minimal-ui',
-        icon: 'src/img/favicon.png' // This path is relative to the root of the site.
+        icon: config.faviconPng // This path is relative to the root of the site.
       }
     },
     'gatsby-plugin-offline'
