@@ -69,6 +69,13 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-robots-txt'
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: config.siteUrl,
+        // sitemap: 'https://www.example.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
   ]
 }
