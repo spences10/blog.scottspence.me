@@ -13,6 +13,8 @@ import json from 'reprism/lib/languages/json'
 import yaml from 'reprism/lib/languages/yaml'
 import 'react-smackdown/themes/smackdown-light.css'
 
+import config from '../../data/siteConfig'
+
 loadLanguages(json, yaml, bash)
 
 export default ({ data, pageContext }) => {
@@ -21,7 +23,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <Helmet
-        title={`${post.frontmatter.title} - blog.scottspence.me`}
+        title={`${post.frontmatter.title} - ${config.siteTitle}`}
       />
       {/* <Dump props={data} /> */}
       <div>
