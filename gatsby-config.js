@@ -93,6 +93,7 @@ module.exports = {
         trackingId: process.env.GATSBY_GA_TRACKING_ID, // add to netlify Build environment variables
         anonymize: false
       }
-    }
+    },
+    'gatsby-plugin-styled-components'
   ]
 }
