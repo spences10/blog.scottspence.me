@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import Helmet from 'react-helmet'
 // import { Dump } from '../utils/helpers'
 import config from '../../data/siteConfig'
+import { siteMeta } from '../../data/siteMeta'
 
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
