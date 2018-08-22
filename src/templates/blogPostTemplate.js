@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Helmet from 'react-helmet'
@@ -9,7 +10,7 @@ import { siteMeta } from '../../data/siteMeta'
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
 
-export default ({ data, pageContext }) => {
+const blogPostLayout = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { prev, next } = pageContext
   return (
@@ -47,6 +48,13 @@ export default ({ data, pageContext }) => {
       </div>
     </Layout>
   )
+}
+
+export default blogPostLayout
+
+blogPostLayout.propTypes = {
+  data: PropTypes.any,
+  pageContext: PropTypes.any
 }
 
 export const query = graphql`
