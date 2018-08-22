@@ -15,7 +15,9 @@ export default ({ data, pageContext }) => {
     <Layout>
       <Helmet
         title={`${post.frontmatter.title} - ${config.siteTitle}`}
-      />
+        meta={siteMeta}>
+        <html lang={config.siteLanguage} />
+      </Helmet>
       {/* <Dump props={data} /> */}
       <div>
         <h1>{post.frontmatter.title}</h1>
