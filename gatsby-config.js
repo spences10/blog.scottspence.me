@@ -34,7 +34,8 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 590
             }
-          }
+          },
+          'gatsby-remark-autolink-headers'
         ]
       }
     },
