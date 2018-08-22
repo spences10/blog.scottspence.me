@@ -86,6 +86,13 @@ module.exports = {
         icon: config.faviconPng // This path is relative to the root of the site.
       }
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GATSBY_GA_TRACKING_ID,
+        anonymize: false
+      }
+    }
   ]
 }
