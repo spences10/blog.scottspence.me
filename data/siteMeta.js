@@ -2,9 +2,6 @@ const config = require('./siteConfig')
 
 // use https://www.heymeta.com/ to generate your tags
 export const siteMeta = [
-  {
-    lang: config.siteLanguage
-  },
   // Google / Search Engine Tags
   {
     name: 'description',

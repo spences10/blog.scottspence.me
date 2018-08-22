@@ -22,7 +22,9 @@ const Layout = ({ children, data }) => (
     `}
     render={data => (
       <>
-        <Helmet title={config.nameContent} meta={siteMeta} />
+        <Helmet title={config.nameContent} meta={siteMeta}>
+          <html lang={config.siteLanguage} />
+        </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
