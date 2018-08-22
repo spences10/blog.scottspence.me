@@ -1,21 +1,25 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import { Markdown } from 'react-smackdown'
+// import { Markdown } from 'react-smackdown'
 import Helmet from 'react-helmet'
 
 // import { Dump } from '../utils/helpers'
 
-// add smackdown languages
-import { loadLanguages } from 'reprism'
-import bash from 'reprism/lib/languages/bash'
-import json from 'reprism/lib/languages/json'
-import yaml from 'reprism/lib/languages/yaml'
-import 'react-smackdown/themes/smackdown-light.css'
+// // add smackdown languages
+// import { loadLanguages } from 'reprism'
+// import bash from 'reprism/lib/languages/bash'
+// import json from 'reprism/lib/languages/json'
+// import yaml from 'reprism/lib/languages/yaml'
+// // smackdown theme
+// import 'react-smackdown/themes/smackdown-light.css'
 
 import config from '../../data/siteConfig'
 
-loadLanguages(json, yaml, bash)
+// // load smackdown themes
+// loadLanguages(json, yaml, bash)
+
+require('prismjs/themes/prism-solarizedlight.css')
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark
@@ -28,7 +32,8 @@ export default ({ data, pageContext }) => {
       {/* <Dump props={data} /> */}
       <div>
         <h1>{post.frontmatter.title}</h1>
-        <Markdown source={post.html} />
+        {/* <Markdown source={post.html} /> */}
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       <div>
         {prev === false ? null : (
