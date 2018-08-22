@@ -48,7 +48,7 @@ module.exports = {
         developerName: config.developerName,
         developerURL: config.developerUrl,
         dir: 'auto',
-        lang: 'en-US',
+        lang: config.siteLanguage,
         background: config.backgroundColour,
         theme_color: config.themeColour,
         display: 'standalone',
