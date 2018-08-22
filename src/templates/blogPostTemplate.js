@@ -4,11 +4,17 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Helmet from 'react-helmet'
 // import { Dump } from '../utils/helpers'
+// import styled from 'styled-components'
+
 import config from '../../data/siteConfig'
 import { siteMeta } from '../../data/siteMeta'
 
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
+
+// Title
+// Content
+// Navigation
 
 const blogPostLayout = ({ data, pageContext }) => {
   const post = data.markdownRemark
