@@ -7,7 +7,6 @@ import config from '../../data/siteConfig'
 import { siteMeta } from '../../data/siteMeta'
 
 import Header from './Header'
-import './layout.css'
 
 const Layout = ({ children, data }) => (
   <StaticQuery
