@@ -1,24 +1,11 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-// import { Markdown } from 'react-smackdown'
 import Helmet from 'react-helmet'
-
 // import { Dump } from '../utils/helpers'
-
-// // add smackdown languages
-// import { loadLanguages } from 'reprism'
-// import bash from 'reprism/lib/languages/bash'
-// import json from 'reprism/lib/languages/json'
-// import yaml from 'reprism/lib/languages/yaml'
-// // smackdown theme
-// import 'react-smackdown/themes/smackdown-light.css'
-
 import config from '../../data/siteConfig'
 
-// // load smackdown themes
-// loadLanguages(json, yaml, bash)
-
+// add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
 
 export default ({ data, pageContext }) => {
