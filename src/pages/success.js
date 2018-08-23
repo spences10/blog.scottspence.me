@@ -1,9 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 
 import Layout from '../components/Layout'
 
-const Success = props => (
+const SuccessPage = () => (
   <Layout>
     <Helmet>
       <title>Success Page</title>
@@ -20,7 +21,8 @@ const Success = props => (
         </div>
       </section>
     </div>
+    <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
 
-export default Success
+export default SuccessPage
