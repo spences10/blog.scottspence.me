@@ -42,6 +42,7 @@
     "clean": "rm -rf .cache/ && rm -rf public/",
     "build": "gatsby build",
     "serve": "gatsby serve --verbose",
+    "buildAndServe":"npm run build && npm run serve",
     "dev": "gatsby develop",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
