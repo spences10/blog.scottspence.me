@@ -19,7 +19,7 @@
     "gatsby-plugin-styled-components": "3.0.0-rc.1",
     "gatsby-remark-autolink-headers": "2.0.0-rc.1",
     "gatsby-remark-images": "2.0.1-rc.1",
-    "gatsby-remark-prismjs": "3.0.0-rc.0",
+    "gatsby-remark-prismjs": "3.0.0-rc.2",
     "gatsby-source-filesystem": "2.0.1-rc.1",
     "gatsby-transformer-remark": "2.1.1-rc.1",
     "netlify-cms": "2.0.9",
