@@ -9,6 +9,10 @@ import { siteMeta } from '../../data/siteMeta'
 
 import Header from './Header'
 
+import { reset } from '../theme/globalStyle'
+
+reset()
+
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 960;
