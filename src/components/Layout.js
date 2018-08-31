@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import config from '../../data/siteConfig'
@@ -63,28 +62,15 @@ const Wrapper = styled.div`
 `
 
 const Layout = ({ children, data }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet title={config.nameContent} meta={siteMeta}>
-          <html lang={config.siteLanguage} />
-        </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <AppStyles>
-          <Wrapper>{children}</Wrapper>
-        </AppStyles>
-      </>
-    )}
-  />
+  <React.Fragment>
+    <Helmet title={config.nameContent} meta={siteMeta}>
+      <html lang={config.siteLanguage} />
+    </Helmet>
+    <Header siteTitle={config.siteTitle} />
+    <AppStyles>
+      <Wrapper>{children}</Wrapper>
+    </AppStyles>
+  </React.Fragment>
 )
 
 Layout.propTypes = {
