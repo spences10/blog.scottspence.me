@@ -1,15 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
-
-import config from '../../data/siteConfig'
-import { siteMeta } from '../../data/siteMeta'
+import styled, { ThemeProvider } from 'styled-components'
 
 import Header from './Header'
 import Footer from './Footer'
 
-import { reset, media } from '../theme/globalStyle'
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from '../contexts/BlogThemeContext'
+
+import config from '../../data/siteConfig'
+import { siteMeta } from '../../data/siteMeta'
+import { reset, media, themes } from '../theme/globalStyle'
 
 reset()
 
@@ -63,16 +67,22 @@ const Wrapper = styled.div`
 `
 
 const Layout = ({ children, data }) => (
-  <React.Fragment>
-    <Helmet title={config.nameContent} meta={siteMeta}>
-      <html lang={config.siteLanguage} />
-    </Helmet>
-    <Header siteTitle={config.siteTitle} />
-    <AppStyles>
-      <Wrapper>{children}</Wrapper>
-    </AppStyles>
-    <Footer />
-  </React.Fragment>
+  <BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ theme }) => (
+        <ThemeProvider theme={theme}>
+          <AppStyles>
+            <Helmet title={config.nameContent} meta={siteMeta}>
+              <html lang={config.siteLanguage} />
+            </Helmet>
+            <Header siteTitle={config.siteTitle} />
+            <Wrapper>{children}</Wrapper>
+            <Footer />
+          </AppStyles>
+        </ThemeProvider>
+      )}
+    </BlogThemeContext.Consumer>
+  </BlogThemeProvider>
 )
 
 Layout.propTypes = {
