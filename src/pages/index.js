@@ -47,13 +47,13 @@ export const query = graphql`
       edges {
         node {
           id
+          excerpt(pruneLength: 250)
           frontmatter {
             title
             path
             date(formatString: "YYYY MMMM Do")
             published
           }
-          excerpt
         }
       }
     }
