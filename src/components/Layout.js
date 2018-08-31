@@ -7,6 +7,7 @@ import config from '../../data/siteConfig'
 import { siteMeta } from '../../data/siteMeta'
 
 import Header from './Header'
+import Footer from './Footer'
 
 import { reset, media } from '../theme/globalStyle'
 
@@ -70,6 +71,7 @@ const Layout = ({ children, data }) => (
     <AppStyles>
       <Wrapper>{children}</Wrapper>
     </AppStyles>
+    <Footer />
   </React.Fragment>
 )
 
