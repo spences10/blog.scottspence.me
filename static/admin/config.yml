@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: spences10/blog.scottspence.me
-  branch: develop/gatsby-v2
+  branch: master
 
 media_folder: static/assets
 public_folder: assets
