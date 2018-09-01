@@ -5,7 +5,16 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div``
 
-const PostWrapper = styled.div``
+const PostWrapper = styled.div`
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 4px;
+  background: white;
+  font-family: ${props => props.theme.fontBody};
+  color: ${({ theme }) => theme.fontLight};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
