@@ -28,10 +28,10 @@ export const ButtonBig = Button.extend`
 
 export const HappyButton = ButtonBig.extend`
   text-transform: capitalize;
-  background-color: ${props => props.theme.primary};
-  /* border: 1px solid ${props => props.theme.border}; */
+  background-color: ${({ theme }) => theme.primary};
+  border: 1px solid ${({ theme }) => theme.border};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
-  color: ${props => props.theme.fontDark};
+  color: ${({ theme }) => theme.fontDark};
   padding: 0.1rem 0.1rem;
   margin: 0.2rem 0.2rem;
   &:hover {
