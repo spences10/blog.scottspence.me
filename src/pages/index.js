@@ -11,7 +11,8 @@ const PostWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
   background: white;
-  font-family: ${props => props.theme.fontBody};
+  line-height: 1.5;
+  font-family: ${({ theme }) => theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 `
@@ -25,6 +26,21 @@ const StyledSpan = styled.span`
   color: #bbb;
 `
 
+const PostTitle = styled.div`
+  font-family: ${props => props.theme.fontHeader};
+  font-weight: 700;
+  font-size: 2rem;
+  color: ${props => props.theme.secondary};
+  margin: 0rem;
+  padding: 0rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+`
+
+const PostedDate = styled.p`
+  margin: 0.05rem;
+  color: ${props => props.theme.fontLight};
+`
+
 export default ({ data }) => {
   return (
     <Layout>
@@ -33,10 +49,8 @@ export default ({ data }) => {
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <PostWrapper key={index}>
             <StyledLink to={node.frontmatter.path}>
-              <h3>
-                {node.frontmatter.title}{' '}
-                <StyledSpan>— {node.frontmatter.date}</StyledSpan>
-              </h3>
+              <PostTitle>{node.frontmatter.title}</PostTitle>
+              <PostedDate>{node.frontmatter.date}</PostedDate>
               <p>{node.excerpt}</p>
             </StyledLink>
           </PostWrapper>

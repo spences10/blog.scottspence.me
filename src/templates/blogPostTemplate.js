@@ -27,7 +27,7 @@ const Title = styled.h1`
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 
-const TitleDate = styled.h4`
+const TitleDate = styled.p`
   margin: 0rem;
   padding: 0rem;
   font-family: ${({ theme }) => theme.fontBody};
