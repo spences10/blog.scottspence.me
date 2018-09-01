@@ -49,7 +49,7 @@ const LinksWrapper = styled.div`
 
 const StyledLink = styled(Link)`
   font-family: ${props => props.theme.fontHeader};
-  color: ${props => props.theme.fontDark};
+  color: ${props => props.theme.fontLight};
   margin: 0.25rem;
   padding: 0.25rem;
 `
