@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { themes } from '../theme/globalStyle'
-// import { HERO } from '../theme/constants'
+import { HERO } from '../theme/heroPatterns'
 
 // Context is made up of two things
 // Provider - Single as close to top level as possible
@@ -11,8 +11,8 @@ export const BlogThemeContext = React.createContext()
 
 export class BlogThemeProvider extends React.Component {
   state = {
-    theme: themes['theme1']
-    // background: HERO[0]
+    theme: themes['theme1'],
+    background: HERO[0]
   }
 
   handleThemeChange = e => {
@@ -22,12 +22,12 @@ export class BlogThemeProvider extends React.Component {
   }
 
   componentDidMount() {
-    // this.interval = setInterval(() => {
-    //   const keys = Object.keys(HERO)
-    //   const background =
-    //     HERO[keys[(keys.length * Math.random()) << 0]]
-    //   this.setState({ background })
-    // }, 30 * 1000)
+    this.interval = setInterval(() => {
+      const keys = Object.keys(HERO)
+      const background =
+        HERO[keys[(keys.length * Math.random()) << 0]]
+      this.setState({ background })
+    }, 30 * 1000)
   }
 
   render() {
