@@ -1,7 +1,6 @@
 backend:
   name: github
   repo: spences10/blog.scottspence.me
-  branch: master
 
 media_folder: static/assets
 public_folder: assets
