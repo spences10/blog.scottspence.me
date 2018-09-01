@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-// import ThemeSelect from '../components/ThemeSelect'
+import ThemeSelect from '../components/ThemeSelect'
 import { StyledHyperLink as SHL } from '../components/Shared'
 
 import { media } from '../theme/globalStyle'
@@ -129,7 +129,7 @@ const Footer = props => {
   // console.log('=====================')
   return (
     <FooterWrapper>
-      {/* <ThemeSelect /> */}
+      <ThemeSelect />
       <LinksList area={'l'}>
         <LinksListTitle>Links</LinksListTitle>
         <ListLink>

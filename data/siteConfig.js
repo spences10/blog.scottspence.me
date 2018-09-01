@@ -17,7 +17,7 @@ module.exports = {
     twitter: 'https://twitter.com/ScottDevTweets',
     email: 'spences10apps@gmail.com'
   },
-  backgroundColour: '#f7f0eb', // this is for favicon and manifest
+  backgroundColour: '#663399', // this is for favicon and manifest
   themeColour: '#755f9f', // this is for favicon and manifest
   siteLanguage: 'en-GB'
 }
