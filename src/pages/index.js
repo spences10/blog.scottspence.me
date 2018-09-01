@@ -22,15 +22,11 @@ const StyledLink = styled(Link)`
   color: inherit;
 `
 
-const StyledSpan = styled.span`
-  color: #bbb;
-`
-
 const PostTitle = styled.div`
-  font-family: ${props => props.theme.fontHeader};
+  font-family: ${({ theme }) => theme.fontHeader};
   font-weight: 700;
   font-size: 2rem;
-  color: ${props => props.theme.secondary};
+  color: ${({ theme }) => theme.fontLight};
   margin: 0rem;
   padding: 0rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -38,7 +34,7 @@ const PostTitle = styled.div`
 
 const PostedDate = styled.p`
   margin: 0.05rem;
-  color: ${props => props.theme.fontLight};
+  color: ${({ theme }) => theme.fontLight};
 `
 
 export default ({ data }) => {
