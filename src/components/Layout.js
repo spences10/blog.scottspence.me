@@ -18,7 +18,7 @@ import { reset, media } from '../theme/globalStyle'
 reset()
 
 const AppStyles = styled.div`
-  background-color: ${props => props.theme.background};
+  background-color: ${({ theme }) => theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
   /*space between first post and nav bar*/
