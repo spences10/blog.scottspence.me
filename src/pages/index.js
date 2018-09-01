@@ -7,7 +7,7 @@ const Wrapper = styled.div``
 
 const PostWrapper = styled.div`
   margin: 0.5rem;
-  padding: 0.5rem;
+  padding: 1rem 1.5rem;
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
   background: white;

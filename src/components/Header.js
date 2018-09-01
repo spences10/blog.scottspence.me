@@ -10,9 +10,8 @@ const HeaderWrapper = styled.header`
   width: 100%;
   position: sticky;
   display: grid;
-  background: ${props => props.theme.primary};
-  color: ${props => props.theme.fontDark};
-  /* padding: 1rem; */
+  background: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.fontDark};
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
   grid-area: h;
   grid-template-columns: repeat(12, 1fr);
