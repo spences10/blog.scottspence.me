@@ -69,9 +69,9 @@ const Wrapper = styled.div`
 const Layout = ({ children, data }) => (
   <BlogThemeProvider>
     <BlogThemeContext.Consumer>
-      {({ theme }) => (
+      {({ theme, background }) => (
         <ThemeProvider theme={theme}>
-          <AppStyles>
+          <AppStyles background={background}>
             <Helmet title={config.nameContent} meta={siteMeta}>
               <html lang={config.siteLanguage} />
             </Helmet>
