@@ -138,14 +138,9 @@ const Footer = props => {
         <ListLink>
           <StyledLink to="/all-tags">Tags</StyledLink>
         </ListLink>
-        <StyledHyperLink
-          href={`mailto:${config.contact.email}?subject=Hi ${
-            config.developerName
-          } 👋`}
-          target="_blank"
-          rel="noopener">
-          <ListLink>Contact</ListLink>
-        </StyledHyperLink>
+        <StyledLink>
+          <StyledLink to="/contact">Contact</StyledLink>
+        </StyledLink>
       </LinksList>
       <LinksList area={'s'}>
         <LinksListTitle>Social</LinksListTitle>
