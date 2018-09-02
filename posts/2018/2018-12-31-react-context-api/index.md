@@ -89,7 +89,7 @@ we're adding folders for `components`, `contexts` and the `theme`
 please feel free to structure your files how you see fit, this is how
 we're going to do it for this example ❤️
 
-Add the directories into the `src` folder and we can add in some
+Add the directories into the `src` folder so we can add in some
 components, the file structure should look something like this:
 
 ```text
@@ -102,14 +102,33 @@ context-demo/
 └─ package.json
 ```
 
-Ok, so, what we're going to do is
+## Scaffold out basic Create React App
+
+Ok, so, what we're going to do is add in an `App.js` component to the
+`components` folder then use that in the `src/index.js` file.
+
+The `App.js` component can be a stateless functional component as for
+this example as we're going to be handling state with the Context API.
+
+Here you can see my sketchy typing as I create the directories and add
+in the `App.js` component.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/oyxpggt00q754iv1azp0.gif)
+
+We can then remove the `style.css` file and reference in
+`src/index.js` as we're going to be styling with `styled-components`
+💅 and then use our `App.js` component:
+
+![](https://thepracticaldev.s3.amazonaws.com/i/yyne3q36jc0zca2ld89u.gif)
+
+Ok, so the reason why I have abstracted the `App.js` component out of
+the `src/index.js` file is so that when we come to using the Context
+API we can add it to the highest level in our app.
 
 First off, create a context component
 
 The great thing with react is everything is a component, so let's
 create a context component for the Theme select
-
-## Scaffold out basic CreateReact App
 
 ## Use styled components for styling
 
