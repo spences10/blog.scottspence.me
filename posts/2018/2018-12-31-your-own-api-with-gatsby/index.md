@@ -21,7 +21,8 @@ uses that data to create your static site.
 I made an example here that gets JSON data from an external source and
 creates the pages from that
 
-I found a good answer to this question on [Stack Overflow]
+I found a good answer to this question on [Stack Overflow] and I
+adapted it for my own purposes.
 
 <!-- Links -->
 
