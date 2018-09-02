@@ -14,7 +14,9 @@ tags:
 published: true
 ---
 
-Lets use the React Context API!
+Lets use the React Context API to change theme in an app!
+
+![](https://thepracticaldev.s3.amazonaws.com/i/d9l4fbo70mh5xdfy3fco.gif)
 
 But first, **context**! 🤣
 
@@ -25,11 +27,17 @@ docs]...
 > Context provides a way to pass data through the component tree
 > without having to pass props down manually at every level.
 
+Or in other words, you can use the React Context API to avoid [prop
+drilling] if you need more detail on the concept then I suggest
+checking out the links provided.
+
 I've gone over implementing the React Context API in my Gatsby blog
 which I documented as I did it; you can see [how that went here].
 
-For this post we're going to extend the example created in the
-previous post I did for [styled-components getting started]
+For this post we're going to extend the example we created for
+[styled-components getting started] as it has the majority of the code
+we'll need to get started with the React Context API. We're going to
+extend that example manage the theme state of the example application.
 
 I've added the con
 
@@ -55,3 +63,5 @@ create a context component for the Theme select
   https://blog.scottspence.me/styled-components-getting-started
 [example]: https://codesandbox.io/s/7wwr706nz0
 [react docs]: https://reactjs.org/docs/context.html
+[prop drilling]:
+  https://blog.kentcdodds.com/prop-drilling-bb62e02cb691
