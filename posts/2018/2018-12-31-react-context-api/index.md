@@ -14,11 +14,11 @@ tags:
 published: true
 ---
 
-Lets use the React Context API to change theme in an app!
+Let's use the React Context API to change theme in an app!
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/d9l4fbo70mh5xdfy3fco.gif)
 
-But first, **context**! 🤣
+But first, some **context**! 🤣
 
 Ok terrible puns aside let's have a look at what the React Context API
 is for and what it does. There's a great one liner from the [React
@@ -28,21 +28,40 @@ docs]...
 > without having to pass props down manually at every level.
 
 Or in other words, you can use the React Context API to avoid [prop
-drilling] if you need more detail on the concept then I suggest
-checking out the links provided.
+drilling] if you need more detail on the concept then I please check
+out the links provided.
 
-I've gone over implementing the React Context API in my Gatsby blog
-which I documented as I did it; you can see [how that went here].
+I've previously gone over implementing the React Context API in my
+Gatsby blog which I documented as I did it; you can see [how that went
+here].
+
+> ### Explain the Context API to me.
+>
+> A great resource on explaining the can be found here from
+> [@leighchalliday] with a [great usecase] on the subject.
+
+### What we're doing...
 
 For this post we're going to extend the example we created for
 [styled-components getting started] as it has the majority of the code
-we'll need to get started with the React Context API. We're going to
-extend that example manage the theme state of the example application.
+we'll need to get started with the React Context API.
 
-I've added the con
+We're going to extend that example to manage the theme state of the
+example application.
 
-Great resource on explaining the Context API from Leigh with a great
-usecase
+So in summary:
+
+- scaffold out basic CreateReact App
+- use styled components for styling
+- add themes to switch between with the React Context API
+
+### What we'll need...
+
+All we'll be needing is an internet connection! Because we're going to
+do all of this in the awesome [CodeSandbox]!
+
+If you have a GitHub account or not, CodeSandbox will let you get
+started coding straight away!
 
 So let's go over theming the basic create react app again, this time
 instead of adding state to the component we will use the React Context
@@ -65,3 +84,6 @@ create a context component for the Theme select
 [react docs]: https://reactjs.org/docs/context.html
 [prop drilling]:
   https://blog.kentcdodds.com/prop-drilling-bb62e02cb691
+[@leighchalliday]: https://twitter.com/leighchalliday
+[great usecase]: https://www.youtube.com/watch?v=yzQ_XulhQFw
+[codesandbox]: https://codesandbox.io
