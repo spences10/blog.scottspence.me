@@ -151,6 +151,12 @@ const Footer = props => {
           <ListLink>GitHub</ListLink>
         </StyledHyperLink>
         <StyledHyperLink
+          href={config.contact.devto}
+          target="_blank"
+          rel="noopener">
+          <ListLink>Dev.to</ListLink>
+        </StyledHyperLink>
+        <StyledHyperLink
           href={config.contact.medium}
           target="_blank"
           rel="noopener">
