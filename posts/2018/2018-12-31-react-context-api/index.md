@@ -92,7 +92,7 @@ we're going to do it for this example ❤️
 Add the directories into the `src` folder so we can add in some
 components, the file structure should look something like this:
 
-```text
+```bash
 context-demo/
 ├─ public/
 ├─ src/
@@ -183,7 +183,7 @@ styling in the [styled-components getting started] post which is the
 Now we're going to recreate the styles from the `App.css` file with
 `styled-components` let's list them out here and go through them:
 
-```text
+```bash
 AppWrapper
 AppHeader
 AppTitle
@@ -205,6 +205,60 @@ components will use the `styled-components` [`ThemeProvider`] which is
 what we're going to pass our theme to from the Context API.
 
 ## Add themes to switch between with the React Context API
+
+Ok, we need to define some themes to pass to the `ThemeProvider`,
+we're going to define several theme aspects we want to change, these
+are going to be:
+
+```js
+primary // colour
+secondary // colour
+danger // colour
+fontHeader // font
+fontBody // font
+```
+
+Create a file to contain the theme object in the `theme` directory and
+call it `globalStyle.js` and add in the following:
+
+```js
+import { injectGlobal } from 'styled-components'
+
+export const themes = {
+  theme1: {
+    primary: '#ff0198',
+    secondary: '#01c1d6',
+    danger: '#e50000',
+    fontHeader: 'Old Standard TT, sans, sans-serif',
+    fontBody: 'Nunito, sans-serif'
+  },
+
+  theme2: {
+    primary: '#6e27c5',
+    secondary: '#ffb617',
+    danger: '#ff1919',
+    fontHeader: 'Enriqueta, sans-serif',
+    fontBody: 'Exo 2, sans, sans-serif'
+  },
+
+  theme3: {
+    primary: '#f16623',
+    secondary: '#2e2e86',
+    danger: '#cc0000',
+    fontHeader: 'Kaushan Script, sans, sans-serif',
+    fontBody: 'Headland One, sans-serif'
+  }
+}
+
+injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700|Enriqueta:400,700|Exo+2:400,700|Kaushan+Script:400,700|Headland+One:400,700|Nunito:400,700');
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+`
+```
 
 ## Use the React Context API
 
@@ -231,3 +285,7 @@ what we're going to pass our theme to from the Context API.
   https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd
 [`themeprovider`]:
   https://www.styled-components.com/docs/advanced#theming
+
+```
+
+```
