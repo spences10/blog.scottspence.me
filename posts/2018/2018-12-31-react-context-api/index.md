@@ -127,15 +127,82 @@ API we can add it to the highest level in our app.
 
 ### What about the rest?
 
-So this isn't really the Create React App, and I have gone over the
-basic styling used in the [styled-components getting started] post so
-it's time to refer to that to mimic the styles we need.
+So this isn't really the Create React App as we're using CodeSandbox
+instead, I have gone over the basic styling used in the
+[styled-components getting started] post so it's time to refer to that
+to mimic the styles we need.
 
 That means what we're going to do, rather than go into depth on the
 styling of each of the component parts that make up the basic Create
 React App appearance, we're going to re-use components.
 
+The Create React App boilerplate code has one file that we go over
+styling in the [styled-components getting started] post which is the
+`App.js` file, the others are left or deleted, the basic style of
+`App.js` is:
+
+**`App.css`**
+
+```css
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+```
+
 ## Use styled components for styling
+
+Now we're going to recreate the styles from the `App.css` file with
+`styled-components` let's list them out here and go through them:
+
+```text
+AppWrapper
+AppHeader
+AppTitle
+rotate360
+AppLogo
+AppIntro
+Underline
+StyledHyperLink
+```
+
+`AppWrapper` is the top level wrapper which in a larger component
+could be used for layout with CSS Grid or Flexbox, in our case we're
+going to align the text centre.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/uc08zkkf4ay1hq8pkt3w.gif)
+
+Straight forward enough, right? Now the majority of the rest of the
+components will use the `styled-components` [`ThemeProvider`] which is
+what we're going to pass our theme to from the Context API.
 
 ## Add themes to switch between with the React Context API
 
@@ -162,3 +229,5 @@ React App appearance, we're going to re-use components.
 [bikeshedding]: https://en.wiktionary.org/wiki/bikeshedding
 [styled-components getting started]:
   https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd
+[`themeprovider`]:
+  https://www.styled-components.com/docs/advanced#theming
