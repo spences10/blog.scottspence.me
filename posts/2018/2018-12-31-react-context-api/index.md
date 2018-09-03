@@ -37,7 +37,7 @@ went here].
 
 > ### Explain the Context API to me.
 >
-> A great resource on explaining the can be found here from
+> A great resource on explaining the API can be found from
 > [@leighchalliday] with a [great usecase] on the subject.
 
 ## What we're doing...
@@ -125,10 +125,15 @@ Ok, so the reason why I have abstracted the `App.js` component out of
 the `src/index.js` file is so that when we come to using the Context
 API we can add it to the highest level in our app.
 
-First off, create a context component
+### What about the rest?
 
-The great thing with react is everything is a component, so let's
-create a context component for the Theme select
+So this isn't really the Create React App, and I have gone over the
+basic styling used in the [styled-components getting started] post so
+it's time to refer to that to mimic the styles we need.
+
+That means what we're going to do, rather than go into depth on the
+styling of each of the component parts that make up the basic Create
+React App appearance, we're going to re-use components.
 
 ## Use styled components for styling
 
@@ -155,3 +160,5 @@ create a context component for the Theme select
 [when to use the context api]:
   https://reactjs.org/docs/context.html#when-to-use-context
 [bikeshedding]: https://en.wiktionary.org/wiki/bikeshedding
+[styled-components getting started]:
+  https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd
