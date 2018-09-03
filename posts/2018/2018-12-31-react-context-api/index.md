@@ -260,6 +260,34 @@ injectGlobal`
 `
 ```
 
+![](https://thepracticaldev.s3.amazonaws.com/i/qnxbteccbaw92jbwsq9c.gif)
+
+Ok, so nothing really happening there apart from setting up the styles
+for use later.
+
+Onwards, let us now focus on getting the basic app styles into the
+`App.js` component. We can now start using the `ThemeProvider` in
+`App.js`. To do this, for now, to get some visual feedback we're going
+to apply one of the themes from the `themes` object in
+`globalStyle.js` this is so, as we are adding in components we can see
+the theme being applied.
+
+We can do this now with the `AppHeader` which is a styled div:
+
+```js
+const AppHeader = styled.div`
+  height: 12rem;
+  padding: 1rem;
+  color: ${({ theme }) => theme.dark};
+  background-color: ${({ theme }) => theme.primary};
+`
+```
+
+You will notice here that we're beginning to use the
+`styled-components`, `theme` props but if we paste this code in now
+there won't be any change until the `ThemeProvider` is passed the
+`theme` object.
+
 ## Use the React Context API
 
 <!-- Links -->
@@ -285,7 +313,3 @@ injectGlobal`
   https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd
 [`themeprovider`]:
   https://www.styled-components.com/docs/advanced#theming
-
-```
-
-```
