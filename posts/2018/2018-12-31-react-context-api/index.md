@@ -52,7 +52,7 @@ example application.
 So in summary:
 
 - Scaffold out basic CreateReact App
-- Use styled components for styling
+- Use `styled-components` 💅 for styling
 - Add themes to switch between with the React Context API
 - Use the React Context API!
 
@@ -107,8 +107,9 @@ context-demo/
 Ok, so, what we're going to do is add in an `App.js` component to the
 `components` folder then use that in the `src/index.js` file.
 
-The `App.js` component can be a stateless functional component as for
-this example as we're going to be handling state with the Context API.
+The `App.js` component can be a [stateless functional component] as
+for this example as we're going to be handling state with the Context
+API.
 
 Here you can see my sketchy typing as I create the directories and add
 in the `App.js` component.
@@ -265,6 +266,10 @@ injectGlobal`
 Ok, so nothing really happening there apart from setting up the styles
 for use later.
 
+You will notice that `injectGlobal` is being used here, this is where
+we're setting the fonts for use throughout the app, `injectGlobal`
+[should be used once] in an app to set global styles like this.
+
 Onwards, let us now focus on getting the basic app styles into the
 `App.js` component. We can now start using the `ThemeProvider` in
 `App.js`. To do this, for now, to get some visual feedback we're going
@@ -287,10 +292,26 @@ You will notice here that we're beginning to use the
 `styled-components`, `theme` props but, if we paste this code in now
 there won't be any change until the `ThemeProvider` is passed the
 `theme` object so we're going to wrap `App.js` with the
-`ThemeProvider` component so that any component within the
+`ThemeProvider` component so that any component encapsulated by the
 `ThemeProvider` is able to receive `theme` props.
 
-![](https://thepracticaldev.s3.amazonaws.com/i/7nc5661k06x0t1ole537.gif)
+![](https://thepracticaldev.s3.amazonaws.com/i/nuyaw29uoex6qcluf8va.gif)
+
+`AppTitle` is going to be a h1 so:
+
+```js
+const AppTitle = styled.h1`
+  font-family: ${({ theme }) => theme.fontHeader};
+`
+```
+
+For the spinning React logo we can use the asset used previously in
+the [styled-components getting started example]
+
+```js
+const logo =
+  'https://user-images.githubusercontent.com/234708/37256552-32635a02-2554-11e8-8fe3-8ab5bd969d8e.png'
+```
 
 ## Use the React Context API
 
@@ -315,5 +336,10 @@ there won't be any change until the `ThemeProvider` is passed the
 [bikeshedding]: https://en.wiktionary.org/wiki/bikeshedding
 [styled-components getting started]:
   https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd
+[styled-components getting started example]:
+  https://codesandbox.io/s/x26q7l9vyq
 [`themeprovider`]:
   https://www.styled-components.com/docs/advanced#theming
+[stateless functional component]:
+  https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down
+[should be used once]: https://stackoverflow.com/a/42899789/1138354
