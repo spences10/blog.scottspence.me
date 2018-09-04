@@ -284,9 +284,13 @@ const AppHeader = styled.div`
 ```
 
 You will notice here that we're beginning to use the
-`styled-components`, `theme` props but if we paste this code in now
+`styled-components`, `theme` props but, if we paste this code in now
 there won't be any change until the `ThemeProvider` is passed the
-`theme` object.
+`theme` object so we're going to wrap `App.js` with the
+`ThemeProvider` component so that any component within the
+`ThemeProvider` is able to receive `theme` props.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/7nc5661k06x0t1ole537.gif)
 
 ## Use the React Context API
 
