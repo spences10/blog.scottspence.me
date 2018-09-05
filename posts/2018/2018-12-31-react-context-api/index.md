@@ -342,6 +342,13 @@ const AppLogo = styled.img`
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/pxe3fb5zqvprvtjthq5b.gif)
 
+### Shared components
+
+Shared components are covered in the [styled-components getting
+started] guide if you need more information, for this example we're
+going to bring in the final couple of components as shared ones for
+the `StyledHyperLink` and `Button`
+
 ## Use the React Context API
 
 <!-- Links -->
