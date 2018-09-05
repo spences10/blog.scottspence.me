@@ -347,7 +347,90 @@ const AppLogo = styled.img`
 Shared components are covered in the [styled-components getting
 started] guide if you need more information, for this example we're
 going to bring in the final couple of components as shared ones for
-the `StyledHyperLink` and `Button`
+the `StyledHyperLink` and `Button` in `src/Shared.js` add the
+following:
+
+**`src/Shared.js`**
+
+```js
+import styled, { css } from 'styled-components'
+
+export const Button = styled.button`
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  color: ${({ theme }) => theme.primary};
+  font-size: 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 2px solid ${props => props.border};
+  background-color: Transparent;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.1s;
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
+  ${props =>
+    props.primary &&
+    css`
+      background: ${({ theme }) => theme.primary};
+      border: 2px solid ${({ theme }) => theme.primary};
+      color: white;
+    `};
+  ${props =>
+    props.danger &&
+    css`
+      background: ${({ theme }) => theme.danger};
+      border: 2px solid ${({ theme }) => theme.danger};
+      color: white;
+    `};
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
+`
+
+export const StyledHyperLink = styled.a`
+  cursor: pointer;
+  &:visited,
+  &:active {
+    color: ${({ theme }) => theme.primary};
+  }
+  &:hover {
+    color: ${({ theme }) => theme.secondary};
+  }
+  color: ${({ theme }) => theme.primary};
+`
+```
+
+Then import the components like any other:
+
+![](https://thepracticaldev.s3.amazonaws.com/i/ipi1kdmy83ieiw6sppog.gif)
+
+The last three components for now, `AppIntro`, `Underline` and
+`StyledHyperLink`:
+
+```js
+const AppIntro = styled.p`
+  color: ${({ theme }) => theme.dark};
+  font-size: large;
+  code {
+    font-size: 1.3rem;
+  }
+  font-family: ${({ theme }) => theme.fontBody};
+`
+
+const Underline = styled.span`
+  border-bottom: 4px solid ${({ theme }) => theme.secondary};
+`
+
+const StyledHyperLink = SHL.extend`
+  text-decoration: none;
+  font-family: ${({ theme }) => theme.fontBody};
+  color: ${({ theme }) => theme.fontDark};
+`
+```
 
 ## Use the React Context API
 
