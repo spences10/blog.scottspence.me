@@ -308,9 +308,34 @@ const AppTitle = styled.h1`
 For the spinning React logo we can use the asset used previously in
 the [styled-components getting started example]
 
+We can add it in with the imports at the top of the `App.js` component
+and add it into the `AppLogo` styled component as an `img` tag:
+
 ```js
 const logo =
   'https://user-images.githubusercontent.com/234708/37256552-32635a02-2554-11e8-8fe3-8ab5bd969d8e.png'
+```
+
+The `keyframes` helper will need to be imported alongside the
+`themeProvider` for the animation on the react logo.
+
+```js
+const rotate360 = keyframes`
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+`
+
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 5s linear;
+  height: 80px;
+  &:hover {
+    animation: ${rotate360} infinite 1s linear;
+  }
+`
 ```
 
 ## Use the React Context API
