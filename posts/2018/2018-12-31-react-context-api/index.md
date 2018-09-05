@@ -64,6 +64,17 @@ do all of this in the awesome [CodeSandbox]!
 If you have a GitHub account or not, CodeSandbox will let you get
 started [coding straight away]!
 
+### Versions:
+
+**This guide is being used with the following dependency versions.**
+
+- react: 16.4.2
+- react-dom: 16.4.2
+- react-scripts: 1.1.4
+- styled-components: 3.4.5
+
+---
+
 So let's go over theming the basic create react app again, this time
 instead of adding state into to the component we will use the React
 Context API to manage the state for us. There will be people that will
@@ -497,7 +508,13 @@ theme!
 
 Ok? How's it looking?
 
+Now we have a basic React app that uses `styled-components`!
+
 ## Use the React Context API
+
+### Add the site theme context
+
+### Add the theme select
 
 <!-- Links -->
 
