@@ -512,7 +512,21 @@ Now we have a basic React app that uses `styled-components`!
 
 ## Use the React Context API
 
+Where we render out app via the root element is where we're going to
+apply the context api
+
+Is basically so we're not passing down state to child components
+
+taking a look at the [styled-components getting started example] we
+can see the state being managed in the `App.js` component and
+`handleThemeChange` has to be passed to the `ThemeSelect` component.
+
+This example is simplified but there could be situations where you're
+passing props through multiple components.
+
 ### Add the site theme context
+
+use the template, add in the name
 
 ### Add the theme select
 
@@ -545,3 +559,5 @@ Now we have a basic React app that uses `styled-components`!
   https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down
 [should be used once]: https://stackoverflow.com/a/42899789/1138354
 [copy pasta]: # 'Copy Paste! yes 🙃'
+[scaffold]:
+  https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
