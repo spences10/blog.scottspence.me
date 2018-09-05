@@ -432,6 +432,71 @@ const StyledHyperLink = SHL.extend`
 `
 ```
 
+![](https://thepracticaldev.s3.amazonaws.com/i/smm6hpg2w71sxm6nf3ln.gif)
+
+Add them in under the `AppLogo` styled component and then we can add
+the rest of the components into the `App` function `return`, so, ready
+for another [copy pasta]? Here:
+
+```js
+<AppIntro>
+  Bootstrapped with{' '}
+  <Underline>
+    <code>
+      <StyledHyperLink
+        href={`https://github.com/facebook/create-react-app`}
+        target="_blank"
+        rel="noopener"
+      >
+        create-react-app
+      </StyledHyperLink>
+    </code>
+  </Underline>.
+</AppIntro>
+<AppIntro>
+  Components styled with{' '}
+  <Underline>
+    <code>
+      <StyledHyperLink
+        href={`https://www.styled-components.com`}
+        target="_blank"
+        rel="noopener"
+      >
+        styled-components
+      </StyledHyperLink>
+    </code>
+  </Underline>{' '}
+  <span role="img" aria-label="nail polish">
+    💅
+  </span>
+</AppIntro>
+<AppIntro>
+  Fonts picked with{' '}
+  <Underline>
+    <code>
+      <StyledHyperLink
+        href={`https://fontjoy.com/`}
+        target="_blank"
+        rel="noopener"
+      >
+        fontjoy.com
+      </StyledHyperLink>
+    </code>
+  </Underline>
+</AppIntro>
+<Button>Normal Button</Button>
+<Button primary>Primary Button</Button>
+<Button danger>Danger Button</Button>
+```
+
+Sorry for the code wall! Right paste that in under the closing
+`</AppHeader>` tag and we should have the base of what we're going to
+theme!
+
+![](https://thepracticaldev.s3.amazonaws.com/i/zfcnihvmyvb9my5dn11x.gif)
+
+Ok? How's it looking?
+
 ## Use the React Context API
 
 <!-- Links -->
@@ -462,3 +527,4 @@ const StyledHyperLink = SHL.extend`
 [stateless functional component]:
   https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down
 [should be used once]: https://stackoverflow.com/a/42899789/1138354
+[copy pasta]: # 'Copy Paste! yes 🙃'
