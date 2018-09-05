@@ -64,6 +64,17 @@ do all of this in the awesome [CodeSandbox]!
 If you have a GitHub account or not, CodeSandbox will let you get
 started [coding straight away]!
 
+### Versions:
+
+**This guide is being used with the following dependency versions.**
+
+- react: 16.4.2
+- react-dom: 16.4.2
+- react-scripts: 1.1.4
+- styled-components: 3.4.5
+
+---
+
 So let's go over theming the basic create react app again, this time
 instead of adding state into to the component we will use the React
 Context API to manage the state for us. There will be people that will
@@ -182,7 +193,7 @@ styling in the [styled-components getting started] post which is the
 ## Use styled components for styling
 
 Now we're going to recreate the styles from the `App.css` file with
-`styled-components` let's list them out here and go through them:
+`styled-components`, let's list them out here and go through them:
 
 ```bash
 AppWrapper
@@ -190,9 +201,11 @@ AppHeader
 AppTitle
 rotate360
 AppLogo
+# We're adding our own styles for
 AppIntro
 Underline
 StyledHyperLink
+Button
 ```
 
 `AppWrapper` is the top level wrapper which in a larger component
@@ -270,7 +283,7 @@ You will notice that `injectGlobal` is being used here, this is where
 we're setting the fonts for use throughout the app, `injectGlobal`
 [should be used once] in an app to set global styles like this.
 
-Onwards, let us now focus on getting the basic app styles into the
+Onwards! Let us now focus on getting the basic app styles into the
 `App.js` component. We can now start using the `ThemeProvider` in
 `App.js`. To do this, for now, to get some visual feedback we're going
 to apply one of the themes from the `themes` object in
@@ -308,12 +321,214 @@ const AppTitle = styled.h1`
 For the spinning React logo we can use the asset used previously in
 the [styled-components getting started example]
 
+We can add it in with the imports at the top of the `App.js` component
+and add it into the `AppLogo` styled component as an `img` tag:
+
 ```js
 const logo =
   'https://user-images.githubusercontent.com/234708/37256552-32635a02-2554-11e8-8fe3-8ab5bd969d8e.png'
 ```
 
+The `keyframes` helper will need to be imported alongside the
+`themeProvider` for the animation on the react logo.
+
+```js
+const rotate360 = keyframes`
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+`
+
+const AppLogo = styled.img`
+  animation: ${rotate360} infinite 5s linear;
+  height: 80px;
+  &:hover {
+    animation: ${rotate360} infinite 1s linear;
+  }
+`
+```
+
+![](https://thepracticaldev.s3.amazonaws.com/i/pxe3fb5zqvprvtjthq5b.gif)
+
+### Shared components
+
+Shared components are covered in the [styled-components getting
+started] guide if you need more information, for this example we're
+going to bring in the final couple of components as shared ones for
+the `StyledHyperLink` and `Button` in `src/Shared.js` add the
+following:
+
+**`src/Shared.js`**
+
+```js
+import styled, { css } from 'styled-components'
+
+export const Button = styled.button`
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  color: ${({ theme }) => theme.primary};
+  font-size: 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 2px solid ${props => props.border};
+  background-color: Transparent;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.1s;
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
+  ${props =>
+    props.primary &&
+    css`
+      background: ${({ theme }) => theme.primary};
+      border: 2px solid ${({ theme }) => theme.primary};
+      color: white;
+    `};
+  ${props =>
+    props.danger &&
+    css`
+      background: ${({ theme }) => theme.danger};
+      border: 2px solid ${({ theme }) => theme.danger};
+      color: white;
+    `};
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  }
+`
+
+export const StyledHyperLink = styled.a`
+  cursor: pointer;
+  &:visited,
+  &:active {
+    color: ${({ theme }) => theme.primary};
+  }
+  &:hover {
+    color: ${({ theme }) => theme.secondary};
+  }
+  color: ${({ theme }) => theme.primary};
+`
+```
+
+Then import the components like any other:
+
+![](https://thepracticaldev.s3.amazonaws.com/i/ipi1kdmy83ieiw6sppog.gif)
+
+The last three components for now, `AppIntro`, `Underline` and
+`StyledHyperLink`:
+
+```js
+const AppIntro = styled.p`
+  color: ${({ theme }) => theme.dark};
+  font-size: large;
+  code {
+    font-size: 1.3rem;
+  }
+  font-family: ${({ theme }) => theme.fontBody};
+`
+
+const Underline = styled.span`
+  border-bottom: 4px solid ${({ theme }) => theme.secondary};
+`
+
+const StyledHyperLink = SHL.extend`
+  text-decoration: none;
+  font-family: ${({ theme }) => theme.fontBody};
+  color: ${({ theme }) => theme.fontDark};
+`
+```
+
+![](https://thepracticaldev.s3.amazonaws.com/i/smm6hpg2w71sxm6nf3ln.gif)
+
+Add them in under the `AppLogo` styled component and then we can add
+the rest of the components into the `App` function `return`, so, ready
+for another [copy pasta]? Here:
+
+```js
+<AppIntro>
+  Bootstrapped with{' '}
+  <Underline>
+    <code>
+      <StyledHyperLink
+        href={`https://github.com/facebook/create-react-app`}
+        target="_blank"
+        rel="noopener"
+      >
+        create-react-app
+      </StyledHyperLink>
+    </code>
+  </Underline>.
+</AppIntro>
+<AppIntro>
+  Components styled with{' '}
+  <Underline>
+    <code>
+      <StyledHyperLink
+        href={`https://www.styled-components.com`}
+        target="_blank"
+        rel="noopener"
+      >
+        styled-components
+      </StyledHyperLink>
+    </code>
+  </Underline>{' '}
+  <span role="img" aria-label="nail polish">
+    💅
+  </span>
+</AppIntro>
+<AppIntro>
+  Fonts picked with{' '}
+  <Underline>
+    <code>
+      <StyledHyperLink
+        href={`https://fontjoy.com/`}
+        target="_blank"
+        rel="noopener"
+      >
+        fontjoy.com
+      </StyledHyperLink>
+    </code>
+  </Underline>
+</AppIntro>
+<Button>Normal Button</Button>
+<Button primary>Primary Button</Button>
+<Button danger>Danger Button</Button>
+```
+
+Sorry for the code wall! Right paste that in under the closing
+`</AppHeader>` tag and we should have the base of what we're going to
+theme!
+
+![](https://thepracticaldev.s3.amazonaws.com/i/zfcnihvmyvb9my5dn11x.gif)
+
+Ok? How's it looking?
+
+Now we have a basic React app that uses `styled-components`!
+
 ## Use the React Context API
+
+Where we render out app via the root element is where we're going to
+apply the context api
+
+Is basically so we're not passing down state to child components
+
+taking a look at the [styled-components getting started example] we
+can see the state being managed in the `App.js` component and
+`handleThemeChange` has to be passed to the `ThemeSelect` component.
+
+This example is simplified but there could be situations where you're
+passing props through multiple components.
+
+### Add the site theme context
+
+use the template, add in the name
+
+### Add the theme select
 
 <!-- Links -->
 
@@ -343,3 +558,6 @@ const logo =
 [stateless functional component]:
   https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down
 [should be used once]: https://stackoverflow.com/a/42899789/1138354
+[copy pasta]: # 'Copy Paste! yes 🙃'
+[scaffold]:
+  https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
