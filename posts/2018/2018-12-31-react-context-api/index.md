@@ -182,7 +182,7 @@ styling in the [styled-components getting started] post which is the
 ## Use styled components for styling
 
 Now we're going to recreate the styles from the `App.css` file with
-`styled-components` let's list them out here and go through them:
+`styled-components`, let's list them out here and go through them:
 
 ```bash
 AppWrapper
@@ -190,9 +190,11 @@ AppHeader
 AppTitle
 rotate360
 AppLogo
+# We're adding our own styles for
 AppIntro
 Underline
 StyledHyperLink
+Button
 ```
 
 `AppWrapper` is the top level wrapper which in a larger component
@@ -270,7 +272,7 @@ You will notice that `injectGlobal` is being used here, this is where
 we're setting the fonts for use throughout the app, `injectGlobal`
 [should be used once] in an app to set global styles like this.
 
-Onwards, let us now focus on getting the basic app styles into the
+Onwards! Let us now focus on getting the basic app styles into the
 `App.js` component. We can now start using the `ThemeProvider` in
 `App.js`. To do this, for now, to get some visual feedback we're going
 to apply one of the themes from the `themes` object in
@@ -337,6 +339,8 @@ const AppLogo = styled.img`
   }
 `
 ```
+
+![](https://thepracticaldev.s3.amazonaws.com/i/pxe3fb5zqvprvtjthq5b.gif)
 
 ## Use the React Context API
 
