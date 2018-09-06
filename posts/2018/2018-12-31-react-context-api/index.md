@@ -139,7 +139,7 @@ API we can add it to the highest level in our app.
 
 ### What about the rest?
 
-So this isn't really the Create React App as we're using CodeSandbox
+So this isn't really the Create React App, as we're using CodeSandbox
 instead, I have gone over the basic styling used in the
 [styled-components getting started] post so it's time to refer to that
 to mimic the styles we need.
@@ -330,7 +330,7 @@ const logo =
 ```
 
 The `keyframes` helper will need to be imported alongside the
-`themeProvider` for the animation on the react logo.
+`ThemeProvider` for the animation on the react logo.
 
 ```js
 const rotate360 = keyframes`
@@ -512,23 +512,40 @@ Now we have a basic React app that uses `styled-components`!
 
 ## Use the React Context API
 
-Where we render our app via the root element is where we're going to
-apply the context api
+Now for the main event! Here we're going to cover:
 
-Is basically so we're not passing down state to child components if we
-take a look at the [styled-components getting started example] we can
-see the state being managed in the `App.js` component and
-`handleThemeChange` has to be passed to the `ThemeSelect` component
-much the same way as any props would need to be passed down. That is a
-simplified example but it's quite easy to imagine if that component
-lived on a footer component or a menu item there would be several
-other components that would need to have the state passed through them
-that would not actually need that state or props.
+- making the theme context
 
-This example is simplified but there could be situations where you're
-passing props through multiple components.
+- using the context API with a component.
+
+So, passing state needlessly through components is what we can use the
+Context API to avoid. If we take a look at the [styled-components
+getting started example] we can see the state being managed in the
+`App.js` component and `handleThemeChange` function has to be passed
+to the `ThemeSelect` component much the same way as any props would
+need to be passed down. That is a simplified example but it's quite
+easy to imagine if that component lived on a footer component or a
+menu item there would be several other components that would need to
+have the state passed through them that would not actually need that
+state or props.
 
 ### Add the site theme context
+
+In our `src/contexts/` directory we're going to make our
+`SiteThemeContext.js`, import React and define and export our context:
+
+```js
+import React from 'react'
+
+export const SiteThemeContext = React.createContext()
+```
+
+So what is a context? A context is made up of two things, a provider
+and a consumer
+
+Hopefully you recall the point at which we abstracted the
+`function App` component out of the `src/index.js` file, this is so we
+could add in the context Provider at the highest level of the app
 
 use the template, add in the name
 
