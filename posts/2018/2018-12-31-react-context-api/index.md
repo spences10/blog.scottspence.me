@@ -562,7 +562,7 @@ state and props from the provider.
 
 Hopefully you recall the point at which we abstracted the
 `function App` component out of the `src/index.js` file, this is so we
-could add in the context Provider at the highest level of the app, in
+could add in the context provider at the highest level of the app, in
 the `src/index.js` file. This means that any consumer within the app,
 no matter how deep into the component tree it is, it can get the state
 and props from that top level.
@@ -571,6 +571,10 @@ Now to create a provider, the provider is a regular React component,
 so:
 
 ```js
+import React from 'react'
+
+export const SiteThemeContext = React.createContext()
+
 export class SiteThemeProvider extends React.Component {
   render() {
     return (
@@ -582,15 +586,46 @@ export class SiteThemeProvider extends React.Component {
 }
 ```
 
-What is being returned by the provider is the provider
-`<SiteThemeContext.Provider>` and the children of that component, and
-the one prop you have to provide the the provider is a `value` prop.
-This is the variable that the consumer has access to. The consumer
-being `<SiteThemeContext.Consumer>` (more on this shortly).
+What is being returned by `<SiteThemeProvider>` is the
+`<SiteThemeContext.Provider>` and the children of that component, the
+one prop you have to provide the the provider is a `value` prop. This
+is the variable that the consumer has access to. The consumer being
+`<SiteThemeContext.Consumer>` (more on this shortly).
 
 So what we can do now is have what is passed into value be an object
 `value={{}}` so it can store multiple properties of the state and the
 functions that are defined in `SiteThemeContext`.
+
+The state for the context needs to be the `theme` so we need to import
+the theme from `src/theme/globalStyle` and add that to the state,
+we're going to default the theme (and state) to `theme1` and add a
+copy of that into the `value` prop:
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import { themes } from '../theme/globalStyle'
+
+export const SiteThemeContext = React.createContext()
+
+export class SiteThemeProvider extends React.Component {
+  state = {
+    theme: themes['theme1']
+  }
+
+  render() {
+    return (
+      <SiteThemeContext.Provider
+        value={{
+          ...this.state
+        }}>
+        {this.props.children}
+      </SiteThemeContext.Provider>
+    )
+  }
+}
+```
 
 ### Add the theme select
 
