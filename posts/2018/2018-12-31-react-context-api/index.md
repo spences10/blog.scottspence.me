@@ -521,13 +521,26 @@ Now for the main event! Here we're going to cover:
 So, passing state needlessly through components is what we can use the
 Context API to avoid. If we take a look at the [styled-components
 getting started example] we can see the state being managed in the
-`App.js` component and `handleThemeChange` function has to be passed
-to the `ThemeSelect` component much the same way as any props would
-need to be passed down. That is a simplified example but it's quite
-easy to imagine if that component lived on a footer component or a
-menu item there would be several other components that would need to
+`App.js` component and the `handleThemeChange` function has to be
+passed to the `ThemeSelect` component much the same way as any props
+would need to be passed down. That is a simplified example but it's
+quite easy to imagine if that component lived on a footer component or
+a menu item there would be several other components that would need to
 have the state passed through them that would not actually need that
-state or props.
+state or props. Make sense?
+
+**example**
+
+```js
+<App>               {/* state begins here */}
+  <Header>          {/* through here */}
+    <Navigation>    {/* and here */}
+      <ThemeSelect> {/* to be used here */}
+    </Navigation>
+  </Header>
+  <Footer/>
+</App>
+```
 
 ### Add the site theme context
 
@@ -540,12 +553,16 @@ import React from 'react'
 export const SiteThemeContext = React.createContext()
 ```
 
-So what is a context? A context is made up of two things, a provider
-and a consumer
+### So what is a context?
+
+A context is made up of two things, a provider and a consumer, you
+have a single provider which will sit up as high as possible in the
+component tree as possible so that the consumer can get the state and
+props from the provider.
 
 Hopefully you recall the point at which we abstracted the
 `function App` component out of the `src/index.js` file, this is so we
-could add in the context Provider at the highest level of the app
+could add in the context Provider at the highest level of the app.
 
 use the template, add in the name
 
