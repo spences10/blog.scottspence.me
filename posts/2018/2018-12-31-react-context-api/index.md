@@ -682,6 +682,15 @@ export class SiteThemeProvider extends React.Component {
 }
 ```
 
+Ok, that is the site theme context component covered, pretty straight
+forward, right?
+
+What I should mention is that the `e` in the `handleThemeChange`
+function is going to be the event from the theme select box that we're
+about to make.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/3bh3bwi4ekb24uowvm65.gif)
+
 ### Add the theme select
 
 <!-- Links -->
