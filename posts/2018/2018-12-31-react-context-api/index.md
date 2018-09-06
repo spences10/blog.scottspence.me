@@ -557,14 +557,40 @@ export const SiteThemeContext = React.createContext()
 
 A context is made up of two things, a provider and a consumer, you
 have a single provider which will sit up as high as possible in the
-component tree as possible so that the consumer can get the state and
-props from the provider.
+component tree as possible so that multiple consumers can get the
+state and props from the provider.
 
 Hopefully you recall the point at which we abstracted the
 `function App` component out of the `src/index.js` file, this is so we
-could add in the context Provider at the highest level of the app.
+could add in the context Provider at the highest level of the app, in
+the `src/index.js` file. This means that any consumer within the app,
+no matter how deep into the component tree it is, it can get the state
+and props from that top level.
 
-use the template, add in the name
+Now to create a provider, the provider is a regular React component,
+so:
+
+```js
+export class SiteThemeProvider extends React.Component {
+  render() {
+    return (
+      <SiteThemeContext.Provider value={}>
+        {this.props.children}
+      </SiteThemeContext.Provider>
+    )
+  }
+}
+```
+
+What is being returned by the provider is the provider
+`<SiteThemeContext.Provider>` and the children of that component, and
+the one prop you have to provide the the provider is a `value` prop.
+This is the variable that the consumer has access to. The consumer
+being `<SiteThemeContext.Consumer>` (more on this shortly).
+
+So what we can do now is have what is passed into value be an object
+`value={{}}` so it can store multiple properties of the state and the
+functions that are defined in `SiteThemeContext`.
 
 ### Add the theme select
 
