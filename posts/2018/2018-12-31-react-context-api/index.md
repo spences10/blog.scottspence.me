@@ -689,9 +689,17 @@ What I should mention is that the `e` in the `handleThemeChange`
 function is going to be the event from the theme select box that we're
 about to make.
 
+Let's go through adding in the function and adding that to the state.
+
 ![](https://thepracticaldev.s3.amazonaws.com/i/3bh3bwi4ekb24uowvm65.gif)
 
 ### Add the theme select
+
+Now we want a want to call the `handleThemeChange` function that is
+part of the `SiteThemeProvider` via the `SiteThemeContext`! I'm sure
+this all making perfect sense right now so let's get right in there
+and define the component that we're going to use to consume the
+`SiteThemeContext.Provider` with a `ThemeSelect` component!
 
 <!-- Links -->
 
