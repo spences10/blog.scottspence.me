@@ -599,7 +599,8 @@ functions that are defined in `SiteThemeContext`.
 The state for the context needs to be the `theme` so we need to import
 the theme from `src/theme/globalStyle` and add that to the state,
 we're going to default the theme (and state) to `theme1` and add a
-copy of that into the `value` prop:
+copy of that into the `value` prop by spreading into state `...❤️`, it
+should look like this:
 
 ```js
 import React from 'react'
@@ -626,6 +627,16 @@ export class SiteThemeProvider extends React.Component {
   }
 }
 ```
+
+Ok, it's been a while since I've added a gif, time for another one!
+
+![](https://thepracticaldev.s3.amazonaws.com/i/n2qbxs7cbf7w5opqcri2.gif)
+
+And bring in the `themes` and add state:
+
+![](https://thepracticaldev.s3.amazonaws.com/i/y6n32p1gshah5ex747mu.gif)
+
+Now we can add in a function to change
 
 ### Add the theme select
 
