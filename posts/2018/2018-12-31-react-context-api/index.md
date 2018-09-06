@@ -636,7 +636,51 @@ And bring in the `themes` and add state:
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/y6n32p1gshah5ex747mu.gif)
 
-Now we can add in a function to change
+Now we can add in a function to the provider to change the theme:
+
+```js
+handleThemeChange = e => {
+  const key = e.target.value
+  const theme = themes[key]
+  this.setState({ theme })
+}
+```
+
+This can then be consumed by any provider that wants to use it, we're
+going to need to add it into the `value` prop, like this:
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import { themes } from '../theme/globalStyle'
+
+export const SiteThemeContext = React.createContext()
+
+export class SiteThemeProvider extends React.Component {
+  state = {
+    theme: themes['theme1']
+  }
+
+  handleThemeChange = e => {
+    const key = e.target.value
+    const theme = themes[key]
+    this.setState({ theme })
+  }
+
+  render() {
+    return (
+      <SiteThemeContext.Provider
+        value={{
+          ...this.state,
+          handleThemeChange: this.handleThemeChange
+        }}>
+        {this.props.children}
+      </SiteThemeContext.Provider>
+    )
+  }
+}
+```
 
 ### Add the theme select
 
