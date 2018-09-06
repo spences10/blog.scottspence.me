@@ -107,9 +107,9 @@ components, the file structure should look something like this:
 context-demo/
 ├─ public/
 ├─ src/
-│  └─ components
-│  └─ contexts
-│  └─ theme
+│  └─ components/
+│  └─ contexts/
+│  └─ theme/
 └─ package.json
 ```
 
@@ -512,14 +512,18 @@ Now we have a basic React app that uses `styled-components`!
 
 ## Use the React Context API
 
-Where we render out app via the root element is where we're going to
+Where we render our app via the root element is where we're going to
 apply the context api
 
-Is basically so we're not passing down state to child components
-
-taking a look at the [styled-components getting started example] we
-can see the state being managed in the `App.js` component and
-`handleThemeChange` has to be passed to the `ThemeSelect` component.
+Is basically so we're not passing down state to child components if we
+take a look at the [styled-components getting started example] we can
+see the state being managed in the `App.js` component and
+`handleThemeChange` has to be passed to the `ThemeSelect` component
+much the same way as any props would need to be passed down. That is a
+simplified example but it's quite easy to imagine if that component
+lived on a footer component or a menu item there would be several
+other components that would need to have the state passed through them
+that would not actually need that state or props.
 
 This example is simplified but there could be situations where you're
 passing props through multiple components.
