@@ -690,9 +690,14 @@ What I should mention is that the `e` in the `handleThemeChange`
 function is going to be the event from the theme select box that we're
 about to make.
 
-Let's go through adding in the function and adding that to the state.
+Let's go through adding in the function and adding that to the state:
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/3bh3bwi4ekb24uowvm65.gif)
+
+And now we can add the theme provider to `src/index.js` so anything
+lower in the dependency tree can access it via a consumer.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/p8nibx8ecfildi92jscm.gif)
 
 ### Add the theme select
 
@@ -733,3 +738,4 @@ and define the component that we're going to use to consume the
 [copy pasta]: # 'Copy Paste! yes 🙃'
 [scaffold]:
   https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
+[verson from walkthrough]: https://codesandbox.io/s/lpvr771q59
