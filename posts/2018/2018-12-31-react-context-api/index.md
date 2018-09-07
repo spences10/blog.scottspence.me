@@ -818,4 +818,5 @@ export default ThemeSelect;
 [copy pasta]: # 'Copy Paste! yes 🙃'
 [scaffold]:
   https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
-[verson from walkthrough]: https://codesandbox.io/s/lpvr771q59
+[version from walkthrough]: https://codesandbox.io/s/lpvr771q59
+[version 2 from walkthrough]: https://codesandbox.io/s/zqw67wpm94
