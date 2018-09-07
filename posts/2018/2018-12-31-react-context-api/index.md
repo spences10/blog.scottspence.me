@@ -58,8 +58,9 @@ So in summary:
 
 ## What we'll need...
 
-All we'll be needing is an internet connection! Because we're going to
-do all of this in the awesome [CodeSandbox]!
+All we'll be needing is an internet connection and a modern web
+browser! Because we're going to do all of this online in the awesome
+[CodeSandbox]!
 
 If you have a GitHub account or not, CodeSandbox will let you get
 started [coding straight away]!
@@ -82,7 +83,7 @@ argue that this is a bit overkill for a theme switch but it is given
 as an example of [when to use the Context API] in the React
 documentation so I will let you decide on the validity of that point.
 For this example, I hope it will give you a clearer picture of how to
-use the Context API it in an application.
+use the Context API in an application.
 
 ## Let's start
 
