@@ -707,6 +707,36 @@ this all making perfect sense right now so let's get right in there
 and define the component that we're going to use to consume the
 `SiteThemeContext.Provider` with a `ThemeSelect` component!
 
+In the `src/components` directory add a new `ThemeSelect.js`
+component, this is where we are going to consume the site theme
+context with a consumer
+
+The child of a consumer isn't a component it's a function, so what
+we're going to need to do is have the select inside the return of that
+function.
+
+Let's first set up the styled-components that will make up the select,
+which is a select box some options and a wrapper.
+
+First we'll do it without the consumer then we'll add it in.
+
+```js
+import React from 'react';
+
+import { SiteThemeContext } from '../contexts/SiteThemeContext';
+import { themes } from '../theme/globalStyle';
+
+const ThemeSelect = props => {
+  return (
+    <SiteThemeContext.Consumer>
+      {({ handleThemeChange }) => ()}
+    </SiteThemeContext.Consumer>
+  );
+};
+
+export default ThemeSelect;
+```
+
 <!-- Links -->
 
 [how that went here]:
