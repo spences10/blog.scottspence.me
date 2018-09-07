@@ -703,8 +703,8 @@ lower in the dependency tree can access it via a consumer.
 
 Now we want a want to call the `handleThemeChange` function that is
 part of the `SiteThemeProvider` via the `SiteThemeContext`! I'm sure
-this all making perfect sense right now so let's get right in there
-and define the component that we're going to use to consume the
+this all making perfect sense right now (🤣) so let's get right in
+there and define the component that we're going to use to consume the
 `SiteThemeContext.Provider` with a `ThemeSelect` component!
 
 In the `src/components` directory add a new `ThemeSelect.js`
@@ -712,13 +712,63 @@ component, this is where we are going to consume the site theme
 context with a consumer
 
 The child of a consumer isn't a component it's a function, so what
-we're going to need to do is have the select inside the return of that
-function.
+we're going to need to do is have the theme select inside the return
+of that function.
 
 Let's first set up the styled-components that will make up the select,
-which is a select box some options and a wrapper.
+which is a select box, some options and a wrapper.
 
 First we'll do it without the consumer then we'll add it in.
+
+**`ThemeSelect.js`**
+
+```js
+import React from 'react'
+import styled from 'styled-components'
+
+import { themes } from '../theme/globalStyle'
+
+const SelectWrapper = styled.div`
+  margin: 0rem 0.5rem 0rem 0.25rem;
+  padding: 0rem 0.5rem 0rem 0.25rem;
+`
+
+const Select = styled.select`
+  margin: 1.5rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-family: ${({ theme }) => theme.fontBody};
+  border: 2px solid ${({ theme }) => theme.secondary};
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => theme.foreground};
+  border-radius: 4px;
+`
+
+export const SelectOpt = styled.option`
+  font-family: ${({ theme }) => theme.fontBody};
+`
+
+const ThemeSelect = props => {
+  return (
+    <SelectWrapper>
+      <Select>
+        {Object.keys(themes).map((theme, index) => {
+          return (
+            <SelectOpt key={index} value={theme}>
+              Theme {index + 1}
+            </SelectOpt>
+          )
+        })}
+      </Select>
+    </SelectWrapper>
+  )
+}
+
+export default ThemeSelect
+```
+
+So from this we can list the this themes available to us in the
+`themes` object. But that's it, the function to handle the theme
+change lives on the `SiteThemeProvider`
 
 ```js
 import React from 'react';
