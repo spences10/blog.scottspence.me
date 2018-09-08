@@ -784,7 +784,7 @@ export default ThemeSelect
 
 So from this we can list the this themes available to us in the
 `themes` object. But that's it, the function to handle the theme
-change lives on the `SiteThemeProvider`
+change lives on the `SiteThemeProvider`.
 
 Back to the `SiteThemeContext.Consumer` as I mentioned earlier the
 child of a consumer is a function `() => ()` the first section is the
@@ -824,7 +824,7 @@ export default ThemeSelect
 ![](https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif)
 
 Currently this isn't going to change the theme because we have that
-hardcoded into the Styled-components `ThemeProvider`, what we want to
+hardcoded into the styled-components `ThemeProvider`, what we want to
 do is use a consumer for the currently selected theme in the
 `SiteThemeContext`.
 
