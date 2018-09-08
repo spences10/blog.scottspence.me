@@ -76,6 +76,8 @@ started [coding straight away]!
 
 ---
 
+## Let's start
+
 So let's go over theming the basic create react app again, this time
 instead of adding state into to the component we will use the React
 Context API to manage the state for us. There will be people that will
@@ -84,8 +86,6 @@ as an example of [when to use the Context API] in the React
 documentation so I will let you decide on the validity of that point.
 For this example, I hope it will give you a clearer picture of how to
 use the Context API in an application.
-
-## Let's start
 
 ### Dependencies
 
@@ -825,6 +825,24 @@ Then in the `App` component we can import our
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/jn5u8bzuvufpa56c9ta7.gif)
 
+### Want to know more?
+
+As mentioned at the start of this article a great resource is
+[@leighchalliday] and [his YouTube channel] where you can find his
+[great usecase] for the React Context API
+
+There's also the [React community on spectrum] and [styled-components
+on spectrum].
+
+[Example code] of the walkthrough is available on [CodeSandbox].
+
+### Thanks for reading 🙏
+
+If there is anything I have missed, or if there is a better way to do
+something then please let me know.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
+
 <!-- Links -->
 
 [how that went here]:
@@ -857,4 +875,13 @@ Then in the `App` component we can import our
 [scaffold]:
   https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
 [version from walkthrough]: https://codesandbox.io/s/lpvr771q59
-[version 2 from walkthrough]: https://codesandbox.io/s/zqw67wpm94
+[version 2 from walkthrough]: https://codesandbox.io/s/zqw67wpm94#
+[example code]: https://codesandbox.io/s/5vl16n5oxp
+[styled-components on spectrum]:
+  https://spectrum.chat/styled-components
+[react community on spectrum]: https://spectrum.chat/react
+[twitter]: https://twitter.com/ScottDevTweets
+[ask me anything]: https://github.com/spences10/ama
+[his youtube channel]:
+  https://www.youtube.com/channel/UCWPY8W-FAZ2HdDiJp2RC_sQ
+[example code]: https://codesandbox.io/s/5vl16n5oxp
