@@ -1,6 +1,6 @@
 ---
 path: '/react-context-api-getting-started'
-date: '2018-12-31'
+date: '2018-09-08'
 title: 'Using the React Context API  -  getting started'
 tags:
   [
