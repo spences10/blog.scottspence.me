@@ -213,11 +213,11 @@ Button
 
 `AppWrapper` is the top level wrapper which in a larger component
 could be used for layout with CSS Grid or Flexbox, in our case we're
-going to align the text centre.
+going to align the text center.
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/uc08zkkf4ay1hq8pkt3w.gif)
 
-Straight forward enough, right? Now the majority of the rest of the
+Straightforward enough, right? Now the majority of the rest of the
 components will use the styled-components [`ThemeProvider`] which is
 what we're going to pass our theme to from the Context API.
 
@@ -723,7 +723,7 @@ there and define the component that we're going to use to consume the
 
 In the `src/components` directory add a new `ThemeSelect.js`
 component, this is where we are going to consume the site theme
-context with a consumer
+context with a consumer.
 
 The child of a consumer isn't a component it's a function, so what
 we're going to need to do is have the theme select inside the return
@@ -823,8 +823,8 @@ export default ThemeSelect
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif)
 
-Currently this isn't going to change the theme because whe have that
-hard coded into the Styled-components `ThemeProvider`, what we want to
+Currently this isn't going to change the theme because we have that
+hardcoded into the Styled-components `ThemeProvider`, what we want to
 do is use a consumer for the currently selected theme in the
 `SiteThemeContext`.
 
@@ -843,7 +843,7 @@ Then in the `App` component we can import our
 
 As mentioned at the start of this article a great resource is
 [@leighchalliday] and [his YouTube channel] where you can find his
-[great usecase] for the React Context API
+[great usecase] for the React Context API.
 
 There's also the [React community on spectrum] and [styled-components
 on spectrum].
