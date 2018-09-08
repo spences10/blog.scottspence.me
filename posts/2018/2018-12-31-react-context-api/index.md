@@ -114,7 +114,7 @@ context-demo/
 └─ package.json
 ```
 
-## Scaffold out basic Create React App
+## Scaffold out a basic Create React App
 
 Ok, so, what we're going to do is add in an `App.js` component to the
 `components` folder then use that in the `src/index.js` file.
@@ -136,7 +136,8 @@ We can then remove the `style.css` file and reference in
 
 Ok, so the reason why I have abstracted the `App.js` component out of
 the `src/index.js` file is so that when we come to using the Context
-API we can add it to the highest level in our app.
+API we can add it to the highest level in our app, which is
+`src/index.js`.
 
 ### What about the rest?
 
@@ -147,7 +148,8 @@ to mimic the styles we need.
 
 That means what we're going to do, rather than go into depth on the
 styling of each of the component parts that make up the basic Create
-React App appearance, we're going to re-use components.
+React App appearance, we're going to re-use components, so there's
+going to be a bit of copy pasting involved now.
 
 The Create React App boilerplate code has one file that we go over
 styling in the [styled-components getting started] post which is the
