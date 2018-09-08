@@ -11,7 +11,7 @@ tags:
     'react',
     'api',
   ]
-published: false
+published: true
 ---
 
 Let's use the React Context API to change theme in an app!
@@ -766,15 +766,32 @@ const ThemeSelect = props => {
 export default ThemeSelect
 ```
 
+![](https://thepracticaldev.s3.amazonaws.com/i/43e15llsi8uhlmi1z1ut.gif)
+
 So from this we can list the this themes available to us in the
 `themes` object. But that's it, the function to handle the theme
 change lives on the `SiteThemeProvider`
+
+Back to the `SiteThemeContext.Consumer` as I mentioned earlier the
+child of a consumer is a function `() => ()` the first section is the
+`value` from the provider (`<SiteThemeContext.Provider>`) so let's
+take a quick look at what we've previously defined in the provider:
+
+```js
+value={{
+  ...this.state,
+  handleThemeChange: this.handleThemeChange
+}}
+```
+
+Available from `SiteThemeContext.Provider` is the state and a function
+so any of those items we can extract and pass to the provider, or to
+put it another way the consumer can access those values.
 
 ```js
 import React from 'react';
 
 import { SiteThemeContext } from '../contexts/SiteThemeContext';
-import { themes } from '../theme/globalStyle';
 
 const ThemeSelect = props => {
   return (
