@@ -11,7 +11,7 @@ tags:
     'react',
     'api',
   ]
-published: false
+published: true
 ---
 
 Let's use the React Context API to change theme in an app!
@@ -52,7 +52,7 @@ example application.
 So in summary:
 
 - Scaffold out basic CreateReact App
-- Use `styled-components` 💅 for styling
+- Use styled-components 💅 for styling
 - Add themes to switch between with the React Context API
 - Use the React Context API!
 
@@ -76,6 +76,8 @@ started [coding straight away]!
 
 ---
 
+## Let's start
+
 So let's go over theming the basic create react app again, this time
 instead of adding state into to the component we will use the React
 Context API to manage the state for us. There will be people that will
@@ -84,8 +86,6 @@ as an example of [when to use the Context API] in the React
 documentation so I will let you decide on the validity of that point.
 For this example, I hope it will give you a clearer picture of how to
 use the Context API in an application.
-
-## Let's start
 
 ### Dependencies
 
@@ -114,7 +114,7 @@ context-demo/
 └─ package.json
 ```
 
-## Scaffold out basic Create React App
+## Scaffold out a basic Create React App
 
 Ok, so, what we're going to do is add in an `App.js` component to the
 `components` folder then use that in the `src/index.js` file.
@@ -129,14 +129,15 @@ in the `App.js` component.
 ![](https://thepracticaldev.s3.amazonaws.com/i/oyxpggt00q754iv1azp0.gif)
 
 We can then remove the `style.css` file and reference in
-`src/index.js` as we're going to be styling with `styled-components`
-💅 and then use our `App.js` component:
+`src/index.js` as we're going to be styling with styled-components 💅
+and then use our `App.js` component:
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/yyne3q36jc0zca2ld89u.gif)
 
 Ok, so the reason why I have abstracted the `App.js` component out of
 the `src/index.js` file is so that when we come to using the Context
-API we can add it to the highest level in our app.
+API we can add it to the highest level in our app, which is
+`src/index.js`.
 
 ### What about the rest?
 
@@ -147,7 +148,8 @@ to mimic the styles we need.
 
 That means what we're going to do, rather than go into depth on the
 styling of each of the component parts that make up the basic Create
-React App appearance, we're going to re-use components.
+React App appearance, we're going to re-use components, so there's
+going to be a bit of copy pasting involved now.
 
 The Create React App boilerplate code has one file that we go over
 styling in the [styled-components getting started] post which is the
@@ -194,7 +196,7 @@ styling in the [styled-components getting started] post which is the
 ## Use styled components for styling
 
 Now we're going to recreate the styles from the `App.css` file with
-`styled-components`, let's list them out here and go through them:
+styled-components, let's list them out here and go through them:
 
 ```bash
 AppWrapper
@@ -211,12 +213,12 @@ Button
 
 `AppWrapper` is the top level wrapper which in a larger component
 could be used for layout with CSS Grid or Flexbox, in our case we're
-going to align the text centre.
+going to align the text center.
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/uc08zkkf4ay1hq8pkt3w.gif)
 
-Straight forward enough, right? Now the majority of the rest of the
-components will use the `styled-components` [`ThemeProvider`] which is
+Straightforward enough, right? Now the majority of the rest of the
+components will use the styled-components [`ThemeProvider`] which is
 what we're going to pass our theme to from the Context API.
 
 ## Add themes to switch between with the React Context API
@@ -266,7 +268,15 @@ export const themes = {
 }
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700|Enriqueta:400,700|Exo+2:400,700|Kaushan+Script:400,700|Headland+One:400,700|Nunito:400,700');
+  @import url('
+    https://fonts.googleapis.com/css?family=
+    Old+Standard+TT:400,700|
+    Nunito:400,700'|
+    Enriqueta:400,700|
+    Exo+2:400,700|
+    Kaushan+Script:400,700|
+    Headland+One:400,700|
+  ');
 
   body {
     padding: 0;
@@ -303,7 +313,7 @@ const AppHeader = styled.div`
 ```
 
 You will notice here that we're beginning to use the
-`styled-components`, `theme` props but, if we paste this code in now
+styled-components, `theme` props but, if we paste this code in now
 there won't be any change until the `ThemeProvider` is passed the
 `theme` object so we're going to wrap `App.js` with the
 `ThemeProvider` component so that any component encapsulated by the
@@ -509,15 +519,17 @@ theme!
 
 Ok? How's it looking?
 
-Now we have a basic React app that uses `styled-components`!
+Now we have a basic React app that uses styled-components!
 
 ## Use the React Context API
 
 Now for the main event! Here we're going to cover:
 
-- making the theme context
+- Making the theme context.
 
-- using the context API with a component.
+- Using the context API with a component.
+
+- Consuming the Context API in multiple components.
 
 So, passing state needlessly through components is what we can use the
 Context API to avoid. If we take a look at the [styled-components
@@ -558,8 +570,8 @@ export const SiteThemeContext = React.createContext()
 
 A context is made up of two things, a provider and a consumer, you
 have a single provider which will sit up as high as possible in the
-component tree as possible so that multiple consumers can get the
-state and props from the provider.
+component tree so that multiple consumers can get the state and props
+from the provider.
 
 Hopefully you recall the point at which we abstracted the
 `function App` component out of the `src/index.js` file, this is so we
@@ -593,7 +605,7 @@ one prop you have to provide the the provider is a `value` prop. This
 is the variable that the consumer has access to. The consumer being
 `<SiteThemeContext.Consumer>` (more on this shortly).
 
-So what we can do now is have what is passed into value be an object
+So what we can do now is have what is passed into `value` be an object
 `value={{}}` so it can store multiple properties of the state and the
 functions that are defined in `SiteThemeContext`.
 
@@ -637,7 +649,9 @@ And bring in the `themes` and add state:
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/y6n32p1gshah5ex747mu.gif)
 
-Now we can add in a function to the provider to change the theme:
+Now we can add in a function to the provider to change the theme state
+based on what has been selected via the `handleThemeChange` event
+value:
 
 ```js
 handleThemeChange = e => {
@@ -709,7 +723,7 @@ there and define the component that we're going to use to consume the
 
 In the `src/components` directory add a new `ThemeSelect.js`
 component, this is where we are going to consume the site theme
-context with a consumer
+context with a consumer.
 
 The child of a consumer isn't a component it's a function, so what
 we're going to need to do is have the theme select inside the return
@@ -766,26 +780,82 @@ const ThemeSelect = props => {
 export default ThemeSelect
 ```
 
+![](https://thepracticaldev.s3.amazonaws.com/i/43e15llsi8uhlmi1z1ut.gif)
+
 So from this we can list the this themes available to us in the
 `themes` object. But that's it, the function to handle the theme
-change lives on the `SiteThemeProvider`
+change lives on the `SiteThemeProvider`.
+
+Back to the `SiteThemeContext.Consumer` as I mentioned earlier the
+child of a consumer is a function `() => ()` the first section is the
+`value` from the provider (`<SiteThemeContext.Provider>`) so let's
+take a quick look at what we've previously defined in the provider:
 
 ```js
-import React from 'react';
+value={{
+  ...this.state,
+  handleThemeChange: this.handleThemeChange
+}}
+```
 
-import { SiteThemeContext } from '../contexts/SiteThemeContext';
-import { themes } from '../theme/globalStyle';
+Available from `SiteThemeContext.Provider` is the state and a function
+so any of those items we can extract and pass to the provider, or to
+put it another way the consumer can access those values.
+
+Here we can use destructuring to pull the `handleThemeChange` function
+we need to change the theme.
+
+```js
+import React from 'react'
+
+import { SiteThemeContext } from '../contexts/SiteThemeContext'
 
 const ThemeSelect = props => {
   return (
     <SiteThemeContext.Consumer>
       {({ handleThemeChange }) => ()}
     </SiteThemeContext.Consumer>
-  );
-};
+  )
+}
 
-export default ThemeSelect;
+export default ThemeSelect
 ```
+
+![](https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif)
+
+Currently this isn't going to change the theme because we have that
+hardcoded into the styled-components `ThemeProvider`, what we want to
+do is use a consumer for the currently selected theme in the
+`SiteThemeContext`.
+
+Before that we'll also need to add in the `onChange` event we want to
+use to pass the event (`e`) to the `handleThemeChange` function on
+`SiteThemeContext`.
+
+Then in the `App` component we can import our
+`<SiteThemeContext.Consumer>` to consume the `theme` on the
+`SiteThemeContext` state and pass that to the styled-components
+`ThemeProvider`.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/jn5u8bzuvufpa56c9ta7.gif)
+
+### Want to know more?
+
+As mentioned at the start of this article a great resource is
+[@leighchalliday] and [his YouTube channel] where you can find his
+[great usecase] for the React Context API.
+
+There's also the [React community on spectrum] and [styled-components
+on spectrum].
+
+[Example code] of the walkthrough is available on [CodeSandbox].
+
+### Thanks for reading 🙏
+
+If there is anything I have missed, or if there is a better way to do
+something then please let me know.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 <!-- Links -->
 
@@ -819,4 +889,13 @@ export default ThemeSelect;
 [scaffold]:
   https://github.com/spences10/settings/blob/35ba1ca3e9871c3ea6344ca2274ebbd327a18bed/globalVs.code-snippets#L74-L112
 [version from walkthrough]: https://codesandbox.io/s/lpvr771q59
-[version 2 from walkthrough]: https://codesandbox.io/s/zqw67wpm94
+[version 2 from walkthrough]: https://codesandbox.io/s/zqw67wpm94#
+[example code]: https://codesandbox.io/s/5vl16n5oxp
+[styled-components on spectrum]:
+  https://spectrum.chat/styled-components
+[react community on spectrum]: https://spectrum.chat/react
+[twitter]: https://twitter.com/ScottDevTweets
+[ask me anything]: https://github.com/spences10/ama
+[his youtube channel]:
+  https://www.youtube.com/channel/UCWPY8W-FAZ2HdDiJp2RC_sQ
+[example code]: https://codesandbox.io/s/5vl16n5oxp
