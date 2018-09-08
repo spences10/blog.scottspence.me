@@ -814,6 +814,17 @@ hard coded into the Styled-components `ThemeProvider`, what we want to
 do is use a consumer for the currently selected theme in the
 `SiteThemeContext`.
 
+Before that we'll also need to add in the `onChange` event we want to
+use to pass the event (`e`) to the `handleThemeChange` function on
+`SiteThemeContext`.
+
+Then in the `App` component we can import our
+`<SiteThemeContext.Consumer>` to consume the `theme` on the
+`SiteThemeContext` state and pass that to the styled-components
+`ThemeProvider`.
+
+![](https://thepracticaldev.s3.amazonaws.com/i/jn5u8bzuvufpa56c9ta7.gif)
+
 <!-- Links -->
 
 [how that went here]:
