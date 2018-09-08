@@ -7,8 +7,7 @@ module.exports = {
   descriptionContent: 'Blog of Scott Spence - web developer',
   keywordsContent:
     'blog, web developer, javascript, react, learning, information, how to',
-  imageLink:
-    'https://blog.scottspence.me/favicons/firefox_app_512x512.png',
+  imageLink: 'https://blog.scottspence.me/icons/icon-512x512.png',
   faviconPng: './src/images/favicon.png',
   contact: {
     github: 'https://github.com/spences10',
