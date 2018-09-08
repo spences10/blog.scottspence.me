@@ -597,7 +597,7 @@ one prop you have to provide the the provider is a `value` prop. This
 is the variable that the consumer has access to. The consumer being
 `<SiteThemeContext.Consumer>` (more on this shortly).
 
-So what we can do now is have what is passed into value be an object
+So what we can do now is have what is passed into `value` be an object
 `value={{}}` so it can store multiple properties of the state and the
 functions that are defined in `SiteThemeContext`.
 
@@ -641,7 +641,9 @@ And bring in the `themes` and add state:
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/y6n32p1gshah5ex747mu.gif)
 
-Now we can add in a function to the provider to change the theme:
+Now we can add in a function to the provider to change the theme state
+based on what has been selected via the `handleThemeChange` event
+value:
 
 ```js
 handleThemeChange = e => {
