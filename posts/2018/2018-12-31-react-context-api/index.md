@@ -268,7 +268,15 @@ export const themes = {
 }
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700|Enriqueta:400,700|Exo+2:400,700|Kaushan+Script:400,700|Headland+One:400,700|Nunito:400,700');
+  @import url('
+    https://fonts.googleapis.com/css?family=
+    Old+Standard+TT:400,700|
+    Nunito:400,700'|
+    Enriqueta:400,700|
+    Exo+2:400,700|
+    Kaushan+Script:400,700|
+    Headland+One:400,700|
+  ');
 
   body {
     padding: 0;
