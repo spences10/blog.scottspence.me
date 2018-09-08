@@ -788,21 +788,26 @@ Available from `SiteThemeContext.Provider` is the state and a function
 so any of those items we can extract and pass to the provider, or to
 put it another way the consumer can access those values.
 
-```js
-import React from 'react';
+Here we can use destructuring to pull the `handleThemeChange` function
+we need to change the theme.
 
-import { SiteThemeContext } from '../contexts/SiteThemeContext';
+```js
+import React from 'react'
+
+import { SiteThemeContext } from '../contexts/SiteThemeContext'
 
 const ThemeSelect = props => {
   return (
     <SiteThemeContext.Consumer>
       {({ handleThemeChange }) => ()}
     </SiteThemeContext.Consumer>
-  );
-};
+  )
+}
 
-export default ThemeSelect;
+export default ThemeSelect
 ```
+
+![](https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif)
 
 <!-- Links -->
 
