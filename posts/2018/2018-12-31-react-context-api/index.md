@@ -809,6 +809,11 @@ export default ThemeSelect
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/1qq4hc2zqa50t0t2vi5v.gif)
 
+Currently this isn't going to change the theme because whe have that
+hard coded into the Styled-components `ThemeProvider`, what we want to
+do is use a consumer for the currently selected theme in the
+`SiteThemeContext`.
+
 <!-- Links -->
 
 [how that went here]:
