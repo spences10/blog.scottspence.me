@@ -52,7 +52,7 @@ example application.
 So in summary:
 
 - Scaffold out basic CreateReact App
-- Use `styled-components` 💅 for styling
+- Use styled-components 💅 for styling
 - Add themes to switch between with the React Context API
 - Use the React Context API!
 
@@ -129,8 +129,8 @@ in the `App.js` component.
 ![](https://thepracticaldev.s3.amazonaws.com/i/oyxpggt00q754iv1azp0.gif)
 
 We can then remove the `style.css` file and reference in
-`src/index.js` as we're going to be styling with `styled-components`
-💅 and then use our `App.js` component:
+`src/index.js` as we're going to be styling with styled-components 💅
+and then use our `App.js` component:
 
 ![](https://thepracticaldev.s3.amazonaws.com/i/yyne3q36jc0zca2ld89u.gif)
 
@@ -196,7 +196,7 @@ styling in the [styled-components getting started] post which is the
 ## Use styled components for styling
 
 Now we're going to recreate the styles from the `App.css` file with
-`styled-components`, let's list them out here and go through them:
+styled-components, let's list them out here and go through them:
 
 ```bash
 AppWrapper
@@ -218,7 +218,7 @@ going to align the text centre.
 ![](https://thepracticaldev.s3.amazonaws.com/i/uc08zkkf4ay1hq8pkt3w.gif)
 
 Straight forward enough, right? Now the majority of the rest of the
-components will use the `styled-components` [`ThemeProvider`] which is
+components will use the styled-components [`ThemeProvider`] which is
 what we're going to pass our theme to from the Context API.
 
 ## Add themes to switch between with the React Context API
@@ -305,7 +305,7 @@ const AppHeader = styled.div`
 ```
 
 You will notice here that we're beginning to use the
-`styled-components`, `theme` props but, if we paste this code in now
+styled-components, `theme` props but, if we paste this code in now
 there won't be any change until the `ThemeProvider` is passed the
 `theme` object so we're going to wrap `App.js` with the
 `ThemeProvider` component so that any component encapsulated by the
@@ -511,15 +511,17 @@ theme!
 
 Ok? How's it looking?
 
-Now we have a basic React app that uses `styled-components`!
+Now we have a basic React app that uses styled-components!
 
 ## Use the React Context API
 
 Now for the main event! Here we're going to cover:
 
-- making the theme context
+- Making the theme context.
 
-- using the context API with a component.
+- Using the context API with a component.
+
+- Consuming the Context API in multiple components.
 
 So, passing state needlessly through components is what we can use the
 Context API to avoid. If we take a look at the [styled-components
@@ -560,8 +562,8 @@ export const SiteThemeContext = React.createContext()
 
 A context is made up of two things, a provider and a consumer, you
 have a single provider which will sit up as high as possible in the
-component tree as possible so that multiple consumers can get the
-state and props from the provider.
+component tree so that multiple consumers can get the state and props
+from the provider.
 
 Hopefully you recall the point at which we abstracted the
 `function App` component out of the `src/index.js` file, this is so we
