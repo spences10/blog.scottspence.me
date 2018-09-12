@@ -1,6 +1,6 @@
 module.exports = {
   siteTitle: 'blog.scottspence.me',
-  siteUrl: 'https://v2blog.scottspence.me',
+  siteUrl: 'https://blog.scottspence.me',
   nameContent: 'Scott Spence - blog',
   developerName: 'Scott Spence',
   developerUrl: 'https.scottspence.me',
