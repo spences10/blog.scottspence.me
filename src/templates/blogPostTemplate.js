@@ -46,6 +46,13 @@ const PostWrapper = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
+  -moz-document url-prefix() {
+    /* Firefox doesn't respect max-width in certain situations */
+    img {
+      width: 100%;
+      max-width: -moz-max-content;
+    }
+  }
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
 `
