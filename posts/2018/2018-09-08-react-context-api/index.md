@@ -336,8 +336,8 @@ We can add it in with the imports at the top of the `App.js` component
 and add it into the `AppLogo` styled component as an `img` tag:
 
 ```js
-const logo =
-  'https://user-images.githubusercontent.com/234708/37256552-32635a02-2554-11e8-8fe3-8ab5bd969d8e.png'
+const logo = `https://user-images.githubusercontent.com/
+    234708/37256552-32635a02-2554-11e8-8fe3-8ab5bd969d8e.png`
 ```
 
 The `keyframes` helper will need to be imported alongside the
