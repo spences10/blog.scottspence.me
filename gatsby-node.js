@@ -58,24 +58,24 @@ exports.createPages = ({ actions, graphql }) => {
 }
 
 const createTagPages = (createPage, posts) => {
-  const tagPageTemplate = path.resolve('src/templates/tags.js')
-  const allTagsTemplate = path.resolve('src/templates/all-tags.js')
+  const allTagsTemplate = path.resolve('src/templates/allTags.js')
+  const singleTagTemplate = path.resolve('src/templates/singleTag.js')
 
-  const postsByTags = {}
+  const postsByTag = {}
 
   posts.forEach(({ node }) => {
     if (node.frontmatter.tags) {
       node.frontmatter.tags.forEach(tag => {
-        if (!postsByTags[tag]) {
-          postsByTags[tag] = []
+        if (!postsByTag[tag]) {
+          postsByTag[tag] = []
         }
 
-        postsByTags[tag].push(node)
+        postsByTag[tag].push(node)
       })
     }
   })
 
-  const tags = Object.keys(postsByTags)
+  const tags = Object.keys(postsByTag)
 
   createPage({
     path: '/tags',
@@ -86,11 +86,11 @@ const createTagPages = (createPage, posts) => {
   })
 
   tags.forEach(tagName => {
-    const posts = postsByTags[tagName]
+    const posts = postsByTag[tagName]
 
     createPage({
-      path: '/tags/${tagName}',
-      component: tagPageTemplate,
+      path: `/tags/${tagName}`,
+      component: singleTagTemplate,
       context: {
         posts,
         tagName
