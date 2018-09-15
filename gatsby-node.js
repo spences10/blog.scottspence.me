@@ -36,7 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
-    // createTagPages(createPage, posts)
+    createTagPages(createPage, posts)
 
     // Create pages for each markdown file.
     posts.forEach(({ node }, index) => {
@@ -57,44 +57,44 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
-// const createTagPages = (createPage, posts) => {
-//   const tagPageTemplate = path.resolve('src/templates/tags.js')
-//   const allTagsTemplate = path.resolve('src/templates/all-tags.js')
+const createTagPages = (createPage, posts) => {
+  const tagPageTemplate = path.resolve('src/templates/tags.js')
+  const allTagsTemplate = path.resolve('src/templates/all-tags.js')
 
-//   const postsByTags = {}
+  const postsByTags = {}
 
-//   posts.forEach(({ node }) => {
-//     if (node.frontmatter.tags) {
-//       node.frontmatter.tags.forEach(tag => {
-//         if (!postsByTags[tag]) {
-//           postsByTags[tag] = []
-//         }
+  posts.forEach(({ node }) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach(tag => {
+        if (!postsByTags[tag]) {
+          postsByTags[tag] = []
+        }
 
-//         postsByTags[tag].push(node)
-//       })
-//     }
-//   })
+        postsByTags[tag].push(node)
+      })
+    }
+  })
 
-//   const tags = Object.keys(postsByTags)
+  const tags = Object.keys(postsByTags)
 
-//   createPage({
-//     path: '/tags',
-//     component: allTagsTemplate,
-//     context: {
-//       tags: tags.sort()
-//     }
-//   })
+  createPage({
+    path: '/tags',
+    component: allTagsTemplate,
+    context: {
+      tags: tags.sort()
+    }
+  })
 
-//   tags.forEach(tagName => {
-//     const posts = postsByTags[tagName]
+  tags.forEach(tagName => {
+    const posts = postsByTags[tagName]
 
-//     createPage({
-//       path: '/tags/${tagName}',
-//       component: tagPageTemplate,
-//       context: {
-//         posts,
-//         tagName
-//       }
-//     })
-//   })
-// }
+    createPage({
+      path: '/tags/${tagName}',
+      component: tagPageTemplate,
+      context: {
+        posts,
+        tagName
+      }
+    })
+  })
+}
