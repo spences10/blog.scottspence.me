@@ -1,6 +1,6 @@
 import React from 'react'
 // import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 
 // import ThemeSelect from '../components/ThemeSelect'
 // import { StyledHyperLink as SHL } from '../components/Shared'
@@ -127,11 +127,19 @@ import { Dump } from '../utils/helpers'
 
 const Footer = ({ data }) => {
   const pages = data.site.siteMetadata.pages
+  const contact = data.site.siteMetadata.contact
   return (
     <footer>
       <Dump data={data} pages={pages} />
       {pages.map((page, index) => (
-        <p key={index}>{page}</p>
+        <Link key={index} to={page}>
+          <p>{page}</p>
+        </Link>
+      ))}
+      {contact.map((details, index) => (
+        <a key={index} href={details.link}>
+          <p>{details.name}</p>
+        </a>
       ))}
     </footer>
   )
@@ -140,10 +148,14 @@ const Footer = ({ data }) => {
 export default props => (
   <StaticQuery
     query={graphql`
-      query {
+      query FooterData {
         site {
           siteMetadata {
             pages
+            contact {
+              name
+              link
+            }
           }
         }
       }
