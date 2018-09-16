@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
-// import ThemeSelect from '../components/ThemeSelect'
-// import { StyledHyperLink as SHL } from '../components/Shared'
+import ThemeSelect from '../components/ThemeSelect'
+import { StyledHyperLink as SHL } from '../components/Shared'
 
 import { media } from '../theme/globalStyle'
-// import config from '../../data/siteConfig'
 
 // import rSLogo from '../img/reactStatic.png'
 // import gCSMLogo from '../img/powered_by_graphcms-1.svg'
@@ -76,71 +75,78 @@ const FooterWrapper = styled.footer`
 // //   grid-area: ${props => props.area};
 // // `
 
-// const LinksList = styled.ul`
-//   grid-area: ${props => props.area};
-//   margin: 0.5rem;
-//   padding: 0.5rem;
-// `
+const LinksList = styled.ul`
+  grid-area: ${props => props.area};
+  margin: 0.5rem;
+  padding: 0.5rem;
+`
 
-// const LinksListTitle = styled.span`
-//   font-size: 1.5rem;
-//   font-weight: 700;
-//   font-family: ${props => props.theme.fontHeader};
-//   color: ${props => props.theme.fontLight};
-// `
+const LinksListTitle = styled.span`
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: ${props => props.theme.fontHeader};
+  color: ${props => props.theme.fontLight};
+`
 
-// const ListLink = styled.li`
-//   list-style-type: none;
-//   font-family: ${props => props.theme.fontBody};
-//   color: ${props => props.theme.fontDark};
-//   &:visited,
-//   &:active {
-//     color: inherit;
-//   }
-//   &:hover {
-//     color: ${({ theme }) => theme.primaryAccent};
-//     background: ${({ theme }) => theme.primary};
-//     border-radius: 4px;
-//     transition: color 0.2s ease-out, background 0.2s ease-in;
-//   }
-// `
+const ListLink = styled.li`
+  list-style-type: none;
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.primaryAccent};
+    background: ${({ theme }) => theme.primary};
+    border-radius: 4px;
+    transition: color 0.2s ease-out, background 0.2s ease-in;
+  }
+`
 
-// const StyledHyperLink = SHL.extend`
-//   font-family: ${props => props.theme.fontBody};
-//   color: ${props => props.theme.fontDark};
-// `
+const StyledHyperLink = SHL.extend`
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+`
 
-// const StyledLink = styled(Link)`
-//   font-family: ${props => props.theme.fontBody};
-//   color: ${props => props.theme.fontDark};
-//   &:visited,
-//   &:active {
-//     color: inherit;
-//   }
-//   &:hover {
-//     color: ${({ theme }) => theme.primaryAccent};
-//     background: ${({ theme }) => theme.primary};
-//     border-radius: 4px;
-//     transition: color 0.2s ease-out, background 0.2s ease-in;
-//   }
-// `
+const StyledLink = styled(Link)`
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+  &:visited,
+  &:active {
+    color: inherit;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.primaryAccent};
+    background: ${({ theme }) => theme.primary};
+    border-radius: 4px;
+    transition: color 0.2s ease-out, background 0.2s ease-in;
+  }
+`
 
 const Footer = ({ data }) => {
   const pages = data.site.siteMetadata.pages
   const contact = data.site.siteMetadata.contact
   return (
     <FooterWrapper>
+      <ThemeSelect />
       {/* <Dump data={data} pages={pages} /> */}
-      {pages.map((page, index) => (
-        <Link key={index} to={page}>
-          <p>{page}</p>
-        </Link>
-      ))}
-      {contact.map((details, index) => (
-        <a key={index} href={details.link}>
-          <p>{details.name}</p>
-        </a>
-      ))}
+      <LinksList area={'l'}>
+        <LinksListTitle>Links</LinksListTitle>
+        {pages.map((page, index) => (
+          <StyledLink key={index} to={page}>
+            <ListLink>{page}</ListLink>
+          </StyledLink>
+        ))}
+      </LinksList>
+      <LinksList area={'s'}>
+        <LinksListTitle>Social</LinksListTitle>
+        {contact.map((details, index) => (
+          <StyledHyperLink key={index} href={details.link}>
+            <ListLink>{details.name}</ListLink>
+          </StyledHyperLink>
+        ))}
+      </LinksList>
     </FooterWrapper>
   )
 }
