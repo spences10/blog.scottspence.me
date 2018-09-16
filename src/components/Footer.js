@@ -142,7 +142,11 @@ const Footer = ({ data }) => {
       <LinksList area={'s'}>
         <LinksListTitle>Social</LinksListTitle>
         {contact.map((details, index) => (
-          <StyledHyperLink key={index} href={details.link}>
+          <StyledHyperLink
+            key={index}
+            href={details.link}
+            target="_blank"
+            rel="noopener">
             <ListLink>{details.name}</ListLink>
           </StyledHyperLink>
         ))}
