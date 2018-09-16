@@ -1,74 +1,74 @@
 import React from 'react'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
 // import ThemeSelect from '../components/ThemeSelect'
 // import { StyledHyperLink as SHL } from '../components/Shared'
 
-// import { media } from '../theme/globalStyle'
+import { media } from '../theme/globalStyle'
 // import config from '../../data/siteConfig'
 
 // import rSLogo from '../img/reactStatic.png'
 // import gCSMLogo from '../img/powered_by_graphcms-1.svg'
 
-import { Dump } from '../utils/helpers'
+// import { Dump } from '../utils/helpers'
 
-// const FooterWrapper = styled.div`
-//   z-index: 1;
-//   bottom: 0;
-//   /* width: 100%; */
-//   /* position: fixed; sticky */
-//   /* height: 20rem; */
-//   grid-area: f;
-//   display: grid;
-//   background: ${({ theme }) => theme.primary};
-//   color: ${({ theme }) => theme.fontDark};
-//   box-shadow: rgba(0, 0, 0, 0.1) 0px -5px 5px 0px;
-//   grid-template-columns: repeat(12, 1fr);
-//   grid-template-rows: auto;
-//   grid-template-areas:
-//     '. . . l s . g g g . . .'
-//     '. . . . . . g g g . . .'
-//     '. . . . . . r r r . . .'
-//     '. . . t . . r r r . . .';
-//   ${media.giant`
-//     grid-template-areas:
-//       '. . l s . . . g g g . .'
-//       '. . . . . . . g g g . .'
-//       '. . . . . . . r r r . .'
-//       '. . . t . . . r r r . .';
-//       /* background: goldenrod; */
-//   `};
-//   ${media.desktop`
-//     grid-template-areas:
-//       '. l s . . . g g g g g .'
-//       '. . . . . . g g g g g .'
-//       '. . . . . . r r r r r .'
-//       '. t . . . . r r r r r .';
-//     /* background: dodgerblue; */
-//   `};
-//   ${media.tablet`
-//     /* height: 30rem; */
-//     grid-template-columns: repeat(9, 1fr);
-//     grid-template-areas:
-//         '. l s . . . . . .'
-//         '. t . . . . . . .'
-//         '. g g g g . . . .'
-//         '. g g g g . . . .'
-//         '. r r r r . . . .'
-//         '. r r r r . . . .';
-//     /* background: mediumseagreen; */
-//   `};
-//   ${media.phone`
-//     grid-template-columns: repeat(9, 1fr);
-//     grid-template-areas:
-//         'l s . . . . . . .'
-//         't . . . . . . . .'
-//         'g g g g . . . . .'
-//         'r r r r . . . . .';
-//     /* background: palevioletred; */
-//   `};
-// `
+const FooterWrapper = styled.footer`
+  z-index: 1;
+  bottom: 0;
+  /* width: 100%; */
+  /* position: fixed; sticky */
+  /* height: 20rem; */
+  grid-area: f;
+  display: grid;
+  background: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.fontDark};
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -5px 5px 0px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    '. . . l s . g g g . . .'
+    '. . . . . . g g g . . .'
+    '. . . . . . r r r . . .'
+    '. . . t . . r r r . . .';
+  ${media.giant`
+    grid-template-areas:
+      '. . l s . . . g g g . .'
+      '. . . . . . . g g g . .'
+      '. . . . . . . r r r . .'
+      '. . . t . . . r r r . .';
+      /* background: goldenrod; */
+  `};
+  ${media.desktop`
+    grid-template-areas:
+      '. l s . . . g g g g g .'
+      '. . . . . . g g g g g .'
+      '. . . . . . r r r r r .'
+      '. t . . . . r r r r r .';
+    /* background: dodgerblue; */
+  `};
+  ${media.tablet`
+    /* height: 30rem; */
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+        '. l s . . . . . .'
+        '. t . . . . . . .'
+        '. g g g g . . . .'
+        '. g g g g . . . .'
+        '. r r r r . . . .'
+        '. r r r r . . . .';
+    /* background: mediumseagreen; */
+  `};
+  ${media.phone`
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+        'l s . . . . . . .'
+        't . . . . . . . .'
+        'g g g g . . . . .'
+        'r r r r . . . . .';
+    /* background: palevioletred; */
+  `};
+`
 
 // // const ImageWrapper = styled.div`
 // //   margin: 0.5rem;
@@ -129,8 +129,8 @@ const Footer = ({ data }) => {
   const pages = data.site.siteMetadata.pages
   const contact = data.site.siteMetadata.contact
   return (
-    <footer>
-      <Dump data={data} pages={pages} />
+    <FooterWrapper>
+      {/* <Dump data={data} pages={pages} /> */}
       {pages.map((page, index) => (
         <Link key={index} to={page}>
           <p>{page}</p>
@@ -141,7 +141,7 @@ const Footer = ({ data }) => {
           <p>{details.name}</p>
         </a>
       ))}
-    </footer>
+    </FooterWrapper>
   )
 }
 
