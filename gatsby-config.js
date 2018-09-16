@@ -4,12 +4,7 @@ module.exports = {
   siteMetadata: {
     title: config.siteTitle,
     siteUrl: config.siteUrl,
-    contact: {
-      github: config.contact.github,
-      medium: config.contact.medium,
-      devto: config.contact.devto,
-      twitter: config.contact.twitter
-    }
+    pages: ['tags', 'about', 'contact']
   },
   plugins: [
     'gatsby-plugin-react-helmet',
