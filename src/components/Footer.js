@@ -122,6 +122,7 @@ const StyledLink = styled(Link)`
     border-radius: 4px;
     transition: color 0.2s ease-out, background 0.2s ease-in;
   }
+  text-transform: capitalize;
 `
 
 const Footer = ({ data }) => {
