@@ -6,7 +6,11 @@ import Layout from '../components/Layout'
 const ContactPage = () => (
   <Layout>
     <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
+
+    <p>
+      I apologise for what you are seeing right now, it will be fixed
+      in coming changes
+    </p>
 
     <p>Testing Netlify forms</p>
 
