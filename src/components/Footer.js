@@ -1,22 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 
 import ThemeSelect from '../components/ThemeSelect'
 import { StyledHyperLink as SHL } from '../components/Shared'
 
 import { media } from '../theme/globalStyle'
-import config from '../../data/siteConfig'
 
 // import rSLogo from '../img/reactStatic.png'
 // import gCSMLogo from '../img/powered_by_graphcms-1.svg'
 
-const FooterWrapper = styled.div`
+// import { Dump } from '../utils/helpers'
+
+const FooterWrapper = styled.footer`
   z-index: 1;
   bottom: 0;
   /* width: 100%; */
   /* position: fixed; sticky */
-  height: 20rem;
+  /* height: 20rem; */
   grid-area: f;
   display: grid;
   background: ${({ theme }) => theme.primary};
@@ -68,11 +69,11 @@ const FooterWrapper = styled.div`
   `};
 `
 
-// const ImageWrapper = styled.div`
-//   margin: 0.5rem;
-//   padding: 0.5rem;
-//   grid-area: ${props => props.area};
-// `
+// // const ImageWrapper = styled.div`
+// //   margin: 0.5rem;
+// //   padding: 0.5rem;
+// //   grid-area: ${props => props.area};
+// // `
 
 const LinksList = styled.ul`
   grid-area: ${props => props.area};
@@ -121,67 +122,55 @@ const StyledLink = styled(Link)`
     border-radius: 4px;
     transition: color 0.2s ease-out, background 0.2s ease-in;
   }
+  text-transform: capitalize;
 `
 
-const Footer = props => {
-  // console.log('=====================')
-  // console.log(props)
-  // console.log('=====================')
+const Footer = ({ data }) => {
+  const pages = data.site.siteMetadata.pages
+  const contact = data.site.siteMetadata.contact
   return (
     <FooterWrapper>
       <ThemeSelect />
+      {/* <Dump data={data} pages={pages} /> */}
       <LinksList area={'l'}>
         <LinksListTitle>Links</LinksListTitle>
-        <ListLink>
-          <StyledLink to="/about">About</StyledLink>
-        </ListLink>
-        <ListLink>
-          <StyledLink to="/all-tags">Tags</StyledLink>
-        </ListLink>
-        <StyledLink>
-          <StyledLink to="/contact">Contact</StyledLink>
-        </StyledLink>
+        {pages.map((page, index) => (
+          <StyledLink key={index} to={page}>
+            <ListLink>{page}</ListLink>
+          </StyledLink>
+        ))}
       </LinksList>
       <LinksList area={'s'}>
         <LinksListTitle>Social</LinksListTitle>
-        <StyledHyperLink
-          href={config.contact.github}
-          target="_blank"
-          rel="noopener">
-          <ListLink>GitHub</ListLink>
-        </StyledHyperLink>
-        <StyledHyperLink
-          href={config.contact.devto}
-          target="_blank"
-          rel="noopener">
-          <ListLink>Dev.to</ListLink>
-        </StyledHyperLink>
-        <StyledHyperLink
-          href={config.contact.medium}
-          target="_blank"
-          rel="noopener">
-          <ListLink>Medium</ListLink>
-        </StyledHyperLink>
-        <StyledHyperLink
-          href={config.contact.twitter}
-          target="_blank"
-          rel="noopener">
-          <ListLink>Twitter</ListLink>
-        </StyledHyperLink>
+        {contact.map((details, index) => (
+          <StyledHyperLink
+            key={index}
+            href={details.link}
+            target="_blank"
+            rel="noopener">
+            <ListLink>{details.name}</ListLink>
+          </StyledHyperLink>
+        ))}
       </LinksList>
-      {/* <ImageWrapper area={'r'}>
-        <img src={rSLogo} className="App-logo" alt="logo" />
-      </ImageWrapper>
-      <ImageWrapper area={'g'}>
-        <img
-          src={gCSMLogo}
-          height="100%"
-          className="App-logo"
-          alt="logo"
-        />
-      </ImageWrapper> */}
     </FooterWrapper>
   )
 }
 
-export default Footer
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query FooterData {
+        site {
+          siteMetadata {
+            pages
+            contact {
+              name
+              link
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Footer data={data} {...props} />}
+  />
+)
