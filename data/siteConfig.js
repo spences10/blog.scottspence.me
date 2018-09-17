@@ -9,13 +9,13 @@ module.exports = {
     'blog, web developer, javascript, react, learning, information, how to',
   imageLink: 'https://blog.scottspence.me/icons/icon-512x512.png',
   faviconPng: './src/images/favicon.png',
-  contact: {
-    github: 'https://github.com/spences10',
-    medium: 'https://medium.com/@spences10',
-    devto: 'https://dev.to/spences10',
-    twitter: 'https://twitter.com/ScottDevTweets',
-    email: 'spences10apps@gmail.com'
-  },
+  contact: [
+    { name: 'GitHub', link: 'https://github.com/spences10' },
+    { name: 'Medium', link: 'https://medium.com/@spences10' },
+    { name: 'Dev.to', link: 'https://dev.to/spences10' },
+    { name: 'Twitter', link: 'https://twitter.com/ScottDevTweets' },
+    { name: 'Email', link: 'mailto:spences10apps@gmail.com' }
+  ],
   backgroundColour: '#663399', // this is for favicon and manifest
   themeColour: '#755f9f', // this is for favicon and manifest
   siteLanguage: 'en-GB'
