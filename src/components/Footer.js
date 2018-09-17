@@ -16,7 +16,7 @@ const FooterWrapper = styled.div`
   bottom: 0;
   /* width: 100%; */
   /* position: fixed; sticky */
-  height: 20rem;
+  /* height: 20rem; */
   grid-area: f;
   display: grid;
   background: ${({ theme }) => theme.primary};
