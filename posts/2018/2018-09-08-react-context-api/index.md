@@ -10,6 +10,8 @@ tags:
     'getting started',
     'react',
     'api',
+    'styled-components',
+    'css-in-js',
   ]
 published: true
 ---
