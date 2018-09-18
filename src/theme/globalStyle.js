@@ -117,7 +117,7 @@ export const reset = () =>
     }
     ul {
       margin: 0 auto;
-      /* list-style-type: none; */
+      list-style-type: none;
     }
     img {
       max-width: 100%;
