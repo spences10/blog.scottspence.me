@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 const About = props => {
   return (
-    <React.Fragment>
+    <Layout>
       <p>welcome to about</p>
-    </React.Fragment>
+    </Layout>
   )
 }
 
