@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
 import styled from 'styled-components'
+
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
 
 const Wrapper = styled.div``
 
@@ -40,6 +42,7 @@ const PostedDate = styled.p`
 export default ({ data }) => {
   return (
     <Layout>
+      <SEO />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
