@@ -7,9 +7,7 @@ import styled from 'styled-components'
 
 // import { Dump } from '../utils/helpers'
 import { HappyButton } from '../components/Shared'
-
-import config from '../../data/siteConfig'
-import { siteMeta } from '../../data/siteMeta'
+import SEO from '../components/seo'
 
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
@@ -76,13 +74,16 @@ const PrevNextButton = HappyButton.extend`
 const blogPostLayout = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { prev, next } = pageContext
+  const { imageLink } = data.site.siteMetadata
   return (
     <Layout>
-      <Helmet
-        title={`${post.frontmatter.title} - ${config.siteTitle}`}
-        meta={siteMeta}>
-        <html lang={config.siteLanguage} />
-      </Helmet>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt || 'nothin’'}
+        image={imageLink}
+        pathname={frontmatter.path}
+        article
+      />
       {/* <Dump props={data} /> */}
       <PostWrapper>
         <Title>{post.frontmatter.title}</Title>
@@ -133,11 +134,17 @@ export const query = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      excerpt(pruneLength: 250)
       frontmatter {
         title
         path
         date(formatString: "YYYY MMMM Do")
         published
+      }
+    }
+    site {
+      siteMetadata {
+        imageLink
       }
     }
   }
