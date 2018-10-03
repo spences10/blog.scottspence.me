@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 // import { Dump } from '../utils/helpers'
-import { HappyButton } from '../components/Shared'
+import Layout from '../components/Layout'
 import SEO from '../components/seo'
+
+import { HappyButton } from '../components/Shared'
 
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
@@ -81,7 +81,7 @@ const blogPostLayout = ({ data, pageContext }) => {
         title={post.frontmatter.title}
         description={post.excerpt || 'nothin’'}
         image={imageLink}
-        pathname={frontmatter.path}
+        pathname={post.frontmatter.path}
         article
       />
       {/* <Dump props={data} /> */}
