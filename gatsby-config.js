@@ -1,5 +1,3 @@
-const config = require('./data/siteConfig')
-
 const siteMetadata = {
   siteUrl: 'https://blog.scottspence.me',
   title: 'blog.scottspence.me',
@@ -63,16 +61,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
-        logo: config.faviconPng,
+        logo: siteMetadata.faviconPng,
         // WebApp Manifest Configuration
-        appName: config.siteTitle,
-        appDescription: config.descriptionContent,
-        developerName: config.developerName,
-        developerURL: config.developerUrl,
+        appName: siteMetadata.siteTitle,
+        appDescription: siteMetadata.description,
+        developerName: siteMetadata.developerName,
+        developerURL: siteMetadata.developerUrl,
         dir: 'auto',
-        lang: config.siteLanguage,
-        background: config.backgroundColour,
-        theme_color: config.themeColour,
+        lang: siteMetadata.siteLanguage,
+        background: siteMetadata.backgroundColour,
+        theme_color: siteMetadata.themeColour,
         display: 'standalone',
         orientation: 'any',
         start_url: '/?homescreen=1',
@@ -97,13 +95,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitle,
+        name: siteMetadata.siteTitle,
+        short_name: siteMetadata.siteTitle,
         start_url: '/',
-        background_color: config.backgroundColour,
-        theme_color: config.themeColour,
+        background_color: siteMetadata.backgroundColour,
+        theme_color: siteMetadata.themeColour,
         display: 'minimal-ui',
-        icon: config.faviconPng // This path is relative to the root of the site.
+        icon: siteMetadata.faviconPng // This path is relative to the root of the site.
       }
     },
     'gatsby-plugin-offline',
