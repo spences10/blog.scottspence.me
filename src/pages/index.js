@@ -42,7 +42,11 @@ const PostedDate = styled.p`
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO />
+      <SEO
+        title={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description || 'nothin’'}
+        image={data.site.siteMetadata.imageLink}
+      />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
@@ -77,6 +81,13 @@ export const query = graphql`
             published
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+        imageLink
       }
     }
   }
