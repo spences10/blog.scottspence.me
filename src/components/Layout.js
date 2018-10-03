@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
 
 import Header from './Header'
@@ -11,8 +11,6 @@ import {
   BlogThemeProvider
 } from '../contexts/BlogThemeContext'
 
-import config from '../../data/siteConfig'
-import { siteMeta } from '../../data/siteMeta'
 import { reset, media } from '../theme/globalStyle'
 
 reset()
@@ -72,10 +70,7 @@ const Layout = ({ children, data }) => (
       {({ theme, background }) => (
         <ThemeProvider theme={theme}>
           <AppStyles background={background}>
-            <Helmet title={config.nameContent} meta={siteMeta}>
-              <html lang={config.siteLanguage} />
-            </Helmet>
-            <Header siteTitle={config.siteTitle} />
+            <Header siteTitle={data.site.siteMetadata.title} />
             <Wrapper>{children}</Wrapper>
             <Footer />
           </AppStyles>
@@ -89,4 +84,17 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Layout
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query LayoutData {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+)
