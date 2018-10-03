@@ -1,29 +1,36 @@
 const config = require('./data/siteConfig')
 
+const siteMetadata = {
+  siteUrl: 'https://blog.scottspence.me',
+  title: 'blog.scottspence.me',
+  siteTitle: 'blog.scottspence.me',
+  description:
+    'Blog (learnings) of Scott Spence, father, husband 👨‍👩‍👧 Full stack web developer in the making 👨‍💻 Just In Time learner 👌 Byproduct of: coffee+excess carbs+lack of sleep. He/Him.',
+  titleTemplate: '%s | blog.scottspence.me',
+  twitterUsername: '@ScottDevTweets',
+  facebookAppID: '',
+  pages: ['about', 'contact', 'tags'],
+  nameContent: 'Scott Spence - blog',
+  developerName: 'Scott Spence',
+  developerUrl: 'https.scottspence.me',
+  keywordsContent:
+    'blog, web developer, javascript, react, learning, information, how to',
+  imageLink: 'https://blog.scottspence.me/icons/icon-512x512.png',
+  faviconPng: './src/images/favicon.png',
+  contact: [
+    { name: 'GitHub', link: 'https://github.com/spences10' },
+    { name: 'Medium', link: 'https://medium.com/@spences10' },
+    { name: 'Dev.to', link: 'https://dev.to/spences10' },
+    { name: 'Twitter', link: 'https://twitter.com/ScottDevTweets' },
+    { name: 'Email', link: 'mailto:spences10apps@gmail.com' }
+  ],
+  backgroundColour: '#663399', // this is for favicon and manifest
+  themeColour: '#755f9f', // this is for favicon and manifest
+  siteLanguage: 'en-GB'
+}
+
 module.exports = {
-  siteMetadata: {
-    pages: ['about', 'contact', 'tags'],
-    siteTitle: 'blog.scottspence.me',
-    siteUrl: 'https://blog.scottspence.me',
-    nameContent: 'Scott Spence - blog',
-    developerName: 'Scott Spence',
-    developerUrl: 'https.scottspence.me',
-    descriptionContent: 'Blog of Scott Spence - web developer',
-    keywordsContent:
-      'blog, web developer, javascript, react, learning, information, how to',
-    imageLink: 'https://blog.scottspence.me/icons/icon-512x512.png',
-    faviconPng: './src/images/favicon.png',
-    contact: [
-      { name: 'GitHub', link: 'https://github.com/spences10' },
-      { name: 'Medium', link: 'https://medium.com/@spences10' },
-      { name: 'Dev.to', link: 'https://dev.to/spences10' },
-      { name: 'Twitter', link: 'https://twitter.com/ScottDevTweets' },
-      { name: 'Email', link: 'mailto:spences10apps@gmail.com' }
-    ],
-    backgroundColour: '#663399', // this is for favicon and manifest
-    themeColour: '#755f9f', // this is for favicon and manifest
-    siteLanguage: 'en-GB'
-  },
+  siteMetadata: siteMetadata,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify-cms',
