@@ -11,9 +11,7 @@ import {
   BlogThemeProvider
 } from '../contexts/BlogThemeContext'
 
-import { reset, media } from '../theme/globalStyle'
-
-reset()
+import { GlobalStyle, media } from '../theme/globalStyle'
 
 const AppStyles = styled.div`
   background-color: ${({ theme }) => theme.background};
@@ -69,6 +67,7 @@ const Layout = ({ children, data }) => (
     <BlogThemeContext.Consumer>
       {({ theme, background }) => (
         <ThemeProvider theme={theme}>
+          <GlobalStyle />
           <AppStyles background={background}>
             <Header siteTitle={data.site.siteMetadata.title} />
             <Wrapper>{children}</Wrapper>
