@@ -16,17 +16,17 @@ export const Button = styled.button`
   }
 `
 
-export const ButtonSmall = Button.extend`
+export const ButtonSmall = styled(Button)`
   padding: 0.1rem 2rem;
   margin: 0.2rem;
 `
 
-export const ButtonBig = Button.extend`
+export const ButtonBig = styled(Button)`
   padding: 0.75rem 2rem;
   margin: 0.5rem;
 `
 
-export const HappyButton = ButtonBig.extend`
+export const HappyButton = styled(ButtonBig)`
   text-transform: capitalize;
   background-color: ${({ theme }) => theme.primary};
   border: 1px solid ${({ theme }) => theme.border};
