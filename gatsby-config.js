@@ -7,7 +7,7 @@ const siteMetadata = {
   titleTemplate: '%s | blog.scottspence.me',
   twitterUsername: '@ScottDevTweets',
   facebookAppID: '',
-  pages: ['about', 'contact', 'tags'],
+  pages: ['tags'], //'about', 'contact',
   nameContent: 'Scott Spence - blog',
   developerName: 'Scott Spence',
   developerUrl: 'https.scottspence.me',
