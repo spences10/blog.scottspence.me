@@ -103,18 +103,6 @@ export const reset = () =>
     a {
       text-decoration: none;
     }
-    a:active, a:focus {
-      outline: 0;
-      border: none;
-      -moz-outline-style: none
-    }
-    :focus {
-      outline:none;
-    }
-    
-    ::-moz-focus-inner {
-      border:0;
-    }
     ul {
       margin: 0 auto;
       list-style-type: none;
