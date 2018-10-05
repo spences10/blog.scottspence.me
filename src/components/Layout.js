@@ -67,8 +67,8 @@ const Layout = ({ children, data }) => (
     <BlogThemeContext.Consumer>
       {({ theme, background }) => (
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
           <AppStyles background={background}>
+            <GlobalStyle />
             <Header siteTitle={data.site.siteMetadata.title} />
             <Wrapper>{children}</Wrapper>
             <Footer />
