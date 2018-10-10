@@ -65,7 +65,7 @@ const LinkWrapper = styled.div`
   justify-items: ${props => props.justify};
 `
 
-const PrevNextButton = HappyButton.extend`
+const PrevNextButton = styled(HappyButton)`
   margin: 0.5rem 0rem;
   padding: 0.5rem;
   grid-area: ${props => props.area};
