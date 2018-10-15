@@ -22,8 +22,10 @@ const siteMetadata = {
     { name: 'Twitter', link: 'https://twitter.com/ScottDevTweets' },
     { name: 'Email', link: 'mailto:spences10apps@gmail.com' }
   ],
-  backgroundColour: '#663399', // this is for favicon and manifest
-  themeColour: '#755f9f', // this is for favicon and manifest
+  // this is for favicon and manifest
+  backgroundColour: '#663399',
+  // this is for favicon and manifest
+  themeColour: '#755f9f',
   siteLanguage: 'en-GB'
 }
 
@@ -101,14 +103,16 @@ module.exports = {
         background_color: siteMetadata.backgroundColour,
         theme_color: siteMetadata.themeColour,
         display: 'minimal-ui',
-        icon: siteMetadata.faviconPng // This path is relative to the root of the site.
+        // This path is relative to the root of the site.
+        icon: siteMetadata.faviconPng
       }
     },
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: process.env.GATSBY_GA_TRACKING_ID, // add to netlify Build environment variables
+        // add to netlify Build environment variables
+        trackingId: process.env.GATSBY_GA_TRACKING_ID,
         anonymize: false
       }
     },
