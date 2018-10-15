@@ -116,6 +116,8 @@ module.exports = {
         anonymize: false
       }
     },
-    'gatsby-plugin-styled-components'
+    'gatsby-plugin-styled-components',
+    // this has to stay at the end of the array
+    'gatsby-plugin-netlify'
   ]
 }
