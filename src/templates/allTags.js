@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 
 const Container = styled.div`
+  font-family: ${props => props.theme.fontBody};
   height: 75vh;
   margin: 1rem;
   padding: 1rem;
@@ -16,6 +17,11 @@ const Container = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
+`
+
+const List = styled.ul`
+  margin: 0rem;
+  padding: 0rem;
 `
 
 const Tag = styled.li`
@@ -41,7 +47,7 @@ const AllTagsTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <Container>
-        <ul>
+        <List>
           {tags.map((tagName, index) => {
             return (
               <Tag key={index}>
@@ -49,7 +55,7 @@ const AllTagsTemplate = ({ data, pageContext }) => {
               </Tag>
             )
           })}
-        </ul>
+        </List>
       </Container>
     </Layout>
   )

@@ -30,6 +30,10 @@ export class BlogThemeProvider extends React.Component {
     }, 30 * 1000)
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
   render() {
     return (
       <BlogThemeContext.Provider

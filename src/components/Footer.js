@@ -104,7 +104,7 @@ const ListLink = styled.li`
   }
 `
 
-const StyledHyperLink = SHL.extend`
+const StyledHyperLink = styled(SHL)`
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
 `
