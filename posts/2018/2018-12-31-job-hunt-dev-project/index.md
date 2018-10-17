@@ -3,7 +3,7 @@ path: '/turn-a-job-hunt-into-a-dev-project'
 date: '2018-12-31'
 title: 'Turning a job hunt into a dev project'
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
-published: true
+published: false
 ---
 
 ## preamble
