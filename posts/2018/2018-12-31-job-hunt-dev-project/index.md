@@ -25,10 +25,10 @@ Ok, that's a bit harsh! it's the truth, Ruth!
 Getting a good candidate a lot of the time revolves around word of
 mouth.
 
-Being a developer you begin to notice patterns with the increasing
-call you get, the same questions get asked over and over. Also as a
-developer you want to keep things [DRY] to save yourself and the
-recruiter a bit of time.
+Being a developer you begin to notice patterns with each call you get,
+the same questions get asked over and over. Also as a developer you
+want to keep things [DRY] to save yourself and the recruiter a bit of
+time.
 
 Beginning a job hunt is quite daunting searching Google
 
@@ -37,7 +37,13 @@ recruiters and although the majority of them will talk to you as
 though they are the ones considering you for the role they're only the
 first stage in what can be a quite lengthy process.
 
-making a cv
+making a cv, I went to the effort to make a basic site using my
+favourite tech stack [teh JAMStack behbeh!]
+
+In my mind this gave my current skill level with styling and preferred
+stack, in reality no one gives a shit as long as it looks nice and
+recruiters even less so because it doesn't answer the questions they
+want to ask
 
 google analytics's,
 
