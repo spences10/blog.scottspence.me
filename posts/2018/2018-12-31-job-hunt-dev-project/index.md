@@ -59,7 +59,10 @@ KPI.
 
 being civil
 
-play the game
+play the game, so bearing in mind the numbers game you have to go in
+with that expectation. So you go and add your CV to all the job boards
+you will undoubtedly get some irrelevant calls. But you will also get
+calls which match specifics to your job hunt.
 
 <!-- Links -->
 
