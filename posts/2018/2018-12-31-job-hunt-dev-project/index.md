@@ -70,7 +70,9 @@ recruiter to call, I would have them jump through some hoops of my own
 making.
 
 First up, the CV I added to the job sites was a link to a [recruiter
-faq] that was part of [my portfolio] it's a
+faq] that was part of [my portfolio] it's a markdown file that I
+updated each time I was asked a question that was not already on
+there. Towards the end I had quite a comprehensive list.
 
 name and shame pearson frank and their shady approach
 
