@@ -49,9 +49,15 @@ google analytics's, used it
 
 faq
 
-being civil
+numbers game, it seems that recruitment firms still believe that
+quantity will result in quality. I do understand the "turn over every
+stone" mindset until you find that gem in all the chaff. It seems that
+the vast majority of recruiters have misunderstood this aspect of
+finding quality candidates and rather than find a good dataset to
+start with just go all out scatter-gun approach to meet their daily
+KPI.
 
-numbers game
+being civil
 
 play the game
 
