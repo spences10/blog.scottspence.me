@@ -64,6 +64,16 @@ with that expectation. So you go and add your CV to all the job boards
 you will undoubtedly get some irrelevant calls. But you will also get
 calls which match specifics to your job hunt.
 
+Much in the same way you get qualified by prospective recruiters I
+wanted to do the same. So instead of passively waiting for the right
+recruiter to call, I would have them jump through some hoops of my own
+making.
+
+First up, the CV I added to the job sites was a link to a [recruiter
+faq] that was part of [my portfolio] it's a
+
+name and shame pearson frank and their shady approach
+
 <!-- Links -->
 
 [json resume schema]: https://jsonresume.org/schema/
@@ -72,3 +82,5 @@ calls which match specifics to your job hunt.
 [poll]:
   https://dev.to/whokilledkevin/8-things-i-hate-in-recruitment-letters-8ke
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+[my portfolio]: https://scottspence.me
+[recruiter faq]: https://scottspence.me/faq
