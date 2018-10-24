@@ -2,7 +2,7 @@
 path: '/turn-a-job-hunt-into-a-dev-project'
 date: '2018-12-31'
 title: 'Turning a job hunt into a dev project'
-tags: ['information', 'learning', 'guide', 'gatsby', 'api']
+tags: ['information', 'learning', 'guide', 'gatsby', 'api', 'rant']
 published: false
 ---
 
@@ -11,8 +11,8 @@ published: false
 Let's not try to get too cynical here but let's just get it out there
 to start with. Technical recruitment is fucked!
 
-Let's call it job hunting fatigue, as we as developers have fatigues
-in other areas, but this isn't one of our own making.
+Let's call it job hunting/finding talent fatigue, as we as developers
+have fatigues in other areas, but this isn't one of our own making.
 
 Starting out your job hunt getting your CV out there will generate a
 lot of calls where the most irrelevant keyword on your CV will
@@ -45,7 +45,7 @@ stack, in reality no one gives a shit as long as it looks nice and
 recruiters even less so because it doesn't answer the questions they
 want to ask
 
-google analytics's,
+google analytics's, used it
 
 faq
 
