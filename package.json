@@ -1,12 +1,12 @@
 {
   "name": "blog.scottspence.me",
-  "version": "3.0.76",
+  "version": "3.0.77",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
     "babel-plugin-styled-components": "1.8.0",
-    "gatsby": "2.0.36",
+    "gatsby": "2.0.37",
     "gatsby-plugin-favicon": "3.1.4",
     "gatsby-plugin-google-analytics": "2.0.7",
     "gatsby-plugin-manifest": "2.0.7",
