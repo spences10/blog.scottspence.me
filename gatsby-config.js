@@ -117,6 +117,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-styled-components',
+    `gatsby-plugin-feed`,
     // this has to stay at the end of the array
     'gatsby-plugin-netlify'
   ]
