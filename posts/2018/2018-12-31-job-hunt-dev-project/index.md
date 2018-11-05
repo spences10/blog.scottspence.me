@@ -6,16 +6,21 @@ tags: ['information', 'learning', 'guide', 'gatsby', 'api', 'rant']
 published: false
 ---
 
-## preamble
+## CV template made with Gatsby
+
+The 'cliffs' of this or TL;DR are that I made an faq on my personal
+site and created an online CV built with Gatsby.
+
+## Preamble
 
 Apologies up front about this post if it comes across as entitled or
-ranty.
+ranty and I'm sure a lot of people will disagree with my approach.
 
 I'm going to try my hardest to not get too cynical here, so, first up
 let's get this out there to start with. I think technical recruitment
-is fucked!
+is fucked! It has been for a long while.
 
-Let's call it job hunting/finding talent fatigue, as we as developers
+Let's call it job hunting/talent finding fatigue, as we as developers
 have fatigues in other areas, but this isn't one of our own making.
 
 Starting out your job hunt getting your CV out there will generate a
@@ -32,8 +37,6 @@ Being a developer you begin to notice patterns with each call you get,
 the same questions get asked over and over. Also as a developer you
 want to keep things [DRY] to save yourself (and the recruiter) a bit
 of time.
-
-Beginning a job hunt is quite daunting searching Google
 
 making a site, this is more for prospective employers rather than
 recruiters and although the majority of them will talk to you as
@@ -76,6 +79,8 @@ First up, the CV I added to the job sites was a link to a [recruiter
 faq] that was part of [my portfolio] it's a markdown file that I
 updated each time I was asked a question that was not already on
 there. Towards the end I had quite a comprehensive list.
+
+## Dishonourable mentions
 
 name and shame pearson frank and their shady approach, venquis for
 being generally useless
