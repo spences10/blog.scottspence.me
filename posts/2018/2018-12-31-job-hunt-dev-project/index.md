@@ -8,27 +8,30 @@ published: false
 
 ## preamble
 
-Let's not try to get too cynical here but let's just get it out there
-to start with. Technical recruitment is fucked!
+Apologies up front about this post if it comes across as entitled or
+ranty.
+
+I'm going to try my hardest to not get too cynical here, so, first up
+let's get this out there to start with. I think technical recruitment
+is fucked!
 
 Let's call it job hunting/finding talent fatigue, as we as developers
 have fatigues in other areas, but this isn't one of our own making.
 
 Starting out your job hunt getting your CV out there will generate a
 lot of calls where the most irrelevant keyword on your CV will
-generate unwanted calls from what appear to be desperate recruiters.
+generate unwanted calls from what at times appear to be desperate
+recruiters.
 
-> Urgent position to fill immediate start £900 a day
+> Urgent position to fill: Team Lead, 6+ year experience - immediate
+> start £900 a day
 
 Ok, that's a bit harsh! it's the truth, Ruth!
 
-Getting a good candidate a lot of the time revolves around word of
-mouth.
-
 Being a developer you begin to notice patterns with each call you get,
 the same questions get asked over and over. Also as a developer you
-want to keep things [DRY] to save yourself and the recruiter a bit of
-time.
+want to keep things [DRY] to save yourself (and the recruiter) a bit
+of time.
 
 Beginning a job hunt is quite daunting searching Google
 
@@ -40,10 +43,10 @@ first stage in what can be a quite lengthy process.
 making a cv, I went to the effort to make a basic site using my
 favourite tech stack [teh JAMStack behbeh!]
 
-In my mind this gave my current skill level with styling and preferred
-stack, in reality no one gives a shit as long as it looks nice and
-recruiters even less so because it doesn't answer the questions they
-want to ask
+In my mind this is a good indication of my current skill level with
+styling and preferred stack, in reality no one gives a shit as long as
+it looks nice and recruiters even less so because it doesn't answer
+the questions they want to ask.
 
 google analytics's, used it
 
@@ -74,7 +77,8 @@ faq] that was part of [my portfolio] it's a markdown file that I
 updated each time I was asked a question that was not already on
 there. Towards the end I had quite a comprehensive list.
 
-name and shame pearson frank and their shady approach
+name and shame pearson frank and their shady approach, venquis for
+being generally useless
 
 <!-- Links -->
 
