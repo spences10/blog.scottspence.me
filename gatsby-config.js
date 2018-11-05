@@ -149,26 +149,25 @@ module.exports = {
               })
             },
             query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
-                filter: {frontmatter: { [published]: { ne: true } }}
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    fields { slug }
-                    frontmatter {
-                      title
-                      date
+              {
+                allMarkdownRemark(
+                  limit: 1000, sort: {order: DESC, 
+                  fields: [frontmatter___date]}, 
+                  filter: {frontmatter: {published: {ne: true}}}) {
+                  edges {
+                    node {
+                      excerpt(pruneLength: 250)
+                      html
+                      frontmatter {
+                        title
+                        date
+                        path
+                      }
                     }
                   }
                 }
               }
-            }
-          `,
+              `,
             output: '/rss.xml',
             title: 'Gatsby RSS Feed'
           }
