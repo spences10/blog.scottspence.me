@@ -118,60 +118,42 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed-generator',
       options: {
-        query: `
+        generator: `GatsbyJS`,
+        rss: true, // Set to false to stop rss generation
+        json: true, // Set to false to stop json feed generation
+        siteQuery: `
         {
           site {
             siteMetadata {
               title
               description
               siteUrl
-              site_url: siteUrl
             }
           }
         }
       `,
-        feeds: [
+        // The plugin requires frontmatter of date, path(or slug/url), and title at minimum
+        feedQuery: `
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  url:
-                    site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid:
-                    site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [
-                    { 'content:encoded': edge.node.html }
-                  ]
-                })
-              })
-            },
-            query: `
-              {
-                allMarkdownRemark(
-                  limit: 1000, sort: {order: DESC, 
-                  fields: [frontmatter___date]}, 
-                  filter: {frontmatter: {published: {ne: true}}}) {
-                  edges {
-                    node {
-                      excerpt(pruneLength: 250)
-                      html
-                      frontmatter {
-                        title
-                        date
-                        path
-                      }
-                    }
+            allMarkdownRemark(
+              sort: {order: DESC, fields: [frontmatter___date]}, 
+              limit: 100, 
+              ) {
+              edges {
+                node {
+                  html
+                  frontmatter {
+                    date
+                    path
+                    title
                   }
                 }
               }
-              `,
-            output: '/rss.xml',
-            title: 'Gatsby RSS Feed'
+            }
           }
-        ]
+          `
       }
     },
     // this has to stay at the end of the array
