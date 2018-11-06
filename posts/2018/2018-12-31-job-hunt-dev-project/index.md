@@ -6,10 +6,10 @@ tags: ['information', 'learning', 'guide', 'gatsby', 'api', 'rant']
 published: false
 ---
 
-## CV template made with Gatsby
+## Cliffs/TL;DR
 
-The 'cliffs' of this or TL;DR are that I made an faq on my personal
-site and created an online CV built with Gatsby.
+I made an faq on my personal site for recruiters and created an online
+CV built with Gatsby.
 
 ## Preamble
 
@@ -20,28 +20,33 @@ I'm going to try my hardest to not get too cynical here, so, first up
 let's get this out there to start with. I think technical recruitment
 is fucked! It has been for a long while.
 
-Let's call it job hunting/talent finding fatigue, as we as developers
-have fatigues in other areas, but this isn't one of our own making.
+> Let's call it job hunting/talent finding fatigue, as we as
+> developers have fatigues in other areas, this isn't one of our own
+> making.
 
-Starting out your job hunt getting your CV out there will generate a
-lot of calls where the most irrelevant keyword on your CV will
+Starting out your job hunt and getting your CV out there will generate
+a lot of calls where the most irrelevant keyword on your CV will
 generate unwanted calls from what at times appear to be desperate
 recruiters.
 
 > Urgent position to fill: Team Lead, 6+ year experience - immediate
 > start £900 a day
 
-Ok, that's a bit harsh! it's the truth, Ruth!
+Ok, that's a bit harsh! it's the truth, Ruth! It all sounds a bit
+cliché now.
 
-Being a developer you begin to notice patterns with each call you get,
-the same questions get asked over and over. Also as a developer you
-want to keep things [DRY] to save yourself (and the recruiter) a bit
-of time.
+Being a developer I begin to notice patterns with each call I got, the
+same questions kept get asked over and over. Also as a developer I
+want to keep things [DRY] to save myself (and the recruiter) a bit of
+time.
+
+faq
 
 making a site, this is more for prospective employers rather than
 recruiters and although the majority of them will talk to you as
 though they are the ones considering you for the role they're only the
-first stage in what can be a quite lengthy process.
+first stage in what can be a quite lengthy and ultimately fruitless
+process.
 
 making a cv, I went to the effort to make a basic site using my
 favourite tech stack [teh JAMStack behbeh!]
@@ -52,8 +57,6 @@ it looks nice and recruiters even less so because it doesn't answer
 the questions they want to ask.
 
 google analytics's, used it
-
-faq
 
 numbers game, it seems that recruitment firms still believe that
 quantity will result in quality. I do understand the "turn over every
@@ -78,7 +81,8 @@ making.
 First up, the CV I added to the job sites was a link to a [recruiter
 faq] that was part of [my portfolio] it's a markdown file that I
 updated each time I was asked a question that was not already on
-there. Towards the end I had quite a comprehensive list.
+there. Towards the end I had quite a comprehensive list. This was also
+a link to the CV, toward the end of the faq
 
 ## Dishonourable mentions
 
