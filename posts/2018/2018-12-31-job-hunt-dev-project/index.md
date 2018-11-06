@@ -8,8 +8,8 @@ published: false
 
 ## Cliffs/TL;DR
 
-I made an faq on my personal site for recruiters and created an online
-CV built with Gatsby.
+I made a [recruiter FAQ] on my personal site for recruiters and
+created an online CV.
 
 ## Preamble
 
@@ -18,19 +18,19 @@ ranty and I'm sure a lot of people will disagree with my approach.
 
 I'm going to try my hardest to not get too cynical here, so, first up
 let's get this out there to start with. I think technical recruitment
-is fucked! It has been for a long while.
+is in a very bad state! It has been for a long while.
 
 > Let's call it job hunting/talent finding fatigue, as we as
 > developers have fatigues in other areas, this isn't one of our own
 > making.
 
-Starting out your job hunt and getting your CV out there will generate
+Starting out on a job hunt and getting your CV out there will generate
 a lot of calls where the most irrelevant keyword on your CV will
 generate unwanted calls from what at times appear to be desperate
 recruiters.
 
 > Urgent position to fill: Team Lead, 6+ year experience - immediate
-> start £900 a day
+> start £900 a day, 3 month contract.
 
 Ok, that's a bit harsh! it's the truth, Ruth! It all sounds a bit
 cliché now.
@@ -86,8 +86,9 @@ a link to the CV, toward the end of the faq
 
 ## Dishonourable mentions
 
-name and shame pearson frank and their shady approach, venquis for
-being generally useless
+name and shame pearson frank and their shady approach,
+
+venquis for being generally useless
 
 <!-- Links -->
 
