@@ -42,14 +42,13 @@
   ],
   "scripts": {
     "clean": "rm -rf .cache/ && rm -rf public/",
-    "build": "gatsby build && npm run wellknown",
+    "build": "gatsby build",
     "serve": "gatsby serve --verbose",
     "buildAndServe": "npm run build && npm run serve",
     "dev": "gatsby develop --verbose",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "release": "release-it",
-    "wellknown": "cp -r .well-known/ public/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
