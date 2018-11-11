@@ -79,9 +79,6 @@ exports.createPages = ({ actions, graphql }) => {
 
     return posts
   })
-
-  // create redirects
-  makeBlogRedirects({ actions })
 }
 
 const createTagPages = (createPage, posts) => {
