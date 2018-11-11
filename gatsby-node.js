@@ -75,7 +75,7 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
     // create redirects
-    // makeBlogRedirects({ actions })
+    makeBlogRedirects(actions)
 
     return posts
   })
@@ -123,7 +123,7 @@ const createTagPages = (createPage, posts) => {
   })
 }
 
-const makeBlogRedirects = ({ createRedirect }) => {
+const makeBlogRedirects = actions => {
   /**
    * janky ass way to do this, I'm going to add in pagination
    * to the blog retrospectively so paths currently are from
@@ -135,25 +135,28 @@ const makeBlogRedirects = ({ createRedirect }) => {
    * */
 
   //  https://github.com/gatsbyjs/gatsby/blob/master/examples/using-redirects/README.md
+
+  const { createRedirect } = actions
+
   let redirectBatch = [
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` },
-    { f: `/`, t: `/` }
+    { f: `/`, t: `/page-1` }
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` },
+    // { f: `/`, t: `/` }
   ]
 
   redirectBatch.forEach(({ f, t }) => {
