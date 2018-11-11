@@ -6,6 +6,7 @@ exports.createPages = ({ actions, graphql }) => {
     'src/templates/blogPostTemplate.js'
   )
 
+  // build the blog pages from querying allMarkdownRemark
   // returns promise that will start with this graphql query
   return graphql(`
     {
@@ -55,6 +56,9 @@ exports.createPages = ({ actions, graphql }) => {
 
     return posts
   })
+
+  // create redirects
+  makeBlogRedirects({ actions })
 }
 
 const createTagPages = (createPage, posts) => {
@@ -98,3 +102,5 @@ const createTagPages = (createPage, posts) => {
     })
   })
 }
+
+const makeBlogRedirects = ({ createRedirect }) => {}
