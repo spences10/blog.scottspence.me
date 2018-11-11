@@ -48,11 +48,14 @@ exports.createPages = ({ actions, graphql }) => {
 
     Array.from({ length: numPages }).forEach((_, index) => {
       createPage({
-        path: index === 0 ? `/page/1` : `/page/${index + 1}`,
+        path: index === 0 ? `/page-1` : `/page-${index + 1}`,
         component: blogListTemplate,
         context: {
           limit: postsPerPage,
-          skip: index * postsPerPage
+          skip: index * postsPerPage,
+          prevList: index === 0 ? null : `/page-${index}`,
+          nextList:
+            index + 1 >= numPages ? null : `/page-${index + 2}`
         }
       })
     })
