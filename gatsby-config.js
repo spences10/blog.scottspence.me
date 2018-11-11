@@ -118,7 +118,6 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     // this has to stay at the end of the array
-    'gatsby-plugin-purgecss',
     'gatsby-plugin-netlify'
   ]
 }
