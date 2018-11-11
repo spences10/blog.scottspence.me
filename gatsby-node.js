@@ -103,4 +103,45 @@ const createTagPages = (createPage, posts) => {
   })
 }
 
-const makeBlogRedirects = ({ createRedirect }) => {}
+const makeBlogRedirects = ({ createRedirect }) => {
+  /**
+   * janky ass way to do this, I'm going to add in pagination
+   * to the blog retrospectively so paths currently are from
+   * the home page "scottspence.me/wsl-setup" I'm now going
+   * to be adding in pagination so will be more like this
+   * "scottspence.me/page-2/wsl-setup" so here I'm going to
+   * add in batch redirects for everything as it is currently
+   *
+   * */
+
+  //  https://github.com/gatsbyjs/gatsby/blob/master/examples/using-redirects/README.md
+  let redirectBatch = [
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` },
+    { f: `/`, t: `/` }
+  ]
+
+  redirectBatch.forEach(({ f, t }) => {
+    createRedirect({
+      fromPath: f,
+      redirectInBrowser: true,
+      toPath: t
+    })
+    console.log('\nRedirecting:\n' + f + '\nTo:\n' + t + '\n')
+  })
+}
