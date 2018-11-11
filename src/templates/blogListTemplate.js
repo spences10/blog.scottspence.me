@@ -2,7 +2,6 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import blogPostLayout from './blogPostTemplate'
 
 const BlogListLayout = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -20,7 +19,7 @@ const BlogListLayout = ({ data }) => {
 //   props: PropTypes.props
 // }
 
-export default blogPostLayout
+export default BlogListLayout
 
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
