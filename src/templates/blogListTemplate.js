@@ -22,6 +22,22 @@ const LinksWrapper = styled(LW)`
   padding: 0.25rem;
 `
 
+const LinksWrapper = styled.div`
+  display: grid;
+  grid-template-areas: 'prev next';
+`
+
+const LinkWrapper = styled.div`
+  display: grid;
+  justify-items: ${props => props.justify};
+`
+
+const PrevNextButton = styled(HappyButton)`
+  margin: 0.5rem 0rem;
+  padding: 0.5rem;
+  grid-area: ${props => props.area};
+`
+
 const BlogListLayout = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
   const { prevList, nextList } = pageContext
