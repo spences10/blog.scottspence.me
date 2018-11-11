@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
+import { Dump } from '../utils/helpers'
 
 const Wrapper = styled.div``
 
@@ -39,24 +40,24 @@ const PostedDate = styled.p`
   color: ${({ theme }) => theme.fontLight};
 `
 
-const BlogListLayout = ({ data }) => {
+const BlogListLayout = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
+  const { prevList, nextList } = pageContext
   return (
     <Layout>
       <Wrapper>
-        {posts.map(({ node }, index) => {
-          const title = node.frontmatter.path
-          return (
-            <PostWrapper key={index}>
-              <StyledLink to={node.frontmatter.path}>
-                <PostTitle>{node.frontmatter.title}</PostTitle>
-                <PostedDate>{node.frontmatter.date}</PostedDate>
-                <p>{node.excerpt}</p>
-              </StyledLink>
-            </PostWrapper>
-          )
-        })}
+        {posts.map(({ node }, index) => (
+          <PostWrapper key={index}>
+            <StyledLink to={node.frontmatter.path}>
+              <PostTitle>{node.frontmatter.title}</PostTitle>
+              <PostedDate>{node.frontmatter.date}</PostedDate>
+              <p>{node.excerpt}</p>
+            </StyledLink>
+          </PostWrapper>
+        ))}
       </Wrapper>
+      <Dump prev={prevList} />
+      <Dump next={nextList} />
     </Layout>
   )
 }
