@@ -5,6 +5,9 @@ exports.createPages = ({ actions, graphql }) => {
   const blogPostTemplate = path.resolve(
     'src/templates/blogPostTemplate.js'
   )
+  const blogListTemplate = path.resolve(
+    'src/templates/blogListTemplate.js'
+  )
 
   // build the blog pages from querying allMarkdownRemark
   // returns promise that will start with this graphql query
@@ -35,9 +38,24 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
+    // get all posts
     const posts = result.data.allMarkdownRemark.edges
-
+    // number of posts per page
+    const postsPerPage = 5
+    // work out how many pages needed
+    const numPages = Math.ceil(posts.length / postsPerPage)
     createTagPages(createPage, posts)
+
+    Array.from({ length: numPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? `/page/1` : `/page/${index + 1}`,
+        component: blogListTemplate,
+        context: {
+          limit: postsPerPage,
+          skip: index * postsPerPage
+        }
+      })
+    })
 
     // Create pages for each markdown file.
     posts.forEach(({ node }, index) => {
@@ -53,12 +71,11 @@ exports.createPages = ({ actions, graphql }) => {
         }
       })
     })
+    // create redirects
+    // makeBlogRedirects({ actions })
 
     return posts
   })
-
-  // create redirects
-  makeBlogRedirects({ actions })
 }
 
 const createTagPages = (createPage, posts) => {
