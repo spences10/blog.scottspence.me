@@ -4,7 +4,9 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
-import { Dump } from '../utils/helpers'
+// import { Dump } from '../utils/helpers'
+
+import { HappyButton } from '../components/Shared'
 
 const Wrapper = styled.div``
 
@@ -40,6 +42,22 @@ const PostedDate = styled.p`
   color: ${({ theme }) => theme.fontLight};
 `
 
+const LinksWrapper = styled.div`
+  display: grid;
+  grid-template-areas: 'prev next';
+`
+
+const LinkWrapper = styled.div`
+  display: grid;
+  justify-items: ${props => props.justify};
+`
+
+const PrevNextButton = styled(HappyButton)`
+  margin: 0.5rem 0rem;
+  padding: 0.5rem;
+  grid-area: ${props => props.area};
+`
+
 const BlogListLayout = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
   const { prevList, nextList } = pageContext
@@ -56,8 +74,34 @@ const BlogListLayout = ({ data, pageContext }) => {
           </PostWrapper>
         ))}
       </Wrapper>
-      <Dump prev={prevList} />
-      <Dump next={nextList} />
+      <LinksWrapper>
+        <LinkWrapper justify={'start'}>
+          {prevList === false ? null : (
+            <div>
+              {prevList && (
+                <Link to={prevList}>
+                  <PrevNextButton area={'prev'}>
+                    {prevList}
+                  </PrevNextButton>
+                </Link>
+              )}
+            </div>
+          )}
+        </LinkWrapper>
+        <LinkWrapper justify={'end'}>
+          {nextList === false ? null : (
+            <div>
+              {nextList && (
+                <Link to={nextList}>
+                  <PrevNextButton area={'next'}>
+                    {nextList}
+                  </PrevNextButton>
+                </Link>
+              )}
+            </div>
+          )}
+        </LinkWrapper>
+      </LinksWrapper>
     </Layout>
   )
 }
