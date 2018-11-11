@@ -12,10 +12,15 @@ import {
   StyledLink,
   PostTitle,
   PostedDate,
-  LinksWrapper,
+  LinksWrapper as LW,
   LinkWrapper,
   PrevNextButton
 } from '../components/Shared'
+
+const LinksWrapper = styled(LW)`
+  margin: 0.25rem;
+  padding: 0.25rem;
+`
 
 const BlogListLayout = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
