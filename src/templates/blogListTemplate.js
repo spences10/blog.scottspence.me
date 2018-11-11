@@ -40,7 +40,7 @@ const BlogListLayout = ({ data, pageContext }) => {
               {prevList && (
                 <Link to={prevList}>
                   <PrevNextButton area={'prev'}>
-                    {prevList}
+                    {prevList.substring(1)}
                   </PrevNextButton>
                 </Link>
               )}
@@ -53,7 +53,7 @@ const BlogListLayout = ({ data, pageContext }) => {
               {nextList && (
                 <Link to={nextList}>
                   <PrevNextButton area={'next'}>
-                    {nextList}
+                    {nextList.substring(1)}
                   </PrevNextButton>
                 </Link>
               )}
