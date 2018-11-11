@@ -12,7 +12,6 @@ import {
   StyledLink,
   PostTitle,
   PostedDate,
-<<<<<<< e7a91e451a83c8d6246a6b82986e8ca441fd1c67
   LinksWrapper as LW,
   LinkWrapper,
   PrevNextButton
@@ -22,44 +21,6 @@ const LinksWrapper = styled(LW)`
   margin: 0.25rem;
   padding: 0.25rem;
 `
-
-const LinksWrapper = styled.div`
-  display: grid;
-  grid-template-areas: 'prev next';
-`
-
-const LinkWrapper = styled.div`
-  display: grid;
-  justify-items: ${props => props.justify};
-`
-
-const PrevNextButton = styled(HappyButton)`
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  grid-area: ${props => props.area};
-`
-
-const LinksWrapper = styled.div`
-  display: grid;
-  grid-template-areas: 'prev next';
-`
-
-const LinkWrapper = styled.div`
-  display: grid;
-  justify-items: ${props => props.justify};
-`
-
-const PrevNextButton = styled(HappyButton)`
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  grid-area: ${props => props.area};
-`
-=======
-  LinksWrapper,
-  LinkWrapper,
-  PrevNextButton
-} from '../components/Shared'
->>>>>>> reuse shared components
 
 const BlogListLayout = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
