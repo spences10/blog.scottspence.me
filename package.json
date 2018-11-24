@@ -1,25 +1,25 @@
 {
   "name": "blog.scottspence.me",
-  "version": "3.0.100",
+  "version": "3.0.109",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
     "babel-plugin-styled-components": "1.8.0",
-    "gatsby": "2.0.50",
+    "gatsby": "2.0.55",
     "gatsby-plugin-favicon": "3.1.4",
     "gatsby-plugin-google-analytics": "2.0.7",
-    "gatsby-plugin-manifest": "2.0.9",
+    "gatsby-plugin-manifest": "2.0.10",
     "gatsby-plugin-netlify": "2.0.5",
     "gatsby-plugin-netlify-cms": "3.0.7",
-    "gatsby-plugin-offline": "2.0.15",
+    "gatsby-plugin-offline": "2.0.17",
     "gatsby-plugin-react-helmet": "3.0.2",
     "gatsby-plugin-robots-txt": "1.3.0",
-    "gatsby-plugin-sharp": "2.0.12",
+    "gatsby-plugin-sharp": "2.0.13",
     "gatsby-plugin-sitemap": "2.0.2",
-    "gatsby-plugin-styled-components": "3.0.2",
+    "gatsby-plugin-styled-components": "3.0.3",
     "gatsby-remark-autolink-headers": "2.0.11",
-    "gatsby-remark-images": "2.0.6",
+    "gatsby-remark-images": "3.0.0",
     "gatsby-remark-prismjs": "3.0.3",
     "gatsby-source-filesystem": "2.0.8",
     "gatsby-transformer-remark": "2.1.12",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "prettier": "1.15.2",
     "pretty-quick": "1.8.0",
-    "release-it": "8.0.0"
+    "release-it": "8.0.1"
   },
   "keywords": [
     "gatsby",
