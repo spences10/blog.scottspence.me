@@ -138,7 +138,60 @@ const IndexPage = ({ data }) => (
 
 Now we can access the `data` passed into the component, we just need a
 way to visualise it! Luckily for use there's a handy component from
-Wes Bos that we can use called [Dump]
+Wes Bos that we can use called [Dump], so create a new `dump.js`
+component in `components` then import it into the `index.js` file, and
+add in the component to see what's inside the props:
+
+```js
+const IndexPage = ({ data }) => (
+  <Layout>
+    <h1>Hi people</h1>
+    <Dump data={data} />
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+      <Image />
+    </div>
+    <Link to="/page-2/">Go to page 2</Link>
+  </Layout>
+)
+```
+
+The output should be the same as the result of the Gatsby GraphiQL
+query we created:
+
+```json
+data 💩{
+ "graphCmsData": {
+  "projects": [
+   {
+    "id": "cjoxa812txqoh0932hz0bs345",
+    "status": "PUBLISHED",
+    "title": "Project 1",
+    "description": "Description 1"
+   },
+   {
+    "id": "cjoxa8cctxqqj0932710u39db",
+    "status": "PUBLISHED",
+    "title": "Project 2",
+    "description": "Description 2"
+   },
+   {
+    "id": "cjoxa8pbqxqt309324z9bcddv",
+    "status": "PUBLISHED",
+    "title": "Project 3",
+    "description": "Description 3"
+   },
+   {
+    "id": "cjoxa959vxqvz0932g1jn5ss3",
+    "status": "PUBLISHED",
+    "title": "Project 4",
+    "description": "Description 4"
+   }
+  ]
+ }
+}
+```
 
 [codesandbox.io]: https://codesandbox.io/dashboard/recent
 [dump]: https://github.com/wesbos/dump
