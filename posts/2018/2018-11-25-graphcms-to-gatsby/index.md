@@ -2,7 +2,8 @@
 path: '/get-graphcms-data-into-gatsby'
 date: '2018-11-25'
 title: 'Get your GraphCMS data into Gatsby'
-tags: ['information', 'learning', 'guide']
+tags:
+  ['information', 'learning', 'guide', 'gatsby', 'getting started']
 published: false
 ---
 
@@ -18,7 +19,7 @@ and select the developer plan.
 
 ## 2. Define Data
 
-Create a new project and add in some data to query
+Create a new project and add in some data to query.
 
 ## 3. Configure the GraphCMS public API
 
