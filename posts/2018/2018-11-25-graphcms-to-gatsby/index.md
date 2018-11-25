@@ -34,8 +34,8 @@ this example it's going to be a list of projects, so I'm calling it
 _Project List_.
 
 In the side bar select the Schema and create a model, in this case
-**Project**. In the ptoject model we're going to have a Title and a
-Description.
+**Project**. In the project model we're going to have a _Title_ and a
+_Description_.
 
 Select the fields from the tray on the right by clicking the
 **FIELDS** tab and dragging and dropping them into the **Project**
@@ -66,11 +66,39 @@ in `gatsby-config.js` the configuration should looks something like:
 },
 ```
 
+In this example we're using [codesandbox.io] for our text editor and
+the Gatsby Default Starter you get when selecting Gatsby from the
+SERVER TEMPLATES available to you in [codesandbox.io]
+
 ## 5. Query the data in Gatsby GraphiQL
 
 Now that the endpoint is set up we will be able to query the data with
 Gatsby's GraphiQL UI, we can shape the query we want to use to display
 the data here.
+
+In the preview of our app in [codesandbox.io] if you add `___grapgql`
+to the end of the url it will bring up the Gatsby GraphiQL UI, here we
+can shape the data we want to query.
+
+If we open up some curly brackets `{}` and Cmd+space we'll see the
+available fields where we can pick out the `graphCmsData` field we
+defined in the `gatsby-source-graphql` plugin.
+
+Selecting the fields we created in GraphCMS then running the query
+will display our defined data.
+
+```js
+{
+  graphCmsData {
+		projects {
+		  id
+      status
+      title
+      description
+		}
+	}
+}
+```
 
 ## 6. Display the Data
 
@@ -94,3 +122,5 @@ export const query = graphql`
 ```
 
 You will then
+
+[codesandbox.io]: https://codesandbox.io/dashboard/recent
