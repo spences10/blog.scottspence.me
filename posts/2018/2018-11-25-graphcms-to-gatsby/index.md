@@ -90,13 +90,13 @@ will display our defined data.
 ```js
 {
   graphCmsData {
-		projects {
-		  id
+    projects {
+      id
       status
       title
       description
-		}
-	}
+    }
+  }
 }
 ```
 
@@ -104,6 +104,8 @@ will display our defined data.
 
 Use the `graphql` gatsby export to query the data from the GraphCMS
 endpoint.
+
+In `pages/index.js` add the `graphql` export the the `gatsby` imports.
 
 ```js
 import { graphql, Link } from 'gatsby'
@@ -115,12 +117,28 @@ At the very bottom define the query:
 export const query = graphql`
   {
     graphCmsData {
-      ...
+      projects {
+        id
+        status
+        title
+        description
+      }
     }
   }
 `
 ```
 
-You will then
+You will then be able to access the `data` prop in the `IndexPage`
+component, we'll need to de-structure the `data` prop out in the
+arguments of the component:
+
+```js
+const IndexPage = ({ data }) => (
+```
+
+Now we can access the `data` passed into the component, we just need a
+way to visualise it! Luckily for use there's a handy component from
+Wes Bos that we can use called [Dump]
 
 [codesandbox.io]: https://codesandbox.io/dashboard/recent
+[dump]: https://github.com/wesbos/dump
