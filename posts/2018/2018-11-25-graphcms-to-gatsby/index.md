@@ -12,7 +12,7 @@ tags:
     'graphql',
     'graphcms',
   ]
-published: false
+published: true
 ---
 
 Let's set up Gatsby to pull data from GraphCMS.
