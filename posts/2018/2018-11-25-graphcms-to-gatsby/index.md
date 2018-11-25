@@ -3,7 +3,15 @@ path: '/get-graphcms-data-into-gatsby'
 date: '2018-11-25'
 title: 'Get your GraphCMS data into Gatsby'
 tags:
-  ['information', 'learning', 'guide', 'gatsby', 'getting started']
+  [
+    'information',
+    'learning',
+    'guide',
+    'gatsby',
+    'getting started',
+    'graphql',
+    'graphcms',
+  ]
 published: false
 ---
 
