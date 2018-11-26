@@ -26,7 +26,8 @@ const siteMetadata = {
   backgroundColour: '#663399',
   // this is for favicon and manifest
   themeColour: '#755f9f',
-  siteLanguage: 'en-GB'
+  siteLanguage: 'en-GB',
+  prismJsLanguages: ['bash', 'js', 'json', 'css', 'html', 'yaml']
 }
 
 module.exports = {
@@ -56,12 +57,17 @@ module.exports = {
             }
           },
           'gatsby-remark-autolink-headers',
-          'gatsby-remark-prismjs',
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
               related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
               noIframeBorder: true //Optional: Disable insertion of <style> border: 0
+            }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: siteMetadata.prismJsLanguages
             }
           }
         ]
