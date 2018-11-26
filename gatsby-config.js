@@ -27,7 +27,14 @@ const siteMetadata = {
   // this is for favicon and manifest
   themeColour: '#755f9f',
   siteLanguage: 'en-GB',
-  prismJsLanguages: ['bash', 'js', 'json', 'css', 'html', 'yaml']
+  prismJsLanguages: [
+    'language-bash',
+    'language-css',
+    'language-html',
+    'language-js',
+    'language-json',
+    'language-yaml'
+  ]
 }
 
 module.exports = {
