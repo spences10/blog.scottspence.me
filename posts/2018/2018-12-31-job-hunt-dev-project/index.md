@@ -18,11 +18,12 @@ ranty and I'm sure a lot of people will disagree with my approach.
 
 I'm going to try my hardest to not get too cynical here, so, first up
 let's get this out there to start with. I think technical recruitment
-is in a very bad state! It has been for a long while.
+is in a very bad state! It has been for a long while (since 2010 at
+the very least).
 
 > Let's call it job hunting/talent finding fatigue, as we as
-> developers have fatigues in other areas, this isn't one of our own
-> making.
+> developers have fatigues in other areas, however this isn't one of
+> our own making.
 
 Starting out on a job hunt and getting your CV out there will generate
 a lot of calls where the most irrelevant keyword on your CV will
@@ -33,14 +34,25 @@ recruiters.
 > start £900 a day, 3 month contract.
 
 Ok, that's a bit harsh! it's the truth, Ruth! It all sounds a bit
-cliché now.
+cliché now as well.
 
-Being a developer I begin to notice patterns with each call I got, the
-same questions kept get asked over and over. Also as a developer I
+Being a developer I began to notice patterns with each call I got, the
+same questions kept getting asked over and over. Also as a developer I
 want to keep things [DRY] to save myself (and the recruiter) a bit of
 time.
 
-faq
+So to this end I decided to add an [FAQ] section to my personal
+portfolio, this was a list of all the questions I had been asked on
+the many calls previously, so, rather than have the recruiter have me
+on the phone for ten minutes just to qualify me for the role they
+could do the _vast_ majority of that with the provided FAQ, almost
+like a reverse job spec, all they have to do is check off my wants and
+needs from the list I have already provided.
+
+For some reason, a lot of recruiters would insist on talking to me,
+then proceed to ask the same questions. This qualify them to me as
+someone that didn't value my time and they'd lose any credibility they
+may have had with me.
 
 making a site, this is more for prospective employers rather than
 recruiters and although the majority of them will talk to you as
@@ -100,3 +112,4 @@ venquis for being generally useless
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [my portfolio]: https://scottspence.me
 [recruiter faq]: https://scottspence.me/faq
+[faq]: https://scottspence.me/faq
