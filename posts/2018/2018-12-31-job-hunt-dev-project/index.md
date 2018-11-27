@@ -50,15 +50,17 @@ like a reverse job spec, all they have to do is check off my wants and
 needs from the list I have already provided.
 
 For some reason, a lot of recruiters would insist on talking to me,
-then proceed to ask the same questions. This qualify them to me as
-someone that didn't value my time and they'd lose any credibility they
-may have had with me.
+then proceed to ask the same questions. This would qualify them to me
+as someone that didn't value my time and they'd lose any credibility
+they may have had with me.
 
-making a site, this is more for prospective employers rather than
-recruiters and although the majority of them will talk to you as
+So, I made a site, a portfolio, that listed all you could want to know
+about me.
+
+Making a site, this is more for prospective employers rather than
+recruiters and although the majority of recruiters will talk to you as
 though they are the ones considering you for the role they're only the
-first stage in what can be a quite lengthy and ultimately fruitless
-process.
+first stage in what can be a quite lengthy process.
 
 making a cv, I went to the effort to make a basic site using my
 favourite tech stack [teh JAMStack behbeh!]
