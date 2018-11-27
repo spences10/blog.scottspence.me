@@ -68,7 +68,18 @@ main thing you need to get out there if you're looking for a job, your
 CV.
 
 Making a cv, I went to the effort to make a basic site using my
-favourite tech stack [teh JAMStack behbeh!]
+favourite tech stack [teh JAMStack behbeh!] I used the [JSONresume]
+tool to detail all the roles I had held then used the JSONresume as a
+guide for how I should make the individual components for the CV.
+
+This was my full employment history and quite long and as I was
+looking for a job in a new field the vast majority of it was not
+pertinent to a my job search, this is why I decided rather than blast
+out my CV everywhere I'd post out the list of answers to the questions
+recruiters always asked me when calling me. So rather than have them
+crawl through my mostly irrelevant job history they could get the
+answers to the questions they wanted answering. The CV was there if
+they wanted more detail on me.
 
 In my mind this is a good indication of my current skill level with
 styling and preferred stack, in reality no one cares as long as it
@@ -88,39 +99,13 @@ the document. At the top was a greeting:
 It was a friendly hello and something different to what must be very
 repetitive.
 
-google analytics's, used it
+I used Google analytics's, on the FAQ and the CV to see how much
+traffic they were getting, the FAQ a lot more than the CV, so, I could
+glean from that, that the recruiters were getting the answers to their
+questions without having to pick up the phone. Win Win, right?
 
-numbers game, it seems that recruitment firms still believe that
-quantity will result in quality. I do understand the "turn over every
-stone" mindset until you find that gem in all the chaff. It seems that
-the vast majority of recruiters have misunderstood this aspect of
-finding quality candidates and rather than find a good dataset to
-start with just go all out scatter-gun approach to meet their daily
-KPI.
-
-being civil
-
-play the game, so bearing in mind the numbers game you have to go in
-with that expectation. So you go and add your CV to all the job boards
-you will undoubtedly get some irrelevant calls. But you will also get
-calls which match specifics to your job hunt.
-
-Much in the same way you get qualified by prospective recruiters I
-wanted to do the same. So instead of passively waiting for the right
-recruiter to call, I would have them jump through some hoops of my own
-making.
-
-First up, the CV I added to the job sites was a link to a [recruiter
-faq] that was part of [my portfolio] it's a markdown file that I
-updated each time I was asked a question that was not already on
-there. Towards the end I had quite a comprehensive list. This was also
-a link to the CV, toward the end of the faq
-
-## Dishonourable mentions
-
-name and shame pearson frank and their shady approach,
-
-venquis for being generally useless
+The stats weren't great however, with a bounce rate of around 3
+seconds 😲
 
 <!-- Links -->
 
@@ -133,3 +118,5 @@ venquis for being generally useless
 [my portfolio]: https://scottspence.me
 [recruiter faq]: https://scottspence.me/faq
 [faq]: https://scottspence.me/faq
+[teh jamstack behbeh!]: https://jamstack.org/
+[jsonresume]: https://jsonresume.org/
