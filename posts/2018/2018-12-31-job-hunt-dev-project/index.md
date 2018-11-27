@@ -49,10 +49,11 @@ could do the _vast_ majority of that with the provided FAQ, almost
 like a reverse job spec, all they have to do is check off my wants and
 needs from the list I have already provided.
 
-For some reason, a lot of recruiters would insist on talking to me,
-then proceed to ask the same questions. This would qualify them to me
-as someone that didn't value my time and they'd lose any credibility
-they may have had with me.
+For some reason though, a lot of recruiters would insist on talking to
+me, taking time out of my day, they'd then proceed to ask the same
+questions every other recruiter would ask. This would qualify them to
+me as someone that didn't value my time and they'd lose any
+credibility they may have had with me.
 
 So, I made a site, a portfolio, that listed all you could want to know
 about me.
@@ -62,13 +63,30 @@ recruiters and although the majority of recruiters will talk to you as
 though they are the ones considering you for the role they're only the
 first stage in what can be a quite lengthy process.
 
-making a cv, I went to the effort to make a basic site using my
+So, let's forget about recruiters for now and concentrate on the one
+main thing you need to get out there if you're looking for a job, your
+CV.
+
+Making a cv, I went to the effort to make a basic site using my
 favourite tech stack [teh JAMStack behbeh!]
 
 In my mind this is a good indication of my current skill level with
-styling and preferred stack, in reality no one gives a shit as long as
-it looks nice and recruiters even less so because it doesn't answer
-the questions they want to ask.
+styling and preferred stack, in reality no one cares as long as it
+looks nice and recruiters even less so because it doesn't answer the
+questions they want to ask.
+
+This wasn't field of dreams though! So, how do I get recruiters to my
+page? Well, rather than have a CV in MS Word format that I would post
+onto every job site I could find, I had, a, link to my FAQ!
+
+On the MS Word doc I would have all the search terms a recruiter would
+search for, JavaScript, React, HTML, CSS and so on at the bottom of
+the document. At the top was a greeting:
+
+![jobsite-cv](./jobsite-cv.jpg)
+
+It was a friendly hello and something different to what must be very
+repetitive.
 
 google analytics's, used it
 
