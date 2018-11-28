@@ -9,7 +9,7 @@ published: false
 ## Cliffs/TL;DR
 
 I made a [recruiter FAQ] on my personal site for recruiters and
-created an online CV.
+created an [online CV].
 
 ## Preamble
 
@@ -46,8 +46,8 @@ portfolio, this was a list of all the questions I had been asked on
 the many calls previously, so, rather than have the recruiter have me
 on the phone for ten minutes just to qualify me for the role they
 could do the _vast_ majority of that with the provided FAQ, almost
-like a reverse job spec, all they have to do is check off my wants and
-needs from the list I have already provided.
+like a reverse job spec, all they have to do is READ the FAQ! Then
+check off my wants and needs from the list I have already provided.
 
 For some reason though, a lot of recruiters would insist on talking to
 me, taking time out of my day, they'd then proceed to ask the same
@@ -67,7 +67,7 @@ So, let's forget about recruiters for now and concentrate on the one
 main thing you need to get out there if you're looking for a job, your
 CV.
 
-Making a cv, I went to the effort to make a basic site using my
+Making a CV, I went to the effort to make a basic site using my
 favourite tech stack [teh JAMStack behbeh!] I used the [JSONresume]
 tool to detail all the roles I had held then used the JSONresume as a
 guide for how I should make the individual components for the CV.
@@ -79,12 +79,12 @@ out my CV everywhere I'd post out the list of answers to the questions
 recruiters always asked me when calling me. So rather than have them
 crawl through my mostly irrelevant job history they could get the
 answers to the questions they wanted answering. The CV was there if
-they wanted more detail on me.
+they wanted more detail on me, all they had to do was READ!
 
-In my mind this is a good indication of my current skill level with
-styling and preferred stack, in reality no one cares as long as it
-looks nice and recruiters even less so because it doesn't answer the
-questions they want to ask.
+In my mind the personal portfolio and the CV site were a good
+indication of my current skill level with styling and preferred stack,
+in reality no one cares as long as it looks nice and recruiters even
+less so because it doesn't answer the questions they want to ask.
 
 This wasn't field of dreams though! So, how do I get recruiters to my
 page? Well, rather than have a CV in MS Word format that I would post
@@ -117,6 +117,7 @@ seconds 😲
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [my portfolio]: https://scottspence.me
 [recruiter faq]: https://scottspence.me/faq
+[online cv]: https://cv.scottspence.me/
 [faq]: https://scottspence.me/faq
 [teh jamstack behbeh!]: https://jamstack.org/
 [jsonresume]: https://jsonresume.org/
