@@ -44,6 +44,46 @@ Don't forget the comma at the end 👍
 
 ## 3. Global Style
 
+Now that we're ready to rock n' roll with styled-components we need to
+remove the currently applied styled in the default starter and apply
+our own.
+
+In the `src/components/layout.js` component there's an import for
+`layout.css` this is the CSS reset for the starter if we remove the
+import from here we'll see the styles for border and font be reset. We
+can now delete the `layout.css` file and create out own CSS reset
+using the `createGlobalStyle` function from styled-components.
+
+Create a new folder `theme`, in this example it's in `src/theme` and
+add a `globalStyle.js` file in there.
+
+This will export a `GlobalStyle` component for us to use throughout
+the app.
+
+Let's add in a Google font and reset the `padding` and `margin`, for
+visual feedback we're going to add the font directly to the body
+element.
+
+```js
+import { createGlobalStyle } from 'styled-components'
+
+export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Kodchasan:400,700');
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Kodchasan;
+  }
+  a {
+    text-decoration: none;
+  }
+  ul {
+    margin: 0 auto;
+    list-style-type: none;
+  }
+`
+```
+
 ## 4. Rest
 
 [codesandbox]: https://codesandbox.io
