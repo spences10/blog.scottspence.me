@@ -9,7 +9,7 @@ published: false
 ## Cliffs/TL;DR
 
 I made a [recruiter FAQ] on my personal site for recruiters and
-created an online CV.
+created an [online CV].
 
 ## Preamble
 
@@ -18,11 +18,12 @@ ranty and I'm sure a lot of people will disagree with my approach.
 
 I'm going to try my hardest to not get too cynical here, so, first up
 let's get this out there to start with. I think technical recruitment
-is in a very bad state! It has been for a long while.
+is in a very bad state! It has been for a long while (since 2010 at
+the very least).
 
 > Let's call it job hunting/talent finding fatigue, as we as
-> developers have fatigues in other areas, this isn't one of our own
-> making.
+> developers have fatigues in other areas, however this isn't one of
+> our own making.
 
 Starting out on a job hunt and getting your CV out there will generate
 a lot of calls where the most irrelevant keyword on your CV will
@@ -33,62 +34,78 @@ recruiters.
 > start £900 a day, 3 month contract.
 
 Ok, that's a bit harsh! it's the truth, Ruth! It all sounds a bit
-cliché now.
+cliché now as well.
 
-Being a developer I begin to notice patterns with each call I got, the
-same questions kept get asked over and over. Also as a developer I
+Being a developer I began to notice patterns with each call I got, the
+same questions kept getting asked over and over. Also as a developer I
 want to keep things [DRY] to save myself (and the recruiter) a bit of
 time.
 
-faq
+So to this end I decided to add an [FAQ] section to my personal
+portfolio, this was a list of all the questions I had been asked on
+the many calls previously, so, rather than have the recruiter have me
+on the phone for ten minutes just to qualify me for the role they
+could do the _vast_ majority of that with the provided FAQ, almost
+like a reverse job spec, all they have to do is READ the FAQ! Then
+check off my wants and needs from the list I have already provided.
 
-making a site, this is more for prospective employers rather than
-recruiters and although the majority of them will talk to you as
+For some reason though, a lot of recruiters would insist on talking to
+me, taking time out of my day, they'd then proceed to ask the same
+questions every other recruiter would ask. This would qualify them to
+me as someone that didn't value my time and they'd lose any
+credibility they may have had with me.
+
+So, I made a site, a portfolio, that listed all you could want to know
+about me.
+
+Making a site, this is more for prospective employers rather than
+recruiters and although the majority of recruiters will talk to you as
 though they are the ones considering you for the role they're only the
-first stage in what can be a quite lengthy and ultimately fruitless
-process.
+first stage in what can be a quite lengthy process.
 
-making a cv, I went to the effort to make a basic site using my
-favourite tech stack [teh JAMStack behbeh!]
+So, let's forget about recruiters for now and concentrate on the one
+main thing you need to get out there if you're looking for a job, your
+CV.
 
-In my mind this is a good indication of my current skill level with
-styling and preferred stack, in reality no one gives a shit as long as
-it looks nice and recruiters even less so because it doesn't answer
-the questions they want to ask.
+Making a CV, I went to the effort to make a basic site using my
+favourite tech stack [teh JAMStack behbeh!] I used the [JSONresume]
+tool to detail all the roles I had held then used the JSONresume as a
+guide for how I should make the individual components for the CV.
 
-google analytics's, used it
+This was my full employment history and quite long and as I was
+looking for a job in a new field the vast majority of it was not
+pertinent to a my job search, this is why I decided rather than blast
+out my CV everywhere I'd post out the list of answers to the questions
+recruiters always asked me when calling me. So rather than have them
+crawl through my mostly irrelevant job history they could get the
+answers to the questions they wanted answering. The CV was there if
+they wanted more detail on me, all they had to do was READ!
 
-numbers game, it seems that recruitment firms still believe that
-quantity will result in quality. I do understand the "turn over every
-stone" mindset until you find that gem in all the chaff. It seems that
-the vast majority of recruiters have misunderstood this aspect of
-finding quality candidates and rather than find a good dataset to
-start with just go all out scatter-gun approach to meet their daily
-KPI.
+In my mind the personal portfolio and the CV site were a good
+indication of my current skill level with styling and preferred stack,
+in reality no one cares as long as it looks nice and recruiters even
+less so because it doesn't answer the questions they want to ask.
 
-being civil
+This wasn't field of dreams though! So, how do I get recruiters to my
+page? Well, rather than have a CV in MS Word format that I would post
+onto every job site I could find, I had, a, link to my FAQ!
 
-play the game, so bearing in mind the numbers game you have to go in
-with that expectation. So you go and add your CV to all the job boards
-you will undoubtedly get some irrelevant calls. But you will also get
-calls which match specifics to your job hunt.
+On the MS Word doc I would have all the search terms a recruiter would
+search for, JavaScript, React, HTML, CSS and so on at the bottom of
+the document. At the top was a greeting:
 
-Much in the same way you get qualified by prospective recruiters I
-wanted to do the same. So instead of passively waiting for the right
-recruiter to call, I would have them jump through some hoops of my own
-making.
+![jobsite-cv](./jobsite-cv.jpg)
 
-First up, the CV I added to the job sites was a link to a [recruiter
-faq] that was part of [my portfolio] it's a markdown file that I
-updated each time I was asked a question that was not already on
-there. Towards the end I had quite a comprehensive list. This was also
-a link to the CV, toward the end of the faq
+It was a friendly hello and something different to what must be very
+repetitive.
 
-## Dishonourable mentions
+I used Google analytics's, on the FAQ and the CV to see how much
+traffic they were getting, the FAQ a lot more than the CV, so, I could
+glean from that, that the recruiters were getting the answers to their
+questions without having to pick up the phone. Win Win, right?
 
-name and shame pearson frank and their shady approach,
-
-venquis for being generally useless
+The stats weren't great however, with a bounce rate of around 3
+seconds 😲
 
 <!-- Links -->
 
@@ -100,3 +117,7 @@ venquis for being generally useless
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [my portfolio]: https://scottspence.me
 [recruiter faq]: https://scottspence.me/faq
+[online cv]: https://cv.scottspence.me/
+[faq]: https://scottspence.me/faq
+[teh jamstack behbeh!]: https://jamstack.org/
+[jsonresume]: https://jsonresume.org/
