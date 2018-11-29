@@ -126,7 +126,7 @@ src/components/layout.js
 src/pages/index.js
 ```
 
-###### `header.js`
+**header.js**
 
 ```js
 import React from 'react'
@@ -165,7 +165,7 @@ const Header = ({ siteTitle }) => (
 export default Header
 ```
 
-###### layout.js
+**layout.js**
 
 ```js
 import React from 'react'
@@ -221,7 +221,7 @@ Layout.propTypes = {
 export default Layout
 ```
 
-###### `index.js`
+**index.js**
 
 ```js
 import React from 'react'
