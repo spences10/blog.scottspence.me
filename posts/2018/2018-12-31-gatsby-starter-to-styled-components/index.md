@@ -1,10 +1,10 @@
 ---
 path: '/gatsby-starter-to-styled-components'
-date: '2018-12-31'
+date: '2018-11-29'
 title: 'Convert the Gatsby default starter to styled-components'
 tags:
   ['information', 'learning', 'guide', 'gatsby', 'getting started']
-published: false
+published: true
 ---
 
 Let's go through getting styled-components working with the Gatsby
@@ -115,6 +115,147 @@ Time to use styled-components!
 
 Now let's convert all the inline styles used in the starter to
 styled-components.
+
+This is the actual styling part, which is moving the existing styles
+to styled components, working from top to bottom of the file
+structure, changing:
+
+```
+src/components/header.js
+src/components/layout.js
+src/pages/index.js
+```
+
+###### `header.js`
+
+```js
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+
+const HeaderWrapper = styled.div`
+  background: rebeccapurple;
+  margin-bottom: 1.45rem;
+`
+
+const Headline = styled.div`
+  margin: 0 auto;
+  max-width: 960;
+  padding: 1.45rem 1.0875rem;
+  h1 {
+    margin: 0;
+  }
+`
+
+const StyledLink = styled(Link)`
+  color: white;
+  textdecoration: none;
+`
+
+const Header = ({ siteTitle }) => (
+  <HeaderWrapper>
+    <Headline>
+      <h1>
+        <StyledLink to="/">{siteTitle}</StyledLink>
+      </h1>
+    </Headline>
+  </HeaderWrapper>
+)
+
+export default Header
+```
+
+###### layout.js
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
+
+import styled from 'styled-components'
+
+import Header from './header'
+import { GlobalStyle } from '../theme/globalStyle'
+
+const ContentWrapper = styled.div`
+  margin: 0 auto;
+  maxwidth: 960;
+  padding: 0px 1.0875rem 1.45rem;
+  paddingtop: 0;
+`
+
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <GlobalStyle />
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' }
+          ]}>
+          <html lang="en" />
+        </Helmet>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <ContentWrapper>{children}</ContentWrapper>
+      </>
+    )}
+  />
+)
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+export default Layout
+```
+
+###### `index.js`
+
+```js
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+
+import Layout from '../components/layout'
+import Image from '../components/image'
+
+const ImgWrapper = styled.div`
+  max-width: 300px;
+  margin-bottom: 1.45rem;
+`
+
+const IndexPage = () => (
+  <Layout>
+    <h1>Hi people</h1>
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <ImgWrapper>
+      <Image />
+    </ImgWrapper>
+    <Link to="/page-2/">Go to page 2</Link>
+  </Layout>
+)
+
+export default IndexPage
+```
+
+## 5. Done
+
+**Thanks for reading**
+
+Here's the [example code] we worked on if you need reference. 👀👌
 
 [codesandbox]: https://codesandbox.io
 [new codesandbox]: https://codesandbox.io/s/
