@@ -84,7 +84,37 @@ export const GlobalStyle = createGlobalStyle`
 `
 ```
 
-## 4. Rest
+Ok, now we can use the export component here to apply styles globally
+in the app. So we need to have this as high up the component tree as
+possible, in this case that is in the `layout.js` component as it
+wraps all the pages in this project.
+
+In `layout.js` import the `GlobalStyle` component.
+
+```js
+import Header from './header'
+import { GlobalStyle } from '../theme/globalStyle'
+```
+
+Then add it in with the other components being rendered.
+
+```js
+render={data => (
+  <>
+    <GlobalStyle />
+    <Helmet
+    ...
+```
+
+Ok! Global styled applied, we should now see the font change and the
+margin around the body of the page change.
+
+Time to use styled-components!
+
+## 4. Use styled-components
+
+Now let's convert all the inline styles used in the starter to
+styled-components.
 
 [codesandbox]: https://codesandbox.io
 [new codesandbox]: https://codesandbox.io/s/
