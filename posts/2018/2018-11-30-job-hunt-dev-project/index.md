@@ -45,8 +45,8 @@ So to this end I decided to add an [FAQ] section to my personal
 portfolio, this was a list of all the questions I had been asked on
 the many calls previously, so, rather than have the recruiter have me
 on the phone for ten minutes just to qualify me for the role they
-could do the _vast_ majority of that with the provided FAQ, almost
-like a reverse job spec, all they have to do is READ the FAQ! Then
+could do the _vast_ majority of that with the provided [FAQ], almost
+like a reverse job spec, all they have to do is READ the [FAQ]! Then
 check off my wants and needs from the list I have already provided.
 
 For some reason though, a lot of recruiters would insist on talking to
@@ -75,11 +75,11 @@ So, let's forget about recruiters for now and concentrate on the one
 main thing you need to get out there if you're looking for a job, your
 CV.
 
-Making a CV, I went to the effort to make a basic site using my
+Making a [CV], I went to the effort to make a basic site using my
 favourite tech stack **[teh JAMStack behbeh!]** I used the
 [JSONresume] tool to detail all the roles I had held then used the
 JSONresume as a guide for how I should make the individual components
-for the CV.
+for the [CV].
 
 If you want to get started with your own JSON Resume you can run the
 npm command `npx resume-cli init` to kick-start your own.
@@ -90,13 +90,13 @@ need to do is generate your CV and push it to now.sh.
 This was my full employment history and quite long and as I was
 looking for a job in a new field the vast majority of it was not
 pertinent to a my job search, this is why I decided rather than blast
-out my CV everywhere I'd post out the list of answers to the questions
-recruiters always asked me when calling me. So rather than have them
-crawl through my mostly irrelevant job history they could get the
-answers to the questions they wanted answering. The CV was there if
-they wanted more detail on me, all they had to do was READ!
+out my [CV] everywhere I'd post out the list of answers to the
+questions recruiters always asked me when calling me. So rather than
+have them crawl through my mostly irrelevant job history they could
+get the answers to the questions they wanted answering. The [CV] was
+there if they wanted more detail on me, all they had to do was READ!
 
-In my mind the personal portfolio and the CV site were a good
+In my mind the [personal portfolio] and the [CV] site were a good
 indication of my current skill level with styling and preferred stack,
 in reality no one cares as long as it looks nice and recruiters even
 less so because it doesn't answer the questions they want to ask.
@@ -105,7 +105,7 @@ less so because it doesn't answer the questions they want to ask.
 
 This wasn't field of dreams though! So, how do I get recruiters to my
 page? Well, rather than have a CV in MS Word format that I would post
-onto every job site I could find, I had, a, link to my FAQ on a MS
+onto every job site I could find, I had, a, link to my [FAQ] on a MS
 Word doc! 🙃
 
 On the MS Word doc I would have all the search terms a recruiter would
@@ -117,10 +117,10 @@ the document. At the top was a greeting:
 It was a friendly hello and something different to what must be very
 repetitive.
 
-I used Google analytics's, on the FAQ and the CV to see how much
-traffic they were getting, the FAQ a lot more than the CV, so, I could
-glean from that, that the recruiters were getting the answers to their
-questions without having to pick up the phone. Win Win, right?
+I used Google analytics's, on the [FAQ] and the [CV] to see how much
+traffic they were getting, the [FAQ] a lot more than the [CV], so, I
+could glean from that, that the recruiters were getting the answers to
+their questions without having to pick up the phone. Win Win, right?
 
 The stats weren't great however, with a bounce rate of around 3
 seconds 😲 you could see the vast majority of recruiters would rather
@@ -135,6 +135,7 @@ pick up the phone than READ the information provided.
   https://dev.to/whokilledkevin/8-things-i-hate-in-recruitment-letters-8ke
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [my portfolio]: https://scottspence.me
+[personal portfolio]: https://scottspence.me
 [recruiter faq]: https://scottspence.me/faq
 [online cv]: https://cv.scottspence.me/
 [faq]: https://scottspence.me/faq
