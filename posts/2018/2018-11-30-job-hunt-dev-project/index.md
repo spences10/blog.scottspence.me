@@ -1,6 +1,6 @@
 ---
 path: '/turn-a-job-hunt-into-a-dev-project'
-date: '2018-12-31'
+date: '2018-11-30'
 title: 'Turning a job hunt into a dev project'
 tags: ['information', 'learning', 'career', 'ramble']
 published: true
@@ -140,4 +140,4 @@ pick up the phone than READ the information provided.
 [faq]: https://scottspence.me/faq
 [teh jamstack behbeh!]: https://jamstack.org/
 [jsonresume]: https://jsonresume.org/
-[use my cv]: https://cv.scottspence.me
+[use my cv]: https://github.com/spences10/cv
