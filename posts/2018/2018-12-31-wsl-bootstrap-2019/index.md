@@ -12,7 +12,7 @@ tags:
     'n',
     'node',
   ]
-published: true
+published: false
 ---
 
 This is the refresh on my guide from the start of the year on setting
