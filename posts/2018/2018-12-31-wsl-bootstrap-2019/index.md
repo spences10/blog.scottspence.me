@@ -15,9 +15,19 @@ tags:
 published: true
 ---
 
+I have been a professional web developer for 10 months now and used
+both MacOs and Windows in that time. My preferred one to use is
+Windows, for no other reason that I like to have my Ctrl key as the
+key to use for copy paste operations and I can use my left pinky
+instead of my thumb. Anyway, let's leave the weak reasoning behind as
+that's no the purpose of this post.
+
 This is the refresh on my guide from the start of the year on setting
 up a web development environment on a windows machine.
 
+If you're still hatin' on Windows then grow up!
+
+Let's see what Ken has to say about it:
 https://twitter.com/ken_wheeler/status/1075556283795824640
 
 Initial update:
