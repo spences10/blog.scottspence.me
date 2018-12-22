@@ -66,6 +66,7 @@ What we're going to cover:
     - [Fish themes with OMF](#fish-themes-with-omf)
 - [Create React App](#create-react-app)
 - [Change WSL version](#change-wsl-version)
+- [VSCode](#vscode)
 
 <!-- /TOC -->
 
@@ -206,6 +207,20 @@ Now check the versions of Node and npm we have installed with
 
 ## Install a Terminal (Hyper)
 
+Now we have bash on Windows it's time to install a nice Terminal app,
+because, let's face it, the standard one is a bit basic.
+
+Enter [Hyper] an electron app terminal that is super themeable and
+configurable.
+
+Download and install hyper for Windows, this will be the bare bones
+version, it'll look something like this:
+
+![basic hyper](./basic_hyper.png)
+
+You may notice that, this is the Windows Command prompt too, don't
+worry, we're going to configure that now.
+
 ## Install Fish Shell!
 
 ## Configure
@@ -221,6 +236,8 @@ Now check the versions of Node and npm we have installed with
 ## Create React App
 
 ## Change WSL version
+
+## VSCode
 
 Initial update:
 
@@ -274,3 +291,4 @@ Seemed to resolve the issue
 [comment for the pros of using n]:
   https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
 [n-install]: https://github.com/mklement0/n-install
+[hyper]: http://hyper.is
