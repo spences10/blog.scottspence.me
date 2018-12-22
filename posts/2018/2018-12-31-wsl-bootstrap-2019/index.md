@@ -66,6 +66,12 @@ The [official guidance] covers it very well, but I'm going to add in
 the shortcut keys here if you don't want to be clicking around with
 the mouse.
 
+If you haven't selected PowerShell as your default Command Prompt you
+can select it from the Taskbar settings page located in the
+Personalisation section in the Settings:
+
+![lsb_release image](./powershell.gif)
+
 Use Windows key+x, this is the same as right clicking the windows icon
 on the desktop, this will open the quick link menu. From here you need
 to select the Windows PowerShell (<u>A</u>dmin) option, you can do
