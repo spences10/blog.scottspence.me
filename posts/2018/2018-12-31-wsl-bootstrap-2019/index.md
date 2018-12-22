@@ -114,9 +114,23 @@ from the Windows Store, here:
 - [Ubuntu 16.04 LTS]
 - [Ubuntu 18.04 LTS]
 
+Now we're going to go ahead an update and upgrade all the things, the
+three commands here will update and upgrade all the pre-installed
+software that comes with the Ubuntu install.
+
+The code below is three commands joined together with `&&`. The `-y`
+flag is to auto accept the changes that are going to be preformed with
+the upgrades. Auto remove will remove unused packages left behind from
+upgrades.
+
+Copy the below commands into your Ubuntu terminal, and run the
+command:
+
 ```bash
-sudo apt update && sudo apt -y upgrade && sudo apt autoremove && sudo apt dist-upgrade && sudo apt full-upgrade
+sudo apt update && sudo apt -y upgrade && sudo apt autoremove
 ```
+
+> To go from 16.04 to 18.04 try `do-release-upgrade` in the terminal.
 
 ## Install Node
 
