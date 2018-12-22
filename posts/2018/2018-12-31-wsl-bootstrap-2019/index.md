@@ -12,7 +12,7 @@ tags:
     'n',
     'node',
   ]
-published: false
+published: true
 ---
 
 ## From scratch to Create React App on Windows
@@ -27,7 +27,7 @@ Windows, for no other reason than I prefer they keyboard layout.
 With Windows/Linux I like to have my Ctrl key as the key to use for
 copy paste operations and I can use my left pinky instead of my thumb.
 Anyway, let's leave the weak reasoning behind as that's not the
-purpose of this post.
+purpose of this post!
 
 Let's see what Ken has to say about it:
 https://twitter.com/ken_wheeler/status/1075556283795824640
@@ -49,11 +49,25 @@ later.**
 
 What we're going to cover:
 
+<!-- TOC -->
+
+- [From scratch to Create React App on Windows](#from-scratch-to-create-react-app-on-windows)
+- [Objective of this post](#objective-of-this-post)
 - [Install WSL](#install-wsl)
 - [Enable WSL on your machine](#enable-wsl-on-your-machine)
-- [Install Node](#install-node)
+- [update, upgrade and autoremove](#update-upgrade-and-autoremove)
+- [Install Node (with `n`)](#install-node-with-n)
 - [Install a Terminal (Hyper)](#install-a-terminal-hyper)
-- [Configure](#configure) <small>all the things</small>
+- [Install Fish Shell!](#install-fish-shell)
+- [Configure](#configure)
+  - [Permissions](#permissions)
+  - [Use SSH with GitHub](#use-ssh-with-github)
+  - [Install Oh My Fish](#install-oh-my-fish)
+    - [Fish themes with OMF](#fish-themes-with-omf)
+- [Create React App](#create-react-app)
+- [Change WSL version](#change-wsl-version)
+
+<!-- /TOC -->
 
 ## Install WSL
 
@@ -66,9 +80,10 @@ The [official guidance] covers it very well, but I'm going to add in
 the shortcut keys here if you don't want to be clicking around with
 the mouse.
 
-If you haven't selected PowerShell as your default Command Prompt you
-can select it from the Taskbar settings page located in the
-Personalisation section in the Settings:
+Before that however, if you haven't selected PowerShell as your
+default Command Prompt you can select it from the Taskbar settings
+page located in the Personalisation section in the Settings, I suggest
+doing that now:
 
 ![lsb_release image](./powershell.gif)
 
@@ -80,16 +95,16 @@ open the user account control (Admin) prompt, presuming you have admin
 rights on your machine you'll need to click yes to continue.
 
 Copy the code here and paste it into the PowerShell window, Ctrl+v
-will work in PowerShell.
+will work in PowerShell, press enter to execute the command.
 
 ```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
-You will be prompted to restart your machine after this which you
+You will be prompted to restart your machine after this, which you
 should do.
 
-Check the link for a complete list of [windows keyboard shortcuts].
+> Check the link for a complete list of [windows keyboard shortcuts].
 
 After restarting you can open the Ubuntu program from the start menu
 and the second install (of WSL on your system) should happen. Wait for
@@ -101,7 +116,7 @@ privileges.
 ## update, upgrade and autoremove
 
 At the time of writing this, the version I have linked of Ubuntu is
-16.04.
+18.04.1
 
 The linked app will install the latest stable Ubuntu release on
 Windows.
@@ -138,11 +153,74 @@ sudo apt update && sudo apt -y upgrade && sudo apt autoremove
 
 > To go from 16.04 to 18.04 try `do-release-upgrade` in the terminal.
 
-## Install Node
+Now that the base has been installed and updated we need to install
+the [build-essential] package in order to compile and build other
+packages, the following packages we're going to install will all need
+it.
+
+```bash
+sudo apt install -y build-essential
+```
+
+From her on in I'd suggest using two bash windows, one with sudo
+enables the other with standard permissions.
+
+> i.e. open a terminal and don't enter `sudo` in there, instead use
+> the terminal that has been granted that permission.
+
+The reason for this is that I have found if you install node as sudo
+then each time you want to run an `npm install` command you will need
+to grant sudo permissions and it can all get a bit tedious. And you
+really shouldn't be installing npm packages with sudo permissions.
+
+## Install Node (with `n`)
+
+Let's get our run-time on! If you use Node.js you will eventually have
+situations where you need to be able to switch Node versions, for this
+you may have heard to nvm ([Node Version Manager]) which by the way
+you can still use in WSL.
+
+The reason for me opting for n over nvm is that in the past I
+experienced slow bash startup times whilst using nvm. Take a look at
+this [WSL GitHub issue detailing it] and the specific [comment for the
+
+pros of using n].
+
+Ok let's install n, with [n-install], the command doesn't start with
+sudo so use it in the bash window you have with no sudo privileges.
+
+```bash
+curl -L https://git.io/n-install | bash
+```
+
+This will install the latest version of Node for us, follow the prompt
+on the screen to reload bash:
+
+```bash
+# mine looks like this
+. /home/scott/.bashrc
+```
+
+Now check the versions of Node and npm we have installed with
+`node -v && npm -v` in the terminal.
 
 ## Install a Terminal (Hyper)
 
+## Install Fish Shell!
+
 ## Configure
+
+### Permissions
+
+### Use SSH with GitHub
+
+### Install Oh My Fish
+
+#### Fish themes with OMF
+
+## Create React App
+
+## Change WSL version
 
 Initial update:
 
@@ -189,3 +267,10 @@ Seemed to resolve the issue
   https://docs.microsoft.com/en-us/windows/wsl/install-win10
 [windows keyboard shortcuts]:
   https://support.microsoft.com/en-gb/help/12445/windows-keyboard-shortcuts
+[build-essential]: https://packages.ubuntu.com/bionic/build-essential
+[node version manager]: https://github.com/creationix/nvm
+[wsl github issue detailing it]:
+  https://github.com/Microsoft/WSL/issues/776
+[comment for the pros of using n]:
+  https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
+[n-install]: https://github.com/mklement0/n-install
