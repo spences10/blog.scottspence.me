@@ -73,7 +73,8 @@ this by pressing **a** on the keyboard. So Windows key+x then a, will
 open the user account control (Admin) prompt, presuming you have admin
 rights on your machine you'll need to click yes to continue.
 
-Copy the code here and paste it into the PowerShell window.
+Copy the code here and paste it into the PowerShell window, Ctrl+v
+will work in PowerShell.
 
 ```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
@@ -90,6 +91,32 @@ this to complete then you will be prompted to create a user and a
 password for the account. You will need to remember the password
 created for the user as you will be prompted for it to use `sudo`
 privileges.
+
+## update, upgrade and autoremove
+
+At the time of writing this, the version I have linked of Ubuntu is
+16.04.
+
+The linked app will install the latest stable Ubuntu release on
+Windows.
+
+You can check what version of Ubuntu you have installed with:
+
+```bash
+lsb_release -a
+```
+
+![lsb_release image](./lsb_release.png)
+
+If you want to use a specific LTS version of Ubuntu you can get them
+from the Windows Store, here:
+
+- [Ubuntu 16.04 LTS]
+- [Ubuntu 18.04 LTS]
+
+```bash
+sudo apt update && sudo apt -y upgrade && sudo apt autoremove && sudo apt dist-upgrade && sudo apt full-upgrade
+```
 
 ## Install Node
 
@@ -132,6 +159,10 @@ Seemed to resolve the issue
 
 [the microsoft store]:
   https://www.microsoft.com/en-gb/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab
+[ubuntu 16.04 lts]:
+  https://www.microsoft.com/en-gb/p/ubuntu-1604-lts/9pjn388hp8c9?activetab=pivot:overviewtab
+[ubuntu 18.04 lts]:
+  https://www.microsoft.com/en-gb/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab
 [my guide from the start of the year]:
   https://blog.scottspence.me/wsl-setup/
 [official guidance]:
