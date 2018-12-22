@@ -1,10 +1,24 @@
 ---
-path: '/move-to-ubuntu-eighteen-point-zero-four'
+path: '/wsl-bootstrap-2019'
 date: '2018-12-31'
-title: 'Move to Ubuntu 18.04'
-tags: ['information', 'learning', 'guide']
-published: false
+title: 'Windows Web-dev bootstrap'
+tags:
+  [
+    'information',
+    'learning',
+    'guide',
+    'wsl',
+    'bash on windows',
+    'n',
+    'node',
+  ]
+published: true
 ---
+
+This is the refresh on my guide from the start of the year on setting
+up a web development environment on a windows machine.
+
+https://twitter.com/ken_wheeler/status/1075556283795824640
 
 Initial update:
 
