@@ -54,6 +54,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -63,7 +64,6 @@ module.exports = {
               maxWidth: 590
             }
           },
-          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
