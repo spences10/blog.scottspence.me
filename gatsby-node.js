@@ -39,7 +39,12 @@ exports.createPages = ({ actions, graphql }) => {
     createTagPages(createPage, posts)
 
     // Create pages for each markdown file.
-    posts.forEach(({ node }, index) => {
+    const posts = result.data.allMarkdownRemark.edges
+    const postsPerPage = 2
+    const numPages = Math.ceil(posts.length / postsPerPage)
+
+    // posts.forEach(({ node }, index) => {
+    Array.from({ length: numPages }).forEach(({ node }, index) => {
       const prev = index === 0 ? null : posts[index - 1].node
       const next =
         index === posts.length - 1 ? null : posts[index + 1].node
@@ -48,7 +53,9 @@ exports.createPages = ({ actions, graphql }) => {
         component: blogPostTemplate,
         context: {
           prev,
-          next
+          next,
+          limit: postsPerPage,
+          skip: i * postsPerPage
         }
       })
     })

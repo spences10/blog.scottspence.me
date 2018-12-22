@@ -131,8 +131,12 @@ blogPostLayout.propTypes = {
 }
 
 export const query = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query POSTS_LIST_QUERY($path: String!, $skip: Int!, $limit: Int!) {
+    markdownRemark(
+      frontmatter: { path: { eq: $path } }
+      limit: $limit
+      skip: $skip
+    ) {
       html
       excerpt(pruneLength: 250)
       frontmatter {
