@@ -219,7 +219,13 @@ version, it'll look something like this:
 ![basic hyper](./basic_hyper.png)
 
 You may notice that, this is the Windows Command prompt too, don't
-worry, we're going to configure that now.
+worry, we're going to configure that right now.
+
+```js
+// amend shell path
+// WSL Bash
+shell: 'C:\\Windows\\System32\\bash.exe',
+```
 
 ## Install Fish Shell!
 
