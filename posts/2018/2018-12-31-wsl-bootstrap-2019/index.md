@@ -309,6 +309,24 @@ get with Oh My Fish
 sudo apt -y install fish
 ```
 
+![install fish](./install-fish.gif)
+
+Now we can install Oh My Fish (OMF) and get a nice terminal theme
+going on too, remember we talked about running commands with the
+correct permissions? Well this is one of those occasions, open a new
+tab first then paste in the following:
+
+```bash
+curl -L https://get.oh-my.fish | fish
+```
+
+![install fish](./install-omf.gif)
+
+After installing OMF you can pick a theme, here you may notice that
+the text doesn't fit in the screen on Hyper, a quick way to reset it
+is to maximise the window then back again, I did this with the Windows
+key+arrow up to maximise the Windows key+arrow down to restore it.
+
 ## Configure
 
 ### Permissions
