@@ -382,11 +382,25 @@ could tab to complete the rest of the command.
 ## Configure
 
 So, now we have a swanky looking new terminal and a bare bones VSCode
-install it's time to get things moving
+install it's time to get things moving.
 
 I have a [cheat-sheets] repo detailing a lot of the configuration
 we're about to go through here, if you find something useful along the
 way please drop a PR with the suggestion.
+
+First up, in place of typing out `fish` each time I open a new
+terminal, and not replacing bash which you can do, but I prefer to use
+an alias. So what we're going to do is open up the `.bashrc` file and
+edit it.
+
+From a new terminal type in `nano ~/.bashrc`, nano is a bash text
+editor. Scroll (or Page) down to the bottom of the file and add in an
+alias for fish, `alias f=fish` then to exit nano Ctrl+x and confirma
+changes with a `y`. Reload the `.bashrc` file like we did after using
+n to install Node `. /home/scott/.bashrc` but your username in place
+of mine 😄.
+
+![alias fish in .bashrc](./alias-fish.gif)
 
 ### Git
 
