@@ -422,7 +422,7 @@ npx create-react-app create-react-app
 ```
 
 This is creating the project in my home (`~`) folder, I've had to
-speed the gif up to 20x faster, it does take a while.
+speed the gif up to 20x faster, it does take a while.🙃
 
 ![npx cra](./npx-cra.gif)
 
