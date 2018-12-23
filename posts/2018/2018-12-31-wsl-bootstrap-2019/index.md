@@ -327,6 +327,20 @@ the text doesn't fit in the screen on Hyper, a quick way to reset it
 is to maximise the window then back again, I did this with the Windows
 key+arrow up to maximise the Windows key+arrow down to restore it.
 
+After installing omf I chose the theme agnoster, installed with
+`omf install agnoster` you can list out what is available and what you
+have already installed by selecting `omf theme` let's change it once
+more to the `one` theme, adjust the size of the window first as things
+are getting a bit cramped.
+
+![omf one](./omf-install-one.gif)
+
+Have a play around there's loads there, I prefer the one theme because
+you can see what version of node you're running on, over on the far
+right. Here you can also see the intellisense for fish where it shows
+agnoster as a previous selection, if I wanted to select agnoster I
+could tab to complete the rest of the command.
+
 ## Configure
 
 ### Permissions
