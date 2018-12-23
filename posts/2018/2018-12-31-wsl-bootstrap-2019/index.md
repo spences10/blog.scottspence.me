@@ -67,6 +67,7 @@ What we're going to cover:
   - [Install Oh My Fish](#install-oh-my-fish)
     - [Fish themes with OMF](#fish-themes-with-omf)
 - [Configure](#configure)
+  - [Git](#git)
   - [Permissions](#permissions)
   - [Use SSH with GitHub](#use-ssh-with-github)
 - [Create React App](#create-react-app)
@@ -380,6 +381,13 @@ could tab to complete the rest of the command.
 
 ## Configure
 
+So, now we have a swanky looking new terminal and a bare bones VSCode
+install it's time to get things moving
+
+I have a [cheat-sheets] repo detailing a lot of the configuration
+we're about to go through here, if you find something useful along the
+way please drop a PR with the suggestion.
+
 ### Git
 
 ### Permissions
@@ -448,3 +456,4 @@ Seemed to resolve the issue
   https://github.com/Microsoft/vscode/issues/9502
 [wslgit]: https://github.com/andy-5/wslgit
 [git-scm.com]: https://git-scm.com/download/win
+[cheat-sheets]: https://github.com/spences10/cheat-sheets
