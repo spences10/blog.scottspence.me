@@ -244,12 +244,12 @@ settings.
 If the settings file (`.hyper.js`) opens in Notepad then you can set
 the default to be VSCode. In File Explorer (Use Windows key+e to open
 it) navigate to the file, it'll be in your User folder, right click
-the file and select Properties, then Change for opens with and select
-VSCode from the list.
+the file and select Properties, then Change for 'Opens with:' and
+select VSCode from the list.
 
 ![basic hyper](./default-file-type.gif)
 
-Now we can set WSL as the shell path in Hyper, open the `.hyper,js`
+Now we can set WSL as the shell path in Hyper, open the `.hyper.js`
 settings file and search (Ctrl+f) for bash, we want to add the path to
 the WSL shell into the `shell` property defined in the file.
 
@@ -260,12 +260,52 @@ shell: 'C:\\Windows\\System32\\bash.exe',
 ```
 
 We can also change the appearance of Hyper from here by specifying
-font size and family and also predefined themes, let's quickly add in
-the `hyper-adventure-time` theme into the plugins section.
+font size and font family and also predefined themes, let's quickly
+add in the `hyper-adventure-time` theme into the plugins section.
+
+Open another Hyper tab with Ctrl+Shift+t, this will show the bash
+terminal for WSL now.
 
 ![basic hyper](./hyper-config.gif)
 
+Quick orientation with the Hyper terminal keyboard shortcuts:
+
+- New tab = Ctrl+Shift+t
+- Close current tab = Ctrl+Shift+w
+- Cycle through tabs right = Ctrl+Shift+right arrow
+- Cycle through tabs left = Ctrl+Shift+left arrow
+
+Now I'm going to configure some additional properties for Hyper, and
+change the theme to something a bit more subtle.
+
+I purchased Dank Mono, if you want a similar font as OSS check out
+[FiraCode].
+
+Here's what I changed:
+
+```js
+fontSize: 18,
+fontFamily: '"Dank Mono",...' // Beautiful coding font https://dank.sh/
+cursorShape: 'BEAM',
+cursorBlink: true,
+copyOnSelect: true,
+plugins: [
+  'hyper-altair'
+  ]
+```
+
+![final hyper config](./hyper-final-config.gif)
+
 ## Install Fish Shell!
+
+Ok, time to install the Fish Shell! This is a completely optional
+step, I like to use fish for the nice intellisense you get when
+navigating file structures, there are also some neat themes you can
+get with Oh My Fish
+
+```bash
+sudo apt -y install fish
+```
 
 ## Configure
 
@@ -336,3 +376,4 @@ Seemed to resolve the issue
   https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
 [n-install]: https://github.com/mklement0/n-install
 [hyper]: http://hyper.is
+[firacode]: https://github.com/tonsky/FiraCode
