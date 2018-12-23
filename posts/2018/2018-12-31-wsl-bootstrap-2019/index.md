@@ -250,13 +250,17 @@ I would like enabled.
 
 ![windows git setup](./install-git.gif)
 
+For now, that is all we need to do, when it comes to authenticating
+with with GitHub using SSH we will use the Git Bash command line to
+configure the Windows side of things.
+
 ## Install a Terminal (Hyper)
 
 Now we have bash on Windows it's time to install a nice Terminal app,
 because, let's face it, the standard one is a bit basic.
 
-Enter [Hyper] an electron app terminal that is super themeable and
-configurable.
+Enter [Hyper] an electron based terminal app that is super themeable
+and configurable.
 
 Download and install hyper for Windows, this will be the bare bones
 version, it'll look something like this:
