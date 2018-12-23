@@ -243,6 +243,13 @@ time setup.
 Until the VSCode team incorporate [WSLGit] into VSCode I think this is
 the best option.
 
+Install from [git-scm.com] the link will start downloading the install
+binary you can then open it and go through the install, you can keep
+clicking next through the install, I have selected a few options that
+I would like enabled.
+
+![windows git setup](./install-git.gif)
+
 ## Install a Terminal (Hyper)
 
 Now we have bash on Windows it's time to install a nice Terminal app,
@@ -434,3 +441,4 @@ Seemed to resolve the issue
 [git support for vscode]:
   https://github.com/Microsoft/vscode/issues/9502
 [wslgit]: https://github.com/andy-5/wslgit
+[git-scm.com]: https://git-scm.com/download/win
