@@ -57,6 +57,7 @@ What we're going to cover:
 - [Enable WSL on your machine](#enable-wsl-on-your-machine)
 - [update, upgrade and autoremove](#update-upgrade-and-autoremove)
 - [Install Node (with `n`)](#install-node-with-n)
+- [Install Visual Studio Code](#install-visual-studio-code)
 - [Install a Terminal (Hyper)](#install-a-terminal-hyper)
 - [Install Fish Shell!](#install-fish-shell)
 - [Configure](#configure)
@@ -164,7 +165,7 @@ sudo apt install -y build-essential
 ```
 
 From her on in I'd suggest using two bash windows, one with sudo
-enables the other with standard permissions.
+enabled the other with standard permissions.
 
 > i.e. open a terminal and don't enter `sudo` in there, instead use
 > the terminal that has been granted that permission.
@@ -183,19 +184,18 @@ you can still use in WSL.
 
 The reason for me opting for n over nvm is that in the past I
 experienced slow bash startup times whilst using nvm. Take a look at
-this [WSL GitHub issue detailing it] and the specific [comment for the
-
-pros of using n].
+this [WSL GitHub issue detailing it] and the specific comment for the
+[pros of using n].
 
 Ok let's install n, with [n-install], the command doesn't start with
-sudo so use it in the bash window you have with no sudo privileges.
+sudo so use it in the bash window you have with no sudo privileges.🧐
 
 ```bash
 curl -L https://git.io/n-install | bash
 ```
 
 This will install the latest version of Node for us, follow the prompt
-on the screen to reload bash:
+on the terminal screen to reload bash:
 
 ```bash
 # mine looks like this
@@ -204,6 +204,22 @@ on the screen to reload bash:
 
 Now check the versions of Node and npm we have installed with
 `node -v && npm -v` in the terminal.
+
+## Install Visual Studio Code
+
+Install VSCode? What? This post is to set up WSL? Ok, so we're going
+to presume that this is going from nothing to being able to web dev,
+so we're going to need a text editor, and there's nothing out there at
+the moment that comes close to VSCode, if you already have a text
+editor installed then skip to the next part.
+
+Install the Windows version of VSCode from the [Download section] once
+installed we can enable WSL in the settings, the quickest way to do
+this is to open the integrated terminal in VSCode with the shortcut
+keys Ctrl+' 👈 that's and apostrophe. You will be prompted to select
+your default terminal, select WSL Bash.
+
+![](./vscode-wsl-config.gif)
 
 ## Install a Terminal (Hyper)
 
@@ -220,6 +236,10 @@ version, it'll look something like this:
 
 You may notice that, this is the Windows Command prompt too, don't
 worry, we're going to configure that right now.
+
+Open up the `.hyper.js` file located in the root of your user folder,
+or from Hyper itself use the sortcut key Ctrl+, to pop open the
+settings.
 
 ```js
 // amend shell path
@@ -294,7 +314,7 @@ Seemed to resolve the issue
 [node version manager]: https://github.com/creationix/nvm
 [wsl github issue detailing it]:
   https://github.com/Microsoft/WSL/issues/776
-[comment for the pros of using n]:
+[pros of using n]:
   https://github.com/Microsoft/WSL/issues/776#issuecomment-266112578
 [n-install]: https://github.com/mklement0/n-install
 [hyper]: http://hyper.is
