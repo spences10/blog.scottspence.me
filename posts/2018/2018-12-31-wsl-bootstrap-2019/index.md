@@ -284,14 +284,16 @@ I purchased Dank Mono, if you want a similar font as OSS check out
 Here's what I changed:
 
 ```js
-fontSize: 18,
-fontFamily: '"Dank Mono",...' // Beautiful coding font https://dank.sh/
-cursorShape: 'BEAM',
-cursorBlink: true,
-copyOnSelect: true,
-plugins: [
-  'hyper-altair'
-  ]
+module.exports = {
+  config: {
+    fontSize: 18,
+    fontFamily: '"Dank Mono",...',
+    cursorShape: 'BEAM',
+    cursorBlink: true,
+    copyOnSelect: true,
+    plugins: ['hyper-altair']
+  }
+}
 ```
 
 ![final hyper config](./hyper-final-config.gif)
