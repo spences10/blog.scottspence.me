@@ -398,7 +398,8 @@ editor. Scroll (or Page) down to the bottom of the file and add in an
 alias for fish, `alias f=fish` then to exit nano Ctrl+x and confirma
 changes with a `y`. Reload the `.bashrc` file like we did after using
 n to install Node `. /home/scott/.bashrc` but your username in place
-of mine 😄.
+of mine 😄, now we can use f instead of fish! Well done you saved
+yourself typing three extra characters!!!.
 
 ![alias fish in .bashrc](./alias-fish.gif)
 
