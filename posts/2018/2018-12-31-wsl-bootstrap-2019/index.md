@@ -67,10 +67,10 @@ What we're going to cover:
   - [Install Oh My Fish](#install-oh-my-fish)
     - [Fish themes with OMF](#fish-themes-with-omf)
 - [Configure](#configure)
-  - [Git](#git)
+- [Create React App](#create-react-app)
+- [Git](#git)
   - [Permissions](#permissions)
   - [Use SSH with GitHub](#use-ssh-with-github)
-- [Create React App](#create-react-app)
 - [Change WSL version](#change-wsl-version)
 
 <!-- /TOC -->
@@ -403,13 +403,34 @@ yourself typing three extra characters!!!.
 
 ![alias fish in .bashrc](./alias-fish.gif)
 
-### Git
+## Create React App
+
+Ok, we shall get create react app going so we can get Git configured
+with GitHub using SSH and start making changes to commit to a GitHub
+repo.
+
+We're going to use [npx] to make a starter React project with Create
+React App. If you want to have your projects somewhere else now is the
+time to navigate to that directory.
+
+From the terminal enter:
+
+```bash
+# this will create a starter react project
+# called create-react-app
+npx create-react-app create-react-app
+```
+
+This is creating the project in my home (`~`) folder, I've had to
+speed the gif up to 20x faster, it does take a while.
+
+![npx cra](./npx-cra.gif)
+
+## Git
 
 ### Permissions
 
 ### Use SSH with GitHub
-
-## Create React App
 
 ## Change WSL version
 
@@ -472,3 +493,5 @@ Seemed to resolve the issue
 [wslgit]: https://github.com/andy-5/wslgit
 [git-scm.com]: https://git-scm.com/download/win
 [cheat-sheets]: https://github.com/spences10/cheat-sheets
+[npx]:
+  https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
