@@ -29,6 +29,9 @@ copy paste operations and I can use my left pinky instead of my thumb.
 Anyway, let's leave the weak reasoning behind as that's not the
 purpose of this post!
 
+If you don't have a Windows machine then this post probably isn't for
+you, if this is different from what you use, it doesn't make it bad.
+
 Let's see what Ken has to say about it:
 https://twitter.com/ken_wheeler/status/1075556283795824640
 
@@ -58,16 +61,16 @@ What we're going to cover:
 - [update, upgrade and autoremove](#update-upgrade-and-autoremove)
 - [Install Node (with `n`)](#install-node-with-n)
 - [Install Visual Studio Code](#install-visual-studio-code)
+- [Install Windows Git](#install-windows-git)
 - [Install a Terminal (Hyper)](#install-a-terminal-hyper)
 - [Install Fish Shell!](#install-fish-shell)
+  - [Install Oh My Fish](#install-oh-my-fish)
+    - [Fish themes with OMF](#fish-themes-with-omf)
 - [Configure](#configure)
   - [Permissions](#permissions)
   - [Use SSH with GitHub](#use-ssh-with-github)
-  - [Install Oh My Fish](#install-oh-my-fish)
-    - [Fish themes with OMF](#fish-themes-with-omf)
 - [Create React App](#create-react-app)
 - [Change WSL version](#change-wsl-version)
-- [VSCode](#vscode)
 
 <!-- /TOC -->
 
@@ -221,6 +224,25 @@ your default terminal, select WSL Bash.
 
 ![](./vscode-wsl-config.gif)
 
+## Install Windows Git
+
+There's a bit of stumbling block getting [Git support for VSCode],
+it's well documented in the various issues mentioned in the linked
+issue.
+
+There are workarounds as well with things like [WSLGit] which has it's
+own set of issues, this all stems from users (me included) not wanting
+to have to install another binary for Git.
+
+I have tried several variants when it comes to using Git with VSCode
+and the path of least resistance was biting the bullet and installing
+that additional binary, there's an overhead with having to maintain
+and configure SSH keys for both Windows and WSL Git but it's a one
+time setup.
+
+Until the VSCode team incorporate [WSLGit] into VSCode I think this is
+the best option.
+
 ## Install a Terminal (Hyper)
 
 Now we have bash on Windows it's time to install a nice Terminal app,
@@ -311,6 +333,8 @@ sudo apt -y install fish
 
 ![install fish](./install-fish.gif)
 
+### Install Oh My Fish
+
 Now we can install Oh My Fish (OMF) and get a nice terminal theme
 going on too, remember we talked about running commands with the
 correct permissions? Well this is one of those occasions, open a new
@@ -321,6 +345,8 @@ curl -L https://get.oh-my.fish | fish
 ```
 
 ![install fish](./install-omf.gif)
+
+#### Fish themes with OMF
 
 After installing OMF you can pick a theme, here you may notice that
 the text doesn't fit in the screen on Hyper, a quick way to reset it
@@ -347,15 +373,9 @@ could tab to complete the rest of the command.
 
 ### Use SSH with GitHub
 
-### Install Oh My Fish
-
-#### Fish themes with OMF
-
 ## Create React App
 
 ## Change WSL version
-
-## VSCode
 
 Initial update:
 
@@ -411,3 +431,6 @@ Seemed to resolve the issue
 [n-install]: https://github.com/mklement0/n-install
 [hyper]: http://hyper.is
 [firacode]: https://github.com/tonsky/FiraCode
+[git support for vscode]:
+  https://github.com/Microsoft/vscode/issues/9502
+[wslgit]: https://github.com/andy-5/wslgit
