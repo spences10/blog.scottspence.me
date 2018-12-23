@@ -380,6 +380,8 @@ could tab to complete the rest of the command.
 
 ## Configure
 
+### Git
+
 ### Permissions
 
 ### Use SSH with GitHub
