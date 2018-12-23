@@ -241,11 +241,29 @@ Open up the `.hyper.js` file located in the root of your user folder,
 or from Hyper itself use the sortcut key Ctrl+, to pop open the
 settings.
 
+If the settings file (`.hyper.js`) opens in Notepad then you can set
+the default to be VSCode. In File Explorer (Use Windows key+e to open
+it) navigate to the file, it'll be in your User folder, right click
+the file and select Properties, then Change for opens with and select
+VSCode from the list.
+
+![basic hyper](./default-file-type.gif)
+
+Now we can set WSL as the shell path in Hyper, open the `.hyper,js`
+settings file and search (Ctrl+f) for bash, we want to add the path to
+the WSL shell into the `shell` property defined in the file.
+
 ```js
 // amend shell path
 // WSL Bash
 shell: 'C:\\Windows\\System32\\bash.exe',
 ```
+
+We can also change the appearance of Hyper from here by specifying
+font size and family and also predefined themes, let's quickly add in
+the `hyper-adventure-time` theme into the plugins section.
+
+![basic hyper](./hyper-config.gif)
 
 ## Install Fish Shell!
 
