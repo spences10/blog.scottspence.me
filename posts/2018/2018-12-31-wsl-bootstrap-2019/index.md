@@ -52,10 +52,6 @@ later.**
 
 What we're going to cover:
 
-<!-- TOC -->
-
-- [From scratch to Create React App on Windows](#from-scratch-to-create-react-app-on-windows)
-- [Objective of this post](#objective-of-this-post)
 - [Install WSL](#install-wsl)
 - [Enable WSL on your machine](#enable-wsl-on-your-machine)
 - [update, upgrade and autoremove](#update-upgrade-and-autoremove)
@@ -72,10 +68,8 @@ What we're going to cover:
 - [Use SSH with GitHub](#use-ssh-with-github)
   - [WSL SSH Config](#wsl-ssh-config)
   - [Windows Git Bash SSH Config](#windows-git-bash-ssh-config)
-- [Permissions](#permissions)
 - [Change WSL version](#change-wsl-version)
-
-<!-- /TOC -->
+- [Wrap up!](#wrap-up)
 
 ## Install WSL
 
@@ -160,6 +154,8 @@ sudo apt update && sudo apt -y upgrade && sudo apt autoremove
 ```
 
 > To go from 16.04 to 18.04 try `do-release-upgrade` in the terminal.
+> be warned this takes considerably longer than just deleting the
+> current install of Ubuntu and starting again.
 
 Now that the base has been installed and updated we need to install
 the [build-essential] package in order to compile and build other
@@ -632,40 +628,22 @@ Also you may have noticed that the SSH Key 🔑 token went from black to
 green on the settings screen there this indicates that you have
 authenticated.
 
-## Permissions
-
 ## Change WSL version
 
-Initial update:
+If you want to use a different version of Ubuntu, Debian or any of the
+other available distributions of Linux from teh Windows store with
+Hyper you will need to change the default version from PowerShell:
 
-```sh
-sudo apt update && sudo apt -y upgrade && sudo apt autoremove && sudo apt dist-upgrade
+```bash
+# list available versions
+wslconfig /l
+# set default
+wslconfig /setdefault Debian
 ```
 
-Didn't take long at all
+## Wrap up!
 
-fish install was latest version
-
-still need `sudo apt install -y build-essential` for make
-
-must say installing and updating dependencies seems really fast
-
-used n to install node
-
-pretty straightforward and fast
-
-antil malware executable needed exclusions added again
-
-Specifically for using gatsby I was getting
-`Error: pngquant failed to build, make sure that libpng-dev is installed`
-errors so:
-
-```sh
-sudo apt install -y libpng-dev
-# npm install -g pngquant-bin
-```
-
-Seemed to resolve the issue
+That's it!
 
 <!-- LINKS -->
 
