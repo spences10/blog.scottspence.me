@@ -69,8 +69,8 @@ What we're going to cover:
 - [Configure](#configure)
 - [Git config](#git-config)
 - [Create React App](#create-react-app)
-  - [Permissions](#permissions)
-  - [Use SSH with GitHub](#use-ssh-with-github)
+- [Use SSH with GitHub](#use-ssh-with-github)
+- [Permissions](#permissions)
 - [Change WSL version](#change-wsl-version)
 
 <!-- /TOC -->
@@ -498,7 +498,7 @@ Source Control menu in VSCode.
 
 Whilst the terminal is busy starting up the create-react-page we can
 open another tab in Hyper with Ctrl+Shift+t and open up VSCode with
-the `code .` command, navigate to teh `App.js` component and add a
+the `code .` command, navigate to the `App.js` component and add a
 `<h1>` tag to it just above the `<img>` tag with
 `<h1>Hello React!</h1>` in it.
 
@@ -518,11 +518,19 @@ terminal or visually from the Source Control section in VSCode.
 
 ![cra change](./cra-change.gif)
 
-Ok,
+Ok, time to add our super sweet code changes to a repository on GitHub
+for the world to see!
 
-### Permissions
+Next up we're going to go through adding the local changes we've made
+to a GitHub repository. If you haven't got a GitHub account and are
+following along now may be a good time to set one up.
 
-### Use SSH with GitHub
+## Use SSH with GitHub
+
+First up, we're going to make a repository on GitHub and push the
+changes we have made to it
+
+## Permissions
 
 ## Change WSL version
 
