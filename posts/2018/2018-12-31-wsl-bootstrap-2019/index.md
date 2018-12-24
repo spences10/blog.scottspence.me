@@ -408,6 +408,36 @@ yourself typing three extra characters!!!.
 Before we crack on with spinning up a Create React App instance we're
 going to need to configure Git, via the `.gitconfig` file.
 
+We're going to use nano to add some settings for Git, both in WSL and
+Windows, this is the extra config I mentioned earlier, apologies!
+
+First up we'll config our bash environment then move onto Git bash on
+Windows.
+
+```bash
+# open up the .gitconfig file in WSL bash
+# nano will create one if it doesn't exist
+nano ~/.gitconfig
+```
+
+It's nearly identical config for both environments apart from Windows
+uses the credential helper. I personally have it in both environments
+
+```bash
+# not needed in WSL
+[credential]
+  helper = manager
+[color]
+  ui = true
+
+[user]
+  name = yourGitHubUserName
+  email = yourGitHub@email.com
+
+[core]
+  editor = code --wait
+```
+
 ## Create React App
 
 Ok, we shall get create react app going so we can get Git configured
