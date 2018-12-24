@@ -67,8 +67,8 @@ What we're going to cover:
   - [Install Oh My Fish](#install-oh-my-fish)
     - [Fish themes with OMF](#fish-themes-with-omf)
 - [Configure](#configure)
-- [Create React App](#create-react-app)
 - [Git](#git)
+- [Create React App](#create-react-app)
   - [Permissions](#permissions)
   - [Use SSH with GitHub](#use-ssh-with-github)
 - [Change WSL version](#change-wsl-version)
@@ -403,6 +403,11 @@ yourself typing three extra characters!!!.
 
 ![alias fish in .bashrc](./alias-fish.gif)
 
+## Git
+
+Before we crack on with spinning up a Create React App instance we're
+going to need to configure Git, via the `.gitconfig` file.
+
 ## Create React App
 
 Ok, we shall get create react app going so we can get Git configured
@@ -447,17 +452,37 @@ If you want to see what scripts are available in the current project
 you can also use `npm run` which will list defined npm commands from
 the `package.json` file.
 
-A windows will open displaying the basic Create React App landing
-page, we're going to add a h1 to the `App.js` module then commit it,
-via the Source Control menu in VSCode.
+A window will open displaying the basic Create React App landing page,
+we're going to add a h1 to the `App.js` module then commit it, via the
+Source Control menu in VSCode.
 
 > Please bear in mind this is an up and running guide for a
 > development environment, I'm not going to be detailing developing in
 > React
 
+Whilst the terminal is busy starting up the create-react-page we can
+open another tab in Hyper with Ctrl+Shift+t and open up VSCode with
+the `code .` command, navigate to teh `App.js` component and add a
+`<h1>` tag to it just above the `<img>` tag with
+`<h1>Hello React!</h1>` in it.
+
+Now the landing page should show the newly added h1, we can confirm
+that the file is changed in Git by doing a `git status` from the
+terminal. Then we can commit it from either the terminal or the IDE
+(VSCode) my preference is to use VSCode as the visual diffing of files
+is great.
+
+Commit the changes with Ctrl+Enter if you have not selected the file
+you want to commit you wil get a dialogue telling you there are no
+staged changes to commit, you can select the files (in this case only
+the `App.js` file) by clicking the plus next to the file. Hitting
+Ctrl+Enter again will commit the changes with a message, you can check
+that there are no changes to commit with `git status` from the
+terminal or visually from the Source Control section in VSCode.
+
 ![cra change](./cra-change.gif)
 
-## Git
+Ok,
 
 ### Permissions
 
