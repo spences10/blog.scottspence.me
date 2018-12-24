@@ -67,7 +67,7 @@ What we're going to cover:
   - [Install Oh My Fish](#install-oh-my-fish)
     - [Fish themes with OMF](#fish-themes-with-omf)
 - [Configure](#configure)
-- [Git](#git)
+- [Git config](#git-config)
 - [Create React App](#create-react-app)
   - [Permissions](#permissions)
   - [Use SSH with GitHub](#use-ssh-with-github)
@@ -403,7 +403,7 @@ yourself typing three extra characters!!!.
 
 ![alias fish in .bashrc](./alias-fish.gif)
 
-## Git
+## Git config
 
 Before we crack on with spinning up a Create React App instance we're
 going to need to configure Git, via the `.gitconfig` file.
@@ -421,7 +421,7 @@ nano ~/.gitconfig
 ```
 
 It's nearly identical config for both environments apart from Windows
-uses the credential helper. I personally have it in both environments
+uses the credential helper. I personally have it in both environments.
 
 ```bash
 # not needed in WSL
@@ -437,6 +437,12 @@ uses the credential helper. I personally have it in both environments
 [core]
   editor = code --wait
 ```
+
+Make your changes then Ctrl+x to exit and confirm with y, that's the
+first part of the Git config done.
+
+In Git Bash for Windows do the same in the terminal, use nano to
+create a `.gitconfig` file and add the setting to it.
 
 ## Create React App
 
