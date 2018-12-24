@@ -22,7 +22,7 @@ Windows 10**
 
 I have been a professional web developer for 10 months now and used
 both MacOs and Windows in that time. My preferred OS to use is
-Windows, for no other reason than I prefer they keyboard layout.
+Windows, for no other reason than I prefer the keyboard layout.
 
 With Windows/Linux I like to have my Ctrl key as the key to use for
 copy paste operations and I can use my left pinky instead of my thumb.
@@ -89,7 +89,7 @@ doing that now:
 
 ![lsb_release image](./powershell.gif)
 
-Use Windows key+x, this is the same as right clicking the windows icon
+Use Windows key+x, this is the same as right-clicking the windows icon
 on the desktop, this will open the quick link menu. From here you need
 to select the Windows PowerShell (<u>A</u>dmin) option, you can do
 this by pressing **a** on the keyboard. So Windows key+x then a, will
@@ -142,7 +142,7 @@ three commands here will update and upgrade all the pre-installed
 software that comes with the Ubuntu install.
 
 The code below is three commands joined together with `&&`. The `-y`
-flag is to auto accept the changes that are going to be preformed with
+flag is to auto accept the changes that are going to be performed with
 the upgrades. Auto remove will remove unused packages left behind from
 upgrades.
 
@@ -166,7 +166,7 @@ it.
 sudo apt install -y build-essential
 ```
 
-From her on in I'd suggest using two bash windows, one with sudo
+From here on in I'd suggest using two bash windows, one with sudo
 enabled the other with standard permissions.
 
 > i.e. open a terminal and don't enter `sudo` in there, instead use
@@ -261,7 +261,7 @@ because, let's face it, the standard one is a bit basic.
 Enter [Hyper] an electron based terminal app that is super themeable
 and configurable.
 
-Download and install hyper for Windows, this will be the bare bones
+Download and install hyper for Windows, this will be the bare-bones
 version, it'll look something like this:
 
 ![basic hyper](./basic_hyper.png)
@@ -270,12 +270,12 @@ You may notice that, this is the Windows Command prompt too, don't
 worry, we're going to configure that right now.
 
 Open up the `.hyper.js` file located in the root of your user folder,
-or from Hyper itself use the sortcut key Ctrl+, to pop open the
+or from Hyper itself use the shortcut key Ctrl+, to pop open the
 settings.
 
 If the settings file (`.hyper.js`) opens in Notepad then you can set
 the default to be VSCode. In File Explorer (Use Windows key+e to open
-it) navigate to the file, it'll be in your User folder, right click
+it) navigate to the file, it'll be in your User folder, right-click
 the file and select Properties, then Change for 'Opens with:' and
 select VSCode from the list.
 
@@ -379,7 +379,7 @@ could tab to complete the rest of the command.
 
 ## Configure
 
-So, now we have a swanky looking new terminal and a bare bones VSCode
+So, now we have a swanky looking new terminal and a bare-bones VSCode
 install it's time to get things moving.
 
 I have a [cheat-sheets] repo detailing a lot of the configuration
@@ -393,7 +393,7 @@ edit it.
 
 From a new terminal type in `nano ~/.bashrc`, nano is a bash text
 editor. Scroll (or Page) down to the bottom of the file and add in an
-alias for fish, `alias f=fish` then to exit nano Ctrl+x and confirma
+alias for fish, `alias f=fish` then to exit nano Ctrl+x and confirm
 changes with a `y`. Reload the `.bashrc` file like we did after using
 n to install Node `. /home/scott/.bashrc` but your username in place
 of mine 😄, now we can use f instead of fish! Well done you saved
@@ -548,7 +548,7 @@ there are no `rsa` files before doing this.
 
 > You'll notice that we're doing this in bash rather than Fish.
 
-If there's nothing there then generate a new keys with:
+If there's nothing there then generate new keys with:
 
 ```bash
 # add your email address 👍
@@ -590,7 +590,7 @@ ssh -T git@github.com
 ### Windows Git Bash SSH Config
 
 For Windows Git Bash we're going to copy our SSH keys we've just
-generated in WSL over to Windows Git Bash, there's some subtle
+generated in WSL over to Windows Git Bash, there are some subtle
 differences when authenticating with Windows Git Bash.
 
 From Hyper, copy the SSH files from Linux to Windows:
@@ -692,3 +692,4 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 [cheat-sheet for fish]:
   https://github.com/spences10/cheat-sheets/blob/master/fish.md
 [dotfiles]: https://github.com/spences10/dotfiles
+[download section]: https://code.visualstudio.com/download
