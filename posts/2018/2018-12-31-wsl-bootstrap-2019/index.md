@@ -643,10 +643,23 @@ wslconfig /setdefault Debian
 
 ## Wrap up!
 
-That's it!
+That's it! We have gone from scratch to a functioning web development
+environment. There are several other personal things I'm now going to
+add to my install now which is aliases for both Git and Fish shell. If
+you are interested in them I have a [cheat-sheet for Fish] with a list
+of all my aliases I use, the same for my `.gitconfig` you can find
+that in my [dotfiles] repo
+
+**Thanks for reading** 🙏
+
+Please take a look at my other content if you enjoyed this.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 <!-- LINKS -->
 
+[twitter]: https://twitter.com/ScottDevTweets
+[ask me anything]: https://github.com/spences10/ama
 [the microsoft store]:
   https://www.microsoft.com/en-gb/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab
 [ubuntu 16.04 lts]:
@@ -676,3 +689,6 @@ That's it!
 [npx]:
   https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 [new ssh key]: https://github.com/settings/ssh/new
+[cheat-sheet for fish]:
+  https://github.com/spences10/cheat-sheets/blob/master/fish.md
+[dotfiles]: https://github.com/spences10/dotfiles
