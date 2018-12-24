@@ -528,7 +528,20 @@ following along now may be a good time to set one up.
 ## Use SSH with GitHub
 
 First up, we're going to make a repository on GitHub and push the
-changes we have made to it
+changes we have made to it, here we're going to click the + button in
+the top right of the GitHub home page, enter a repository name and
+GitHub will give you some defaults to choose from. As we have already
+made change locally we can ignore the first several commands but we do
+need the command to add the remote:
+
+```bash
+git remote add origin git@github.com:spences10/cra.git
+```
+
+And to push the changes up to GitHub `git push -u origin master` but
+we're going to get an error, as we haven't set up SSH.
+
+![cra change](./make-repo.gif)
 
 ## Permissions
 
