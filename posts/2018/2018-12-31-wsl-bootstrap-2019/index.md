@@ -623,6 +623,15 @@ ssh -T git@github.com
 
 ![ssh config win](./ssh-config-win.gif)
 
+Now the additional set up for SSH is done we should be able to go back
+to Hyper and push our change to GitHub.
+
+![final push github](./final-push-github.gif)
+
+Also you may have noticed that the SSH Key 🔑 token went from black to
+green on the settings screen there this indicates that you have
+authenticated.
+
 ## Permissions
 
 ## Change WSL version
