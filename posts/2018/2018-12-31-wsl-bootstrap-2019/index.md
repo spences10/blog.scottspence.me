@@ -70,6 +70,8 @@ What we're going to cover:
 - [Git config](#git-config)
 - [Create React App](#create-react-app)
 - [Use SSH with GitHub](#use-ssh-with-github)
+  - [WSL SSH Config](#wsl-ssh-config)
+  - [Windows Git Bash SSH Config](#windows-git-bash-ssh-config)
 - [Permissions](#permissions)
 - [Change WSL version](#change-wsl-version)
 
@@ -543,6 +545,55 @@ we're going to get an error, as we haven't set up SSH.
 
 ![cra change](./make-repo.gif)
 
+### WSL SSH Config
+
+Open a new bash tab in Hyper and enter `ls -al ~/.ssh` check that
+there are no `rsa` files before doing this.
+
+> You'll notice that we're doing this in bash rather than Fish.
+
+If there's nothing there then generate a new keys with:
+
+```bash
+# add your email address 👍
+ssh-keygen -t rsa -b 4096 -C yourGitHub@email.com
+```
+
+Now `ls -al ~/.ssh` will show two additional files:
+
+```bash
+
+```
+
+Add the SSH key to the SSH agent:
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+Add RSA key to SSH with:
+
+```bash
+ssh-add ~/.ssh/id_rsa
+```
+
+Now time to add the public SSH key to GitHub, in WSL were going to
+copy pasta the public SSH key with `cat ~/.ssh/id_rsa.pub` in Hyper
+then we can copy from Hyper to a [new SSH key].
+
+Finally authenticate with GitHub:
+
+```bash
+ssh -T git@github.com
+```
+
+![cra change](./ssh-config-wsl.gif)
+
+### Windows Git Bash SSH Config
+
+For Windows Git Bash we're going to copy our SSH keys we've just
+generated in WSL over to Windows Git Bash
+
 ## Permissions
 
 ## Change WSL version
@@ -608,3 +659,4 @@ Seemed to resolve the issue
 [cheat-sheets]: https://github.com/spences10/cheat-sheets
 [npx]:
   https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
+[new ssh key]: https://github.com/settings/ssh/new
