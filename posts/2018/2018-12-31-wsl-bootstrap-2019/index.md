@@ -562,10 +562,12 @@ ssh-keygen -t rsa -b 4096 -C yourGitHub@email.com
 Now `ls -al ~/.ssh` will show two additional files:
 
 ```bash
-
+# there should be a private and public key-pair
+id_rsa
+id_rsa.pub
 ```
 
-Add the SSH key to the SSH agent:
+Start the SSH agent:
 
 ```bash
 eval "$(ssh-agent -s)"
@@ -587,12 +589,39 @@ Finally authenticate with GitHub:
 ssh -T git@github.com
 ```
 
-![cra change](./ssh-config-wsl.gif)
+![ssh config wsl](./ssh-config-wsl.gif)
 
 ### Windows Git Bash SSH Config
 
 For Windows Git Bash we're going to copy our SSH keys we've just
-generated in WSL over to Windows Git Bash
+generated in WSL over to Windows Git Bash, there's some subtle
+differences when authenticating with Windows Git Bash.
+
+From Hyper, copy the SSH files from Linux to Windows:
+
+```bash
+cp ~/.ssh/* /c/Users/spenc/.ssh/
+```
+
+Start the SSH agent:
+
+```bash
+eval `ssh-agent -s`
+```
+
+Add the key to SSH agent:
+
+```bash
+ssh-add ~/.ssh/id_rsa
+```
+
+Authenticate:
+
+```bash
+ssh -T git@github.com
+```
+
+![ssh config win](./ssh-config-win.gif)
 
 ## Permissions
 
