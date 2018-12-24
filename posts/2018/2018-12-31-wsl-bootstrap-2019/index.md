@@ -1,6 +1,6 @@
 ---
 path: '/wsl-bootstrap-2019'
-date: '2018-12-31'
+date: '2018-12-24'
 title: 'Windows Web-dev bootstrap'
 tags:
   [
