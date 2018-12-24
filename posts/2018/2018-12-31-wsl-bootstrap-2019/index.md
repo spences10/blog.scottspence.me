@@ -424,7 +424,38 @@ npx create-react-app create-react-app
 This is creating the project in my home (`~`) folder, I've had to
 speed the gif up to 20x faster, it does take a while.🙃
 
+Wheeeeeeeeeeeeeeeeeeeee!
+
 ![npx cra](./npx-cra.gif)
+
+So, now that we have spun up a React app to work on we should make a
+change and then add it to GitHub.
+
+Navigate to the create-react-app folder in the terminal and open the
+project. You can open VSCode with the `code .` command, the `.`
+denotes the current folder in the terminal.
+
+This will open VSCode at the root of the create-react-app project,
+make sure everything is working as expected by running the start
+script in npm.
+
+```bash
+npm run start
+```
+
+If you want to see what scripts are available in the current project
+you can also use `npm run` which will list defined npm commands from
+the `package.json` file.
+
+A windows will open displaying the basic Create React App landing
+page, we're going to add a h1 to the `App.js` module then commit it,
+via the Source Control menu in VSCode.
+
+> Please bear in mind this is an up and running guide for a
+> development environment, I'm not going to be detailing developing in
+> React
+
+![cra change](./cra-change.gif)
 
 ## Git
 
