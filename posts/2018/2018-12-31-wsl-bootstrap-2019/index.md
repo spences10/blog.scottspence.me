@@ -539,7 +539,7 @@ git remote add origin git@github.com:spences10/cra.git
 And to push the changes up to GitHub `git push -u origin master` but
 we're going to get an error, as we haven't set up SSH.
 
-![cra change](./make-repo.gif)
+![make repo](./make-repo.gif)
 
 ### WSL SSH Config
 
