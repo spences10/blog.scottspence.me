@@ -35,8 +35,8 @@ you, if this is different from what you use, it doesn't make it bad.
 Let's see what Ken has to say about it:
 https://twitter.com/ken_wheeler/status/1075556283795824640
 
-This is the refresh on [my guide from the start of the year] on
-setting up a web development environment on a Windows machine.
+This is the refresh on [my guide from the start of 2018] on setting up
+a web development environment on a Windows machine.
 
 This guide will cover installing Ubuntu but you can use some of the
 other flavours of Linux available in the Windows store, the Debian
@@ -419,12 +419,16 @@ nano ~/.gitconfig
 ```
 
 It's nearly identical config for both environments apart from Windows
-uses the credential helper. I personally have it in both environments.
+uses the credential `manager` helper and WSL will need the `cache`
+helper.
 
 ```bash
-# not needed in WSL
+# needed in Git Bash for Windows
 [credential]
   helper = manager
+# needed in WSL
+[credential]
+  helper = cache
 [color]
   ui = true
 
@@ -666,7 +670,7 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
   https://www.microsoft.com/en-gb/p/ubuntu-1604-lts/9pjn388hp8c9?activetab=pivot:overviewtab
 [ubuntu 18.04 lts]:
   https://www.microsoft.com/en-gb/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab
-[my guide from the start of the year]:
+[my guide from the start of 2018]:
   https://blog.scottspence.me/wsl-setup/
 [official guidance]:
   https://docs.microsoft.com/en-us/windows/wsl/install-win10
