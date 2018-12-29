@@ -1,6 +1,6 @@
 ---
 path: '/javascript-snippets'
-date: '2018-12-31'
+date: '2019-12-31'
 title: 'JS snippets from around the web'
 tags: ['information', 'learning', 'javascript', 'snippets']
 published: false
