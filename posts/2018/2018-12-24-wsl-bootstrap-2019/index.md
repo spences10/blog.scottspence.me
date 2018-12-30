@@ -89,6 +89,9 @@ doing that now:
 
 ![lsb_release image](./powershell.gif)
 
+Whilst we're at it we should also enable hidden folders and add files
+extensions for known file types in Windows File Explorer.
+
 Use Windows key+x, this is the same as right-clicking the windows icon
 on the desktop, this will open the quick link menu. From here you need
 to select the Windows PowerShell (<u>A</u>dmin) option, you can do
