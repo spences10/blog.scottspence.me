@@ -90,13 +90,18 @@ doing that now:
 ![lsb_release image](./powershell.gif)
 
 Whilst we're at it we should also enable hidden folders and add files
-extensions for known file types in Windows File Explorer. Open the
-Windows File Explorer with Windows key+e then select View from the
-ribbon. Then click the Options button on the far right, this will
-bring up the Folder Options dialog, from here we want to select the
-View tab and select the Radio button for Hidden files and folders with
-the 'Show hidden files, folders and drives', uncheck the option for
-'Hide extensions for known file types' too. Click apply and Ok.
+extensions for known file types in Windows File Explorer.
+
+Open the Windows File Explorer with Windows key+e then select View
+from the ribbon. Then click the Options button on the far right, this
+will bring up the Folder Options dialog, from here we want to select
+the View tab and select the Radio button for Hidden files and folders
+with the 'Show hidden files, folders and drives', uncheck the option
+for 'Hide extensions for known file types' too. Click apply and Ok.
+
+The reason we're doing this is so that we can see the `.git` folder in
+project structures it's also needed for files like `.env` files which
+are used for environment configuration.
 
 ![show file extensions](./show-extensions.gif)
 
