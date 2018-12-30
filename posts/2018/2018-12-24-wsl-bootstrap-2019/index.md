@@ -90,7 +90,9 @@ doing that now:
 ![lsb_release image](./powershell.gif)
 
 Whilst we're at it we should also enable hidden folders and add files
-extensions for known file types in Windows File Explorer.
+extensions for known file types in Windows File Explorer. Open the
+Windows File Explorer with Windows key+e then select View from the
+ribbon. Then click the Options button on the far right, this will bring up the Folder Options dialog, from here we want to select the View tab and select the Radio button for Hidden files and folders with the 'Show hidden files, folders and drives'
 
 ![show file extensions](./show-extensions.gif)
 
