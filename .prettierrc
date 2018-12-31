@@ -1,7 +1,6 @@
 {
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
-  "parser": "babylon",
   "printWidth": 70,
   "semi": false,
   "singleQuote": true,
@@ -12,15 +11,21 @@
   "overrides": [
     {
       "files": ".prettierrc",
-      "options": { "parser": "json" }
+      "options": {
+        "parser": "json"
+      }
     },
     {
       "files": "*.md",
-      "options": { "parser": "markdown" }
+      "options": {
+        "parser": "markdown"
+      }
     },
     {
       "files": "*.json",
-      "options": { "parser": "json" }
+      "options": {
+        "parser": "json"
+      }
     }
   ]
 }

@@ -1,132 +1,94 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-// import TagsContainer from '../layouts/components/TagsContainer'
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
 
-import { StyledH1, StyledP } from '../theme/globalStyle'
-// import { slugIt } from '../utils/helpers'
+const Wrapper = styled.div``
 
 const PostWrapper = styled.div`
-  margin: 1rem;
-  padding: 0.15rem 0rem 0.15rem 0rem;
+  margin: 0.5rem;
+  padding: 1rem 1.5rem;
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 4px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-  &:hover {
-    transform: translateY(0.2px);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  }
-  background: ${({ theme }) => theme.foreground};
-  font-family: ${props => props.theme.fontBody};
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 5px;
-`
-
-const PostTitle = StyledH1.extend`
-  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
-  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
-  font-family: ${props => props.theme.fontHeader};
+  background: white;
+  line-height: 1.5;
+  font-family: ${({ theme }) => theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
-  font-weight: bold;
-  /* font-size: 1rem; */
-  &:hover {
-    transform: skew(2deg); /* SKEW */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  }
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 `
 
-const PostLink = styled(Link)`
-  display: inline-block;
-  padding: 0rem 0.25rem 0rem 0.25rem;
-  color: ${props => props.theme.fontDark};
-  &:visited,
-  &:active {
-    color: inherit;
-  }
-  &:hover {
-    color: ${({ theme }) => theme.primaryAccent};
-    background: ${({ theme }) => theme.primary};
-    border-radius: 4px;
-    transition: color 0.2s ease-out, background 0.2s ease-in;
-  }
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `
 
-const PostDate = StyledP.extend`
-  margin: 0rem 1rem 0rem 1rem;
+const PostTitle = styled.div`
+  font-family: ${({ theme }) => theme.fontHeader};
+  font-weight: 700;
+  font-size: 2rem;
+  color: ${({ theme }) => theme.fontLight};
+  margin: 0rem;
   padding: 0rem;
-  /* font-size: 0.75rem; */
-  font-weight: bold;
-  color: ${props => props.theme.fontLight};
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `
 
-// top right bottom left
-const PostExcerpt = StyledP.extend`
-  margin: 0.25rem 1rem 0.25rem 1rem;
-  padding: 0rem;
+const PostedDate = styled.p`
+  margin: 0.05rem;
+  color: ${({ theme }) => theme.fontLight};
 `
 
-const IndexPage = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark
+export default ({ data }) => {
   return (
-    <div>
-      {posts.map(({ node: post }, index) => {
-        const { frontmatter } = post
-        // {
-        //   console.log('====================')
-        //   console.log(`pages index post=${post}`)
-        //   console.log(`pages index index=${index}`)
-        //   console.log('====================')
-        // }
-        return (
+    <Layout>
+      <SEO
+        title={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description || 'nothin’'}
+        image={data.site.siteMetadata.imageLink}
+      />
+      <Wrapper>
+        {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
           <PostWrapper key={index}>
-            <PostTitle>
-              <PostLink to={frontmatter.path} key={index}>
-                {frontmatter.title}
-              </PostLink>
-            </PostTitle>
-            <PostDate>{frontmatter.date}</PostDate>
-            <PostExcerpt>{post.excerpt}</PostExcerpt>
-            {/* <TagsContainer
-              name={slugIt(frontmatter.title)}
-              tags={post.frontmatter.tags}
-              title="no"
-            /> */}
+            <StyledLink to={node.frontmatter.path}>
+              <PostTitle>{node.frontmatter.title}</PostTitle>
+              <PostedDate>{node.frontmatter.date}</PostedDate>
+              <p>{node.excerpt}</p>
+            </StyledLink>
           </PostWrapper>
-        )
-      })}
-    </div>
+        ))}
+      </Wrapper>
+    </Layout>
   )
 }
 
-/* eslint-disable */
 export const query = graphql`
-  query IndexQuery {
+  query {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
       totalCount
       edges {
         node {
-          excerpt(pruneLength: 250)
           id
+          excerpt(pruneLength: 250)
           frontmatter {
             title
-            date(formatString: "YYYY MMMM Do")
             path
-            tags
-            excerpt
+            date(formatString: "YYYY MMMM Do")
+            published
           }
         }
       }
     }
+    site {
+      siteMetadata {
+        title
+        description
+        imageLink
+      }
+    }
   }
 `
-/* eslint-enable */
-
-IndexPage.propTypes = {
-  data: PropTypes.object.isRequired
-}
-
-export default IndexPage

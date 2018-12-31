@@ -1,4 +1,5 @@
-import styled, { injectGlobal, css } from 'styled-components'
+// https://www.styled-components.com/docs/api#injectglobal
+import { createGlobalStyle, css } from 'styled-components'
 
 export const themes = {
   theme1: {
@@ -31,8 +32,8 @@ export const themes = {
     fontDark: '#34434b',
     fontLight: '#586368',
     fontWhite: '#ffffff',
-    fontHeader: 'Lato, sans-serif',
-    fontBody: 'Merriweather, sans, sans-serif'
+    fontHeader: 'Trirong, sans, sans-serif',
+    fontBody: 'Rubik, sans-serif'
   },
 
   theme3: {
@@ -48,8 +49,8 @@ export const themes = {
     fontDark: '#034544',
     fontLight: '#596869',
     fontWhite: '#ffffff',
-    fontHeader: 'Roboto, sans, sans-serif',
-    fontBody: 'Nunito, sans-serif'
+    fontHeader: 'Eczar, sans, sans-serif',
+    fontBody: 'Taviraj, sans-serif'
   }
 }
 
@@ -76,128 +77,48 @@ export const media = Object.keys(sizes).reduce(
   {}
 )
 
-injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Poppins:400,700|Trirong:400,700|Rubik:400,700|Eczar:400,700|Taviraj:400,700');
-  @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
-
-  p[class*='language-'],
-  code[class*='language-'],
-  pre[class*='language-'] {
-    font-family: dm, Consolas, Courier, monospace;
-  }
-
-  *, *:before, *:after {
-    box-sizing: border-box;
-  }
-
-  /* * {
-    outline: 1px solid red !important;
-  } */
-
-  html {
-    /* font-size: 18px; */
-  }
-
-  ${media.giant`
-    html {
-      /* font-size: 1rem; */
+export const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Poppins:400,700|Trirong:400,700|Rubik:400,700|Eczar:400,700|Taviraj:400,700');
+    @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
+    
+    p[class*='language-'],
+    code[class*='language-'],
+    pre[class*='language-'] {
+      font-family: dm, Consolas, Courier, monospace;
     }
-  `};
-  ${media.desktop`
-    html {
-      /* font-size: 1rem; */
+    *, *:before, *:after {
+      box-sizing: border-box;
     }
-  `};
-  ${media.tablet`
-    html {
-      /* font-size: 1rem; */
+    /* use for debugging only!! */
+    /* * {
+      outline: 1px solid red !important;
+    } */
+    body {
+      padding: 0;
+      margin: 0;
+      line-height: 1.3125;
     }
-  `};
-  ${media.phone`
-    html {
-      /* font-size: 1rem; */
+    a {
+      text-decoration: none;
     }
-  `};
-
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: ${props => props.theme.fontBody};
-    /* font-size: 0.75rem; */
-    line-height: 1.3125;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  a:active, a:focus {
-    outline: 0;
-    border: none;
-    -moz-outline-style: none
-  }
-
-  :focus {
-    outline:none;
-  }
-  
-  ::-moz-focus-inner {
-    border:0;
-  }
-
-  ul {
-    margin: 0 auto;
-  }
-`
-
-export const StyledH1 = styled.h1`
-  padding: 0.5rem;
-  margin: 0.5rem;
-  font-family: ${props => props.theme.fontHeader};
-`
-
-export const StyledH2 = styled.h2`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledH3 = styled.h3`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledH4 = styled.h4`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledH5 = styled.h5`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledH6 = styled.h6`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledP = styled.p`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledUl = styled.ul`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
-
-export const StyledLi = styled.li`
-  padding: 1.75rem;
-  margin: 0.5rem;
-  text-decoration: none;
-`
-
-export const StyledA = styled.a`
-  padding: 1.75rem;
-  margin: 0.5rem;
-`
+    ul {
+      margin: 0 auto;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .embedVideoIframe {
+      width: 100%;
+    }
+    blockquote {
+      border-left: 5px solid #ccc;
+      padding-left: 5px;
+      font-style: italic;
+    }
+    /* code {
+      font-family: dm;
+      color: rgb(101, 123, 131);
+      background-color: rgb(253, 246, 227);
+    } */
+  `
