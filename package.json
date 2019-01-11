@@ -1,6 +1,6 @@
 {
   "name": "blog.scottspence.me",
-  "version": "3.0.187",
+  "version": "3.0.188",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
@@ -23,7 +23,7 @@
     "gatsby-remark-embed-video": "1.4.0",
     "gatsby-remark-images": "3.0.1",
     "gatsby-remark-prismjs": "3.2.0",
-    "gatsby-source-filesystem": "2.0.13",
+    "gatsby-source-filesystem": "2.0.16",
     "gatsby-transformer-remark": "2.2.0",
     "netlify-cms": "2.3.3",
     "prismjs": "1.15.0",
