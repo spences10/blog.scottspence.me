@@ -137,9 +137,10 @@ module.exports = {
         anonymize: false
       }
     },
+    'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-catch-links',
     // this has to stay at the end of the array
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-catch-links'
+    'gatsby-plugin-netlify'
   ]
 }
