@@ -5,8 +5,11 @@
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
+    "@mdx-js/mdx": "^0.16.6",
+    "@mdx-js/tag": "^0.16.6",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "2.0.91",
+    "gatsby-mdx": "^0.3.5",
     "gatsby-plugin-favicon": "3.1.5",
     "gatsby-plugin-google-analytics": "2.0.9",
     "gatsby-plugin-manifest": "2.0.13",
@@ -25,11 +28,14 @@
     "gatsby-remark-prismjs": "3.2.0",
     "gatsby-source-filesystem": "2.0.16",
     "gatsby-transformer-remark": "2.2.0",
+    "mdx-utils": "0.0.2",
     "netlify-cms": "2.3.3",
+    "prism-react-renderer": "^0.1.5",
     "prismjs": "1.15.0",
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-helmet": "5.2.0",
+    "react-live": "^1.12.0",
     "styled-components": "4.1.3"
   },
   "devDependencies": {
