@@ -51,6 +51,23 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer'
+            }
+          },
+          {
+            resolve: 'gatsby-remark-autolink-headers'
+          }
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
