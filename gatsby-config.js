@@ -139,6 +139,7 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     // this has to stay at the end of the array
-    'gatsby-plugin-netlify'
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-catch-links'
   ]
 }
