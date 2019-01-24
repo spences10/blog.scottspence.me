@@ -33,3 +33,22 @@ machines at work and have two git accounts, GitHib and Bitbucket
   User git
   IdentityFile ~/.ssh/id_spences10GitHub
 ```
+
+Check current permissions with `stat`:
+
+```bash
+# stat -c "%a %n" ~/.ssh/*
+644 /home/scott/.ssh/config
+700 /home/scott/.ssh/id_rsa
+700 /home/scott/.ssh/id_rsa.pub
+700 /home/scott/.ssh/id_spences10GitHub
+700 /home/scott/.ssh/id_spences10GitHub.pub
+```
+
+Copy the `rsa` keys from OneDrive to respective locations and add
+permissions as above.
+
+```bash
+chmod 700 ~/.ssh/id_rsa.pub
+# etc...
+```
