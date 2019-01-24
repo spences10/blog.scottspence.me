@@ -1,12 +1,12 @@
 {
   "name": "blog.scottspence.me",
-  "version": "3.0.203",
+  "version": "3.0.204",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
     "babel-plugin-styled-components": "1.10.0",
-    "gatsby": "2.0.96",
+    "gatsby": "2.0.97",
     "gatsby-plugin-favicon": "3.1.5",
     "gatsby-plugin-google-analytics": "2.0.10",
     "gatsby-plugin-manifest": "2.0.13",
@@ -23,7 +23,7 @@
     "gatsby-remark-copy-linked-files": "2.0.8",
     "gatsby-remark-embed-video": "1.4.0",
     "gatsby-remark-images": "3.0.1",
-    "gatsby-remark-prismjs": "3.2.0",
+    "gatsby-remark-prismjs": "3.2.2",
     "gatsby-source-filesystem": "2.0.17",
     "gatsby-transformer-remark": "2.2.0",
     "netlify-cms": "2.3.3",
