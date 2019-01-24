@@ -20,5 +20,16 @@ Ove the past couple of week now I have set up several development
 machines at work and have two git accounts, GitHib and Bitbucket
 
 ```bash
+# cat ~/.ssh/config
+# Bitbucket (default)
+  Host bb
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/id_rsa
 
+# Github (secondary)
+  Host gh
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_spences10GitHub
 ```
