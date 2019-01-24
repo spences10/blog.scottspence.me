@@ -9,8 +9,6 @@ tags:
     'guide',
     'wsl',
     'bash on windows',
-    'n',
-    'node',
     'git',
   ]
 published: true
