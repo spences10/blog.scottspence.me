@@ -14,8 +14,13 @@ tags:
 published: true
 ---
 
-Ove the past couple of week now I have set up several development
-machines at work and have two git accounts, GitHib and Bitbucket
+Ove the past couple of weeks now I have set up several development
+machines at work and have two git accounts, GitHib and Bitbucket.
+
+To connect to both I use SSH, I have been using SSH in place of HTTPS
+for quite some time now, if you want to con
+
+Having two Types of accounts can get a bit frustrating
 
 ```bash
 # cat ~/.ssh/config
