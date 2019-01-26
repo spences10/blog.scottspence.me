@@ -18,9 +18,12 @@ Ove the past couple of weeks now I have set up several development
 machines at work and have two git accounts, GitHib and Bitbucket.
 
 To connect to both I use SSH, I have been using SSH in place of HTTPS
-for quite some time now, if you want to con
+for quite some time now, if you want to connect repeatedly without
+having to provide user name and password details then SSH is a good
+option.
 
-Having two Types of accounts can get a bit frustrating
+I have come across this set-up a few times now and implemented it for
+myself.
 
 ```bash
 # cat ~/.ssh/config
