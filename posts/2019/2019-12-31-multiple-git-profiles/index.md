@@ -27,9 +27,9 @@ If you are unfamiliar with using SSH to authenticate with git then
 take a look at my cheat sheets repository ([ss10.me/cheat-sheets])
 there are several sections covering SSH, notably:
 
-- [how-to-authenticate-with-github-using-ssh]
-- [use-multiple-ssh-keys] (what this post is covering)
-- [re-use-ssh-keys-from-one-machine-to-another]
+- [How to Authenticate with GitHub Using SSH]
+- [Use multiple SSH Keys] (what this post is covering)
+- [Re Use SSH Keys from one Machine to Another]
 
 I have come across this set-up a few times now and implemented it for
 myself.
@@ -44,6 +44,14 @@ ll ~/.ssh/
 
 This will list out the contents of the folder, if you get
 `No such file or directory` then you don't have SSH configured.
+
+Take a look at the
+
+For this example let's presume that we have already created our SSH
+keys for Bitbucket and GitHub and authenticated with both Bitbucket
+and GitHub.
+
+Next create a `config` file
 
 ```bash
 # cat ~/.ssh/config
@@ -82,10 +90,10 @@ chmod 700 ~/.ssh/id_default.pub
 <!-- Links -->
 
 [ss10.me/cheat-sheets]: https://github.com/spences10/cheat-sheets
-[how-to-authenticate-with-github-using-ssh]:
+[how to authenticate with github using ssh]:
   https://github.com/spences10/cheat-sheets/blob/master/git.md#how-to-authenticate-with-github-using-ssh
-[use-multiple-ssh-keys]:
+[use multiple ssh keys]:
   https://github.com/spences10/cheat-sheets/blob/master/git.md#use-multiple-ssh-keys
-[re-use-ssh-keys-from-one-machine-to-another]:
+[re use ssh keys from one machine to another]:
   https://github.com/spences10/cheat-sheets/blob/master/git.md#re-use-ssh-keys-from-one-machine-to-another
 [wsl set-up]: https://blog.scottspence.me/wsl-bootstrap-2019
