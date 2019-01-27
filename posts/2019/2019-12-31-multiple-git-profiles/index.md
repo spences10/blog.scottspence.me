@@ -88,13 +88,29 @@ Check current permissions with `stat`:
 700 /home/scott/.ssh/id_secondary.pub
 ```
 
-Change the `config` file permissions is needed:
+Change the `config` file permissions as needed:
 
 ```bash
 chmod 644 ~/.ssh/config
 ```
 
-##
+## Multiple users
+
+Ok now we should be able to push and pull to the respective GitHub and
+Bitbucket repositories, _but_ unless you have the same username and
+email address for GitHub and Bitbucket then we're also going to need
+to specify specific user details for the repositories we're accessing.
+
+In my case for work my default user account is Bitbucket so that is
+what I have specified in the `.gitconfig`, however for the GitHub
+repos I work on I'll need to specify my GitHub credentials on a repo
+by repo basis.
+
+> This is a bit clunky and I'd be thrilled if someone can enlighten me
+> as to how to switch user details per repository then I'd be most
+> grateful.
+
+For now
 
 <!-- Links -->
 
