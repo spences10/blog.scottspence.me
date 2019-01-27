@@ -45,16 +45,22 @@ ll ~/.ssh/
 This will list out the contents of the folder, if you get
 `No such file or directory` then you don't have SSH configured.
 
-Take a look at the
+Take a look at the [How to Authenticate with GitHub Using SSH] section
+on the cheat-sheets repo for details on that.
 
 For this example let's presume that we have already created our SSH
 keys for Bitbucket and GitHub and authenticated with both Bitbucket
 and GitHub.
 
-Next create a `config` file
+Next create a `config` file:
 
 ```bash
-# cat ~/.ssh/config
+nano ~/.ssh/config
+```
+
+This will open a new file with nano that we can add the following to:
+
+```bash
 # Bitbucket (default)
   Host bb
   HostName bitbucket.org
@@ -68,6 +74,9 @@ Next create a `config` file
   IdentityFile ~/.ssh/id_secondary
 ```
 
+Just remember that the `IdentityFile` needs to match what you have
+called your SSH keys.
+
 Check current permissions with `stat`:
 
 ```bash
@@ -79,13 +88,13 @@ Check current permissions with `stat`:
 700 /home/scott/.ssh/id_secondary.pub
 ```
 
-Copy the `rsa` keys from OneDrive to respective locations and add
-permissions as above.
+Change the `config` file permissions is needed:
 
 ```bash
-chmod 700 ~/.ssh/id_default.pub
-# etc...
+chmod 644 ~/.ssh/config
 ```
+
+##
 
 <!-- Links -->
 
