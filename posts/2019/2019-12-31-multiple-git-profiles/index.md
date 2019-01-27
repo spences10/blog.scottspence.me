@@ -117,6 +117,31 @@ git config user.name 'Your Name'
 git config user.email 'your@email.com'
 ```
 
+I have since found an ok solution here:
+https://stackoverflow.com/a/43654115/1138354
+
+Example:
+
+Global config `~/.gitconfig`
+
+```bash
+
+[user]
+  name = play.user
+  email = play.user@gmail.com
+
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig
+```
+
+Work specific config `~/work/.gitconfig`
+
+```bash
+[user]
+  name = work.user
+  email = work.user@megacorp.ltd
+```
+
 <!-- Links -->
 
 [ss10.me/cheat-sheets]: https://github.com/spences10/cheat-sheets
