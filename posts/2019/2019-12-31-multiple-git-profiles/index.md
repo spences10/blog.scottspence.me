@@ -111,6 +111,12 @@ by repo basis.
 Historically I have gone into the individual repo and manually set the
 config details.
 
+```bash
+# from the root of the repo you want to specify the credentials
+git config user.name 'Your Name'
+git config user.email 'your@email.com'
+```
+
 <!-- Links -->
 
 [ss10.me/cheat-sheets]: https://github.com/spences10/cheat-sheets
