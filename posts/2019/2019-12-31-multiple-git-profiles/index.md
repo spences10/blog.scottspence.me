@@ -108,6 +108,9 @@ what I have specified in the `~/.gitconfig`, however for the GitHub
 repos I work on I'll need to specify my GitHub credentials on a repo
 by repo basis.
 
+Historically I have gone into the individual repo and manually set the
+config details.
+
 <!-- Links -->
 
 [ss10.me/cheat-sheets]: https://github.com/spences10/cheat-sheets
