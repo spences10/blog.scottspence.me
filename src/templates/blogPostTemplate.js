@@ -2,12 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
+import Utterances from 'react-utterances'
 
 // import { Dump } from '../utils/helpers'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 
 import { HappyButton } from '../components/Shared'
+
+const repo = 'spences10/blog.scottspence.me'
 
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
@@ -118,6 +121,7 @@ const blogPostLayout = ({ data, pageContext }) => {
             )}
           </LinkWrapper>
         </LinksWrapper>
+        <Utterances repo={repo} type={'url'} />
       </PostWrapper>
     </Layout>
   )
