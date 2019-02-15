@@ -5,7 +5,6 @@
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
-    "@weknow/gatsby-remark-twitter": "^0.2.0",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "2.1.4",
     "gatsby-plugin-catch-links": "2.0.11",
@@ -51,7 +50,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve --verbose",
     "buildAndServe": "npm run build && npm run serve",
-    "dev": "gatsby develop --verbose --open --p 8000",
+    "dev": "gatsby develop --verbose",
     "format": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "release": "release-it",
