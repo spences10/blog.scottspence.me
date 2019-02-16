@@ -56,6 +56,7 @@ module.exports = {
         plugins: [
           'gatsby-remark-autolink-headers',
           'gatsby-remark-copy-linked-files',
+          '@weknow/gatsby-remark-twitter',
           {
             resolve: 'gatsby-remark-images',
             options: {
