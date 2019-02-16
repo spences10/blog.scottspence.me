@@ -5,6 +5,7 @@
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
   "dependencies": {
+    "@weknow/gatsby-remark-twitter": "^0.2.0",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "2.1.4",
     "gatsby-plugin-catch-links": "2.0.11",
