@@ -1,3 +1,6 @@
 {
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#ff0198"
+  },
   "cSpell.words": ["devto", "reprism", "smackdown"]
 }
