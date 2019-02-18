@@ -78,6 +78,13 @@ module.exports = {
             options: {
               classPrefix: siteMetadata.prismJsLanguages
             }
+          },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noopener'
+            }
           }
         ]
       }
