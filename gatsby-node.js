@@ -5,11 +5,7 @@ exports.createPages = ({ actions, graphql }) => {
   const blogPostTemplate = path.resolve(
     'src/templates/blogPostTemplate.js'
   )
-  const blogListTemplate = path.resolve(
-    'src/templates/blogListTemplate.js'
-  )
 
-  // build the blog pages from querying allMarkdownRemark
   // returns promise that will start with this graphql query
   return graphql(`
     {
@@ -38,27 +34,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    // get all posts
     const posts = result.data.allMarkdownRemark.edges
-    // number of posts per page
-    const postsPerPage = 5
-    // work out how many pages needed
-    const numPages = Math.ceil(posts.length / postsPerPage)
-    createTagPages(createPage, posts)
 
-    Array.from({ length: numPages }).forEach((_, index) => {
-      createPage({
-        path: index === 0 ? `/page-1` : `/page-${index + 1}`,
-        component: blogListTemplate,
-        context: {
-          limit: postsPerPage,
-          skip: index * postsPerPage,
-          prevList: index === 0 ? null : `/page-${index}`,
-          nextList:
-            index + 1 >= numPages ? null : `/page-${index + 2}`
-        }
-      })
-    })
+    createTagPages(createPage, posts)
 
     // Create pages for each markdown file.
     posts.forEach(({ node }, index) => {
@@ -74,8 +52,6 @@ exports.createPages = ({ actions, graphql }) => {
         }
       })
     })
-    // create redirects
-    makeBlogRedirects(actions)
 
     return posts
   })
@@ -120,51 +96,5 @@ const createTagPages = (createPage, posts) => {
         tagName
       }
     })
-  })
-}
-
-const makeBlogRedirects = actions => {
-  /**
-   * janky ass way to do this, I'm going to add in pagination
-   * to the blog retrospectively so paths currently are from
-   * the home page "scottspence.me/wsl-setup" I'm now going
-   * to be adding in pagination so will be more like this
-   * "scottspence.me/page-2/wsl-setup" so here I'm going to
-   * add in batch redirects for everything as it is currently
-   *
-   * */
-
-  //  https://github.com/gatsbyjs/gatsby/blob/master/examples/using-redirects/README.md
-
-  const { createRedirect } = actions
-
-  let redirectBatch = [
-    { f: `/`, t: `/page-1` }
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` },
-    // { f: `/`, t: `/` }
-  ]
-
-  redirectBatch.forEach(({ f, t }) => {
-    createRedirect({
-      fromPath: f,
-      redirectInBrowser: true,
-      toPath: t
-    })
-    console.log('\nRedirecting:\n' + f + '\nTo:\n' + t + '\n')
   })
 }

@@ -33,10 +33,11 @@ If you don't have a Windows machine then this post probably isn't for
 you, if this is different from what you use, it doesn't make it bad.
 
 Let's see what Ken has to say about it:
+
 https://twitter.com/ken_wheeler/status/1075556283795824640
 
-This is the refresh on [my guide from the start of the year] on
-setting up a web development environment on a Windows machine.
+This is the refresh on [my guide from the start of 2018] on setting up
+a web development environment on a Windows machine.
 
 This guide will cover installing Ubuntu but you can use some of the
 other flavours of Linux available in the Windows store, the Debian
@@ -88,6 +89,22 @@ page located in the Personalisation section in the Settings, I suggest
 doing that now:
 
 ![lsb_release image](./powershell.gif)
+
+Whilst we're at it we should also enable hidden folders and add files
+extensions for known file types in Windows File Explorer.
+
+Open the Windows File Explorer with Windows key+e then select View
+from the ribbon. Then click the Options button on the far right, this
+will bring up the Folder Options dialog, from here we want to select
+the View tab and select the Radio button for Hidden files and folders
+with the 'Show hidden files, folders and drives', uncheck the option
+for 'Hide extensions for known file types' too. Click apply and Ok.
+
+The reason we're doing this is so that we can see the `.git` folder in
+project structures it's also needed for files like `.env` files which
+are used for environment configuration.
+
+![show file extensions](./show-extensions.gif)
 
 Use Windows key+x, this is the same as right-clicking the windows icon
 on the desktop, this will open the quick link menu. From here you need
@@ -419,12 +436,16 @@ nano ~/.gitconfig
 ```
 
 It's nearly identical config for both environments apart from Windows
-uses the credential helper. I personally have it in both environments.
+uses the credential `manager` helper and WSL will need the `cache`
+helper.
 
 ```bash
-# not needed in WSL
+# needed in Git Bash for Windows
 [credential]
   helper = manager
+# needed in WSL
+[credential]
+  helper = cache
 [color]
   ui = true
 
@@ -666,7 +687,7 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
   https://www.microsoft.com/en-gb/p/ubuntu-1604-lts/9pjn388hp8c9?activetab=pivot:overviewtab
 [ubuntu 18.04 lts]:
   https://www.microsoft.com/en-gb/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab
-[my guide from the start of the year]:
+[my guide from the start of 2018]:
   https://blog.scottspence.me/wsl-setup/
 [official guidance]:
   https://docs.microsoft.com/en-us/windows/wsl/install-win10

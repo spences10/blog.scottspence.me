@@ -58,7 +58,7 @@ const AppStyles = styled.div`
   `};
 `
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   grid-area: m;
 `
 

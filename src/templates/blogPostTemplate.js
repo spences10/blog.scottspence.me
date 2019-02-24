@@ -2,17 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
+import Utterances from 'react-utterances'
 
 // import { Dump } from '../utils/helpers'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 
-import {
-  PostWrapper,
-  LinksWrapper,
-  LinkWrapper,
-  PrevNextButton
-} from '../components/Shared'
+import { HappyButton } from '../components/Shared'
+
+const repo = 'spences10/blog.scottspence.me'
 
 // add prismjs theme
 require('prismjs/themes/prism-solarizedlight.css')
@@ -36,6 +34,44 @@ const TitleDate = styled.p`
   font-family: ${({ theme }) => theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
   border-bottom: 1px solid ${({ theme }) => theme.background};
+`
+
+const PostWrapper = styled.div`
+  margin: 0.5rem;
+  padding: 1.5rem;
+  background: ${({ theme }) => theme.foreground};
+  border: 1px solid ${props => props.border};
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  -moz-document url-prefix() {
+    /* Firefox doesn't respect max-width in certain situations */
+    img {
+      width: 100%;
+      max-width: -moz-max-content;
+    }
+  }
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
+`
+
+const LinksWrapper = styled.div`
+  display: grid;
+  grid-template-areas: 'prev next';
+`
+
+const LinkWrapper = styled.div`
+  display: grid;
+  justify-items: ${props => props.justify};
+`
+
+const PrevNextButton = styled(HappyButton)`
+  margin: 0.5rem 0rem;
+  padding: 0.5rem;
+  grid-area: ${props => props.area};
 `
 
 const blogPostLayout = ({ data, pageContext }) => {
@@ -85,6 +121,7 @@ const blogPostLayout = ({ data, pageContext }) => {
             )}
           </LinkWrapper>
         </LinksWrapper>
+        <Utterances repo={repo} type={'url'} />
       </PostWrapper>
     </Layout>
   )

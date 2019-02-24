@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 
 export const Button = styled.button`
   color: ${props => props.color};
@@ -68,54 +67,4 @@ export const StyledHyperLink = styled.a`
     color: ${props => props.theme.secondary};
   }
   color: ${props => props.theme.primary};
-`
-
-export const Wrapper = styled.div``
-
-export const PostWrapper = styled.div`
-  margin: 0.5rem;
-  padding: 1rem 1.5rem;
-  border: 1px solid ${({ theme }) => theme.border};
-  border-radius: 4px;
-  background: white;
-  line-height: 1.5;
-  font-family: ${({ theme }) => theme.fontBody};
-  color: ${({ theme }) => theme.fontLight};
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-`
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`
-
-export const PostTitle = styled.div`
-  font-family: ${({ theme }) => theme.fontHeader};
-  font-weight: 700;
-  font-size: 2rem;
-  color: ${({ theme }) => theme.fontLight};
-  margin: 0rem;
-  padding: 0rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-`
-
-export const PostedDate = styled.p`
-  margin: 0.05rem;
-  color: ${({ theme }) => theme.fontLight};
-`
-
-export const LinksWrapper = styled.div`
-  display: grid;
-  grid-template-areas: 'prev next';
-`
-
-export const LinkWrapper = styled.div`
-  display: grid;
-  justify-items: ${props => props.justify};
-`
-
-export const PrevNextButton = styled(HappyButton)`
-  margin: 0.5rem 0rem;
-  padding: 0.5rem;
-  grid-area: ${props => props.area};
 `
