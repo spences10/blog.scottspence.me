@@ -1,11 +1,10 @@
+import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Link, StaticQuery, graphql } from 'gatsby'
-
-import ThemeSelect from '../components/ThemeSelect'
 import { StyledHyperLink as SHL } from '../components/Shared'
-
+import ThemeSelect from '../components/ThemeSelect'
 import { media } from '../theme/globalStyle'
+import useSiteMetadata from './SiteMetadata'
 
 // import rSLogo from '../img/reactStatic.png'
 // import gCSMLogo from '../img/powered_by_graphcms-1.svg'
@@ -125,9 +124,8 @@ const StyledLink = styled(Link)`
   text-transform: capitalize;
 `
 
-const Footer = ({ data }) => {
-  const pages = data.site.siteMetadata.pages
-  const contact = data.site.siteMetadata.contact
+const Footer = () => {
+  const { pages, contact } = useSiteMetadata()
   return (
     <FooterWrapper>
       <ThemeSelect />
@@ -156,21 +154,4 @@ const Footer = ({ data }) => {
   )
 }
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query FooterData {
-        site {
-          siteMetadata {
-            pages
-            contact {
-              name
-              link
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Footer data={data} {...props} />}
-  />
-)
+export default Footer
