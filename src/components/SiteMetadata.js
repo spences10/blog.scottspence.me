@@ -7,6 +7,11 @@ const useSiteMetadata = () => {
         site {
           siteMetadata {
             title
+            titleTemplate
+            description
+            siteUrl
+            imageLink
+            twitterUsername
             pages
             contact {
               name
