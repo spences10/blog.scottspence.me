@@ -6,9 +6,5 @@
   "automerge": true,
   "major": {
     "automerge": false
-  },
-  "lockFileMaintenance": {
-    "enabled": true,
-    "extends": "schedule:weekly"
   }
 }
