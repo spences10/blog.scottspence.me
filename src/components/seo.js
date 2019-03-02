@@ -9,45 +9,68 @@ const SEO = ({ title, description, image, pathname, article }) => {
     description,
     image,
     siteUrl,
-    imageLink
+    imageLink,
+    siteLanguage,
+    titleTemplate
   } = useSiteMetadata()
 
   return (
-    <>
-      <Helmet title={seo.title} titleTemplate={titleTemplate}>
-        <meta name="description" content={seo.description} />
-        <meta name="image" content={seo.image} />
-        {seo.url && <meta property="og:url" content={seo.url} />}
-        {(article ? true : null) && (
-          <meta property="og:type" content="article" />
-        )}
-        {seo.title && (
-          <meta property="og:title" content={seo.title} />
-        )}
-        {seo.description && (
-          <meta property="og:description" content={seo.description} />
-        )}
-        {seo.image && (
-          <meta property="og:image" content={seo.image} />
-        )}
-        <meta name="twitter:card" content="summary_large_image" />
-        {twitterUsername && (
-          <meta name="twitter:creator" content={twitterUsername} />
-        )}
-        {seo.title && (
-          <meta name="twitter:title" content={seo.title} />
-        )}
-        {seo.description && (
-          <meta
-            name="twitter:description"
-            content={seo.description}
-          />
-        )}
-        {seo.image && (
-          <meta name="twitter:image" content={seo.image} />
-        )}
-      </Helmet>
-    </>
+    <Helmet
+      htmlAttributes={{
+        siteLanguage
+      }}
+      title={title}
+      titleTemplate={titleTemplate}
+      meta={[
+        {
+          name: `description`,
+          content: description
+        },
+        {
+          property: `og:title`,
+          content: title
+        },
+        {
+          property: `og:description`,
+          content: description
+        },
+        {
+          property: `og:type`,
+          content: `website`
+        },
+        {
+          name: `twitter:card`,
+          content: `summary`
+        },
+        {
+          name: `twitter:image`,
+          content: `${
+            site.siteMetadata.siteUrl
+          }icons/icon-512x512.png`
+        },
+        {
+          name: `twitter:creator`,
+          content: site.siteMetadata.author
+        },
+        {
+          name: `twitter:title`,
+          content: title
+        },
+        {
+          name: `twitter:description`,
+          content: description
+        }
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `)
+              }
+            : []
+        )
+        .concat(meta)}
+    />
   )
 }
 
