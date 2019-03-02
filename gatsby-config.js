@@ -10,7 +10,7 @@ const siteMetadata = {
   pages: ['tags'], //'about', 'contact',
   nameContent: 'Scott Spence - blog',
   developerName: 'Scott Spence',
-  developerUrl: 'https.scottspence.me',
+  developerUrl: 'https://scottspence.me',
   keywordsContent:
     'blog, web developer, javascript, react, learning, information, how to',
   imageLink: 'https://blog.scottspence.me/icons/icon-512x512.png',
