@@ -45,6 +45,8 @@ const PostWrapper = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
+  font-family: ${props => props.theme.fontBody};
+  color: ${props => props.theme.fontDark};
 `
 
 const LinksWrapper = styled.div`
