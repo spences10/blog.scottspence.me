@@ -3,35 +3,41 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import useSiteMetadata from './SiteMetadata'
 
-const SEO = ({ title, description, keywords }) => {
+const SEO = ({ keywords, meta, description, title, image }) => {
   const {
-    description,
-    imageLink,
+    description: defaultDescription,
+    imageLink: defaultImage,
     siteLanguage,
-    title,
+    title: defaultTitle,
     titleTemplate,
     twitterUsername
   } = useSiteMetadata()
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${image || defaultImage}`
+  }
 
   return (
     <Helmet
       htmlAttributes={{
         siteLanguage
       }}
-      title={title}
+      title={seo.title}
       titleTemplate={titleTemplate}
       meta={[
         {
           name: `description`,
-          content: description
+          content: seo.description
         },
         {
           property: `og:title`,
-          content: title
+          content: seo.title
         },
         {
           property: `og:description`,
-          content: description
+          content: seo.description
         },
         {
           property: `og:type`,
@@ -43,7 +49,7 @@ const SEO = ({ title, description, keywords }) => {
         },
         {
           name: `twitter:image`,
-          content: imageLink
+          content: seo.imageLink
         },
         {
           name: `twitter:creator`,
@@ -51,11 +57,11 @@ const SEO = ({ title, description, keywords }) => {
         },
         {
           name: `twitter:title`,
-          content: title
+          content: seo.title
         },
         {
           name: `twitter:description`,
-          content: description
+          content: seo.description
         }
       ]
         .concat(
