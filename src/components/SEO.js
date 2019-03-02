@@ -5,10 +5,10 @@ import useSiteMetadata from './SiteMetadata'
 
 const SEO = ({ title, description, keywords }) => {
   const {
-    title,
     description,
     imageLink,
     siteLanguage,
+    title,
     titleTemplate,
     twitterUsername
   } = useSiteMetadata()
