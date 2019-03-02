@@ -47,6 +47,14 @@ export default ({ data }) => {
         title={title}
         description={description || 'nothin’'}
         image={imageLink}
+        keywords={[
+          `blog`,
+          `gatsby`,
+          `javascript`,
+          `react`,
+          `graphql`,
+          `learning`
+        ]}
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
