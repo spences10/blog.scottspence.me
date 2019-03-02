@@ -1,9 +1,8 @@
+import { graphql, Link } from 'gatsby'
 import React from 'react'
-import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
-
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 
 const Wrapper = styled.div``
 
