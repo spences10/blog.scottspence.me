@@ -17,6 +17,7 @@ const useSiteMetadata = () => {
               name
               link
             }
+            siteLanguage
           }
         }
       }
