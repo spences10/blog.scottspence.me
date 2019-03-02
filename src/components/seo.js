@@ -1,7 +1,6 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
 
 const SEO = ({ title, description, image, pathname, article }) => (
   <StaticQuery
@@ -89,18 +88,3 @@ SEO.defaultProps = {
   pathname: null,
   article: false
 }
-
-const query = graphql`
-  query SEO {
-    site {
-      siteMetadata {
-        title
-        titleTemplate
-        description
-        siteUrl
-        imageLink
-        twitterUsername
-      }
-    }
-  }
-`
