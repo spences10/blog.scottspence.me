@@ -11,7 +11,8 @@ const SEO = ({ title, description, image, pathname, article }) => {
     siteUrl,
     imageLink,
     siteLanguage,
-    titleTemplate
+    titleTemplate,
+    twitterUsername
   } = useSiteMetadata()
 
   return (
@@ -44,13 +45,11 @@ const SEO = ({ title, description, image, pathname, article }) => {
         },
         {
           name: `twitter:image`,
-          content: `${
-            site.siteMetadata.siteUrl
-          }icons/icon-512x512.png`
+          content: imageLink
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author
+          content: twitterUsername
         },
         {
           name: `twitter:title`,
