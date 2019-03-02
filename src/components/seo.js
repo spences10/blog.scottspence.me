@@ -4,7 +4,13 @@ import Helmet from 'react-helmet'
 import useSiteMetadata from './SiteMetadata'
 
 const SEO = ({ title, description, image, pathname, article }) => {
-  const { title, description, image, siteUrl } = useSiteMetadata()
+  const {
+    title,
+    description,
+    image,
+    siteUrl,
+    imageLink
+  } = useSiteMetadata()
 
   return (
     <>
