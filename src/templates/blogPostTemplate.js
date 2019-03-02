@@ -1,14 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Utterances from 'react-utterances'
-
-// import { Dump } from '../utils/helpers'
+import styled from 'styled-components'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
-
+import SEO from '../components/SEO'
 import { HappyButton } from '../components/Shared'
+// import { Dump } from '../utils/helpers'
 
 const repo = 'spences10/blog.scottspence.me'
 
@@ -47,13 +45,6 @@ const PostWrapper = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
-  -moz-document url-prefix() {
-    /* Firefox doesn't respect max-width in certain situations */
-    img {
-      width: 100%;
-      max-width: -moz-max-content;
-    }
-  }
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
 `
@@ -77,6 +68,7 @@ const PrevNextButton = styled(HappyButton)`
 const blogPostLayout = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { prev, next } = pageContext
+  // TODO: create/use individual images for each post
   const { imageLink } = data.site.siteMetadata
   return (
     <Layout>
@@ -85,9 +77,10 @@ const blogPostLayout = ({ data, pageContext }) => {
         description={post.excerpt || 'nothin’'}
         image={imageLink}
         pathname={post.frontmatter.path}
-        article
+        keywords={post.frontmatter.tags}
+        // article
       />
-      {/* <Dump props={data} /> */}
+      {/* <Dump props={post.frontmatter.path} /> */}
       <PostWrapper>
         <Title>{post.frontmatter.title}</Title>
         <TitleDate>{post.frontmatter.date}</TitleDate>
@@ -143,6 +136,7 @@ export const query = graphql`
         title
         path
         date(formatString: "YYYY MMMM Do")
+        tags
         published
       }
     }
