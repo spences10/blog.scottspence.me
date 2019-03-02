@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import useSiteMetadata from '../components/SiteMetadata'
 
 const Wrapper = styled.div``
 
@@ -39,12 +40,13 @@ const PostedDate = styled.p`
 `
 
 export default ({ data }) => {
+  const { description, imageLink, title } = useSiteMetadata()
   return (
     <Layout>
       <SEO
-        title={data.site.siteMetadata.title}
-        description={data.site.siteMetadata.description || 'nothin’'}
-        image={data.site.siteMetadata.imageLink}
+        title={title}
+        description={description || 'nothin’'}
+        image={imageLink}
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
@@ -80,13 +82,6 @@ export const query = graphql`
             published
           }
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-        description
-        imageLink
       }
     }
   }
