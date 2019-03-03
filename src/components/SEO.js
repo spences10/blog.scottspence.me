@@ -52,6 +52,9 @@ const SEO = ({
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {keywords.length > 0 ? (
+        <meta name="keywords" content={keywords.join(`, `)} />
+      ) : null}
     </Helmet>
   )
 }
