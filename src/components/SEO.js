@@ -4,11 +4,11 @@ import Helmet from 'react-helmet'
 import useSiteMetadata from './SiteMetadata'
 
 const SEO = ({
+  article,
   title,
   description,
   image,
   keywords,
-  meta,
   pathname
 }) => {
   const {
@@ -30,75 +30,47 @@ const SEO = ({
   }
 
   return (
-    <Helmet
-      htmlAttributes={{
-        siteLanguage
-      }}
-      title={seo.title}
-      titleTemplate={titleTemplate}
-      meta={[
-        {
-          name: `description`,
-          content: seo.description
-        },
-        {
-          property: `og:title`,
-          content: seo.title
-        },
-        {
-          property: `og:description`,
-          content: seo.description
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`
-        },
-        {
-          name: `twitter:image`,
-          content: seo.image
-        },
-        {
-          name: `twitter:creator`,
-          content: twitterUsername
-        },
-        {
-          name: `twitter:title`,
-          content: seo.title
-        },
-        {
-          name: `twitter:description`,
-          content: seo.description
-        }
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `)
-              }
-            : []
-        )
-        .concat(meta)}
-    />
+    <Helmet title={seo.title} titleTemplate={titleTemplate}>
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+      <html lang={siteLanguage} />
+      {seo.url && <meta property="og:url" content={seo.url} />}
+      {(article ? true : null) && (
+        <meta property="og:type" content="article" />
+      )}
+      {seo.title && <meta property="og:title" content={seo.title} />}
+      {seo.description && (
+        <meta property="og:description" content={seo.description} />
+      )}
+      {seo.image && <meta property="og:image" content={seo.image} />}
+      <meta name="twitter:card" content="summary_large_image" />
+      {twitterUsername && (
+        <meta name="twitter:creator" content={twitterUsername} />
+      )}
+      {seo.title && <meta name="twitter:title" content={seo.title} />}
+      {seo.description && (
+        <meta name="twitter:description" content={seo.description} />
+      )}
+      {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {keywords.length > 0 ? (
+        <meta name="keywords" content={keywords.join(`, `)} />
+      ) : null}
+    </Helmet>
   )
 }
 
 export default SEO
 
 SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
+  siteLanguage: `en`,
   keywords: []
 }
 
 SEO.propTypes = {
+  title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
+  image: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
+  meta: PropTypes.array,
+  pathname: PropTypes.string
 }

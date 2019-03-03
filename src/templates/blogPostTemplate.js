@@ -78,7 +78,7 @@ const blogPostLayout = ({ data, pageContext }) => {
         image={imageLink}
         pathname={post.frontmatter.path}
         keywords={post.frontmatter.tags}
-        // article
+        article
       />
       {/* <Dump props={post.frontmatter.path} /> */}
       <PostWrapper>
