@@ -1,13 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Utterances from 'react-utterances'
-
+import styled from 'styled-components'
 // import { Dump } from '../utils/helpers'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-
 import { HappyButton } from '../components/Shared'
 
 const repo = 'spences10/blog.scottspence.me'
@@ -46,13 +44,6 @@ const PostWrapper = styled.div`
   img {
     max-width: 100%;
     max-height: 100%;
-  }
-  -moz-document url-prefix() {
-    /* Firefox doesn't respect max-width in certain situations */
-    img {
-      width: 100%;
-      max-width: -moz-max-content;
-    }
   }
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
@@ -136,7 +127,7 @@ blogPostLayout.propTypes = {
 
 export const query = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    mdx(frontmatter: { path: { eq: $path } }) {
       html
       excerpt(pruneLength: 250)
       frontmatter {
