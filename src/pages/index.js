@@ -58,7 +58,7 @@ export default ({ data }) => {
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
-        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        {data.allMdx.edges.map(({ node }, index) => (
           <PostWrapper key={index}>
             <StyledLink to={node.frontmatter.path}>
               <PostTitle>{node.frontmatter.title}</PostTitle>
@@ -74,7 +74,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
