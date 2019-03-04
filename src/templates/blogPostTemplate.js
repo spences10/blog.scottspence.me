@@ -129,7 +129,7 @@ blogPostLayout.propTypes = {
 
 export const query = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    mdx(frontmatter: { path: { eq: $path } }) {
       html
       excerpt(pruneLength: 250)
       frontmatter {

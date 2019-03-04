@@ -9,7 +9,7 @@ exports.createPages = ({ actions, graphql }) => {
   // returns promise that will start with this graphql query
   return graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: ASC, fields: [frontmatter___date] }
         filter: { frontmatter: { published: { eq: true } } }
         limit: 1000
@@ -34,7 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMdx.edges
 
     createTagPages(createPage, posts)
 
