@@ -69,7 +69,6 @@ const PrevNextButton = styled(HappyButton)`
 const blogPostLayout = ({ data, pageContext }) => {
   const post = data.mdx
   const { prev, next } = pageContext
-  // TODO: create/use individual images for each post
   const { imageLink } = data.site.siteMetadata
   return (
     <Layout>
@@ -81,7 +80,7 @@ const blogPostLayout = ({ data, pageContext }) => {
         keywords={post.frontmatter.tags}
         article
       />
-      {/* <Dump props={post.frontmatter.path} /> */}
+      {/* <Dump props={post.frontmatter} /> */}
       <PostWrapper>
         <Title>{post.frontmatter.title}</Title>
         <TitleDate>{post.frontmatter.date}</TitleDate>
@@ -138,8 +137,8 @@ export const query = graphql`
       frontmatter {
         title
         path
-        date(formatString: "YYYY MMMM Do")
         tags
+        date(formatString: "YYYY MMMM Do")
         published
       }
     }
