@@ -1,3 +1,5 @@
+const path = require('path')
+
 const siteMetadata = {
   siteUrl: 'https://blog.scottspence.me',
   title: 'blog.scottspence.me',
@@ -43,6 +45,15 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify-cms',
     {
+      resolve: 'gatsby-mdx',
+      options: {
+        defaultLayouts: {
+          default: path.resolve('./src/components/Layout.js')
+        },
+        extensions: ['.mdx', '.md']
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/posts`,
@@ -50,12 +61,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-mdx',
-      options: {
-        extensions: [".mdx", ".md"]
-      }
-    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {

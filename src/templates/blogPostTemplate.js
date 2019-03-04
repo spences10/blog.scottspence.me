@@ -1,11 +1,11 @@
-import { graphql, Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
-import Utterances from 'react-utterances'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import { HappyButton } from '../components/Shared'
+import { graphql, Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Utterances from 'react-utterances';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import { HappyButton } from '../components/Shared';
 // import { Dump } from '../utils/helpers'
 
 const repo = 'spences10/blog.scottspence.me'
@@ -129,7 +129,7 @@ blogPostLayout.propTypes = {
 
 export const query = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+    mdx(frontmatter: { path: { eq: $path } }) {
       html
       excerpt(pruneLength: 250)
       frontmatter {
