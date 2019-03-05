@@ -174,7 +174,6 @@ module.exports = {
     },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
