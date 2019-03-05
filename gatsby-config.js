@@ -4,8 +4,7 @@ const siteMetadata = {
   siteUrl: `https://blog.scottspence.me`,
   title: `blog.scottspence.me`,
   siteTitle: `blog.scottspence.me`,
-  description:
-    `Blog (learnings) of Scott Spence, father, husband 👨‍👩‍👧 Full stack web developer in the making 👨‍💻 Just In Time learner 👌 Byproduct of: coffee+excess carbs+lack of sleep. He/Him.`,
+  description: `Blog (learnings) of Scott Spence, father, husband 👨‍👩‍👧 Full stack web developer in the making 👨‍💻 Just In Time learner 👌 Byproduct of: coffee+excess carbs+lack of sleep. He/Him.`,
   titleTemplate: `%s | blog.scottspence.me`,
   twitterUsername: `@ScottDevTweets`,
   facebookAppID: ``,
@@ -13,8 +12,7 @@ const siteMetadata = {
   nameContent: `Scott Spence - blog`,
   developerName: `Scott Spence`,
   developerUrl: `https.scottspence.me`,
-  keywordsContent:
-    `blog, web developer, javascript, react, learning, information, how to`,
+  keywordsContent: `blog, web developer, javascript, react, learning, information, how to`,
   imageLink: `https://blog.scottspence.me/icons/icon-512x512.png`,
   faviconPng: `./src/images/favicon.png`,
   contact: [
@@ -43,7 +41,13 @@ module.exports = {
   siteMetadata: siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/posts`,
+        name: `posts`
+      }
+    },
     {
       resolve: `gatsby-mdx`,
       options: {
@@ -69,13 +73,6 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`
           }
         ]
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/posts`,
-        name: `posts`
       }
     },
     `gatsby-transformer-sharp`,
@@ -178,7 +175,70 @@ module.exports = {
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-catch-links`,
-    // this has to stay at the end of the array
-    `gatsby-plugin-netlify`
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  data: edge.node.frontmatter.date,
+                  url:
+                    site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid:
+                    site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [
+                    { 'content:encoded': edge.node.code.boy }
+                  ]
+                })
+              })
+            },
+
+            /* if you want to filter for only published posts, you can do
+             * something like this:
+             * filter: { frontmatter: { published: { ne: false } } }
+             * just make sure to add a published frontmatter field to all posts,
+             * otherwise gatsby will complain
+             **/
+            query: `
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [frontmatter___date] },
+              ) {
+                edges {
+                  node {
+                    code {
+                      body
+                    }
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: '/rss.xml',
+            title: 'Gatsby RSS feed'
+          }
+        ]
+      }
+    }
   ]
 }
