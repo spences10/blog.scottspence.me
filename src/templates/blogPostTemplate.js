@@ -11,7 +11,7 @@ import { HappyButton } from '../components/Shared'
 const repo = 'spences10/blog.scottspence.me'
 
 // add prismjs theme
-require('prismjs/themes/prism-solarizedlight.css')
+// require('prismjs/themes/prism-solarizedlight.css')
 
 // Title
 // Date
