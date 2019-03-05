@@ -1,9 +1,7 @@
-/* eslint react/prop-types: 0 */
-/* eslint react/display-name: 0  */
-import React from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { preToCodeBlock } from 'mdx-utils'
-import Code from './src/components/Code'
+import React from 'react'
+import { Code } from './src/components/Code'
 
 // components is its own object outside of render so that the references to
 // components are stable
