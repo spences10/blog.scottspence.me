@@ -1,4 +1,5 @@
 const path = require('path')
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -97,4 +98,17 @@ const createTagPages = (createPage, posts) => {
       }
     })
   })
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `path`,
+      node,
+      value
+    })
+  }
 }
