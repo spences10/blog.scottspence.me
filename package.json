@@ -4,17 +4,17 @@
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
-            "scripts": {
-              "clean": "rm -rf .cache/ && rm -rf public/",
-              "build": "gatsby build",
-              "serve": "gatsby serve --verbose",
-              "buildAndServe": "npm run build && npm run serve",
-              "dev": "gatsby develop --verbose",
-              "format": "pretty-quick",
-              "precommit": "pretty-quick --staged",
-              "release": "release-it",
-              "test": "echo \"Error: no test specified\" && exit 1"
-            },
+  "scripts": {
+    "clean": "rm -rf .cache/ && rm -rf public/",
+    "build": "gatsby build",
+    "dev": "gatsby develop --verbose --p 8899 --open",
+    "serve": "gatsby serve --verbose",
+    "buildAndServe": "npm run build && npm run serve",
+    "format": "pretty-quick",
+    "precommit": "pretty-quick --staged",
+    "release": "release-it",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@mdx-js/mdx": "^0.20.1",
     "@mdx-js/tag": "^0.18.0",
