@@ -18,11 +18,11 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             html
             id
+            excerpt
             frontmatter {
               date
               path
               title
-              excerpt
               tags
             }
           }
