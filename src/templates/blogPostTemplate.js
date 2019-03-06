@@ -1,12 +1,13 @@
-import { graphql, Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
-import Utterances from 'react-utterances';
-import styled from 'styled-components';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import { HappyButton } from '../components/Shared';
+import { graphql, Link } from 'gatsby'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Utterances from 'react-utterances'
+import styled from 'styled-components'
 // import { Dump } from '../utils/helpers'
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
+import { HappyButton } from '../components/Shared'
 
 const repo = 'spences10/blog.scottspence.me'
 
@@ -66,9 +67,8 @@ const PrevNextButton = styled(HappyButton)`
 `
 
 const blogPostLayout = ({ data, pageContext }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const { prev, next } = pageContext
-  // TODO: create/use individual images for each post
   const { imageLink } = data.site.siteMetadata
   return (
     <Layout>
@@ -77,15 +77,13 @@ const blogPostLayout = ({ data, pageContext }) => {
         description={post.excerpt || 'nothin’'}
         image={imageLink}
         pathname={post.frontmatter.path}
-        keywords={post.frontmatter.tags}
         article
       />
-      {/* <Dump props={post.frontmatter.path} /> */}
+      {/* <Dump props={data} /> */}
       <PostWrapper>
         <Title>{post.frontmatter.title}</Title>
         <TitleDate>{post.frontmatter.date}</TitleDate>
-        {/* <Markdown source={post.html} /> */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MDXRenderer>{post.code.body}</MDXRenderer>
         <LinksWrapper>
           <LinkWrapper justify={'start'}>
             {prev === false ? null : (
@@ -130,13 +128,15 @@ blogPostLayout.propTypes = {
 export const query = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
-      html
+      code {
+        body
+        scope
+      }
       excerpt(pruneLength: 250)
       frontmatter {
         title
         path
         date(formatString: "YYYY MMMM Do")
-        tags
         published
       }
     }
