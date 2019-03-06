@@ -1,4 +1,4 @@
-const path = require(`path`)
+// const path = require(`path`)
 
 const siteMetadata = {
   siteUrl: `https://blog.scottspence.me`,
