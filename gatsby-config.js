@@ -196,9 +196,9 @@ module.exports = {
                   description: edge.node.excerpt,
                   data: edge.node.frontmatter.date,
                   url:
-                    site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    site.siteMetadata.siteUrl + edge.node.fields.path,
                   guid:
-                    site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    site.siteMetadata.siteUrl + edge.node.fields.path,
                   custom_elements: [
                     { 'content:encoded': edge.node.code.boy }
                   ]
@@ -223,7 +223,7 @@ module.exports = {
                     code {
                       body
                     }
-                    fields { slug }
+                    fields { path }
                     frontmatter {
                       title
                       date
