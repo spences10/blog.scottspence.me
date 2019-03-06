@@ -234,7 +234,7 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: 'Gatsby RSS feed'
+            title: `${siteMetadata.title} feed`
           }
         ]
       }
