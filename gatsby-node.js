@@ -17,7 +17,10 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
-            html
+            code {
+              body
+              scope
+            }
             id
             excerpt
             frontmatter {
