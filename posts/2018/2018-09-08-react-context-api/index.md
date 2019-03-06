@@ -376,7 +376,7 @@ following:
 
 **`src/Shared.js`**
 
-```jsx
+```js
 import styled, { css } from 'styled-components'
 
 export const Button = styled.button`
