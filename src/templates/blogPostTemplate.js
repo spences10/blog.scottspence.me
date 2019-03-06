@@ -6,7 +6,7 @@ import Utterances from 'react-utterances'
 import styled from 'styled-components'
 // import { Dump } from '../utils/helpers'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 import { HappyButton } from '../components/Shared'
 
 const repo = 'spences10/blog.scottspence.me'
