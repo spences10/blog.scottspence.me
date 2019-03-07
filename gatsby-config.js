@@ -207,18 +207,12 @@ module.exports = {
                 })
               })
             },
-
-            /* if you want to filter for only published posts, you can do
-             * something like this:
-             * filter: { frontmatter: { published: { ne: false } } }
-             * just make sure to add a published frontmatter field to all posts,
-             * otherwise gatsby will complain
-             **/
             query: `
             {
               allMdx(
                 limit: 1000,
                 sort: { order: DESC, fields: [frontmatter___date] },
+                filter: { frontmatter: { published: { eq: true } } }
               ) {
                 edges {
                   node {
