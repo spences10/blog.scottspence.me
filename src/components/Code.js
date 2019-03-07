@@ -2,16 +2,18 @@
 /* eslint no-unused-vars: 0 */
 /* eslint react/prop-types: 0 */
 /* eslint react/destructuring-assignment: 0 */
-import React from 'react'
-import { render } from 'react-dom'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/vsDark'
+import theme from 'prism-react-renderer/themes/nightOwl'
+import React from 'react'
 import {
-  LiveProvider,
   LiveEditor,
   LiveError,
-  LivePreview
+  LivePreview,
+  LiveProvider
 } from 'react-live'
+// import { Dump } from '../utils/helpers'
+
+// style={{ overflowX: 'auto' }}
 
 const Code = ({ codeString, language, ...props }) => {
   if (props['react-live']) {
@@ -24,29 +26,31 @@ const Code = ({ codeString, language, ...props }) => {
     )
   }
   return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}>
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps
-      }) => (
-        <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
+    <>
+      <Highlight
+        {...defaultProps}
+        code={codeString}
+        language={language}
+        theme={theme}>
+        {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps
+        }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    </>
   )
 }
 
