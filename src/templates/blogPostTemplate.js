@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Utterances from 'react-utterances'
 import styled from 'styled-components'
-// import { Dump } from '../utils/helpers'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { HappyButton } from '../components/Shared'
+// import { Dump } from '../utils/helpers'
 
 const repo = 'spences10/blog.scottspence.me'
 
@@ -80,7 +80,7 @@ const blogPostLayout = ({ data, pageContext }) => {
         keywords={post.frontmatter.tags}
         article
       />
-      {/* <Dump props={data} /> */}
+      {/* <Dump props={post.frontmatter} /> */}
       <PostWrapper>
         <Title>{post.frontmatter.title}</Title>
         <TitleDate>{post.frontmatter.date}</TitleDate>
@@ -137,6 +137,7 @@ export const query = graphql`
       frontmatter {
         title
         path
+        tags
         date(formatString: "YYYY MMMM Do")
         published
       }
