@@ -1,7 +1,3 @@
-/* eslint react/jsx-boolean-value: 0 */
-/* eslint no-unused-vars: 0 */
-/* eslint react/prop-types: 0 */
-/* eslint react/destructuring-assignment: 0 */
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import React from 'react'
@@ -11,9 +7,14 @@ import {
   LivePreview,
   LiveProvider
 } from 'react-live'
+import styled from 'styled-components'
 // import { Dump } from '../utils/helpers'
 
-// style={{ overflowX: 'auto' }}
+const StyledPre = styled.pre`
+  overflow-x: auto;
+  padding: 0.5rem;
+  border-radius: 3px;
+`
 
 const Code = ({ codeString, language, ...props }) => {
   if (props['react-live']) {
@@ -39,7 +40,7 @@ const Code = ({ codeString, language, ...props }) => {
           getLineProps,
           getTokenProps
         }) => (
-          <pre className={className} style={style}>
+          <StyledPre className={className} style={style}>
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
@@ -47,7 +48,7 @@ const Code = ({ codeString, language, ...props }) => {
                 ))}
               </div>
             ))}
-          </pre>
+          </StyledPre>
         )}
       </Highlight>
     </>
