@@ -57,7 +57,7 @@
   "devDependencies": {
     "prettier": "1.16.4",
     "pretty-quick": "1.10.0",
-    "release-it": "10.2.0"
+    "release-it": "^10.3.1"
   },
   "keywords": [
     "gatsby",
