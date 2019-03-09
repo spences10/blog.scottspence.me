@@ -71,6 +71,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-smartypants`
           },
+          // TODO: Replace with "mdx-component-autolink-header"
           {
             resolve: `gatsby-remark-autolink-headers`
           },
