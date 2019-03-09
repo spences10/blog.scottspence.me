@@ -103,6 +103,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     ul {
       margin: 0 auto;
+      .task-list-item {
+        list-style-type: none;
+      }
     }
     img {
       max-width: 100%;
