@@ -39,6 +39,9 @@ const siteMetadata = {
 
 module.exports = {
   siteMetadata: siteMetadata,
+  mapping: {
+    'Mdx.fields.featuredImage': `File.absolutePath`
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
