@@ -90,8 +90,6 @@ module.exports = {
     //   resolve: `gatsby-transformer-remark`,
     //   options: {
     //     plugins: [
-    //       `gatsby-remark-autolink-headers`,
-    //       `gatsby-remark-copy-linked-files`,
     //       `@weknow/gatsby-remark-twitter`,
     //       {
     //         resolve: `gatsby-remark-images`,
@@ -115,13 +113,6 @@ module.exports = {
     //           classPrefix: siteMetadata.prismJsLanguages
     //         }
     //       },
-    //       {
-    //         resolve: `gatsby-remark-external-links`,
-    //         options: {
-    //           target: `_blank`,
-    //           rel: `noopener`
-    //         }
-    //       }
     //     ]
     //   }
     // },
