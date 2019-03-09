@@ -1,4 +1,5 @@
 import { graphql, Link } from 'gatsby'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Utterances from 'react-utterances'
@@ -11,7 +12,7 @@ import { HappyButton } from '../components/Shared'
 const repo = 'spences10/blog.scottspence.me'
 
 // add prismjs theme
-require('prismjs/themes/prism-solarizedlight.css')
+// require('prismjs/themes/prism-solarizedlight.css')
 
 // Title
 // Date
@@ -66,9 +67,8 @@ const PrevNextButton = styled(HappyButton)`
 `
 
 const blogPostLayout = ({ data, pageContext }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const { prev, next } = pageContext
-  // TODO: create/use individual images for each post
   const { imageLink } = data.site.siteMetadata
   return (
     <Layout>
@@ -80,12 +80,11 @@ const blogPostLayout = ({ data, pageContext }) => {
         keywords={post.frontmatter.tags}
         article
       />
-      {/* <Dump props={post.frontmatter.path} /> */}
+      {/* <Dump props={post.frontmatter} /> */}
       <PostWrapper>
         <Title>{post.frontmatter.title}</Title>
         <TitleDate>{post.frontmatter.date}</TitleDate>
-        {/* <Markdown source={post.html} /> */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MDXRenderer>{post.code.body}</MDXRenderer>
         <LinksWrapper>
           <LinkWrapper justify={'start'}>
             {prev === false ? null : (
@@ -129,14 +128,17 @@ blogPostLayout.propTypes = {
 
 export const query = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      code {
+        body
+        scope
+      }
       excerpt(pruneLength: 250)
       frontmatter {
         title
         path
-        date(formatString: "YYYY MMMM Do")
         tags
+        date(formatString: "YYYY MMMM Do")
         published
       }
     }
