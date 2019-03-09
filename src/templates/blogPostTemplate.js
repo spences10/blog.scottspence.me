@@ -123,6 +123,7 @@ blogPostLayout.propTypes = {
   pageContext: PropTypes.any
 }
 
+// TODO: site metadata image
 export const query = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
