@@ -10,10 +10,23 @@ import {
 import styled from 'styled-components'
 // import { Dump } from '../utils/helpers'
 
-const StyledPre = styled.pre`
+export const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
   overflow-x: auto;
-  padding: 0.5rem;
-  border-radius: 3px;
+
+  & .token-line {
+    line-height: 1.3em;
+    height: 1.3em;
+  }
+`
+
+export const LineNo = styled.span`
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.3;
 `
 
 const Code = ({ codeString, language, ...props }) => {
@@ -40,15 +53,16 @@ const Code = ({ codeString, language, ...props }) => {
           getLineProps,
           getTokenProps
         }) => (
-          <StyledPre className={className} style={style}>
+          <Pre className={className} style={style}>
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
+                <LineNo>{i + 1}</LineNo>
                 {line.map((token, key) => (
                   <span {...getTokenProps({ token, key })} />
                 ))}
               </div>
             ))}
-          </StyledPre>
+          </Pre>
         )}
       </Highlight>
     </>
