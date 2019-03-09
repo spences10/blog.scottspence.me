@@ -11,9 +11,6 @@ import { HappyButton } from '../components/Shared'
 
 const repo = 'spences10/blog.scottspence.me'
 
-// add prismjs theme
-// require('prismjs/themes/prism-solarizedlight.css')
-
 // Title
 // Date
 // Content
@@ -126,6 +123,7 @@ blogPostLayout.propTypes = {
   pageContext: PropTypes.any
 }
 
+// TODO: site metadata image
 export const query = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {

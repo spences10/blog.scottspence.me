@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require(`path`)
+// const fs = require(`fs`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ actions, graphql }) => {
@@ -116,11 +117,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     // const parent = getNode(node.parent)
 
-    // console.log('parent====', parent.internal.type)
     // if (parent.internal.type === `File`) {
     //   const ext = path.extname(parent.absolutePath)
     //   const featuredImage = parent.absolutePath.replace(ext, '.png')
-    //   console.log('featured====', featuredImage)
     //   if (fs.existsSync(featuredImage)) {
     //     createNodeField({
     //       name: `featuredImage`,
