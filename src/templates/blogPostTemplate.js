@@ -68,13 +68,13 @@ const PrevNextButton = styled(HappyButton)`
 const blogPostLayout = ({ data, pageContext }) => {
   const { frontmatter, excerpt, code } = data.mdx
   const { prev, next } = pageContext
-  const { imageLink } = useSiteMetadata()
+  const { imageLink: defaultImage } = useSiteMetadata()
   return (
     <Layout>
       <SEO
         title={frontmatter.title}
         description={excerpt || 'nothin’'}
-        image={imageLink}
+        image={defaultImage}
         pathname={frontmatter.path}
         keywords={frontmatter.tags}
         article
