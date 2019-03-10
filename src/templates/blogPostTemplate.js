@@ -66,24 +66,24 @@ const PrevNextButton = styled(HappyButton)`
 `
 
 const blogPostLayout = ({ data, pageContext }) => {
-  const post = data.mdx
+  const { frontmatter, excerpt, code } = data.mdx
   const { prev, next } = pageContext
   const { imageLink } = useSiteMetadata()
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.excerpt || 'nothin’'}
+        title={frontmatter.title}
+        description={excerpt || 'nothin’'}
         image={imageLink}
-        pathname={post.frontmatter.path}
-        keywords={post.frontmatter.tags}
+        pathname={frontmatter.path}
+        keywords={frontmatter.tags}
         article
       />
       {/* <Dump props={post.frontmatter} /> */}
       <PostWrapper>
-        <Title>{post.frontmatter.title}</Title>
-        <TitleDate>{post.frontmatter.date}</TitleDate>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+        <Title>{frontmatter.title}</Title>
+        <TitleDate>{frontmatter.date}</TitleDate>
+        <MDXRenderer>{code.body}</MDXRenderer>
         <LinksWrapper>
           <LinkWrapper justify={'start'}>
             {prev === false ? null : (
