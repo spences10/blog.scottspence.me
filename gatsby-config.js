@@ -26,19 +26,14 @@ const siteMetadata = {
   backgroundColour: `#663399`,
   // this is for favicon and manifest
   themeColour: `#755f9f`,
-  siteLanguage: `en-GB`,
-  prismJsLanguages: [
-    `language-bash`,
-    `language-css`,
-    `language-html`,
-    `language-js`,
-    `language-json`,
-    `language-yaml`
-  ]
+  siteLanguage: `en-GB`
 }
 
 module.exports = {
   siteMetadata: siteMetadata,
+  mapping: {
+    'Mdx.fields.featuredImage': `File.absolutePath`
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

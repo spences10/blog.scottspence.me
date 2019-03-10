@@ -7,12 +7,11 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { HappyButton } from '../components/Shared'
+import useSiteMetadata from '../components/SiteMetadata'
+
 // import { Dump } from '../utils/helpers'
 
 const repo = 'spences10/blog.scottspence.me'
-
-// add prismjs theme
-// require('prismjs/themes/prism-solarizedlight.css')
 
 // Title
 // Date
@@ -69,7 +68,7 @@ const PrevNextButton = styled(HappyButton)`
 const blogPostLayout = ({ data, pageContext }) => {
   const post = data.mdx
   const { prev, next } = pageContext
-  const { imageLink } = data.site.siteMetadata
+  const { imageLink } = useSiteMetadata()
   return (
     <Layout>
       <SEO
@@ -126,6 +125,7 @@ blogPostLayout.propTypes = {
   pageContext: PropTypes.any
 }
 
+// TODO: site metadata image
 export const query = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
@@ -140,11 +140,6 @@ export const query = graphql`
         tags
         date(formatString: "YYYY MMMM Do")
         published
-      }
-    }
-    site {
-      siteMetadata {
-        imageLink
       }
     }
   }
