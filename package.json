@@ -19,8 +19,8 @@
     }
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.0.0-alpha.1",
-    "@mdx-js/tag": "^1.0.0-alpha.1",
+    "@mdx-js/mdx": "1.0.0-alpha.7",
+    "@mdx-js/tag": "1.0.0-alpha.6",
     "@weknow/gatsby-remark-twitter": "0.2.0",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "2.2.2",
