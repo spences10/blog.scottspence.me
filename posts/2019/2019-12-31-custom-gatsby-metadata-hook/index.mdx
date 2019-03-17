@@ -2,7 +2,16 @@
 path: '/gatsby-custom-react-hook-for-site-metadata'
 date: '2019-12-31'
 title: 'Creating a Custom React Hook for Gatsby Site Metadata'
-tags: ['information', 'learning', 'gatsby','staticquery', 'react', 'hooks', 'guide']
+tags:
+  [
+    'information',
+    'learning',
+    'gatsby',
+    'staticquery',
+    'react',
+    'hooks',
+    'guide',
+  ]
 published: false
 ---
 
@@ -48,7 +57,9 @@ your wrapping component that returns and renders a child component,
 like this.
 
 ```jsx
-<WrappingComponent>{args => <ComponentToRender />}</WrappingComponent>
+<WrappingComponent>
+  {args => <ComponentToRender propsForComponent={args.propNeeded} />}
+</WrappingComponent>
 ```
 
 Here's a cut down version of the `StaticQuery` component being used in
