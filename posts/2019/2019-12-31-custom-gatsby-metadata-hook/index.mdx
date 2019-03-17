@@ -101,7 +101,7 @@ const Layout = ({ children, data }) => (
 export default props => (
   <StaticQuery
     query={graphql`
-      query SITE_TITLE_QUERY {
+      query SiteTitleQuery {
         site {
           siteMetadata {
             title
@@ -114,8 +114,10 @@ export default props => (
 )
 ```
 
-Make sense? Good, now forget about that! It's time to use the new
-`useStaticQuery` hotness in Gatsby.
+**That all make sense?**
+
+Good, now forget about that! It's time to use the new `useStaticQuery`
+hotness in Gatsby.
 
 ### Versions:
 
