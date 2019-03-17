@@ -12,7 +12,7 @@ import { Player } from '../../../src/components/Player'
 
 Ok, let's get it on with the new hotness in Reactland, React Hooks!
 This is a guide covering using the Gatsby custom React hook for
-`StaticQuery` which it replaces with `useStaticQuery`.
+`StaticQuery` which it is now replacing with `useStaticQuery`.
 
 If you haven't used Gatsby before `StaticQuery` is just that, a way to
 query static data in a Gatsby component (i.e. a react component) or a
@@ -51,14 +51,50 @@ like this.
 <WrappingComponent>{args => <ComponentToRender />}</WrappingComponent>
 ```
 
-```js
-import { StaticQuery, graphql } from 'gatsby'
+Here's a cut down version of the `StaticQuery` component being used in
+the Gatsby default starter on [codesandbox.io]
 
+I've taken out the styling to make it a bit shorter:
+
+```js
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div>
+          <main>{children}</main>
+          <footer />
+        </div>
+      </>
+    )}
+  />
+)
+
+export default Layout
+```
+
+I was never really a fan of doing it that way so I adopted a similar
+pattern but with the component contained on it's own and then added to
+the `StaticQuery` separately. Like this:
+
+```js
 const Layout = ({ children, data }) => (
   <>
     <Header siteTitle={data.site.siteMetadata.title} />
-    <Wrapper>{children}</Wrapper>
-    <Footer />
+    <div>
+      <main>{children}</main>
+      <footer />
+    </div>
   </>
 )
 
@@ -77,6 +113,9 @@ export default props => (
   />
 )
 ```
+
+Make sense? Good, now forget about that! It's time to use the new
+`useStaticQuery` hotness in Gatsby.
 
 ### Versions:
 
