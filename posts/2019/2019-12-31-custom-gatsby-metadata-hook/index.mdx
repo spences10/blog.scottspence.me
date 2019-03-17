@@ -26,10 +26,57 @@ great deal, like your site metadata.
 <Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
 
 The `StaticQuery` component uses the [render prop] pattern, which
-means it takes in a function and returns/renders that
+means it takes in a function and returns/renders based off of that.
 
 I have detailed this pattern before in a post about [using the react
-context api]
+context api], it's a component that you pass a function to, to render
+a component.
+
+Think of it like this:
+
+```jsx
+<Component>
+ {() => ()}
+</Component>
+```
+
+The first parenthesis is the arguments/variables and the second is
+what gets rendered, so in the case of the Gatsby `StaticQuery` you
+pass a query with a `graphql` tag and then the `data` that comes back
+from that is what is used in the render of that component. So you have
+your wrapping component that returns and renders a child component,
+like this.
+
+```jsx
+<WrappingComponent>{args => <ComponentToRender />}</WrappingComponent>
+```
+
+```js
+import { StaticQuery, graphql } from 'gatsby'
+
+const Layout = ({ children, data }) => (
+  <>
+    <Header siteTitle={data.site.siteMetadata.title} />
+    <Wrapper>{children}</Wrapper>
+    <Footer />
+  </>
+)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SITE_TITLE_QUERY {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+)
+```
 
 ### Versions:
 
@@ -42,34 +89,6 @@ context api]
 You can also check out the [example code].
 
 ---
-
-
-```js
-import { StaticQuery, graphql } from 'gatsby'
-
-const Layout = ({ children, data }) => (
-  <AppStyles background={background}>
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <Wrapper>{children}</Wrapper>
-    <Footer />
-  </AppStyles>
-)
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query LayoutData {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => <Layout data={data} {...props} />}
-  />
-)
-```
 
 I recently created a custom hook component to make use of Gatsby's own
 `useStaticQuery` hook in my projects and thought I'd share it with
