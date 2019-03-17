@@ -8,20 +8,62 @@ published: false
 
 import { Player } from '../../../src/components/Player'
 
-<Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
-
 ## Hooks ahoy!
 
 Ok, let's get it on with the new hotness in Reactland, React Hooks!
 This is a guide covering using the Gatsby custom React hook for
 `StaticQuery` which replaces it with `useStaticQuery`.
 
-I recently created a custom hook to make use of Gatsby's own
-`useStaticQuery` hook in my own projects.
+If you haven't used Gatsby before `StaticQuery` is just that, a way to
+query static data in a Gatsby component (i.e. a react component) or a
+Gatsby page. This is a great use case for data that doesn't change a
+great deal, like your site metadata.
+
+## tl;dr
+
+**Here's a video:**
 
 <Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
 
-Using codesandbox.io we take a look at implementing a custom react
+The `StaticQuery` component used [render props] which means it takes
+in a function and returns/renders that
+
+```js
+import { StaticQuery, graphql } from 'gatsby'
+
+const Layout = ({ children, data }) => (
+  <AppStyles background={background}>
+    <Header siteTitle={data.site.siteMetadata.title} />
+    <Wrapper>{children}</Wrapper>
+    <Footer />
+  </AppStyles>
+)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query LayoutData {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+)
+```
+
+I recently created a custom hook component to make use of Gatsby's own
+`useStaticQuery` hook in my projects and thought I'd share it with
+everyone else.
+
+Here's me trying to even with [codesandbox.io] whilst I convert some
+of the Gatsby default starter that's on [codesandbox.io] to use the
+custom `useSiteMetadata` function.
+
+Using [codesandbox.io] we take a look at implementing a custom react
 hook for getting site metadata in Gatsby.
 
 ```js
@@ -46,3 +88,8 @@ const useSiteMetadata = () => {
 
 export default useSiteMetadata
 ```
+
+<!-- Links -->
+
+[codesandbox.io]: https://codesandbox.io
+[render props]: https://reactjs.org/docs/render-props.html
