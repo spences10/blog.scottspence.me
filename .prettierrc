@@ -22,6 +22,12 @@
       }
     },
     {
+      "files": "*.mdx",
+      "options": {
+        "parser": "mdx"
+      }
+    },
+    {
       "files": "*.json",
       "options": {
         "parser": "json"
