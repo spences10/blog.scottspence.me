@@ -3,7 +3,7 @@ path: '/gatsby-custom-react-hook-for-site-metadata'
 date: '2019-12-31'
 title: 'Creating a Custom React Hook for Gatsby Site Metadata'
 tags: ['information', 'learning', 'gatsby', 'react', 'hooks', 'guide']
-published: false
+published: true
 ---
 
 import { Player } from '../../../src/components/Player'
@@ -12,7 +12,7 @@ import { Player } from '../../../src/components/Player'
 
 Ok, let's get it on with the new hotness in Reactland, React Hooks!
 This is a guide covering using the Gatsby custom React hook for
-`StaticQuery` which replaces it with `useStaticQuery`.
+`StaticQuery` which it replaces with `useStaticQuery`.
 
 If you haven't used Gatsby before `StaticQuery` is just that, a way to
 query static data in a Gatsby component (i.e. a react component) or a
@@ -25,8 +25,24 @@ great deal, like your site metadata.
 
 <Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
 
-The `StaticQuery` component used [render props] which means it takes
-in a function and returns/renders that
+The `StaticQuery` component uses the [render prop] pattern, which
+means it takes in a function and returns/renders that
+
+I have detailed this pattern before in a post about [using the react
+context api]
+
+### Versions:
+
+**This guide is being used with the following dependency versions.**
+
+- gatsby: 2.1.31
+- react: 16.8.4
+- react-dom: 16.8.4
+
+You can also check out the [example code].
+
+---
+
 
 ```js
 import { StaticQuery, graphql } from 'gatsby'
@@ -93,3 +109,6 @@ export default useSiteMetadata
 
 [codesandbox.io]: https://codesandbox.io
 [render props]: https://reactjs.org/docs/render-props.html
+[using the react context api]:
+  http://localhost:8899/react-context-api-getting-started
+[example code]: https://codesandbox.io/s/1vnvko0zqj
