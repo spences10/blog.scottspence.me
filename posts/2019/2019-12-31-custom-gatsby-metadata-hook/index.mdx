@@ -2,26 +2,155 @@
 path: '/gatsby-custom-react-hook-for-site-metadata'
 date: '2019-12-31'
 title: 'Creating a Custom React Hook for Gatsby Site Metadata'
-tags: ['information', 'learning', 'gatsby', 'react', 'hooks', 'guide']
+tags:
+  [
+    'information',
+    'learning',
+    'gatsby',
+    'staticquery',
+    'react',
+    'hooks',
+    'guide',
+  ]
 published: false
 ---
 
 import { Player } from '../../../src/components/Player'
 
-<Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
-
 ## Hooks ahoy!
 
 Ok, let's get it on with the new hotness in Reactland, React Hooks!
 This is a guide covering using the Gatsby custom React hook for
-`StaticQuery` which replaces it with `useStaticQuery`.
+`StaticQuery` which it is now replacing with `useStaticQuery`.
 
-I recently created a custom hook to make use of Gatsby's own
-`useStaticQuery` hook in my own projects.
+If you haven't used Gatsby before `StaticQuery` is just that, a way to
+query static data in a Gatsby component (i.e. a react component) or a
+Gatsby page. This is a great use case for data that doesn't change a
+great deal, like your site metadata.
+
+## tl;dr
+
+**Here's a video:**
 
 <Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
 
-Using codesandbox.io we take a look at implementing a custom react
+The `StaticQuery` component uses the [render prop] pattern, which
+means it takes in a function and returns/renders based off of that.
+
+I have detailed this pattern before in a post about [using the react
+context api], it's a component that you pass a function to, to render
+a component.
+
+Think of it like this:
+
+```jsx
+<Component>
+ {() => ()}
+</Component>
+```
+
+The first parenthesis is the arguments/variables and the second is
+what gets rendered, so in the case of the Gatsby `StaticQuery` you
+pass a query with a `graphql` tag and then the `data` that comes back
+from that is what is used in the render of that component. So you have
+your wrapping component that returns and renders a child component,
+like this.
+
+```jsx
+<WrappingComponent>
+  {args => <ComponentToRender propsForComponent={args.propNeeded} />}
+</WrappingComponent>
+```
+
+Here's a cut down version of the `StaticQuery` component being used in
+the Gatsby default starter on [codesandbox.io]
+
+I've taken out the styling to make it a bit shorter:
+
+```js
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div>
+          <main>{children}</main>
+          <footer />
+        </div>
+      </>
+    )}
+  />
+)
+
+export default Layout
+```
+
+I was never really a fan of doing it that way so I adopted a similar
+pattern but with the component contained on it's own and then added to
+the `StaticQuery` separately. Like this:
+
+```js
+const Layout = ({ children, data }) => (
+  <>
+    <Header siteTitle={data.site.siteMetadata.title} />
+    <div>
+      <main>{children}</main>
+      <footer />
+    </div>
+  </>
+)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+)
+```
+
+**That all make sense?**
+
+Good, now forget about that! It's time to use the new `useStaticQuery`
+hotness in Gatsby.
+
+### Versions:
+
+**This guide is being used with the following dependency versions.**
+
+- gatsby: 2.1.31
+- react: 16.8.4
+- react-dom: 16.8.4
+
+You can also check out the [example code].
+
+---
+
+I recently created a custom hook component to make use of Gatsby's own
+`useStaticQuery` hook in my projects and thought I'd share it with
+everyone else.
+
+Here's me trying to even with [codesandbox.io] whilst I convert some
+of the Gatsby default starter that's on [codesandbox.io] to use the
+custom `useSiteMetadata` function.
+
+Using [codesandbox.io] we take a look at implementing a custom react
 hook for getting site metadata in Gatsby.
 
 ```js
@@ -46,3 +175,11 @@ const useSiteMetadata = () => {
 
 export default useSiteMetadata
 ```
+
+<!-- Links -->
+
+[codesandbox.io]: https://codesandbox.io
+[render props]: https://reactjs.org/docs/render-props.html
+[using the react context api]:
+  http://localhost:8899/react-context-api-getting-started
+[example code]: https://codesandbox.io/s/1vnvko0zqj
