@@ -7,7 +7,7 @@ import Code from './src/components/Code'
 const components = {
   pre: ({ children: { props } }) => {
     // if there's a codeString and some props, we passed the test
-    if (props.children && props.className) {
+    if (props.mdxType === 'code') {
       return (
         <Code
           codeString={props.children}
