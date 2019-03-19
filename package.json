@@ -19,13 +19,13 @@
     }
   },
   "dependencies": {
-    "@mdx-js/mdx": "^0.20.3",
-    "@mdx-js/tag": "^0.20.3",
+    "@mdx-js/mdx": "^1.0.0-alpha.1",
+    "@mdx-js/tag": "^1.0.0-alpha.1",
     "@weknow/gatsby-remark-twitter": "0.2.0",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "^2.1.37",
     "gatsby-image": "2.0.34",
-    "gatsby-mdx": "^0.4.3",
+    "gatsby-mdx": "^0.5.2",
     "gatsby-plugin-favicon": "3.1.5",
     "gatsby-plugin-feed": "2.0.15",
     "gatsby-plugin-google-analytics": "2.0.17",
