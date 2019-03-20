@@ -153,6 +153,8 @@ The [Gatsby documentation] covers the use of it and also how to make
 your own custom react hook to use `useStaticQuery`, here's the one I
 use in the video.
 
+_useSiteMetadata.js_
+
 ```js
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -174,6 +176,13 @@ const useSiteMetadata = () => {
 }
 
 export default useSiteMetadata
+```
+
+This can now be implemented in the rest of the code as a function
+call:
+
+```js
+const { title, description, author } = useSiteMetadata()
 ```
 
 <!-- Links -->
