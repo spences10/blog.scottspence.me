@@ -1,10 +1,10 @@
-import React from 'react';
-import TweetEmbed from 'react-tweet-embed';
+import React from 'react'
+import TweetEmbed from 'react-tweet-embed'
 
 export const Tweet = ({ id }) => (
   <div
     style={{
-      display: 'flex',
+      // display: 'flex',
       width: 'auto',
       height: 'auto',
       justifyContent: 'center',
