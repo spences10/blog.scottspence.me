@@ -12,7 +12,7 @@ tags:
     'hooks',
     'guide',
   ]
-published: true
+published: false
 ---
 
 import { Player } from '../../../src/components/Player'
@@ -149,9 +149,9 @@ You can also check out the [example code].
 
 ---
 
-I recently created a custom hook component to make use of Gatsby's own
-`useStaticQuery` hook in my projects and thought I'd share it with
-everyone else.
+The [Gatsby documentation] covers the use of it and also how to make
+your own custom react hook to use `useStaticQuery`, here's the one I
+use in the video.
 
 ```js
 import { graphql, useStaticQuery } from 'gatsby'
@@ -184,3 +184,5 @@ export default useSiteMetadata
   http://localhost:8899/react-context-api-getting-started
 [example code]: https://codesandbox.io/s/1vnvko0zqj
 [even]: https://youtu.be/8ruJBKFrRCk?t=93
+[gatsby documentation]:
+  https://www.gatsbyjs.org/docs/use-static-query/
