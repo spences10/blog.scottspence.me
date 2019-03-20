@@ -24,11 +24,18 @@ This is a guide covering using the Gatsby custom React hook for
 `StaticQuery` which it is now replacing with `useStaticQuery`.
 
 If you haven't used Gatsby before `StaticQuery` is just that, a way to
-query static data in a Gatsby component (i.e. a react component) or a
-Gatsby page. This is a great use case for data that doesn't change a
-great deal, like your site metadata.
+query data in a Gatsby component (i.e. a react component) or a Gatsby
+page where the query input doesn't change. This is a great use case
+for data that doesn't change a great deal, like your site metadata.
 
 ## tl;dr
+
+Here's me trying to [even] with [codesandbox.io] whilst I convert some
+of the Gatsby default starter that's on [codesandbox.io] to use the
+custom `useSiteMetadata` function.
+
+Using [codesandbox.io] we take a look at implementing a custom react
+hook for getting site metadata in Gatsby.
 
 **Here's a video:**
 
@@ -127,8 +134,8 @@ export default props => (
 
 **That all make sense?**
 
-Good, now forget about that! It's time to use the new `useStaticQuery`
-hotness in Gatsby.
+Good, now forget about all of that! It's time to use the new
+`useStaticQuery` hotness in Gatsby. 💪
 
 ### Versions:
 
@@ -142,16 +149,11 @@ You can also check out the [example code].
 
 ---
 
-I recently created a custom hook component to make use of Gatsby's own
-`useStaticQuery` hook in my projects and thought I'd share it with
-everyone else.
+The [Gatsby documentation] covers the use of it and also how to make
+your own custom react hook to use `useStaticQuery`, here's the one I
+use in the video.
 
-Here's me trying to even with [codesandbox.io] whilst I convert some
-of the Gatsby default starter that's on [codesandbox.io] to use the
-custom `useSiteMetadata` function.
-
-Using [codesandbox.io] we take a look at implementing a custom react
-hook for getting site metadata in Gatsby.
+_useSiteMetadata.js_
 
 ```js
 import { graphql, useStaticQuery } from 'gatsby'
@@ -176,6 +178,13 @@ const useSiteMetadata = () => {
 export default useSiteMetadata
 ```
 
+This can now be implemented in the rest of the code as a function
+call:
+
+```js
+const { title, description, author } = useSiteMetadata()
+```
+
 <!-- Links -->
 
 [codesandbox.io]: https://codesandbox.io
@@ -183,3 +192,6 @@ export default useSiteMetadata
 [using the react context api]:
   http://localhost:8899/react-context-api-getting-started
 [example code]: https://codesandbox.io/s/1vnvko0zqj
+[even]: https://youtu.be/8ruJBKFrRCk?t=93
+[gatsby documentation]:
+  https://www.gatsbyjs.org/docs/use-static-query/
