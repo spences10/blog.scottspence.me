@@ -11,7 +11,9 @@
     "serve": "gatsby serve --verbose",
     "buildAndServe": "npm run build && npm run serve",
     "format": "pretty-quick",
-    "release": "release-it"
+    "release": "release-it",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "husky": {
     "hooks": {
