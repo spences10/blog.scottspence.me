@@ -15,11 +15,9 @@ tags:
 published: true
 ---
 
-import { Player } from '../../../src/components/Player'
-
 Let's set up Gatsby to pull data from GraphCMS.
 
-<Player url={'https://www.youtube.com/watch?v=S9JeASI5tck'} />
+https://www.youtube.com/watch?v=S9JeASI5tck
 
 This will be a walk-through of setting up some basic data on the
 headless CMS, GraphCMS and then querying that data in Gatsby.
