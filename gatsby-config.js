@@ -77,7 +77,8 @@ module.exports = {
               target: `_blank`,
               rel: `noopener`
             }
-          }
+          },
+          { resolve: require.resolve('./plugins/remark-embedder') }
         ]
       }
     },
