@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/tag'
 import React from 'react'
 import Code from './src/components/Code'
-
+// import { Dump } from './src/utils/helpers';
 // components is its own object outside of render so that the references to
 // components are stable
 const components = {
