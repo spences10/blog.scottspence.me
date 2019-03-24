@@ -142,7 +142,7 @@ code bunched into the `StaticQuery` component.
 Good, now forget about all of that! It's time to use the new
 `useStaticQuery` hotness in Gatsby. 💪
 
-### Versions:
+## Versions:
 
 **This guide is being used with the following dependency versions.**
 
@@ -190,7 +190,7 @@ call:
 const { title, description, author } = useSiteMetadata()
 ```
 
-### Let's implement it!
+## Let's implement it!
 
 In the `layout` component import the `useSiteMetadata` hook then we
 can go about removing the `StaticQuery` component and destructuring
@@ -241,8 +241,25 @@ Here's the comparison:
 
 ![](./compareSEO.png)
 
+If you want to check out the code the example is available here:
+[example code]
+
+## Wrap up!
+
+That's it! Wh have gone from using the awesome `StaticQuery` render
+props pattern used in Gatsby over to the even more awesome
+`useStaticQuery` React hooks, hook.
+
+**Thanks for reading** 🙏
+
+Please take a look at my other content if you enjoyed this.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
+
 <!-- Links -->
 
+[twitter]: https://twitter.com/ScottDevTweets
+[ask me anything]: https://github.com/spences10/ama
 [codesandbox.io]: https://codesandbox.io
 [render props]: https://reactjs.org/docs/render-props.html
 [using the react context api]:
