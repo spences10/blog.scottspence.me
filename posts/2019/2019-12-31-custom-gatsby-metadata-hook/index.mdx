@@ -1,6 +1,6 @@
 ---
 path: '/gatsby-custom-react-hook-for-site-metadata'
-date: '2019-12-31'
+date: '2019-03-24'
 title: 'Creating a Custom React Hook for Gatsby Site Metadata'
 tags:
   [
@@ -12,10 +12,8 @@ tags:
     'hooks',
     'guide',
   ]
-published: false
+published: true
 ---
-
-import { Player } from '../../../src/components/Player'
 
 ## Hooks ahoy!
 
@@ -32,16 +30,16 @@ for data that doesn't change a great deal, like your site metadata.
 
 Here's me trying to [even] with [codesandbox.io] whilst I convert some
 of the Gatsby default starter that's on [codesandbox.io] to use the
-custom `useSiteMetadata` function.
+`useSiteMetadata` custom hook.
 
 Using [codesandbox.io] we take a look at implementing a custom react
 hook for getting site metadata in Gatsby.
 
 **Here's a video:**
 
-<Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
+https://www.youtube.com/watch?v=qWay-LjXwbk
 
-The `StaticQuery` component uses the [render prop] pattern, which
+The `StaticQuery` component uses the [render props] pattern, which
 means it takes in a function and returns/renders based off of that.
 
 I have detailed this pattern before in a post about [using the react
@@ -101,6 +99,10 @@ const Layout = ({ children }) => (
 export default Layout
 ```
 
+The `StaticQuery` takes in two props, the `query` and what you want to
+render with `render`, this is where you can destructure the data you
+need out of the `data` prop returned from the query.
+
 I was never really a fan of doing it that way so I adopted a similar
 pattern but with the component contained on it's own and then added to
 the `StaticQuery` separately. Like this:
@@ -132,12 +134,15 @@ export default props => (
 )
 ```
 
+I found this more acceptable because you didn't have to have all the
+code bunched into the `StaticQuery` component.
+
 **That all make sense?**
 
 Good, now forget about all of that! It's time to use the new
 `useStaticQuery` hotness in Gatsby. 💪
 
-### Versions:
+## Versions:
 
 **This guide is being used with the following dependency versions.**
 
@@ -185,8 +190,76 @@ call:
 const { title, description, author } = useSiteMetadata()
 ```
 
+## Let's implement it!
+
+In the `layout` component import the `useSiteMetadata` hook then we
+can go about removing the `StaticQuery` component and destructuring
+`title` from the `useSiteMetadata` hook.
+
+It should look something like this, I have taken the styling out for
+brevity:
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+import useSiteMetadata from './useSiteMetadata'
+
+import Header from './header'
+import './layout.css'
+
+const Layout = ({ children }) => {
+  const { title } = useSiteMetadata()
+  return (
+    <>
+      <Header siteTitle={title} />
+      <div>
+        <main>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
+    </>
+  )
+}
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+export default Layout
+```
+
+Here's the comparison:
+
+![](./compareLayout.png)
+
+On now to the `seo` component, same again, remove `StaticQuery` and
+use `useSiteMetadata` in it's place.
+
+Here's the comparison:
+
+![](./compareSEO.png)
+
+If you want to check out the code the example is available here:
+[example code]
+
+## Wrap up!
+
+That's it! Wh have gone from using the awesome `StaticQuery` render
+props pattern used in Gatsby over to the even more awesome
+`useStaticQuery` React hooks, hook.
+
+**Thanks for reading** 🙏
+
+Please take a look at my other content if you enjoyed this.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
+
 <!-- Links -->
 
+[twitter]: https://twitter.com/ScottDevTweets
+[ask me anything]: https://github.com/spences10/ama
 [codesandbox.io]: https://codesandbox.io
 [render props]: https://reactjs.org/docs/render-props.html
 [using the react context api]:
