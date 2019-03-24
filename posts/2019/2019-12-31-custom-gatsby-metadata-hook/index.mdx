@@ -12,10 +12,8 @@ tags:
     'hooks',
     'guide',
   ]
-published: false
+published: true
 ---
-
-import { Player } from '../../../src/components/Player'
 
 ## Hooks ahoy!
 
@@ -32,14 +30,14 @@ for data that doesn't change a great deal, like your site metadata.
 
 Here's me trying to [even] with [codesandbox.io] whilst I convert some
 of the Gatsby default starter that's on [codesandbox.io] to use the
-custom `useSiteMetadata` function.
+`useSiteMetadata` custom hook.
 
 Using [codesandbox.io] we take a look at implementing a custom react
 hook for getting site metadata in Gatsby.
 
 **Here's a video:**
 
-<Player url={'https://www.youtube.com/watch?v=qWay-LjXwbk'} />
+https://www.youtube.com/watch?v=qWay-LjXwbk
 
 The `StaticQuery` component uses the [render prop] pattern, which
 means it takes in a function and returns/renders based off of that.
@@ -101,6 +99,10 @@ const Layout = ({ children }) => (
 export default Layout
 ```
 
+The `StaticQuery` takes in two props, the `query` and what you want to
+render with `render`, this is where you can destructure the data you
+need out of the `data` prop returned from the query.
+
 I was never really a fan of doing it that way so I adopted a similar
 pattern but with the component contained on it's own and then added to
 the `StaticQuery` separately. Like this:
@@ -131,6 +133,9 @@ export default props => (
   />
 )
 ```
+
+I found this more acceptable because you didn't have to have all the
+code bunched into the `StaticQuery` component.
 
 **That all make sense?**
 
