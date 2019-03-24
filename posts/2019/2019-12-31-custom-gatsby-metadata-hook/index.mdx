@@ -190,6 +190,57 @@ call:
 const { title, description, author } = useSiteMetadata()
 ```
 
+### Let's implement it!
+
+In the `layout` component import the `useSiteMetadata` hook then we
+can go about removing the `StaticQuery` component and destructuring
+`title` from the `useSiteMetadata` hook.
+
+It should look something like this, I have taken the styling out for
+brevity:
+
+```js
+import React from 'react'
+import PropTypes from 'prop-types'
+import useSiteMetadata from './useSiteMetadata'
+
+import Header from './header'
+import './layout.css'
+
+const Layout = ({ children }) => {
+  const { title } = useSiteMetadata()
+  return (
+    <>
+      <Header siteTitle={title} />
+      <div>
+        <main>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
+    </>
+  )
+}
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+export default Layout
+```
+
+Here's the comparison:
+
+![](./compareLayout.png)
+
+On now to the `seo` component, same again, remove `StaticQuery` and
+use `useSiteMetadata` in it's place.
+
+Here's the comparison:
+
+![](./compareSEO.png)
+
 <!-- Links -->
 
 [codesandbox.io]: https://codesandbox.io
