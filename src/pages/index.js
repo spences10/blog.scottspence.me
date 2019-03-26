@@ -88,6 +88,7 @@ export const query = graphql`
             path
             date(formatString: "YYYY MMMM Do")
             published
+            banner
           }
         }
       }
