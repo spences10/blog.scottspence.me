@@ -14,11 +14,25 @@ tags:
 published: true
 ---
 
-I found this post on dev.to this weekend detailing going from version
-18.04 to 18.10 on Ubuntu fro Windows Subsystem Linux
+## Already use WSL with Ubuntu? Want an Upgrade??
+
+I found this post on [dev.to] this weekend detailing going from
+version 18.04 to 18.10 on Ubuntu fro Windows Subsystem Linux
 
 I tried it myself and got in a bit of trouble, you can see by checking
 out the comments on [David's post]
+
+https://askubuntu.com/questions/1119301/your-system-is-unable-to-reach-the-snap-store
+
+If, like me you uninstalled Ubuntu and tried to reinstall it and are
+getting errors like this:
+
+Then what worked for me was to restart the `LxssManager` via a
+PowerShell console with admin rights.
+
+```powershell
+Get-Service LxssManager | Restart-Service
+```
 
 ## Wrap up!
 
@@ -32,6 +46,7 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 [twitter]: https://twitter.com/ScottDevTweets
 [ask me anything]: https://github.com/spences10/ama
+[dev.to]: https://dev.to
 [david's post]:
   https://dev.to/david_j_eddy/how-to-upgrade-wsl-ubuntu-18-04-to-18-10-203
 [codesandbox.io]: https://codesandbox.io
