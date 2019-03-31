@@ -66,11 +66,6 @@
     "pretty-quick": "1.10.0",
     "release-it": "10.4.0"
   },
-  "resolutions": {
-    "@mdx-js/mdx": "1.0.0-alpha.16",
-    "@mdx-js/react": "1.0.0-alpha.16",
-    "gatsby-mdx": "0.5.5-ci.354"
-  },
   "keywords": [
     "gatsby",
     "personal",
