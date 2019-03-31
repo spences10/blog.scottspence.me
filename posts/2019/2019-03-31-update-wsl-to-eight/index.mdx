@@ -17,7 +17,8 @@ published: false
 ## Already use WSL with Ubuntu? Want an Upgrade??
 
 This is a guide that will cover upgrading Windows Subsystem Linux
-(WSL) from the current LTS version to the latest normal version 18.10.
+(WSL) from the current LTS version to the latest 'normal' version
+18.10.
 
 I found this post on [dev.to] this weekend detailing going from
 version 18.04 to 18.10 on Ubuntu for Windows Subsystem Linux. You will
@@ -30,7 +31,13 @@ out the comments on [David's post]
 
 So from uninstalling my version of Ubuntu I went ahead and tried
 again, if you have read the comment's on [David's post] you'll see
-that I came up against an issue with
+that I came up against an issue with being unable to reach the 'snap
+store'. I don't know what that is or means but basically it stopped my
+upgrade and I was left not knowing if I was fully upgraded or not.
+
+Thankfully
+
+https://askubuntu.com/questions/1119301/your-system-is-unable-to-reach-the-snap-store
 
 ```bash
 sudo nano /etc/update-manager/release-upgrades
@@ -44,8 +51,6 @@ sudo do-release-upgrade
 ```
 
 I will always go with the maintainers version of any packages
-
-https://askubuntu.com/questions/1119301/your-system-is-unable-to-reach-the-snap-store
 
 If, like me, you uninstalled Ubuntu and tried to reinstall it and are
 getting errors like this:
