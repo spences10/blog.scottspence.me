@@ -21,9 +21,8 @@
     }
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.0.0-alpha.17",
-    "@mdx-js/react": "^1.0.0-alpha.17",
-    "@mdx-js/tag": "^1.0.0-alpha.6",
+    "@mdx-js/mdx": "^0.20.3",
+    "@mdx-js/tag": "^0.20.3",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "2.3.10",
     "gatsby-image": "2.0.37",
@@ -65,11 +64,6 @@
     "prettier": "1.16.4",
     "pretty-quick": "1.10.0",
     "release-it": "10.4.0"
-  },
-  "resolutions": {
-    "@mdx-js/mdx": "1.0.0-alpha.16",
-    "@mdx-js/react": "1.0.0-alpha.16",
-    "gatsby-mdx": "0.5.5-ci.354"
   },
   "keywords": [
     "gatsby",
