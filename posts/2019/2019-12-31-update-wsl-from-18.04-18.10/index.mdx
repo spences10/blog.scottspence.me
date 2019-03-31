@@ -35,9 +35,16 @@ that I came up against an issue with being unable to reach the 'snap
 store'. I don't know what that is or means but basically it stopped my
 upgrade and I was left not knowing if I was fully upgraded or not.
 
-Thankfully
+Thankfully someone else had come across the same problem and asked on
+[Stack Overflow], basically you need to ununstall Lxd with: 
 
-https://askubuntu.com/questions/1119301/your-system-is-unable-to-reach-the-snap-store
+```bash
+sudo dpkg --force depends -P lxd; sudo dpkg --force depends -P lxd-client
+```
+
+Now we can go about updating Ubuntu wit the `do-release-upgrade` command, if you do that right away you may see something along the lines of:
+
+![no lts upgrade](./noLtsUpgrade.png)
 
 ```bash
 sudo nano /etc/update-manager/release-upgrades
@@ -81,6 +88,8 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
   https://blog.scottspence.me/wsl-bootstrap-2019#update-upgrade-and-autoremove
 [david's post]:
   https://dev.to/david_j_eddy/how-to-upgrade-wsl-ubuntu-18-04-to-18-10-203
+[stack overflow]:
+  https://askubuntu.com/questions/1119301/your-system-is-unable-to-reach-the-snap-store
 [codesandbox.io]: https://codesandbox.io
 [render props]: https://reactjs.org/docs/render-props.html
 [using the react context api]:
