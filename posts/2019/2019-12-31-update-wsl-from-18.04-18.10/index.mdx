@@ -78,6 +78,12 @@ modified packages and weather you want to accept the maintainers or
 keep your version, I will always go with the maintainers version of
 any packages. You can do what you like with yours, I'm not your mum 😜
 
+## That's it
+
+You should now have your Ubuntu WSL version at 18.10 👏
+
+![update complete](./updateComlpete.png)
+
 If, like me, you uninstalled Ubuntu and tried to reinstall it and are
 getting errors like this:
 
@@ -91,6 +97,16 @@ Get-Service LxssManager | Restart-Service
 ```
 
 ## Wrap up!
+
+We went ahead an upgraded our WSL Ubuntu version from 18.04 to 18.10,
+we removed Lxd which isn't needed on WSL but is part of the Microsoft
+Store version 🤷‍♂️
+
+Then we changed the default behaviour of the release upgrader from
+`lts` to `normal`.
+
+Once we have done those two parts we can then go ahead and upgrade
+Ubuntu with `do-release-upgrade.
 
 **Thanks for reading** 🙏
 
