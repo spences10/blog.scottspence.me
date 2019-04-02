@@ -33,7 +33,7 @@ const HeaderWrapper = styled.header`
     /* background: mediumseagreen; */
   `};
   ${media.phone`
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
         'b b b b b b b b b';
     /* background: palevioletred; */
