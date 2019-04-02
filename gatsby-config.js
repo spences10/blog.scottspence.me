@@ -119,6 +119,7 @@ module.exports = {
     },
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-seo-export`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
