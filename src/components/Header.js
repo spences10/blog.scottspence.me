@@ -1,7 +1,6 @@
-import React from 'react'
 import { Link } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
-
 import { media } from '../theme/globalStyle'
 
 const HeaderWrapper = styled.header`
@@ -30,11 +29,11 @@ const HeaderWrapper = styled.header`
   ${media.tablet`
     grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
-      '. b b b b b b b .';
+      'b b b b b b b b b';
     /* background: mediumseagreen; */
   `};
   ${media.phone`
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
         'b b b b b b b b b';
     /* background: palevioletred; */
