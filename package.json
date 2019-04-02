@@ -11,7 +11,8 @@
     "serve": "gatsby serve --verbose",
     "buildAndServe": "npm run build && npm run serve",
     "format": "pretty-quick",
-    "release": "release-it"
+    "release": "release-it",
+    "seo": "SEO_EXPORT=true npm run build"
   },
   "husky": {
     "hooks": {
