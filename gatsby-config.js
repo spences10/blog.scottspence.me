@@ -31,9 +31,9 @@ const siteMetadata = {
 
 module.exports = {
   siteMetadata: siteMetadata,
-  mapping: {
-    'Mdx.fields.featuredImage': `File.absolutePath`
-  },
+  // mapping: {
+  //   'Mdx.fields.featuredImage': `File.absolutePath`
+  // },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-twitter`,
@@ -59,7 +59,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
+              wrapperStyle: `margin-bottom: 1rem`
             }
           },
           {
@@ -85,36 +85,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-transformer-remark`,
-    //   options: {
-    //     plugins: [
-    //       `@weknow/gatsby-remark-twitter`,
-    //       {
-    //         resolve: `gatsby-remark-images`,
-    //         options: {
-    //           // It's important to specify the maxWidth (in pixels) of
-    //           // the content container as this plugin uses this as the
-    //           // base for generating different widths of each image.
-    //           maxWidth: 590
-    //         }
-    //       },
-    //       {
-    //         resolve: `gatsby-remark-embed-video`,
-    //         options: {
-    //           related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-    //           noIframeBorder: true //Optional: Disable insertion of <style> border: 0
-    //         }
-    //       },
-    //       {
-    //         resolve: `gatsby-remark-prismjs`,
-    //         options: {
-    //           classPrefix: siteMetadata.prismJsLanguages
-    //         }
-    //       },
-    //     ]
-    //   }
-    // },
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
