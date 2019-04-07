@@ -7,6 +7,30 @@ tags:
 published: false
 ---
 
+In this guide we're going to cover converting the Gatbsy default blog
+starter to use MDX.
+
+All the cool kids are using Gatsby and MDX in their blogs these days.
+If you already have a blog in Gatsby but want to move onto the new
+hotness then this is the guide for you.
+
+## Versions:
+
+**This guide is being used with the following dependency versions.**
+
+- gatsby: 2.3.5
+- react: 16.8.6
+- react-dom: 16.8.6
+- gatsby-mdx: 0.4.5
+- @mdx-js/mdx: 0.20.3
+- @mdx-js/tag: 0.20.3
+
+You can also check out the [example code].
+
+---
+
+We're going to need some links
+
 codesandbox: https://codesandbox.io/docs/importing
 
 Wizard: https://codesandbox.io/s/github
@@ -35,7 +59,7 @@ Files to change:
 ## `gatsby-node.js`
 
 Change all markdown remark occurrences with MDX, that's the initial
-GraphQL query in create pages
+GraphQL query in create pages, then again in the result
 
 ```mdx
 ---
@@ -51,3 +75,7 @@ more content yo!
 
 <Butt>yoyoyo</Butt>
 ```
+
+<!-- Links -->
+
+[example code]: https://codesandbox.io/s/4xqvvwy6x4
