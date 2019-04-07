@@ -1,0 +1,60 @@
+---
+path: '/convert-gatsby-default-blog-to-use-mdx'
+date: '2019-12-31'
+title: 'Convert the Gatsby default starter blog to use MDX'
+tags:
+  [
+    'information',
+    'learning',
+    'wsl',
+    'guide',
+    'bash on windows',
+    'ubuntu',
+  ]
+published: false
+---
+
+codesandbox: https://codesandbox.io/docs/importing
+
+Wizard: https://codesandbox.io/s/github
+
+Gatsby: https://github.com/gatsbyjs/gatsby-starter-blog
+
+Import deps:
+
+- `gatsby-mdx`
+- `@mdx-js/mdx`
+- `@mdx-js/tag`
+
+Later:
+
+- `gatsby-plugin-styled-components`
+- `styled-components`
+- `babel-plugin-styled-components`
+
+Files to change:
+
+- `gatsby-node.js`
+- `gatsby-config.js`
+- `index.js`
+- `blog-post.js`
+
+## `gatsby-node.js`
+
+Change all markdown remark occurrences with MDX, that's the initial
+GraphQL query in create pages
+
+```mdx
+---
+title: My First MDX Post!
+date: '2019-04-07T23:46:37.121Z'
+---
+
+import { Butt } from '../../../src/components/button'
+
+# make a site they said, it'll be fun they said
+
+more content yo!
+
+<Butt>yoyoyo</Butt>
+```
