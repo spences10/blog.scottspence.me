@@ -4,7 +4,7 @@ date: '2019-12-31'
 title: 'Convert the Gatsby default starter blog to use MDX'
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
-published: false
+published: true
 ---
 
 In this guide we're going to cover converting the Gatbsy default blog
@@ -31,26 +31,36 @@ You can also check out the [example code].
 
 We're going to need some links, which are:
 
-CodeSandbox: https://codesandbox.io/docs/importing
+- [CodeSandbox docs for importing projects]
 
-[CodeSandbox import wizard]
+- [CodeSandbox import wizard]
 
-Gatsby starter blog: https://github.com/gatsbyjs/gatsby-starter-blog
+- [Gatsby starter blog]
 
 ## Import to CodeSandbox
 
 For this example I'm going to be using the [Gatsby starter blog] and
-importing it into CodeSandbox, you can do this with the import wizard
-linked, paste the link in there and CodeSandbox will open the
-representation on the code on GitHub.
+importing it into CodeSandbox, looking at the docs it says you can do
+this with the [CodeSandbox import wizard] linked, paste the link in
+there and CodeSandbox will open the representation of the code on
+GitHub.
 
-Import deps:
+Now we can go about moving from using Gatsby transformer remark over
+to MDX.
+
+Let's take a look at what we'll be changing for this example. But
+first we're going to need to import some dependencies to get MDX
+running in out Gatsby project.
+
+With the add dependency button in CodeSandbox add the following
+dependencies:
 
 - `gatsby-mdx`
 - `@mdx-js/mdx`
 - `@mdx-js/tag`
 
-Later:
+We will also need to add dependencies for styled-components so may as
+well add them now as well:
 
 - `gatsby-plugin-styled-components`
 - `styled-components`
@@ -65,8 +75,37 @@ Files to change:
 
 ## `gatsby-node.js`
 
+First up we're going to need to change `gatsby-node.js` this is where
+all the pages and data nodes are generated.
+
 Change all markdown remark occurrences with MDX, that's the initial
-GraphQL query in create pages, then again in the result
+GraphQL query in create pages, then again in the result.
+
+![initial gatsby node changes](./initialGatsbyNode.png)
+
+Then change the `node.internal.type` in `onCreateNode` from
+`MarkdownRemark` to `Mdx`.
+
+![last gatsby node changes](./lastGatsbyNode.png)
+
+## `gatsby-config.js`
+
+Here we're going to replace `gatsby-transformer-remark` with
+`gatsby-mdx`
+
+![replace transformer remark with gatsby-mdx](./gatsbyConfig.png)
+
+## `index.js`
+
+Here we're going to alter the `posts` variable to take the `Mdx`
+edges.
+
+![replace all markdown edges](./indexPageEdges.png)
+
+The `Mdx` edges are taken from the page query, which is also altered
+to use `allMdx` in place of `allMarkdownRemark`.
+
+![index page query](indexPageQuery.png)
 
 ```mdx
 ---
@@ -88,3 +127,5 @@ more content yo!
 [example code]: https://codesandbox.io/s/4xqvvwy6x4
 [gatsby starter blog]: https://github.com/gatsbyjs/gatsby-starter-blog
 [codesandbox import wizard]: https://codesandbox.io/s/github
+[codesandbox docs for importing projects]:
+  https://codesandbox.io/docs/importing
