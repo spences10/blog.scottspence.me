@@ -131,6 +131,34 @@ this time also doing away with `html` from the query and adding in
 
 So now we can create a `.mdx` post, let's do that.
 
+Import the styled-components dependencies:
+
+```bash
+gatsby-plugin-styled-components
+styled-components
+babel-plugin-styled-components
+```
+
+Then configure them in `gatsby-config.js`:
+
+```js
+module.exports = {
+  siteMetadata: {
+    title: `Gatsby Starter Blog`,
+    ...
+    },
+  },
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+  ...
+```
+
+Now we can use styled-components, in `src/components` make a new
+component, I have called my one `butt.js` call yours what you like.
+
 ```mdx
 ---
 title: My First MDX Post!
@@ -148,7 +176,7 @@ more content yo!
 
 <!-- Links -->
 
-[example code]: https://codesandbox.io/s/4xqvvwy6x4
+[example code]: https://codesandbox.io/s/lqp6p647q
 [gatsby starter blog]: https://github.com/gatsbyjs/gatsby-starter-blog
 [codesandbox import wizard]: https://codesandbox.io/s/github
 [codesandbox docs for importing projects]:
