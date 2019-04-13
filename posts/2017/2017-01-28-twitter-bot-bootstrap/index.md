@@ -14,10 +14,7 @@ There are some really useful Twitter bots out there that do some
 pretty cool stuff they don't all spam current hashtags and follow
 users relentlessly.
 
-<figure class="floatRight">
-	<img style="height: 200px;" src="./rust-bird.jpg" alt="twitter">
-	<!--<figcaption></figcaption>-->
-</figure>
+![](./rust-bird.jpg)
 
 Take the [Twisst ISS alerts](https://twitter.com/twisst) bot that
 sends you a DM when the international space station (ISS) will be

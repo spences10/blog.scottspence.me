@@ -1,4 +1,6 @@
-const path = require('path')
+const path = require(`path`)
+// const fs = require(`fs`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -9,20 +11,23 @@ exports.createPages = ({ actions, graphql }) => {
   // returns promise that will start with this graphql query
   return graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: ASC, fields: [frontmatter___date] }
         filter: { frontmatter: { published: { eq: true } } }
         limit: 1000
       ) {
         edges {
           node {
-            html
+            code {
+              body
+              scope
+            }
             id
+            excerpt
             frontmatter {
               date
               path
               title
-              excerpt
               tags
             }
           }
@@ -34,7 +39,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMdx.edges
 
     createTagPages(createPage, posts)
 
@@ -97,4 +102,31 @@ const createTagPages = (createPage, posts) => {
       }
     })
   })
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `path`,
+      node,
+      value
+    })
+
+    // const parent = getNode(node.parent)
+
+    // if (parent.internal.type === `File`) {
+    //   const ext = path.extname(parent.absolutePath)
+    //   const featuredImage = parent.absolutePath.replace(ext, '.png')
+    //   if (fs.existsSync(featuredImage)) {
+    //     createNodeField({
+    //       name: `featuredImage`,
+    //       node,
+    //       value: featuredImage
+    //     })
+    //   }
+    // }
+  }
 }

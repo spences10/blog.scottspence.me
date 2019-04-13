@@ -1,16 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Utterances from 'react-utterances'
 import styled from 'styled-components'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import { HappyButton } from '../components/Shared'
+import useSiteMetadata from '../components/SiteMetadata'
 
 // import { Dump } from '../utils/helpers'
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
 
-import { HappyButton } from '../components/Shared'
-
-// add prismjs theme
-require('prismjs/themes/prism-solarizedlight.css')
+const repo = 'spences10/blog.scottspence.me'
 
 // Title
 // Date
@@ -44,13 +45,6 @@ const PostWrapper = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
-  -moz-document url-prefix() {
-    /* Firefox doesn't respect max-width in certain situations */
-    img {
-      width: 100%;
-      max-width: -moz-max-content;
-    }
-  }
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
 `
@@ -72,24 +66,24 @@ const PrevNextButton = styled(HappyButton)`
 `
 
 const blogPostLayout = ({ data, pageContext }) => {
-  const post = data.markdownRemark
+  const { frontmatter, excerpt, code } = data.mdx
   const { prev, next } = pageContext
-  const { imageLink } = data.site.siteMetadata
+  const { imageLink: defaultImage } = useSiteMetadata()
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.excerpt || 'nothin’'}
-        image={imageLink}
-        pathname={post.frontmatter.path}
+        title={frontmatter.title}
+        description={excerpt || 'nothin’'}
+        image={defaultImage}
+        pathname={frontmatter.path}
+        keywords={frontmatter.tags}
         article
       />
-      {/* <Dump props={data} /> */}
+      {/* <Dump props={post.frontmatter} /> */}
       <PostWrapper>
-        <Title>{post.frontmatter.title}</Title>
-        <TitleDate>{post.frontmatter.date}</TitleDate>
-        {/* <Markdown source={post.html} /> */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Title>{frontmatter.title}</Title>
+        <TitleDate>{frontmatter.date}</TitleDate>
+        <MDXRenderer>{code.body}</MDXRenderer>
         <LinksWrapper>
           <LinkWrapper justify={'start'}>
             {prev === false ? null : (
@@ -118,6 +112,7 @@ const blogPostLayout = ({ data, pageContext }) => {
             )}
           </LinkWrapper>
         </LinksWrapper>
+        <Utterances repo={repo} type={'url'} />
       </PostWrapper>
     </Layout>
   )
@@ -130,21 +125,21 @@ blogPostLayout.propTypes = {
   pageContext: PropTypes.any
 }
 
+// TODO: site metadata image
 export const query = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      code {
+        body
+        scope
+      }
       excerpt(pruneLength: 250)
       frontmatter {
         title
         path
+        tags
         date(formatString: "YYYY MMMM Do")
         published
-      }
-    }
-    site {
-      siteMetadata {
-        imageLink
       }
     }
   }

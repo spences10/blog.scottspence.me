@@ -1,9 +1,9 @@
+import { graphql, Link } from 'gatsby'
 import React from 'react'
-import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
-
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
+import useSiteMetadata from '../components/SiteMetadata'
 
 const Wrapper = styled.div``
 
@@ -40,16 +40,25 @@ const PostedDate = styled.p`
 `
 
 export default ({ data }) => {
+  const { description, imageLink, title } = useSiteMetadata()
   return (
     <Layout>
       <SEO
-        title={data.site.siteMetadata.title}
-        description={data.site.siteMetadata.description || 'nothin’'}
-        image={data.site.siteMetadata.imageLink}
+        title={title}
+        description={description || 'nothin’'}
+        image={imageLink}
+        keywords={[
+          `blog`,
+          `gatsby`,
+          `javascript`,
+          `react`,
+          `graphql`,
+          `learning`
+        ]}
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
-        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        {data.allMdx.edges.map(({ node }, index) => (
           <PostWrapper key={index}>
             <StyledLink to={node.frontmatter.path}>
               <PostTitle>{node.frontmatter.title}</PostTitle>
@@ -65,7 +74,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
@@ -81,13 +90,6 @@ export const query = graphql`
             published
           }
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-        description
-        imageLink
       }
     }
   }
