@@ -31,9 +31,9 @@ const siteMetadata = {
 
 module.exports = {
   siteMetadata: siteMetadata,
-  mapping: {
-    'Mdx.fields.featuredImage': `File.absolutePath`
-  },
+  // mapping: {
+  //   'Mdx.fields.featuredImage': `File.absolutePath`
+  // },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-twitter`,
@@ -59,7 +59,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
+              wrapperStyle: `margin-bottom: 1rem`
             }
           },
           {
