@@ -679,7 +679,7 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 <!-- LINKS -->
 
-[twitter]: https://twitter.com/ScottDevTweets
+[twitter]: https://twitter.com/spences10
 [ask me anything]: https://github.com/spences10/ama
 [the microsoft store]:
   https://www.microsoft.com/en-gb/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab

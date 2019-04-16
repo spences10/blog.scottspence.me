@@ -896,7 +896,7 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 [styled-components on spectrum]:
   https://spectrum.chat/styled-components
 [react community on spectrum]: https://spectrum.chat/react
-[twitter]: https://twitter.com/ScottDevTweets
+[twitter]: https://twitter.com/spences10
 [ask me anything]: https://github.com/spences10/ama
 [his youtube channel]:
   https://www.youtube.com/channel/UCWPY8W-FAZ2HdDiJp2RC_sQ

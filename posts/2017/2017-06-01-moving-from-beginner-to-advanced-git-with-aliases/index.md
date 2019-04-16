@@ -156,5 +156,5 @@ give it a like and don't forget to share it on social media 🙌
 [git-tools]: http://www.toolsday.io/episodes/git.html
 [pi]: https://github.com/paulirish
 [pidf]: https://github.com/paulirish/dotfiles/blob/master/.gitconfig
-[sdt]: https://twitter.com/ScottDevTweets
+[sdt]: https://twitter.com/spences10
 [ama]: https://github.com/spences10/ama

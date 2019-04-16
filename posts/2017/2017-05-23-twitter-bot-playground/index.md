@@ -335,13 +335,13 @@ through your followers list and follow back any users that do not have
 the `following` connection.
 
 Let's take a look at the relation between our bot and
-[`@ScottDevTweets`][scotttwit]
+[`@spences10`][scotttwit]
 
 ```js
 bot.get(
   'friendships/lookup',
   {
-    screen_name: 'ScottDevTweets'
+    screen_name: 'spences10'
   },
   (err, data, response) => {
     if (err) {
@@ -357,7 +357,7 @@ If the user follows the bot, then relationship will be:
 
 ```bash
 [ { name: 'Scott Spence 🌯😴💻♻',
-    screen_name: 'ScottDevTweets',
+    screen_name: 'spences10',
     id: 4897735439,
     id_str: '4897735439',
     connections: [ 'followed_by' ] } ]
@@ -368,7 +368,7 @@ will be:
 
 ```bash
 [ { name: 'Scott Spence 🌯😴💻♻',
-    screen_name: 'ScottDevTweets',
+    screen_name: 'spences10',
     id: 4897735439,
     id_str: '4897735439',
     connections: [ 'following', 'followed_by' ] } ]
@@ -378,7 +378,7 @@ And if there is no relationship then:
 
 ```bash
 [ { name: 'Scott Spence 🌯😴💻♻',
-    screen_name: 'ScottDevTweets',
+    screen_name: 'spences10',
     id: 4897735439,
     id_str: '4897735439',
     connections: [ 'none' ] } ]
@@ -392,7 +392,7 @@ Direct Message a user with `bot.post('direct_messages/new'...`
 bot.post(
   'direct_messages/new',
   {
-    screen_name: 'ScottDevTweets',
+    screen_name: 'spences10',
     text: 'Hello from bot!'
   },
   (err, data, response) => {
@@ -532,7 +532,7 @@ replying to.
 bot.post(
   'statuses/update',
   {
-    status: '@ScottDevTweets I reply to you yes!',
+    status: '@spences10 I reply to you yes!',
     in_reply_to_status_id: '860900406381211649'
   },
   (err, data, response) => {
@@ -1968,7 +1968,7 @@ Copyright (c) 2017, Scott Spence. All rights reserved.
 [twitter-app]: https://apps.twitter.com/app/new
 [dotenv]: https://www.npmjs.com/package/dotenv
 [scottbot]: https://twitter.com/DroidScott
-[scotttwit]: https://twitter.com/ScottDevTweets
+[scotttwit]: https://twitter.com/spences10
 [egghead-media-files]:
   https://egghead.io/lessons/node-js-tweet-media-files-with-twit-js
 [hannah-davis]: https://egghead.io/instructors/hannah-davis
