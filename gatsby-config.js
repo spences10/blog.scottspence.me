@@ -6,7 +6,7 @@ const siteMetadata = {
   siteTitle: `blog.scottspence.me`,
   description: `Blog (learnings) of Scott Spence, father, husband 👨‍👩‍👧 Full stack web developer in the making 👨‍💻 Just In Time learner 👌 Byproduct of: coffee+excess carbs+lack of sleep. He/Him.`,
   titleTemplate: `%s | blog.scottspence.me`,
-  twitterUsername: `@ScottDevTweets`,
+  twitterUsername: `@spences10`,
   facebookAppID: ``,
   pages: [`tags`], //`about`, `contact`,
   nameContent: `Scott Spence - blog`,
@@ -19,7 +19,7 @@ const siteMetadata = {
     { name: `GitHub`, link: `https://github.com/spences10` },
     { name: `Medium`, link: `https://medium.com/@spences10` },
     { name: `Dev.to`, link: `https://dev.to/spences10` },
-    { name: `Twitter`, link: `https://twitter.com/ScottDevTweets` },
+    { name: `Twitter`, link: `https://twitter.com/spences10` },
     { name: `Email`, link: `mailto:spences10apps@gmail.com` }
   ],
   // this is for favicon and manifest
