@@ -19,12 +19,13 @@
     }
   },
   "dependencies": {
-    "@mdx-js/mdx": "^0.20.3",
+    "@mdx-js/mdx": "^1.0.10",
+    "@mdx-js/react": "^1.0.6",
     "@mdx-js/tag": "^0.20.3",
     "babel-plugin-styled-components": "1.10.0",
     "gatsby": "2.3.8",
     "gatsby-image": "2.0.37",
-    "gatsby-mdx": "^0.4.5",
+    "gatsby-mdx": "^0.6.2",
     "gatsby-plugin-favicon": "3.1.5",
     "gatsby-plugin-feed": "2.1.0",
     "gatsby-plugin-google-analytics": "2.0.18",
@@ -52,7 +53,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.0",
-    "react-live": "1.12.0",
+    "react-live": "^2.0.1",
     "react-tweet-embed": "1.2.2",
     "react-utterances": "0.6.4",
     "styled-components": "4.2.0"
