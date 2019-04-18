@@ -35,7 +35,7 @@ retweet your tweets that also happen to be an
 [Accidental Haiku](https://twitter.com/accidental575)
 
 Bots can be used for many purposes in my case I have used it to
-enhance my [@ScottDevTweets](https://twitter.com/ScottDevTweets)
+enhance my [@spences10](https://twitter.com/spences10)
 account by liking and re-tweeting subjects I have an interest in, in
 the case of the [#100DaysOfCode][100docchallenge] community challenge
 there is a community bot which congratulates you on starting
@@ -52,7 +52,7 @@ get out of working with technology?". My answer, "I like to automate
 stuff, repetitive tasks to save me time so I can concentrate on other
 stuff, I like the fact I have saved myself some time"
 
-In the case of my @ScottDevTweets bot it's usually an opener for a
+In the case of my @spences10 bot it's usually an opener for a
 conversation with another user that follows me, so the bot can
 initiate the conversation and I can carry on from where the bot left
 off.

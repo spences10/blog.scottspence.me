@@ -758,5 +758,5 @@ Find me on [Twitter] or [Ask Me Anything] on GitHub.
   https://spectrum.chat/?t=54887141-57a9-4386-807c-ed950c4d5132
 [stack overflow]:
   https://stackoverflow.com/questions/tagged/styled-components
-[twitter]: https://twitter.com/ScottDevTweets
+[twitter]: https://twitter.com/spences10
 [ask me anything]: https://github.com/spences10/ama
