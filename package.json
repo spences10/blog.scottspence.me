@@ -1,6 +1,6 @@
 {
   "name": "blog.scottspence.me",
-  "version": "4.0.62",
+  "version": "4.0.66",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
@@ -11,9 +11,7 @@
     "serve": "gatsby serve --verbose",
     "buildAndServe": "npm run build && npm run serve",
     "format": "pretty-quick",
-    "release": "release-it",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "release": "release-it"
   },
   "husky": {
     "hooks": {
@@ -21,16 +19,17 @@
     }
   },
   "dependencies": {
-    "@mdx-js/mdx": "1.0.0-alpha.11",
-    "@mdx-js/tag": "1.0.0-alpha.6",
+    "@mdx-js/mdx": "1.0.10",
+    "@mdx-js/react": "1.0.6",
+    "@mdx-js/tag": "0.20.3",
     "babel-plugin-styled-components": "1.10.0",
-    "gatsby": "2.3.8",
+    "gatsby": "2.3.14",
     "gatsby-image": "2.0.37",
-    "gatsby-mdx": "0.5.2",
-    "gatsby-plugin-favicon": "3.1.6",
+    "gatsby-mdx": "0.6.2",
+    "gatsby-plugin-favicon": "3.1.5",
     "gatsby-plugin-feed": "2.1.0",
     "gatsby-plugin-google-analytics": "2.0.18",
-    "gatsby-plugin-manifest": "2.0.26",
+    "gatsby-plugin-manifest": "2.0.25",
     "gatsby-plugin-offline": "2.0.25",
     "gatsby-plugin-react-helmet": "3.0.11",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
@@ -54,16 +53,16 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.0",
-    "react-live": "1.12.0",
+    "react-live": "2.0.1",
     "react-tweet-embed": "1.2.2",
     "react-utterances": "0.6.4",
     "styled-components": "4.2.0"
   },
   "devDependencies": {
     "husky": "1.3.1",
-    "prettier": "1.16.4",
+    "prettier": "1.17.0",
     "pretty-quick": "1.10.0",
-    "release-it": "10.4.0"
+    "release-it": "10.3.1"
   },
   "keywords": [
     "gatsby",
