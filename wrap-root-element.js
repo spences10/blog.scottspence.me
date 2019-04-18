@@ -1,4 +1,4 @@
-import { MDXProvider } from '@mdx-js/tag'
+import { MDXProvider } from '@mdx-js/react'
 import React from 'react'
 import Code from './src/components/Code'
 // import { Dump } from './src/utils/helpers';
@@ -10,7 +10,7 @@ const components = {
     if (props.mdxType === 'code') {
       return (
         <Code
-          codeString={props.children}
+          codeString={props.children.trim()}
           language={
             props.className &&
             props.className.replace('language-', '')
