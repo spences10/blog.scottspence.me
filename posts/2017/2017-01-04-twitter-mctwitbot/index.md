@@ -33,7 +33,7 @@ So with his great documentation
 and
 [here](https://community.risingstack.com/how-to-make-a-twitter-bot-with-node-js/)
 I managed to cobble together my own Twitter-bot which I use on my
-[@ScottDevTweets](https://twitter.com/ScottDevTweets) Twitter account
+[@spences10](https://twitter.com/spences10) Twitter account
 
 > If you'r wondering about the post name
 > [check here](https://en.wikipedia.org/wiki/RRS_Sir_David_Attenborough#Boaty_McBoatface_Naming_Controversy).
