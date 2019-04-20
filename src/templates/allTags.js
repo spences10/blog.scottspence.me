@@ -17,13 +17,13 @@ const Container = styled.div`
 const List = styled.ul`
   margin: 0rem;
   padding: 0rem;
+  list-style: none;
 `
 
 const Tag = styled.li`
   margin: 0.5rem;
   padding: 0.5rem;
   font-weight: bold;
-  display: inline-block;
   color: ${props => props.theme.fontLight};
   background: ${({ theme }) => theme.primary};
   /* border: 1px solid ${props => props.theme.border}; */
