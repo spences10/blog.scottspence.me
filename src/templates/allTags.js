@@ -6,17 +6,12 @@ import Layout from '../components/Layout'
 
 const Container = styled.div`
   font-family: ${props => props.theme.fontBody};
-  height: 75vh;
   margin: 1rem;
   padding: 1rem;
   background: ${({ theme }) => theme.foreground};
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
 `
 
 const List = styled.ul`
