@@ -2,11 +2,13 @@ const visit = require('unist-util-visit')
 const getYouTubeHTML = require('./get-youtube-html')
 const getTwitterHTML = require('./get-twitter-html')
 const getCodeSandboxHTML = require('./get-codesandbox-html')
+const getReplItHTML = require('./get-replit-html')
 
 const transformers = [
   getYouTubeHTML,
   getTwitterHTML,
-  getCodeSandboxHTML
+  getCodeSandboxHTML,
+  getReplItHTML
 ]
 
 module.exports = async ({ markdownAST, cache }) => {
