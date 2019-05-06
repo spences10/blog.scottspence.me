@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
-import {
-  BlogThemeContext,
-  BlogThemeProvider
-} from '../contexts/BlogThemeContext'
+import styled from 'styled-components'
+import { BlogThemeContext } from '../contexts/BlogThemeContext'
 import { GlobalStyle, media } from '../theme/globalStyle'
 import Footer from './Footer'
 import Header from './Header'
@@ -62,20 +59,16 @@ const Wrapper = styled.div`
 const Layout = ({ children }) => {
   const { title } = useSiteMetadata()
   return (
-    <BlogThemeProvider>
-      <BlogThemeContext.Consumer>
-        {({ theme, background }) => (
-          <ThemeProvider theme={theme}>
-            <AppStyles background={background}>
-              <GlobalStyle />
-              <Header siteTitle={title} />
-              <Wrapper>{children}</Wrapper>
-              <Footer />
-            </AppStyles>
-          </ThemeProvider>
-        )}
-      </BlogThemeContext.Consumer>
-    </BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ background }) => (
+        <AppStyles background={background}>
+          <GlobalStyle />
+          <Header siteTitle={title} />
+          <Wrapper>{children}</Wrapper>
+          <Footer />
+        </AppStyles>
+      )}
+    </BlogThemeContext.Consumer>
   )
 }
 Layout.propTypes = {
