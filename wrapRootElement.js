@@ -1,6 +1,12 @@
 import { MDXProvider } from '@mdx-js/react'
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 import Code from './src/components/Code'
+import {
+  BlogThemeContext,
+  BlogThemeProvider
+} from './src/contexts/BlogThemeContext'
+
 // import { Dump } from './src/utils/helpers';
 // components is its own object outside of render so that the references to
 // components are stable
@@ -23,6 +29,15 @@ const components = {
     return <pre />
   }
 }
+
 export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={components}>{element}</MDXProvider>
+  <BlogThemeProvider>
+    <BlogThemeContext.Consumer>
+      {({ theme }) => (
+        <ThemeProvider theme={theme}>
+          <MDXProvider components={components}>{element}</MDXProvider>
+        </ThemeProvider>
+      )}
+    </BlogThemeContext.Consumer>
+  </BlogThemeProvider>
 )
