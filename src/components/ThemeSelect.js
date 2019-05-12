@@ -1,7 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
-
 import { BlogThemeContext } from '../contexts/BlogThemeContext'
 import { themes } from '../theme/globalStyle'
 
@@ -28,9 +27,11 @@ export const SelectOpt = styled.option`
 const ThemeSelect = () => {
   return (
     <BlogThemeContext.Consumer>
-      {({ handleThemeChange }) => (
+      {({ handleThemeChange, currentTheme }) => (
         <SelectWrapper>
-          <Select onChange={e => handleThemeChange(e)}>
+          <Select
+            onLoad={currentTheme}
+            onChange={e => handleThemeChange(e)}>
             {Object.keys(themes).map((theme, index) => {
               return (
                 <SelectOpt key={index} value={theme}>
