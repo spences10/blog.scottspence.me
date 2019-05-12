@@ -28,7 +28,7 @@ function getReplItHTML(string) {
   <iframe 
     height="400px" 
     width="100%" 
-    src="${string}" 
+    src="${string}?lite=true" 
     scrolling="no" 
     frameborder="no" 
     allowtransparency="true" 
