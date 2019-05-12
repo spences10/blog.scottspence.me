@@ -11,13 +11,14 @@ export const BlogThemeContext = React.createContext()
 export class BlogThemeProvider extends React.Component {
   state = {
     theme: themes['theme1'],
-    background: HERO[0]
+    background: HERO[0],
+    currentTheme: 'theme1'
   }
 
   handleThemeChange = e => {
     const key = e.target.value
     const theme = themes[key]
-    this.setState({ theme })
+    this.setState({ theme, currentTheme: key })
   }
 
   componentDidMount() {
