@@ -79,7 +79,19 @@ module.exports = {
               rel: `noopener`
             }
           },
-          { resolve: require.resolve('./plugins/remark-embedder') }
+          {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              // defaults to false
+              usePrefix: false,
+              providers: {
+                // Important to exclude providers
+                // that adds js to the page.
+                // If you do not need them.
+                exclude: ['Reddit']
+              }
+            }
+          }
         ]
       }
     },
