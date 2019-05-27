@@ -33,7 +33,7 @@ export const LineNo = styled.span`
 export const Code = ({ codeString, language, ...props }) => {
   if (props['react-live']) {
     return (
-      <LiveProvider code={codeString} noInline={true}>
+      <LiveProvider code={codeString} noInline={true} theme={theme}>
         <LiveEditor />
         <LiveError />
         <LivePreview />
