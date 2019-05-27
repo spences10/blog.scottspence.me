@@ -1,13 +1,13 @@
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/nightOwl'
-import React from 'react'
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
 import {
   LiveEditor,
   LiveError,
   LivePreview,
-  LiveProvider
-} from 'react-live'
-import styled from 'styled-components'
+  LiveProvider,
+} from 'react-live';
+import styled from 'styled-components';
 // import { Dump } from '../utils/helpers'
 
 export const Pre = styled.pre`
@@ -21,16 +21,16 @@ export const Pre = styled.pre`
     line-height: 1.3em;
     height: 1.3em;
   }
-`
+`;
 
 export const LineNo = styled.span`
   display: inline-block;
   width: 2em;
   user-select: none;
   opacity: 0.3;
-`
+`;
 
-const Code = ({ codeString, language, ...props }) => {
+export const Code = ({ codeString, language, ...props }) => {
   if (props['react-live']) {
     return (
       <LiveProvider code={codeString} noInline={true}>
@@ -38,7 +38,7 @@ const Code = ({ codeString, language, ...props }) => {
         <LiveError />
         <LivePreview />
       </LiveProvider>
-    )
+    );
   }
   return (
     <>
@@ -52,7 +52,7 @@ const Code = ({ codeString, language, ...props }) => {
           style,
           tokens,
           getLineProps,
-          getTokenProps
+          getTokenProps,
         }) => (
           <Pre className={className} style={style}>
             {tokens.map((line, i) => (
@@ -67,7 +67,7 @@ const Code = ({ codeString, language, ...props }) => {
         )}
       </Highlight>
     </>
-  )
-}
+  );
+};
 
-export default Code
+export default Code;

@@ -2,10 +2,10 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
   "printWidth": 70,
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "none",
+  "trailingComma": "es5",
   "useTabs": false,
   "proseWrap": "always",
   "overrides": [
