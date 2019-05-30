@@ -5537,12 +5537,12 @@ gatsby-mdx@0.6.3:
     unist-util-remove "^1.0.1"
     unist-util-visit "^1.4.0"
 
-gatsby-plugin-favicon@^3.1.6:
+gatsby-plugin-favicon@3.1.6:
   version "3.1.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-favicon/-/gatsby-plugin-favicon-3.1.6.tgz#f63f45c9af112bc13dbf4cb89e0445f72c0811ac"
   integrity sha512-uQa5z1F/KKcjdVsDh/pnEMbXC9E1dQh7kpQpTVpTiKGOpft5s4J+qpGTJFOHizsppQMijNX+QO8lUAyaTI0sRw==
   dependencies:
-    favicons-webpack-plugin "https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf"
+    favicons-webpack-plugin "git+https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf"
     html-react-parser "^0.6.4"
     lodash "^4.17.11"
 
@@ -11184,10 +11184,10 @@ relay-runtime@2.0.0:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
 
-release-it@12.2.1:
-  version "12.2.1"
-  resolved "https://registry.yarnpkg.com/release-it/-/release-it-12.2.1.tgz#13aa5102723716200d37f8686fc272f167633498"
-  integrity sha512-MudVfmqXKPWJKdQdYk/dUzMdiRNPuE6Y/c9tnT8QgZeIFhLCWHnRvkSTiNN/4Gs29zHauEEcHWbzgG1wzy3+sA==
+release-it@12.2.2:
+  version "12.2.2"
+  resolved "https://registry.yarnpkg.com/release-it/-/release-it-12.2.2.tgz#bafa99392e8b4ea8ed9f4d72eab51185aca460be"
+  integrity sha512-zr00XYO6YioLirehTJcMIef/xfF+K9grd5CELqYMEJoMNSvumYVxp2syl8IJpvAj8d8u3AD4TqfUvgJ5o6eYgQ==
   dependencies:
     "@iarna/toml" "2.2.3"
     "@octokit/rest" "16.25.0"
