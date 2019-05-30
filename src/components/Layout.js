@@ -1,13 +1,17 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import styled from 'styled-components'
-import { BlogThemeContext } from '../contexts/BlogThemeContext'
-import { GlobalStyle, media } from '../theme/globalStyle'
-import Footer from './Footer'
-import Header from './Header'
-import useSiteMetadata from './SiteMetadata'
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import { BlogThemeContext } from '../contexts/BlogThemeContext';
+import { GlobalStyle, media } from '../theme/globalStyle';
+import Footer from './Footer';
+import Header from './Header';
+import useSiteMetadata from './SiteMetadata';
 
 const AppStyles = styled.div`
+  pre,
+  div {
+    width: 100%;
+  };
   background-color: ${({ theme }) => theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
@@ -50,14 +54,14 @@ const AppStyles = styled.div`
       'f f f f f f f f f';
     /* background: palevioletred; */
   `};
-`
+`;
 
 const Wrapper = styled.div`
   grid-area: m;
-`
+`;
 
 const Layout = ({ children }) => {
-  const { title } = useSiteMetadata()
+  const { title } = useSiteMetadata();
   return (
     <BlogThemeContext.Consumer>
       {({ background }) => (
@@ -69,10 +73,10 @@ const Layout = ({ children }) => {
         </AppStyles>
       )}
     </BlogThemeContext.Consumer>
-  )
-}
+  );
+};
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
-export default Layout
+export default Layout;
