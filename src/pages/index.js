@@ -1,11 +1,12 @@
-import { graphql, Link } from 'gatsby'
-import React from 'react'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import useSiteMetadata from '../components/SiteMetadata'
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import useSiteMetadata from '../components/SiteMetadata';
 
-const Wrapper = styled.div``
+const Wrapper = styled.div``;
 
 const PostWrapper = styled.div`
   margin: 0.5rem;
@@ -17,12 +18,12 @@ const PostWrapper = styled.div`
   font-family: ${({ theme }) => theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-`
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
-`
+`;
 
 const PostTitle = styled.div`
   font-family: ${({ theme }) => theme.fontHeader};
@@ -32,15 +33,15 @@ const PostTitle = styled.div`
   margin: 0rem;
   padding: 0rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-`
+`;
 
 const PostedDate = styled.p`
   margin: 0.05rem;
   color: ${({ theme }) => theme.fontLight};
-`
+`;
 
 export default ({ data }) => {
-  const { description, imageLink, title } = useSiteMetadata()
+  const { description, imageLink, title } = useSiteMetadata();
   return (
     <Layout>
       <SEO
@@ -53,7 +54,7 @@ export default ({ data }) => {
           `javascript`,
           `react`,
           `graphql`,
-          `learning`
+          `learning`,
         ]}
       />
       <Wrapper>
@@ -64,13 +65,18 @@ export default ({ data }) => {
               <PostTitle>{node.frontmatter.title}</PostTitle>
               <PostedDate>{node.frontmatter.date}</PostedDate>
               <p>{node.excerpt}</p>
+              {!!node.frontmatter.cover ? (
+                <Img
+                  sizes={node.frontmatter.cover.childImageSharp.sizes}
+                />
+              ) : null}
             </StyledLink>
           </PostWrapper>
         ))}
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -88,9 +94,17 @@ export const query = graphql`
             path
             date(formatString: "YYYY MMMM Do")
             published
+            cover {
+              publicURL
+              childImageSharp {
+                sizes(maxWidth: 2000) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }
     }
   }
-`
+`;
