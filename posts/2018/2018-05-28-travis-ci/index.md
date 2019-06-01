@@ -1,9 +1,11 @@
 ---
-path: '/travis-ci-with-now'
-date: '2018-05-28'
-title: 'Making a CI pipeline with Travis CI'
+path: /travis-ci-with-now
+date: 2018-05-28
+title: Making a CI pipeline with Travis CI
 tags: ['information', 'guide', 'travis-ci', 'now', 'zeit']
 published: true
+cover: ./cover.png
+coverCredit: Photo by Quinten de Graaf on Unsplash
 ---
 
 I thought I'd set up this blog with some sort of build pipeline, the
@@ -89,7 +91,7 @@ after_script:
   - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run release; fi
   - npm run cleanup
 
-? env
+env:
 global:
   secure: lngmfinghashvariable!
 ```
