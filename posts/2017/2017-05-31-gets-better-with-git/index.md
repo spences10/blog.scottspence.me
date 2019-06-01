@@ -7,9 +7,7 @@ published: true
 cover: ./cover.png
 ---
 
-https://twitter.com/lindakatcodes/status/869086021220261888
 
-A familiar sentiment for anyone starting out with Git
 
 No doubt you have heard of Git or GitHub for source control, but
 **what is source control?**
@@ -30,6 +28,10 @@ Lets look at it this way…
 > without getting rid of the changes on the old one. It's an everyday
 > situation, except on a software project there is the potential for a
 > lot of changes.
+
+https://twitter.com/lindakatcodes/status/869086021220261888
+
+A familiar sentiment for anyone starting out with Git
 
 ## Concepts
 
