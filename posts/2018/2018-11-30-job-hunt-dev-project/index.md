@@ -4,6 +4,8 @@ date: '2018-11-30'
 title: 'Turning a job hunt into a dev project'
 tags: ['information', 'learning', 'career', 'ramble']
 published: true
+cover: ./cover.png
+coverCredit: Photo by Marko Blažević on Unsplash
 ---
 
 ## Cliffs/TL;DR

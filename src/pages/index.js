@@ -61,15 +61,15 @@ export default ({ data }) => {
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
         {data.allMdx.edges.map(({ node }, index) => (
           <PostWrapper key={index}>
+            {!!node.frontmatter.cover ? (
+              <Img
+                sizes={node.frontmatter.cover.childImageSharp.sizes}
+              />
+            ) : null}
             <StyledLink to={node.frontmatter.path}>
               <PostTitle>{node.frontmatter.title}</PostTitle>
               <PostedDate>{node.frontmatter.date}</PostedDate>
               <p>{node.excerpt}</p>
-              {!!node.frontmatter.cover ? (
-                <Img
-                  sizes={node.frontmatter.cover.childImageSharp.sizes}
-                />
-              ) : null}
             </StyledLink>
           </PostWrapper>
         ))}
