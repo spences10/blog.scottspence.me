@@ -1,7 +1,7 @@
 ---
-path: '/wsl-bootstrap-2019'
-date: '2018-12-24'
-title: 'Windows Web-dev bootstrap'
+path: /wsl-bootstrap-2019'
+date: 2018-12-24
+title: Windows Web-dev bootstrap
 tags:
   [
     'information',
@@ -13,6 +13,8 @@ tags:
     'node',
   ]
 published: true
+cover: ./cover.png
+coverCredit: Photo by Luana De Marco on Unsplash
 ---
 
 ## From scratch to Create React App on Windows
@@ -340,9 +342,9 @@ module.exports = {
     cursorShape: 'BEAM',
     cursorBlink: true,
     copyOnSelect: true,
-    plugins: ['hyper-altair']
-  }
-}
+    plugins: ['hyper-altair'],
+  },
+};
 ```
 
 ![final hyper config](./hyper-final-config.gif)

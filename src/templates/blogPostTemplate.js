@@ -1,17 +1,17 @@
-import { graphql, Link } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import PropTypes from 'prop-types'
-import React from 'react'
-import Utterances from 'react-utterances'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import { HappyButton } from '../components/Shared'
-import useSiteMetadata from '../components/SiteMetadata'
+import { graphql, Link } from 'gatsby';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Utterances from 'react-utterances';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import { HappyButton } from '../components/Shared';
+import useSiteMetadata from '../components/SiteMetadata';
 
 // import { Dump } from '../utils/helpers'
 
-const repo = 'spences10/blog.scottspence.me'
+const repo = 'spences10/blog.scottspence.me';
 
 // Title
 // Date
@@ -24,7 +24,7 @@ const Title = styled.h1`
   font-family: ${({ theme }) => theme.fontHeader};
   color: ${({ theme }) => theme.secondary};
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-`
+`;
 
 const TitleDate = styled.p`
   margin: 0rem;
@@ -32,7 +32,7 @@ const TitleDate = styled.p`
   font-family: ${({ theme }) => theme.fontBody};
   color: ${({ theme }) => theme.fontLight};
   border-bottom: 1px solid ${({ theme }) => theme.background};
-`
+`;
 
 const PostWrapper = styled.div`
   margin: 0.5rem;
@@ -47,28 +47,28 @@ const PostWrapper = styled.div`
   }
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
-`
+`;
 
 const LinksWrapper = styled.div`
   display: grid;
   grid-template-areas: 'prev next';
-`
+`;
 
 const LinkWrapper = styled.div`
   display: grid;
   justify-items: ${props => props.justify};
-`
+`;
 
 const PrevNextButton = styled(HappyButton)`
   margin: 0.5rem 0rem;
   padding: 0.5rem;
   grid-area: ${props => props.area};
-`
+`;
 
 const blogPostLayout = ({ data, pageContext }) => {
-  const { frontmatter, excerpt, code } = data.mdx
-  const { prev, next } = pageContext
-  const { imageLink: defaultImage } = useSiteMetadata()
+  const { frontmatter, excerpt, code } = data.mdx;
+  const { prev, next } = pageContext;
+  const { imageLink: defaultImage } = useSiteMetadata();
   return (
     <Layout>
       <SEO
@@ -115,15 +115,15 @@ const blogPostLayout = ({ data, pageContext }) => {
         <Utterances repo={repo} type={'url'} />
       </PostWrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default blogPostLayout
+export default blogPostLayout;
 
 blogPostLayout.propTypes = {
   data: PropTypes.any,
-  pageContext: PropTypes.any
-}
+  pageContext: PropTypes.any,
+};
 
 // TODO: site metadata image
 export const query = graphql`
@@ -140,7 +140,15 @@ export const query = graphql`
         tags
         date(formatString: "YYYY MMMM Do")
         published
+        cover {
+          publicURL
+          childImageSharp {
+            sizes(maxWidth: 2000) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
-`
+`;

@@ -1,7 +1,7 @@
 ---
-path: '/get-graphcms-data-into-gatsby'
-date: '2018-11-25'
-title: 'Get your GraphCMS data into Gatsby'
+path: /get-graphcms-data-into-gatsby
+date: 2018-11-25
+title: Get your GraphCMS data into Gatsby
 tags:
   [
     'information',
@@ -13,6 +13,8 @@ tags:
     'graphcms',
   ]
 published: true
+cover: ./cover.png
+coverCredit: Photo by Edu Lauton on Unsplash
 ---
 
 Let's set up Gatsby to pull data from GraphCMS.
@@ -110,7 +112,7 @@ endpoint.
 In `pages/index.js` add the `graphql` export the the `gatsby` imports.
 
 ```js
-import { graphql, Link } from 'gatsby'
+import { graphql, Link } from 'gatsby';
 ```
 
 At the very bottom define the query:
@@ -127,7 +129,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 ```
 
 You will then be able to access the `data` prop in the `IndexPage`
@@ -156,7 +158,7 @@ const IndexPage = ({ data }) => (
     </div>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
-)
+);
 ```
 
 The output should be the same as the result of the Gatsby GraphiQL

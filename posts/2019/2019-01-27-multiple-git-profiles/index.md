@@ -1,7 +1,7 @@
 ---
-path: '/multiple-git-profiles'
-date: '2019-01-27'
-title: 'Setting up multiple Git providers'
+path: /multiple-git-profiles
+date: 2019-01-27
+title: Setting up multiple Git providers
 tags:
   [
     'information',
@@ -12,6 +12,8 @@ tags:
     'git',
   ]
 published: true
+cover: ./cover.png
+coverCredit: Photo by Evelyn on Unsplash
 ---
 
 Over the past couple of weeks now I have set up several development
