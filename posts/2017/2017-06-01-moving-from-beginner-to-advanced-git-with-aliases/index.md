@@ -1,10 +1,11 @@
 ---
-path: '/moving-from-beginner-to-advanced-git-with-aliases'
-date: '2017-06-01'
+path: /moving-from-beginner-to-advanced-git-with-aliases
+date: 2017-06-01
 title:
-  'Moving from beginner to (slightly more) advanced git with aliases.'
+  Moving from beginner to (slightly more) advanced git with aliases.
 tags: ['information', 'guide']
 published: true
+cover: ./cover.png
 ---
 
 Speed up your git workflow with git aliases, this is a brief

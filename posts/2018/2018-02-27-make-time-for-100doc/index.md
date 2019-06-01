@@ -1,9 +1,10 @@
 ---
-path: '/make-time-for-100doc'
-date: '2018-02-27'
-title: 'How to make time for 100 days of code'
+path: /make-time-for-100doc
+date: 2018-02-27
+title: How to make time for 100 days of code
 tags: ['information', 'guide', 'learning', 'habits']
 published: true
+cover: ./cover.png
 ---
 
 > Life moves pretty fast. If you don’t stop and look around once in a
@@ -19,7 +20,7 @@ But fist, **preamble:**
 That was the overriding message I got when I started out in
 freeCodeCamp it's a fun and exciting time and you will see a lot of
 articles along the lines of 'hey look at me I was a school teacher
-before, now I'm earning $100k as a engineer for x startup'
+before, now I'm earning \$100k as a engineer for x startup'
 
 I don't mean this in a mean spirited or passive aggressive way, but if
 you're starting out in web development and you surround yourself with
