@@ -10,7 +10,8 @@ import useSiteMetadata from './SiteMetadata';
 const AppStyles = styled.div`
   pre,
   div {
-    width: 100%;
+    overflow: auto;
+    overscroll-behavior-x: contain;
   };
   background-color: ${({ theme }) => theme.background};
   background-image: url("${props => props.background}");
