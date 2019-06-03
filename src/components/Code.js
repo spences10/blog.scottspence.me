@@ -21,6 +21,7 @@ export const Pre = styled.pre`
     line-height: 1.3em;
     height: 1.3em;
   }
+  font-family: dm;
 `;
 
 export const LineNo = styled.span`
