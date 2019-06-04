@@ -1,7 +1,7 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import styled from 'styled-components'
-import { media } from '../theme/globalStyle'
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import { media } from '../theme/globalStyle';
 
 const HeaderWrapper = styled.header`
   z-index: 1;
@@ -38,20 +38,20 @@ const HeaderWrapper = styled.header`
         'b b b b b b b b b';
     /* background: palevioletred; */
   `};
-`
+`;
 
 const LinksWrapper = styled.div`
   font-size: 2rem;
   font-weight: 700;
   grid-area: ${props => props.area};
-`
+`;
 
 const StyledLink = styled(Link)`
   font-family: ${props => props.theme.fontHeader};
   color: ${props => props.theme.fontLight};
   margin: 0.25rem;
   padding: 0.25rem;
-`
+`;
 
 const Header = ({ siteTitle }) => (
   <HeaderWrapper>
@@ -59,6 +59,6 @@ const Header = ({ siteTitle }) => (
       <StyledLink to="/">{siteTitle}</StyledLink>
     </LinksWrapper>
   </HeaderWrapper>
-)
+);
 
-export default Header
+export default Header;
