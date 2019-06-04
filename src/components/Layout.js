@@ -8,7 +8,7 @@ import Header from './Header';
 import useSiteMetadata from './SiteMetadata';
 
 const AppStyles = styled.div`
-  @supports (-moz-appearance:none){
+  @supports (-moz-appearance:none) {
     pre,
     div {
       width: 98%;
