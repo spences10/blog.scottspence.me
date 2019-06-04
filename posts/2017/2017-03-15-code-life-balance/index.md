@@ -73,7 +73,7 @@ having to think about any coding for a week or so.
 I often think if I am a proper developer and what am I doing all this
 for, then I take this handy little quiz:
 
-http://amiarealdeveloper.com/?utm_campaign=Alligator.io&utm_medium=web&utm_source=Alligator.io_4
+http://amiarealdeveloper.com/
 
 We shall see where I am in a years time 👍
 
