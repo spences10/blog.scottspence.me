@@ -8,11 +8,12 @@ import Header from './Header';
 import useSiteMetadata from './SiteMetadata';
 
 const AppStyles = styled.div`
-  pre,
-  div {
-    overflow: auto;
-    overscroll-behavior-x: contain;
-  };
+  @supports (-moz-appearance:none){
+    pre,
+    div {
+      width: 98%;
+    }
+  }
   background-color: ${({ theme }) => theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
