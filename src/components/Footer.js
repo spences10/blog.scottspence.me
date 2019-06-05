@@ -6,9 +6,6 @@ import ThemeSelect from '../components/ThemeSelect';
 import { media } from '../theme/globalStyle';
 import useSiteMetadata from './SiteMetadata';
 
-// import rSLogo from '../img/reactStatic.png'
-// import gCSMLogo from '../img/powered_by_graphcms-1.svg'
-
 // import { Dump } from '../utils/helpers'
 
 const FooterWrapper = styled.footer`
