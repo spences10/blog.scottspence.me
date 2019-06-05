@@ -1,12 +1,10 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
-
-import Layout from '../components/Layout'
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
 
 const Container = styled.div`
   font-family: ${props => props.theme.fontBody};
-  height: 75vh;
   margin: 1rem;
   padding: 1rem;
   background: ${({ theme }) => theme.foreground};
@@ -17,12 +15,12 @@ const Container = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
-`
+`;
 
 const List = styled.ul`
   margin: 0rem;
   padding: 0rem;
-`
+`;
 
 const Tag = styled.li`
   margin: 0.5rem;
@@ -40,10 +38,10 @@ const Tag = styled.li`
     transform: skew(2deg); /* SKEW */
   }
   border-radius: 4px;
-`
+`;
 
 const SingleTagTemplate = ({ data, pageContext }) => {
-  const { posts, tagName } = pageContext
+  const { posts, tagName } = pageContext;
   return (
     <Layout>
       <Container>
@@ -57,13 +55,13 @@ const SingleTagTemplate = ({ data, pageContext }) => {
                     {post.frontmatter.title}
                   </Link>
                 </Tag>
-              )
+              );
             })}
           </List>
         </div>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default SingleTagTemplate
+export default SingleTagTemplate;
