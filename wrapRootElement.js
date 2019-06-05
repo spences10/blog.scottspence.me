@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { BlockQuote } from './src/components/BlockQuote';
 import { Code } from './src/components/Code';
 import {
   BlogThemeContext,
@@ -28,6 +29,7 @@ const components = {
     // it's possible to have a pre without a code in it
     return <pre />;
   },
+  blockquote: BlockQuote,
 };
 
 export const wrapRootElement = ({ element }) => (
