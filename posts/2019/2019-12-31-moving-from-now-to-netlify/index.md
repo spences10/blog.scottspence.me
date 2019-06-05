@@ -1,7 +1,7 @@
 ---
-path: '/moving-from-now-to-netlify'
-date: '2019-12-31'
-title: 'Moving from Now to Netlify'
+path: /moving-from-now-to-netlify
+date: 2019-12-31
+title: Moving from Now to Netlify
 tags: ['netlify', 'information']
 published: false
 ---
@@ -10,9 +10,9 @@ I have just found this post which was just the frontmatter:
 
 ```md
 ---
-path: '/moving-from-now-to-netlify'
-date: '2019-12-31'
-title: 'Moving from Now to Netlify'
+path: /moving-from-now-to-netlify
+date: 2019-12-31
+title: Moving from Now to Netlify
 tags: ['netlify', 'information']
 published: false
 ---
