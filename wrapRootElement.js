@@ -3,6 +3,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BlockQuote } from './src/components/BlockQuote';
 import { Code } from './src/components/Code';
+import { StyledH2 } from './src/components/H2';
 import {
   BlogThemeContext,
   BlogThemeProvider,
@@ -30,6 +31,7 @@ const components = {
     return <pre />;
   },
   blockquote: BlockQuote,
+  h2: StyledH2,
 };
 
 export const wrapRootElement = ({ element }) => (
