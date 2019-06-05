@@ -1,10 +1,10 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import styled from 'styled-components'
-import { StyledHyperLink as SHL } from '../components/Shared'
-import ThemeSelect from '../components/ThemeSelect'
-import { media } from '../theme/globalStyle'
-import useSiteMetadata from './SiteMetadata'
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import { StyledHyperLink as SHL } from '../components/Shared';
+import ThemeSelect from '../components/ThemeSelect';
+import { media } from '../theme/globalStyle';
+import useSiteMetadata from './SiteMetadata';
 
 // import rSLogo from '../img/reactStatic.png'
 // import gCSMLogo from '../img/powered_by_graphcms-1.svg'
@@ -66,7 +66,7 @@ const FooterWrapper = styled.footer`
         'r r r r . . . . .';
     /* background: palevioletred; */
   `};
-`
+`;
 
 // // const ImageWrapper = styled.div`
 // //   margin: 0.5rem;
@@ -78,14 +78,14 @@ const LinksList = styled.ul`
   grid-area: ${props => props.area};
   margin: 0.5rem;
   padding: 0.5rem;
-`
+`;
 
 const LinksListTitle = styled.span`
   font-size: 1.5rem;
   font-weight: 700;
   font-family: ${props => props.theme.fontHeader};
   color: ${props => props.theme.fontLight};
-`
+`;
 
 const ListLink = styled.li`
   list-style-type: none;
@@ -101,12 +101,12 @@ const ListLink = styled.li`
     border-radius: 4px;
     transition: color 0.2s ease-out, background 0.2s ease-in;
   }
-`
+`;
 
 const StyledHyperLink = styled(SHL)`
   font-family: ${props => props.theme.fontBody};
   color: ${props => props.theme.fontDark};
-`
+`;
 
 const StyledLink = styled(Link)`
   font-family: ${props => props.theme.fontBody};
@@ -122,10 +122,10 @@ const StyledLink = styled(Link)`
     transition: color 0.2s ease-out, background 0.2s ease-in;
   }
   text-transform: capitalize;
-`
+`;
 
 const Footer = () => {
-  const { pages, contact } = useSiteMetadata()
+  const { pages, contact } = useSiteMetadata();
   return (
     <FooterWrapper>
       <ThemeSelect />
@@ -151,7 +151,7 @@ const Footer = () => {
         ))}
       </LinksList>
     </FooterWrapper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
