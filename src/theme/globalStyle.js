@@ -121,9 +121,4 @@ export const GlobalStyle = createGlobalStyle`
     .embedVideoIframe {
       width: 100%;
     }
-    blockquote {
-      border-left: 5px solid #ccc;
-      padding-left: 5px;
-      font-style: italic;
-    }
   `;
