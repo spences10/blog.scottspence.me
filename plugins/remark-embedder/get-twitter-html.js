@@ -1,30 +1,11 @@
-const { URL } = require('url')
-const fetch = require('node-fetch')
+const { URL } = require('url');
+const fetch = require('node-fetch');
 
 function shouldTransform(string) {
-  return getUrl(string) !== null
-}
-
-function getUrl(string) {
-  if (!string.includes('twitter')) {
-    return null
-  }
-  if (!string.startsWith('http')) {
-    string = `https://${string}`
-  }
-  let url
-  try {
-    url = new URL(string)
-  } catch (error) {
-    return null
-  }
-  if (
-    !url.host.endsWith('twitter.com') ||
-    !url.pathname.includes('/status/')
-  ) {
-    return null
-  }
-  return url
+  const { host, pathname } = new URL(string);
+  return (
+    host.endsWith('twitter.com') && pathname.includes('/status/')
+  );
 }
 
 function getTwitterHtml(string) {
@@ -37,9 +18,9 @@ function getTwitterHtml(string) {
         .map(s => s.replace(/\?ref_src=twsrc.*?fw/g, ''))
         .map(s => s.replace(/<br>/g, '<br />'))
         .join('')
-        .trim()
-    })
+        .trim();
+    });
 }
 
-module.exports = getTwitterHtml
-module.exports.shouldTransform = shouldTransform
+module.exports = getTwitterHtml;
+module.exports.shouldTransform = shouldTransform;
