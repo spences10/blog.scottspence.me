@@ -1,13 +1,20 @@
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BlockQuote } from './src/components/BlockQuote';
-import { Code } from './src/components/Code';
-import { StyledH2 } from './src/components/H2';
+import {
+  BlockQuote,
+  Code,
+  StyledH2,
+} from './src/components/elements';
+import {
+  InlineCode,
+  StyledP,
+} from './src/components/elements/GroupedElements';
 import {
   BlogThemeContext,
   BlogThemeProvider,
 } from './src/contexts/BlogThemeContext';
+
 // import { Dump } from './src/utils/helpers';
 
 // components is its own object outside of render so that the references to
@@ -32,6 +39,8 @@ const components = {
   },
   blockquote: BlockQuote,
   h2: StyledH2,
+  p: StyledP,
+  code: InlineCode,
 };
 
 export const wrapRootElement = ({ element }) => (
