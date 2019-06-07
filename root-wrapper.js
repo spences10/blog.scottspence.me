@@ -1,9 +1,9 @@
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BlockQuote } from './src/components/BlockQuote';
-import { Code } from './src/components/Code';
-import { StyledH2 } from './src/components/H2';
+import { BlockQuote } from './src/components/elements/BlockQuote';
+import { Code } from './src/components/elements/Code';
+import { StyledH2 } from './src/components/elements/H2';
 import {
   BlogThemeContext,
   BlogThemeProvider,
