@@ -10,6 +10,8 @@ export const InlineCode = styled.code`
 `;
 
 export const StyledP = styled.p`
+  iframe {
+  }
   code {
     ${inlineCode};
   }
