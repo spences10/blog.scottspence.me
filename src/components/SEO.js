@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Helmet from 'react-helmet'
-import useSiteMetadata from './SiteMetadata'
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
+import useSiteMetadata from '../hooks/siteMetadata';
 
 const SEO = ({
   article,
@@ -9,7 +9,7 @@ const SEO = ({
   description,
   image,
   keywords,
-  pathname
+  pathname,
 }) => {
   const {
     description: defaultDescription,
@@ -18,16 +18,16 @@ const SEO = ({
     siteUrl,
     title: defaultTitle,
     titleTemplate,
-    twitterUsername
-  } = useSiteMetadata()
+    twitterUsername,
+  } = useSiteMetadata();
 
   // assign default values if needed
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${image || defaultImage}`,
-    url: `${siteUrl}${pathname || '/'}`
-  }
+    url: `${siteUrl}${pathname || '/'}`,
+  };
 
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
@@ -56,15 +56,15 @@ const SEO = ({
         <meta name="keywords" content={keywords.join(`, `)} />
       ) : null}
     </Helmet>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;
 
 SEO.defaultProps = {
   siteLanguage: `en`,
-  keywords: []
-}
+  keywords: [],
+};
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
@@ -72,5 +72,5 @@ SEO.propTypes = {
   image: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
   meta: PropTypes.array,
-  pathname: PropTypes.string
-}
+  pathname: PropTypes.string,
+};
