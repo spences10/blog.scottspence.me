@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 
-const inlineCode = `
-  background-color: #fafafa;
-  font-family: dm;
-`;
-
 export const InlineCode = styled.code`
-  ${inlineCode}
+  font-family: dm;
+  background-color: ${({ theme }) => theme.background};
 `;
 
 export const StyledP = styled.p`
   iframe {
   }
   code {
-    ${inlineCode};
+    font-family: dm;
+    background-color: ${({ theme }) => theme.background};
   }
 `;

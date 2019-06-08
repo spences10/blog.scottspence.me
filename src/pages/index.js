@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import useSiteMetadata from '../components/SiteMetadata';
+import useSiteMetadata from '../hooks/siteMetadata';
 
 const Wrapper = styled.div``;
 
