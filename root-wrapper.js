@@ -20,6 +20,10 @@ import {
 // components is its own object outside of render so that the references to
 // components are stable
 const components = {
+  blockquote: BlockQuote,
+  h2: StyledH2,
+  p: StyledP,
+  code: InlineCode,
   pre: ({ children: { props } }) => {
     // if there's a codeString and some props, we passed the test
     if (props.mdxType === 'code') {
@@ -37,10 +41,6 @@ const components = {
     // it's possible to have a pre without a code in it
     return <pre />;
   },
-  blockquote: BlockQuote,
-  h2: StyledH2,
-  p: StyledP,
-  code: InlineCode,
 };
 
 export const wrapRootElement = ({ element }) => (

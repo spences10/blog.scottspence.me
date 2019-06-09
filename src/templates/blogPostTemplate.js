@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
-import useSiteMetadata from '../components/SiteMetadata';
+import useSiteMetadata from '../hooks/siteMetadata';
 
 // import { Dump } from '../utils/helpers'
 
