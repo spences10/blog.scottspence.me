@@ -15,17 +15,16 @@ application. If you want to see how the pros do it then take a look at
 the play list, it's an egghead community resource so you can watch it
 fro free.
 
-## What's new
+## What's new in this guide
 
-- Code blocks
-- Components
+- Code blocks 🎉
+- Using components for page elements
 
-In this guide we're going to cover converting the Gatsby default blog
-starter to use MDX.
+In this guide we're going to cover converting the Gatsby starter blog
+to use MDX and to also replace the use of some of the Gatsby
+transformer Remark plugins.
 
-All the cool kids are using Gatsby and MDX in their blogs these days.
-If you already have a blog that uses Gatsby but want to move onto the
-new hotness then this is the guide for you.
+I've gone and made a video of the conversion as well, here:
 
 https://www.youtube.com/watch?v=gck4RjaX5D4
 
@@ -33,12 +32,15 @@ https://www.youtube.com/watch?v=gck4RjaX5D4
 
 **This guide is being used with the following dependency versions.**
 
-- gatsby: 2.8.6
-- react: 16.8.6
-- react-dom: 16.8.6
-- gatsby-mdx: 0.6.3
 - @mdx-js/mdx: 1.0.20
 - @mdx-js/react: 1.0.20
+- babel-plugin-styled-components: 1.10.0
+- gatsby: 2.8.6
+- gatsby-mdx: 0.6.3
+- prism-react-renderer: 0.1.6
+- react: 16.9.0
+- react-dom: 16.9.0
+- react-live: 2.1.2
 
 You can also check out the [example code].
 
@@ -243,7 +245,8 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
   https://egghead.io/playlists/building-websites-with-mdx-and-gatsby-161e9529
 [twitter]: https://twitter.com/spences10
 [ask me anything]: https://github.com/spences10/ama
-[example code]: https://codesandbox.io/s/lqp6p647q
+[example code]:
+  https://codesandbox.io/s/gatsby-starter-blog-mdx-part-two-8iut4
 [gatsby starter blog]: https://github.com/gatsbyjs/gatsby-starter-blog
 [codesandbox import wizard]: https://codesandbox.io/s/github
 [codesandbox docs for importing projects]:
