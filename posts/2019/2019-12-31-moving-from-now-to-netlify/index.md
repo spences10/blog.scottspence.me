@@ -3,7 +3,7 @@ path: /moving-from-now-to-netlify
 date: 2019-12-31
 title: Moving from Now to Netlify
 tags: ['netlify', 'information']
-published: true
+published: false
 ---
 
 I have just found this post which was just the frontmatter:
