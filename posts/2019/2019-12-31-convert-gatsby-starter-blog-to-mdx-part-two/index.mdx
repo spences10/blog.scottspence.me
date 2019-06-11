@@ -1,6 +1,6 @@
 ---
 path: /convert-gatsby-starter-blog-to-use-mdx-part-two
-date: 2019-06-10
+date: 2019-12-31
 title: Convert the Gatsby starter blog to use MDX part two
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
@@ -13,7 +13,7 @@ Since publishing my last post on this [Chris Biscardi] has released an
 awesome [MDX egghead.io course] that goes over using MDX in a Gatsby
 application. If you want to see how the pros do it then take a look at
 the play list, it's an egghead community resource so you can watch it
-fro free.
+for free.
 
 ## What's new in this guide
 
@@ -37,10 +37,12 @@ https://www.youtube.com/watch?v=gck4RjaX5D4
 - babel-plugin-styled-components: 1.10.0
 - gatsby: 2.8.6
 - gatsby-mdx: 0.6.3
+- gatsby-plugin-styled-components: 3.0.7
 - prism-react-renderer: 0.1.6
 - react: 16.9.0
 - react-dom: 16.9.0
 - react-live: 2.1.2
+- styled-components: 4.3.1
 
 You can also check out the [example code].
 
@@ -65,8 +67,12 @@ GitHub.
 Now we can go about moving from using Gatsby transformer remark over
 to MDX.
 
-Let's take a look at what we'll be changing for this example. But
-first we're going to need to import some dependencies to get MDX
+Let's take a look at what we'll be changing for this example.
+
+The majority of the changes now will be replacing `MarkdownRemark`
+with `Mdx` and `allMarkdownRemark` with `allMdx`.
+
+First we're going to need to import some dependencies to get MDX
 running in out Gatsby project.
 
 With the add dependency button in CodeSandbox add the following
@@ -74,7 +80,7 @@ dependencies:
 
 - `gatsby-mdx`
 - `@mdx-js/mdx`
-- `@mdx-js/tag`
+- `@mdx-js/react`
 
 We will also need to add dependencies for styled-components so may as
 well add them now as well:
@@ -83,7 +89,7 @@ well add them now as well:
 - `styled-components`
 - `babel-plugin-styled-components`
 
-Files to change:
+The files to change are:
 
 - `gatsby-node.js`
 - `gatsby-config.js`
@@ -95,13 +101,8 @@ Files to change:
 First up we're going to need to change `gatsby-node.js` this is where
 all the pages and data nodes are generated.
 
-Change all markdown remark occurrences with MDX, that's the initial
-GraphQL query in create pages, then again in the result.
-
-![initial gatsby node changes](./initialGatsbyNode.png)
-
-Then change the `node.internal.type` in `onCreateNode` from
-`MarkdownRemark` to `Mdx`.
+Change `allMarkdownRemark` occurrences with `allMdx`, and change the
+`node.internal.type` from `MarkdownRemark` to `Mdx`.
 
 ![last gatsby node changes](./lastGatsbyNode.png)
 
@@ -225,6 +226,12 @@ more content yo!
 
 <Butt>yoyoyo</Butt>
 ```
+
+## MDXProvider
+
+If you want to change the rendering of any of the page elements, i.e.
+`H1`, `H2`, `p`, `a`, `li` etc. Then we can use the `MDXProvider`,
+`MDXProvider` is a component that we can place anywhere in the
 
 ## Wrap up!
 
