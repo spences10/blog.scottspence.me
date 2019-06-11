@@ -98,32 +98,21 @@ Let's start editing them! 🚲
 
 ## `gatsby-node.js`
 
-First up we're going to need to change `gatsby-node.js` this is where
-all the pages and data nodes are generated.
-
 Change `allMarkdownRemark` occurrences with `allMdx`, and change the
 `node.internal.type` from `MarkdownRemark` to `Mdx`.
-
-![last gatsby node changes](./lastGatsbyNode.png)
 
 ## `gatsby-config.js`
 
 Here we're going to replace `gatsby-transformer-remark` with
 `gatsby-mdx`
 
-![replace transformer remark with gatsby-mdx](./gatsbyConfig.png)
-
 ## `index.js`
 
 Here we're going to alter the `posts` variable to take the `Mdx`
 edges.
 
-![replace all markdown edges](./indexPageEdges.png)
-
 The `Mdx` edges are taken from the page query, which is also altered
 to use `allMdx` in place of `allMarkdownRemark`.
-
-![index page query](./indexPageQuery.png)
 
 ## `blog-post.js`
 
@@ -131,17 +120,11 @@ Now last on the list to get MDX working is the blog post template,
 we're going to need to import `MDXRenderer` from `gatsby-mdx` we're
 going to replace `dangerouslySetInnerHTML` with this shortly.
 
-![MDX renderer](./importMdxRenderer.png)
-
 Here's where we use it, we'll come onto `post.code.body`.
-
-![replace dangerously set html](./replaceDangerHtml.png)
 
 Again in the query we're replacing `markdownRemark` with `mdx` and
 this time also doing away with `html` from the query and adding in
 `code` for `body` which we're using in our render method.
-
-![](./blogPostQuery.png)
 
 ## Now we're using MDX!
 
@@ -242,12 +225,13 @@ with an `MDXProvider`.
 
 ## Wrap up!
 
-So, that's it, we've gone and converted the Gatsby starter blog from
-using Markdown Remark over to using MDX.
-
-I hope you have found it helpful.
+Ok, we've gone and converted the Gatsby starter blog from using
+Markdown Remark over to using MDX and added some custom components for
+the page elements
 
 **Thanks for reading** 🙏
+
+I hope you found this guide helpful.
 
 Please take a look at my other content if you enjoyed this.
 
