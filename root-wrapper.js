@@ -8,7 +8,7 @@ import {
 } from './src/components/elements';
 import {
   InlineCode,
-  StyledP,
+  Paragraph,
 } from './src/components/elements/GroupedElements';
 import {
   BlogThemeContext,
@@ -22,7 +22,7 @@ import {
 const components = {
   blockquote: BlockQuote,
   h2: StyledH2,
-  p: StyledP,
+  p: Paragraph,
   code: InlineCode,
   pre: ({ children: { props } }) => {
     // if there's a codeString and some props, we passed the test
@@ -41,6 +41,7 @@ const components = {
     // it's possible to have a pre without a code in it
     return <pre />;
   },
+  wrapper: ({ children }) => <>{children}</>,
 };
 
 export const wrapRootElement = ({ element }) => (
