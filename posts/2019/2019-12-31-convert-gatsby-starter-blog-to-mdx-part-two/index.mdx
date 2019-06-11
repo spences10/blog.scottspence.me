@@ -232,6 +232,13 @@ more content yo!
 If you want to change the rendering of any of the page elements, i.e.
 `H1`, `H2`, `p`, `a`, `li` etc. Then we can use the `MDXProvider`,
 `MDXProvider` is a component that we can place anywhere in the
+component tree _but_ it make sense to have it as high up the component
+tree as possible.
+
+The `MDXProvider` is what we're going to use to override our page
+elements by using the Gatsby browser and Gatsby SSR API
+`wrapRootElement`, this will allow us to wrap the entire application
+with an `MDXProvider`.
 
 ## Wrap up!
 
