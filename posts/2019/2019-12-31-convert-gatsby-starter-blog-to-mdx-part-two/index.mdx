@@ -17,11 +17,12 @@ for free.
 
 ## What's new in this guide
 
-I've already covered the conversion [here] if you want to check that
-out, I'll be going over that again here but also adding:
-
 - Code blocks 🎉
 - Using components for page elements
+
+In this guide we're going to cover converting the Gatsby starter blog
+to use MDX and to also replace the use of some of the Gatsby
+transformer Remark plugins.
 
 I've gone and made a video of the conversion as well, here:
 
@@ -57,21 +58,22 @@ We're going to need some links, which are:
 
 ## Import to CodeSandbox
 
-If you want to follow along then go grab the URL for the [Gatsby
-starter blog] paste it into the [CodeSandbox import wizard] this will
-open the representation of the code on GitHub.
+For this example I'm going to be using the [Gatsby starter blog] and
+importing it into CodeSandbox, looking at the docs it says you can do
+this with the [CodeSandbox import wizard] linked, paste the link in
+there and CodeSandbox will open the representation of the code on
+GitHub.
 
-Click on the fork button so we can start making changes.
+Now we can go about moving from using Gatsby transformer remark over
+to MDX.
 
-Now we're going to go about moving from using Gatsby transformer
-remark over to MDX.
+Let's take a look at what we'll be changing for this example.
 
-For the initial conversion the majority of the changes will be
-replacing `MarkdownRemark` with `Mdx` and `allMarkdownRemark` with
-`allMdx`.
+The majority of the changes now will be replacing `MarkdownRemark`
+with `Mdx` and `allMarkdownRemark` with `allMdx`.
 
 First we're going to need to import some dependencies to get MDX
-running in our Gatsby project.
+running in out Gatsby project.
 
 With the add dependency button in CodeSandbox add the following
 dependencies:
@@ -87,32 +89,41 @@ well add them now as well:
 - `styled-components`
 - `babel-plugin-styled-components`
 
-Ok, the files to change are:
+The files to change are:
 
 - `gatsby-node.js`
 - `gatsby-config.js`
 - `index.js`
 - `blog-post.js`
 
-Let's start editing them! 🚲
-
 ## `gatsby-node.js`
+
+First up we're going to need to change `gatsby-node.js` this is where
+all the pages and data nodes are generated.
 
 Change `allMarkdownRemark` occurrences with `allMdx`, and change the
 `node.internal.type` from `MarkdownRemark` to `Mdx`.
+
+![last gatsby node changes](./lastGatsbyNode.png)
 
 ## `gatsby-config.js`
 
 Here we're going to replace `gatsby-transformer-remark` with
 `gatsby-mdx`
 
+![replace transformer remark with gatsby-mdx](./gatsbyConfig.png)
+
 ## `index.js`
 
 Here we're going to alter the `posts` variable to take the `Mdx`
 edges.
 
+![replace all markdown edges](./indexPageEdges.png)
+
 The `Mdx` edges are taken from the page query, which is also altered
 to use `allMdx` in place of `allMarkdownRemark`.
+
+![index page query](./indexPageQuery.png)
 
 ## `blog-post.js`
 
@@ -120,11 +131,17 @@ Now last on the list to get MDX working is the blog post template,
 we're going to need to import `MDXRenderer` from `gatsby-mdx` we're
 going to replace `dangerouslySetInnerHTML` with this shortly.
 
+![MDX renderer](./importMdxRenderer.png)
+
 Here's where we use it, we'll come onto `post.code.body`.
+
+![replace dangerously set html](./replaceDangerHtml.png)
 
 Again in the query we're replacing `markdownRemark` with `mdx` and
 this time also doing away with `html` from the query and adding in
 `code` for `body` which we're using in our render method.
+
+![](./blogPostQuery.png)
 
 ## Now we're using MDX!
 
@@ -215,23 +232,15 @@ more content yo!
 If you want to change the rendering of any of the page elements, i.e.
 `H1`, `H2`, `p`, `a`, `li` etc. Then we can use the `MDXProvider`,
 `MDXProvider` is a component that we can place anywhere in the
-component tree _but_ it make sense to have it as high up the component
-tree as possible.
-
-The `MDXProvider` is what we're going to use to override our page
-elements by using the Gatsby browser and Gatsby SSR API
-`wrapRootElement`, this will allow us to wrap the entire application
-with an `MDXProvider`.
 
 ## Wrap up!
 
-Ok, we've gone and converted the Gatsby starter blog from using
-Markdown Remark over to using MDX and added some custom components for
-the page elements
+So, that's it, we've gone and converted the Gatsby starter blog from
+using Markdown Remark over to using MDX.
+
+I hope you have found it helpful.
 
 **Thanks for reading** 🙏
-
-I hope you found this guide helpful.
 
 Please take a look at my other content if you enjoyed this.
 
@@ -250,5 +259,3 @@ Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 [codesandbox docs for importing projects]:
   https://codesandbox.io/docs/importing
 [chris biscardi]: https://twitter.com/chrisbiscardi
-[here]:
-  https://blog.scottspence.me/convert-gatsby-default-blog-to-use-mdx
