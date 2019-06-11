@@ -11,7 +11,7 @@ export const InlineCode = ({ children }) => (
   <StyledInlineCode>{children}</StyledInlineCode>
 );
 
-export const StyledP = styled.p`
+const StyledParagraph = styled.p`
   iframe {
   }
   code {
@@ -20,3 +20,7 @@ export const StyledP = styled.p`
     /* background-color: ${({ theme }) => theme.background}; */
   }
 `;
+
+export const Paragraph = ({ children }) => (
+  <StyledParagraph>{children}</StyledParagraph>
+);
