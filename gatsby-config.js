@@ -17,9 +17,14 @@ const siteMetadata = {
   faviconPng: `./src/images/favicon.png`,
   contact: [
     { name: `GitHub`, link: `https://github.com/spences10` },
-    { name: `Medium`, link: `https://medium.com/@spences10` },
+    {
+      name: `YouTube`,
+      link:
+        `https://www.youtube.com/channel/UCnngLXpLSFsKkDhFoO9Ct3w?view_as=subscriber`
+    },
     { name: `Dev.to`, link: `https://dev.to/spences10` },
     { name: `Twitter`, link: `https://twitter.com/spences10` },
+    { name: `LinkedIn`, link: `https://www.linkedin.com/in/spences10` },
     { name: `Email`, link: `mailto:spences10apps@gmail.com` }
   ],
   // this is for favicon and manifest

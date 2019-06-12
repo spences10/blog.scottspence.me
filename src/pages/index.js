@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import useSiteMetadata from '../components/SiteMetadata';
+import useSiteMetadata from '../hooks/siteMetadata';
 
 const Wrapper = styled.div``;
 
@@ -40,6 +40,10 @@ const PostedDate = styled.p`
   color: ${({ theme }) => theme.fontLight};
 `;
 
+const StyledImage = styled(Img)`
+  border-radius: 5px;
+`;
+
 export default ({ data }) => {
   const { description, imageLink, title } = useSiteMetadata();
   return (
@@ -61,12 +65,12 @@ export default ({ data }) => {
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
         {data.allMdx.edges.map(({ node }, index) => (
           <PostWrapper key={index}>
-            {!!node.frontmatter.cover ? (
-              <Img
-                sizes={node.frontmatter.cover.childImageSharp.sizes}
-              />
-            ) : null}
             <StyledLink to={node.frontmatter.path}>
+              {!!node.frontmatter.cover ? (
+                <StyledImage
+                  sizes={node.frontmatter.cover.childImageSharp.sizes}
+                />
+              ) : null}
               <PostTitle>{node.frontmatter.title}</PostTitle>
               <PostedDate>{node.frontmatter.date}</PostedDate>
               <p>{node.excerpt}</p>
