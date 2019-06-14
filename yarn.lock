@@ -5651,10 +5651,10 @@ gatsby-react-router-scroll@^2.0.7:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-remark-autolink-headers@2.0.17:
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.0.17.tgz#9b9bc15731cccd1961769fd6d05b53e2d478e8c2"
-  integrity sha512-HEmQg/TxJJZQtrouAjoMlbAbI/mI0DxBqPRw4gZIEDvnL4f/EuekoyjiMvG8jaLr1PmCa7ysNS4S5DXdq2L5FA==
+gatsby-remark-autolink-headers@2.0.18:
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.0.18.tgz#295f32bfdc81339bb52d1df540f2731fae2c776e"
+  integrity sha512-RsbPm654d4Xh2GiQpnGeRPeCgyAc2gR1HAAH/1M1n1XBfj9Yxdiy4/aOT2AlD9mdsL5A2YwbYyk6uk9r3PXVxg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     github-slugger "^1.1.1"
@@ -5695,10 +5695,10 @@ gatsby-remark-external-links@0.0.4:
     unist-util-find "^1.0.1"
     unist-util-visit "^1.1.3"
 
-gatsby-remark-images@3.0.15:
-  version "3.0.15"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.0.15.tgz#e756487d3c91635afc0229250a3300d49434bb5e"
-  integrity sha512-g708ANOYwtJC2iS0P/kqsgJkwPLHAvZgpMbplGWWWYV4Id++ZdCAk0tPajickgXgpcFy8dnRt9XNpr6/N6IXdg==
+gatsby-remark-images@3.0.16:
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.0.16.tgz#da8ee137936bd1b428d0fd82d55483fc90edcc00"
+  integrity sha512-ODTX7HpC15lLcihcP+6xYkt2fJ7SiKl0536ekWu3AcfUGNCeLUadF291c0LWp2dhJiSj7lN1WGlzA351a0QbmA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     cheerio "^1.0.0-rc.2"
@@ -5786,10 +5786,10 @@ gatsby-transformer-sharp@2.1.21:
     semver "^5.6.0"
     sharp "^0.22.1"
 
-gatsby@2.9.3:
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.9.3.tgz#92c1781fa92ecd5fcc4d954f13305fe052397bfa"
-  integrity sha512-5LfXNX3bXANXeg2w6R3DZTAbJKd8tVESMqAjclCMOXlAabM3MfHEhnGeHkR7m+HLemzx926roh2cL1/Nhf9lwA==
+gatsby@2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.9.4.tgz#63efbf28d579bfe601e53908ebad712117355beb"
+  integrity sha512-01hd+GVgfUPctdzmOdypFG35Z80HDHl1uSOdtzK8OZ9Yohj/+n8XMxTKfiMhqALygQm0CiF0Mzb/YvLmnf6L1Q==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
