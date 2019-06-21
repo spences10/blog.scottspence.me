@@ -34,6 +34,7 @@ const SEO = ({
 
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
+      {console.log(fonts)}
       <link href={fonts} rel="prefetch" />
 
       <meta name="description" content={seo.description} />
