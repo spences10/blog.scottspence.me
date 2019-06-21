@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
 import useSiteMetadata from '../hooks/siteMetadata';
+import { fonts as fontsList } from '../theme/globalStyle';
 
 const SEO = ({
   article,
@@ -29,8 +30,13 @@ const SEO = ({
     url: `${siteUrl}${pathname || '/'}`,
   };
 
+  const fonts = `https://fonts.googleapis.com/css?family=${fontsList()}`;
+
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
+      {console.log(fonts)}
+      <link href={fonts} rel="prefetch" />
+
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <html lang={siteLanguage} />
