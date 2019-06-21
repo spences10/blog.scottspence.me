@@ -77,7 +77,7 @@ export const media = Object.keys(sizes).reduce(
   {}
 );
 
-const fonts = () => {
+export const fonts = () => {
   const list = [
     'Nunito:400,700|',
     'Poppins:400,700|',
