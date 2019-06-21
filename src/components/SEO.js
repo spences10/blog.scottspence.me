@@ -30,10 +30,11 @@ const SEO = ({
     url: `${siteUrl}${pathname || '/'}`,
   };
 
-  const fonts = `https://fonts.googleapis.com/css?family=${fontsList}`;
+  const fonts = `https://fonts.googleapis.com/css?family=${fontsList()}`;
 
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
+      {console.log(fonts)}
       <link href={fonts} rel="prefetch" />
 
       <meta name="description" content={seo.description} />

@@ -90,7 +90,7 @@ export const fonts = () => {
 };
 
 export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=${fonts}');
+    @import url('https://fonts.googleapis.com/css?family=${fonts()}');
     @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
     
     /* use for debugging only!! */
