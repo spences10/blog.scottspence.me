@@ -30,7 +30,7 @@ const SEO = ({
     url: `${siteUrl}${pathname || '/'}`,
   };
 
-  const fonts = `https://fonts.googleapis.com/css?family=${fontsList}`;
+  const fonts = `https://fonts.googleapis.com/css?family=${fontsList()}`;
 
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
