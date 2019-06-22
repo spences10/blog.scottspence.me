@@ -21,7 +21,6 @@
   "dependencies": {
     "@mdx-js/mdx": "1.0.21",
     "@mdx-js/react": "1.0.21",
-    "@mdx-js/tag": "0.20.3",
     "babel-plugin-styled-components": "1.10.1",
     "gatsby": "2.10.0",
     "gatsby-image": "2.2.1",
@@ -34,13 +33,12 @@
     "gatsby-plugin-react-helmet": "3.1.0",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
     "gatsby-plugin-robots-txt": "1.4.0",
-    "gatsby-plugin-sharp": "2.2.1",
-    "gatsby-plugin-sitemap": "2.2.0",
-    "gatsby-plugin-styled-components": "3.1.0",
+    "gatsby-plugin-sharp": "2.1.7",
+    "gatsby-plugin-sitemap": "2.1.0",
+    "gatsby-plugin-styled-components": "3.0.7",
     "gatsby-plugin-twitter": "2.1.0",
-    "gatsby-remark-autolink-headers": "2.1.0",
-    "gatsby-remark-copy-linked-files": "2.1.0",
-    "gatsby-remark-embed-video": "1.7.1",
+    "gatsby-remark-autolink-headers": "2.0.18",
+    "gatsby-remark-copy-linked-files": "2.0.13",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "3.1.0",
     "gatsby-remark-responsive-iframe": "2.2.0",
@@ -53,15 +51,13 @@
     "react-helmet": "5.2.1",
     "react-live": "2.1.2",
     "react-lottie": "1.2.3",
-    "react-tweet-embed": "1.2.2",
     "react-utterances": "0.6.4",
     "styled-components": "4.3.2"
   },
   "devDependencies": {
     "husky": "2.4.1",
     "prettier": "1.18.2",
-    "pretty-quick": "1.11.1",
-    "release-it": "12.3.0"
+    "pretty-quick": "1.11.1"
   },
   "keywords": [
     "gatsby",
