@@ -19,20 +19,22 @@ const siteMetadata = {
     { name: `GitHub`, link: `https://github.com/spences10` },
     {
       name: `YouTube`,
-      link:
-        `https://www.youtube.com/channel/UCnngLXpLSFsKkDhFoO9Ct3w?view_as=subscriber`
+      link: `https://www.youtube.com/channel/UCnngLXpLSFsKkDhFoO9Ct3w?view_as=subscriber`,
     },
     { name: `Dev.to`, link: `https://dev.to/spences10` },
     { name: `Twitter`, link: `https://twitter.com/spences10` },
-    { name: `LinkedIn`, link: `https://www.linkedin.com/in/spences10` },
-    { name: `Email`, link: `mailto:spences10apps@gmail.com` }
+    {
+      name: `LinkedIn`,
+      link: `https://www.linkedin.com/in/spences10`,
+    },
+    { name: `Email`, link: `mailto:spences10apps@gmail.com` },
   ],
   // this is for favicon and manifest
   backgroundColour: `#663399`,
   // this is for favicon and manifest
   themeColour: `#755f9f`,
-  siteLanguage: `en-GB`
-}
+  siteLanguage: `en-GB`,
+};
 
 module.exports = {
   siteMetadata: siteMetadata,
@@ -46,8 +48,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/posts`,
-        name: `posts`
-      }
+        name: `posts`,
+      },
     },
     {
       resolve: `gatsby-mdx`,
@@ -58,37 +60,37 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1rem`
-            }
+              wrapperStyle: `margin-bottom: 1rem`,
+            },
           },
           {
-            resolve: `gatsby-remark-copy-linked-files`
+            resolve: `gatsby-remark-copy-linked-files`,
           },
           {
-            resolve: `gatsby-remark-smartypants`
+            resolve: `gatsby-remark-smartypants`,
           },
           // TODO: Replace with "mdx-component-autolink-header"
           {
-            resolve: `gatsby-remark-autolink-headers`
+            resolve: `gatsby-remark-autolink-headers`,
           },
           {
             resolve: `gatsby-remark-external-links`,
             options: {
               target: `_blank`,
-              rel: `noopener`
-            }
+              rel: `noopener`,
+            },
           },
-          { 
-            resolve: require.resolve('./plugins/remark-embedder') 
-          }
-        ]
-      }
+          {
+            resolve: require.resolve('./plugins/remark-embedder'),
+          },
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -120,9 +122,9 @@ module.exports = {
           opengraph: false,
           twitter: false,
           yandex: false,
-          windows: false
-        }
-      }
+          windows: false,
+        },
+      },
     },
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-sitemap`,
@@ -136,8 +138,8 @@ module.exports = {
         theme_color: siteMetadata.themeColour,
         display: `minimal-ui`,
         // This path is relative to the root of the site.
-        icon: siteMetadata.faviconPng
-      }
+        icon: siteMetadata.faviconPng,
+      },
     },
     `gatsby-plugin-offline`,
     {
@@ -145,8 +147,8 @@ module.exports = {
       options: {
         // add to netlify Build environment variables
         trackingId: process.env.GATSBY_GA_TRACKING_ID,
-        anonymize: false
-      }
+        anonymize: false,
+      },
     },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-styled-components`,
@@ -176,10 +178,10 @@ module.exports = {
                   guid:
                     site.siteMetadata.siteUrl + edge.node.fields.path,
                   custom_elements: [
-                    { 'content:encoded': edge.node.code.boy }
-                  ]
-                })
-              })
+                    { 'content:encoded': edge.node.code.boy },
+                  ],
+                });
+              });
             },
             query: `
             {
@@ -204,10 +206,10 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title: `${siteMetadata.title} feed`
-          }
-        ]
-      }
-    }
-  ]
-}
+            title: `${siteMetadata.title} feed`,
+          },
+        ],
+      },
+    },
+  ],
+};
