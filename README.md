@@ -1,4 +1,4 @@
-# blog.scottspence.me
+# [blog.scottspence.me]
 
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
@@ -14,3 +14,5 @@ and hosted on Netlify
 <a href="https://www.netlify.com">
   <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"/>
 </a>
+
+[blog.scottspence.me]: https://blog.scottspence.me
