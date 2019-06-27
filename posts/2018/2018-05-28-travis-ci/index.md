@@ -4,7 +4,7 @@ date: 2018-05-28
 title: Making a CI pipeline with Travis CI
 tags: ['information', 'guide', 'travis-ci', 'now', 'zeit']
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by Quinten de Graaf on Unsplash
 ---
 

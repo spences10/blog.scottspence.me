@@ -14,7 +14,7 @@ tags:
     'css-in-js',
   ]
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by John Michael Thomson on Unsplash
 ---
 

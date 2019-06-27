@@ -4,7 +4,7 @@ date: 2017-05-23
 title: Twitter bot playground
 tags: ['information', 'guide']
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 ---
 
 How to build and deploy a multifunctional Twitter bot!
