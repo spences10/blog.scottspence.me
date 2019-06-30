@@ -18,6 +18,9 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "resolutions": {
+    "terser": "4.0.0"
+  },
   "dependencies": {
     "@mdx-js/mdx": "1.0.21",
     "@mdx-js/react": "1.0.21",
