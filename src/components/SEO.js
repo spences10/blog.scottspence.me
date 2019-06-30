@@ -21,11 +21,13 @@ const SEO = ({
     twitterUsername,
   } = useSiteMetadata();
 
+  const imagePath = `${siteUrl}${image}`;
+
   // assign default values if needed
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${(siteUrl && image) || defaultImage}`,
+    image: `${imagePath || defaultImage}`,
     url: `${siteUrl}${pathname || '/'}`,
   };
 
