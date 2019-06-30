@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
 import useSiteMetadata from '../hooks/siteMetadata';
-import { Dump } from '../utils/helpers';
+// import { Dump } from '../utils/helpers';
 
 const repo = 'spences10/blog.scottspence.me';
 
@@ -79,7 +79,7 @@ const blogPostLayout = ({ data, pageContext }) => {
         keywords={frontmatter.tags}
         article
       />
-      <Dump props={cover} />
+      {/* <Dump props={cover} /> */}
       <PostWrapper>
         <Title>{frontmatter.title}</Title>
         <TitleDate>{frontmatter.date}</TitleDate>
