@@ -8,8 +8,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
 import useSiteMetadata from '../hooks/siteMetadata';
-
-// import { Dump } from '../utils/helpers'
+// import { Dump } from '../utils/helpers';
 
 const repo = 'spences10/blog.scottspence.me';
 
@@ -67,6 +66,7 @@ const PrevNextButton = styled(HappyButton)`
 
 const blogPostLayout = ({ data, pageContext }) => {
   const { frontmatter, excerpt, code } = data.mdx;
+  const { cover } = frontmatter;
   const { prev, next } = pageContext;
   const { imageLink: defaultImage } = useSiteMetadata();
   return (
@@ -74,12 +74,12 @@ const blogPostLayout = ({ data, pageContext }) => {
       <SEO
         title={frontmatter.title}
         description={excerpt || 'nothin’'}
-        image={defaultImage}
+        image={cover || defaultImage}
         pathname={frontmatter.path}
         keywords={frontmatter.tags}
         article
       />
-      {/* <Dump props={post.frontmatter} /> */}
+      {/* <Dump props={cover} /> */}
       <PostWrapper>
         <Title>{frontmatter.title}</Title>
         <TitleDate>{frontmatter.date}</TitleDate>
