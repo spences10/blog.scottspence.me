@@ -21,11 +21,13 @@ const SEO = ({
     twitterUsername,
   } = useSiteMetadata();
 
+  const imagePath = `${siteUrl}${image.publicURL}`;
+
   // assign default values if needed
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${(siteUrl && image) || defaultImage}`,
+    image: `${imagePath || defaultImage}`,
     url: `${siteUrl}${pathname || '/'}`,
   };
 
@@ -69,7 +71,7 @@ SEO.defaultProps = {
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.object,
   keywords: PropTypes.arrayOf(PropTypes.string),
   meta: PropTypes.array,
   pathname: PropTypes.string,
