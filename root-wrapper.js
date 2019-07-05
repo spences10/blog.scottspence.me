@@ -5,6 +5,7 @@ import {
   BlockQuote,
   Code,
   StyledH2,
+  StyledH3,
 } from './src/components/elements';
 import {
   InlineCode,
@@ -22,6 +23,7 @@ import {
 const components = {
   blockquote: BlockQuote,
   h2: StyledH2,
+  h3: StyledH3,
   p: Paragraph,
   code: InlineCode,
   pre: ({ children: { props } }) => {
