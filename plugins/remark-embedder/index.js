@@ -1,10 +1,10 @@
 const visit = require('unist-util-visit');
-const getYouTubeHTML = require('./get-youtube-html');
+// const getYouTubeHTML = require('./get-youtube-html');
 const getTwitterHTML = require('./get-twitter-html');
 const getCodeSandboxHTML = require('./get-codesandbox-html');
 
 const transformers = [
-  getYouTubeHTML,
+  // getYouTubeHTML,
   getTwitterHTML,
   getCodeSandboxHTML,
 ];
