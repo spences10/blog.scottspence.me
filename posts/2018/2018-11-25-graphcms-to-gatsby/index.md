@@ -19,7 +19,7 @@ coverCredit: Photo by Edu Lauton on Unsplash
 
 Let's set up Gatsby to pull data from GraphCMS.
 
-https://www.youtube.com/watch?v=S9JeASI5tck
+`video: https://www.youtube.com/watch?v=S9JeASI5tck`
 
 This will be a walk-through of setting up some basic data on the
 headless CMS, GraphCMS and then querying that data in Gatsby.

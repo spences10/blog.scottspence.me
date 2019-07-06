@@ -57,6 +57,8 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         // defaultLayouts: { default: path.resolve('./src/components/Layout.js') },
         gatsbyRemarkPlugins: [
+          `gatsby-remark-embed-video`,
+          `gatsby-remark-code-titles`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -66,19 +68,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1rem`,
+              wrapperStyle: `margin-bottom: 1.5rem`,
             },
           },
-          {
-            resolve: `gatsby-remark-copy-linked-files`,
-          },
-          {
-            resolve: `gatsby-remark-smartypants`,
-          },
-          // TODO: Replace with "mdx-component-autolink-header"
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-          },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-external-links`,
             options: {
