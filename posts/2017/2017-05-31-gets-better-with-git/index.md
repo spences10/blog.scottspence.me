@@ -7,8 +7,6 @@ published: true
 cover: ./cover.png
 ---
 
-
-
 No doubt you have heard of Git or GitHub for source control, but
 **what is source control?**
 
@@ -65,7 +63,7 @@ git push origin master
 Those commands have served me well in my early days of learning how to
 get my code back up to GitHub.
 
-https://www.youtube.com/watch?v=CDeG4S-mJts
+`video: https://www.youtube.com/watch?v=CDeG4S-mJts`
 
 > **Git and GitHub** Git and GitHub are two separate things, Git is a
 > free and open source version control system whilst GitHub uses Git
