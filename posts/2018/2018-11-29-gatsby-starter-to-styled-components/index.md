@@ -12,7 +12,7 @@ coverCredit: Photo by CHU TAI on Unsplash
 Let's go through getting styled-components working with the Gatsby
 default starter.
 
-https://www.youtube.com/watch?v=O5sWySCr668
+`video: https://www.youtube.com/watch?v=O5sWySCr668`
 
 In this example we're going to use the Gatsby default starter you get
 with [CodeSandbox] and add in styled-components, so first up, open a
