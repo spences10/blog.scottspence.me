@@ -1,11 +1,11 @@
 ---
 path: /build-a-coding-blog-with-mdx-and-gatsby-2019
-date: 2019-12-30
+date: 2019-12-31
 title: Build a coding blog from scratch with Gatsby and MDX
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
 published: false
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
 
@@ -347,7 +347,7 @@ export const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={title} siteDescription={description} />
-      {children}{' '}
+      {children}
     </>
   );
 };
@@ -371,7 +371,7 @@ export const Layout = ({ children }) => {
   return (
     <AppStyles>
       <Header siteTitle={title} siteDescription={description} />
-      {children}{' '}
+      {children}
     </AppStyles>
   );
 };
@@ -386,8 +386,7 @@ import { Layout } from '../components/Layout';
 export default () => {
   return (
     <>
-      {' '}
-      <Layout />{' '}
+      <Layout />
     </>
   );
 };
@@ -405,16 +404,15 @@ import { Layout } from '../components/Layout';
 export default ({ data }) => {
   return (
     <>
-      {' '}
       <Layout>
         {data.allMdx.edges.map(({ node }, index) => (
           <>
-            <h1>{node.frontmatter.title}</h1>{' '}
+            <h1>{node.frontmatter.title}</h1>
             <p>{node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>{' '}
+            <p>{node.excerpt}</p>
           </>
-        ))}{' '}
-      </Layout>{' '}
+        ))}
+      </Layout>
     </>
   );
 };
@@ -477,15 +475,14 @@ const Dump = props => (
       padding: 10,
       background: 'white',
     }}>
-    {' '}
     {Object.entries(props).map(([key, val]) => (
       <pre key={key}>
         <strong style={{ color: 'white', background: 'red' }}>
           {key} 💩
         </strong>
-        {JSON.stringify(val, '', ' ')}{' '}
+        {JSON.stringify(val, '', ' ')}
       </pre>
-    ))}{' '}
+    ))}
   </div>
 );
 
