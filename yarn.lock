@@ -5688,10 +5688,10 @@ gatsby-plugin-manifest@2.2.3:
     semver "^5.6.0"
     sharp "^0.22.1"
 
-gatsby-plugin-mdx@1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.12.tgz#0856c9aa4b7f1868f6fc5c6c30e98f5e2ceaf76e"
-  integrity sha512-C+zp/YMPnbspp4ueM5qJP157BMnsRfRSbgGHk/Tkfkws3GqLuyljKjrSmwkv2cRXus0dQ/f93UIKVmvMD3RlvA==
+gatsby-plugin-mdx@1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.13.tgz#2b24226bceb839d6ec6b05d89c60d4a922216b53"
+  integrity sha512-xvVjaOxY1BNWyLLNtJ//73bSvcz7aFQaFuLi3QttN7eivL4V+3tqk2q7JdnaLs0W6GuNrRyuS+o4q+dI5LrOpA==
   dependencies:
     "@babel/core" "^7.4.3"
     "@babel/plugin-proposal-object-rest-spread" "^7.4.3"
@@ -5705,7 +5705,7 @@ gatsby-plugin-mdx@1.0.12:
     fs-extra "^7.0.0"
     gray-matter "^4.0.1"
     loader-utils "^1.2.3"
-    lodash "^4.17.10"
+    lodash "^4.17.14"
     mdast-util-to-string "^1.0.4"
     mdast-util-toc "^3.0.0"
     mime "^2.3.1"
@@ -8290,7 +8290,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
