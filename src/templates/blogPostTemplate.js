@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Utterances from 'react-utterances';
@@ -65,7 +65,7 @@ const PrevNextButton = styled(HappyButton)`
 `;
 
 const blogPostLayout = ({ data, pageContext }) => {
-  const { frontmatter, excerpt, code } = data.mdx;
+  const { frontmatter, excerpt, body } = data.mdx;
   const { cover } = frontmatter;
   const { prev, next } = pageContext;
   const { imageLink: defaultImage } = useSiteMetadata();
@@ -83,7 +83,7 @@ const blogPostLayout = ({ data, pageContext }) => {
       <PostWrapper>
         <Title>{frontmatter.title}</Title>
         <TitleDate>{frontmatter.date}</TitleDate>
-        <MDXRenderer>{code.body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
         <LinksWrapper>
           <LinkWrapper justify={'start'}>
             {prev === false ? null : (
@@ -129,10 +129,7 @@ blogPostLayout.propTypes = {
 export const query = graphql`
   query($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
-      code {
-        body
-        scope
-      }
+      body
       excerpt(pruneLength: 250)
       frontmatter {
         title
