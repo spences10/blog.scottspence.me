@@ -1,0 +1,1133 @@
+---
+path: /build-a-coding-blog-with-mdx-and-gatsby-2019
+date: 2019-12-31
+title: Build a coding blog from scratch with Gatsby and MDX
+tags:
+  ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
+published: false
+cover: ./cover.jpg
+coverCredit: Photo by SpaceX on Unsplash
+---
+
+## What we're going to build
+
+We're going to build a developer blog with MDX support for some react
+components in Markdown goodness.
+
+## Also:
+
+- Basic styling with styled-components
+- cover images for the posts
+- auto link headers
+- SEO component
+- RSS Feed
+- Offline Support
+
+## Who is this for?
+
+People that may have used Gatsby before as a template and now want to
+get more involved in how to make changes.
+
+If you want to use styled-components in an app.
+
+## Requirements
+
+Web development setup, node, terminal, bash zsh or fish and a text
+editor
+
+## Hello World
+
+Let's kick this off with the Gatsby 'hello world', we'll need to
+install the following:
+
+```bash
+npm init -y
+yarn add gatsby react react-dom
+```
+
+- basic hello world
+
+```bash
+# -p is to create parent directories too if needed
+mkdir -p src/pages touch src/pages/index.js
+```
+
+- add `index.js` file
+
+```js
+import React from 'react';
+
+export default () => {
+  return <h1>Hello World!</h1>;
+};
+```
+
+- add `package.json` script for dev
+
+```json
+"dev": "gatsby develop -p 9988 -o"
+```
+
+- run script
+
+```bash
+yarn dev
+```
+
+## Add content
+
+- create index files
+
+```bash
+# create multiple directories using curly braces
+mkdir -p
+posts/2019/{2019-06-01-hello-world,2019-06-10-second-post,2019-06-20-third-post}
+touch posts/2019/2019-06-01-hello-world/index.mdx
+touch posts/2019/2019-06-10-second-post/index.mdx
+touch posts/2019/2019-06-20-third-post/index.mdx
+```
+
+- Add frontmatter
+
+```md
+---
+title: Hello World - from mdx!
+date: 2019-06-01
+published: true
+---
+
+# h1 Heading
+
+## h2 Heading
+
+### h3 Heading
+
+#### h4 Heading
+
+##### h5 Heading
+
+###### h6 Heading
+
+## Horizontal Rule
+
+---
+```
+
+```md
+---
+title: Second Post!
+date: 2019-06-10
+published: true
+---
+
+This is my second post!
+```
+
+```md
+---
+title: Third Post!
+date: 2019-06-20
+published: true
+---
+
+This is my third post!
+```
+
+## Gatsby config API
+
+```bash
+touch gatsby-config.js
+```
+
+## Plugins
+
+- Gatsby source filesystem
+- gatsbyRemarkPlugins for MDX
+
+```bash
+yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react gatsby-source-filesystem
+```
+
+- `gatsby-config.js`
+
+```js
+module.exports = {
+  siteMetadata: {
+    title: `The Localhost Blog`,
+    description: `This is my coding blog where I write about my coding journey.`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/posts`,
+        name: `posts`,
+      },
+    },
+  ],
+};
+```
+
+- Query data from GraphQL
+
+```graphql
+query {
+  allMdx {
+    edges {
+      node {
+        frontmatter {
+          title
+          date
+        }
+      }
+    }
+  }
+}
+```
+
+## Site Metadata
+
+- When you want to reuse common pieces of data across the site (for
+  example, your site title), you can store that data in
+  `siteMetadata`:
+
+```js
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+};
+```
+
+- Query Site Metadata with GraphQL
+
+```graphql
+query {
+  site {
+    siteMetadata {
+      title
+      description
+    }
+  }
+}
+```
+
+- Site metadata hook
+
+```bash
+mkdir src/hooks
+touch src/hooks/useSiteMetadata.js
+```
+
+```js
+import { graphql, useStaticQuery } from 'gatsby';
+
+export const useSiteMetadata = () => {
+  const { site } = useStaticQuery(
+    graphql`
+      query SITE_METADATA_QUERY {
+        site {
+          siteMetadata {
+            title
+            description
+          }
+        }
+      }
+    `
+  );
+  return site.siteMetadata;
+};
+```
+
+- use site metadata in `src/pages/index.js`
+
+```js
+import React from 'react';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+
+export default () => {
+  const { title, description } = useSiteMetadata();
+  return (
+    <>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </>
+  );
+};
+```
+
+## Styling
+
+- install styled-components
+
+```bash
+yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-components
+```
+
+- babel plugin for:
+  - consistently hashed component classNames between environments (a
+    must for server-side rendering)
+  - better debugging through automatic annotation of your styled
+    components based on their context in the file system, etc.
+  - various types of minification for styles and the tagged template
+    literals styled-components uses
+- Gatsby plugin for built-in server-side rendering support.
+- add to `gatsby-config.js`
+
+const siteMetadata = { title: `Coding Blog`, description:
+`This is my coding blog.` };
+
+module.exports = { siteMetadata: siteMetadata, plugins: [
+**`gatsby-plugin-styled-components`,** { resolve: `gatsby-plugin-mdx`,
+options: { extensions: [`.mdx`, `.md`], gatsbyRemarkPlugins: [] } }, {
+resolve: `gatsby-source-filesystem`, options: { path:
+`${__dirname}/posts`, name: `posts` } } ] };
+
+- style `index.js`
+
+```js
+import React from 'react';
+import styled from 'styled-components';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+
+const StyledH1 = styled.h1`
+  color: red;
+`;
+
+export default () => {
+  const { title, description } = useSiteMetadata();
+  return (
+    <>
+      <StyledH1>{title}</StyledH1>
+      <p>{description}</p>
+    </>
+  );
+};
+```
+
+## Layout
+
+- Refactor Home (`src/pages/index.js`)
+- Create a header and layout components
+
+```bash
+mkdir src/components
+touch src/components/Header.js src/components/Layout.js
+```
+
+- Move title and description to `src/components/Header.js` component,
+  desrtructure props out and add Gatsby Link.
+
+```js
+import { Link } from 'gatsby' import React from 'react'
+
+export const Header = ({ siteTitle, siteDescription }) => (
+  <Link to="/">
+    <h1>{siteTitle}</h1>
+    <p>{siteDescription}</p>
+  </Link>
+);
+```
+
+- Add Layout component
+- `src/components/Layout.js` wrapper {children}
+
+```js
+import React from 'react';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { Header } from './Header';
+
+export const Layout = ({ children }) => {
+  const { title, description } = useSiteMetadata();
+  return (
+    <>
+      <Header siteTitle={title} siteDescription={description} />
+      {children}
+    </>
+  );
+};
+```
+
+- Basic Layout styles for `src/components/Layout.js`
+
+```js
+import React from 'react';
+import styled from 'styled-components';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { Header } from './Header';
+
+const AppStyles = styled.main`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Layout = ({ children }) => {
+  const { title, description } = useSiteMetadata();
+  return (
+    <AppStyles>
+      <Header siteTitle={title} siteDescription={description} />
+      {children}
+    </AppStyles>
+  );
+};
+```
+
+- Refactor Home (`src/pages/index.js`) with Layout
+
+```js
+import React from 'react';
+import { Layout } from '../components/Layout';
+
+export default () => {
+  return (
+    <>
+      <Layout />
+    </>
+  );
+};
+```
+
+## Index page posts query
+
+- add graphql query with sort to `src/pages/index.js`
+
+```js
+import { graphql } from 'gatsby';
+import React from 'react';
+import { Layout } from '../components/Layout';
+
+export default ({ data }) => {
+  return (
+    <>
+      <Layout>
+        {data.allMdx.edges.map(({ node }, index) => (
+          <>
+            <h1>{node.frontmatter.title}</h1>
+            <p>{node.frontmatter.date}</p>
+            <p>{node.excerpt}</p>
+          </>
+        ))}
+      </Layout>
+    </>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            title
+            date
+          }
+        }
+      }
+    }
+  }
+`;
+```
+
+## Slugs and Paths
+
+- Gatsby node, add onCreateNode for slugs
+
+```bash
+touch gatsby-node.js
+```
+
+```js
+const { createFilePath } = require(`gatsby-source-filesystem`);
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
+```
+
+- Add Dump.js for debugging
+
+```js
+import React from 'react';
+
+const Dump = props => (
+  <div
+    style={{
+      fontSize: 20,
+      border: '1px solid #efefef',
+      padding: 10,
+      background: 'white',
+    }}>
+    {Object.entries(props).map(([key, val]) => (
+      <pre key={key}>
+        <strong style={{ color: 'white', background: 'red' }}>
+          {key} 💩
+        </strong>
+        {JSON.stringify(val, '', ' ')}
+      </pre>
+    ))}
+  </div>
+);
+
+export default Dump;
+```
+
+- add gatsby Link to `src/pages/index.js` and fields slug
+
+```js
+import { graphql, Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import { Layout } from '../components/Layout';
+
+const IndexWrapper = styled.main``;
+
+const PostWrapper = styled.div``;
+
+export default ({ data }) => {
+  return (
+    <Layout>
+      <IndexWrapper>
+        {data.allMdx.edges.map(({ node }, index) => (
+          <PostWrapper key={index}>
+            <Link to={node.fields.slug}>
+              <h1>{node.frontmatter.title}</h1>
+              <p>{node.frontmatter.date}</p>
+              <p>{node.excerpt}</p>
+            </Link>
+          </PostWrapper>
+        ))}
+      </IndexWrapper>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            title
+            date
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+```
+
+- Blog Post Template
+
+```bash
+mkdir -p src/templates
+touch src/templates/blogPostTemplate.js
+```
+
+- scaffold out basic template
+
+```js
+import React from 'react';
+
+export default () => {
+  return (
+    <>
+      <p>post here</p>
+    </>
+  );
+};
+```
+
+- Create createPages export
+- Actions is where create pages lives
+- Detail here:
+  [https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+
+```js
+const path = require(`path`);
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const blogPostTemplate = path.resolve(
+    'src/templates/blogPostTemplate.js'
+  );
+
+  return graphql(`
+    {
+      allMdx {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors;
+    }
+
+    const posts = result.data.allMdx.edges;
+
+    // create page for each mdx file
+    posts.forEach((post, index) => {
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPostTemplate,
+        context: {
+          slug: post.node.fields.slug,
+        },
+      });
+    });
+  });
+};
+```
+
+- build out blogPostTemplate.js
+
+```js
+import { graphql } from 'gatsby';
+import MDXRenderer from 'gatsby-plugin-mdx';
+import React from 'react';
+import { Layout } from '../components/Layout';
+
+export default ({ data }) => {
+  const { frontmatter, code } = data.mdx;
+  return (
+    <Layout>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{code.body}</MDXRenderer>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query PostsBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 250)
+      code {
+        body
+      }
+      frontmatter {
+        title
+        date(formatString: "YYYY MMMM Do")
+      }
+    }
+  }
+`;
+```
+
+## Previous and Next
+
+- Add in previous and next context
+
+```js
+// create page for each mdx file
+posts.forEach((post, index) => {
+  const previous =
+    index === posts.length - 1 ? null : posts[index + 1].node;
+  const next = index === 0 ? null : posts[index - 1].node;
+
+  createPage({
+    path: post.node.fields.slug,
+    component: blogPostTemplate,
+    context: {
+      slug: post.node.fields.slug,
+      previous,
+      next,
+    },
+  });
+});
+```
+
+- Expose props in blogPostTemplate.js via pageContext with Dump
+
+```js
+import { graphql, Link } from 'gatsby'
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import React from 'react'
+import { Dump } from '../components/Dump'
+import { Layout } from '../components/Layout'
+
+export default ({ data, pageContext }) => {
+  const { frontmatter, code } = data.mdx
+  const { previous, next } = pageContext
+  return (
+    <Layout>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{body}</MDXRenderer>
+      <Dump previous={previous} />
+      <Dump next={next}
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query PostsBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 250)
+      body
+      frontmatter {
+        title
+        date(formatString: "YYYY MMMM Do")
+      }
+    }
+  }
+`
+```
+
+Add in previous and next navigation:
+
+```js
+import { graphql, Link } from 'gatsby';
+import MDXRenderer from 'gatsby-plugin-mdx';
+import React from 'react';
+import { Dump } from '../components/Dump';
+import { Layout } from '../components/Layout';
+export default ({ data, pageContext }) => {
+  const { frontmatter, code } = data.mdx;
+  const { previous, next } = pageContext;
+  return (
+    <Layout>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{code.body}</MDXRenderer>
+      <Dump previous={previous} />
+      <Dump next={next} />
+      {previous === false ? null : (
+        <>
+          {previous && (
+            <Link to={previous.fields.slug}>
+              <p>{previous.frontmatter.title}</p>
+            </Link>
+          )}
+        </>
+      )}
+      {next === false ? null : (
+        <>
+          {next && (
+            <Link to={next.fields.slug}>
+              <p>{next.frontmatter.title}</p>
+            </Link>
+          )}
+        </>
+      )}
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query PostsBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 250)
+      code {
+        body
+      }
+      frontmatter {
+        title
+        date(formatString: "YYYY MMMM Do")
+      }
+    }
+  }
+`;
+```
+
+## Code Blocks
+
+- add prism react renderer and react live and root-wrapper
+
+```bash
+yarn add prism-react-renderer react-live
+touch root-wrapper.js gatsby-ssr.js gatsby-browser.js
+```
+
+- Add root-wrapper.js code, demonstrate components
+
+```js
+import { MDXProvider } from '@mdx-js/react';
+import React from 'react';
+
+const components = {
+  h1: ({ children }) => (
+    <h1 style={{ color: 'rebeccapurple' }}>{children}</h1>
+  ),
+};
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+);
+```
+
+- add gatsby-browser and gatsby-ssr code
+
+```js
+import { wrapRootElement as wrap } from './root-wrapper';
+
+export const wrapRootElement = wrap;
+```
+
+- [https://github.com/FormidableLabs/prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer)
+- Copy code for highlighting, test it works
+
+```js
+import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import React from 'react';
+
+const components = {
+  pre: props => (
+    <Highlight
+      {...defaultProps}
+      code={`
+        (function someDemo() {
+          var test = "Hello World!";
+          console.log(test);
+        })();
+
+        return () => <App />;
+      `}
+      language="jsx">
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  ),
+};
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+);
+```
+
+- Now, get the props of the child component of the pre component
+
+```js
+import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import React from 'react';
+
+const components = {
+  pre: props => (
+    <Highlight
+      {...defaultProps}
+      code={props.children.props.children.trim()}
+      language="jsx">
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  ),
+};
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+);
+```
+
+- Then to match the language
+
+```js
+import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import React from 'react';
+
+const components = {
+  pre: props => {
+    const className = props.children.props.className || '';
+    const matches = className.match(/language-(?<lang>.*)/);
+
+    return (
+      <Highlight
+        {...defaultProps}
+        code={props.children.props.children.trim()}
+        language={
+          matches && matches.groups && matches.groups.lang
+            ? matches.groups.lang
+            : ''
+        }>
+        {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps,
+        }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    );
+  },
+};
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+);
+```
+
+- add the theme
+
+```js
+import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+
+const components = {
+  pre: props => {
+    const className = props.children.props.className || '';
+    const matches = className.match(/language-(?<lang>.*)/);
+
+    return (
+      <Highlight
+        {...defaultProps}
+        code={props.children.props.children.trim()}
+        language={
+          matches && matches.groups && matches.groups.lang
+            ? matches.groups.lang
+            : ''
+        }
+        theme={theme}>
+        {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps,
+        }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    );
+  },
+};
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+);
+```
+
+- Now react-live
+- Make a `Code.js` component, move the code from `root-wrapper.js`
+  into there
+
+```js
+import { MDXProvider } from '@mdx-js/react';
+import React from 'react';
+import Code from './src/components/Code';
+
+// import { Dump } from './src/utils/helpers';
+
+// components is its own object outside of render so that the references to
+// components are stable
+const components = {
+  pre: ({ children: { props } }) => {
+    // if there's a codeString and some props, we passed the test
+    if (props.mdxType === 'code') {
+      return (
+        <Code
+          codeString={props.children.trim()}
+          language={
+            props.className &&
+            props.className.replace('language-', '')
+          }
+          {...props}
+        />
+      );
+    }
+    // it's possible to have a pre without a code in it
+    return <pre />;
+  },
+  wrapper: ({ children }) => <>{children}</>,
+};
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+);
+```
+
+- Create elements folder
+
+```bash
+mkdir -p src/components/elements
+touch src/components/elements/Code.js
+```
+
+- add Code component
+
+```js
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+import {
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider,
+} from 'react-live';
+import styled from 'styled-components';
+// import { Dump } from '../utils/helpers'
+
+export const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow-x: auto;
+  border-radius: 3px;
+  & .token-line {
+    line-height: 1.3em;
+    height: 1.3em;
+  }
+  font-family: dm;
+`;
+
+export const LineNo = styled.span`
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.3;
+`;
+
+export const Code = ({ codeString, language, ...props }) => {
+  if (props['react-live']) {
+    return (
+      <LiveProvider code={codeString} noInline={true} theme={theme}>
+        <LiveEditor />
+        <LiveError />
+        <LivePreview />
+      </LiveProvider>
+    );
+  }
+  return (
+    <>
+      <Highlight
+        {...defaultProps}
+        code={codeString}
+        language={language}
+        theme={theme}>
+        {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps,
+        }) => (
+          <Pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                <LineNo>{i + 1}</LineNo>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </Pre>
+        )}
+      </Highlight>
+    </>
+  );
+};
+```
+
+- Customizing Components:
+  [https://www.gatsbyjs.org/docs/mdx/customizing-components/](https://www.gatsbyjs.org/docs/mdx/customizing-components/)
+
+## Cover Image
+
+## i11n
+
+- [https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n)
+
+## SEO
+
+- this helped me for my own blog:
+  [https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/](https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/)
+- [https://www.heymeta.com/](https://www.heymeta.com/)
+- [https://opengraphcheck.com/](https://opengraphcheck.com/)
+- [https://cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator)
+- [https://developers.facebook.com/tools/debug/sharing](https://developers.facebook.com/tools/debug/sharing)
+
+## Commenting
+
+- [https://github.com/utterance/utterances](https://github.com/utterance/utterances)
+
+## Links
+
+[https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/)
