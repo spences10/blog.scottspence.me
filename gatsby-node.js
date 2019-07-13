@@ -1,12 +1,12 @@
-const path = require(`path`)
+const path = require(`path`);
 // const fs = require(`fs`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   const blogPostTemplate = path.resolve(
     'src/templates/blogPostTemplate.js'
-  )
+  );
 
   // returns promise that will start with this graphql query
   return graphql(`
@@ -18,10 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
-            code {
-              body
-              scope
-            }
+            body
             id
             excerpt
             frontmatter {
@@ -36,84 +33,86 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then(result => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMdx.edges
+    const posts = result.data.allMdx.edges;
 
-    createTagPages(createPage, posts)
+    createTagPages(createPage, posts);
 
     // Create pages for each markdown file.
     posts.forEach(({ node }, index) => {
-      const prev = index === 0 ? null : posts[index - 1].node
+      const prev = index === 0 ? null : posts[index - 1].node;
       const next =
-        index === posts.length - 1 ? null : posts[index + 1].node
+        index === posts.length - 1 ? null : posts[index + 1].node;
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,
         context: {
           prev,
-          next
-        }
-      })
-    })
+          next,
+        },
+      });
+    });
 
-    return posts
-  })
-}
+    return posts;
+  });
+};
 
 const createTagPages = (createPage, posts) => {
-  const allTagsTemplate = path.resolve('src/templates/allTags.js')
-  const singleTagTemplate = path.resolve('src/templates/singleTag.js')
+  const allTagsTemplate = path.resolve('src/templates/allTags.js');
+  const singleTagTemplate = path.resolve(
+    'src/templates/singleTag.js'
+  );
 
-  const postsByTag = {}
+  const postsByTag = {};
 
   posts.forEach(({ node }) => {
     if (node.frontmatter.tags) {
       node.frontmatter.tags.forEach(tag => {
         if (!postsByTag[tag]) {
-          postsByTag[tag] = []
+          postsByTag[tag] = [];
         }
 
-        postsByTag[tag].push(node)
-      })
+        postsByTag[tag].push(node);
+      });
     }
-  })
+  });
 
-  const tags = Object.keys(postsByTag)
+  const tags = Object.keys(postsByTag);
 
   createPage({
     path: '/tags',
     component: allTagsTemplate,
     context: {
-      tags: tags.sort()
-    }
-  })
+      tags: tags.sort(),
+    },
+  });
 
   tags.forEach(tagName => {
-    const posts = postsByTag[tagName]
+    const posts = postsByTag[tagName];
 
     createPage({
       path: `/tags/${tagName}`,
       component: singleTagTemplate,
       context: {
         posts,
-        tagName
-      }
-    })
-  })
-}
+        tagName,
+      },
+    });
+  });
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     createNodeField({
       name: `path`,
       node,
-      value
-    })
+      value,
+    });
 
     // const parent = getNode(node.parent)
 
@@ -129,4 +128,4 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     //   }
     // }
   }
-}
+};

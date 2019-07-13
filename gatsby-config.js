@@ -52,7 +52,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         // defaultLayouts: { default: path.resolve('./src/components/Layout.js') },
@@ -83,6 +83,14 @@ module.exports = {
           },
           {
             resolve: require.resolve('./plugins/remark-embedder'),
+          },
+        ],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
           },
         ],
       },
@@ -173,7 +181,7 @@ module.exports = {
                   guid:
                     site.siteMetadata.siteUrl + edge.node.fields.path,
                   custom_elements: [
-                    { 'content:encoded': edge.node.code.boy },
+                    { 'content:encoded': edge.node.body },
                   ],
                 });
               });
@@ -187,9 +195,7 @@ module.exports = {
               ) {
                 edges {
                   node {
-                    code {
-                      body
-                    }
+                    body
                     fields { path }
                     frontmatter {
                       title
