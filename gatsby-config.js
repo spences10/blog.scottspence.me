@@ -195,9 +195,7 @@ module.exports = {
               ) {
                 edges {
                   node {
-                    code {
-                      body
-                    }
+                    body
                     fields { path }
                     frontmatter {
                       title
