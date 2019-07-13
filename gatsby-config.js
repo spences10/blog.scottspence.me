@@ -52,7 +52,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         // defaultLayouts: { default: path.resolve('./src/components/Layout.js') },
@@ -83,6 +83,14 @@ module.exports = {
           },
           {
             resolve: require.resolve('./plugins/remark-embedder'),
+          },
+        ],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
           },
         ],
       },
