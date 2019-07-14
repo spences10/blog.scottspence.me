@@ -137,6 +137,22 @@ edges.
 The `Mdx` edges are taken from the page query, which is also altered
 to use `allMdx` in place of `allMarkdownRemark`.
 
+Replace the `dangerouslySetInnerHTML` prop with a normal `<p>` tag:
+
+```jsx
+<p
+  dangerouslySetInnerHTML={{
+    __html: node.frontmatter.description || node.excerpt,
+  }}
+/>
+```
+
+Replace with:
+
+```jsx
+<p>{node.frontmatter.description || node.excerpt}</p>
+```
+
 ## `blog-post.js`
 
 Now last on the list to get MDX working is the blog post template,
