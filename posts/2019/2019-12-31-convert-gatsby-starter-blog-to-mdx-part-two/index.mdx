@@ -163,39 +163,25 @@ Here's where we use it, we'll come onto `post.code.body`.
 
 Again in the query we're replacing `markdownRemark` with `mdx` and
 this time also doing away with `html` from the query and adding in
-`code` for `body` which we're using in our render method.
+`body` which we're using in our render method.
+
+```jsx
+<div dangerouslySetInnerHTML={{ __html: post.html }} />
+```
+
+```jsx
+<MDXRenderer>{post.body}</MDXRenderer>
+```
 
 ## Now we're using MDX!
 
-So now we can create a `.mdx` post, let's do that.
+So now we can create a `.mdx` post, and import a react component into
+it.
 
-Import the styled-components dependencies:
+First let's make a post:
 
-```bash
-gatsby-plugin-styled-components
-styled-components
-babel-plugin-styled-components
+```mdx
 ```
-
-Then configure them in `gatsby-config.js`:
-
-```js
-module.exports = {
-  siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    ...
-    },
-  },
-  plugins: [
-    `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-  ...
-```
-
-Now we can use styled-components, in `src/components` make a new
-component, I have called my one `butt.js` call yours what you like.
 
 We're going to use this component in a `.mdx` document, first the
 component:
