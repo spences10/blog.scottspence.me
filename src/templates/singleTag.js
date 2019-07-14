@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 
-const Container = styled.div`
+const SingleTagWrapper = styled.div`
   font-family: ${props => props.theme.fontBody};
   margin: 1rem;
   padding: 1rem;
@@ -11,10 +11,6 @@ const Container = styled.div`
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
 `;
 
 const List = styled.ul`
@@ -40,26 +36,29 @@ const Tag = styled.li`
   border-radius: 4px;
 `;
 
+const Excerpt = styled.p`
+  font-weight: 100;
+`;
+
 const SingleTagTemplate = ({ data, pageContext }) => {
   const { posts, tagName } = pageContext;
   return (
     <Layout>
-      <Container>
+      <SingleTagWrapper>
         <div>Posts about {`${tagName}`}</div>
-        <div>
-          <List>
-            {posts.map((post, index) => {
-              return (
-                <Tag key={index}>
-                  <Link to={post.frontmatter.path}>
-                    {post.frontmatter.title}
-                  </Link>
-                </Tag>
-              );
-            })}
-          </List>
-        </div>
-      </Container>
+        <List>
+          {posts.map((post, index) => {
+            return (
+              <Tag key={index}>
+                <Link to={post.frontmatter.path}>
+                  {post.frontmatter.title}
+                  <Excerpt>{post.excerpt}</Excerpt>
+                </Link>
+              </Tag>
+            );
+          })}
+        </List>
+      </SingleTagWrapper>
     </Layout>
   );
 };

@@ -17,6 +17,7 @@ const AppStyles = styled.div`
   background-color: ${({ theme }) => theme.background};
   background-image: url("${props => props.background}");
   background-attachment: fixed;
+  /* min-height: 100vh; */
   /*space between first post and nav bar*/
   /* padding-top: 2.7rem; */
   display: grid;

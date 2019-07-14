@@ -113,19 +113,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     });
-
-    // const parent = getNode(node.parent)
-
-    // if (parent.internal.type === `File`) {
-    //   const ext = path.extname(parent.absolutePath)
-    //   const featuredImage = parent.absolutePath.replace(ext, '.png')
-    //   if (fs.existsSync(featuredImage)) {
-    //     createNodeField({
-    //       name: `featuredImage`,
-    //       node,
-    //       value: featuredImage
-    //     })
-    //   }
-    // }
   }
 };
