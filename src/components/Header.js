@@ -8,6 +8,7 @@ const HeaderWrapper = styled.header`
   top: 0;
   width: 100%;
   position: sticky;
+  height: 2.8rem;
   display: grid;
   background: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.fontDark};

@@ -1,10 +1,9 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
 
-import Layout from '../components/Layout'
-
-const Container = styled.div`
+const Wrapper = styled.div`
   font-family: ${props => props.theme.fontBody};
   margin: 1rem;
   padding: 1rem;
@@ -12,15 +11,11 @@ const Container = styled.div`
   border: 1px solid ${props => props.border};
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-const List = styled.ul`
-  margin: 0rem;
-  padding: 0rem;
-  list-style: none;
-`
-
-const Tag = styled.li`
+const Tag = styled.label`
   margin: 0.5rem;
   padding: 0.5rem;
   font-weight: bold;
@@ -35,25 +30,24 @@ const Tag = styled.li`
     transform: skew(2deg); /* SKEW */
   }
   border-radius: 4px;
-`
+  list-style: none;
+`;
 
 const AllTagsTemplate = ({ data, pageContext }) => {
-  const { tags } = pageContext
+  const { tags } = pageContext;
   return (
     <Layout>
-      <Container>
-        <List>
-          {tags.map((tagName, index) => {
-            return (
-              <Tag key={index}>
-                <Link to={`/tags/${tagName}`}>{tagName}</Link>
-              </Tag>
-            )
-          })}
-        </List>
-      </Container>
+      <Wrapper>
+        {tags.map((tagName, index) => {
+          return (
+            <Tag key={index}>
+              <Link to={`/tags/${tagName}`}>{tagName}</Link>
+            </Tag>
+          );
+        })}
+      </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default AllTagsTemplate
+export default AllTagsTemplate;
