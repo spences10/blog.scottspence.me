@@ -35,7 +35,7 @@ I've gone and made a video of the conversion as well, here:
 - @mdx-js/react: 1.0.20
 - babel-plugin-styled-components: 1.10.0
 - gatsby: 2.8.6
-- gatsby-mdx: 0.6.3
+- gatsby-plugin-mdx: 0.6.3
 - gatsby-plugin-styled-components: 3.0.7
 - prism-react-renderer: 0.1.6
 - react: 16.9.0
@@ -76,9 +76,13 @@ running in our Gatsby project.
 With the add dependency button in CodeSandbox add the following
 dependencies:
 
-- `gatsby-mdx`
+- `gatsby-plugin-mdx`
 - `@mdx-js/mdx`
 - `@mdx-js/react`
+
+```bash
+yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react
+```
 
 We will also need to add dependencies for styled-components so may as
 well add them now as well:
@@ -104,7 +108,7 @@ Change `allMarkdownRemark` occurrences with `allMdx`, and change the
 ## `gatsby-config.js`
 
 Here we're going to replace `gatsby-transformer-remark` with
-`gatsby-mdx`
+`gatsby-plugin-mdx`
 
 ## `index.js`
 
@@ -117,8 +121,8 @@ to use `allMdx` in place of `allMarkdownRemark`.
 ## `blog-post.js`
 
 Now last on the list to get MDX working is the blog post template,
-we're going to need to import `MDXRenderer` from `gatsby-mdx` we're
-going to replace `dangerouslySetInnerHTML` with this shortly.
+we're going to need to import `MDXRenderer` from `gatsby-plugin-mdx`
+we're going to replace `dangerouslySetInnerHTML` with this shortly.
 
 Here's where we use it, we'll come onto `post.code.body`.
 
