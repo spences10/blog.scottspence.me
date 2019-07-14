@@ -108,7 +108,26 @@ Change `allMarkdownRemark` occurrences with `allMdx`, and change the
 ## `gatsby-config.js`
 
 Here we're going to replace `gatsby-transformer-remark` with
-`gatsby-plugin-mdx`
+`gatsby-plugin-mdx` and add in the extensions array for both `.mdx`
+and `.md` file types.
+
+```js
+extensions: [`.mdx`, `.md`],
+```
+
+Then rename the `plugins` array to `gatsbyRemarkPlugins` we also need
+to add a `plugins` array to cater for `gatsby-remark-images` as well.
+
+```js
+plugins: [
+  {
+    resolve: `gatsby-remark-images`,
+    options: {
+      maxWidth: 590,
+    },
+  },
+],
+```
 
 ## `index.js`
 
