@@ -12,8 +12,7 @@ const FooterWrapper = styled.footer`
   z-index: 1;
   bottom: 0;
   /* width: 100%; */
-  /* position: fixed; sticky */
-  /* height: 20rem; */
+  /* position: fixed; */
   grid-area: f;
   display: grid;
   background: ${({ theme }) => theme.primary};
