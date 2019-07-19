@@ -181,7 +181,7 @@ module.exports = {
                   guid:
                     site.siteMetadata.siteUrl + edge.node.fields.path,
                   custom_elements: [
-                    { 'content:encoded': edge.node.body },
+                    { 'content:encoded': edge.node.html },
                   ],
                 });
               });
@@ -195,7 +195,7 @@ module.exports = {
               ) {
                 edges {
                   node {
-                    body
+                    html
                     fields { path }
                     frontmatter {
                       title
