@@ -20,7 +20,6 @@ for free.
 I've already covered the conversion [here] if you want to check that
 out, I'll be going over that again here but also adding:
 
-- Code blocks 🎉
 - Using components for page elements
 
 I've gone and made a video of the conversion as well, here:
@@ -33,15 +32,10 @@ I've gone and made a video of the conversion as well, here:
 
 - @mdx-js/mdx: 1.0.27
 - @mdx-js/react: 1.0.27
-- babel-plugin-styled-components: 1.10.0
-- gatsby: 2.13.8
 - gatsby-plugin-mdx: 1.0.13
-- gatsby-plugin-styled-components: 3.0.7
-- prism-react-renderer: 0.1.6
+- gatsby: 2.13.8
 - react: 16.9.0
 - react-dom: 16.9.0
-- react-live: 2.1.2
-- styled-components: 4.3.1
 
 You can also check out the [example code].
 
@@ -83,13 +77,6 @@ dependencies:
 ```bash
 yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react
 ```
-
-We will also need to add dependencies for styled-components so may as
-well add them now as well:
-
-- `gatsby-plugin-styled-components`
-- `styled-components`
-- `babel-plugin-styled-components`
 
 Ok, the files to change are:
 
@@ -178,9 +165,28 @@ this time also doing away with `html` from the query and adding in
 So now we can create a `.mdx` post, and import a react component into
 it.
 
-First let's make a post:
+First let's make an `index.mdx` file in `content/blog/` and add some
+frontmatter and some content:
 
 ```mdx
+---
+title: Hello MDX!
+date: 2019-07-14
+---
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+---
 ```
 
 We're going to use this component in a `.mdx` document, first the
