@@ -300,7 +300,7 @@ const siteMetadata = {
 };
 ```
 
-- Query Site Metadata with GraphQL
+Now let's query the Site Metadata with GraphQL.
 
 ```graphql
 {
@@ -315,13 +315,20 @@ const siteMetadata = {
 
 ## Site metadata hook
 
-Ok, so, that's cool n' all but how am I meant to use it? Well- Site
-metadata hook
+Ok, so, that's cool n' all but how am I meant to use it? Well let's do
+some of the code stuff and make a React hook so we can get our site
+data in any component we need it.
+
+Let's create a folder to keep all our hooks in and create a file for
+our hook, in the terminal do:
 
 ```bash
 mkdir src/hooks
 touch src/hooks/useSiteMetadata.js
 ```
+
+Ok, and in our newly created file were goining to use the Gatsby
+`useStaticQuery` hook to make our own hook:
 
 ```js
 import { graphql, useStaticQuery } from 'gatsby';
@@ -343,7 +350,8 @@ export const useSiteMetadata = () => {
 };
 ```
 
-- use site metadata in `src/pages/index.js`
+Now we can use this hook anywhere in our site, so let's do that now in
+`src/pages/index.js`:
 
 ```js
 import React from 'react';
@@ -378,14 +386,29 @@ yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-c
 - Gatsby plugin for built-in server-side rendering support.
 - add to `gatsby-config.js`
 
-const siteMetadata = { title: `Coding Blog`, description:
-`This is my coding blog.` };
+```js
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+};
 
-module.exports = { siteMetadata: siteMetadata, plugins: [
-**`gatsby-plugin-styled-components`,** { resolve: `gatsby-plugin-mdx`,
-options: { extensions: [`.mdx`, `.md`], gatsbyRemarkPlugins: [] } }, {
-resolve: `gatsby-source-filesystem`, options: { path:
-`${__dirname}/posts`, name: `posts` } } ] };
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: `${__dirname}/posts`, name: `posts` },
+    },
+  ],
+};
+```
 
 - style `index.js`
 
