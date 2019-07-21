@@ -4,7 +4,7 @@ date: 2019-12-31
 title: Build a coding blog from scratch with Gatsby and MDX
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
-published: false
+published: true
 cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
@@ -198,20 +198,40 @@ This is my third post!
 
 ## Gatsby config API
 
+Ok, now we're going to configure Gatsby so that it can read our super
+awesome content we just created. So first up we need to create a the
+`gatsby-config.js` file, in the terminal create the file:
+
 ```bash
 touch gatsby-config.js
 ```
 
 ## Plugins
 
-- Gatsby source filesystem
-- gatsbyRemarkPlugins for MDX
+And now we can add the plugins Gatsby needs to use for sourcing and
+displaying the the files we just created.
+
+### Gatsby source filesystem
+
+The [gatsby-source-filesystem] collects the files on the local
+filesystem for use in Gatsby once configured.
+
+### Gatsby plugin MDX
+
+The [gatsby-plugin-mdx] is what will be allowing us to write JSX in
+our Markdown documents and the heart of how the content is displayed
+in the blog.
+
+Now is a good time to also add in dependent packages for the Gatsby
+plugin MDX which are `@mdx-js/mdx` and `@mdx-js/react`.
+
+In the terminal install the dependencies:
 
 ```bash
 yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react gatsby-source-filesystem
 ```
 
-- `gatsby-config.js`
+Now its time to configure `gatsby-config.js`:
 
 ```js
 module.exports = {
@@ -224,7 +244,6 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [],
       },
     },
     {
@@ -238,7 +257,9 @@ module.exports = {
 };
 ```
 
-- Query data from GraphQL
+## Query data from GraphQL
+
+Ok now we can see what the [gatsby-source-filesystem] did for us:
 
 ```graphql
 query {
@@ -1206,3 +1227,7 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
   http://blog.scottspence.me/wsl-bootstrap-2019
 [ubuntu as well]: https://www.youtube.com/watch?v=eSAsdQuQ-1o
 [codesandbox.io]: https://codesandbox.io
+[gatsby-source-filesystem]:
+  https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
+[gatsby-plugin-mdx]:
+  https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/
