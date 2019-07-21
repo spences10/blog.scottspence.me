@@ -53,6 +53,32 @@ well].
 
 Ok? Let's get started!
 
+<!-- TOC -->
+
+- [Hello World](#hello-world)
+  - [basic hello world](#basic-hello-world)
+- [Add content](#add-content)
+- [Gatsby config API](#gatsby-config-api)
+- [Plugins](#plugins)
+  - [Gatsby source filesystem](#gatsby-source-filesystem)
+  - [Gatsby plugin MDX](#gatsby-plugin-mdx)
+- [Query data from GraphQL](#query-data-from-graphql)
+- [Site Metadata](#site-metadata)
+- [Site metadata hook](#site-metadata-hook)
+- [Styling](#styling)
+- [Layout](#layout)
+- [Index page posts query](#index-page-posts-query)
+- [Slugs and Paths](#slugs-and-paths)
+- [Previous and Next](#previous-and-next)
+- [Code Blocks](#code-blocks)
+- [Cover Image](#cover-image)
+- [i11n](#i11n)
+- [SEO](#seo)
+- [Commenting](#commenting)
+- [Links](#links)
+
+<!-- /TOC -->
+
 ## Hello World
 
 Let's kick this off with the Gatsby 'hello world', we'll need to
@@ -370,7 +396,7 @@ export default () => {
 
 ## Styling
 
-- install styled-components
+### install styled-components
 
 ```bash
 yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-components
@@ -385,6 +411,8 @@ yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-c
     literals styled-components uses
 - Gatsby plugin for built-in server-side rendering support.
 - add to `gatsby-config.js`
+
+### Configure
 
 ```js
 const siteMetadata = {
