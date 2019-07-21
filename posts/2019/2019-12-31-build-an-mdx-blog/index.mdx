@@ -259,17 +259,17 @@ module.exports = {
 
 ## Query data from GraphQL
 
-Ok now we can see what the [gatsby-source-filesystem] did for us:
+Ok now we can see what the [gatsby-source-filesystem] and
+[gatsby-plugin-mdx] have done for us. We can now go to the Gatsby
+GraphQL GraphiQL explorer and check out the data:
 
 ```graphql
-query {
+{
   allMdx {
-    edges {
-      node {
-        frontmatter {
-          title
-          date
-        }
+    nodes {
+      frontmatter {
+        title
+        date
       }
     }
   }
