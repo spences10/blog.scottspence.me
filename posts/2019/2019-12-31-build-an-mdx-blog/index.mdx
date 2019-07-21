@@ -56,6 +56,25 @@ npm init -y
 yarn add gatsby react react-dom
 ```
 
+If you want to commit this to a git repository then you'll also need a
+`.gitignore` with the requisite things to ignore, `node_modules`,
+`.cache` and `public`:
+
+```bash
+touch .gitignore
+
+echo "# Project dependencies
+.cache
+node_modules
+
+# Build directory
+public
+
+# Other
+.DS_Store
+yarn-error.log" > .gitignore
+```
+
 - basic hello world
 
 ```bash
