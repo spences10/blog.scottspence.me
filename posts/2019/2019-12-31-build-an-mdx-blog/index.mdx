@@ -75,14 +75,24 @@ public
 yarn-error.log" > .gitignore
 ```
 
-- basic hello world
+Ok now is a good time to do a `git init` and if you're using VSCode
+you'll see the changes reflected in the sidebar.
+
+### basic hello world
+
+Ok the bare minimum for a Gatsby hello world!
+
+We're going to need to create a pages directory and add an index file.
+We can do that in the terminal by typing the following:
 
 ```bash
 # -p is to create parent directories too if needed
-mkdir -p src/pages touch src/pages/index.js
+mkdir -p src/pages
+touch src/pages/index.js
 ```
 
-- add `index.js` file
+Ok, now we can commence the hello work incantation! In the newly
+created `index.js` enter the following:
 
 ```js
 import React from 'react';
@@ -92,32 +102,55 @@ export default () => {
 };
 ```
 
-- add `package.json` script for dev
+Now we need to add the Gatsby develop script to the `package.json`
+file, `-p` specifies what port you want to run the project on and `-o`
+opens a new tab on your default browser, so in this case
+`localhost:9988`:
 
 ```json
 "dev": "gatsby develop -p 9988 -o"
 ```
 
-- run script
+Ok it's time to run the code! From the terminal type the npm script
+command we just created:
 
 ```bash
 yarn dev
 ```
 
+> Note I'm using Yarn for installing all my dependencies and running
+> scripts, if you prefer you can use npm just bear in mind that the
+> content on here uses yarn, so swap out commands where needed
+
+And with that the "Hello World" incantation is complete 🧙!
+
 ## Add content
 
-- create index files
+Ok, now we have the base our blog we're going to want to add some
+content, first up I'm going to get the convention out of the way. I
+like my date format a logical way, the most logical way for a date
+format is **YYYYMMDD**, fight me!
+
+So we're going to structure our posts content in years, in each one of
+those we're going to have another folder relating to the post with the
+(correct) date format for the beginning of the file followed by the
+title of the post. You could drill into this further if you like by
+separating out months and days depending on the volume of posts going
+this may be a good approach. In this case we're going to go with the
+convention I've detailed already.
 
 ```bash
 # create multiple directories using curly braces
-mkdir -p
-posts/2019/{2019-06-01-hello-world,2019-06-10-second-post,2019-06-20-third-post}
+mkdir -p posts/2019/{2019-06-01-hello-world,2019-06-10-second-post,2019-06-20-third-post}
 touch posts/2019/2019-06-01-hello-world/index.mdx
 touch posts/2019/2019-06-10-second-post/index.mdx
 touch posts/2019/2019-06-20-third-post/index.mdx
 ```
 
-- Add frontmatter
+Ok that's our posts set up now we need to add some content to them,
+each file we have in here should have frontmatter. Frontmatter is a
+way to assign properties to the contents, in this case a `title`,
+published `date` and a `published` flag (`true` or `false`).
 
 ```md
 ---
@@ -128,19 +161,11 @@ published: true
 
 # h1 Heading
 
+My first post!!
+
 ## h2 Heading
 
 ### h3 Heading
-
-#### h4 Heading
-
-##### h5 Heading
-
-###### h6 Heading
-
-## Horizontal Rule
-
----
 ```
 
 ```md
@@ -151,6 +176,12 @@ published: true
 ---
 
 This is my second post!
+
+#### h4 Heading
+
+##### h5 Heading
+
+###### h6 Heading
 ```
 
 ```md
@@ -161,6 +192,8 @@ published: true
 ---
 
 This is my third post!
+
+> with a block quote!
 ```
 
 ## Gatsby config API
