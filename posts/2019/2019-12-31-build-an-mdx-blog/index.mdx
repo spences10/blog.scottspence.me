@@ -278,9 +278,13 @@ GraphQL GraphiQL explorer and check out the data:
 
 ## Site Metadata
 
-- When you want to reuse common pieces of data across the site (for
-  example, your site title), you can store that data in
-  `siteMetadata`:
+When you want to reuse common pieces of data across the site (for
+example, your site title), you can store that data in `siteMetadata`,
+we touched on this when defining the `gatsby-config.js`, now we're
+going to separate this out from the `module.exports`, why? It will be
+nicer to reason about once the config is filled with plugins. At the
+top of `gatsby-config.js` add a new object variable for the site
+metadata:
 
 ```js
 const siteMetadata = {
