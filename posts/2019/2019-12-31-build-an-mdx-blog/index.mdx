@@ -9,6 +9,13 @@ cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
 
+I have been using Gatsby since [v0 May 2017], at that time it was a
+template I cloned and used happily it was called Lumen and was just
+what I needed at the time.
+
+Over the years I have made my own [Progressive Disclosure of
+Complexity] with Gatsby to where I am now.
+
 ## What we're going to build
 
 We're going to build a developer blog with MDX support for some react
@@ -296,7 +303,7 @@ const siteMetadata = {
 - Query Site Metadata with GraphQL
 
 ```graphql
-query {
+{
   site {
     siteMetadata {
       title
@@ -306,7 +313,10 @@ query {
 }
 ```
 
-- Site metadata hook
+## Site metadata hook
+
+Ok, so, that's cool n' all but how am I meant to use it? Well- Site
+metadata hook
 
 ```bash
 mkdir src/hooks
@@ -1235,3 +1245,7 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
   https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
 [gatsby-plugin-mdx]:
   https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/
+[v0 may 2017]:
+  https://github.com/spences10/blog.scottspence.me/tree/a470e8563e1a040527cf2094fc1b377550a88c77
+[progressive disclosure of complexity]:
+  https://lengstorf.com/progressive-disclosure-of-complexity/
