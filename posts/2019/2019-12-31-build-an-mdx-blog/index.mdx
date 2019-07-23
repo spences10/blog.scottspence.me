@@ -476,22 +476,28 @@ styling you want for your page elements you're creating in the JSX.
 
 ## Layout
 
-Gatsby uses the way you can compose React components for the layout,
-meaning it's up to you how you want to layout what your building with
-Gatsby. In this guide were going to initially greate a basic layout
-component that we'll add to as we go along. For more detail on layout
-components take a look at the Gatsby [layout components] page.
+Gatsby doesn't apply any layouts by default but instead uses the way
+you can compose React components for the layout, meaning it's up to
+you how you want to layout what your building with Gatsby. In this
+guide were going to initially create a basic layout component that
+we'll add to as we go along. For more detail on layout components take
+a look at the Gatsby [layout components] page.
 
-- Refactor Home (`src/pages/index.js`)
-- Create a header and layout components
+Ok, so now we're going to refactor the home page
+(`src/pages/index.js`) a little and make some components for our blog
+layout and header. In the terminal create a components directory and a
+`Header` and `Layout` component:
 
 ```bash
 mkdir src/components
 touch src/components/Header.js src/components/Layout.js
 ```
 
-- Move title and description to `src/components/Header.js` component,
-  desrtructure props out and add Gatsby Link.
+Now to move the title and description from `src/pages/index.js` to the
+newly created `src/components/Header.js` component, destructuring
+props for the `siteTitle` and `siteDescription`. We're going to add
+Gatsby Link to this so users can click on the header to go back to the
+home page.
 
 ```js
 import { Link } from 'gatsby' import React from 'react'
@@ -504,8 +510,8 @@ export const Header = ({ siteTitle, siteDescription }) => (
 );
 ```
 
-- Add Layout component
-- `src/components/Layout.js` wrapper {children}
+Now to the Layout component, this is going to be a basic wrapper
+component for now.
 
 ```js
 import React from 'react';
@@ -532,8 +538,8 @@ import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { Header } from './Header';
 
 const AppStyles = styled.main`
-  display: flex;
-  flex-direction: column;
+  width: 800px;
+  margin: 0 auto;
 `;
 
 export const Layout = ({ children }) => {
