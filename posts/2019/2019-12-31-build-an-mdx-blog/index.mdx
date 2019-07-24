@@ -495,9 +495,9 @@ touch src/components/Header.js src/components/Layout.js
 
 Now to move the title and description from `src/pages/index.js` to the
 newly created `src/components/Header.js` component, destructuring
-props for the `siteTitle` and `siteDescription`. We're going to add
-Gatsby Link to this so users can click on the header to go back to the
-home page.
+props for the `siteTitle` and `siteDescription`, we'll pass these from
+the `Layout` component to here. We're going to add Gatsby Link to this
+so users can click on the header to go back to the home page.
 
 ```js
 import { Link } from 'gatsby' import React from 'react'
@@ -511,7 +511,9 @@ export const Header = ({ siteTitle, siteDescription }) => (
 ```
 
 Now to the Layout component, this is going to be a basic wrapper
-component for now.
+component for now, we're going to use out site metadata hook for the
+title and description and pass them to the header component and return
+the children of the wrapper (`Layout).
 
 ```js
 import React from 'react';
