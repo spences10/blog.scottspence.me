@@ -9,6 +9,13 @@ cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
 
+I have been using Gatsby since [v0 May 2017], at that time it was a
+template I cloned and used happily it was called Lumen and was just
+what I needed at the time.
+
+Over the years I have made my own [Progressive Disclosure of
+Complexity] with Gatsby to where I am now.
+
 ## What we're going to build
 
 We're going to build a developer blog with MDX support for some react
@@ -46,6 +53,32 @@ well].
 
 Ok? Let's get started!
 
+<!-- TOC -->
+
+- [Hello World](#hello-world)
+  - [basic hello world](#basic-hello-world)
+- [Add content](#add-content)
+- [Gatsby config API](#gatsby-config-api)
+- [Plugins](#plugins)
+  - [Gatsby source filesystem](#gatsby-source-filesystem)
+  - [Gatsby plugin MDX](#gatsby-plugin-mdx)
+- [Query data from GraphQL](#query-data-from-graphql)
+- [Site Metadata](#site-metadata)
+- [Site metadata hook](#site-metadata-hook)
+- [Styling](#styling)
+- [Layout](#layout)
+- [Index page posts query](#index-page-posts-query)
+- [Slugs and Paths](#slugs-and-paths)
+- [Previous and Next](#previous-and-next)
+- [Code Blocks](#code-blocks)
+- [Cover Image](#cover-image)
+- [i11n](#i11n)
+- [SEO](#seo)
+- [Commenting](#commenting)
+- [Links](#links)
+
+<!-- /TOC -->
+
 ## Hello World
 
 Let's kick this off with the Gatsby 'hello world', we'll need to
@@ -56,14 +89,43 @@ npm init -y
 yarn add gatsby react react-dom
 ```
 
-- basic hello world
+If you want to commit this to a git repository then you'll also need a
+`.gitignore` with the requisite things to ignore, `node_modules`,
+`.cache` and `public`:
+
+```bash
+touch .gitignore
+
+echo "# Project dependencies
+.cache
+node_modules
+
+# Build directory
+public
+
+# Other
+.DS_Store
+yarn-error.log" > .gitignore
+```
+
+Ok now is a good time to do a `git init` and if you're using VSCode
+you'll see the changes reflected in the sidebar.
+
+### basic hello world
+
+Ok the bare minimum for a Gatsby hello world!
+
+We're going to need to create a pages directory and add an index file.
+We can do that in the terminal by typing the following:
 
 ```bash
 # -p is to create parent directories too if needed
-mkdir -p src/pages touch src/pages/index.js
+mkdir -p src/pages
+touch src/pages/index.js
 ```
 
-- add `index.js` file
+Ok, now we can commence the hello work incantation! In the newly
+created `index.js` enter the following:
 
 ```js
 import React from 'react';
@@ -73,32 +135,55 @@ export default () => {
 };
 ```
 
-- add `package.json` script for dev
+Now we need to add the Gatsby develop script to the `package.json`
+file, `-p` specifies what port you want to run the project on and `-o`
+opens a new tab on your default browser, so in this case
+`localhost:9988`:
 
 ```json
 "dev": "gatsby develop -p 9988 -o"
 ```
 
-- run script
+Ok it's time to run the code! From the terminal type the npm script
+command we just created:
 
 ```bash
 yarn dev
 ```
 
+> Note I'm using Yarn for installing all my dependencies and running
+> scripts, if you prefer you can use npm just bear in mind that the
+> content on here uses yarn, so swap out commands where needed
+
+And with that the "Hello World" incantation is complete 🧙!
+
 ## Add content
 
-- create index files
+Ok, now we have the base our blog we're going to want to add some
+content, first up I'm going to get the convention out of the way. I
+like my date format a logical way, the most logical way for a date
+format is **YYYYMMDD**, fight me!
+
+So we're going to structure our posts content in years, in each one of
+those we're going to have another folder relating to the post with the
+(correct) date format for the beginning of the file followed by the
+title of the post. You could drill into this further if you like by
+separating out months and days depending on the volume of posts going
+this may be a good approach. In this case we're going to go with the
+convention I've detailed already.
 
 ```bash
 # create multiple directories using curly braces
-mkdir -p
-posts/2019/{2019-06-01-hello-world,2019-06-10-second-post,2019-06-20-third-post}
+mkdir -p posts/2019/{2019-06-01-hello-world,2019-06-10-second-post,2019-06-20-third-post}
 touch posts/2019/2019-06-01-hello-world/index.mdx
 touch posts/2019/2019-06-10-second-post/index.mdx
 touch posts/2019/2019-06-20-third-post/index.mdx
 ```
 
-- Add frontmatter
+Ok that's our posts set up now we need to add some content to them,
+each file we have in here should have frontmatter. Frontmatter is a
+way to assign properties to the contents, in this case a `title`,
+published `date` and a `published` flag (`true` or `false`).
 
 ```md
 ---
@@ -109,19 +194,11 @@ published: true
 
 # h1 Heading
 
+My first post!!
+
 ## h2 Heading
 
 ### h3 Heading
-
-#### h4 Heading
-
-##### h5 Heading
-
-###### h6 Heading
-
-## Horizontal Rule
-
----
 ```
 
 ```md
@@ -132,6 +209,12 @@ published: true
 ---
 
 This is my second post!
+
+#### h4 Heading
+
+##### h5 Heading
+
+###### h6 Heading
 ```
 
 ```md
@@ -142,9 +225,15 @@ published: true
 ---
 
 This is my third post!
+
+> with a block quote!
 ```
 
 ## Gatsby config API
+
+Ok, now we're going to configure Gatsby so that it can read our super
+awesome content we just created. So first up we need to create a the
+`gatsby-config.js` file, in the terminal create the file:
 
 ```bash
 touch gatsby-config.js
@@ -152,14 +241,30 @@ touch gatsby-config.js
 
 ## Plugins
 
-- Gatsby source filesystem
-- gatsbyRemarkPlugins for MDX
+And now we can add the plugins Gatsby needs to use for sourcing and
+displaying the the files we just created.
+
+### Gatsby source filesystem
+
+The [gatsby-source-filesystem] collects the files on the local
+filesystem for use in Gatsby once configured.
+
+### Gatsby plugin MDX
+
+The [gatsby-plugin-mdx] is what will be allowing us to write JSX in
+our Markdown documents and the heart of how the content is displayed
+in the blog.
+
+Now is a good time to also add in dependent packages for the Gatsby
+plugin MDX which are `@mdx-js/mdx` and `@mdx-js/react`.
+
+In the terminal install the dependencies:
 
 ```bash
 yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react gatsby-source-filesystem
 ```
 
-- `gatsby-config.js`
+Now its time to configure `gatsby-config.js`:
 
 ```js
 module.exports = {
@@ -172,7 +277,6 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [],
       },
     },
     {
@@ -186,17 +290,19 @@ module.exports = {
 };
 ```
 
-- Query data from GraphQL
+## Query data from GraphQL
+
+Ok now we can see what the [gatsby-source-filesystem] and
+[gatsby-plugin-mdx] have done for us. We can now go to the Gatsby
+GraphQL GraphiQL explorer and check out the data:
 
 ```graphql
-query {
+{
   allMdx {
-    edges {
-      node {
-        frontmatter {
-          title
-          date
-        }
+    nodes {
+      frontmatter {
+        title
+        date
       }
     }
   }
@@ -205,9 +311,13 @@ query {
 
 ## Site Metadata
 
-- When you want to reuse common pieces of data across the site (for
-  example, your site title), you can store that data in
-  `siteMetadata`:
+When you want to reuse common pieces of data across the site (for
+example, your site title), you can store that data in `siteMetadata`,
+we touched on this when defining the `gatsby-config.js`, now we're
+going to separate this out from the `module.exports`, why? It will be
+nicer to reason about once the config is filled with plugins. At the
+top of `gatsby-config.js` add a new object variable for the site
+metadata:
 
 ```js
 const siteMetadata = {
@@ -216,10 +326,10 @@ const siteMetadata = {
 };
 ```
 
-- Query Site Metadata with GraphQL
+Now let's query the Site Metadata with GraphQL.
 
 ```graphql
-query {
+{
   site {
     siteMetadata {
       title
@@ -229,12 +339,22 @@ query {
 }
 ```
 
-- Site metadata hook
+## Site metadata hook
+
+Ok, so, that's cool n' all but how am I meant to use it? Well let's do
+some of the code stuff and make a React hook so we can get our site
+data in any component we need it.
+
+Let's create a folder to keep all our hooks in and create a file for
+our hook, in the terminal do:
 
 ```bash
 mkdir src/hooks
 touch src/hooks/useSiteMetadata.js
 ```
+
+Ok, and in our newly created file were goining to use the Gatsby
+`useStaticQuery` hook to make our own hook:
 
 ```js
 import { graphql, useStaticQuery } from 'gatsby';
@@ -256,7 +376,8 @@ export const useSiteMetadata = () => {
 };
 ```
 
-- use site metadata in `src/pages/index.js`
+Now we can use this hook anywhere in our site, so let's do that now in
+`src/pages/index.js`:
 
 ```js
 import React from 'react';
@@ -275,32 +396,60 @@ export default () => {
 
 ## Styling
 
-- install styled-components
+We're going to use styled-components for styling, styled-components
+(for me) help with scoping styles in your components. Let's go over
+the basics now.
+
+### install styled-components
 
 ```bash
 yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-components
 ```
 
-- babel plugin for:
-  - consistently hashed component classNames between environments (a
-    must for server-side rendering)
-  - better debugging through automatic annotation of your styled
-    components based on their context in the file system, etc.
-  - various types of minification for styles and the tagged template
-    literals styled-components uses
-- Gatsby plugin for built-in server-side rendering support.
-- add to `gatsby-config.js`
+So, what was all that I just installed?
 
-const siteMetadata = { title: `Coding Blog`, description:
-`This is my coding blog.` };
+The babel plugin is for automatic naming of components to help with
+debugging.
 
-module.exports = { siteMetadata: siteMetadata, plugins: [
-**`gatsby-plugin-styled-components`,** { resolve: `gatsby-plugin-mdx`,
-options: { extensions: [`.mdx`, `.md`], gatsbyRemarkPlugins: [] } }, {
-resolve: `gatsby-source-filesystem`, options: { path:
-`${__dirname}/posts`, name: `posts` } } ] };
+The Gatsby plugin is for built-in server-side rendering support.
 
-- style `index.js`
+### Configure
+
+Ok, with that detailed explanation out of the way let's configure them
+in `gatsby-config.js`:
+
+```js
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+};
+
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: `${__dirname}/posts`, name: `posts` },
+    },
+  ],
+};
+```
+
+Ok, so let's go over a styled component, in `index.js` we're going to
+`import styled from 'styled-components'` and create a `StyledH1`
+variable.
+
+So, we're using the variable to wrap our `{title}` that we're
+destructuring from the `useSiteMetadata` hook we made previously.
+
+For this example lets make it the now iconic Gatsby `rebeccapurple`.
 
 ```js
 import React from 'react';
@@ -308,7 +457,7 @@ import styled from 'styled-components';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 const StyledH1 = styled.h1`
-  color: red;
+  color: rebeccapurple;
 `;
 
 export default () => {
@@ -322,18 +471,33 @@ export default () => {
 };
 ```
 
+That is styled-components on a very basic level, basically create the
+styling you want for your page elements you're creating in the JSX.
+
 ## Layout
 
-- Refactor Home (`src/pages/index.js`)
-- Create a header and layout components
+Gatsby doesn't apply any layouts by default but instead uses the way
+you can compose React components for the layout, meaning it's up to
+you how you want to layout what your building with Gatsby. In this
+guide were going to initially create a basic layout component that
+we'll add to as we go along. For more detail on layout components take
+a look at the Gatsby [layout components] page.
+
+Ok, so now we're going to refactor the home page
+(`src/pages/index.js`) a little and make some components for our blog
+layout and header. In the terminal create a components directory and a
+`Header` and `Layout` component:
 
 ```bash
 mkdir src/components
 touch src/components/Header.js src/components/Layout.js
 ```
 
-- Move title and description to `src/components/Header.js` component,
-  desrtructure props out and add Gatsby Link.
+Now to move the title and description from `src/pages/index.js` to the
+newly created `src/components/Header.js` component, destructuring
+props for the `siteTitle` and `siteDescription`, we'll pass these from
+the `Layout` component to here. We're going to add Gatsby Link to this
+so users can click on the header to go back to the home page.
 
 ```js
 import { Link } from 'gatsby' import React from 'react'
@@ -346,8 +510,10 @@ export const Header = ({ siteTitle, siteDescription }) => (
 );
 ```
 
-- Add Layout component
-- `src/components/Layout.js` wrapper {children}
+Now to the Layout component, this is going to be a basic wrapper
+component for now, we're going to use our site metadata hook for the
+title and description and pass them to the header component and return
+the children of the wrapper (`Layout`).
 
 ```js
 import React from 'react';
@@ -365,7 +531,9 @@ export const Layout = ({ children }) => {
 };
 ```
 
-- Basic Layout styles for `src/components/Layout.js`
+Now to add the slightest of styles for some alignment for
+`src/components/Layout.js`, create an `AppStyles` styled component and
+make it the main wrapper of our `Layout`.
 
 ```js
 import React from 'react';
@@ -374,8 +542,8 @@ import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { Header } from './Header';
 
 const AppStyles = styled.main`
-  display: flex;
-  flex-direction: column;
+  width: 800px;
+  margin: 0 auto;
 `;
 
 export const Layout = ({ children }) => {
@@ -1154,3 +1322,12 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
   http://blog.scottspence.me/wsl-bootstrap-2019
 [ubuntu as well]: https://www.youtube.com/watch?v=eSAsdQuQ-1o
 [codesandbox.io]: https://codesandbox.io
+[gatsby-source-filesystem]:
+  https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
+[gatsby-plugin-mdx]:
+  https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/
+[v0 may 2017]:
+  https://github.com/spences10/blog.scottspence.me/tree/a470e8563e1a040527cf2094fc1b377550a88c77
+[progressive disclosure of complexity]:
+  https://lengstorf.com/progressive-disclosure-of-complexity/
+[layout components]: https://www.gatsbyjs.org/docs/layout-components/
