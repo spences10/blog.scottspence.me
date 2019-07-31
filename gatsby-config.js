@@ -145,14 +145,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // add to netlify Build environment variables
-        trackingId: process.env.GATSBY_GA_TRACKING_ID,
-        anonymize: false,
-      },
-    },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-styled-components`,
     {
