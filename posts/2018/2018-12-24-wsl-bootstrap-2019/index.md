@@ -13,7 +13,7 @@ tags:
     'node',
   ]
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by Luana De Marco on Unsplash
 ---
 

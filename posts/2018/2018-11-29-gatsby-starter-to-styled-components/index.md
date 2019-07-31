@@ -5,7 +5,7 @@ title: Convert the Gatsby default starter to styled-components
 tags:
   ['information', 'learning', 'guide', 'gatsby', 'getting started']
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by CHU TAI on Unsplash
 ---
 
