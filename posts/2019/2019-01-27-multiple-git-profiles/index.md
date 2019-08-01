@@ -12,7 +12,7 @@ tags:
     'git',
   ]
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by Evelyn on Unsplash
 ---
 

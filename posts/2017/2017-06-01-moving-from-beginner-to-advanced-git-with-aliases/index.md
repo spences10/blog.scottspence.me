@@ -5,7 +5,7 @@ title:
   Moving from beginner to (slightly more) advanced git with aliases.
 tags: ['information', 'guide']
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 ---
 
 Speed up your git workflow with git aliases, this is a brief

@@ -4,7 +4,7 @@ date: 2017-05-31
 title: Just starting out with Git and GitHub? It gets easier, honest!
 tags: ['information', 'guide']
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 ---
 
 No doubt you have heard of Git or GitHub for source control, but
