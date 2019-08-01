@@ -13,7 +13,7 @@ tags:
     'graphcms',
   ]
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by Edu Lauton on Unsplash
 ---
 

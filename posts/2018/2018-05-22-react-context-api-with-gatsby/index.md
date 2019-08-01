@@ -5,7 +5,7 @@ title: Use the React Context API with Gatsby
 tags: ['information', 'learning', 'guide', 'gatsby', 'api']
 excerpt: ''
 published: true
-cover: ./cover.png
+cover: ./cover.jpg
 coverCredit: Photo by Robin Benzrihem on Unsplash
 ---
 
