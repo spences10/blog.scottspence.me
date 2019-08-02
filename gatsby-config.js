@@ -44,13 +44,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-twitter`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/posts`,
-        name: `posts`,
-      },
-    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -95,8 +90,13 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/posts`,
+        name: `posts`,
+      },
+    },
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
