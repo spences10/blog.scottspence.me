@@ -104,6 +104,7 @@ export const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
       line-height: 1.3125;
+      overflow-x: initial;
     }
     a {
       text-decoration: none;
