@@ -40,7 +40,9 @@ const AllTagsTemplate = ({ data, pageContext }) => {
       <Wrapper>
         {tags.map((tagName, index) => {
           return (
-            <Tag key={index}>
+            <Tag
+              for={`${tagName}${index}`}
+              key={`${tagName}${index}`}>
               <Link to={`/tags/${tagName}`}>{tagName}</Link>
             </Tag>
           );
