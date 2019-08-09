@@ -98,6 +98,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-hotjar-tracking`,
+      options: {
+        includeInDevelopment: false,
+        id: process.env.GATSBY_HOTJAR_ID,
+        sv: process.env.GATSBY_HOTJAR_SNIPPET_VERSION,
+      },
+    },
+    {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: siteMetadata.faviconPng,
