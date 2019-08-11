@@ -583,8 +583,31 @@ export default () => {
 
 Ok, now we can take a look at getting some of the posts we've created
 add them to the index page of our blog. We're going to do that by
-adding a graphql query with sort to the the homepage
-(`src/pages/index.js`)
+creating a graphql query to list out the posts by title, order by date
+and add an excerpt of the post.
+
+The query will look something like this:
+
+```graphql
+{
+  allMdx(
+    sort: { fields: [frontmatter___date], order: DESC }
+    filter: { frontmatter: { published: { eq: true } } }
+  ) {
+    nodes {
+      id
+      excerpt(pruneLength: 250)
+      frontmatter {
+        title
+        date
+      }
+    }
+  }
+}
+```
+
+On the homepage (`src/pages/index.js`) we're going to add the
+following:
 
 ```js
 import { graphql } from 'gatsby';
@@ -632,13 +655,13 @@ Gatsby source filesystem will help with the creation of slugs (URL
 paths for the posts we're creating) in Gatsby node we're going to
 create the slugs for our posts.
 
-First up we're going to need to create a `gatsby-node.js` file
+First up we're going to need to create a `gatsby-node.js` file:
 
 ```bash
 touch gatsby-node.js
 ```
 
-This will create the node
+This will create the file path for the blog posts.
 
 ```js
 const { createFilePath } = require(`gatsby-source-filesystem`);
@@ -656,7 +679,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 ```
 
-- Add Dump.js for debugging
+Now to help visualise some of the data being passed into the
+components we're going to use [Dump.js] for debugging the data. Thanks
+to Wes Bos for the super handy [Dump.js] component.
 
 ```js
 import React from 'react';
@@ -1345,3 +1370,4 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
 [progressive disclosure of complexity]:
   https://lengstorf.com/progressive-disclosure-of-complexity/
 [layout components]: https://www.gatsbyjs.org/docs/layout-components/
+[dump.js]: https://github.com/wesbos/dump
