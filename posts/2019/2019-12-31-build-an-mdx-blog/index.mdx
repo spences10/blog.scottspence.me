@@ -264,6 +264,10 @@ In the terminal install the dependencies:
 yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react gatsby-source-filesystem
 ```
 
+```bash
+touch gatsby-config.js
+```
+
 Now its time to configure `gatsby-config.js`:
 
 ```js
@@ -289,6 +293,8 @@ module.exports = {
   ],
 };
 ```
+
+## TODO add 404 page
 
 ## Query data from GraphQL
 
@@ -353,7 +359,7 @@ mkdir src/hooks
 touch src/hooks/useSiteMetadata.js
 ```
 
-Ok, and in our newly created file were goining to use the Gatsby
+Ok, and in our newly created file were going to use the Gatsby
 `useStaticQuery` hook to make our own hook:
 
 ```js
@@ -575,7 +581,10 @@ export default () => {
 
 ## Index page posts query
 
-- add graphql query with sort to `src/pages/index.js`
+Ok, now we can take a look at getting some of the posts we've created
+add them to the index page of our blog. We're going to do that by
+adding a graphql query with sort to the the homepage
+(`src/pages/index.js`)
 
 ```js
 import { graphql } from 'gatsby';
@@ -586,11 +595,11 @@ export default ({ data }) => {
   return (
     <>
       <Layout>
-        {data.allMdx.edges.map(({ node }, index) => (
+        {data.allMdx.nodes.map(({ excerpt, frontmatter }, index) => (
           <>
-            <h1>{node.frontmatter.title}</h1>
-            <p>{node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+            <p>{excerpt}</p>
           </>
         ))}
       </Layout>
@@ -604,14 +613,12 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            title
-            date
-          }
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date
         }
       }
     }
@@ -621,11 +628,17 @@ export const query = graphql`
 
 ## Slugs and Paths
 
-- Gatsby node, add onCreateNode for slugs
+Gatsby source filesystem will help with the creation of slugs (URL
+paths for the posts we're creating) in Gatsby node we're going to
+create the slugs for our posts.
+
+First up we're going to need to create a `gatsby-node.js` file
 
 ```bash
 touch gatsby-node.js
 ```
+
+This will create the node
 
 ```js
 const { createFilePath } = require(`gatsby-source-filesystem`);
