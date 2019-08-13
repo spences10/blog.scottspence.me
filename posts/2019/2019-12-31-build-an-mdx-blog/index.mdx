@@ -618,7 +618,7 @@ export default ({ data }) => {
   return (
     <>
       <Layout>
-        {data.allMdx.nodes.map(({ excerpt, frontmatter }, index) => (
+        {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
           <>
             <h1>{frontmatter.title}</h1>
             <p>{frontmatter.date}</p>
@@ -683,6 +683,14 @@ Now to help visualise some of the data being passed into the
 components we're going to use [Dump.js] for debugging the data. Thanks
 to Wes Bos for the super handy [Dump.js] component.
 
+To get the component set up let's create a `Dump.js` file in our
+`src\components` folder and copypasta the code from the linked GitHub
+page.
+
+```bash
+touch /src/components/Dump.js
+```
+
 ```js
 import React from 'react';
 
@@ -707,6 +715,11 @@ const Dump = props => (
 
 export default Dump;
 ```
+
+Now we can use the `Dump` component anywhere in our project. To
+demonstrate let's use it with the index page `data` to see the output.
+
+## TODO
 
 - add gatsby Link to `src/pages/index.js` and fields slug
 
