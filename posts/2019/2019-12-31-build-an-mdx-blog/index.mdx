@@ -719,9 +719,56 @@ export default Dump;
 Now we can use the `Dump` component anywhere in our project. To
 demonstrate let's use it with the index page `data` to see the output.
 
-## TODO
+```js
+import { graphql } from 'gatsby';
+import React from 'react';
+import Dump from '../components/Dump';
+import { Layout } from '../components/Layout';
 
-- add gatsby Link to `src/pages/index.js` and fields slug
+export default ({ data }) => {
+  return (
+    <>
+      <Layout>
+        <Dump data={data} />
+        {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
+          <>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+            <p>{excerpt}</p>
+          </>
+        ))}
+      </Layout>
+    </>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date
+        }
+      }
+    }
+  }
+`;
+```
+
+## Link Paths
+
+Now we've created the paths we can link to them with Gatsby Link.
+First we'll need to add the slug to our `SITE_INDEX_QUERY` Then we can
+add gatsby `Link` to `src/pages/index.js`.
+
+We're also going to create some styled-components for wrapping the
+list of posts and each individual post as well.
 
 ```js
 import { graphql, Link } from 'gatsby';
@@ -737,15 +784,17 @@ export default ({ data }) => {
   return (
     <Layout>
       <IndexWrapper>
-        {data.allMdx.edges.map(({ node }, index) => (
-          <PostWrapper key={index}>
-            <Link to={node.fields.slug}>
-              <h1>{node.frontmatter.title}</h1>
-              <p>{node.frontmatter.date}</p>
-              <p>{node.excerpt}</p>
-            </Link>
-          </PostWrapper>
-        ))}
+        {data.allMdx.nodes.map(
+          ({ id, excerpt, frontmatter, fields }) => (
+            <PostWrapper key={id}>
+              <Link to={fields.slug}>
+                <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.date}</p>
+                <p>{excerpt}</p>
+              </Link>
+            </PostWrapper>
+          )
+        )}
       </IndexWrapper>
     </Layout>
   );
@@ -757,17 +806,15 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
-          }
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date
+        }
+        fields {
+          slug
         }
       }
     }
