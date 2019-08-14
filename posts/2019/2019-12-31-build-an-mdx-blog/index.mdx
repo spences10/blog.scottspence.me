@@ -829,12 +829,15 @@ file associated with the path, so clicking a link will give you a 404
 and the built in gatsby 404 will list all the pages available in the
 project.
 
+So, for each one of our blog posts we're going to use a template,
+let's create a `templates` directory and a file file for that with:
+
 ```bash
 mkdir -p src/templates
 touch src/templates/blogPostTemplate.js
 ```
 
-- scaffold out basic template
+For now we're going to scaffold out basic template:
 
 ```js
 import React from 'react';
@@ -847,6 +850,9 @@ export default () => {
   );
 };
 ```
+
+To populate the template we'll need to use Gatsby node to create our
+pages.
 
 - Create createPages export
 - Actions is where create pages lives
