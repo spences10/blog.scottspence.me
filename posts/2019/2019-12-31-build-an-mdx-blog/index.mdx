@@ -4,7 +4,7 @@ date: 2019-12-31
 title: Build a coding blog from scratch with Gatsby and MDX
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
-published: false
+published: true
 cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
@@ -648,6 +648,13 @@ export const query = graphql`
   }
 `;
 ```
+
+Woah! WTF was all that yo!?
+
+Ok, we're looping through the data passed into the component via the
+GraphQL query. Gatsby `graphql` runs the query (`SITE_INDEX_QUERY`) at
+runtime and gives us the results as props to our component via the
+`data` prop.
 
 ## Slugs and Paths
 
