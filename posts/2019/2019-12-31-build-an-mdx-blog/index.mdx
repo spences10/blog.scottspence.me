@@ -837,7 +837,8 @@ mkdir -p src/templates
 touch src/templates/blogPostTemplate.js
 ```
 
-For now we're going to scaffold out basic template:
+For now we're going to scaffold out basic template, we're going to add
+data to this shortly:
 
 ```js
 import React from 'react';
@@ -860,6 +861,7 @@ pages.
   [https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
 
 ```js
+const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require(`path`);
 
 exports.createPages = ({ actions, graphql }) => {
@@ -871,14 +873,12 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMdx {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
+        nodes {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
           }
         }
       }
@@ -888,19 +888,31 @@ exports.createPages = ({ actions, graphql }) => {
       throw result.errors;
     }
 
-    const posts = result.data.allMdx.edges;
+    const posts = result.data.allMdx.nodes;
 
     // create page for each mdx file
     posts.forEach((post, index) => {
       createPage({
-        path: post.node.fields.slug,
+        path: post.fields.slug,
         component: blogPostTemplate,
         context: {
-          slug: post.node.fields.slug,
+          slug: post.fields.slug,
         },
       });
     });
   });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
 };
 ```
 
@@ -908,17 +920,17 @@ exports.createPages = ({ actions, graphql }) => {
 
 ```js
 import { graphql } from 'gatsby';
-import MDXRenderer from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { Layout } from '../components/Layout';
 
 export default ({ data }) => {
-  const { frontmatter, code } = data.mdx;
+  const { frontmatter, body } = data.mdx;
   return (
     <Layout>
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
-      <MDXRenderer>{code.body}</MDXRenderer>
+      <MDXRenderer>{body}</MDXRenderer>
     </Layout>
   );
 };
@@ -927,9 +939,7 @@ export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 250)
-      code {
-        body
-      }
+      body
       frontmatter {
         title
         date(formatString: "YYYY MMMM Do")
