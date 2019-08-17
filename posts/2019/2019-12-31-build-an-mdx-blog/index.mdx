@@ -933,7 +933,7 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMdx.nodes;
 
     // create page for each mdx file
-    posts.forEach((post, index) => {
+    posts.forEach(post => {
       createPage({
         path: post.fields.slug,
         component: blogPostTemplate,
@@ -967,8 +967,8 @@ earlier. We're going to be adding more to the `context` for post
 navigation soon.
 
 ```js
-// create page for each mdx file
-posts.forEach((post, index) => {
+// create page for each mdx node
+posts.forEach(post => {
   createPage({
     path: post.fields.slug,
     component: blogPostTemplate,
@@ -1068,25 +1068,33 @@ export const query = graphql`
 If you haven't done so already now would be a good time to restart
 your dev server.
 
-Now we can click on one of the post links and see out blog post
+Now we can click on one of the post links and see our blog post
 template in all it's basic glory!
 
 ## Previous and Next
 
-- Add in previous and next context
+Coolio! Now we have our basic ass blog where we can list available
+post and click a link to see the full post in a predefined template.
+Once you're in a post you have to navigate back to the home page to
+pick out a new post to read. In this section we're going to work on
+adding in some previous and next navigation.
+
+Remember the `.forEach` snippet we looked at earlier? That's where
+we're going to pass some additional context to the page by selecting
+out the previous and next posts.
 
 ```js
-// create page for each mdx file
+// create page for each mdx node
 posts.forEach((post, index) => {
   const previous =
-    index === posts.length - 1 ? null : posts[index + 1].node;
-  const next = index === 0 ? null : posts[index - 1].node;
+    index === posts.length - 1 ? null : posts[index + 1];
+  const next = index === 0 ? null : posts[index - 1];
 
   createPage({
-    path: post.node.fields.slug,
+    path: post.fields.slug,
     component: blogPostTemplate,
     context: {
-      slug: post.node.fields.slug,
+      slug: post.fields.slug,
       previous,
       next,
     },
@@ -1094,33 +1102,107 @@ posts.forEach((post, index) => {
 });
 ```
 
-- Expose props in blogPostTemplate.js via pageContext with Dump
+So this should now match up with the query we have on the homepage
+(`src/pages/index.js`) except we currently have no filter or sort
+applied here so let's do that now in `gatsby-node.js` and apply the
+same filters as on the homepage query:
 
 ```js
-import { graphql, Link } from 'gatsby'
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import React from 'react'
-import { Dump } from '../components/Dump'
-import { Layout } from '../components/Layout'
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require(`path`);
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const blogPostTemplate = path.resolve(
+    'src/templates/blogPostTemplate.js'
+  );
+
+  return graphql(`
+    {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { published: { eq: true } } }
+      ) {
+        nodes {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors;
+    }
+
+    const posts = result.data.allMdx.nodes;
+
+    // create page for each mdx node
+    posts.forEach((post, index) => {
+      const previous =
+        index === posts.length - 1 ? null : posts[index + 1];
+      const next = index === 0 ? null : posts[index - 1];
+
+      createPage({
+        path: post.fields.slug,
+        component: blogPostTemplate,
+        context: {
+          slug: post.fields.slug,
+          previous,
+          next,
+        },
+      });
+    });
+  });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
+```
+
+Now we will be able to expose the `previous` and `next` objects passed
+in as context from Gatsby node.
+
+We can destructure `previous` and `next` from `pageContext` and for
+now pop them into our super handy `Dump` component to take a look at
+their contents.
+
+```js
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import Dump from '../components/Dump';
+import { Layout } from '../components/Layout';
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, code } = data.mdx
-  const { previous, next } = pageContext
+  const { frontmatter, body } = data.mdx;
+  const { previous, next } = pageContext;
   return (
     <Layout>
+      <Dump previous={previous} />
+      <Dump next={next} />
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
       <MDXRenderer>{body}</MDXRenderer>
-      <Dump previous={previous} />
-      <Dump next={next}
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 250)
       body
       frontmatter {
         title
@@ -1128,27 +1210,30 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 ```
 
-Add in previous and next navigation:
+Add in previous and next navigation, this is a couple of ternary
+operations, if the variable is empty then return `null` else render a
+Gatsby `Link` component with the page slug and the frontmatter title:
 
-```js
+```jsx
 import { graphql, Link } from 'gatsby';
-import MDXRenderer from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { Dump } from '../components/Dump';
+import Dump from '../components/Dump';
 import { Layout } from '../components/Layout';
+
 export default ({ data, pageContext }) => {
-  const { frontmatter, code } = data.mdx;
+  const { frontmatter, body } = data.mdx;
   const { previous, next } = pageContext;
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
-      <MDXRenderer>{code.body}</MDXRenderer>
       <Dump previous={previous} />
       <Dump next={next} />
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{body}</MDXRenderer>
       {previous === false ? null : (
         <>
           {previous && (
@@ -1174,10 +1259,7 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 250)
-      code {
-        body
-      }
+      body
       frontmatter {
         title
         date(formatString: "YYYY MMMM Do")
