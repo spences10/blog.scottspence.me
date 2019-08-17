@@ -590,6 +590,25 @@ The query will look something like this:
 
 ```graphql
 {
+  allMdx {
+    nodes {
+      id
+      excerpt(pruneLength: 250)
+      frontmatter {
+        title
+        date
+      }
+    }
+  }
+}
+```
+
+If we put that into the GraphiQL GUI though you'll notice that the
+posts aren't in any given order, so let's now add a sort to this we'll
+also add in a filter for posts that are marked as published or not.
+
+```graphql
+{
   allMdx(
     sort: { fields: [frontmatter___date], order: DESC }
     filter: { frontmatter: { published: { eq: true } } }
@@ -606,8 +625,9 @@ The query will look something like this:
 }
 ```
 
-On the homepage (`src/pages/index.js`) we're going to add the
-following:
+On the homepage (`src/pages/index.js`) we're going to use the query we
+just put together to get a list of published posts in date order; add
+the following to the `index.js` file:
 
 ```js
 import { graphql } from 'gatsby';
