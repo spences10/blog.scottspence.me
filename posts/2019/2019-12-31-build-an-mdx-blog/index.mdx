@@ -1014,8 +1014,8 @@ fed into the query. If you look to the bottom of the query pane you
 should notice `QUERY VARIABLES`, click on that to bring up the
 variables pane.
 
-There is where you can add in one of the paths we created earlier, if
-you have your dev server up and running go to one of the posts and
+This is where you can add in one of the post paths we created earlier,
+if you have your dev server up and running go to one of the posts and
 take the path and paste it into the quotes `""` and try running the
 query again.
 
@@ -1024,6 +1024,16 @@ query again.
   "slug": "/2019/2019-06-20-third-post/"
 }
 ```
+
+Time to use that data to make the post, we're going to add `body` to
+the query and have that at the bottom of our page file.
+
+Right now we're going to add create a simple react component that will
+display the data we have queried.
+
+Destructuring the `frontmatter` and `body` from the GraphQL query,
+we'll get the Title and the Data from the frontmatter object and wrap
+the `body` in the `MDXRenderer`.
 
 ```js
 import { graphql } from 'gatsby';
@@ -1054,6 +1064,12 @@ export const query = graphql`
   }
 `;
 ```
+
+If you haven't done so already now would be a good time to restart
+your dev server.
+
+Now we can click on one of the post links and see out blog post
+template in all it's basic glory!
 
 ## Previous and Next
 
