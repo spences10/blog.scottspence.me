@@ -688,7 +688,11 @@ First up we're going to need to create a `gatsby-node.js` file:
 touch gatsby-node.js
 ```
 
-This will create the file path for the blog posts.
+This will create the file path (URL) for each of the blog posts.
+
+We're going to be using the Gatsby Node API `onCreateNode` and
+destructuring out `node`, `actions` and `getNode` for use in creating
+the file locations and associated value.
 
 ```js
 const { createFilePath } = require(`gatsby-source-filesystem`);
@@ -745,6 +749,10 @@ export default Dump;
 
 Now we can use the `Dump` component anywhere in our project. To
 demonstrate let's use it with the index page `data` to see the output.
+
+So in the `src/pages/index.js` we're going to import the Dump
+component and pass in the `data` prop and see what the output looks
+like.
 
 ```js
 import { graphql } from 'gatsby';
@@ -854,17 +862,19 @@ export const query = graphql`
 Now we have the links pointing to the blog posts we currently have no
 file associated with the path, so clicking a link will give you a 404
 and the built in gatsby 404 will list all the pages available in the
-project.
+project, currently only the `/` index/homepage.
 
-So, for each one of our blog posts we're going to use a template,
-let's create a `templates` directory and a file file for that with:
+So, for each one of our blog posts we're going to use a template that
+will contain, the information we need to make up our blog post. To
+start let's create a `templates` directory and template file for that
+with:
 
 ```bash
 mkdir -p src/templates
 touch src/templates/blogPostTemplate.js
 ```
 
-For now we're going to scaffold out basic template, we're going to add
+For now we're going to scaffold out a basic template, we'll be adding
 data to this shortly:
 
 ```js
@@ -882,10 +892,15 @@ export default () => {
 To populate the template we'll need to use Gatsby node to create our
 pages.
 
-- Create createPages export
-- Actions is where create pages lives
-- Detail here:
-  [https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+Gatsby Node has many internal APIs available to us, for this example
+we're going to be using the `createPages` API.
+
+More details on Gatsby `createPages` API can be found on the Gatsby
+docs, details here:
+[https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+
+In our `gatsby-node.js` file we're going to add in the following in
+addition to the create nodes
 
 ```js
 const { createFilePath } = require(`gatsby-source-filesystem`);
