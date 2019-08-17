@@ -900,7 +900,7 @@ docs, details here:
 [https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
 
 In our `gatsby-node.js` file we're going to add in the following in
-addition to the create nodes
+addition to the `onCreateNode` export we did earlier.
 
 ```js
 const { createFilePath } = require(`gatsby-source-filesystem`);
@@ -958,6 +958,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 ```
 
+So the part that we need to pay particular attention to right now is
+the `.forEach` loop where we're using the `createPage` function we
+destructured from the `actions` object.
+
+This is where we pass the data needed by `blogPostTemplate` we defined
+earlier. We're going to be adding more to the `context` for post
+navigation soon.
+
+```js
+// create page for each mdx file
+posts.forEach((post, index) => {
+  createPage({
+    path: post.fields.slug,
+    component: blogPostTemplate,
+    context: {
+      slug: post.fields.slug,
+    },
+  });
+});
+```
+
 - build out blogPostTemplate.js
 
 ```js
@@ -980,7 +1001,6 @@ export default ({ data }) => {
 export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 250)
       body
       frontmatter {
         title
