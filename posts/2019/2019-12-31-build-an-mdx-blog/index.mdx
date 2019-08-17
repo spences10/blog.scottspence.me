@@ -979,7 +979,51 @@ posts.forEach((post, index) => {
 });
 ```
 
-- build out blogPostTemplate.js
+Now we're going to take the context information passed to the
+`blogPostTemplate.js` to make the blog post page.
+
+This is similar to the `index.js` homepage whereas there's GraphQL
+data used to create the page but in this instance the template uses a
+variable (also known as a parameter or an identifier) so we can query
+data specific to that given variable.
+
+Let's quickly dig into that with a demo. In the GraphiQL GUI, let's
+create a named query and define the variable we're going to pass in:
+
+```graphql
+query PostBySlug($slug: String!) {
+  mdx(fields: { slug: { eq: $slug } }) {
+    frontmatter {
+      title
+      date(formatString: "YYYY MMMM Do")
+    }
+  }
+}
+```
+
+Here we're defining the variable as slug with the `$` denoting that
+it's a variable, we also need to define the variable type as (in this
+case) `String!` the exclamation after the type means that it has to be
+a string being passed into the query.
+
+Using `mdx` we're going to filter on `fields` where the `slug` matches
+the variable being passed into the query.
+
+Running the query now will show an error as there's no variable being
+fed into the query. If you look to the bottom of the query pane you
+should notice `QUERY VARIABLES`, click on that to bring up the
+variables pane.
+
+There is where you can add in one of the paths we created earlier, if
+you have your dev server up and running go to one of the posts and
+take the path and paste it into the quotes `""` and try running the
+query again.
+
+```graphql
+{
+  "slug": "/2019/2019-06-20-third-post/"
+}
+```
 
 ```js
 import { graphql } from 'gatsby';
