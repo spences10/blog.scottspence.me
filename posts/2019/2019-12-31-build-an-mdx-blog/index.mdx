@@ -1271,14 +1271,15 @@ export const query = graphql`
 
 ## Code Blocks
 
-- add prism react renderer and react live and root-wrapper
+Now to add some syntax highlighting for adding code blocks to our blog
+pages. To do that we're going to add dependencies for
+[prism-react-renderer] and [react-live] and we'll also create the
+files we're going to need to use them:
 
 ```bash
 yarn add prism-react-renderer react-live
 touch root-wrapper.js gatsby-ssr.js gatsby-browser.js
 ```
-
-- Add root-wrapper.js code, demonstrate components
 
 ```js
 import { MDXProvider } from '@mdx-js/react';
@@ -1656,3 +1657,6 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
   https://lengstorf.com/progressive-disclosure-of-complexity/
 [layout components]: https://www.gatsbyjs.org/docs/layout-components/
 [dump.js]: https://github.com/wesbos/dump
+[prism-react-renderer]:
+  https://github.com/FormidableLabs/prism-react-renderer
+[react-live]: https://github.com/FormidableLabs/react-live
