@@ -4,7 +4,7 @@ date: 2019-12-31
 title: Build a coding blog from scratch with Gatsby and MDX
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
-published: false
+published: true
 cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
@@ -1281,13 +1281,47 @@ yarn add prism-react-renderer react-live
 touch root-wrapper.js gatsby-ssr.js gatsby-browser.js
 ```
 
+We'll come onto `react-live` soon for now we're going to get
+`prism-react-render` up and running for syntax highlighting for any
+code we're going to add to the blog, but before that we're going to go
+over the root wrapper concept.
+
+So, to change the rendering of a page element, such as a heading or a
+code block we're going to need to use the `MDXProvider`, the
+`MDXProvider` is a component we can use anywhere higher in the React
+component tree than the MDX content we want to render.
+
+Gatsby browser and a Gatsby SSR both have `wrapRootElement` available
+to them and that is as high up the tree as we can get so we're going
+to create the `root-wrapper.js` file and add out elements we want to
+override there and import it into both `gatsby-browser.js` and
+`gatsby-ssr.js` so we're not duplicating code.
+
+Before we go any further I want to add that there is a top quality
+[egghead.io playlist] resource for using MDX with Gatsby by Chris
+[Chris Biscardi] there's a tone of useful information in there on MDX
+in Gatsby.
+
+Ok, first up we're going to import the `root-wrapper.js` file into
+both `gatsby-browser.js` and `gatsby-ssr.js`, in both code modules
+paste the following:
+
+```js
+import { wrapRootElement as wrap } from './root-wrapper';
+
+export const wrapRootElement = wrap;
+```
+
+Ok, now we can work on the code that will be used in both modules.
+
 ```js
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 
 const components = {
-  h1: ({ children }) => (
-    <h1 style={{ color: 'rebeccapurple' }}>{children}</h1>
+  h2: props => <h2 style={{ color: 'rebeccapurple' }} {...props} />,
+  'p.inlineCode': props => (
+    <code style={{ backgroundColor: 'lightgray' }} {...props} />
   ),
 };
 
@@ -1660,3 +1694,6 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
 [prism-react-renderer]:
   https://github.com/FormidableLabs/prism-react-renderer
 [react-live]: https://github.com/FormidableLabs/react-live
+[egghead.io playlist]:
+  https://egghead.io/lessons/vue-js-introduction-to-mdx?pl=building-websites-with-mdx-and-gatsby-161e9529
+[chris biscardi]: https://twitter.com/chrisbiscardi
