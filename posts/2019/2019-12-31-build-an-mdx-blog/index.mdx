@@ -1312,14 +1312,21 @@ import { wrapRootElement as wrap } from './root-wrapper';
 export const wrapRootElement = wrap;
 ```
 
-Ok, now we can work on the code that will be used in both modules.
+Ok, now we can work on the code that will be used in both modules. MDX
+allows you to control the rendering of page elements in your markdown.
+`MDXProvider` is used to give to give React components to override the
+markdown page elements.
+
+Quick demonstration, in `root-wrapper.js` add the following:
 
 ```js
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 
 const components = {
-  h2: props => <h2 style={{ color: 'rebeccapurple' }} {...props} />,
+  h2: ({ children }) => (
+    <h2 style={{ color: 'rebeccapurple' }}>{children}</h2>
+  ),
   'p.inlineCode': props => (
     <code style={{ backgroundColor: 'lightgray' }} {...props} />
   ),
@@ -1330,16 +1337,56 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-- add gatsby-browser and gatsby-ssr code
+We're now overriding any `h2` in our rendered markdown along with any
+`code` blocks (that's words wrapped in `` `backticks` ``).
 
-```js
-import { wrapRootElement as wrap } from './root-wrapper';
+Ok, now for the syntax highlighting, let's create a post with a block
+of code in it:
 
-export const wrapRootElement = wrap;
+```bash
+mkdir posts/2019-07-01-code-blocks
+touch posts/2019-07-01-code-blocks/index.mdx
 ```
 
-- [https://github.com/FormidableLabs/prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer)
-- Copy code for highlighting, test it works
+Paste in some content:
+
+````markdown
+---
+title: Code Blocks
+date: 2019-07-01
+published: true
+---
+
+## Yes! Some code!
+
+Here is the `siteMetadata` hook!
+
+```js
+import { graphql, useStaticQuery } from 'gatsby';
+
+export const useSiteMetadata = () => {
+  const { site } = useStaticQuery(
+    graphql`
+      query SITE_METADATA_QUERY {
+        site {
+          siteMetadata {
+            title
+            description
+          }
+        }
+      }
+    `
+  );
+  return site.siteMetadata;
+};
+```
+````
+
+Ok, if we go to the [prism-react-renderer] GitHub page and copy the
+example code into `root-wrapper.js` for the `pre` element.
+
+We're going to copy the provided code for highlighting to validate it
+works.
 
 ```js
 import { MDXProvider } from '@mdx-js/react';
@@ -1347,6 +1394,12 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import React from 'react';
 
 const components = {
+  h2: ({ children }) => (
+    <h2 style={{ color: 'rebeccapurple' }}>{children}</h2>
+  ),
+  'p.inlineCode': props => (
+    <code style={{ backgroundColor: 'lightgray' }} {...props} />
+  ),
   pre: props => (
     <Highlight
       {...defaultProps}
