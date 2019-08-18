@@ -82,16 +82,15 @@ Ok? Let's get started!
 ## Hello World
 
 Let's kick this off with the Gatsby 'hello world', we'll need to
-install the following:
+initialise the project with:
 
 ```bash
 npm init -y
-yarn add gatsby react react-dom
+git init
 ```
 
-If you want to commit this to a git repository then you'll also need a
-`.gitignore` with the requisite things to ignore, `node_modules`,
-`.cache` and `public`:
+I suggest that we commit this code to a git repository, so we should
+start with a `.gitignore` file.
 
 ```bash
 touch .gitignore
@@ -113,7 +112,12 @@ you'll see the changes reflected in the sidebar.
 
 ### basic hello world
 
-Ok the bare minimum for a Gatsby hello world!
+Ok a Gatsby hello world, let's get started with the bare minimum!
+Install the following:
+
+```bash
+yarn add gatsby react react-dom
+```
 
 We're going to need to create a pages directory and add an index file.
 We can do that in the terminal by typing the following:
@@ -455,7 +459,7 @@ variable.
 So, we're using the variable to wrap our `{title}` that we're
 destructuring from the `useSiteMetadata` hook we made previously.
 
-For this example lets make it the now iconic Gatsby `rebeccapurple`.
+For this example let's make it the now iconic Gatsby `rebeccapurple`.
 
 ```jsx
 import React from 'react';
@@ -1597,46 +1601,148 @@ export const wrapRootElement = ({ element }) => (
 Ok, now time to abstract this out into it's own component so our
 `root-wrapper.js` isn't so crowded.
 
+Make a `Code.js` component, move the code from `root-wrapper.js` into
+there
+
 ```jsx
+touch src/components/Code.js
 ```
 
-- Make a `Code.js` component, move the code from `root-wrapper.js`
-  into there
+Remember this?
+
+> Cool, cool! Now we want to replace the pasted in code example with
+> the props of the child component of the pre component, we can do
+> that with `props.children.props.children.trim()` 🙃.
+
+If that ☝ makes no real amount of sense for you (I've had to read it
+many, many times myself), don't worry, now we're going to dig into
+that a bit more for the creation of the code block component.
+
+So, for now in the `components` we're adding into the `MDXProvider`
+let's just take a look at the `props` coming into the `pre` element.
+
+Comment out the code we added earlier and add in a `console.log`:
+
+```js
+pre: props => {
+  console.log('=====================');
+  console.log(props);
+  console.log('=====================');
+  return <pre />;
+};
+```
+
+Now if we pop open the developer tools of your browser we can see the
+output.
+
+```
+{children: {…}}
+  children:
+    $$typeof: Symbol(react.element)
+    key: null
+    props: {parentName: "pre", className: "language-jsx", originalType: "code", mdxType: "code", children: "import React from 'react'↵↵const Dump = props => (…  </pre>↵    ))}↵  </div>↵)↵↵export default Dump↵"}
+    ref: null
+    type: ƒ (re....
+```
+
+If we drill into the props of that output we can see the `children` of
+those props, if you take a look at the contents of that you will see
+that it is the code string for our code block, this is what we're
+going to be passing into the `Code` component we're about to create.
+Other properties to note here are the `className` and `mdxType`.
+
+So, let's take the code we used earlier for `Highlight`, everything
+inside and including the `return` statement and paste it into the
+`Code.js` module we created earlier.
+
+`Highlight` requires several props:
 
 ```jsx
-import { MDXProvider } from '@mdx-js/react';
-import React from 'react';
-import Code from './src/components/Code';
+<Highlight
+  {...defaultProps}
+  code={codeString}
+  language={language}
+  theme={theme}
+>
+```
 
-// components is its own object outside of render so that the references to
-// components are stable
-const components = {
-  pre: ({ children: { props } }) => {
-    // if there's a codeString and some props, we passed the test
-    if (props.mdxType === 'code') {
-      return (
-        <Code
-          codeString={props.children.trim()}
-          language={
-            props.className &&
-            props.className.replace('language-', '')
-          }
-          {...props}
-        />
-      );
-    }
-    // it's possible to have a pre without a code in it
-    return <pre />;
-  },
-  wrapper: ({ children }) => <>{children}</>,
+The `Code` module should look something like this now:
+
+```jsx
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+
+const Code = ({ codeString, language }) => {
+  return (
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}>
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  );
 };
 
-export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={components}>{element}</MDXProvider>
-);
+export default Code;
 ```
 
-- add Code component
+Back to the `root-wrapper` where we're going to pass the `props`
+needed to the `Code` component.
+
+The first check we're going to do is if the `mdxType` is `code` then
+we can get the additional props we need to pass to our `Code`
+component.
+
+We're going to get `defaultProps` and the `theme` from
+`prism-react-renderer` so all that's needed is the `code` and
+`language`.
+
+The `codeString` we can get from the `props`, `children` by
+destructuring from the `props` being passed into the `pre` element.
+The `language` can either be the tag assigned to the meta property of
+the backticks, like `js`, `jsx` or equally empty, so we check for that
+with some JavaScript and also remove the `language-` prefix, then pass
+in the elements `{...props}`:
+
+```jsx
+pre: ({ children: { props } }) => {
+  if (props.mdxType === 'code') {
+    return (
+      <Code
+        codeString={props.children.trim()}
+        language={
+          props.className && props.className.replace('language-', '')
+        }
+        {...props}
+      />
+    );
+  }
+};
+```
+
+Ok, now we're back to where we were before abstracting out the
+`Highlight` component to it's own module. Let's add some additional
+styles with `styled-components` and replace the `pre` with a styled
+`Pre` and we can also add in some line numbers with a styled span and
+style that as well.
 
 ```js
 import Highlight, { defaultProps } from 'prism-react-renderer';
@@ -1680,6 +1786,157 @@ const Code = ({ codeString, language, ...props }) => {
         getTokenProps,
       }) => (
         <Pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
+  );
+};
+
+export default Code;
+```
+
+### Copy code to clipboard
+
+What if we had some way of getting that props code string into the
+clipboard?
+
+I had a look around and found the majority of the components available
+for this sort of thing expected an input until [this] in the Gatsby
+source code. Which is creating the input for you 👌
+
+So, let's create a `utils` directory and the `copy-to-clipboard.js`
+file and add in the code from the Gatsby sourcue code.
+
+```bash
+mkdir src/utils
+touch src/utils/copy-to-clipboard.js
+```
+
+```js
+// https://github.com/gatsbyjs/gatsby/blob/master/www/src/utils/copy-to-clipboard.js
+
+export const copyToClipboard = str => {
+  const clipboard = window.navigator.clipboard;
+  /*
+   * fallback to older browsers (including Safari)
+   * if clipboard API not supported
+   */
+  if (!clipboard || typeof clipboard.writeText !== `function`) {
+    const textarea = document.createElement(`textarea`);
+    textarea.value = str;
+    textarea.setAttribute(`readonly`, true);
+    textarea.setAttribute(`contenteditable`, true);
+    textarea.style.position = `absolute`;
+    textarea.style.left = `-9999px`;
+    document.body.appendChild(textarea);
+    textarea.select();
+    const range = document.createRange();
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    textarea.setSelectionRange(0, textarea.value.length);
+    document.execCommand(`copy`);
+    document.body.removeChild(textarea);
+
+    return Promise.resolve(true);
+  }
+
+  return clipboard.writeText(str);
+};
+```
+
+Now we're going to want a way to trigger copying the code to the
+clipboard.
+
+Lets create a styled button but first add a `position: relative;` to
+the `Pre` component which will let us position the styled button:
+
+```js
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+```
+
+And now we need to use the `copyToClipboard` function in the `onClick`
+of the button:
+
+```jsx
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+import styled from 'styled-components';
+import { copyToClipboard } from '../utils/copy-to-clipboard';
+
+export const Pre = styled.pre`
+  text-align: left;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  overflow-x: auto;
+  border-radius: 3px;
+
+  & .token-line {
+    line-height: 1.3rem;
+    height: 1.3rem;
+  }
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+`;
+
+export const LineNo = styled.span`
+  display: inline-block;
+  width: 2rem;
+  user-select: none;
+  opacity: 0.3;
+`;
+
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const Code = ({ codeString, language }) => {
+  const handleClick = () => {
+    copyToClipboard(codeString);
+  };
+
+  return (
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}>
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <Pre className={className} style={style}>
+          <CopyCode onClick={handleClick}>Copy</CopyCode>
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })}>
               <LineNo>{i + 1}</LineNo>
@@ -1764,3 +2021,5 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
   https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes/nightOwl.js
 [the other examples]:
   https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes
+[this]:
+  https://github.com/gatsbyjs/gatsby/blob/master/www/src/utils/copy-to-clipboard.js
