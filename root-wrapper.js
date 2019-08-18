@@ -10,6 +10,7 @@ import {
 import {
   InlineCode,
   Paragraph,
+  StyledInlineCode,
 } from './src/components/elements/GroupedElements';
 import {
   BlogThemeContext,
@@ -25,6 +26,8 @@ const components = {
   h2: StyledH2,
   h3: StyledH3,
   p: Paragraph,
+  'p.inlineCode': StyledInlineCode,
+  'li.inlineCode': StyledInlineCode,
   code: InlineCode,
   pre: ({ children: { props } }) => {
     // if there's a codeString and some props, we passed the test

@@ -14,11 +14,6 @@ export const InlineCode = ({ children }) => (
 const StyledParagraph = styled.p`
   iframe {
   }
-  code {
-    font-family: dm;
-    background-color: #fafafa;
-    /* background-color: ${({ theme }) => theme.background}; */
-  }
 `;
 
 export const Paragraph = ({ children }) => (
