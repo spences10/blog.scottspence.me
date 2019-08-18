@@ -264,6 +264,10 @@ In the terminal install the dependencies:
 yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react gatsby-source-filesystem
 ```
 
+```bash
+touch gatsby-config.js
+```
+
 Now its time to configure `gatsby-config.js`:
 
 ```js
@@ -289,6 +293,8 @@ module.exports = {
   ],
 };
 ```
+
+## TODO add 404 page
 
 ## Query data from GraphQL
 
@@ -353,7 +359,7 @@ mkdir src/hooks
 touch src/hooks/useSiteMetadata.js
 ```
 
-Ok, and in our newly created file were goining to use the Gatsby
+Ok, and in our newly created file were going to use the Gatsby
 `useStaticQuery` hook to make our own hook:
 
 ```js
@@ -557,7 +563,8 @@ export const Layout = ({ children }) => {
 };
 ```
 
-- Refactor Home (`src/pages/index.js`) with Layout
+Ok, now let's refactor our homepage (`src/pages/index.js`) with
+`Layout`.
 
 ```js
 import React from 'react';
@@ -574,7 +581,53 @@ export default () => {
 
 ## Index page posts query
 
-- add graphql query with sort to `src/pages/index.js`
+Ok, now we can take a look at getting some of the posts we've created
+add them to the index page of our blog. We're going to do that by
+creating a graphql query to list out the posts by title, order by date
+and add an excerpt of the post.
+
+The query will look something like this:
+
+```graphql
+{
+  allMdx {
+    nodes {
+      id
+      excerpt(pruneLength: 250)
+      frontmatter {
+        title
+        date
+      }
+    }
+  }
+}
+```
+
+If we put that into the GraphiQL GUI though you'll notice that the
+posts aren't in any given order, so let's now add a sort to this we'll
+also add in a filter for posts that are marked as published or not.
+
+```graphql
+{
+  allMdx(
+    sort: { fields: [frontmatter___date], order: DESC }
+    filter: { frontmatter: { published: { eq: true } } }
+  ) {
+    nodes {
+      id
+      excerpt(pruneLength: 250)
+      frontmatter {
+        title
+        date
+      }
+    }
+  }
+}
+```
+
+On the homepage (`src/pages/index.js`) we're going to use the query we
+just put together to get a list of published posts in date order; add
+the following to the `index.js` file:
 
 ```js
 import { graphql } from 'gatsby';
@@ -585,11 +638,11 @@ export default ({ data }) => {
   return (
     <>
       <Layout>
-        {data.allMdx.edges.map(({ node }, index) => (
+        {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
           <>
-            <h1>{node.frontmatter.title}</h1>
-            <p>{node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+            <p>{excerpt}</p>
           </>
         ))}
       </Layout>
@@ -603,14 +656,12 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            title
-            date
-          }
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date
         }
       }
     }
@@ -618,13 +669,30 @@ export const query = graphql`
 `;
 ```
 
+Woah! WTF was all that yo!?
+
+Ok, we're looping through the data passed into the component via the
+GraphQL query. Gatsby `graphql` runs the query (`SITE_INDEX_QUERY`) at
+runtime and gives us the results as props to our component via the
+`data` prop.
+
 ## Slugs and Paths
 
-- Gatsby node, add onCreateNode for slugs
+Gatsby source filesystem will help with the creation of slugs (URL
+paths for the posts we're creating) in Gatsby node we're going to
+create the slugs for our posts.
+
+First up we're going to need to create a `gatsby-node.js` file:
 
 ```bash
 touch gatsby-node.js
 ```
+
+This will create the file path (URL) for each of the blog posts.
+
+We're going to be using the Gatsby Node API `onCreateNode` and
+destructuring out `node`, `actions` and `getNode` for use in creating
+the file locations and associated value.
 
 ```js
 const { createFilePath } = require(`gatsby-source-filesystem`);
@@ -642,7 +710,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 ```
 
-- Add Dump.js for debugging
+Now to help visualise some of the data being passed into the
+components we're going to use [Dump.js] for debugging the data. Thanks
+to Wes Bos for the super handy [Dump.js] component.
+
+To get the component set up let's create a `Dump.js` file in our
+`src\components` folder and copypasta the code from the linked GitHub
+page.
+
+```bash
+touch /src/components/Dump.js
+```
 
 ```js
 import React from 'react';
@@ -669,7 +747,63 @@ const Dump = props => (
 export default Dump;
 ```
 
-- add gatsby Link to `src/pages/index.js` and fields slug
+Now we can use the `Dump` component anywhere in our project. To
+demonstrate let's use it with the index page `data` to see the output.
+
+So in the `src/pages/index.js` we're going to import the Dump
+component and pass in the `data` prop and see what the output looks
+like.
+
+```js
+import { graphql } from 'gatsby';
+import React from 'react';
+import Dump from '../components/Dump';
+import { Layout } from '../components/Layout';
+
+export default ({ data }) => {
+  return (
+    <>
+      <Layout>
+        <Dump data={data} />
+        {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
+          <>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+            <p>{excerpt}</p>
+          </>
+        ))}
+      </Layout>
+    </>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date
+        }
+      }
+    }
+  }
+`;
+```
+
+## Link Paths
+
+Now we've created the paths we can link to them with Gatsby Link.
+First we'll need to add the slug to our `SITE_INDEX_QUERY` Then we can
+add gatsby `Link` to `src/pages/index.js`.
+
+We're also going to create some styled-components for wrapping the
+list of posts and each individual post as well.
 
 ```js
 import { graphql, Link } from 'gatsby';
@@ -685,15 +819,17 @@ export default ({ data }) => {
   return (
     <Layout>
       <IndexWrapper>
-        {data.allMdx.edges.map(({ node }, index) => (
-          <PostWrapper key={index}>
-            <Link to={node.fields.slug}>
-              <h1>{node.frontmatter.title}</h1>
-              <p>{node.frontmatter.date}</p>
-              <p>{node.excerpt}</p>
-            </Link>
-          </PostWrapper>
-        ))}
+        {data.allMdx.nodes.map(
+          ({ id, excerpt, frontmatter, fields }) => (
+            <PostWrapper key={id}>
+              <Link to={fields.slug}>
+                <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.date}</p>
+                <p>{excerpt}</p>
+              </Link>
+            </PostWrapper>
+          )
+        )}
       </IndexWrapper>
     </Layout>
   );
@@ -705,17 +841,15 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
-          }
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date
+        }
+        fields {
+          slug
         }
       }
     }
@@ -723,14 +857,25 @@ export const query = graphql`
 `;
 ```
 
-- Blog Post Template
+## Adding a Blog Post Template
+
+Now we have the links pointing to the blog posts we currently have no
+file associated with the path, so clicking a link will give you a 404
+and the built in gatsby 404 will list all the pages available in the
+project, currently only the `/` index/homepage.
+
+So, for each one of our blog posts we're going to use a template that
+will contain, the information we need to make up our blog post. To
+start let's create a `templates` directory and template file for that
+with:
 
 ```bash
 mkdir -p src/templates
 touch src/templates/blogPostTemplate.js
 ```
 
-- scaffold out basic template
+For now we're going to scaffold out a basic template, we'll be adding
+data to this shortly:
 
 ```js
 import React from 'react';
@@ -744,12 +889,21 @@ export default () => {
 };
 ```
 
-- Create createPages export
-- Actions is where create pages lives
-- Detail here:
-  [https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+To populate the template we'll need to use Gatsby node to create our
+pages.
+
+Gatsby Node has many internal APIs available to us, for this example
+we're going to be using the `createPages` API.
+
+More details on Gatsby `createPages` API can be found on the Gatsby
+docs, details here:
+[https://www.gatsbyjs.org/docs/node-apis/#createPages](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+
+In our `gatsby-node.js` file we're going to add in the following in
+addition to the `onCreateNode` export we did earlier.
 
 ```js
+const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require(`path`);
 
 exports.createPages = ({ actions, graphql }) => {
@@ -761,14 +915,12 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMdx {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
+        nodes {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
           }
         }
       }
@@ -778,37 +930,124 @@ exports.createPages = ({ actions, graphql }) => {
       throw result.errors;
     }
 
-    const posts = result.data.allMdx.edges;
+    const posts = result.data.allMdx.nodes;
 
     // create page for each mdx file
-    posts.forEach((post, index) => {
+    posts.forEach(post => {
       createPage({
-        path: post.node.fields.slug,
+        path: post.fields.slug,
         component: blogPostTemplate,
         context: {
-          slug: post.node.fields.slug,
+          slug: post.fields.slug,
         },
       });
     });
   });
 };
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
 ```
 
-- build out blogPostTemplate.js
+So the part that we need to pay particular attention to right now is
+the `.forEach` loop where we're using the `createPage` function we
+destructured from the `actions` object.
+
+This is where we pass the data needed by `blogPostTemplate` we defined
+earlier. We're going to be adding more to the `context` for post
+navigation soon.
+
+```js
+// create page for each mdx node
+posts.forEach(post => {
+  createPage({
+    path: post.fields.slug,
+    component: blogPostTemplate,
+    context: {
+      slug: post.fields.slug,
+    },
+  });
+});
+```
+
+Now we're going to take the context information passed to the
+`blogPostTemplate.js` to make the blog post page.
+
+This is similar to the `index.js` homepage whereas there's GraphQL
+data used to create the page but in this instance the template uses a
+variable (also known as a parameter or an identifier) so we can query
+data specific to that given variable.
+
+Let's quickly dig into that with a demo. In the GraphiQL GUI, let's
+create a named query and define the variable we're going to pass in:
+
+```graphql
+query PostBySlug($slug: String!) {
+  mdx(fields: { slug: { eq: $slug } }) {
+    frontmatter {
+      title
+      date(formatString: "YYYY MMMM Do")
+    }
+  }
+}
+```
+
+Here we're defining the variable as slug with the `$` denoting that
+it's a variable, we also need to define the variable type as (in this
+case) `String!` the exclamation after the type means that it has to be
+a string being passed into the query.
+
+Using `mdx` we're going to filter on `fields` where the `slug` matches
+the variable being passed into the query.
+
+Running the query now will show an error as there's no variable being
+fed into the query. If you look to the bottom of the query pane you
+should notice `QUERY VARIABLES`, click on that to bring up the
+variables pane.
+
+This is where you can add in one of the post paths we created earlier,
+if you have your dev server up and running go to one of the posts and
+take the path and paste it into the quotes `""` and try running the
+query again.
+
+```graphql
+{
+  "slug": "/2019/2019-06-20-third-post/"
+}
+```
+
+Time to use that data to make the post, we're going to add `body` to
+the query and have that at the bottom of our page file.
+
+Right now we're going to add create a simple react component that will
+display the data we have queried.
+
+Destructuring the `frontmatter` and `body` from the GraphQL query,
+we'll get the Title and the Data from the frontmatter object and wrap
+the `body` in the `MDXRenderer`.
 
 ```js
 import { graphql } from 'gatsby';
-import MDXRenderer from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { Layout } from '../components/Layout';
 
 export default ({ data }) => {
-  const { frontmatter, code } = data.mdx;
+  const { frontmatter, body } = data.mdx;
   return (
     <Layout>
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
-      <MDXRenderer>{code.body}</MDXRenderer>
+      <MDXRenderer>{body}</MDXRenderer>
     </Layout>
   );
 };
@@ -816,10 +1055,7 @@ export default ({ data }) => {
 export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 250)
-      code {
-        body
-      }
+      body
       frontmatter {
         title
         date(formatString: "YYYY MMMM Do")
@@ -829,22 +1065,36 @@ export const query = graphql`
 `;
 ```
 
+If you haven't done so already now would be a good time to restart
+your dev server.
+
+Now we can click on one of the post links and see our blog post
+template in all it's basic glory!
+
 ## Previous and Next
 
-- Add in previous and next context
+Coolio! Now we have our basic ass blog where we can list available
+post and click a link to see the full post in a predefined template.
+Once you're in a post you have to navigate back to the home page to
+pick out a new post to read. In this section we're going to work on
+adding in some previous and next navigation.
+
+Remember the `.forEach` snippet we looked at earlier? That's where
+we're going to pass some additional context to the page by selecting
+out the previous and next posts.
 
 ```js
-// create page for each mdx file
+// create page for each mdx node
 posts.forEach((post, index) => {
   const previous =
-    index === posts.length - 1 ? null : posts[index + 1].node;
-  const next = index === 0 ? null : posts[index - 1].node;
+    index === posts.length - 1 ? null : posts[index + 1];
+  const next = index === 0 ? null : posts[index - 1];
 
   createPage({
-    path: post.node.fields.slug,
+    path: post.fields.slug,
     component: blogPostTemplate,
     context: {
-      slug: post.node.fields.slug,
+      slug: post.fields.slug,
       previous,
       next,
     },
@@ -852,33 +1102,107 @@ posts.forEach((post, index) => {
 });
 ```
 
-- Expose props in blogPostTemplate.js via pageContext with Dump
+So this should now match up with the query we have on the homepage
+(`src/pages/index.js`) except we currently have no filter or sort
+applied here so let's do that now in `gatsby-node.js` and apply the
+same filters as on the homepage query:
 
 ```js
-import { graphql, Link } from 'gatsby'
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import React from 'react'
-import { Dump } from '../components/Dump'
-import { Layout } from '../components/Layout'
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require(`path`);
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const blogPostTemplate = path.resolve(
+    'src/templates/blogPostTemplate.js'
+  );
+
+  return graphql(`
+    {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { published: { eq: true } } }
+      ) {
+        nodes {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors;
+    }
+
+    const posts = result.data.allMdx.nodes;
+
+    // create page for each mdx node
+    posts.forEach((post, index) => {
+      const previous =
+        index === posts.length - 1 ? null : posts[index + 1];
+      const next = index === 0 ? null : posts[index - 1];
+
+      createPage({
+        path: post.fields.slug,
+        component: blogPostTemplate,
+        context: {
+          slug: post.fields.slug,
+          previous,
+          next,
+        },
+      });
+    });
+  });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
+```
+
+Now we will be able to expose the `previous` and `next` objects passed
+in as context from Gatsby node.
+
+We can destructure `previous` and `next` from `pageContext` and for
+now pop them into our super handy `Dump` component to take a look at
+their contents.
+
+```js
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import Dump from '../components/Dump';
+import { Layout } from '../components/Layout';
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, code } = data.mdx
-  const { previous, next } = pageContext
+  const { frontmatter, body } = data.mdx;
+  const { previous, next } = pageContext;
   return (
     <Layout>
+      <Dump previous={previous} />
+      <Dump next={next} />
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
       <MDXRenderer>{body}</MDXRenderer>
-      <Dump previous={previous} />
-      <Dump next={next}
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 250)
       body
       frontmatter {
         title
@@ -886,27 +1210,30 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 ```
 
-Add in previous and next navigation:
+Add in previous and next navigation, this is a couple of ternary
+operations, if the variable is empty then return `null` else render a
+Gatsby `Link` component with the page slug and the frontmatter title:
 
-```js
+```jsx
 import { graphql, Link } from 'gatsby';
-import MDXRenderer from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { Dump } from '../components/Dump';
+import Dump from '../components/Dump';
 import { Layout } from '../components/Layout';
+
 export default ({ data, pageContext }) => {
-  const { frontmatter, code } = data.mdx;
+  const { frontmatter, body } = data.mdx;
   const { previous, next } = pageContext;
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
-      <MDXRenderer>{code.body}</MDXRenderer>
       <Dump previous={previous} />
       <Dump next={next} />
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{body}</MDXRenderer>
       {previous === false ? null : (
         <>
           {previous && (
@@ -932,10 +1259,7 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
   query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 250)
-      code {
-        body
-      }
+      body
       frontmatter {
         title
         date(formatString: "YYYY MMMM Do")
@@ -947,14 +1271,15 @@ export const query = graphql`
 
 ## Code Blocks
 
-- add prism react renderer and react live and root-wrapper
+Now to add some syntax highlighting for adding code blocks to our blog
+pages. To do that we're going to add dependencies for
+[prism-react-renderer] and [react-live] and we'll also create the
+files we're going to need to use them:
 
 ```bash
 yarn add prism-react-renderer react-live
 touch root-wrapper.js gatsby-ssr.js gatsby-browser.js
 ```
-
-- Add root-wrapper.js code, demonstrate components
 
 ```js
 import { MDXProvider } from '@mdx-js/react';
@@ -1331,3 +1656,7 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
 [progressive disclosure of complexity]:
   https://lengstorf.com/progressive-disclosure-of-complexity/
 [layout components]: https://www.gatsbyjs.org/docs/layout-components/
+[dump.js]: https://github.com/wesbos/dump
+[prism-react-renderer]:
+  https://github.com/FormidableLabs/prism-react-renderer
+[react-live]: https://github.com/FormidableLabs/react-live
