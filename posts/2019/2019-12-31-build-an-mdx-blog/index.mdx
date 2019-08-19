@@ -127,7 +127,7 @@ touch src/pages/index.js
 Ok, now we can commence the hello work incantation! In the newly
 created `index.js` enter the following:
 
-```js
+```jsx
 import React from 'react';
 
 export default () => {
@@ -385,7 +385,7 @@ export const useSiteMetadata = () => {
 Now we can use this hook anywhere in our site, so let's do that now in
 `src/pages/index.js`:
 
-```js
+```jsx
 import React from 'react';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
@@ -457,7 +457,7 @@ destructuring from the `useSiteMetadata` hook we made previously.
 
 For this example lets make it the now iconic Gatsby `rebeccapurple`.
 
-```js
+```jsx
 import React from 'react';
 import styled from 'styled-components';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
@@ -505,8 +505,9 @@ props for the `siteTitle` and `siteDescription`, we'll pass these from
 the `Layout` component to here. We're going to add Gatsby Link to this
 so users can click on the header to go back to the home page.
 
-```js
-import { Link } from 'gatsby' import React from 'react'
+```jsx
+import { Link } from 'gatsby';
+import React from 'react';
 
 export const Header = ({ siteTitle, siteDescription }) => (
   <Link to="/">
@@ -521,7 +522,7 @@ component for now, we're going to use our site metadata hook for the
 title and description and pass them to the header component and return
 the children of the wrapper (`Layout`).
 
-```js
+```jsx
 import React from 'react';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 import { Header } from './Header';
@@ -541,7 +542,7 @@ Now to add the slightest of styles for some alignment for
 `src/components/Layout.js`, create an `AppStyles` styled component and
 make it the main wrapper of our `Layout`.
 
-```js
+```jsx
 import React from 'react';
 import styled from 'styled-components';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
@@ -566,7 +567,7 @@ export const Layout = ({ children }) => {
 Ok, now let's refactor our homepage (`src/pages/index.js`) with
 `Layout`.
 
-```js
+```jsx
 import React from 'react';
 import { Layout } from '../components/Layout';
 
@@ -629,7 +630,7 @@ On the homepage (`src/pages/index.js`) we're going to use the query we
 just put together to get a list of published posts in date order; add
 the following to the `index.js` file:
 
-```js
+```jsx
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Layout } from '../components/Layout';
@@ -722,7 +723,7 @@ page.
 touch /src/components/Dump.js
 ```
 
-```js
+```jsx
 import React from 'react';
 
 const Dump = props => (
@@ -754,7 +755,7 @@ So in the `src/pages/index.js` we're going to import the Dump
 component and pass in the `data` prop and see what the output looks
 like.
 
-```js
+```jsx
 import { graphql } from 'gatsby';
 import React from 'react';
 import Dump from '../components/Dump';
@@ -805,7 +806,7 @@ add gatsby `Link` to `src/pages/index.js`.
 We're also going to create some styled-components for wrapping the
 list of posts and each individual post as well.
 
-```js
+```jsx
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
@@ -877,7 +878,7 @@ touch src/templates/blogPostTemplate.js
 For now we're going to scaffold out a basic template, we'll be adding
 data to this shortly:
 
-```js
+```jsx
 import React from 'react';
 
 export default () => {
@@ -1035,7 +1036,7 @@ Destructuring the `frontmatter` and `body` from the GraphQL query,
 we'll get the Title and the Data from the frontmatter object and wrap
 the `body` in the `MDXRenderer`.
 
-```js
+```jsx
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -1179,7 +1180,7 @@ We can destructure `previous` and `next` from `pageContext` and for
 now pop them into our super handy `Dump` component to take a look at
 their contents.
 
-```js
+```jsx
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -1319,7 +1320,7 @@ markdown page elements.
 
 Quick demonstration, in `root-wrapper.js` add the following:
 
-```js
+```jsx
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 
@@ -1359,26 +1360,31 @@ published: true
 
 ## Yes! Some code!
 
-Here is the `siteMetadata` hook!
+Here is the `Dump` component!
 
-```js
-import { graphql, useStaticQuery } from 'gatsby';
+```jsx
+import React from 'react';
 
-export const useSiteMetadata = () => {
-  const { site } = useStaticQuery(
-    graphql`
-      query SITE_METADATA_QUERY {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `
-  );
-  return site.siteMetadata;
-};
+const Dump = props => (
+  <div
+    style={{
+      fontSize: 20,
+      border: '1px solid #efefef',
+      padding: 10,
+      background: 'white',
+    }}>
+    {Object.entries(props).map(([key, val]) => (
+      <pre key={key}>
+        <strong style={{ color: 'white', background: 'red' }}>
+          {key} 💩
+        </strong>
+        {JSON.stringify(val, '', ' ')}
+      </pre>
+    ))}
+  </div>
+);
+
+export default Dump;
 ```
 ````
 
@@ -1388,7 +1394,7 @@ example code into `root-wrapper.js` for the `pre` element.
 We're going to copy the provided code for highlighting to validate it
 works.
 
-```js
+```jsx
 import { MDXProvider } from '@mdx-js/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import React from 'react';
@@ -1438,11 +1444,11 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-Cool, cool! Now we want to replace the code example with the props of
-the child component of the pre component, we can do that with
+Cool, cool! Now we want to replace the pasted in code example with the
+props of the child component of the pre component, we can do that with
 `props.children.props.children.trim()` 🙃.
 
-```js
+```jsx
 import { MDXProvider } from '@mdx-js/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import React from 'react';
@@ -1479,11 +1485,10 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-Then to match the language, for now we're going to add in the
-`matches` function to match the language class assigned to the code
-block.
+Then to match the language, for now we're going to add in a `matches`
+function to match the language class assigned to the code block.
 
-```js
+```jsx
 import { MDXProvider } from '@mdx-js/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import React from 'react';
@@ -1536,7 +1541,7 @@ export const wrapRootElement = ({ element }) => (
 
 - add the theme
 
-```js
+```jsx
 import { MDXProvider } from '@mdx-js/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
