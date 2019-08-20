@@ -1539,7 +1539,12 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-- add the theme
+[prism-react-renderer] comes with additional themes over the default
+theme which is [duotoneDark] we're going to use [nightOwl] in this
+example, feel free to take a look at [the other examples] if you like.
+
+Import the `theme` then use it in the props of the `Highlight`
+component.
 
 ```jsx
 import { MDXProvider } from '@mdx-js/react';
@@ -1589,16 +1594,19 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-- Now react-live
+Ok, now time to abstract this out into it's own component so our
+`root-wrapper.js` isn't so crowded.
+
+```jsx
+```
+
 - Make a `Code.js` component, move the code from `root-wrapper.js`
   into there
 
-```js
+```jsx
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import Code from './src/components/Code';
-
-// import { Dump } from './src/utils/helpers';
 
 // components is its own object outside of render so that the references to
 // components are stable
@@ -1628,27 +1636,13 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-- Create elements folder
-
-```bash
-mkdir -p src/components/elements
-touch src/components/elements/Code.js
-```
-
 - add Code component
 
 ```js
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React from 'react';
-import {
-  LiveEditor,
-  LiveError,
-  LivePreview,
-  LiveProvider,
-} from 'react-live';
 import styled from 'styled-components';
-// import { Dump } from '../utils/helpers'
 
 export const Pre = styled.pre`
   text-align: left;
@@ -1656,11 +1650,12 @@ export const Pre = styled.pre`
   padding: 0.5em;
   overflow-x: auto;
   border-radius: 3px;
+
   & .token-line {
     line-height: 1.3em;
     height: 1.3em;
   }
-  font-family: dm;
+  font-family: 'Courier New', Courier, monospace;
 `;
 
 export const LineNo = styled.span`
@@ -1670,45 +1665,44 @@ export const LineNo = styled.span`
   opacity: 0.3;
 `;
 
-export const Code = ({ codeString, language, ...props }) => {
-  if (props['react-live']) {
-    return (
-      <LiveProvider code={codeString} noInline={true} theme={theme}>
-        <LiveEditor />
-        <LiveError />
-        <LivePreview />
-      </LiveProvider>
-    );
-  }
+const Code = ({ codeString, language, ...props }) => {
   return (
-    <>
-      <Highlight
-        {...defaultProps}
-        code={codeString}
-        language={language}
-        theme={theme}>
-        {({
-          className,
-          style,
-          tokens,
-          getLineProps,
-          getTokenProps,
-        }) => (
-          <Pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                <LineNo>{i + 1}</LineNo>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </Pre>
-        )}
-      </Highlight>
-    </>
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}>
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <Pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
   );
 };
+
+export default Code;
+```
+
+- Now react-live
+- Create elements folder
+
+```bash
+mkdir -p src/components/elements
+touch src/components/elements/Code.js
 ```
 
 - Customizing Components:
@@ -1764,3 +1758,9 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
 [egghead.io playlist]:
   https://egghead.io/lessons/vue-js-introduction-to-mdx?pl=building-websites-with-mdx-and-gatsby-161e9529
 [chris biscardi]: https://twitter.com/chrisbiscardi
+[duotonedark]:
+  https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes/duotoneDark.js
+[nightowl]:
+  https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes/nightOwl.js
+[the other examples]:
+  https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes
