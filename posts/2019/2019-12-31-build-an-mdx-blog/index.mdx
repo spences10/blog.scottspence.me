@@ -1597,11 +1597,14 @@ export const wrapRootElement = ({ element }) => (
 Ok, now time to abstract this out into it's own component so our
 `root-wrapper.js` isn't so crowded.
 
+Make a `Code.js` component, move the code from `root-wrapper.js` into
+there
+
 ```jsx
+touch src/components/Code.js
 ```
 
-- Make a `Code.js` component, move the code from `root-wrapper.js`
-  into there
+If there's
 
 ```jsx
 import { MDXProvider } from '@mdx-js/react';
