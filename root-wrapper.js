@@ -2,6 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import {
+  AnchorTag,
   BlockQuote,
   Code,
   StyledH2,
@@ -26,6 +27,7 @@ const components = {
   h2: StyledH2,
   h3: StyledH3,
   p: Paragraph,
+  'p.a': AnchorTag,
   'p.inlineCode': StyledInlineCode,
   'li.inlineCode': StyledInlineCode,
   code: InlineCode,

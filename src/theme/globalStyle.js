@@ -103,11 +103,8 @@ export const GlobalStyle = createGlobalStyle`
     body {
       padding: 0;
       margin: 0;
-      line-height: 1.3125;
+      line-height: 1.6125;
       overflow-x: initial;
-    }
-    a {
-      text-decoration: none;
     }
     ul {
       margin: 0 auto;
