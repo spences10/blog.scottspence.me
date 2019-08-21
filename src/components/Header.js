@@ -52,6 +52,7 @@ const StyledLink = styled(Link)`
   color: ${props => props.theme.fontLight};
   margin: 0.25rem;
   padding: 0.25rem;
+  text-decoration: none;
 `;
 
 const Header = ({ siteTitle }) => (
