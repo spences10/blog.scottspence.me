@@ -36,6 +36,15 @@ const LineNo = styled.span`
 const CopyCode = styled.button`
   position: absolute;
   right: 0.25rem;
+  color: ${({ theme }) => theme.fontLight};
+  background-color: ${({ theme }) => theme.primary};
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const Code = ({ codeString, language, ...props }) => {
