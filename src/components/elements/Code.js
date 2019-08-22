@@ -22,7 +22,7 @@ const Pre = styled.pre`
     line-height: 1.3em;
     height: 1.3em;
   }
-  font-family: dm;
+  font-family: dm, 'Courier New', Courier, monospace;
   position: relative;
 `;
 
