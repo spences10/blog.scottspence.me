@@ -8,9 +8,10 @@ import {
   LiveProvider,
 } from 'react-live';
 import styled from 'styled-components';
+import { copyToClipboard } from '../../utils/copy-to-clipboard';
 // import { Dump } from '../utils/helpers'
 
-export const Pre = styled.pre`
+const Pre = styled.pre`
   text-align: left;
   margin: 1em 0;
   padding: 0.5em;
@@ -21,14 +22,29 @@ export const Pre = styled.pre`
     line-height: 1.3em;
     height: 1.3em;
   }
-  font-family: dm;
+  font-family: dm, 'Courier New', Courier, monospace;
+  position: relative;
 `;
 
-export const LineNo = styled.span`
+const LineNo = styled.span`
   display: inline-block;
   width: 2em;
   user-select: none;
   opacity: 0.3;
+`;
+
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  color: ${({ theme }) => theme.fontLight};
+  background-color: ${({ theme }) => theme.primary};
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const Code = ({ codeString, language, ...props }) => {
@@ -41,6 +57,11 @@ export const Code = ({ codeString, language, ...props }) => {
       </LiveProvider>
     );
   }
+
+  const handleClick = () => {
+    copyToClipboard(codeString);
+  };
+
   return (
     <>
       <Highlight
@@ -56,6 +77,7 @@ export const Code = ({ codeString, language, ...props }) => {
           getTokenProps,
         }) => (
           <Pre className={className} style={style}>
+            <CopyCode onClick={handleClick}>Copy</CopyCode>
             {tokens.map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
                 <LineNo>{i + 1}</LineNo>
