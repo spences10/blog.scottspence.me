@@ -19,6 +19,6 @@ export const StyledATag = styled.a`
   }
 `;
 
-export const AnchorTag = ({ children }) => (
-  <StyledATag>{children}</StyledATag>
+export const AnchorTag = props => (
+  <StyledATag {...props}></StyledATag>
 );
