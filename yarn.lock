@@ -5822,13 +5822,6 @@ gatsby-plugin-feed@2.3.7:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-hotjar-tracking@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-hotjar-tracking/-/gatsby-plugin-hotjar-tracking-1.0.0.tgz#67952e430d9cc4cf981d3547862f20eeeeabe75d"
-  integrity sha512-BhsIbAaXgA/gQm0edf5E693RMy6tmgV0eadeOSP+oup8upU0oAX9dF/1GnpDKvYkXpERxav9crTXX/Suo15AvA==
-  dependencies:
-    babel-runtime "^6.26.0"
-
 gatsby-plugin-manifest@2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.2.6.tgz#7dc0758ad16cb7656f0b808c7fef282b8f165d8c"
