@@ -4,7 +4,7 @@ date: 2019-12-31
 title: Build a coding blog from scratch with Gatsby and MDX
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
-published: false
+published: true
 cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
@@ -1614,6 +1614,39 @@ If that ☝ makes no real amount of sense for you (I've had to read it
 many, many times myself), don't worry, now we're going to dig into
 that a bit more for the creation of the code block component.
 
+So, for now in the `components` we're adding into the `MDXProvider`
+let's just take a look at the `props` coming into the `pre` element.
+
+Comment out the code we added earlier and add in a `console.log`:
+
+```js
+pre: props => {
+  console.log('=====================');
+  console.log(props);
+  console.log('=====================');
+  return <pre />;
+};
+```
+
+Now if we pop open the developer tools of your browser we can see the
+output.
+
+```
+{children: {…}}
+  children:
+    $$typeof: Symbol(react.element)
+    key: null
+    props: {parentName: "pre", className: "language-jsx", originalType: "code", mdxType: "code", children: "import React from 'react'↵↵const Dump = props => (…  </pre>↵    ))}↵  </div>↵)↵↵export default Dump↵"}
+    ref: null
+    type: ƒ (re....
+```
+
+If we drill into the props of that output we can see the `children` of
+those props, if you take a look at the contents of that you will see
+that it is the code string for our code block, this is what we're
+going to be passing into the `Code` component we're about to create.
+Another property to note here is the `mdxType`.
+
 ```jsx
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
@@ -1706,6 +1739,44 @@ const Code = ({ codeString, language, ...props }) => {
 };
 
 export default Code;
+```
+
+```bash
+mkdir src/utils
+touch src/utils/copy-to-clipboard.js
+```
+
+```js
+// https://github.com/gatsbyjs/gatsby/blob/master/www/src/utils/copy-to-clipboard.js
+
+export const copyToClipboard = str => {
+  const clipboard = window.navigator.clipboard;
+  /*
+   * fallback to older browsers (including Safari)
+   * if clipboard API not supported
+   */
+  if (!clipboard || typeof clipboard.writeText !== `function`) {
+    const textarea = document.createElement(`textarea`);
+    textarea.value = str;
+    textarea.setAttribute(`readonly`, true);
+    textarea.setAttribute(`contenteditable`, true);
+    textarea.style.position = `absolute`;
+    textarea.style.left = `-9999px`;
+    document.body.appendChild(textarea);
+    textarea.select();
+    const range = document.createRange();
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    textarea.setSelectionRange(0, textarea.value.length);
+    document.execCommand(`copy`);
+    document.body.removeChild(textarea);
+
+    return Promise.resolve(true);
+  }
+
+  return clipboard.writeText(str);
+};
 ```
 
 - Now react-live
