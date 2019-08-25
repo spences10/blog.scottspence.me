@@ -1738,9 +1738,7 @@ Ok, now we're back to where we were before abstracting out the
 `Highlight` component to it's own module. Let's add some additional
 styles with `styled-components` and replace the `pre` with a styled
 `Pre` and we can also add in some line numbers with a styled span and
-style that also.
-
-- add Code component
+style that as well.
 
 ```js
 import Highlight, { defaultProps } from 'prism-react-renderer';
@@ -1801,6 +1799,18 @@ const Code = ({ codeString, language, ...props }) => {
 export default Code;
 ```
 
+### Copy code to clipboard
+
+What if we had some way of getting that props code string into the
+clipboard?
+
+I had a look around and found the majority of the components available
+for this sort of thing expected an input until [this] in the Gatsby
+source code. Which is creating the input for you 👌
+
+So, let's create a `utils` directory and the `copy-to-clipboard.js`
+file and add in the code from the Gatsby sourcue code.
+
 ```bash
 mkdir src/utils
 touch src/utils/copy-to-clipboard.js
@@ -1837,6 +1847,107 @@ export const copyToClipboard = str => {
 
   return clipboard.writeText(str);
 };
+```
+
+Now we're going to want a way to trigger copying the code to the
+clipboard.
+
+Lets create a styled button but first add a `position: relative;` to
+the `Pre` component which will let us position the styled button:
+
+```js
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+```
+
+And now we need to use the `copyToClipboard` function in the `onClick`
+of the button:
+
+```jsx
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+import styled from 'styled-components';
+import { copyToClipboard } from '../utils/copy-to-clipboard';
+
+export const Pre = styled.pre`
+  text-align: left;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  overflow-x: auto;
+  border-radius: 3px;
+
+  & .token-line {
+    line-height: 1.3rem;
+    height: 1.3rem;
+  }
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+`;
+
+export const LineNo = styled.span`
+  display: inline-block;
+  width: 2rem;
+  user-select: none;
+  opacity: 0.3;
+`;
+
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const Code = ({ codeString, language }) => {
+  const handleClick = () => {
+    copyToClipboard(codeString);
+  };
+
+  return (
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}>
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <Pre className={className} style={style}>
+          <CopyCode onClick={handleClick}>Copy</CopyCode>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
+  );
+};
+
+export default Code;
 ```
 
 - Now react-live
@@ -1906,3 +2017,5 @@ https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
   https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes/nightOwl.js
 [the other examples]:
   https://github.com/FormidableLabs/prism-react-renderer/blob/master/themes
+[this]:
+  https://github.com/gatsbyjs/gatsby/blob/master/www/src/utils/copy-to-clipboard.js
