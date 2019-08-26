@@ -76,9 +76,6 @@ module.exports = {
               rel: `noopener`,
             },
           },
-          {
-            resolve: require.resolve('./plugins/remark-embedder'),
-          },
         ],
         plugins: [
           {
