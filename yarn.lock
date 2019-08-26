@@ -1795,7 +1795,12 @@ address@1.0.3:
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
   integrity sha512-z55ocwKBRLryBs394Sm3ushTtBeg6VAeuku7utSoSnsJKvKcnXFIyC6vh27n3rXyxSgkJBBCAvyOn7gSUcTYjg==
 
-address@1.1.1, address@^1.0.1:
+address@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
+  integrity sha512-aT6camzM4xEA54YVJYSqxz1kv4IHnQZRtThJJHhUMRExaU5spC7jX5ugSwTaTgJliIgs4VhZOk7htClvQ/LmRA==
+
+address@^1.0.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.1.tgz#9483d6464788dee73e9a0f9f5d57bedf429b2a70"
   integrity sha512-srclZEseI6OB0MgWYWuYpr2F5fHMxh5lgWF72CeUFm5QgJyviPA64Q7PzJdBQkFCJibEycqsZ5b9L0l/J8SlyQ==
@@ -5877,10 +5882,10 @@ gatsby-plugin-manifest@2.2.9:
     semver "^5.7.1"
     sharp "^0.23.0"
 
-gatsby-plugin-mdx@1.0.32:
-  version "1.0.32"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.32.tgz#3205b1bd426f4b0a01e36a563e4159c13293b811"
-  integrity sha512-ntotwYDMAnJV0DHBofU0zqZTIaCX077V5rVdBtj0+4jZv26zLLb+vncd0LW6BjQCIBK3bkJFBb6QDCRzgiuAzA==
+gatsby-plugin-mdx@1.0.33:
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.33.tgz#a0046b17aa1174bcaf0c140e60b35573f523061c"
+  integrity sha512-b7eKMIRqFIBZR9OTCzwKgsBiDAkyTP1cjQyCwQqIdXB4V+d/3rKO1sXNDzGUswKLDURtOgwnV63wNUjE/FuIyg==
   dependencies:
     "@babel/core" "^7.5.5"
     "@babel/generator" "^7.5.5"
@@ -6039,10 +6044,10 @@ gatsby-remark-code-titles@1.1.0:
     query-string "~6.0.0"
     unist-util-visit "~1.3.0"
 
-gatsby-remark-copy-linked-files@2.1.12:
-  version "2.1.12"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.1.12.tgz#945c80d0c5131551ff73bda109659f792e8481fd"
-  integrity sha512-bHcx+b99PKnnsZwGC2HLh6AVoEI9XOcsq88tbxbiLbM0g2sPy/faTsAQ3HFKRJK5SAZwwARAG5eSrajKVOKJbQ==
+gatsby-remark-copy-linked-files@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.1.13.tgz#29c8d9500ba78a9d457f102540396c39abbd783e"
+  integrity sha512-cDsDNs7GrTd1Zzg5kCjpxezm4kjpYWgK03XvPPhZ+OXsHJVysxXKXhgeCnQthty4FEBdQ3UkJnyX4VZmSqMm5w==
   dependencies:
     "@babel/runtime" "^7.5.5"
     cheerio "^1.0.0-rc.3"
@@ -6089,10 +6094,10 @@ gatsby-remark-images@3.1.19:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.1.2"
 
-gatsby-remark-responsive-iframe@2.2.9:
-  version "2.2.9"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-responsive-iframe/-/gatsby-remark-responsive-iframe-2.2.9.tgz#75e7b039b45526c59d4c4f1bd39a88e70770f6fa"
-  integrity sha512-WHzHnma5bnU7K2A3fU49ZFwnRc7T2iPCNUYz9FIp+IPLOSQaZ66mtpQEglmAkpvb+g8TS7IjQz7AXUOxErOpwQ==
+gatsby-remark-responsive-iframe@2.2.10:
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-responsive-iframe/-/gatsby-remark-responsive-iframe-2.2.10.tgz#397120d1cee551f588afa15a91888ec32e4af8cf"
+  integrity sha512-dYhls6CETnJUAerJTDXB93UIk731hvtmWDpq65TSBHrRhMoH7lz5CIsvKehE6QtycoqeS0SJ/jVCbCFdt+Q8CQ==
   dependencies:
     "@babel/runtime" "^7.5.5"
     bluebird "^3.5.5"
@@ -6167,10 +6172,10 @@ gatsby-transformer-sharp@2.2.12:
     semver "^5.7.1"
     sharp "^0.23.0"
 
-gatsby@2.13.83:
-  version "2.13.83"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.83.tgz#54b94f2331dcac7cadaf5528b989fedd0329b3ba"
-  integrity sha512-e1vuwQoMivAamEuKBLNfmlDK8pOmCsDviRYGYJ+E1/uMkPPHWvbEFOzmOkb3xwgQyB0LsGZYw4f/1+JOuLJabA==
+gatsby@2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.14.0.tgz#ff5e19e6d8dfedbd1c3e41fc10e2f55bd8372ede"
+  integrity sha512-nZTXaC8HvfQTs9vOh1iVtY07c4AD6zrwtqIxttsyDfGVIRas47rvPCyPisUEVX6Hzk0W+cabEJ1T5cnZvi4ANA==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.5.5"
@@ -6185,7 +6190,7 @@ gatsby@2.13.83:
     "@reach/router" "^1.2.1"
     "@typescript-eslint/eslint-plugin" "^1.13.0"
     "@typescript-eslint/parser" "^1.13.0"
-    address "1.1.1"
+    address "1.1.2"
     autoprefixer "^9.6.1"
     axios "^0.19.0"
     babel-core "7.0.0-bridge.0"
