@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { BlogThemeContext } from '../contexts/BlogThemeContext';
-import useSiteMetadata from '../hooks/siteMetadata';
+import { useSiteMetadata } from '../hooks/siteMetadata';
 import { GlobalStyle, media } from '../theme/globalStyle';
 import Footer from './Footer';
 import Header from './Header';
