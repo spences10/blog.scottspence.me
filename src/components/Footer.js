@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StyledHyperLink as SHL } from '../components/Shared';
 import ThemeSelect from '../components/ThemeSelect';
-import useSiteMetadata from '../hooks/siteMetadata';
+import { useSiteMetadata } from '../hooks/siteMetadata';
 import { media } from '../theme/globalStyle';
 
 // import { Dump } from '../utils/helpers'
