@@ -1,13 +1,12 @@
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import PropTypes from 'prop-types';
 import React from 'react';
 import Utterances from 'react-utterances';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
-import useSiteMetadata from '../hooks/siteMetadata';
+import { useSiteMetadata } from '../hooks/siteMetadata';
 // import { Dump } from '../utils/helpers';
 
 const repo = 'spences10/blog.scottspence.me';
@@ -64,7 +63,7 @@ const PrevNextButton = styled(HappyButton)`
   grid-area: ${props => props.area};
 `;
 
-const blogPostLayout = ({ data, pageContext }) => {
+export default ({ data, pageContext }) => {
   const { frontmatter, excerpt, body } = data.mdx;
   const { cover } = frontmatter;
   const { prev, next } = pageContext;
@@ -116,13 +115,6 @@ const blogPostLayout = ({ data, pageContext }) => {
       </PostWrapper>
     </Layout>
   );
-};
-
-export default blogPostLayout;
-
-blogPostLayout.propTypes = {
-  data: PropTypes.any,
-  pageContext: PropTypes.any,
 };
 
 // TODO: site metadata image
