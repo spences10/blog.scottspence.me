@@ -23,7 +23,6 @@ const Pre = styled.pre`
     height: 1.3em;
   }
   font-family: dm, 'Courier New', Courier, monospace;
-  position: relative;
 `;
 
 const LineNo = styled.span`
