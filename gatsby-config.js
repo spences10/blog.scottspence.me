@@ -46,7 +46,6 @@ module.exports = {
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
