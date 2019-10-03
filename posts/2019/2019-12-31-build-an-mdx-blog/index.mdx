@@ -1954,6 +1954,40 @@ const Code = ({ codeString, language }) => {
 export default Code;
 ```
 
+## React live
+
+So with React Live we need to add two snippets to our `Code.js`
+component.
+
+We're going to import the components:
+
+```js
+import {
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider,
+} from 'react-live';
+```
+
+Then we're going to check if `react-live` has been added to the
+language tag on our mdx file via the props:
+
+```js
+if (props['react-live']) {
+  return (
+    <LiveProvider code={codeString} noInline={true} theme={theme}>
+      <LiveEditor />
+      <LiveError />
+      <LivePreview />
+    </LiveProvider>
+  );
+}
+```
+
+To test this, let's add `react-live` next to the language on our
+`Dump` component,
+
 - Now react-live
 - Create elements folder
 
