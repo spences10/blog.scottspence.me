@@ -1961,7 +1961,7 @@ component.
 
 We're going to import the components:
 
-```js
+```jsx
 import {
   LiveEditor,
   LiveError,
@@ -1973,7 +1973,7 @@ import {
 Then we're going to check if `react-live` has been added to the
 language tag on our mdx file via the props:
 
-```js
+```jsx
 if (props['react-live']) {
   return (
     <LiveProvider code={codeString} noInline={true} theme={theme}>
@@ -1986,7 +1986,11 @@ if (props['react-live']) {
 ```
 
 To test this, let's add `react-live` next to the language on our
-`Dump` component,
+`Dump` component:
+
+````text
+```jsx react live
+````
 
 - Now react-live
 - Create elements folder
