@@ -1985,31 +1985,138 @@ if (props['react-live']) {
 }
 ```
 
-To test this, let's add `react-live` next to the language on our
-`Dump` component:
+Here's the full component:
 
-````text
-```jsx react live
-````
+```jsx
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+import {
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider,
+} from 'react-live';
+import styled from 'styled-components';
+import { copyToClipboard } from '../../utils/copy-to-clipboard';
 
-- Now react-live
-- Create elements folder
+const Pre = styled.pre`
+  position: relative;
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow-x: auto;
+  border-radius: 3px;
 
-```bash
-mkdir -p src/components/elements
-touch src/components/elements/Code.js
+  & .token-lline {
+    line-height: 1.3em;
+    height: 1.3em;
+  }
+  font-family: 'Courier New', Courier, monospace;
+`;
+
+const LineNo = styled.span`
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.3;
+`;
+
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const Code = ({ codeString, language, ...props }) => {
+  if (props['react-live']) {
+    return (
+      <LiveProvider code={codeString} noInline={true} theme={theme}>
+        <LiveEditor />
+        <LiveError />
+        <LivePreview />
+      </LiveProvider>
+    );
+  }
+
+  const handleClick = () => {
+    copyToClipboard(codeString);
+  };
+
+  return (
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}>
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <Pre className={className} style={style}>
+          <CopyCode onClick={handleClick}>Copy</CopyCode>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
+  );
+};
 ```
 
-- Customizing Components:
-  [https://www.gatsbyjs.org/docs/mdx/customizing-components/](https://www.gatsbyjs.org/docs/mdx/customizing-components/)
+To test this, let's add `react-live` next to the language on our
+`Dump` component, so we have added to the blog post we made:
+
+````text
+```jsx react-live
+````
+
+Now we can edit the code directly, try changing a few things like
+this:
+
+```jsx
+const Dump = props => (
+  <div
+    style={{
+      fontSize: 20,
+      border: '1px solid #efefef',
+      padding: 10,
+      background: 'white',
+    }}>
+    {Object.entries(props).map(([key, val]) => (
+      <pre key={key}>
+        <strong style={{ color: 'white', background: 'red' }}>
+          {key} 💩
+        </strong>
+        {JSON.stringify(val, '', ' ')}
+      </pre>
+    ))}
+  </div>
+);
+
+render(<Dump props={['One', 'Two', 'Three', 'Four']} />);
+```
 
 ## Cover Image
 
-## i11n
-
-- [https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n)
-
 ## SEO
+
+## Deploy to Netlify
 
 - this helped me for my own blog:
   [https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/](https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/)
