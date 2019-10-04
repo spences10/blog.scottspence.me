@@ -2114,9 +2114,88 @@ render(<Dump props={['One', 'Two', 'Three', 'Four']} />);
 
 ## Cover Image
 
-## SEO
+install:
+
+```bash
+yarn add gatsby-transformer-sharp gatsby-plugin-sharp gatsby-remark-images gatsby-image
+```
+
+config:
+
+```js
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: `${__dirname}/posts`, name: `posts` },
+    },
+  ],
+};
+```
+
+add image to index, query:
+
+```graphql
+cover {
+  publicURL
+  childImageSharp {
+    sizes(
+      maxWidth: 2000
+      traceSVG: { color: "#639" }
+    ) {
+      ...GatsbyImageSharpSizes_tracedSVG
+    }
+  }
+}
+```
+
+Add `gatsby-image` use that in a styled component:
+
+```js
+const Image = styled(Img)`
+  border-radius: 5px;
+`;
+```
+
+Add some JavaScript to determine if there's anything to render:
+
+```js
+{
+  !!frontmatter.cover ? (
+    <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+  ) : null;
+}
+```
 
 ## Deploy to Netlify
+
+## SEO
 
 - this helped me for my own blog:
   [https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/](https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/)
