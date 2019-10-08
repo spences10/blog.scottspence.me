@@ -2175,6 +2175,16 @@ cover {
 }
 ```
 
+Fix up the date:
+
+```graphql
+date(formatString: "YYYY MMMM Do")
+```
+
+This will show the date as full year, full month and the day as a
+'st', 'nd', 'rd' and 'th'. So if today's date were 1970/01/01 it would
+read 1970 January 1st.
+
 Add `gatsby-image` use that in a styled component:
 
 ```js
