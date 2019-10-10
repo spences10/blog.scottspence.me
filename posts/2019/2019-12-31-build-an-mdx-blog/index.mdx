@@ -1365,6 +1365,8 @@ export const wrapRootElement = ({ element }) => (
 We're now overriding any `h2` in our rendered markdown along with any
 `code` blocks (that's words wrapped in `` `backticks` ``).
 
+`video: https://www.youtube.com/watch?v=kN8ld7iLQso&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=12`
+
 Ok, now for the syntax highlighting, let's create a post with a block
 of code in it:
 
@@ -1618,6 +1620,8 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
+`video: https://www.youtube.com/watch?v=k6gI3jVxjKg&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=13`
+
 Ok, now time to abstract this out into it's own component so our
 `root-wrapper.js` isn't so crowded.
 
@@ -1758,6 +1762,8 @@ pre: ({ children: { props } }) => {
 };
 ```
 
+`video: https://www.youtube.com/watch?v=m0tWxa9Ip5E&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=14`
+
 Ok, now we're back to where we were before abstracting out the
 `Highlight` component to it's own module. Let's add some additional
 styles with `styled-components` and replace the `pre` with a styled
@@ -1822,6 +1828,8 @@ const Code = ({ codeString, language, ...props }) => {
 
 export default Code;
 ```
+
+`video: https://www.youtube.com/watch?v=PPH153kWpqc&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=15`
 
 ### Copy code to clipboard
 
@@ -1973,6 +1981,8 @@ const Code = ({ codeString, language }) => {
 
 export default Code;
 ```
+
+`video: https://www.youtube.com/watch?v=j-EINXVe2WA&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=16`
 
 ## React live
 
@@ -2132,6 +2142,8 @@ const Dump = props => (
 render(<Dump props={['One', 'Two', 'Three', 'Four']} />);
 ```
 
+`video: https://www.youtube.com/watch?v=AlOdd-TvqHE&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=17`
+
 ## Cover Image
 
 install:
@@ -2222,6 +2234,8 @@ Add some JavaScript to determine if there's anything to render:
   ) : null;
 }
 ```
+
+`video: https://www.youtube.com/watch?v=9S5GNtql02w&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=18`
 
 ## Deploy to Netlify
 
