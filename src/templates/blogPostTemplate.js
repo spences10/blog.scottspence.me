@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
+import { TOC } from '../components/TOC';
 import { useSiteMetadata } from '../hooks/siteMetadata';
 // import { Dump } from '../utils/helpers';
 
@@ -64,7 +65,7 @@ const PrevNextButton = styled(HappyButton)`
 `;
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, excerpt, body, date } = data.mdx;
+  const { frontmatter, excerpt, body, tableOfContents } = data.mdx;
   const { cover } = frontmatter;
   const { prev, next } = pageContext;
   const { imageLink: defaultImage } = useSiteMetadata();
@@ -113,6 +114,7 @@ export default ({ data, pageContext }) => {
         </LinksWrapper>
         <Utterances repo={repo} type={'url'} />
       </PostWrapper>
+      <TOC toc={tableOfContents.items} />
     </Layout>
   );
 };
@@ -138,6 +140,7 @@ export const query = graphql`
           }
         }
       }
+      tableOfContents
     }
   }
 `;
