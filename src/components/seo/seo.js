@@ -70,7 +70,7 @@ export const SEO = ({
     dateModified: lastBuildDate,
     image: {
       '@type': 'ImageObject',
-      url: `${defaultImage}`,
+      url: `${seo.image}`,
     },
   };
 
@@ -111,7 +111,7 @@ export const SEO = ({
         name: developerName,
         logo: {
           '@type': 'ImageObject',
-          url: `${defaultImage}`,
+          url: `${seo.image}`,
         },
       },
       datePublished: publishedDate,
