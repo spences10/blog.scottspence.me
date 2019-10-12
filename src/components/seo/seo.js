@@ -26,7 +26,9 @@ export const SEO = ({
     lastBuildDate,
   } = useSiteMetadata();
 
-  const imagePath = `${siteUrl}${image.publicURL}`;
+  const imagePath = `${siteUrl}${
+    image.publicURL ? 'undefined' : defaultImage
+  }`;
 
   // assign default values if needed
   const seo = {

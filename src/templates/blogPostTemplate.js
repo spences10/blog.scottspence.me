@@ -7,7 +7,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
 import { useSiteMetadata } from '../hooks/siteMetadata';
-import { Dump } from '../utils/helpers';
+// import { Dump } from '../utils/helpers';
 
 const repo = 'spences10/blog.scottspence.me';
 
@@ -78,7 +78,7 @@ export default ({ data, pageContext }) => {
         article={true}
         publishedDate={frontmatter.date}
       />
-      <Dump cover={cover} defaultImg={defaultImage} />
+      {/* <Dump cover={cover} defaultImg={defaultImage} /> */}
       <PostWrapper>
         <Title>{frontmatter.title}</Title>
         <TitleDate>{frontmatter.date}</TitleDate>
