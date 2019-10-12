@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 
 export const Facebook = ({
   url,
-  name,
   type,
   title,
   desc,
@@ -12,7 +11,6 @@ export const Facebook = ({
   locale,
 }) => (
   <Helmet>
-    {name && <meta property="og:site_name" content={name} />}
     <meta property="og:locale" content={locale} />
     <meta property="og:url" content={url} />
     <meta property="og:type" content={type} />
