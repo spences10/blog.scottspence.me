@@ -12,7 +12,7 @@ const siteMetadata = {
   nameContent: `Scott Spence - blog`,
   developerName: `Scott Spence`,
   developerUrl: `https://scottspence.me`,
-  imageLink: `https://blog.scottspence.me/icons/icon-512x512.png`,
+  imageLink: `/favicon.png`,
   faviconPng: `./static/favicon.png`,
   contact: [
     { name: `GitHub`, link: `https://ss10.dev/git` },
