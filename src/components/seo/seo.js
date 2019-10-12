@@ -36,17 +36,6 @@ export const SEO = ({
     url: `${siteUrl}${pathname || '/'}`,
   };
 
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
-  const builtDate = new Date(lastBuildDate).toLocaleDateString(
-    siteLanguage,
-    options
-  );
-
   // schema.org in JSONLD format
   // https://developers.google.com/search/docs/guides/intro-structured-data
   // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
@@ -78,10 +67,10 @@ export const SEO = ({
       name: developerName,
     },
     datePublished: '2019-10-12T13:28:00+01:00',
-    dateModified: builtDate,
+    dateModified: lastBuildDate,
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}${defaultImage}`,
+      url: `${defaultImage}`,
     },
   };
 
@@ -122,7 +111,7 @@ export const SEO = ({
         name: developerName,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${defaultImage}`,
+          url: `${defaultImage}`,
         },
       },
       datePublished: publishedDate,
