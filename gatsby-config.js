@@ -34,7 +34,7 @@ const siteMetadata = {
   themeColour: `#755f9f`,
   siteLanguage: `en-GB`,
   siteLocale: `en_gb`,
-  lastBuildDate: new Date(Date.now()).toLocaleDateString(),
+  lastBuildDate: new Date(Date.now()).toISOString(),
 };
 
 module.exports = {
