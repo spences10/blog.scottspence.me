@@ -75,7 +75,6 @@ export default ({ data, pageContext }) => {
         description={excerpt || 'nothin’'}
         image={cover || defaultImage}
         pathname={frontmatter.path}
-        keywords={frontmatter.tags}
         article
       />
       {/* <Dump props={cover} /> */}

@@ -12,7 +12,6 @@ const siteMetadata = {
   nameContent: `Scott Spence - blog`,
   developerName: `Scott Spence`,
   developerUrl: `https://scottspence.me`,
-  keywordsContent: `blog, web developer, javascript, react, learning, information, how to`,
   imageLink: `https://blog.scottspence.me/icons/icon-512x512.png`,
   faviconPng: `./static/favicon.png`,
   contact: [
@@ -34,6 +33,8 @@ const siteMetadata = {
   // this is for favicon and manifest
   themeColour: `#755f9f`,
   siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
+  lastBuildDate: Date.now(),
 };
 
 module.exports = {
