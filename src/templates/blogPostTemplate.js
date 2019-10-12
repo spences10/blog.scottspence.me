@@ -76,7 +76,7 @@ export default ({ data, pageContext }) => {
         image={cover || defaultImage}
         pathname={frontmatter.path}
         article={true}
-        publishedDate={date}
+        publishedDate={frontmatter.date}
       />
       {/* <Dump props={cover} /> */}
       <PostWrapper>
