@@ -12,20 +12,19 @@ const siteMetadata = {
   nameContent: `Scott Spence - blog`,
   developerName: `Scott Spence`,
   developerUrl: `https://scottspence.me`,
-  keywordsContent: `blog, web developer, javascript, react, learning, information, how to`,
   imageLink: `https://blog.scottspence.me/icons/icon-512x512.png`,
-  faviconPng: `./src/images/favicon.png`,
+  faviconPng: `./static/favicon.png`,
   contact: [
-    { name: `GitHub`, link: `https://github.com/spences10` },
+    { name: `GitHub`, link: `https://ss10.dev/git` },
     {
       name: `YouTube`,
-      link: `https://www.youtube.com/channel/UCnngLXpLSFsKkDhFoO9Ct3w?view_as=subscriber`,
+      link: `https://ss10.dev/yt`,
     },
-    { name: `Dev.to`, link: `https://dev.to/spences10` },
-    { name: `Twitter`, link: `https://twitter.com/spences10` },
+    { name: `Dev.to`, link: `https://ss10.dev/to` },
+    { name: `Twitter`, link: `https://ss10.dev/twitter` },
     {
       name: `LinkedIn`,
-      link: `https://www.linkedin.com/in/spences10`,
+      link: `https://ss10.dev/li`,
     },
     { name: `Email`, link: `mailto:spences10apps@gmail.com` },
   ],
@@ -34,6 +33,8 @@ const siteMetadata = {
   // this is for favicon and manifest
   themeColour: `#755f9f`,
   siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
+  lastBuildDate: new Date(Date.now()).toISOString(),
 };
 
 module.exports = {
@@ -92,38 +93,6 @@ module.exports = {
       options: {
         path: `${__dirname}/posts`,
         name: `posts`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: siteMetadata.faviconPng,
-        // WebApp Manifest Configuration
-        appName: siteMetadata.siteTitle,
-        appDescription: siteMetadata.description,
-        developerName: siteMetadata.developerName,
-        developerURL: siteMetadata.developerUrl,
-        dir: `auto`,
-        lang: siteMetadata.siteLanguage,
-        background: siteMetadata.backgroundColour,
-        theme_color: siteMetadata.themeColour,
-        display: `standalone`,
-        orientation: `any`,
-        start_url: `/?homescreen=1`,
-        version: `1.0`,
-
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false,
-        },
       },
     },
     `gatsby-plugin-robots-txt`,
