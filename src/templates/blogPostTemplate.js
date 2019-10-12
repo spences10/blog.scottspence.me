@@ -7,7 +7,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
 import { useSiteMetadata } from '../hooks/siteMetadata';
-// import { Dump } from '../utils/helpers';
+import { Dump } from '../utils/helpers';
 
 const repo = 'spences10/blog.scottspence.me';
 
@@ -64,7 +64,7 @@ const PrevNextButton = styled(HappyButton)`
 `;
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, excerpt, body, date } = data.mdx;
+  const { frontmatter, excerpt, body } = data.mdx;
   const { cover } = frontmatter;
   const { prev, next } = pageContext;
   const { imageLink: defaultImage } = useSiteMetadata();
@@ -78,7 +78,7 @@ export default ({ data, pageContext }) => {
         article={true}
         publishedDate={frontmatter.date}
       />
-      {/* <Dump props={cover} /> */}
+      <Dump cover={cover} defaultImg={defaultImage} />
       <PostWrapper>
         <Title>{frontmatter.title}</Title>
         <TitleDate>{frontmatter.date}</TitleDate>
