@@ -14,7 +14,7 @@ const siteMetadata = {
   developerUrl: `https://scottspence.me`,
   keywordsContent: `blog, web developer, javascript, react, learning, information, how to`,
   imageLink: `https://blog.scottspence.me/icons/icon-512x512.png`,
-  faviconPng: `./src/images/favicon.png`,
+  faviconPng: `./static/favicon.png`,
   contact: [
     { name: `GitHub`, link: `https://github.com/spences10` },
     {
@@ -92,38 +92,6 @@ module.exports = {
       options: {
         path: `${__dirname}/posts`,
         name: `posts`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: siteMetadata.faviconPng,
-        // WebApp Manifest Configuration
-        appName: siteMetadata.siteTitle,
-        appDescription: siteMetadata.description,
-        developerName: siteMetadata.developerName,
-        developerURL: siteMetadata.developerUrl,
-        dir: `auto`,
-        lang: siteMetadata.siteLanguage,
-        background: siteMetadata.backgroundColour,
-        theme_color: siteMetadata.themeColour,
-        display: `standalone`,
-        orientation: `any`,
-        start_url: `/?homescreen=1`,
-        version: `1.0`,
-
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false,
-        },
       },
     },
     `gatsby-plugin-robots-txt`,
