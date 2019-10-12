@@ -9,23 +9,40 @@ cover: ./cover.jpg
 coverCredit: Photo by SpaceX on Unsplash
 ---
 
-I have been using Gatsby since [v0 May 2017], at that time it was a
-template I cloned and used happily it was called Lumen and was just
-what I needed at the time.
+I have been a Gatsby user since around [v0 May 2017], at that time I
+was using a template that I cloned and used happily for this blog. It
+was called Lumen and was just what I needed at the time.
 
 Over the years I have made my own [Progressive Disclosure of
 Complexity] with Gatsby to where I am now.
 
+## What does that mean?
+
+It means that although there are an awesome amount of Gatsby starters
+and themes out there to get you up and running in minutes, this post
+is going to focus on what you need to do to build your own blog.
+Starting with the most basic "Hello World!" to adding deploying your
+code to production.
+
 ## What we're going to build
 
-We're going to build a developer blog with MDX support for some react
-components in Markdown goodness.
+We're going to build a developer blog with MDX support for some React
+components in Markdown goodness, so we will be able to add React
+components into our Markdown posts.
 
-## Also:
+There'll be:
 
+- Code blocks with syntax highlighting
+- Copy code snippet to clipboard
 - Basic styling with styled-components
-- cover images for the posts
-- auto link headers
+- Adding a Layout
+- Creating an SEO component
+- Deploying it to Netlify
+
+## Also, plugins:
+
+- Cover images for the posts
+- Auto link headers
 - SEO component
 - RSS Feed
 - Offline Support
@@ -34,6 +51,8 @@ components in Markdown goodness.
 
 People that may have used Gatsby before as a template and now want to
 get more involved in how to make changes.
+
+If you want to have code syntax highlighting.
 
 If you want to use styled-components in an app.
 
@@ -160,6 +179,8 @@ yarn dev
 > content on here uses yarn, so swap out commands where needed
 
 And with that the "Hello World" incantation is complete 🧙!
+
+`video: https://www.youtube.com/watch?v=2vP3ZTDbN1g&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=2`
 
 ## Add content
 
@@ -298,8 +319,6 @@ module.exports = {
 };
 ```
 
-## TODO add 404 page
-
 ## Query data from GraphQL
 
 Ok now we can see what the [gatsby-source-filesystem] and
@@ -318,6 +337,8 @@ GraphQL GraphiQL explorer and check out the data:
   }
 }
 ```
+
+`video: https://www.youtube.com/watch?v=MPNJu24ad_s&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=3`
 
 ## Site Metadata
 
@@ -404,6 +425,8 @@ export default () => {
 };
 ```
 
+`video: https://www.youtube.com/watch?v=TfycpV4yyqY&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=4`
+
 ## Styling
 
 We're going to use styled-components for styling, styled-components
@@ -483,6 +506,8 @@ export default () => {
 
 That is styled-components on a very basic level, basically create the
 styling you want for your page elements you're creating in the JSX.
+
+`video: https://www.youtube.com/watch?v=41aNkb2tLyg&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=5`
 
 ## Layout
 
@@ -584,6 +609,8 @@ export default () => {
 };
 ```
 
+`video: https://www.youtube.com/watch?v=Ase7bjxtQ3w&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=6`
+
 ## Index page posts query
 
 Ok, now we can take a look at getting some of the posts we've created
@@ -680,6 +707,8 @@ Ok, we're looping through the data passed into the component via the
 GraphQL query. Gatsby `graphql` runs the query (`SITE_INDEX_QUERY`) at
 runtime and gives us the results as props to our component via the
 `data` prop.
+
+`video: https://www.youtube.com/watch?v=2GDbxZ0mHbM&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=7`
 
 ## Slugs and Paths
 
@@ -800,6 +829,8 @@ export const query = graphql`
   }
 `;
 ```
+
+`video: https://www.youtube.com/watch?v=7eZZk7aJnUU&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=8`
 
 ## Link Paths
 
@@ -984,6 +1015,10 @@ posts.forEach(post => {
 });
 ```
 
+`video: https://www.youtube.com/watch?v=OyQfIvXr4YA&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=9`
+
+## Build out Blog Post Template
+
 Now we're going to take the context information passed to the
 `blogPostTemplate.js` to make the blog post page.
 
@@ -1075,6 +1110,8 @@ your dev server.
 
 Now we can click on one of the post links and see our blog post
 template in all it's basic glory!
+
+`video: https://www.youtube.com/watch?v=S7cnkRoCjsc&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=10`
 
 ## Previous and Next
 
@@ -1274,6 +1311,8 @@ export const query = graphql`
 `;
 ```
 
+`video: https://www.youtube.com/watch?v=AjLimYEwDOk&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=11`
+
 ## Code Blocks
 
 Now to add some syntax highlighting for adding code blocks to our blog
@@ -1304,7 +1343,7 @@ override there and import it into both `gatsby-browser.js` and
 
 Before we go any further I want to add that there is a top quality
 [egghead.io playlist] resource for using MDX with Gatsby by Chris
-[Chris Biscardi] there's a tone of useful information in there on MDX
+[Chris Biscardi] there's a ton of useful information in there on MDX
 in Gatsby.
 
 Ok, first up we're going to import the `root-wrapper.js` file into
@@ -1344,6 +1383,8 @@ export const wrapRootElement = ({ element }) => (
 
 We're now overriding any `h2` in our rendered markdown along with any
 `code` blocks (that's words wrapped in `` `backticks` ``).
+
+`video: https://www.youtube.com/watch?v=kN8ld7iLQso&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=12`
 
 Ok, now for the syntax highlighting, let's create a post with a block
 of code in it:
@@ -1598,6 +1639,8 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
+`video: https://www.youtube.com/watch?v=k6gI3jVxjKg&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=13`
+
 Ok, now time to abstract this out into it's own component so our
 `root-wrapper.js` isn't so crowded.
 
@@ -1738,6 +1781,8 @@ pre: ({ children: { props } }) => {
 };
 ```
 
+`video: https://www.youtube.com/watch?v=m0tWxa9Ip5E&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=14`
+
 Ok, now we're back to where we were before abstracting out the
 `Highlight` component to it's own module. Let's add some additional
 styles with `styled-components` and replace the `pre` with a styled
@@ -1802,6 +1847,8 @@ const Code = ({ codeString, language, ...props }) => {
 
 export default Code;
 ```
+
+`video: https://www.youtube.com/watch?v=PPH153kWpqc&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=15`
 
 ### Copy code to clipboard
 
@@ -1954,24 +2001,264 @@ const Code = ({ codeString, language }) => {
 export default Code;
 ```
 
-- Now react-live
-- Create elements folder
+`video: https://www.youtube.com/watch?v=j-EINXVe2WA&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=16`
 
-```bash
-mkdir -p src/components/elements
-touch src/components/elements/Code.js
+## React live
+
+So with React Live we need to add two snippets to our `Code.js`
+component.
+
+We're going to import the components:
+
+```jsx
+import {
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider,
+} from 'react-live';
 ```
 
-- Customizing Components:
-  [https://www.gatsbyjs.org/docs/mdx/customizing-components/](https://www.gatsbyjs.org/docs/mdx/customizing-components/)
+Then we're going to check if `react-live` has been added to the
+language tag on our mdx file via the props:
+
+```jsx
+if (props['react-live']) {
+  return (
+    <LiveProvider code={codeString} noInline={true} theme={theme}>
+      <LiveEditor />
+      <LiveError />
+      <LivePreview />
+    </LiveProvider>
+  );
+}
+```
+
+Here's the full component:
+
+```jsx
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwl';
+import React from 'react';
+import {
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider,
+} from 'react-live';
+import styled from 'styled-components';
+import { copyToClipboard } from '../../utils/copy-to-clipboard';
+
+const Pre = styled.pre`
+  position: relative;
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow-x: auto;
+  border-radius: 3px;
+
+  & .token-lline {
+    line-height: 1.3em;
+    height: 1.3em;
+  }
+  font-family: 'Courier New', Courier, monospace;
+`;
+
+const LineNo = styled.span`
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.3;
+`;
+
+const CopyCode = styled.button`
+  position: absolute;
+  right: 0.25rem;
+  border: 0;
+  border-radius: 3px;
+  margin: 0.25em;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const Code = ({ codeString, language, ...props }) => {
+  if (props['react-live']) {
+    return (
+      <LiveProvider code={codeString} noInline={true} theme={theme}>
+        <LiveEditor />
+        <LiveError />
+        <LivePreview />
+      </LiveProvider>
+    );
+  }
+
+  const handleClick = () => {
+    copyToClipboard(codeString);
+  };
+
+  return (
+    <Highlight
+      {...defaultProps}
+      code={codeString}
+      language={language}
+      theme={theme}>
+      {({
+        className,
+        style,
+        tokens,
+        getLineProps,
+        getTokenProps,
+      }) => (
+        <Pre className={className} style={style}>
+          <CopyCode onClick={handleClick}>Copy</CopyCode>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
+  );
+};
+```
+
+To test this, let's add `react-live` next to the language on our
+`Dump` component, so we have added to the blog post we made:
+
+````text
+```jsx react-live
+````
+
+Now we can edit the code directly, try changing a few things like
+this:
+
+```jsx
+const Dump = props => (
+  <div
+    style={{
+      fontSize: 20,
+      border: '1px solid #efefef',
+      padding: 10,
+      background: 'white',
+    }}>
+    {Object.entries(props).map(([key, val]) => (
+      <pre key={key}>
+        <strong style={{ color: 'white', background: 'red' }}>
+          {key} 💩
+        </strong>
+        {JSON.stringify(val, '', ' ')}
+      </pre>
+    ))}
+  </div>
+);
+
+render(<Dump props={['One', 'Two', 'Three', 'Four']} />);
+```
+
+`video: https://www.youtube.com/watch?v=AlOdd-TvqHE&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=17`
 
 ## Cover Image
 
-## i11n
+install:
 
-- [https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n)
+```bash
+yarn add gatsby-transformer-sharp gatsby-plugin-sharp gatsby-remark-images gatsby-image
+```
+
+config:
+
+```js
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: `${__dirname}/posts`, name: `posts` },
+    },
+  ],
+};
+```
+
+add image to index, query:
+
+```graphql
+cover {
+  publicURL
+  childImageSharp {
+    sizes(
+      maxWidth: 2000
+      traceSVG: { color: "#639" }
+    ) {
+      ...GatsbyImageSharpSizes_tracedSVG
+    }
+  }
+}
+```
+
+Fix up the date:
+
+```graphql
+date(formatString: "YYYY MMMM Do")
+```
+
+This will show the date as full year, full month and the day as a
+'st', 'nd', 'rd' and 'th'. So if today's date were 1970/01/01 it would
+read 1970 January 1st.
+
+Add `gatsby-image` use that in a styled component:
+
+```js
+const Image = styled(Img)`
+  border-radius: 5px;
+`;
+```
+
+Add some JavaScript to determine if there's anything to render:
+
+```js
+{
+  !!frontmatter.cover ? (
+    <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+  ) : null;
+}
+```
+
+`video: https://www.youtube.com/watch?v=9S5GNtql02w&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=18`
 
 ## SEO
+
+## Deploy to Netlify
 
 - this helped me for my own blog:
   [https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/](https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/)
