@@ -64,7 +64,7 @@ const PrevNextButton = styled(HappyButton)`
 `;
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, excerpt, body } = data.mdx;
+  const { frontmatter, excerpt, body, date } = data.mdx;
   const { cover } = frontmatter;
   const { prev, next } = pageContext;
   const { imageLink: defaultImage } = useSiteMetadata();
@@ -75,8 +75,8 @@ export default ({ data, pageContext }) => {
         description={excerpt || 'nothin’'}
         image={cover || defaultImage}
         pathname={frontmatter.path}
-        keywords={frontmatter.tags}
-        article
+        article={true}
+        publishedDate={date}
       />
       {/* <Dump props={cover} /> */}
       <PostWrapper>
