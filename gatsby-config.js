@@ -15,16 +15,16 @@ const siteMetadata = {
   imageLink: `https://blog.scottspence.me/icons/icon-512x512.png`,
   faviconPng: `./static/favicon.png`,
   contact: [
-    { name: `GitHub`, link: `https://github.com/spences10` },
+    { name: `GitHub`, link: `https://ss10.dev/git` },
     {
       name: `YouTube`,
-      link: `https://www.youtube.com/channel/UCnngLXpLSFsKkDhFoO9Ct3w?view_as=subscriber`,
+      link: `https://ss10.dev/yt`,
     },
-    { name: `Dev.to`, link: `https://dev.to/spences10` },
-    { name: `Twitter`, link: `https://twitter.com/spences10` },
+    { name: `Dev.to`, link: `https://ss10.dev/to` },
+    { name: `Twitter`, link: `https://ss10.dev/twitter` },
     {
       name: `LinkedIn`,
-      link: `https://www.linkedin.com/in/spences10`,
+      link: `https://ss10.dev/li`,
     },
     { name: `Email`, link: `mailto:spences10apps@gmail.com` },
   ],
