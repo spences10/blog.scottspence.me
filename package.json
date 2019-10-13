@@ -1,6 +1,6 @@
 {
   "name": "blog.scottspence.me",
-  "version": "4.0.338",
+  "version": "4.0.339",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
@@ -58,7 +58,7 @@
   "devDependencies": {
     "husky": "3.0.9",
     "prettier": "1.18.2",
-    "pretty-quick": "1.11.1"
+    "pretty-quick": "2.0.0"
   },
   "keywords": [
     "gatsby",
