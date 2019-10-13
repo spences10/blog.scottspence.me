@@ -18,6 +18,8 @@ export const useSiteMetadata = () => {
               link
             }
             siteLanguage
+            lastBuildDate
+            siteLocale
           }
         }
       }

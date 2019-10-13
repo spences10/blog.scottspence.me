@@ -75,10 +75,10 @@ export default ({ data, pageContext }) => {
         description={excerpt || 'nothin’'}
         image={cover || defaultImage}
         pathname={frontmatter.path}
-        keywords={frontmatter.tags}
-        article
+        article={true}
+        publishedDate={frontmatter.date}
       />
-      {/* <Dump props={cover} /> */}
+      {/* <Dump cover={cover} defaultImg={defaultImage} /> */}
       <PostWrapper>
         <Title>{frontmatter.title}</Title>
         <TitleDate>{frontmatter.date}</TitleDate>

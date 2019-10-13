@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/siteMetadata';
 
 const Wrapper = styled.div``;
@@ -52,14 +52,6 @@ export default ({ data }) => {
         title={title}
         description={description || 'nothin’'}
         image={imageLink}
-        keywords={[
-          `blog`,
-          `gatsby`,
-          `javascript`,
-          `react`,
-          `graphql`,
-          `learning`,
-        ]}
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
