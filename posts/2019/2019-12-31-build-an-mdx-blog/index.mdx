@@ -2165,11 +2165,19 @@ render(<Dump props={['One', 'Two', 'Three', 'Four']} />);
 
 ## Cover Image
 
+Now to add a cover image to go with each post, you'll need to install
+a couple of packages to manage images in Gatsby.
+
 install:
 
 ```bash
 yarn add gatsby-transformer-sharp gatsby-plugin-sharp gatsby-remark-images gatsby-image
 ```
+
+Now you should config `gatsby-config.js` to include the newly added
+packages. Remember to add `gatsby-remark-images` to
+`gatsby-plugin-mdx` as both a `gatsbyRemarkPlugins` option and as a
+`plugins` option.
 
 config:
 
@@ -2210,7 +2218,7 @@ module.exports = {
 };
 ```
 
-add image to index, query:
+Add image to index query in `src/pages.index.js`:
 
 ```graphql
 cover {
@@ -2226,7 +2234,7 @@ cover {
 }
 ```
 
-Fix up the date:
+Fix up the date in the query too:
 
 ```graphql
 date(formatString: "YYYY MMMM Do")
@@ -2252,6 +2260,79 @@ Add some JavaScript to determine if there's anything to render:
     <Image sizes={frontmatter.cover.childImageSharp.sizes} />
   ) : null;
 }
+```
+
+Here's what the full module should look like now:
+
+```js
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
+import styled from 'styled-components';
+import { Layout } from '../components/Layout';
+
+const IndexWrapper = styled.main``;
+
+const PostWrapper = styled.div``;
+
+const Image = styled(Img)`
+  border-radius: 5px;
+`;
+
+export default ({ data }) => {
+  return (
+    <Layout>
+      <IndexWrapper>
+        {/* <Dump data={data}></Dump> */}
+        {data.allMdx.nodes.map(
+          ({ id, excerpt, frontmatter, fields }) => (
+            <PostWrapper key={id}>
+              <Link to={fields.slug}>
+                {!!frontmatter.cover ? (
+                  <Image
+                    sizes={frontmatter.cover.childImageSharp.sizes}
+                  />
+                ) : null}
+                <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.date}</p>
+                <p>{excerpt}</p>
+              </Link>
+            </PostWrapper>
+          )
+        )}
+      </IndexWrapper>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date(formatString: "YYYY MMMM Do")
+          cover {
+            publicURL
+            childImageSharp {
+              sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
+                ...GatsbyImageSharpSizes_tracedSVG
+              }
+            }
+          }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+`;
 ```
 
 `video: https://www.youtube.com/watch?v=9S5GNtql02w&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=18`
