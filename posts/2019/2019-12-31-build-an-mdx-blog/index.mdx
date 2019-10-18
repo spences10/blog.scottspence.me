@@ -2346,7 +2346,7 @@ Additional resources:
 - and the Gatsby docs:
   [https://www.gatsbyjs.org/docs/working-with-images/](https://www.gatsbyjs.org/docs/working-with-images/)
 
-## Creating an SEO component
+## Creating an SEO component with React Helmet
 
 There's a Gatsby [github PR on seo] with some [great notes from Andrew
 Welch] on SEO and a link to a presentation he did back in 2017.
@@ -2358,6 +2358,17 @@ Welch] on SEO and a link to a presentation he did back in 2017.
 In the following comments Gatsby's [LekoArts] details [his own
 implementation] which is what you're going to be emulating in the
 approach for this how-to.
+
+First up you need to install and configure React Helmet for use in
+Gatsby, install:
+
+```bash
+yarn add react-helmet gatsby-plugin-react-helmet
+```
+
+Then drop the `gatsby-plugin-react-helmet` into your
+`gatsby-config.js` then you can start looking at adding in the
+requisite components.
 
 OpenGraph checking tools:
 
