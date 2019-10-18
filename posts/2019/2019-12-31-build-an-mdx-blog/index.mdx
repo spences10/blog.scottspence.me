@@ -2454,6 +2454,18 @@ touch src/components/seo/facebook.js
 touch src/components/seo/twitter.js
 ```
 
+Add the components to the index file:
+
+```js
+import { Facebook } from './facebook';
+import { SEO } from './seo';
+import { Twitter } from './twitter';
+
+export { Facebook, Twitter };
+
+export default SEO;
+```
+
 ## Deploy to Netlify
 
 OpenGraph checking tools:
