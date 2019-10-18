@@ -2417,6 +2417,9 @@ module.exports = {
     ...
 ```
 
+Now time to add in the additional information you're going to need to
+pass to the SEO component.
+
 ```js
 siteUrl;
 title;
@@ -2433,6 +2436,26 @@ siteLocale;
 lastBuildDate;
 ```
 
+Now you'll need to update the `useSiteMetadata` hook to incorporate
+the new information you have created so that is can be accessed in the
+SEO component.
+
+```js
+useSiteMetadata;
+```
+
+Create a folder and add the files needed:
+
+```bash
+mkdir src/components/seo
+touch src/components/seo/index.js
+touch src/components/seo/seo.js
+touch src/components/seo/facebook.js
+touch src/components/seo/twitter.js
+```
+
+## Deploy to Netlify
+
 OpenGraph checking tools:
 
 - [https://www.heymeta.com/](https://www.heymeta.com/)
@@ -2441,20 +2464,9 @@ OpenGraph checking tools:
 - [https://developers.facebook.com/tools/debug/sharing](https://developers.facebook.com/tools/debug/sharing)
 - [https://www.linkedin.com/post-inspector/](https://www.linkedin.com/post-inspector/)
 
-## Deploy to Netlify
-
 ## Commenting
 
 - [https://github.com/utterance/utterances](https://github.com/utterance/utterances)
-
-## Links
-
-[https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/)
-[site metadata]:
-https://www.gatsbyjs.org/docs/gatsby-config/#sitemetadata [react
-helmet]: https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/
-[mdx layouts]:
-https://gatsby-mdx.netlify.com/api-reference/options/default-layouts/
 
 <!-- Links -->
 
