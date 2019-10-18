@@ -2395,6 +2395,28 @@ There will be quite a lot of configuration here so if you want to
 separate the `siteMetadata` from the rest of the Gatsby config now is
 a good time.
 
+At the top of the `gatsby-config.js` module create a `siteMetadata`
+object and move the `title` and `description` to it then reference the
+object in the config object:
+
+```js
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+}
+
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+    ...
+```
+
 ```js
 siteUrl;
 title;
