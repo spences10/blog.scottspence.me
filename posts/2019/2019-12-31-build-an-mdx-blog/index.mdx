@@ -39,12 +39,14 @@ React components into your Markdown posts.
 - Copy code snippet to clipboard
 - Creating an SEO component
 - Deploying it to Netlify
+- SEO component
 
 **Also, plugins:**
 
 - Cover images for the posts
 - Auto link headers
-- SEO component
+- Robots.txt
+- Sitemap.xml
 - RSS Feed
 - Offline Support
 
@@ -2369,6 +2371,45 @@ yarn add react-helmet gatsby-plugin-react-helmet
 Then drop the `gatsby-plugin-react-helmet` into your
 `gatsby-config.js` then you can start looking at adding in the
 requisite components.
+
+```js
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    ...
+```
+
+The components you're going to be creating will be for Facebook and
+Twitter which will be wrapped in the main SEO component that will also
+generate the JSON-LD and canonical link which are both important for
+the Google Search Engine Results Page (SERP).
+
+Before you start creating the SEO components however you're going to
+nee to add some additional information to the `siteMetadata` that will
+be used by the SEO component, currently there's only a title and
+description.
+
+There will be quite a lot of configuration here so if you want to
+separate the `siteMetadata` from the rest of the Gatsby config now is
+a good time.
+
+```js
+siteUrl;
+title;
+siteTitle;
+description;
+titleTemplate;
+twitterUsername;
+facebookAppID;
+developerName;
+imageLink;
+faviconPng;
+siteLanguage;
+siteLocale;
+lastBuildDate;
+```
 
 OpenGraph checking tools:
 
