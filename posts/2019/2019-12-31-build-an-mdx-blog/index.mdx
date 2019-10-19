@@ -2417,6 +2417,73 @@ module.exports = {
     ...
 ```
 
+Create a folder and add the files needed:
+
+```bash
+mkdir src/components/seo
+touch src/components/seo/index.js
+touch src/components/seo/seo.js
+touch src/components/seo/facebook.js
+touch src/components/seo/twitter.js
+```
+
+Add the components to the `src/components/index.js` file:
+
+```js
+import { Facebook } from './facebook';
+import { SEO } from './seo';
+import { Twitter } from './twitter';
+
+export { Facebook, Twitter };
+
+export default SEO;
+```
+
+Code up the SEO component, this is for the title and description:
+
+```js
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useSiteMetadata } from '../../hooks/siteMetadata';
+
+export const SEO = ({ title, description, image, pathname }) => {
+  const {
+    description: defaultDescription,
+    title: defaultTitle,
+  } = useSiteMetadata();
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+  };
+
+  return (
+    <>
+      <Helmet title={seo.title} titleTemplate={titleTemplate}>
+        <meta name="description" content={seo.description} />
+      </Helmet>
+    </>
+  );
+};
+
+SEO.defaultProps = {
+  siteLanguage: `en`,
+  keywords: [],
+};
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+```
+
+Home page SEO
+
+```jsx
+<SEO title={title} description={description || 'nothin’'} />
+```
+
 Now time to add in the additional information you're going to need to
 pass to the SEO component.
 
@@ -2442,28 +2509,6 @@ SEO component.
 
 ```js
 useSiteMetadata;
-```
-
-Create a folder and add the files needed:
-
-```bash
-mkdir src/components/seo
-touch src/components/seo/index.js
-touch src/components/seo/seo.js
-touch src/components/seo/facebook.js
-touch src/components/seo/twitter.js
-```
-
-Add the components to the index file:
-
-```js
-import { Facebook } from './facebook';
-import { SEO } from './seo';
-import { Twitter } from './twitter';
-
-export { Facebook, Twitter };
-
-export default SEO;
 ```
 
 ## Deploy to Netlify
