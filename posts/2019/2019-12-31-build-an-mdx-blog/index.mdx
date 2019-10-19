@@ -2472,7 +2472,7 @@ you're going to test that it works next.
 
 ```jsx
 export default ({ data }) => {
-  const { title, description } = useSiteMetadata
+  const { title, description } = useSiteMetadata()
   return (
     <Layout>
       <SEO title={title} description={description || 'nothin’'} />
@@ -2481,13 +2481,50 @@ export default ({ data }) => {
         ...
 ```
 
-The meta information will be added to the page at build time, so, it's
-now time to add a build script to the project and build it!
+That's done for the homepage time to do the same for the individual
+blog post pages, that can be done by adding the SEO component to the
+blog post template (`src/templates/blogPostTemplate.js`).
+
+```jsx
+export default ({ data, pageContext }) => {
+  const { frontmatter, body } = data.mdx
+  const { previous, next } = pageContext
+  return (
+    <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={excerpt || `nothin’`}
+      />
+      <h1>{frontmatter.title}</h1>
+      ...
+```
+
+The meta information will be added to the pages at build time, so,
+it's now time to add a build script to the project and build it!
 
 In the `package.json` file `scripts` section add a new script for
-`build`:
+`build`, and one to serve the built site locally:
 
-````
+```json
+"scripts": {
+  "dev": "gatsby develop -p 9988 -o",
+  "build": "gatsby build",
+  "serve": "gatsby serve -p 9500 -o"
+},
+```
+
+It's time to build the site, you can build the site first with the
+`build` script then use the `serve` script or you can do them both
+together:
+
+```bash
+yarn build && yarn serve
+```
+
+To validate the meta tags have been inserted, on the browser tab for
+the built site right mouse click and select view page source. Or
+Ctrl+u if you are a Windows or Linux user. Check for the tags you
+inserted to validate the component is working.
 
 Now time to add in the additional information you're going to need to
 pass to the SEO component.
@@ -2506,7 +2543,7 @@ faviconPng;
 siteLanguage;
 siteLocale;
 lastBuildDate;
-````
+```
 
 Now you'll need to update the `useSiteMetadata` hook to incorporate
 the new information you have created so that is can be accessed in the
