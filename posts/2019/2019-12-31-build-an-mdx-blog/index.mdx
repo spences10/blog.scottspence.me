@@ -2445,23 +2445,12 @@ Code up the SEO component, this is for the title and description:
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useSiteMetadata } from '../../hooks/siteMetadata';
 
-export const SEO = ({ title, description, image, pathname }) => {
-  const {
-    description: defaultDescription,
-    title: defaultTitle,
-  } = useSiteMetadata();
-
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-  };
-
+export const SEO = ({ title, description }) => {
   return (
     <>
-      <Helmet title={seo.title} titleTemplate={titleTemplate}>
-        <meta name="description" content={seo.description} />
+      <Helmet title={title}>
+        <meta name="description" content={description} />
       </Helmet>
     </>
   );
@@ -2478,11 +2467,27 @@ SEO.propTypes = {
 };
 ```
 
-Home page SEO
+Now add the SEO component to the homepage (`src/pages/index.js`)
+you're going to test that it works next.
 
 ```jsx
-<SEO title={title} description={description || 'nothin’'} />
+export default ({ data }) => {
+  const { title, description } = useSiteMetadata
+  return (
+    <Layout>
+      <SEO title={title} description={description || 'nothin’'} />
+      <IndexWrapper>
+        {data.allMdx.nodes.map(
+        ...
 ```
+
+The meta information will be added to the page at build time, so, it's
+now time to add a build script to the project and build it!
+
+In the `package.json` file `scripts` section add a new script for
+`build`:
+
+````
 
 Now time to add in the additional information you're going to need to
 pass to the SEO component.
@@ -2501,7 +2506,7 @@ faviconPng;
 siteLanguage;
 siteLocale;
 lastBuildDate;
-```
+````
 
 Now you'll need to update the `useSiteMetadata` hook to incorporate
 the new information you have created so that is can be accessed in the
