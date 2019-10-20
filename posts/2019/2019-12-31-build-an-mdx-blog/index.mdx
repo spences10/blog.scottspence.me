@@ -2462,11 +2462,6 @@ export const SEO = ({ title, description }) => {
   );
 };
 
-SEO.defaultProps = {
-  siteLanguage: `en`,
-  keywords: [],
-};
-
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -2572,13 +2567,6 @@ the built site right mouse click and select view page source. Or
 Ctrl+u if you are a Windows or Linux user. Check for the tags you
 inserted to validate the component is working.
 
-```html
-<link
-  rel="canonical"
-  href="https://blog.scottspence.me/twitter-bot-bootstrap"
-/>
-```
-
 Now time to add in the additional information you're going to need to
 pass to the SEO component.
 
@@ -2610,12 +2598,103 @@ Right now the validity of the URL isn't important as changes your
 making are being validated locally. You will need to add the URL of
 the site once it's deployed.
 
+It should look something like this now:
+
 ```js
 const siteMetadata = {
   title: `The Localhost Blog`,
   description: `This is my coding blog where I write about my coding journey.`,
   siteUrl: `https://thelocalhost.blog`,
 };
+```
+
+Add `siteUrl` to the `useSiteMetadata` hook and then add that to the
+SEO component. As it's a fixed value the URL doesn't need to change
+for the index page but it will for the individual blog posts, you can
+get the full path of the URL from the `fields.slug` you added earlier.
+
+```jsx
+export const SEO = ({ title, description }) => {
+  const { siteUrl } = useSiteMetadata();
+  return (
+    <>
+      <Helmet title={title}>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={siteUrl} />
+      </Helmet>
+    </>
+  );
+};
+```
+
+Then pass the relevant props to the component from
+`src/pages/index.js` and `src/templates/blogPostTemplate.js`.
+
+Now is a good time to create an `seo` object to assign default values
+to. Create this because you're either passing the variables via props
+or getting them via the `useSiteMetadata` hook.
+
+Destructure the `title`, `description` and `siteUrl` from the
+`useSiteMetadata` hook and give them aliases, so the `title` will be
+`title: defaultTitle`, same for `description` as
+`description: defaultDescription`, `siteUrl` is ok as is. Now is also
+a good time to add `siteLanguage` and `siteLocale`, remember they need
+to be added to the `siteMetadata` object as well as the
+`useSiteMetadata` hook.
+
+```js
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useSiteMetadata } from '../../hooks/useSiteMetadata';
+
+export const SEO = ({ title, description, pathname }) => {
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata();
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    url: `${siteUrl}${pathname || '/'}`,
+  };
+
+  return (
+    <>
+      <Helmet title={seo.title}>
+        <html lang={siteLanguage} />
+        <link rel="canonical" href={seo.url} />
+        <meta name="description" content={seo.description} />
+      </Helmet>
+    </>
+  );
+};
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+```
+
+You'll need to pass the `fields.slug` to the SEO component `pathname`
+prop.
+
+```jsx
+export default ({ data, pageContext }) => {
+  const { frontmatter, body, fields, excerpt } = data.mdx
+  const { previous, next } = pageContext
+  return (
+    <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={excerpt || `nothin’`}
+        pathname={fields.slug}
+      />
+    ...
 ```
 
 ```js
