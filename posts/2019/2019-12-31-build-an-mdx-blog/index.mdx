@@ -1448,22 +1448,14 @@ You're going to copy the provided code for highlighting to validate it
 works.
 
 ```jsx
-import { MDXProvider } from '@mdx-js/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import React from 'react';
-
-const components = {
+onst components = {
   h2: ({ children }) => (
     <h2 style={{ color: 'rebeccapurple' }}>{children}</h2>
   ),
   'p.inlineCode': props => (
     <code style={{ backgroundColor: 'lightgray' }} {...props} />
   ),
-  pre: props => (
-    <Highlight
-      {...defaultProps}
-      code={`
-        (function someDemo() {
+  pre: propstion someDemo() {
           var test = "Hello World!";
           console.log(test);
         })();
@@ -1502,16 +1494,8 @@ the props of the child component of the pre component, you can do that
 with `props.children.props.children.trim()` 🙃.
 
 ```jsx
-import { MDXProvider } from '@mdx-js/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import React from 'react';
-
-const components = {
-  pre: props => (
-    <Highlight
-      {...defaultProps}
-      code={props.children.props.children.trim()}
-      language="jsx">
+onst components = {
+  pre: propse="jsx">
       {({
         className,
         style,
@@ -1542,11 +1526,7 @@ Then to match the language, for now you're going to add in a `matches`
 function to match the language class assigned to the code block.
 
 ```jsx
-import { MDXProvider } from '@mdx-js/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import React from 'react';
-
-const components = {
+onst components = {
   h2: ({ children }) => (
     <h2 style={{ color: 'rebeccapurple' }}>{children}</h2>
   ),
@@ -1557,11 +1537,7 @@ const components = {
     const className = props.children.props.className || '';
     const matches = className.match(/language-(?<lang>.*)/);
     return (
-      <Highlight
-        {...defaultProps}
-        code={props.children.props.children.trim()}
-        language={
-          matches && matches.groups && matches.groups.lang
+         matches && matches.groups && matches.groups.lang
             ? matches.groups.lang
             : ''
         }>
@@ -1600,22 +1576,13 @@ Import the `theme` then use it in the props of the `Highlight`
 component.
 
 ```jsx
-import { MDXProvider } from '@mdx-js/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import React from 'react';
-
 const components = {
   pre: props => {
     const className = props.children.props.className || '';
     const matches = className.match(/language-(?<lang>.*)/);
 
     return (
-      <Highlight
-        {...defaultProps}
-        code={props.children.props.children.trim()}
-        language={
-          matches && matches.groups && matches.groups.lang
+         matches && matches.groups && matches.groups.lang
             ? matches.groups.lang
             : ''
         }
@@ -1710,70 +1677,34 @@ module you created earlier.
 `Highlight` requires several props:
 
 ```jsx
-<Highlight
-  {...defaultProps}
-  code={codeString}
-  language={language}
-  theme={theme}
+ theme={theme}
 >
 ```
 
 The `Code` module should look something like this now:
 
-```jsx
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import React from 'react';
+`const Code = ({ codeString, language }) => { return ( theme={theme}>
+{({ className, style, tokens, getLineProps, getTokenProps, }) => (
 
-const Code = ({ codeString, language }) => {
-  return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}>
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }) => (
-        <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
-  );
-};
+<pre className={className} style={style}> {tokens.map((line, i) => (
+<div {...getLineProps({ line, key: i })}> {line.map((token, key) => (
+<span {...getTokenProps({ token, key })} /> ))} </div> ))} </pre> )}
+
+</Highlight> ); };
 
 export default Code;
 ```
-
 Back to the `root-wrapper` where you're going to pass the `props`
 needed to the `Code` component.
-
 The first check you're going to do is if the `mdxType` is `code` then
 you can get the additional props you need to pass to your `Code`
 component.
-
-You're going to get `defaultProps` and the `theme` from
-`prism-react-renderer` so all that's needed is the `code` and
-`language`.
-
-The `codeString` you can get from the `props`, `children` by
+he `codeString` you can get from the `props`, `children` by
 destructuring from the `props` being passed into the `pre` element.
 The `language` can either be the tag assigned to the meta property of
 the backticks, like `js`, `jsx` or equally empty, so you check for
 that with some JavaScript and also remove the `language-` prefix, then
 pass in the elements `{...props}`:
-
 ```jsx
 pre: ({ children: { props } }) => {
   if (props.mdxType === 'code') {
@@ -1798,11 +1729,7 @@ with `styled-components` and replace the `pre` with a styled `Pre` and
 you can also add in some line numbers with a styled span and style
 that as well.
 
-```js
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import React from 'react';
-import styled from 'styled-components';
+`port styled from 'styled-components';
 
 export const Pre = styled.pre`
   text-align: left;
@@ -1810,7 +1737,6 @@ export const Pre = styled.pre`
   padding: 0.5em;
   overflow-x: auto;
   border-radius: 3px;
-
   & .token-line {
     line-height: 1.3em;
     height: 1.3em;
@@ -1825,45 +1751,21 @@ export const LineNo = styled.span`
   opacity: 0.3;
 `;
 
-const Code = ({ codeString, language, ...props }) => {
-  return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}>
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }) => (
-        <Pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </Pre>
-      )}
-    </Highlight>
-  );
-};
+const Code = ({ codeString, language, ...props }) => { return (
+theme={theme}> {({ className, style, tokens, getLineProps,
+getTokenProps, }) => ( <Pre className={className} style={style}>
+{tokens.map((line, i) => ( <div {...getLineProps({ line, key: i })}>
+
+<LineNo>{i + 1}</LineNo> {line.map((token, key) => ( <span
+{...getTokenProps({ token, key })} /> ))} </div> ))} </Pre> )}
+</Highlight> ); };
 
 export default Code;
 ```
-
 `video: https://www.youtube.com/watch?v=PPH153kWpqc&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=15`
-
 ### Copy code to clipboard
-
 What if you had some way of getting that props code string into the
 clipboard?
-
 I had a look around and found the majority of the components available
 for this sort of thing expected an input until [this] in the Gatsby
 source code. Which is creating the input for you 👌
@@ -1932,12 +1834,8 @@ const CopyCode = styled.button`
 And now you need to use the `copyToClipboard` function in the
 `onClick` of the button:
 
-```jsx
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import React from 'react';
-import styled from 'styled-components';
-import { copyToClipboard } from '../utils/copy-to-clipboard';
+`port styled from 'styled-components'; import { copyToClipboard } from
+'../utils/copy-to-clipboard';
 
 export const Pre = styled.pre`
   text-align: left;
@@ -1945,7 +1843,6 @@ export const Pre = styled.pre`
   padding: 0.5rem;
   overflow-x: auto;
   border-radius: 3px;
-
   & .token-line {
     line-height: 1.3rem;
     height: 1.3rem;
@@ -1961,62 +1858,26 @@ export const LineNo = styled.span`
   opacity: 0.3;
 `;
 
-const CopyCode = styled.button`
-  position: absolute;
-  right: 0.25rem;
-  border: 0;
-  border-radius: 3px;
-  margin: 0.25em;
-  opacity: 0.3;
-  &:hover {
-    opacity: 1;
-  }
-`;
+const CopyCode =
+styled.button`position: absolute; right: 0.25rem; border: 0; border-radius: 3px; margin: 0.25em; opacity: 0.3; &:hover { opacity: 1; }`;
 
-const Code = ({ codeString, language }) => {
-  const handleClick = () => {
-    copyToClipboard(codeString);
-  };
+const Code = ({ codeString, language }) => { const handleClick = () =>
+{ copyToClipboard(codeString); };
 
-  return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}>
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }) => (
-        <Pre className={className} style={style}>
-          <CopyCode onClick={handleClick}>Copy</CopyCode>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </Pre>
-      )}
-    </Highlight>
-  );
-};
+return ( theme={theme}> {({ className, style, tokens, getLineProps,
+getTokenProps, }) => ( <Pre className={className} style={style}>
+
+<CopyCode onClick={handleClick}>Copy</CopyCode> {tokens.map((line, i)
+=> ( <div {...getLineProps({ line, key: i })}> <LineNo>{i +
+1}</LineNo> {line.map((token, key) => ( <span {...getTokenProps({
+token, key })} /> ))} </div> ))} </Pre> )} </Highlight> ); };
 
 export default Code;
 ```
-
 `video: https://www.youtube.com/watch?v=j-EINXVe2WA&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=16`
-
 ## React live
-
 So with React Live you need to add two snippets to your `Code.js`
 component.
-
 You're going to import the components:
 
 ```jsx
@@ -2045,52 +1906,21 @@ if (props['react-live']) {
 
 Here's the full component:
 
-```jsx
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import React from 'react';
-import {
-  LiveEditor,
-  LiveError,
-  LivePreview,
-  LiveProvider,
-} from 'react-live';
-import styled from 'styled-components';
-import { copyToClipboard } from '../../utils/copy-to-clipboard';
+`port { LiveEditor, LiveError, LivePreview, LiveProvider, } from
+'react-live'; import styled from 'styled-components'; import {
+copyToClipboard } from '../../utils/copy-to-clipboard';
 
-const Pre = styled.pre`
-  position: relative;
-  text-align: left;
-  margin: 1em 0;
-  padding: 0.5em;
-  overflow-x: auto;
-  border-radius: 3px;
+const Pre = styled.pre` position: relative; text-align: left; margin:
+1em 0; padding: 0.5em; overflow-x: auto; border-radius: 3px;
 
-  & .token-lline {
-    line-height: 1.3em;
-    height: 1.3em;
-  }
-  font-family: 'Courier New', Courier, monospace;
-`;
+& .token-lline { line-height: 1.3em; height: 1.3em; } font-family:
+'Courier New', Courier, monospace; `;
 
-const LineNo = styled.span`
-  display: inline-block;
-  width: 2em;
-  user-select: none;
-  opacity: 0.3;
-`;
+const LineNo =
+styled.span`display: inline-block; width: 2em; user-select: none; opacity: 0.3;`;
 
-const CopyCode = styled.button`
-  position: absolute;
-  right: 0.25rem;
-  border: 0;
-  border-radius: 3px;
-  margin: 0.25em;
-  opacity: 0.3;
-  &:hover {
-    opacity: 1;
-  }
-`;
+const CopyCode =
+styled.button`position: absolute; right: 0.25rem; border: 0; border-radius: 3px; margin: 0.25em; opacity: 0.3; &:hover { opacity: 1; }`;
 
 export const Code = ({ codeString, language, ...props }) => {
   if (props['react-live']) {
@@ -2102,47 +1932,21 @@ export const Code = ({ codeString, language, ...props }) => {
       </LiveProvider>
     );
   }
-
-  const handleClick = () => {
-    copyToClipboard(codeString);
-  };
-
-  return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}>
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }) => (
-        <Pre className={className} style={style}>
-          <CopyCode onClick={handleClick}>Copy</CopyCode>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </Pre>
-      )}
-    </Highlight>
-  );
-};
-```
+const handleClick = () => { copyToClipboard(codeString); };
+return ( theme={theme}> {({ className, style, tokens, getLineProps,
+getTokenProps, }) => ( <Pre className={className} style={style}>
+<CopyCode onClick={handleClick}>Copy</CopyCode> {tokens.map((line, i)
+=> ( <div {...getLineProps({ line, key: i })}> <LineNo>{i +
+1}</LineNo> {line.map((token, key) => ( <span {...getTokenProps({
+token, key })} /> ))} </div> ))} </Pre> )} </Highlight> ); };
+`````
 
 To test this, add `react-live` next to the language on your `Dump`
 component, so you have added to the blog post you made:
 
 ````text
 ```jsx react-live
-````
+`````
 
 Now you can edit the code directly, try changing a few things like
 this:
