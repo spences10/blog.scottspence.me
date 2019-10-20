@@ -2585,17 +2585,40 @@ pass to the SEO component.
 If you took the time to view Andrew Welch's video then you'll know
 about some of the meta tags you're going to go about creating now.
 
-title: 10-70 characters
+They are:
 
-description: 70-160 characters
+- `title`: 10-70 characters
+- `description`: 70-160 characters
+- ~~`keywords`: completely ignored~~
+- `canonical`: avoid duplicate content
 
-keywords: completely ignored
+The task now is to add this information into the SEO component,
+afterwards you can take a look at structured data (JSON-LD).
 
-canonical: avoid duplicate content
+You already have `title` and `description` so time to add the
+`canonical` link.
+
+The canonical link is going to be pointing to the source of your
+content. Example: if you share a post from your blog on DEV.to and
+freeCodeCamp you can add a canonical link to them to identify your
+blog as the original source and better improving your SEO ranking.
+
+Add a `siteUrl` key to your `siteMetadata` on the `gatsby-config.js`
+file.
+
+Right now the validity of the URL isn't important as changes your
+making are being validated locally. You will need to add the URL of
+the site once it's deployed.
 
 ```js
-siteUrl;
-title;
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+  siteUrl: `https://thelocalhost.blog`,
+};
+```
+
+```js
 siteTitle;
 description;
 titleTemplate;
