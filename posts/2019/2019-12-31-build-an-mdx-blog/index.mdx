@@ -2346,7 +2346,7 @@ export const query = graphql`
 
 `video: https://www.youtube.com/watch?v=9S5GNtql02w&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On&index=18`
 
-Additional resources:
+**Additional resources:**
 
 - this helped me for my own blog:
   [https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/](https://juliangaramendy.dev/custom-open-graph-images-in-gatsby-blog/)
@@ -2505,6 +2505,46 @@ export default ({ data, pageContext }) => {
       ...
 ```
 
+As there's currently no `excerpt` defined in the blog post template
+you'll need to add that now along with the `slug` from `fields`.
+
+Add the two to the `PostBySlug` query at the bottom of the file:
+
+```js
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date
+      }
+      excerpt
+      body
+      fields {
+        slug
+      }
+    }
+  }
+`;
+```
+
+You'll also need to destructure `excerpt` out of the `data.mdx`
+object:
+
+```jsx
+export default ({ data, pageContext }) => {
+  const { frontmatter, body, fields, excerpt } = data.mdx
+  const { previous, next } = pageContext
+  return (
+    <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={excerpt || `nothin’`}
+      />
+      <h1>{fields.slug}</h1>
+      ...
+```
+
 The meta information will be added to the pages at build time, so,
 it's now time to add a build script to the project and build it!
 
@@ -2531,6 +2571,13 @@ To validate the meta tags have been inserted, on the browser tab for
 the built site right mouse click and select view page source. Or
 Ctrl+u if you are a Windows or Linux user. Check for the tags you
 inserted to validate the component is working.
+
+```html
+<link
+  rel="canonical"
+  href="https://blog.scottspence.me/twitter-bot-bootstrap"
+/>
+```
 
 Now time to add in the additional information you're going to need to
 pass to the SEO component.
@@ -2561,7 +2608,7 @@ useSiteMetadata;
 
 ## Deploy to Netlify
 
-OpenGraph checking tools:
+**OpenGraph checking tools:**
 
 - [https://www.heymeta.com/](https://www.heymeta.com/)
 - [https://opengraphcheck.com/](https://opengraphcheck.com/)
