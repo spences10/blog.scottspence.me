@@ -2697,7 +2697,16 @@ export default ({ data, pageContext }) => {
     ...
 ```
 
-Add an image for the site
+Add an image for the site, `gatsby-config`, `useSiteMetadata` hook,
+then to the SEO component props
+
+To get the blog post image or default image:
+
+```js
+const imagePath = `${siteUrl}${
+  image.publicURL ? 'undefined' : defaultImage
+}`;
+```
 
 Add in the Twitter and Facebook modules
 
