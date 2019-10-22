@@ -2790,26 +2790,155 @@ Twitter.defaultProps = {
 };
 ```
 
+If you haven't got a twitter username to add to the `siteMetadata`
+then add the `twitterUsername` as `null` to the `seo` object and pass
+that to the `Twitter` component as `username={seo.twitterUsername}`
+update the `useSiteMetadata` hook to incorporate the new information
+you have created also.
+
+That was a lot you covered there! The completed components should look
+like this:
+
+**`components/seo/seo.js`:**
+
 ```js
-siteTitle;
-description;
-titleTemplate;
-twitterUsername;
-facebookAppID;
-developerName;
-imageLink;
-faviconPng;
-siteLanguage;
-siteLocale;
-lastBuildDate;
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useSiteMetadata } from '../../hooks/useSiteMetadata';
+import { Facebook } from './facebook';
+import { Twitter } from './twitter';
+
+export const SEO = ({
+  title,
+  description,
+  pathname,
+  article,
+  image,
+}) => {
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+    imageLink: defaultImage,
+  } = useSiteMetadata();
+
+  const imagePath = `${siteUrl}${
+    image.publicURL ? 'undefined' : defaultImage
+  }`;
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    url: `${siteUrl}${pathname || '/'}`,
+    image: `${imagePath || defaultImage}`,
+  };
+
+  return (
+    <>
+      <Helmet title={seo.title}>
+        <html lang={siteLanguage} />
+        <link rel="canonical" href={seo.url} />
+        <meta name="description" content={seo.description} />
+      </Helmet>
+      <Facebook
+        desc={seo.description}
+        image={seo.image}
+        title={seo.title}
+        type={article ? 'article' : 'website'}
+        url={seo.url}
+        locale={siteLocale}
+      />
+      <Twitter
+        title={seo.title}
+        image={seo.image}
+        desc={seo.description}
+        username={twitterUsername}
+      />
+    </>
+  );
+};
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
 ```
 
-Now you'll need to update the `useSiteMetadata` hook to incorporate
-the new information you have created so that is can be accessed in the
-SEO component.
+**`gatsby-config.js:siteMetadata`:**
 
 ```js
-useSiteMetadata;
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+  siteUrl: `https://thelocalhost.blog`,
+  siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
+  twitterUsername: `@spences10`,
+  imageLink: `/favicon.png`,
+}
+
+module.exports = {
+  siteMetadata: siteMetadata,
+  ...
+```
+
+**`src/templates/blogPostTemplate.js`:**
+
+```js
+import { graphql, Link } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import React from 'react'
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/seo/seo'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+
+export default ({ data, pageContext }) => {
+  const { frontmatter, body, fields, excerpt } = data.mdx
+  const { cover } = frontmatter
+  const { previous, next } = pageContext
+  const { imageLink: defaultImage } = useSiteMetadata()
+  return (
+    <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={excerpt || `nothin’`}
+        pathname={fields.slug}
+        article={true}
+        image={cover || defaultImage}
+      />
+      <h1>{frontmatter.title}</h1>
+      ...
+```
+
+**`src/hooks/useSiteMetadata.js`:**
+
+```js
+import { graphql, useStaticQuery } from 'gatsby';
+
+export const useSiteMetadata = () => {
+  const { site } = useStaticQuery(
+    graphql`
+      query SITE_METADATA_QUERY {
+        site {
+          siteMetadata {
+            description
+            title
+            siteUrl
+            siteLanguage
+            siteLocale
+            twitterUsername
+            imageLink
+          }
+        }
+      }
+    `
+  );
+  return site.siteMetadata;
+};
 ```
 
 ## Deploy to Netlify
