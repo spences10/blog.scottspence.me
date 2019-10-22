@@ -2705,10 +2705,11 @@ In your gatsby config create an `imageLink` key and point to the file
 you just added to the `static` folder. Gatsby doesn't need the full
 path of the file so, `/default-image.png` will be fine.
 
-`gatsby-config`, `useSiteMetadata` hook, then to the SEO component
-props
+The `imageLink` will also need adding to the `useSiteMetadata` hook,
+then to the SEO component props.
 
-To get the blog post image or default image:
+To determine if the blog post has a cover image or not check the
+`image` prop, if it's `'undefined'` then use the default image:
 
 ```js
 const imagePath = `${siteUrl}${
@@ -2716,7 +2717,78 @@ const imagePath = `${siteUrl}${
 }`;
 ```
 
-Add in the Twitter and Facebook modules
+Add in the following code for the Facebook and Twitter modules, first
+Facebook:
+
+```js
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
+
+export const Facebook = ({
+  url,
+  type,
+  title,
+  desc,
+  image,
+  locale,
+}) => (
+  <Helmet>
+    <meta property="og:locale" content={locale} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={desc} />
+  </Helmet>
+);
+
+Facebook.propTypes = {
+  url: PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
+
+Facebook.defaultProps = {
+  type: 'website',
+};
+```
+
+And now for Twitter:
+
+```js
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
+
+export const Twitter = ({ type, username, title, desc, image }) => (
+  <Helmet>
+    {username && <meta name="twitter:creator" content={username} />}
+    <meta name="twitter:card" content={type} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={desc} />
+  </Helmet>
+);
+
+Twitter.propTypes = {
+  type: PropTypes.string,
+  username: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
+
+Twitter.defaultProps = {
+  type: 'summary_large_image',
+  username: null,
+};
+```
 
 ```js
 siteTitle;
