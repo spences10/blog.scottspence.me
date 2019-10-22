@@ -2638,9 +2638,9 @@ Destructure the `title`, `description` and `siteUrl` from the
 `useSiteMetadata` hook and give them aliases, so the `title` will be
 `title: defaultTitle`, same for `description` as
 `description: defaultDescription`, `siteUrl` is ok as is. Now is also
-a good time to add `siteLanguage` and `siteLocale`, remember they need
-to be added to the `siteMetadata` object as well as the
-`useSiteMetadata` hook.
+a good time to add `siteLanguage` and `siteLocale`, they need to be
+added to the `siteMetadata` object in `gatsby-config.js` as well as
+the `useSiteMetadata` hook.
 
 ```js
 import PropTypes from 'prop-types';
@@ -2681,7 +2681,7 @@ SEO.propTypes = {
 ```
 
 You'll need to pass the `fields.slug` to the SEO component `pathname`
-prop.
+prop on `blogPostTemplate.js`:
 
 ```jsx
 export default ({ data, pageContext }) => {
@@ -2697,8 +2697,16 @@ export default ({ data, pageContext }) => {
     ...
 ```
 
-Add an image for the site, `gatsby-config`, `useSiteMetadata` hook,
-then to the SEO component props
+Add a default image for the site, this will be used when sharing the
+homepage (`/`) of the site. Save the image to the `static` folder and
+call it `default-image.png`.
+
+In your gatsby config create an `imageLink` key and point to the file
+you just added to the `static` folder. Gatsby doesn't need the full
+path of the file so, `/default-image.png` will be fine.
+
+`gatsby-config`, `useSiteMetadata` hook, then to the SEO component
+props
 
 To get the blog post image or default image:
 
