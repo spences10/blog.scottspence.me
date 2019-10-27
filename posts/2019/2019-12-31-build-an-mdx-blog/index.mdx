@@ -2708,6 +2708,31 @@ path of the file so, `/default-image.png` will be fine.
 The `imageLink` will also need adding to the `useSiteMetadata` hook,
 then to the SEO component props.
 
+To get the image path from the blog post template you'll need to get
+the `publicURL` from the `frontmatter.cover` property, your
+`blogPostTemplate.js` query should look like this now:
+
+```js
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date
+        cover {
+          publicURL
+        }
+      }
+      body
+      excerpt
+      fields {
+        slug
+      }
+    }
+  }
+`;
+```
+
 To determine if the blog post has a cover image or not check the
 `image` prop, if it's `'undefined'` then use the default image:
 
