@@ -2956,7 +2956,6 @@ return (
         {JSON.stringify(breadcrumb)}
       </script>
     </Helmet>
-    ;
     <Facebook
       desc={seo.description}
       image={image}
@@ -2965,7 +2964,12 @@ return (
       url={pathname}
       locale={siteLocale ? siteLocale : 'en_gb'}
     />
-    <Twitter title={seo.title} image={image} desc={seo.description} username={twitterUsername} />
+    <Twitter
+      title={seo.title}
+      image={image}
+      desc={seo.description}
+      username={twitterUsername}
+    />
   </>
 );
 ```
