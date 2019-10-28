@@ -2821,6 +2821,155 @@ that to the `Twitter` component as `username={seo.twitterUsername}`
 update the `useSiteMetadata` hook to incorporate the new information
 you have created also.
 
+Last of all we want to add JSON-LD to the SEO component, this will
+take `datePublished`, `dateModified` and `author`
+
+```js
+const schemaOrgWebPage = {
+  '@context': 'http://schema.org',
+  '@type': 'WebPage',
+  url: pathname,
+  headline: seo.description,
+  inLanguage: siteLanguage,
+  mainEntityOfPage: pathname,
+  description: seo.description,
+  name: seo.title,
+  author: {
+    '@type': 'Person',
+    name: author,
+  },
+  copyrightHolder: {
+    '@type': 'Person',
+    name: author,
+  },
+  copyrightYear: '2019',
+  creator: {
+    '@type': 'Person',
+    name: author,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: author,
+  },
+  datePublished: seo.datePublished,
+  dateModified: seo.dateModified,
+  image: {
+    '@type': 'ImageObject',
+    url: `${image}`,
+  },
+};
+
+// Initial breadcrumb list
+
+const itemListElement = [
+  {
+    '@type': 'ListItem',
+    item: {
+      '@id': pathname,
+      name: 'Homepage',
+    },
+    position: 1,
+  },
+];
+
+let schemaArticle = null;
+
+if (article) {
+  schemaArticle = {
+    '@context': 'http://schema.org',
+    '@type': 'Article',
+    author: {
+      '@type': 'Person',
+      name: author,
+    },
+    copyrightHolder: {
+      '@type': 'Person',
+      name: author,
+    },
+    copyrightYear: '2019',
+    creator: {
+      '@type': 'Person',
+      name: author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: author,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${image}`,
+      },
+    },
+    datePublished: seo.datePublished,
+    dateModified: seo.dateModified,
+    description: seo.description,
+    headline: seo.title,
+    inLanguage: siteLanguage,
+    url: pathname,
+    name: seo.title,
+    image: {
+      '@type': 'ImageObject',
+      url: image,
+    },
+    mainEntityOfPage: pathname,
+  };
+  // Push current blogpost into breadcrumb list
+  itemListElement.push({
+    '@type': 'ListItem',
+    item: {
+      '@id': pathname,
+      name: seo.title,
+    },
+    position: 2,
+  });
+}
+
+const breadcrumb = {
+  '@context': 'http://schema.org',
+  '@type': 'BreadcrumbList',
+  description: 'Breadcrumbs list',
+  name: 'Breadcrumbs',
+  itemListElement,
+};
+```
+
+Now to conditionally render the `schemaArticle` or the
+`schemaOrgWebPage` depending if it's an article or not:
+
+```js
+return (
+  <>
+    <Helmet title={seo.title}>
+      <html lang={siteLanguage ? siteLanguage : 'en'} />
+      <link rel="canonical" href={pathname} />
+      <meta name="description" content={seo.description} />
+      {!article && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgWebPage)}
+        </script>
+      )}
+      {article && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaArticle)}
+        </script>
+      )}
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumb)}
+      </script>
+    </Helmet>
+    ;
+    <Facebook
+      desc={seo.description}
+      image={image}
+      title={seo.title}
+      type={article ? 'article' : 'website'}
+      url={pathname}
+      locale={siteLocale ? siteLocale : 'en_gb'}
+    />
+    <Twitter title={seo.title} image={image} desc={seo.description} username={twitterUsername} />
+  </>
+);
+```
+
 That was a lot you covered there! The completed components should look
 like this:
 
