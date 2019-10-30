@@ -2737,9 +2737,7 @@ To determine if the blog post has a cover image or not check the
 `image` prop, if it's `'undefined'` then use the default image:
 
 ```js
-const imagePath = `${siteUrl}${
-  image.publicURL ? 'undefined' : defaultImage
-}`;
+const imagePath = `${siteUrl}${image ? 'undefined' : defaultImage}`;
 ```
 
 Add in the following code for the Facebook and Twitter modules, first
@@ -3004,9 +3002,7 @@ export const SEO = ({
     imageLink: defaultImage,
   } = useSiteMetadata();
 
-  const imagePath = `${siteUrl}${
-    image.publicURL ? 'undefined' : defaultImage
-  }`;
+  const imagePath = `${siteUrl}${image ? 'undefined' : defaultImage}`;
 
   const seo = {
     title: title || defaultTitle,
@@ -3057,6 +3053,8 @@ const siteMetadata = {
   siteLocale: `en_gb`,
   twitterUsername: `@spences10`,
   imageLink: `/default-image.png`,
+  twitterUsername: `@spences10`,
+  authorName: `Scott Spence`,
 }
 
 module.exports = {
