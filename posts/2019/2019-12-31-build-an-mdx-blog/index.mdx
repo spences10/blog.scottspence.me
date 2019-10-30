@@ -3084,7 +3084,7 @@ export default ({ data, pageContext }) => {
         description={excerpt || `nothin’`}
         pathname={fields.slug}
         article={true}
-        image={cover || defaultImage}
+        image={cover.publicURL || defaultImage}
       />
       <h1>{frontmatter.title}</h1>
       ...
