@@ -2732,6 +2732,34 @@ export const query = graphql`
 
 `video: https://www.youtube.com/watch?v=a2fcgYIQRIU&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
 
+### Build Site and Validate Meta Tags
+
+Add in the build script to `package.json` and also a script for
+serving the built site locally.
+
+```json
+"scripts": {
+  "dev": "gatsby develop -p 9988 -o",
+  "build": "gatsby build",
+  "serve": "gatsby serve -p 9500 -o"
+},
+```
+
+Now it's time to run:
+
+```bash
+yarn build && yarn serve
+```
+
+This will build the site and open a browser tab so you can see the
+site as it will appear when it is on the internet. Validate meta tags
+have been added to the build by selecting "View page source" (Crtl+u
+in Windows and Linux) on the page and do a Ctrl+f to find them.
+
+`video: https://www.youtube.com/watch?v=c6bB9ddAgjc&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
+## Adding the Project to GitHub
+
 ## Deploy to Netlify
 
 **OpenGraph checking tools:**
