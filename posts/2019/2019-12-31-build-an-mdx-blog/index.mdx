@@ -2409,6 +2409,9 @@ module.exports = {
     ...
 ```
 
+You don't have to abstract out the `siteMetadata` into it's own
+component here, it's only a suggestion on how to manage it.
+
 The `image` is going to be the default image for your site, you should
 create a `static` folder at the root of the project and add in an
 image you want to be shown when the homepage of your site is shared on
@@ -2424,6 +2427,35 @@ Facebook OpenGraph is the only place the `siteLocale` is used and it
 is different from language tags.
 
 Add your `twitterUsername` and your `authorName`.
+
+Update the `useSiteMetadata` hook now to reflect the newly added
+properties:
+
+```js
+import { graphql, useStaticQuery } from 'gatsby';
+
+export const useSiteMetadata = () => {
+  const { site } = useStaticQuery(
+    graphql`
+      query SITE_METADATA_QUERY {
+        site {
+          siteMetadata {
+            description
+            title
+            image
+            siteUrl
+            siteLanguage
+            siteLocale
+            twitterUsername
+            authorName
+          }
+        }
+      }
+    `
+  );
+  return site.siteMetadata;
+};
+```
 
 Begin with importing the `Dump` component in `src/pages/index.js` then
 plug in the props as they are detailed in the docs of the
