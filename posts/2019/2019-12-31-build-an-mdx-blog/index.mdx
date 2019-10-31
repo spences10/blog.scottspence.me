@@ -2356,6 +2356,8 @@ export const query = graphql`
 
 ## Adding an SEO component to the site
 
+`video: https://www.youtube.com/watch?v=I9qQslUJknw&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
 There's a Gatsby [github PR on seo] with some [great notes from Andrew
 Welch] on SEO and a link to a presentation he did back in 2017.
 
@@ -2379,7 +2381,88 @@ haven't done so already now is a good time to also configure the
 `gatsby-plugin-styled-components` as well.
 
 To visualise the data you're going to need to get into the SEO
-component use the `Dump` component.
+component use the `Dump` component to begin with to validate the data.
+
+The majority of the information needed for `src/pages/index.js` can be
+first added to the `gatsby-config.js`, `siteMetadata` object then
+queried with the `useSiteMetadata` hook. Some of the data added here
+can then be used in `src/templates/blogPostTemplate.js`, more on that
+in the next section.
+
+For now add the following:
+
+```js
+const siteMetadata = {
+  title: `The Localhost Blog`,
+  description: `This is my coding blog where I write about my coding journey.`,
+  image: `/default-site-image.jpg`,
+  siteUrl: `https://thelocalhost.blog`,
+  siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
+  twitterUsername: `@spences10`,
+  authorName: `Scott Spence`,
+}
+
+module.exports = {
+  siteMetadata: siteMetadata,
+  plugins: [
+    ...
+```
+
+The `image` is going to be the default image for your site, you should
+create a `static` folder at the root of the project and add in an
+image you want to be shown when the homepage of your site is shared on
+social media.
+
+For `siteUrl` at this stage it doesn't necessarily have to be valid,
+add a dummy url for now and you can change this later.
+
+The `siteLanguage` is your language of choice for the site, take a
+look at [w3 language tags] for more info.
+
+Facebook OpenGraph is the only place the `siteLocale` is used and it
+is different from language tags.
+
+Add your `twitterUsername` and your `authorName`.
+
+Begin with importing the `Dump` component in `src/pages/index.js` then
+plug in the props as they are detailed in the docs of the
+[`react-seo-component`].
+
+```js
+import Dump from '../components/Dump'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+
+export default ({ data }) => {
+  const {
+    description,
+    title,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+  } = useSiteMetadata()
+  return (
+    <Layout>
+      <Dump
+        title={title}
+        description={description}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
+      <IndexWrapper>
+        {data.allMdx.nodes.map(
+          ...
+```
+
+Check that all the props are displaying valid values then you can swap
+out the `Dump` component with the `SEO` component.
+
+`video: https://www.youtube.com/watch?v=O0jk9AqM_ls&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
 
 ## Deploy to Netlify
 
@@ -2441,3 +2524,7 @@ component use the `Dump` component.
   https://css-tricks.com/essential-meta-tags-social-media/
 [as a react component]:
   https://github.com/spences10/react-seo-component
+[`react-seo-component`]:
+  https://github.com/spences10/react-seo-component
+[w3 language tags]:
+  https://www.w3.org/International/articles/language-tags/
