@@ -2354,7 +2354,7 @@ export const query = graphql`
 - and the Gatsby docs:
   [https://www.gatsbyjs.org/docs/working-with-images/](https://www.gatsbyjs.org/docs/working-with-images/)
 
-## Creating an SEO component with React Helmet
+## Adding an SEO component to the site
 
 There's a Gatsby [github PR on seo] with some [great notes from Andrew
 Welch] on SEO and a link to a presentation he did back in 2017.
@@ -2363,9 +2363,23 @@ Welch] on SEO and a link to a presentation he did back in 2017.
 
 `video: https://vimeo.com/246846978`
 
-In the following comments Gatsby's [LekoArts] details [his own
-implementation] which I have implemented as a React component, you're
-going to be configuring that now in this how-to.
+In the following comments of that PR, Gatsby's [LekoArts] details [his
+own implementation] which I have implemented [as a React component],
+you're going to be configuring that now in this how-to.
+
+First up, install and configure, `gatsby-plugin-react-helmet` this is
+used for server rendering data added with React Helmet.
+
+```bash
+yarn add gatsby-plugin-react-helmet
+```
+
+You'll need to add the plugin to your `gatsby-config.js`. If you
+haven't done so already now is a good time to also configure the
+`gatsby-plugin-styled-components` as well.
+
+To visualise the data you're going to need to get into the SEO
+component use the `Dump` component.
 
 ## Deploy to Netlify
 
