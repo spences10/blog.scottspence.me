@@ -190,7 +190,6 @@ export const SEO = ({
 
 SEO.defaultProps = {
   siteLanguage: `en`,
-  keywords: [],
 };
 
 SEO.propTypes = {
