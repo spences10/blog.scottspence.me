@@ -2380,6 +2380,8 @@ You'll need to add the plugin to your `gatsby-config.js`. If you
 haven't done so already now is a good time to also configure the
 `gatsby-plugin-styled-components` as well.
 
+### Configure SEO Component for Homepage
+
 To visualise the data you're going to need to get into the SEO
 component use the `Dump` component to begin with to validate the data.
 
@@ -2494,7 +2496,241 @@ export default ({ data }) => {
 Check that all the props are displaying valid values then you can swap
 out the `Dump` component with the `SEO` component.
 
+The complete `src/pages/index.js` should look like this now:
+
+```js
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
+import SEO from 'react-seo-component';
+import styled from 'styled-components';
+import { Layout } from '../components/Layout';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+
+const IndexWrapper = styled.main``;
+
+const PostWrapper = styled.div``;
+
+const Image = styled(Img)`
+  border-radius: 5px;
+`;
+
+export default ({ data }) => {
+  const {
+    description,
+    title,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+  } = useSiteMetadata();
+  return (
+    <Layout>
+      <SEO
+        title={title}
+        description={description || `nothin’`}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
+      <IndexWrapper>
+        {/* <Dump data={data}></Dump> */}
+        {data.allMdx.nodes.map(
+          ({ id, excerpt, frontmatter, fields }) => (
+            <PostWrapper key={id}>
+              <Link to={fields.slug}>
+                {!!frontmatter.cover ? (
+                  <Image
+                    sizes={frontmatter.cover.childImageSharp.sizes}
+                  />
+                ) : null}
+                <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.date}</p>
+                <p>{excerpt}</p>
+              </Link>
+            </PostWrapper>
+          )
+        )}
+      </IndexWrapper>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date(formatString: "YYYY MMMM Do")
+          cover {
+            publicURL
+            childImageSharp {
+              sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
+                ...GatsbyImageSharpSizes_tracedSVG
+              }
+            }
+          }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+`;
+```
+
 `video: https://www.youtube.com/watch?v=O0jk9AqM_ls&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
+### Configure SEO Component for Blog Posts
+
+This will be the same approach as with the homepage, import the `Dump`
+component and validate the props before swapping out the `Dump`
+component with the `SEO` component.
+
+```js
+import Dump from '../components/Dump'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+
+export default ({ data, pageContext }) => {
+  const {
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+    authorName,
+  } = useSiteMetadata()
+  const { frontmatter, body, fields, excerpt } = data.mdx
+  const { title, date, cover } = frontmatter
+  const { previous, next } = pageContext
+  return (
+    <Layout>
+      <Dump
+        title={title}
+        description={excerpt}
+        image={
+          cover === null
+            ? `${siteUrl}${image}`
+            : `${siteUrl}${cover.publicURL}`
+        }
+        pathname={`${siteUrl}${fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+      <h1>{frontmatter.title}</h1>
+      ...
+```
+
+Add `fields.slug`, `excerpt` and `cover.publicURL` to the
+`PostsBySlug` query and destructure them from `data.mdx` and
+`frontmatter` respectively.
+
+For the image you'll need to do some logic as to weather the `cover`
+exists and default to the default site image if it doesn't.
+
+The complete `src/templates/blogPostTemplate.js` should look like this
+now:
+
+```js
+import { graphql, Link } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import SEO from 'react-seo-component';
+import { Layout } from '../components/Layout';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+
+export default ({ data, pageContext }) => {
+  const {
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+    authorName,
+  } = useSiteMetadata();
+  const { frontmatter, body, fields, excerpt } = data.mdx;
+  const { title, date, cover } = frontmatter;
+  const { previous, next } = pageContext;
+  return (
+    <Layout>
+      <SEO
+        title={title}
+        description={excerpt}
+        image={
+          cover === null
+            ? `${siteUrl}${image}`
+            : `${siteUrl}${cover.publicURL}`
+        }
+        pathname={`${siteUrl}${fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{body}</MDXRenderer>
+      {previous === false ? null : (
+        <>
+          {previous && (
+            <Link to={previous.fields.slug}>
+              <p>{previous.frontmatter.title}</p>
+            </Link>
+          )}
+        </>
+      )}
+      {next === false ? null : (
+        <>
+          {next && (
+            <Link to={next.fields.slug}>
+              <p>{next.frontmatter.title}</p>
+            </Link>
+          )}
+        </>
+      )}
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date(formatString: "YYYY MMMM Do")
+        cover {
+          publicURL
+        }
+      }
+      body
+      excerpt
+      fields {
+        slug
+      }
+    }
+  }
+`;
+```
+
+`video: https://www.youtube.com/watch?v=a2fcgYIQRIU&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
 
 ## Deploy to Netlify
 
