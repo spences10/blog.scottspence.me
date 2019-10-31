@@ -2805,13 +2805,24 @@ netlify init
 Enter the details for your team, the site name is optional, the build
 command will be `yarn build` and directory to deploy is `public`.
 
-```bash
-netlify deploy --prod
-```
+You will be prompted to commit the changes and push them to GitHub
+(with `git push`), once you have done that your site will be published
+and ready for all to see!
 
 `video: https://www.youtube.com/watch?v=voWeHvIGB0g`
 
 ## Validate Metadata with Heymeta
+
+Last up is validating the metadata for the OpenGraph fields, to do
+that you'll need to make sure that the `siteUrl` reflecting what you
+have in your Netlify dashboard.
+
+If you needed to change the url you'll need to commit and push the
+changes to GitHub again.
+
+Once your site is built with a valid url you can then test the
+homepage and a blog page for the correct meta tags with
+[heymeta.com](http://heymeta.com/).
 
 `video: https://www.youtube.com/watch?v=JH1AVanYhwo`
 
@@ -2827,9 +2838,12 @@ netlify deploy --prod
 
 - [The Essential Meta Tags for Social Media]
 
-## Commenting
+## Thanks for reading 🙏
 
-- [https://github.com/utterance/utterances](https://github.com/utterance/utterances)
+That's all folks! If there is anything I have missed, or if there is a
+better way to do something then please let me know.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 <!-- Links -->
 
@@ -2881,7 +2895,5 @@ netlify deploy --prod
   https://egghead.io/lessons/javascript-how-to-authenticate-with-github-using-ssh
 [on cheatsheets.xyz]:
   https://www.cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
-
-```
-
-```
+[twitter]: https://twitter.com/spences10
+[ask me anything]: https://github.com/spences10/ama
