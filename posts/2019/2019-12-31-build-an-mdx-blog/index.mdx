@@ -2760,7 +2760,60 @@ in Windows and Linux) on the page and do a Ctrl+f to find them.
 
 ## Adding the Project to GitHub
 
+Add your code to GitHub by either selecting the plus (+) icon next to
+your avatar on GitHub or by going to directly to
+[https://github.com/new](https://github.com/new)
+
+Name your repository and click create repository, then you will be
+given the instructions to link your local code to the repository you
+created via the command line.
+
+Depending on how you authenticate with GitHub will depend on what the
+command looks like.
+
+Some good resources for authenticating with GitHub via SSH are [Kent
+Dodds Egghead.io video] and also a how-to [on CheatSheets.xyz].
+
+`video: https://www.youtube.com/watch?v=r2eiJ8E_YT0&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
 ## Deploy to Netlify
+
+To deploy your site to Netlify, if you haven't done so already you'll
+need to add the GitHub integration to your GitHub profile. If you got
+to [app.netlify.com](https://app.netlify.com) the wizard will walk you
+through the process.
+
+From here you can add your built site's `public` folder, drag 'n drop
+style directly to the Netlify global CDNs.
+
+You, however are going to load your site via the Netlify CLI! In your
+terminal, if you haven't already got the CLI installed, run:
+
+```bash
+yarn global add netlify-cli
+```
+
+Then once the CLI is installed:
+
+```bash
+# authenticate via the CLI
+netlify login
+# initialise the site
+netlify init
+```
+
+Enter the details for your team, the site name is optional, the build
+command will be `yarn build` and directory to deploy is `public`.
+
+```bash
+netlify deploy --prod
+```
+
+`video: https://www.youtube.com/watch?v=voWeHvIGB0g`
+
+## Validate Metadata with Heymeta
+
+`video: https://www.youtube.com/watch?v=JH1AVanYhwo`
 
 **OpenGraph checking tools:**
 
@@ -2824,3 +2877,11 @@ in Windows and Linux) on the page and do a Ctrl+f to find them.
   https://github.com/spences10/react-seo-component
 [w3 language tags]:
   https://www.w3.org/International/articles/language-tags/
+[kent dodds egghead.io video]:
+  https://egghead.io/lessons/javascript-how-to-authenticate-with-github-using-ssh
+[on cheatsheets.xyz]:
+  https://www.cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
+
+```
+
+```
