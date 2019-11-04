@@ -1,13 +1,12 @@
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
+import SEO from 'react-seo-component';
 import Utterances from 'react-utterances';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
 import { HappyButton } from '../components/Shared';
 import { useSiteMetadata } from '../hooks/siteMetadata';
-// import { Dump } from '../utils/helpers';
 
 const repo = 'spences10/blog.scottspence.me';
 
@@ -64,24 +63,28 @@ const PrevNextButton = styled(HappyButton)`
 `;
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, excerpt, body } = data.mdx;
-  const { cover } = frontmatter;
+  const { frontmatter, excerpt, body, path } = data.mdx;
+  const { cover, date, title, isoDate } = frontmatter;
   const { prev, next } = pageContext;
-  const { imageLink: defaultImage } = useSiteMetadata();
+  const { imageLink: defaultImage, siteUrl } = useSiteMetadata();
   return (
     <Layout>
       <SEO
-        title={frontmatter.title}
-        description={excerpt || 'nothin’'}
-        image={cover || defaultImage}
-        pathname={frontmatter.path}
+        title={title}
+        description={excerpt || `nothin’`}
+        image={
+          cover === null
+            ? `${siteUrl}${defaultImage}`
+            : `${siteUrl}${cover.publicURL}`
+        }
+        pathname={path}
         article={true}
-        publishedDate={frontmatter.date}
+        publishedDate={new Date(isoDate).toISOString()}
       />
       {/* <Dump cover={cover} defaultImg={defaultImage} /> */}
       <PostWrapper>
-        <Title>{frontmatter.title}</Title>
-        <TitleDate>{frontmatter.date}</TitleDate>
+        <Title>{title}</Title>
+        <TitleDate>{date}</TitleDate>
         <MDXRenderer>{body}</MDXRenderer>
         <LinksWrapper>
           <LinkWrapper justify={'start'}>
@@ -128,6 +131,7 @@ export const query = graphql`
         path
         tags
         date(formatString: "YYYY MMMM Do")
+        isoDate: date
         published
         cover {
           publicURL
