@@ -10,19 +10,41 @@ coverCredit: Photo by Tyler Casey on Unsplash
 
 React Advanced London going deep!
 
-## Ken Wheeler
+## Ken Wheeler - React Performance
 
-### React Performance
+Ken's keynote didn't disappoint! Ken
 
-#### IMDOPE System
+### IMDOPE System
 
 - **I**dentify that a problem exists
-
 - **M**easure your timings
-
 - **D**evelop a plan
 - **O**pen dev tools
 - **P**lay around until its better
 - **E**njoy newly performant app
 
-Sean Wang
+Measuring performance he detailed the Chrome performance tab.
+
+User Timings API lets you define precise performance marking that you
+can name and display in dev tools.
+
+**Example:**
+
+```bash
+performance.mark('mainthread-start')
+# do expensive things for performance
+performance.mark('mainthread-stop')
+performance.measure('mainthread', 'mainthread-start', 'mainthread-stop')
+```
+
+## Sean Wang - React (with hooks) from scratch
+
+Bonkers talk from Sean where he recreated React with Hooks and React
+Concurrency (Fibre) in a [CodeSandbox.io] session.
+
+[fetch example]
+
+<!-- Links -->
+
+[codesandbox.io]: https://codesandbox.io
+[fetch example]: https://codesandbox.io/s/reactadvanced-final-uwrx0
