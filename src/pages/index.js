@@ -1,9 +1,9 @@
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+import SEO from 'react-seo-component';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/siteMetadata';
 
 const Wrapper = styled.div``;
@@ -45,13 +45,19 @@ const StyledImage = styled(Img)`
 `;
 
 export default ({ data }) => {
-  const { description, imageLink, title } = useSiteMetadata();
+  const {
+    description,
+    imageLink,
+    title,
+    siteUrl,
+  } = useSiteMetadata();
   return (
     <Layout>
       <SEO
         title={title}
         description={description || 'nothin’'}
-        image={imageLink}
+        image={`${siteUrl}${imageLink}`}
+        pathname={siteUrl}
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
