@@ -7,6 +7,7 @@ import {
   Code,
   StyledH2,
   StyledH3,
+  StyledH4,
 } from './src/components/elements';
 import {
   InlineCode,
@@ -26,6 +27,7 @@ const components = {
   blockquote: BlockQuote,
   h2: StyledH2,
   h3: StyledH3,
+  h4: StyledH4,
   p: Paragraph,
   'p.a': AnchorTag,
   'p.inlineCode': StyledInlineCode,
