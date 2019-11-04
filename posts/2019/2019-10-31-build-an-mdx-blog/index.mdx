@@ -1,6 +1,6 @@
 ---
 path: /build-a-coding-blog-with-mdx-and-gatsby-2019
-date: 2019-12-31
+date: 2019-10-31
 title: Build a coding blog from scratch with Gatsby and MDX
 tags:
   ['information', 'learning', 'gatsby', 'guide', 'mdx', 'markdown']
@@ -37,18 +37,9 @@ your own React components into your Markdown posts.
 - Basic styling with styled-components
 - Code blocks with syntax highlighting
 - Copy code snippet to clipboard
-- Creating an SEO component
-- Deploying it to Netlify
-- SEO component
-
-**Also, plugins:**
-
 - Cover images for the posts
-- Auto link headers
-- Robots.txt
-- Sitemap.xml
-- RSS Feed
-- Offline Support
+- Configuring an SEO component
+- Deploying it to Netlify
 
 ## Who is how-to this for?
 
@@ -2354,7 +2345,9 @@ export const query = graphql`
 - and the Gatsby docs:
   [https://www.gatsbyjs.org/docs/working-with-images/](https://www.gatsbyjs.org/docs/working-with-images/)
 
-## Creating an SEO component with React Helmet
+## Adding an SEO component to the site
+
+`video: https://www.youtube.com/watch?v=I9qQslUJknw&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
 
 There's a Gatsby [github PR on seo] with some [great notes from Andrew
 Welch] on SEO and a link to a presentation he did back in 2017.
@@ -2363,558 +2356,73 @@ Welch] on SEO and a link to a presentation he did back in 2017.
 
 `video: https://vimeo.com/246846978`
 
-In the following comments Gatsby's [LekoArts] details [his own
-implementation] which is what you're going to be emulating in the
-approach for this how-to.
+In the following comments of that PR, Gatsby's [LekoArts] details [his
+own implementation] which I have implemented [as a React component],
+you're going to be configuring that now in this how-to.
 
-First up you need to install and configure React Helmet for use in
-Gatsby, install:
+First up, install and configure, `gatsby-plugin-react-helmet` this is
+used for server rendering data added with React Helmet.
 
 ```bash
-yarn add react-helmet gatsby-plugin-react-helmet
+yarn add gatsby-plugin-react-helmet
 ```
 
-Then drop the `gatsby-plugin-react-helmet` into your
-`gatsby-config.js` then you can start looking at adding in the
-requisite components.
+You'll need to add the plugin to your `gatsby-config.js`. If you
+haven't done so already now is a good time to also configure the
+`gatsby-plugin-styled-components` as well.
 
-```js
-module.exports = {
-  siteMetadata: siteMetadata,
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
-    ...
-```
+### Configure SEO Component for Homepage
 
-The components you're going to be creating will be for Facebook and
-Twitter which will be wrapped in the main SEO component that will also
-generate the JSON-LD and canonical link which are both important for
-the Google Search Engine Results Page (SERP).
+To visualise the data you're going to need to get into the SEO
+component use the `Dump` component to begin with to validate the data.
 
-Before you start creating the SEO components however you're going to
-nee to add some additional information to the `siteMetadata` that will
-be used by the SEO component, currently there's only a title and
-description.
+The majority of the information needed for `src/pages/index.js` can be
+first added to the `gatsby-config.js`, `siteMetadata` object then
+queried with the `useSiteMetadata` hook. Some of the data added here
+can then be used in `src/templates/blogPostTemplate.js`, more on that
+in the next section.
 
-There will be quite a lot of configuration here so if you want to
-separate the `siteMetadata` from the rest of the Gatsby config now is
-a good time.
-
-At the top of the `gatsby-config.js` module create a `siteMetadata`
-object and move the `title` and `description` to it then reference the
-object in the config object:
+For now add the following:
 
 ```js
 const siteMetadata = {
   title: `The Localhost Blog`,
   description: `This is my coding blog where I write about my coding journey.`,
-}
-
-module.exports = {
-  siteMetadata: siteMetadata,
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-    ...
-```
-
-Create a folder and add the files needed:
-
-```bash
-mkdir src/components/seo
-touch src/components/seo/index.js
-touch src/components/seo/seo.js
-touch src/components/seo/facebook.js
-touch src/components/seo/twitter.js
-```
-
-Add the components to the `src/components/index.js` file:
-
-```js
-import { Facebook } from './facebook';
-import { SEO } from './seo';
-import { Twitter } from './twitter';
-
-export { Facebook, Twitter };
-
-export default SEO;
-```
-
-Code up the SEO component, this is for the title and description:
-
-```js
-import PropTypes from 'prop-types';
-import React from 'react';
-import Helmet from 'react-helmet';
-
-export const SEO = ({ title, description }) => {
-  return (
-    <>
-      <Helmet title={title}>
-        <meta name="description" content={description} />
-      </Helmet>
-    </>
-  );
-};
-
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-};
-```
-
-Now add the SEO component to the homepage (`src/pages/index.js`)
-you're going to test that it works next.
-
-```jsx
-export default ({ data }) => {
-  const { title, description } = useSiteMetadata()
-  return (
-    <Layout>
-      <SEO title={title} description={description || 'nothin’'} />
-      <IndexWrapper>
-        {data.allMdx.nodes.map(
-        ...
-```
-
-That's done for the homepage time to do the same for the individual
-blog post pages, that can be done by adding the SEO component to the
-blog post template (`src/templates/blogPostTemplate.js`).
-
-```jsx
-export default ({ data, pageContext }) => {
-  const { frontmatter, body } = data.mdx
-  const { previous, next } = pageContext
-  return (
-    <Layout>
-      <SEO
-        title={frontmatter.title}
-        description={excerpt || `nothin’`}
-      />
-      <h1>{frontmatter.title}</h1>
-      ...
-```
-
-As there's currently no `excerpt` defined in the blog post template
-you'll need to add that now along with the `slug` from `fields`.
-
-Add the two to the `PostBySlug` query at the bottom of the file:
-
-```js
-export const query = graphql`
-  query PostBySlug($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-      }
-      excerpt
-      body
-      fields {
-        slug
-      }
-    }
-  }
-`;
-```
-
-You'll also need to destructure `excerpt` out of the `data.mdx`
-object:
-
-```jsx
-export default ({ data, pageContext }) => {
-  const { frontmatter, body, fields, excerpt } = data.mdx
-  const { previous, next } = pageContext
-  return (
-    <Layout>
-      <SEO
-        title={frontmatter.title}
-        description={excerpt || `nothin’`}
-      />
-      <h1>{fields.slug}</h1>
-      ...
-```
-
-The meta information will be added to the pages at build time, so,
-it's now time to add a build script to the project and build it!
-
-In the `package.json` file `scripts` section add a new script for
-`build`, and one to serve the built site locally:
-
-```json
-"scripts": {
-  "dev": "gatsby develop -p 9988 -o",
-  "build": "gatsby build",
-  "serve": "gatsby serve -p 9500 -o"
-},
-```
-
-It's time to build the site, you can build the site first with the
-`build` script then use the `serve` script or you can do them both
-together:
-
-```bash
-yarn build && yarn serve
-```
-
-To validate the meta tags have been inserted, on the browser tab for
-the built site right mouse click and select view page source. Or
-Ctrl+u if you are a Windows or Linux user. Check for the tags you
-inserted to validate the component is working.
-
-Now time to add in the additional information you're going to need to
-pass to the SEO component.
-
-If you took the time to view Andrew Welch's video then you'll know
-about some of the meta tags you're going to go about creating now.
-
-They are:
-
-- `title`: 10-70 characters
-- `description`: 70-160 characters
-- ~~`keywords`: completely ignored~~
-- `canonical`: avoid duplicate content
-
-The task now is to add this information into the SEO component,
-afterwards you can take a look at structured data (JSON-LD).
-
-You already have `title` and `description` so time to add the
-`canonical` link.
-
-The canonical link is going to be pointing to the source of your
-content. Example: if you share a post from your blog on DEV.to and
-freeCodeCamp you can add a canonical link to them to identify your
-blog as the original source and better improving your SEO ranking.
-
-Add a `siteUrl` key to your `siteMetadata` on the `gatsby-config.js`
-file.
-
-Right now the validity of the URL isn't important as changes your
-making are being validated locally. You will need to add the URL of
-the site once it's deployed.
-
-It should look something like this now:
-
-```js
-const siteMetadata = {
-  title: `The Localhost Blog`,
-  description: `This is my coding blog where I write about my coding journey.`,
-  siteUrl: `https://thelocalhost.blog`,
-};
-```
-
-Add `siteUrl` to the `useSiteMetadata` hook and then add that to the
-SEO component. As it's a fixed value the URL doesn't need to change
-for the index page but it will for the individual blog posts, you can
-get the full path of the URL from the `fields.slug` you added earlier.
-
-```jsx
-export const SEO = ({ title, description }) => {
-  const { siteUrl } = useSiteMetadata();
-  return (
-    <>
-      <Helmet title={title}>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={siteUrl} />
-      </Helmet>
-    </>
-  );
-};
-```
-
-Then pass the relevant props to the component from
-`src/pages/index.js` and `src/templates/blogPostTemplate.js`.
-
-Now is a good time to create an `seo` object to assign default values
-to. Create this because you're either passing the variables via props
-or getting them via the `useSiteMetadata` hook.
-
-Destructure the `title`, `description` and `siteUrl` from the
-`useSiteMetadata` hook and give them aliases, so the `title` will be
-`title: defaultTitle`, same for `description` as
-`description: defaultDescription`, `siteUrl` is ok as is. Now is also
-a good time to add `siteLanguage` and `siteLocale`, they need to be
-added to the `siteMetadata` object in `gatsby-config.js` as well as
-the `useSiteMetadata` hook.
-
-```js
-import PropTypes from 'prop-types';
-import React from 'react';
-import Helmet from 'react-helmet';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
-
-export const SEO = ({ title, description, pathname }) => {
-  const {
-    title: defaultTitle,
-    description: defaultDescription,
-    siteUrl,
-    siteLanguage,
-    siteLocale,
-  } = useSiteMetadata();
-
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    url: `${siteUrl}${pathname || '/'}`,
-  };
-
-  return (
-    <>
-      <Helmet title={seo.title}>
-        <html lang={siteLanguage} />
-        <link rel="canonical" href={seo.url} />
-        <meta name="description" content={seo.description} />
-      </Helmet>
-    </>
-  );
-};
-
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-};
-```
-
-You'll need to pass the `fields.slug` to the SEO component `pathname`
-prop on `blogPostTemplate.js`:
-
-```jsx
-export default ({ data, pageContext }) => {
-  const { frontmatter, body, fields, excerpt } = data.mdx
-  const { previous, next } = pageContext
-  return (
-    <Layout>
-      <SEO
-        title={frontmatter.title}
-        description={excerpt || `nothin’`}
-        pathname={fields.slug}
-      />
-    ...
-```
-
-Add a default image for the site, this will be used when sharing the
-homepage (`/`) of the site. Save the image to the `static` folder and
-call it `default-image.png`.
-
-In your gatsby config create an `imageLink` key and point to the file
-you just added to the `static` folder. Gatsby doesn't need the full
-path of the file so, `/default-image.png` will be fine.
-
-The `imageLink` will also need adding to the `useSiteMetadata` hook,
-then to the SEO component props.
-
-To determine if the blog post has a cover image or not check the
-`image` prop, if it's `'undefined'` then use the default image:
-
-```js
-const imagePath = `${siteUrl}${
-  image.publicURL ? 'undefined' : defaultImage
-}`;
-```
-
-Add in the following code for the Facebook and Twitter modules, first
-Facebook:
-
-```js
-import PropTypes from 'prop-types';
-import React from 'react';
-import Helmet from 'react-helmet';
-
-export const Facebook = ({
-  url,
-  type,
-  title,
-  desc,
-  image,
-  locale,
-}) => (
-  <Helmet>
-    <meta property="og:locale" content={locale} />
-    <meta property="og:url" content={url} />
-    <meta property="og:type" content={type} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={desc} />
-    <meta property="og:image" content={image} />
-    <meta property="og:image:alt" content={desc} />
-  </Helmet>
-);
-
-Facebook.propTypes = {
-  url: PropTypes.string.isRequired,
-  locale: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
-
-Facebook.defaultProps = {
-  type: 'website',
-};
-```
-
-And now for Twitter:
-
-```js
-import PropTypes from 'prop-types';
-import React from 'react';
-import Helmet from 'react-helmet';
-
-export const Twitter = ({ type, username, title, desc, image }) => (
-  <Helmet>
-    {username && <meta name="twitter:creator" content={username} />}
-    <meta name="twitter:card" content={type} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={desc} />
-    <meta name="twitter:image" content={image} />
-    <meta name="twitter:image:alt" content={desc} />
-  </Helmet>
-);
-
-Twitter.propTypes = {
-  type: PropTypes.string,
-  username: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
-
-Twitter.defaultProps = {
-  type: 'summary_large_image',
-  username: null,
-};
-```
-
-If you haven't got a twitter username to add to the `siteMetadata`
-then add the `twitterUsername` as `null` to the `seo` object and pass
-that to the `Twitter` component as `username={seo.twitterUsername}`
-update the `useSiteMetadata` hook to incorporate the new information
-you have created also.
-
-That was a lot you covered there! The completed components should look
-like this:
-
-**`components/seo/seo.js`:**
-
-```js
-import PropTypes from 'prop-types';
-import React from 'react';
-import Helmet from 'react-helmet';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
-import { Facebook } from './facebook';
-import { Twitter } from './twitter';
-
-export const SEO = ({
-  title,
-  description,
-  pathname,
-  article,
-  image,
-}) => {
-  const {
-    title: defaultTitle,
-    description: defaultDescription,
-    siteUrl,
-    siteLanguage,
-    siteLocale,
-    twitterUsername,
-    imageLink: defaultImage,
-  } = useSiteMetadata();
-
-  const imagePath = `${siteUrl}${
-    image.publicURL ? 'undefined' : defaultImage
-  }`;
-
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    url: `${siteUrl}${pathname || '/'}`,
-    image: `${imagePath || defaultImage}`,
-  };
-
-  return (
-    <>
-      <Helmet title={seo.title}>
-        <html lang={siteLanguage} />
-        <link rel="canonical" href={seo.url} />
-        <meta name="description" content={seo.description} />
-      </Helmet>
-      <Facebook
-        desc={seo.description}
-        image={seo.image}
-        title={seo.title}
-        type={article ? 'article' : 'website'}
-        url={seo.url}
-        locale={siteLocale}
-      />
-      <Twitter
-        title={seo.title}
-        image={seo.image}
-        desc={seo.description}
-        username={twitterUsername}
-      />
-    </>
-  );
-};
-
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-};
-```
-
-**`gatsby-config.js:siteMetadata`:**
-
-```js
-const siteMetadata = {
-  title: `The Localhost Blog`,
-  description: `This is my coding blog where I write about my coding journey.`,
+  image: `/default-site-image.jpg`,
   siteUrl: `https://thelocalhost.blog`,
   siteLanguage: `en-GB`,
   siteLocale: `en_gb`,
   twitterUsername: `@spences10`,
-  imageLink: `/favicon.png`,
+  authorName: `Scott Spence`,
 }
 
 module.exports = {
   siteMetadata: siteMetadata,
-  ...
+  plugins: [
+    ...
 ```
 
-**`src/templates/blogPostTemplate.js`:**
+You don't have to abstract out the `siteMetadata` into it's own
+component here, it's only a suggestion on how to manage it.
 
-```js
-import { graphql, Link } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import React from 'react'
-import { Layout } from '../components/Layout'
-import { SEO } from '../components/seo/seo'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
+The `image` is going to be the default image for your site, you should
+create a `static` folder at the root of the project and add in an
+image you want to be shown when the homepage of your site is shared on
+social media.
 
-export default ({ data, pageContext }) => {
-  const { frontmatter, body, fields, excerpt } = data.mdx
-  const { cover } = frontmatter
-  const { previous, next } = pageContext
-  const { imageLink: defaultImage } = useSiteMetadata()
-  return (
-    <Layout>
-      <SEO
-        title={frontmatter.title}
-        description={excerpt || `nothin’`}
-        pathname={fields.slug}
-        article={true}
-        image={cover || defaultImage}
-      />
-      <h1>{frontmatter.title}</h1>
-      ...
-```
+For `siteUrl` at this stage it doesn't necessarily have to be valid,
+add a dummy url for now and you can change this later.
 
-**`src/hooks/useSiteMetadata.js`:**
+The `siteLanguage` is your language of choice for the site, take a
+look at [w3 language tags] for more info.
+
+Facebook OpenGraph is the only place the `siteLocale` is used and it
+is different from language tags.
+
+Add your `twitterUsername` and your `authorName`.
+
+Update the `useSiteMetadata` hook now to reflect the newly added
+properties:
 
 ```js
 import { graphql, useStaticQuery } from 'gatsby';
@@ -2927,11 +2435,12 @@ export const useSiteMetadata = () => {
           siteMetadata {
             description
             title
+            image
             siteUrl
             siteLanguage
             siteLocale
             twitterUsername
-            imageLink
+            authorName
           }
         }
       }
@@ -2941,7 +2450,372 @@ export const useSiteMetadata = () => {
 };
 ```
 
+Begin with importing the `Dump` component in `src/pages/index.js` then
+plug in the props as they are detailed in the docs of the
+[`react-seo-component`].
+
+```js
+import Dump from '../components/Dump'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+
+export default ({ data }) => {
+  const {
+    description,
+    title,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+  } = useSiteMetadata()
+  return (
+    <Layout>
+      <Dump
+        title={title}
+        description={description}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
+      <IndexWrapper>
+        {data.allMdx.nodes.map(
+          ...
+```
+
+Check that all the props are displaying valid values then you can swap
+out the `Dump` component with the `SEO` component.
+
+The complete `src/pages/index.js` should look like this now:
+
+```js
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
+import React from 'react';
+import SEO from 'react-seo-component';
+import styled from 'styled-components';
+import { Layout } from '../components/Layout';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+
+const IndexWrapper = styled.main``;
+
+const PostWrapper = styled.div``;
+
+const Image = styled(Img)`
+  border-radius: 5px;
+`;
+
+export default ({ data }) => {
+  const {
+    description,
+    title,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+  } = useSiteMetadata();
+  return (
+    <Layout>
+      <SEO
+        title={title}
+        description={description || `nothin’`}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
+      <IndexWrapper>
+        {/* <Dump data={data}></Dump> */}
+        {data.allMdx.nodes.map(
+          ({ id, excerpt, frontmatter, fields }) => (
+            <PostWrapper key={id}>
+              <Link to={fields.slug}>
+                {!!frontmatter.cover ? (
+                  <Image
+                    sizes={frontmatter.cover.childImageSharp.sizes}
+                  />
+                ) : null}
+                <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.date}</p>
+                <p>{excerpt}</p>
+              </Link>
+            </PostWrapper>
+          )
+        )}
+      </IndexWrapper>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query SITE_INDEX_QUERY {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 250)
+        frontmatter {
+          title
+          date(formatString: "YYYY MMMM Do")
+          cover {
+            publicURL
+            childImageSharp {
+              sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
+                ...GatsbyImageSharpSizes_tracedSVG
+              }
+            }
+          }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+`;
+```
+
+`video: https://www.youtube.com/watch?v=O0jk9AqM_ls&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
+### Configure SEO Component for Blog Posts
+
+This will be the same approach as with the homepage, import the `Dump`
+component and validate the props before swapping out the `Dump`
+component with the `SEO` component.
+
+```js
+import Dump from '../components/Dump'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+
+export default ({ data, pageContext }) => {
+  const {
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+    authorName,
+  } = useSiteMetadata()
+  const { frontmatter, body, fields, excerpt } = data.mdx
+  const { title, date, cover } = frontmatter
+  const { previous, next } = pageContext
+  return (
+    <Layout>
+      <Dump
+        title={title}
+        description={excerpt}
+        image={
+          cover === null
+            ? `${siteUrl}${image}`
+            : `${siteUrl}${cover.publicURL}`
+        }
+        pathname={`${siteUrl}${fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+      <h1>{frontmatter.title}</h1>
+      ...
+```
+
+Add `fields.slug`, `excerpt` and `cover.publicURL` to the
+`PostsBySlug` query and destructure them from `data.mdx` and
+`frontmatter` respectively.
+
+For the image you'll need to do some logic as to weather the `cover`
+exists and default to the default site image if it doesn't.
+
+The complete `src/templates/blogPostTemplate.js` should look like this
+now:
+
+```js
+import { graphql, Link } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import SEO from 'react-seo-component';
+import { Layout } from '../components/Layout';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
+
+export default ({ data, pageContext }) => {
+  const {
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername,
+    authorName,
+  } = useSiteMetadata();
+  const { frontmatter, body, fields, excerpt } = data.mdx;
+  const { title, date, cover } = frontmatter;
+  const { previous, next } = pageContext;
+  return (
+    <Layout>
+      <SEO
+        title={title}
+        description={excerpt}
+        image={
+          cover === null
+            ? `${siteUrl}${image}`
+            : `${siteUrl}${cover.publicURL}`
+        }
+        pathname={`${siteUrl}${fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <MDXRenderer>{body}</MDXRenderer>
+      {previous === false ? null : (
+        <>
+          {previous && (
+            <Link to={previous.fields.slug}>
+              <p>{previous.frontmatter.title}</p>
+            </Link>
+          )}
+        </>
+      )}
+      {next === false ? null : (
+        <>
+          {next && (
+            <Link to={next.fields.slug}>
+              <p>{next.frontmatter.title}</p>
+            </Link>
+          )}
+        </>
+      )}
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date(formatString: "YYYY MMMM Do")
+        cover {
+          publicURL
+        }
+      }
+      body
+      excerpt
+      fields {
+        slug
+      }
+    }
+  }
+`;
+```
+
+`video: https://www.youtube.com/watch?v=a2fcgYIQRIU&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
+### Build Site and Validate Meta Tags
+
+Add in the build script to `package.json` and also a script for
+serving the built site locally.
+
+```json
+"scripts": {
+  "dev": "gatsby develop -p 9988 -o",
+  "build": "gatsby build",
+  "serve": "gatsby serve -p 9500 -o"
+},
+```
+
+Now it's time to run:
+
+```bash
+yarn build && yarn serve
+```
+
+This will build the site and open a browser tab so you can see the
+site as it will appear when it is on the internet. Validate meta tags
+have been added to the build by selecting "View page source" (Crtl+u
+in Windows and Linux) on the page and do a Ctrl+f to find them.
+
+`video: https://www.youtube.com/watch?v=c6bB9ddAgjc&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
+## Adding the Project to GitHub
+
+Add your code to GitHub by either selecting the plus (+) icon next to
+your avatar on GitHub or by going to directly to
+[https://github.com/new](https://github.com/new)
+
+Name your repository and click create repository, then you will be
+given the instructions to link your local code to the repository you
+created via the command line.
+
+Depending on how you authenticate with GitHub will depend on what the
+command looks like.
+
+Some good resources for authenticating with GitHub via SSH are [Kent
+Dodds Egghead.io video] and also a how-to [on CheatSheets.xyz].
+
+`video: https://www.youtube.com/watch?v=r2eiJ8E_YT0&list=PLGi_uHe_v04DRZ58L_0O5cilalymkC7On`
+
 ## Deploy to Netlify
+
+To deploy your site to Netlify, if you haven't done so already you'll
+need to add the GitHub integration to your GitHub profile. If you got
+to [app.netlify.com](https://app.netlify.com) the wizard will walk you
+through the process.
+
+From here you can add your built site's `public` folder, drag 'n drop
+style directly to the Netlify global CDNs.
+
+You, however are going to load your site via the Netlify CLI! In your
+terminal, if you haven't already got the CLI installed, run:
+
+```bash
+yarn global add netlify-cli
+```
+
+Then once the CLI is installed:
+
+```bash
+# authenticate via the CLI
+netlify login
+# initialise the site
+netlify init
+```
+
+Enter the details for your team, the site name is optional, the build
+command will be `yarn build` and directory to deploy is `public`.
+
+You will be prompted to commit the changes and push them to GitHub
+(with `git push`), once you have done that your site will be published
+and ready for all to see!
+
+`video: https://www.youtube.com/watch?v=voWeHvIGB0g`
+
+## Validate Metadata with Heymeta
+
+Last up is validating the metadata for the OpenGraph fields, to do
+that you'll need to make sure that the `siteUrl` reflecting what you
+have in your Netlify dashboard.
+
+If you needed to change the url you'll need to commit and push the
+changes to GitHub again.
+
+Once your site is built with a valid url you can then test the
+homepage and a blog page for the correct meta tags with
+[heymeta.com](http://heymeta.com/).
+
+`video: https://www.youtube.com/watch?v=JH1AVanYhwo`
 
 **OpenGraph checking tools:**
 
@@ -2955,9 +2829,12 @@ export const useSiteMetadata = () => {
 
 - [The Essential Meta Tags for Social Media]
 
-## Commenting
+## Thanks for reading 🙏
 
-- [https://github.com/utterance/utterances](https://github.com/utterance/utterances)
+That's all folks! If there is anything I have missed, or if there is a
+better way to do something then please let me know.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 <!-- Links -->
 
@@ -2999,3 +2876,15 @@ export const useSiteMetadata = () => {
 [draw a horse quincy tweet]: ./draw-a-horse-quincy-tweet.png
 [the essential meta tags for social media]:
   https://css-tricks.com/essential-meta-tags-social-media/
+[as a react component]:
+  https://github.com/spences10/react-seo-component
+[`react-seo-component`]:
+  https://github.com/spences10/react-seo-component
+[w3 language tags]:
+  https://www.w3.org/International/articles/language-tags/
+[kent dodds egghead.io video]:
+  https://egghead.io/lessons/javascript-how-to-authenticate-with-github-using-ssh
+[on cheatsheets.xyz]:
+  https://www.cheatsheets.xyz/git/#how-to-authenticate-with-github-using-ssh
+[twitter]: https://twitter.com/spences10
+[ask me anything]: https://github.com/spences10/ama

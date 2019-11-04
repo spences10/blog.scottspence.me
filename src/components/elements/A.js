@@ -17,6 +17,7 @@ export const StyledATag = styled.a`
     color: black;
     background-size: 100% 100%;
   }
+  text-decoration: none;
 `;
 
 export const AnchorTag = props => (
