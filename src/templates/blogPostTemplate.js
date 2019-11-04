@@ -63,8 +63,8 @@ const PrevNextButton = styled(HappyButton)`
 `;
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, excerpt, body, path } = data.mdx;
-  const { cover, date, title, isoDate } = frontmatter;
+  const { frontmatter, excerpt, body } = data.mdx;
+  const { cover, date, title, isoDate, path } = frontmatter;
   const { prev, next } = pageContext;
   const { imageLink: defaultImage, siteUrl } = useSiteMetadata();
   return (
@@ -77,7 +77,7 @@ export default ({ data, pageContext }) => {
             ? `${siteUrl}${defaultImage}`
             : `${siteUrl}${cover.publicURL}`
         }
-        pathname={path}
+        pathname={`${siteUrl}${path}`}
         article={true}
         publishedDate={new Date(isoDate).toISOString()}
       />

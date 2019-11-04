@@ -55,8 +55,9 @@ export default ({ data }) => {
     <Layout>
       <SEO
         title={title}
-        description={description || `nothin’`}
+        description={description || 'nothin’'}
         image={`${siteUrl}${imageLink}`}
+        pathname={siteUrl}
       />
       <Wrapper>
         {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
