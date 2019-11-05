@@ -8,11 +8,14 @@ cover: ./cover.jpg
 coverCredit: Photo by Tyler Casey on Unsplash
 ---
 
+import styled, { keyframes } from 'styled-components';
+
 React Advanced London going deep!
 
 ## Ken Wheeler - React Performance
 
-Ken's keynote didn't disappoint! Ken
+Ken's keynote didn't disappoint! Ken talks about how performance fixes
+aren't prescriptive and it's more like a puzzle to figure out.
 
 > ### IMDOPE System
 >
@@ -23,10 +26,12 @@ Ken's keynote didn't disappoint! Ken
 > - **P**lay around until its better
 > - **E**njoy newly performant app
 
-Measuring performance he detailed the Chrome performance tab.
+Ken detailed an animation running at 60 frames per second and how that
+appears on the performance tab.
 
-User Timings API lets you define precise performance marking that you
-can name and display in dev tools.
+The user Timings API (which I've never heard of) lets you define
+precise performance marking that you can name and display in dev
+tools.
 
 **Example:**
 
@@ -36,6 +41,28 @@ performance.mark('mainthread-start')
 performance.mark('mainthread-stop')
 performance.measure('mainthread', 'mainthread-start', 'mainthread-stop')
 ```
+
+React does not control renders by default, very often problems
+relating to performance are related to unnecessary renders.
+
+React is _generally_ not great when you have a lot of components
+rendering and re-rendering at the same time (cough React Memo!)
+
+The React dev tools profiler got a mention and there was a demo of how
+react will re-render all the things if you have many components in a
+view using the React dev tools profiler.
+
+There was an amusing part where when trying to demo the `useCallback`
+React API where Ken missed out the second argument and had to consult
+the React docs to clarify.
+
+> "as developers almost everything we do is building elaborate lists
+> of shit"
+>
+> `-` Ken Wheeler
+
+List should be virtualized, check out Brian Vaughn's [React Window] or
+[React Virtualized]
 
 ## Sean Wang - React (with hooks) from scratch
 
@@ -62,3 +89,5 @@ Jamie Barton - share more!
 
 [codesandbox.io]: https://codesandbox.io
 [fetch example]: https://codesandbox.io/s/reactadvanced-final-uwrx0
+[react virtualized]: https://github.com/bvaughn/react-virtualized
+[react window]: https://github.com/bvaughn/react-window
