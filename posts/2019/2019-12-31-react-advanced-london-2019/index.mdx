@@ -87,7 +87,56 @@ more time" vocoder example! Dope!
 Bonkers talk from Sean where he recreated React with Hooks and React
 Concurrency (Fibre) in a [CodeSandbox.io] session.
 
-[fetch example]
+The talk was a sequel to a previous talk on [React hooks from scratch]
+in 29 lines. He started with "we're going to re-create concurrent
+React in 130 lines of code!".
+
+At blazing fast speed he covered many concepts, a lot I was unfamiliar
+with relating to React, topics covered:
+
+- React Fiber
+- "Rendering"
+- Linked List Traversal
+- Reconciliation vs Commit
+- `useState` hook
+- Work loop
+- Suspense
+
+First, the POJO! (Plain Old JavaScript Object):
+
+```js
+const element = {
+  type: 'h1',
+  props: {
+    children: 'Hello world',
+  },
+};
+```
+
+Then went on to define what a fiber was, which is an extension on the
+POJO:
+
+```js
+const element = {
+  type: 'h1',
+  props: {
+    children: 'Hello world',
+  },
+  dom: domNode,
+  parent: parentFiber,
+  child: childFiber,
+  sibling: null,
+  alternate: currentFiber,
+  effectTag: PLACEMENT,
+  hooks: [],
+};
+```
+
+I'll be honest, the speed at which Sean went, although very concise
+was quite though to follow at times.
+
+The only dependency used in the code was Babel with this [fetch
+example].
 
 ## Vojtech Miksu - What a Drag
 
@@ -109,3 +158,4 @@ Jamie Barton - share more!
 [fetch example]: https://codesandbox.io/s/reactadvanced-final-uwrx0
 [react virtualized]: https://github.com/bvaughn/react-virtualized
 [react window]: https://github.com/bvaughn/react-window
+[react hooks from scratch]: https://www.swyx.io/speaking/react-hooks/
