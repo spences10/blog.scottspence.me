@@ -8,8 +8,6 @@ cover: ./cover.jpg
 coverCredit: Photo by Tyler Casey on Unsplash
 ---
 
-import styled, { keyframes } from 'styled-components';
-
 React Advanced London going deep!
 
 ## Ken Wheeler - React Performance
@@ -135,12 +133,24 @@ const element = {
 I'll be honest, the speed at which Sean went, although very concise
 was quite though to follow at times.
 
+He covered all the main sections along with code examples. TL;DR
+suspense with time slicing is here.
+
 The only dependency used in the code was Babel with this [fetch
-example].
+example] where the we're using state and reading from a resource which
+suspends (or caches) as needed.
 
 ## Vojtech Miksu - What a Drag
 
-Accessible drag and drop
+Vojtech (Uber) goes through the history lesson about drag and drop and
+the complexities that come with it.
+
+He details the options available and why they implemented their own
+[React Movable] Accessible drag and drop project.
+
+Here's the same talk from RSCONF 2019:
+
+`youtube: 373pc0AbR9M`
 
 ## Daniel Irvine - Don’t Let Your Unit Tests Slow You Down
 
@@ -159,3 +169,4 @@ Jamie Barton - share more!
 [react virtualized]: https://github.com/bvaughn/react-virtualized
 [react window]: https://github.com/bvaughn/react-window
 [react hooks from scratch]: https://www.swyx.io/speaking/react-hooks/
+[react movable]: https://github.com/tajo/react-movable
