@@ -17,6 +17,8 @@ React Advanced London going deep!
 Ken's keynote didn't disappoint! Ken talks about how performance fixes
 aren't prescriptive and it's more like a puzzle to figure out.
 
+To help with this he prescribed the IMDOPE system!
+
 > ### IMDOPE System
 >
 > - **I**dentify that a problem exists
@@ -62,7 +64,23 @@ the React docs to clarify.
 > `-` Ken Wheeler
 
 List should be virtualized, check out Brian Vaughn's [React Window] or
-[React Virtualized]
+[React Virtualized] he went on to render lists with 10k plus items in
+there and demoed the shoddy performance on a rendered list then with
+react window.
+
+**Web Workers**
+
+A particularly interesting section for me (because I didn't know it
+was a thing), with web workers you can take expensive tasks off of the
+main thread.
+
+There are some downsides to this relating to serialization though.
+
+**WASM**
+
+He finished up with an auto tune example made with Rust and a Google
+audio worklet to process a stream of audio to do the Daft Punk "one
+more time" vocoder example! Dope!
 
 ## Sean Wang - React (with hooks) from scratch
 
