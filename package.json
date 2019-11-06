@@ -1,6 +1,6 @@
 {
   "name": "blog.scottspence.me",
-  "version": "4.0.362",
+  "version": "4.0.363",
   "author": "Scott Spence <spences10apps@gmail.com>(https://scottspence.me/)",
   "license": "MIT",
   "description": "Personal blog made with Gatsby v2",
@@ -23,7 +23,7 @@
     "@mdx-js/mdx": "1.5.1",
     "@mdx-js/react": "1.5.1",
     "babel-plugin-styled-components": "1.10.6",
-    "gatsby": "2.17.9",
+    "gatsby": "2.17.10",
     "gatsby-image": "2.2.30",
     "gatsby-plugin-feed": "2.3.19",
     "gatsby-plugin-manifest": "2.2.26",
