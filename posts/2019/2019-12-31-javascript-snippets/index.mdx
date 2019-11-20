@@ -97,6 +97,19 @@ Array.from({ length: totalYears }, (_, i) => year + i);
 
 ## Async await
 
+```js
+const getAsyncStuff = async name => {
+  try {
+    const response = await fetch(
+      `https://api.github.com/users/${name}`
+    );
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+  }
+};
+```
+
 🔥 4 Ways to handle the double promise with fetch() and async+await
 
 ```js
