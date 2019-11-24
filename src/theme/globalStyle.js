@@ -77,28 +77,18 @@ export const media = Object.keys(sizes).reduce(
   {}
 );
 
-const fonts = () => {
-  const list = [
-    'Nunito:400,700|',
-    'Poppins:400,700|',
-    'Trirong:400,700|',
-    'Rubik:400,700|',
-    'Eczar:400,700|',
-    'Taviraj:400,700|',
-  ];
-  return list.join('');
-};
-
 export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=${fonts()}');
-    @import url('https://fonts-for-the-font-god.netlify.com/dank-mono.css?family=dm');
-    
     /* use for debugging only!! */
     /* * {
       outline: 1px solid red !important;
     } */
     *, *:before, *:after {
       box-sizing: border-box;
+    }
+    html {
+      font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
     }
     body {
       padding: 0;
