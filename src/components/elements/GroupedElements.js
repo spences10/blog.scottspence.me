@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import 'victormono';
 
 export const StyledInlineCode = styled.code`
-  font-family: dm, 'Courier New', Courier, monospace;
+  font-family: 'Victor Mono', 'Courier New', Courier, monospace;
   background-color: #fafafa;
   /* background-color: ${({ theme }) => theme.background}; */
 `;
