@@ -8,6 +8,7 @@ import {
   LiveProvider,
 } from 'react-live';
 import styled from 'styled-components';
+import 'victormono';
 import { copyToClipboard } from '../../utils/copy-to-clipboard';
 // import { Dump } from '../utils/helpers'
 
@@ -22,7 +23,7 @@ const Pre = styled.pre`
     line-height: 1.3em;
     height: 1.3em;
   }
-  font-family: dm, 'Courier New', Courier, monospace;
+  font-family: 'Victor Mono', 'Courier New', Courier, monospace;
 `;
 
 const LineNo = styled.span`
@@ -34,15 +35,17 @@ const LineNo = styled.span`
 
 const CopyCode = styled.button`
   position: absolute;
-  right: 0.25rem;
+  right: 1.25rem;
   color: ${({ theme }) => theme.fontLight};
   background-color: ${({ theme }) => theme.primary};
   border: 0;
   border-radius: 3px;
   margin: 0.25em;
   opacity: 0.3;
+  font-family: inherit;
   &:hover {
     opacity: 1;
+    font-weight: bold;
   }
 `;
 
