@@ -55,7 +55,8 @@
     "react-lottie": "1.2.3",
     "react-seo-component": "0.1.16",
     "react-utterances": "0.6.4",
-    "styled-components": "4.4.1"
+    "styled-components": "4.4.1",
+    "victormono": "1.2.9"
   },
   "devDependencies": {
     "husky": "3.1.0",
