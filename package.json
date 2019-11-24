@@ -36,6 +36,7 @@
     "gatsby-plugin-sitemap": "2.2.21",
     "gatsby-plugin-styled-components": "3.1.13",
     "gatsby-plugin-twitter": "2.1.14",
+    "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-remark-autolink-headers": "2.1.18",
     "gatsby-remark-code-titles": "1.1.0",
     "gatsby-remark-copy-linked-files": "2.1.30",
@@ -54,7 +55,8 @@
     "react-lottie": "1.2.3",
     "react-seo-component": "0.1.16",
     "react-utterances": "0.6.4",
-    "styled-components": "4.4.1"
+    "styled-components": "4.4.1",
+    "victormono": "1.2.9"
   },
   "devDependencies": {
     "husky": "3.1.0",
