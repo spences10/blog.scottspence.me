@@ -47,6 +47,7 @@ module.exports = {
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -119,8 +120,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-remove-serviceworker`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-fathom`,
+      options: {
+        siteId: process.env.GATSBY_FATHOM_TRACKING_ID,
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
