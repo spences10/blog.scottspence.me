@@ -8,7 +8,8 @@ cover: ./cover.jpg
 coverCredit: Photo by Aranxa Esteve on Unsplash
 ---
 
-Do you use Google Analytics (GA) for any of your sites?
+At the end of last month (November 2019) I started using [Fathom
+Analytics] Do you use Google Analytics (GA) for any of your sites?
 
 I've used it in the past and it gives quite good information about
 
@@ -20,48 +21,25 @@ Tracking Events
 
 Privacy Policy
 
-Ambulance Chasers
-
 We're going to use the React context API
 
 ```js
-import React, { useContext, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
-const AnalyticsContext = React.createContext({});
+const AnalyticsContext = createContext({});
 
 export const AnalyticsProvider = ({ children }) => {
   useEffect(() => {
-    if (typeof window.ga === 'undefined') {
-      window.ga = (x, y) => {
-        console.log(`I'm a fake GA`, x, y);
+    if (typeof window.fathom === 'undefined') {
+      window.fathom = (x, y, z) => {
+        console.log(`I'm a fake Fathom`, x, y, z);
       };
     }
   }, []);
 
   const events = {
-    logButtonPress: e => {
-      window.ga('send', {
-        hitType: 'event',
-        eventCategory: 'buttonPress',
-        eventAction: 'click',
-        eventLabel: e.target.innerText,
-      });
-    },
-    logSocial: socialMediaPlatform => {
-      window.ga('send', {
-        hitType: 'event',
-        eventCategory: 'socialShareClicks',
-        eventAction: 'click',
-        eventLabel: socialMediaPlatform,
-      });
-    },
-    logNavigation: navItem => {
-      window.ga('send', {
-        hitType: 'event',
-        eventCategory: 'navigationClicks',
-        eventAction: 'click',
-        eventLabel: navItem,
-      });
+    logNavigation: goalId => {
+      window.fathom('trackGoal', goalId, 0);
     },
   };
   return (
@@ -76,21 +54,34 @@ export const useAnalytics = () => {
 };
 ```
 
-As high up the component tree add the provider.
+As high up the component tree as possible, add the provider.
 
 ```js
-import { AnalyticsProvider } from '../components/GAEventTracking';
+import { AnalyticsProvider } from '../contexts/fathom-event-tracking';
 ```
 
-Then use in the areas you Want
+Then use in the areas you want passing in the Fathom Goal you created.
 
 ```js
-export const ButtonComponent = props => {
+export const NavItems = () => {
   const analytics = useAnalytics();
   return (
-    <button onClick={analytics.logButtonPress} {...props}>
-      {props.children}
-    </button>
+    <>
+      <NavLink
+        href={`#about`}
+        onClick={() => analytics.logNavigation('RC4QULF8')}>
+        About
+      </NavLink>
+      <NavLink
+        href={`#portfolio`}
+        onClick={() => analytics.logNavigation('H9UEFCBF')}>
+        Portfolio
+      </NavLink>
+    </>
   );
 };
 ```
+
+[fathom analytics]: https://usefathom.com/
+[for a $10 discount on your first invoice]:
+  https://usefathom.com/ref/HG492L
