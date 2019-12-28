@@ -19,8 +19,14 @@ Analytics] in place of Google Analytics.
 I wanted a simpler way to track visitors to my sites and Fathom offers
 that with a great, really intuitive interface and simple design.
 
-So far, I love it, and would like to recommend it to others! (More on
-that later though!) For now here's some of the Fathom marketing copy.
+So far, I love it, and would like to recommend it to others! Fathom
+have an awesome affiliate program where every customer can take part!
+
+For every paying customer I refer with [my unique code], I'll get a
+25% lifetime commission on that customers payments, and if you use
+that code too [you'll get a \$10 discount on your first invoice].
+
+For now here's some of the Fathom marketing copy.
 
 ## Why Fathom?
 
@@ -43,16 +49,52 @@ that later though!) For now here's some of the Fathom marketing copy.
   receive top-notch customer support. Plans start at \$14 a month.
 
 Do you use Google Analytics (GA) for any of your sites? I've used it
-in the past and it gives the sort of information you'd expect.
+in the past and it gives the sort of information you'd expect but it
+can be quite confusing to navigate and find that information.
+
+What you get with Fathom out of the box is very similar to GA, but
+it's all there on one page. You get the standard metrics like, 'Unique
+visits', 'Page views', 'Avg time on site' and 'Bounce rate'.
+
+There's also the breakdown of the most popular pages and referring
+sites.
+
+The difference (apart from the simple to use interface), you're not
+giving away your visitors data to the big G!
 
 > Want to track what users of your site are clicking and navigating
 > to?
 
-What you get with Fathom out of the box is the standard metrics like,
-'Unique visits', 'Page views', 'Avg time on site' and 'Bounce rate'.
+But say you want to track how many times a user of your site clicked a
+particular button or link?
 
-There's also the breakdown of the most popular pages and referring
-sites.
+In GA you'd do something like use Google Tag Manager or code and event
+tracking script (like I'm going to do here!).
+
+## Config Fathom for use in Gatsby
+
+I'm presuming you already have Fathom configured for your site but if
+you don't and you want to then there's a [Gatsby plugin for Fathom]
+that is very similar to the Google Analytics plugin you get for
+Gatsby.
+
+You `yarn` or `npm` install the plugin and and configure the specific
+site you want to track. By that I mean you have to add a new site to
+your [Fathom dashboard] and use that code in the configuration of the
+plugin.
+
+In your `gatsby-config.js` plugins array the config should like this:
+
+```js
+{
+  resolve: `gatsby-plugin-fathom`,
+  options: {
+    siteId: process.env.GATSBY_FATHOM_TRACKING_ID_MY_AWESOME_SITE,
+    // or use the site ID in plaintext
+    // siteId: 'PBZRRJHH',
+  },
+},
+```
 
 ## Tracking Events with Fathom
 
@@ -120,6 +162,9 @@ export const NavItems = () => {
 <!-- Links -->
 
 [fathom analytics]: https://usefathom.com/
-[for a $10 discount on your first invoice]:
+[you'll get a \$10 discount on your first invoice]:
   https://usefathom.com/ref/HG492L
-[like to recommend it to others]: https://usefathom.com/ref/HG492L
+[my unique code]: https://usefathom.com/ref/HG492L
+[gatsby plugin for fathom]:
+  https://www.gatsbyjs.org/packages/gatsby-plugin-fathom/
+[fathom dashboard]: https://app.usefathom.com/#/settings/sites
