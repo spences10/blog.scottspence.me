@@ -7,4 +7,5 @@ export const BlockQuote = styled.blockquote`
   font-size: 30px;
   margin: 20px;
   opacity: 0.7;
+  word-break: break-word;
 `;
