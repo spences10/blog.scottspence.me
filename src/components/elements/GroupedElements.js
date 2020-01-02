@@ -15,6 +15,7 @@ export const InlineCode = ({ children }) => (
 const StyledParagraph = styled.p`
   iframe {
   }
+  word-break: break-word;
 `;
 
 export const Paragraph = ({ children }) => (
