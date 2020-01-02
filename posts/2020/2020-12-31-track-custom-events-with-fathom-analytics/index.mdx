@@ -2,7 +2,7 @@
 path: /track-custom-events-with-fathom-analytics
 date: 2020-12-31
 title: Track Custom Events With Fathom Analytics
-tags: ['information', 'learning', 'guide', 'hooks', 'react']
+tags: ['analytics', 'learning', 'guide', 'hooks', 'react']
 published: true
 cover: ./cover.jpg
 coverCredit: Photo by Aranxa Esteve on Unsplash
@@ -10,20 +10,6 @@ coverCredit: Photo by Aranxa Esteve on Unsplash
 
 In this guide I'm going to go through how to track custom events in a
 Gatsby site using Fathom analytics.
-
-## Set-up Fathom account
-
-## Template install
-
-## Add/Config Fathom Gatsby plugin
-
-## Push to Netlify and test
-
-## Use React Context API to make an analytics provider
-
-## Create goals in Fathom Analytics
-
-## Add custom event tracking
 
 ## Preamble
 
@@ -82,22 +68,26 @@ giving away your visitors data to the big G!
 But say you want to track how many times a user of your site clicked a
 particular button or link?
 
-In GA you'd do something like use Google Tag Manager or code and event
-tracking script (like I'm going to do here!).
+## Here's a video detailing the process.
 
-## Config Fathom for use in Gatsby
+`youtube: yeMCma4Ae7Q`
 
-I'm presuming you already have Fathom configured for your site but if
-you don't and you want to then there's a [Gatsby plugin for Fathom]
-that is very similar to the Google Analytics plugin you get for
-Gatsby.
+## Set-up Fathom account
 
-You `yarn` or `npm` install the plugin and and configure the specific
-site you want to track. By that I mean you have to add a new site to
-your [Fathom dashboard] and use that code in the configuration of the
-plugin.
+If you want to follow along you're going to need a Fathom Analytics
+account, if you haven't already got one then please consider signing
+up with my affiliate link, [my unique code] will get you a \$10
+discount off of your first invoice! 🤝
 
-In your `gatsby-config.js` plugins array the config should like this:
+## Add/Config Fathom Gatsby plugin
+
+In this guide I'm going to use a Gatsby starter
+[gatsby-starter-business] which is a nice starter with some of the
+relevant things I'd want to track. Things like the pricing page and
+how many people submit a contact form.
+
+In the `gatsby-config.js` plugins array the config looks pretty
+similar to this:
 
 ```js
 {
@@ -110,11 +100,37 @@ In your `gatsby-config.js` plugins array the config should like this:
 },
 ```
 
-## Tracking Events with Fathom
+In the example I'm doing I'm hard-coding in the site ID but you can
+use environment variables if you like.
 
-To track events in Fathom you'll first need to set up a goal! This
-will give you a unique ID that you can pass to the Fathom global
-function that's on the configured site.
+## Push to Netlify and test
+
+For the purposes of the guide I build and push the site to Netlify
+then check in the console on the browser that `fathom` is available as
+a global function.
+
+I can now check my Fathom dashboard to see that the site has a
+visitor.
+
+Cool, cool! That's Fathom Analytics configured for the site, now to
+the custom events.
+
+## Use React Context API to make an analytics provider
+
+To make the analytics available throughout the site I'm going to use
+the React Context API.
+
+## Create goals in Fathom Analytics
+
+To track events in Fathom I'll first need to set up a goal! This will
+give a unique ID that I can pass to the Fathom global function that's
+on my configured site.
+
+If you scroll to the bottom of
+
+## Add custom event tracking
+
+## Tracking Events with Fathom
 
 We're going to use the React context API
 
@@ -186,3 +202,5 @@ export const NavItems = () => {
 [gatsby plugin for fathom]:
   https://www.gatsbyjs.org/packages/gatsby-plugin-fathom/
 [fathom dashboard]: https://app.usefathom.com/#/settings/sites
+[gatsby-starter-business]:
+  https://github.com/v4iv/gatsby-starter-business
