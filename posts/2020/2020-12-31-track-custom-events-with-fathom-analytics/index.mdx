@@ -68,7 +68,7 @@ giving away your visitors data to the big G!
 But say you want to track how many times a user of your site clicked a
 particular button or link?
 
-## Here's a video detailing the process.
+## 📺 Here's a video detailing the process.
 
 `youtube: yeMCma4Ae7Q`
 
@@ -115,24 +115,27 @@ visitor.
 Cool, cool! That's Fathom Analytics configured for the site, now to
 the custom events.
 
-## Use React Context API to make an analytics provider
-
-To make the analytics available throughout the site I'm going to use
-the React Context API.
-
 ## Create goals in Fathom Analytics
 
 To track events in Fathom I'll first need to set up a goal! This will
 give a unique ID that I can pass to the Fathom global function that's
 on my configured site.
 
-If you scroll to the bottom of
+So, to get to the goal section of my site I'll scroll to the bottom of
+the configured site's dashboard and click the _Show more data_ toggle.
 
-## Add custom event tracking
+This will reveal the _Goals_ section where I can configure goals. In
+this example I'll be adding goals for `about`, `pricing`, `blog`,
+`contact-us` and `form-submit`.
 
-## Tracking Events with Fathom
+Each time I save the goal I'm given a JavaScript snippet to use, like:
+`fathom('trackGoal', 'CYAZA98C', 0);` , this is what I'm going to be
+adding into my code example.
 
-We're going to use the React context API
+## Use React Context API to make an analytics provider
+
+I'm going to use the React context API to create an analytics provider
+to be used throughout the app.
 
 ```js
 import React, { createContext, useContext, useEffect } from 'react';
@@ -148,13 +151,12 @@ export const AnalyticsProvider = ({ children }) => {
     }
   }, []);
 
-  const events = {
-    logNavigation: goalId => {
-      window.fathom('trackGoal', goalId, 0);
-    },
+  const logClicks = goalId => {
+    window.fathom('trackGoal', goalId, 0);
   };
+
   return (
-    <AnalyticsContext.Provider value={events}>
+    <AnalyticsContext.Provider value={logClicks}>
       {children}
     </AnalyticsContext.Provider>
   );
@@ -165,33 +167,71 @@ export const useAnalytics = () => {
 };
 ```
 
-As high up the component tree as possible, add the provider.
+In this example I'm defining one function to be available via the
+context provider and passed in with `value` but I could add in many
+functions here for different event types.
+
+The `useEffect` hook is for when I'm on the dev server and don't want
+to be submitting data to Fathom, I'll instead get a console message.
+
+As high up the component tree as possible, I'm going to add the
+provider.
+
+## Add custom event tracking for Fathom
+
+In this example there's a `Layout` component I can add the provider
+to, this wraps all of the components in the application so the
+provider can be accessed throughout the site.
+
+Then use in the areas I want to track a goal I'll use the
+`useAnalytics` hook.
 
 ```js
-import { AnalyticsProvider } from '../contexts/fathom-event-tracking';
-```
-
-Then use in the areas you want passing in the Fathom Goal you created.
-
-```js
-export const NavItems = () => {
-  const analytics = useAnalytics();
+const NavBar = ({ toggleNavbar, isActive }) => {
+  const fa = useAnalytics();
   return (
-    <>
-      <NavLink
-        href={`#about`}
-        onClick={() => analytics.logNavigation('RC4QULF8')}>
-        About
-      </NavLink>
-      <NavLink
-        href={`#portfolio`}
-        onClick={() => analytics.logNavigation('H9UEFCBF')}>
-        Portfolio
-      </NavLink>
-    </>
+    // other wrapping elements
+    <Link
+      onClick={() => {
+        fa('CDDZY97C');
+      }}
+      className="navbar-item"
+      to="/about">
+      About
+    </Link>
+    // other wrapping elements
   );
 };
 ```
+
+## Wrap up
+
+Ok, time for me to review what I just did and what you'll need to do
+if you're looking to do the same:
+
+- Set up Fathom account
+- Add and configure the Fathom Gatsby plugin
+- Push the configured site to Netlify to test configuration.
+- Add custom tracking code in the shape of a React Context API
+  Provider
+- Wrap the app in the `AnalyticsProvider`
+- Consume the analytics provider function to log the event to the
+  `fathom` global function.
+
+🥁 Demo site: https://gatsby-starter-business-fathom.netlify.com
+
+📈 Demo Fathom Dashboard:
+https://app.usefathom.com/share/nymdtplm/gatsby-starter-business
+
+🤝 Affiliate link for \$10 of off your first month of Fathom
+Analytics: https://usefathom.com/ref/HG492L
+
+## Thanks for reading 🙏
+
+That’s all folks! If there is anything I have missed, or if there is a
+better way to do something then please let me know.
+
+Follow me on [Twitter] or [Ask Me Anything] on GitHub.
 
 <!-- Links -->
 
@@ -204,3 +244,5 @@ export const NavItems = () => {
 [fathom dashboard]: https://app.usefathom.com/#/settings/sites
 [gatsby-starter-business]:
   https://github.com/v4iv/gatsby-starter-business
+[twitter]: https://twitter.com/spences10
+[ask me anything]: https://github.com/spences10/ama
