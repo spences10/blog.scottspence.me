@@ -1,7 +1,11 @@
 // const path = require(`path`)
 
 const siteMetadata = {
-  siteUrl: `https://blog.scottspence.me`,
+  /**
+   * Original Url, replaced with localhost.blog for SEO
+   * siteUrl: `https://blog.scottspence.me`,
+   */
+  siteUrl: `https://thelocalhost.blog`,
   title: `blog.scottspence.me`,
   siteTitle: `blog.scottspence.me`,
   description: `Blog (learnings) of Scott Spence, father, husband 👨‍👩‍👧 Full stack web developer in the making 👨‍💻 Just In Time learner 👌 Byproduct of: coffee+excess carbs+lack of sleep. He/Him.`,
