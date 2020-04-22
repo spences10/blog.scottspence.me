@@ -124,12 +124,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-fathom`,
-      options: {
-        siteId: process.env.GATSBY_FATHOM_TRACKING_ID,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-fathom`,
+    //   options: {
+    //     siteId: process.env.GATSBY_FATHOM_TRACKING_ID,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
