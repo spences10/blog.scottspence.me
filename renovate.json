@@ -15,11 +15,7 @@
     {
       "packagePatterns": ["gatsby^"],
       "extends": {
-        "schedule": [
-          "after 10pm every weekday",
-          "before 5am every weekday",
-          "every weekend"
-        ]
+        "schedule": "before 3am on the first day of the month"
       }
     }
   ]
