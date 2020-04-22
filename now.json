@@ -4,6 +4,166 @@
       "source": "/",
       "destination": "https://thelocalhost.blog",
       "statusCode": 301
+    },
+    {
+      "source": "/jamstack-conf-london-2019",
+      "destination": "https://thelocalhost.blog/2019/07/19/jamstack-london-2019/",
+      "statusCode": 301
+    },
+    {
+      "source": "/update-to-18.10-from-18.04-on-wsl-ubuntu",
+      "destination": "https://thelocalhost.blog/2019/04/01/update-wsl-from-18.04-18.10/",
+      "statusCode": 301
+    },
+    {
+      "source": "/convert-gatsby-default-blog-to-use-mdx",
+      "destination": "https://thelocalhost.blog/2019/04/09/convert-gatsby-default-blog-to-mdx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/testing-mdx",
+      "destination": "https://thelocalhost.blog/2019/03/09/testing-mdx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gatsby-custom-react-hook-for-site-metadata",
+      "destination": "https://thelocalhost.blog/2019/03/24/custom-gatsby-metadata-hook/",
+      "statusCode": 301
+    },
+    {
+      "source": "/multiple-git-profiles",
+      "destination": "https://thelocalhost.blog/2019/01/27/multiple-git-profiles/",
+      "statusCode": 301
+    },
+    {
+      "source": "/turn-a-job-hunt-into-a-dev-project",
+      "destination": "https://thelocalhost.blog/2018/11/30/job-hunt-dev-project/",
+      "statusCode": 301
+    },
+    {
+      "source": "/git-allow-unrelated-histories",
+      "destination": "https://thelocalhost.blog/2017/06/30/git-allow-unrelated-histories/",
+      "statusCode": 301
+    },
+    {
+      "source": "/starting-again-with-jekyll",
+      "destination": "https://thelocalhost.blog/2016/12/17/starting-again-with-jekyll/",
+      "statusCode": 301
+    },
+    {
+      "source": "/moving-from-beginner-to-advanced-git-with-aliases",
+      "destination": "https://thelocalhost.blog/2017/06/01/beginner-to-git-aliases/",
+      "statusCode": 301
+    },
+    {
+      "source": "/beginner-to-git-aliases",
+      "destination": "https://thelocalhost.blog/2017/06/01/beginner-to-git-aliases/",
+      "statusCode": 301
+    },
+    {
+      "source": "/my-first-vscode-extension",
+      "destination": "https://thelocalhost.blog/2016/12/03/first-vscode-extension/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vba-ide-export",
+      "destination": "https://thelocalhost.blog/2016/11/14/vba-ide-export/",
+      "statusCode": 301
+    },
+    {
+      "source": "/freecodecamp",
+      "destination": "https://thelocalhost.blog/2016/11/13/freecodecamp/",
+      "statusCode": 301
+    },
+    {
+      "source": "/it-git-easier",
+      "destination": "https://thelocalhost.blog/2017/05/31/gets-better-with-git/",
+      "statusCode": 301
+    },
+    {
+      "source": "/git-and-github",
+      "destination": "https://thelocalhost.blog/2017/01/05/git-and-github/",
+      "statusCode": 301
+    },
+    {
+      "source": "/code-life-balance",
+      "destination": "https://thelocalhost.blog/2017/03/15/code-life-balance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gatsby-starter-to-styled-components",
+      "destination": "https://thelocalhost.blog/2018/11/29/gatsby-starter-to-styled-components/",
+      "statusCode": 301
+    },
+    {
+      "source": "/twitter-mctwitbot",
+      "destination": "https://thelocalhost.blog/2017/01/04/twitter-mctwitbot/",
+      "statusCode": 301
+    },
+    {
+      "source": "/travis-ci-with-now",
+      "destination": "https://thelocalhost.blog/2018/05/28/travis-ci/",
+      "statusCode": 301
+    },
+    {
+      "source": "/get-graphcms-data-into-gatsby",
+      "destination": "https://thelocalhost.blog/2018/11/25/graphcms-to-gatsby/",
+      "statusCode": 301
+    },
+    {
+      "source": "/make-time-for-100doc",
+      "destination": "https://thelocalhost.blog/2018/02/27/make-time-for-100doc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/react-advanced-london-2019",
+      "destination": "https://thelocalhost.blog/2019/11/06/react-advanced-london-2019/",
+      "statusCode": 301
+    },
+    {
+      "source": "/twitter-bot-bootstrap",
+      "destination": "https://thelocalhost.blog/2017/01/28/twitter-bot-bootstrap/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wsl-setup",
+      "destination": "https://thelocalhost.blog/2018/01/13/wsl-bootstrap/",
+      "statusCode": 301
+    },
+    {
+      "source": "/react-context-api-with-gatsby",
+      "destination": "https://thelocalhost.blog/2018/05/22/react-context-api-with-gatsby/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wsl-bootstrap-2019",
+      "destination": "https://thelocalhost.blog/2018/12/24/wsl-bootstrap-2019/",
+      "statusCode": 301
+    },
+    {
+      "source": "/styled-components-getting-started",
+      "destination": "https://thelocalhost.blog/2018/04/03/styled-components/",
+      "statusCode": 301
+    },
+    {
+      "source": "/react-context-api-getting-started",
+      "destination": "https://thelocalhost.blog/2018/09/08/react-context-api/",
+      "statusCode": 301
+    },
+    {
+      "source": "/twitter-bot-playground",
+      "destination": "https://thelocalhost.blog/2017/05/23/twitter-bot-playground/",
+      "statusCode": 301
+    },
+    {
+      "source": "/build-a-coding-blog-with-mdx-and-gatsby-2019",
+      "destination": "https://thelocalhost.blog/2019/10/31/build-an-mdx-blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/track-custom-events-with-fathom-analytics",
+      "destination": "https://thelocalhost.blog/2020/01/02/track-custom-events-with-fathom-analytics/",
+      "statusCode": 301
     }
   ]
 }
