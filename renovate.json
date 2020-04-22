@@ -13,6 +13,6 @@
   },
   "packageRules": {
     "packagePatterns": ["gatsby^"],
-    "extends": "schedule:weekly"
+    "extends": "schedule:after 10pm on Monday"
   }
 }
